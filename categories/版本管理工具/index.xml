@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>版本管理工具 on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 版本管理工具 on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 04 Sep 2017 07:37:26 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>字符编码简介（ASCII、Unicode、UTF-8）</title>
+      <link>https://ifunboxp.top/ascii-unicode-utf8/</link>
+      <pubDate>Mon, 04 Sep 2017 07:37:26 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/ascii-unicode-utf8/</guid>
+      <description>字符串也是一种数据类型，但是，字符串比较特殊的是还有一个编码问题。
+因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。
+由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。
+但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了GB2312编码，用来把中文编进去。
+你可以想得到的是，全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。
+因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。
+Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。
+现在，捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。
+字母A用ASCII编码是十进制的65，二进制的01000001；
+字符0用ASCII编码是十进制的48，二进制的00110000，注意字符&amp;#8217;0&amp;#8217;和整数0是不同的；
+汉字中已经超出了ASCII编码的范围，用Unicode编码是十进制的20013，二进制的01001110 00101101。
+你可以猜测，如果把ASCII编码的A用Unicode编码，只需要在前面补0就可以，因此，A的Unicode编码是00000000 01000001。
+新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。
+所以，本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：
+| 字符 | ASCII | Unicode | UTF-8 | | &amp;ndash; | &amp;mdash;&amp;mdash;&amp;ndash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; | | A | 01000001 | 00000000 01000001 | 01000001 | | 中 | x | 01001110 00101101 | 11100100 10111000 10101101 |
+从上面的表格还可以发现，UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。
+搞清楚了ASCII、Unicode和UTF-8的关系，我们就可以总结一下现在计算机系统通用的字符编码工作方式：
+在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。
+用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件：
+浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：
+所以你看到很多网页的源码上会有类似的信息，表示该网页正是用的UTF-8编码。
+转自 字符编码</description>
+    </item>
+    
+    <item>
+      <title>centos搭建Git服务器</title>
+      <link>https://ifunboxp.top/centos_git_configuration/</link>
+      <pubDate>Sun, 06 Sep 2015 09:46:07 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/centos_git_configuration/</guid>
+      <description>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
+假设你已经有sudo权限的用户账号，下面，正式开始安装。
+第一步，安装git：
+&amp;lt;span style=&#34;font-size: 12pt;&#34;yum install -y git&amp;lt;/span  第二步，创建一个git用户，用来运行git服务：
+&amp;lt;span style=&#34;font-size: 12pt;&#34;adduser git -d /home/git/ -s /usr/bin/git-shell&amp;lt;/span  第三步，创建证书登录：
+收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。
+&amp;lt;span style=&#34;font-size: 12pt;&#34;[ssh-keygen -t rsa -C &#34;name@baidu.com&#34;]&amp;lt;/span  第四步，初始化Git仓库：
+先选定一个目录作为Git仓库，假定是/home/git/sample.git，在/home/git目录下输入命令：
+&amp;lt;span style=&#34;font-size: 12pt;&#34;sudo git init --bare sample.git&amp;lt;/span  Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：
+&amp;lt;span style=&#34;font-size: 12pt;&#34;sudo chown -R git:git sample.git&amp;lt;/span  第五步，禁用shell登录：
+出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：
+&amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:/bin/bash&amp;lt;/span 改成 &amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;</description>
+    </item>
+    
+    <item>
+      <title>Linux下SVN安装配置以及使用</title>
+      <link>https://ifunboxp.top/linux_svn_configuration/</link>
+      <pubDate>Sat, 18 May 2013 08:07:03 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/linux_svn_configuration/</guid>
+      <description>第一章 安装
+1. 采用源文件编译安装。源文件共两个，为：
+subversion-1.6.21.tar.gz （subversion 源文件）
+subversion-deps-1.6.21.tar.gz （subversion依赖文件）
+注意文件版本必须一致,否则很容易产生各种奇怪的问题.
+2. 上传以上两个文件到服务器上，解压。解压命令为：
+          
+ &amp;lt;td&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;&amp;lt;code&amp;gt;tar&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;xfvz subversion-1.6.21.&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;tar&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;.gz &amp;lt;/code&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;&amp;lt;code&amp;gt;tar&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;xfvz subversion-deps-1.6.21.&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;tar&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;.gz&amp;lt;/code&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt;   
+指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。
+
+3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。
+4. 进入解压子目录：
+       cd subversion-1.</description>
+    </item>
+    
+    <item>
+      <title>SVN菜单中文详解</title>
+      <link>https://ifunboxp.top/459.html</link>
+      <pubDate>Tue, 19 Feb 2013 01:43:09 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/459.html</guid>
+      <description>01、SVN Checkout(SVN取出)
+点击SVN Checkout，弹出检出提示框，在URL of repository输入框中输入服务器仓库地址，在Checkout directory输入框中输入本地工作拷贝的路径，点击确定，即可检出服务器上的配置库。
+02、SVN Update(SVN更新)
+如果配置库在本地已有工作拷贝，则取得最新版本只是执行SVN Update即可，点击SVN Update，系统弹出更新提示框，点击确定，则把服务器是最新版本更新下来
+03、Import（导入）
+选择要提交到服务器的目录，右键选择TortoiseSVN&amp;#8212;-Import，系统弹出导入提示框，在URL of repository输入框中输入服务器仓库地址，在Import Message输入框中输入导入日志信息，点击确定，则文件导入到服务器仓库中。
+04、Add(加入)
+如果有多个文件及文件夹要提交到服务器，我们可以先把这些要提交的文件加入到提交列表中，要执行提交操作，一次性把所有文件提交，如图，可以选择要提交的文件，然后点击执行提交（SVN Commit）,即可把所有文件一次性提交到服务器上
+05、Resolving Conflicts(解决冲突)
+有时你从档案库更新文件会有冲突。冲突产生于两人都修改文件的某一部分。解决冲突只能靠人而不是机器。当产生冲突时，你应该打开冲突的文件，查找以&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;开始的行。冲突部分被标记：
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; filename
+your changes
+=======
+code merged from repository
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; revision
+Subversion为每个冲突文件产生三个附加文件：
+filename.ext.mine
+更新前的本地文件。
+filename.ext.rOLDREV
+你作改动的基础版本。
+filename.ext.rNEWREV
+更新时从档案库得到的最新版本。
+使用快捷菜单的编辑冲突Edit Conflict命令来解决冲突。然后从快捷菜单中执行已解决Resolved命令，将改动送交到档案库。请注意，解决命令并不解决冲突，而仅仅是删除filename.ext.mineandfilename.ext.r*文件并允许你送交。
+06、Check for Modifications（检查更新）
+点击Check for Modifications,系统列表所以待更新的文件及文件夹的状态.
+07、Revision Graph(版本分支图)
+查看文件的分支,版本结构,可以点击Revision Graph,系统以图形化形式显示版本分支.
+08、Rename(改名)
+SVN支持文件改名,点击Rename,弹出文件名称输入框,输入新的文件名称,点击确定,再把修改提交,即可完成文件改名
+09、Delete(删除)
+SVN支持文件删除,而且操作简单,方便,选择要删除的文件,点击Delete,再把删除操作提交到服务器
+10、Moving(移动)
+选择待移动的文件和文件夹；按住右键拖动right-drag文件（夹）到跟踪拷贝内的新地方；松开左键；在弹出菜单中选择move files in Subversion to here
+11、Revert(还原)
+还原操作,如刚才对文件做了删除操作,现在把它还原回来,点击删除后,再点击提交,会出现如上的提示框,点击删除后,再点击Revert,即已撤销删除操作,如果这时候点击提交,则系统弹出提示框:没有文件被修改或增加,不能提交
+12、Branch/Tag(分支/标记)
+当需要创建分支，点击Branch/Tag，在弹出的提示框中，输入分支文件名，输入日志信息，点击确定，分支创建成功，然后可查看文件的版本分支情况
+13、Switch(切换)
+文件创建分支后，你可以选择在主干工作，还是在分支工作，这时候你可以通过Switch来切换。</description>
+    </item>
+    
+    <item>
+      <title>Windows 7中虚拟机VMware无线网络图文配置教程</title>
+      <link>https://ifunboxp.top/181.html</link>
+      <pubDate>Sun, 13 Nov 2011 13:22:39 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/181.html</guid>
+      <description>看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
+先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
+ 成功用虚拟机VMware网络配置的前提条件：
+首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：
+ 其次，控制面板\网络和共享中心-&amp;gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge Protocol协议打钩(这边要注意是你的物理网卡，而不是虚拟网卡的属性，虚拟网卡可以不打勾)
+ 另外，系统服务中没有更改默认VMware所续启动的三个必要服务。 如果上述必要设置有问题，只要重新安装下VMware，或者选择修复安装，一般问题都会解决。
+虚拟机VMware网络配置的详细步骤：(以下设置最好是都用管理员身份运行)
+1、打开VMware Workstation菜单栏编辑-&amp;gt;虚拟网络编辑器（Virtual Network Editor）
+2、选中VMnet8，类型NAT,记下下面的Gateway IP Address，比如说我的就是192.168.32.0;然后打开NAT设置，记下里面的网关:192.168.32.2
+ 3、打开DHCP标签页，记下Start IP Address和End IP Address，比如说我的就是192.168.32.128和192.168.32.254
+4、关闭VMware，Virtual Network Editor，运行VMware Workstation，在菜单栏中，选择虚拟机-&amp;gt;设置下的网络适配器运行方式为第二种(NAT:Used to share the host&amp;#8217;s IP address
+5、启动虚拟机，比如说我的是Centos6.0，并打开网络设置
+ 6、更改本地连接属性里面的TCP/IP属性，选择使用下面的IP地址，其中，IP Address填刚才DHCP页面里面记下的两个IP地址中的随便一个IP，也就是说从192.168.32.128到192.168.32.254，随便选一个，我选的是192.168.32.202。子网掩码（Netmask）是自动填的255.255.255.0，默认网关（Gateway）和下面的DNS是填刚才NAT页面记下的IP，比如我的是192.168.32.2。
+ 7、打开浏览器，输入 http://www.fanhefan.com/ ,能上网了。
+ 虚拟机VMware网络配置到此结束。　 而我的情况还比较特殊，有两台虚拟机，并且无限上网使用了代理 proxy.xxxx.com 一台:192.168.32.202 数据库服务器
+一台:192.168.32.203 应用程序和前端服务器
+203与202不同的地方时
+203 的多配置一个DNS,ip位202的
+这样以后，
+IE连接使用了代理就能外网，但是不能连接数据库，否则能连接数据库，不能上外网，</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,816 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Content Security Policy教程 - 记录点点滴滴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  <meta name="description" content="简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
+为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
+这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
+CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
+开启方式
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&lt;meta&gt;标签。 &lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&gt;  具体含义:
+* 脚本：只信任当前域名
+* &lt;object&gt;标签：不信任任何URL，即不加载任何资源
+* 样式表：只信任cdn.example.org和third-party.org
+* 框架（frame）：必须使用HTTPS协议加载
+* 其他资源：没有限制
+启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。
+限制选项  资源加载限制  script-src：外部脚本 style-src：样式表 img-src：图像 media-src：媒体文件（音频和视频） font-src：字体文件 object-src：插件（比如 Flash） child-src：框架 frame-ancestors：嵌入的外部资源（比如&lt;frame&gt;、&lt;iframe&gt;、&lt;embed&gt;和&lt;applet&gt;） connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等） worker-src：worker脚本 manifest-src：manifest 文件  default-src">
+  
+  <meta itemprop="name" content="Content Security Policy教程 - 记录点点滴滴">
+  <meta itemprop="description" content="简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
+为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
+这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
+CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
+开启方式
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&lt;meta&gt;标签。 &lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&gt;  具体含义:
+* 脚本：只信任当前域名
+* &lt;object&gt;标签：不信任任何URL，即不加载任何资源
+* 样式表：只信任cdn.example.org和third-party.org
+* 框架（frame）：必须使用HTTPS协议加载
+* 其他资源：没有限制
+启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。
+限制选项  资源加载限制  script-src：外部脚本 style-src：样式表 img-src：图像 media-src：媒体文件（音频和视频） font-src：字体文件 object-src：插件（比如 Flash） child-src：框架 frame-ancestors：嵌入的外部资源（比如&lt;frame&gt;、&lt;iframe&gt;、&lt;embed&gt;和&lt;applet&gt;） connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等） worker-src：worker脚本 manifest-src：manifest 文件  default-src">
+  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  
+  
+  <meta name="twitter:description" content="">
+  
+  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
+  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+  <div id="imglogo">
+    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+  </div>
+  <div id="textlogo">
+    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h2 class="blog-motto">awesome!</h2>
+  </div>
+  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <nav class="animated">
+    <ul>
+      
+      <li><a href="/">Home</a></li>
+      
+      <li>
+        <form class="search" method="get" action="https://www.google.com/search">
+          <div>
+            <input type="text" id="search" name="q" placeholder='Search'>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <div id="container">
+    <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+      <a href="https://ifunboxp.top/content-security-policy/" title="Content Security Policy教程" itemprop="url">Content Security Policy教程</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="" title="">you</a>
+    
+  </p>
+  <p class="article-time">
+    <time datetime="2017-07-26 06:05:08 &#43;0000 &#43;0000" itemprop="datePublished">2017-07-26</time>
+  </p>
+</header>
+
+	<div class="article-content">
+    
+    
+
+<h2 id="简介">简介</h2>
+
+<p>跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。</p>
+
+<p>为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？<br />
+这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。<br />
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。<br />
+CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。</p>
+
+<p>开启方式</p>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">#通过 HTTP 头信息的Content-Security-Policy
+Content-Security-Policy: script-src 'self'; object-src 'none';
+style-src cdn.example.org third-party.org; child-src https:
+
+#通过网页的&lt;meta&gt;标签。
+&lt;meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; child-src https:"&gt;
+</code></pre>
+
+<p>具体含义:<br />
+* 脚本：只信任当前域名<br />
+* &lt;object&gt;标签：不信任任何URL，即不加载任何资源<br />
+* 样式表：只信任cdn.example.org和third-party.org<br />
+* 框架（frame）：必须使用HTTPS协议加载<br />
+* 其他资源：没有限制</p>
+
+<p>启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。</p>
+
+<hr />
+
+<h2 id="限制选项">限制选项</h2>
+
+<ol>
+<li>资源加载限制
+
+<ul>
+<li>script-src：外部脚本</li>
+<li>style-src：样式表</li>
+<li>img-src：图像</li>
+<li>media-src：媒体文件（音频和视频）</li>
+<li>font-src：字体文件</li>
+<li>object-src：插件（比如 Flash）</li>
+<li>child-src：框架</li>
+<li>frame-ancestors：嵌入的外部资源（比如&lt;frame&gt;、&lt;iframe&gt;、&lt;embed&gt;和&lt;applet&gt;）</li>
+<li>connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等）</li>
+<li>worker-src：worker脚本</li>
+<li>manifest-src：manifest 文件</li>
+</ul></li>
+<li>default-src<br />
+default-src用来设置上面各个选项的默认值。</li>
+<li>URL 限制<br />
+有时，网页会跟其他 URL 发生联系，这时也可以加以限制。</p>
+
+<ul>
+<li>frame-ancestors：限制嵌入框架的网页</li>
+<li>base-uri：限制<base#href></li>
+<li>form-action：限制<form#action></li>
+</ul></li>
+<li>其他限制<br />
+其他一些安全相关的功能，也放在了 CSP 里面。</p>
+
+<ul>
+<li>block-all-mixed-content：HTTPS 网页不得加载 HTTP 资源（浏览器已经默认开启）</li>
+<li>upgrade-insecure-requests：自动将网页上所有加载外部资源的 HTTP 链接换成 HTTPS 协议</li>
+<li>plugin-types：限制可以使用的插件格式</li>
+<li>sandbox：浏览器行为的限制，比如不能有弹出窗口等。</li>
+</ul></li>
+<li>report-uri<br />
+有时，我们不仅希望防止 XSS，还希望记录此类行为。report-uri就用来告诉浏览器，应该把注入行为报告给哪个网址。</li>
+</ol>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+</code></pre>
+
+<p>浏览器会使用POST方法，发送一个JSON对象，下面是一个例子。</p>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-json">{
+  "csp-report": {
+    "document-uri": "http://example.org/page.html",
+    "referrer": "http://evil.example.com/",
+    "blocked-uri": "http://evil.example.com/evil.js",
+    "violated-directive": "script-src 'self' https://apis.google.com",
+    "original-policy": "script-src 'self' https://apis.google.com; report-uri http://example.org/my_amazing_csp_report_parser"
+  }
+}
+</code></pre>
+
+<hr />
+
+<h2 id="content-security-policy-report-only">Content-Security-Policy-Report-Only</h2>
+
+<p>除了Content-Security-Policy，还有一个Content-Security-Policy-Report-Only字段，表示不执行限制选项，只是记录违反限制的行为。<br />
+它必须与report-uri选项配合使用。</p>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy-Report-Only: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+</code></pre>
+
+<hr />
+
+<h2 id="选项值">选项值</h2>
+
+<p>每个限制选项可以设置以下几种值，这些值就构成了白名单。</p>
+
+<ul>
+<li>主机名：example.org，<a href="https://example.com:443">https://example.com:443</a></li>
+<li>路径名：example.org/resources/js/</li>
+<li>通配符：<em>.example.org，</em>://_.example.com:_（表示任意协议、任意子域名、任意端口）</li>
+<li>协议名：https:、data:</li>
+<li>关键字&#8217;self&#8217;：当前域名，需要加引号</li>
+<li>关键字&#8217;none&#8217;：禁止加载任何外部资源，需要加引号</li>
+</ul>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">#多个值也可以并列，用空格分隔。
+Content-Security-Policy: script-src 'self' https://apis.google.com
+
+#如果同一个限制选项使用多次，只有第一次会生效。
+# 错误的写法
+script-src https://host1.com; script-src https://host2.com
+# 正确的写法
+script-src https://host1.com https://host2.com
+</code></pre>
+
+<p>如果不设置某个限制选项，就是默认允许任何值。</p>
+
+<hr />
+
+<h2 id="script-src-的特殊值">script-src 的特殊值</h2>
+
+<p>除了常规值，script-src还可以设置一些特殊值。注意，下面这些值都必须放在单引号里面。<br />
+* &#8216;unsafe-inline&#8217;：允许执行页面内嵌的<script>标签和事件监听函数<br />
+* unsafe-eval：允许将字符串当作代码执行，比如使用eval、setTimeout、setInterval和Function等函数。<br />
+* nonce值：每次HTTP回应给出一个授权token，页面内嵌脚本必须有这个token，才会执行<br />
+* hash值：列出允许执行的脚本代码的Hash值，页面内嵌脚本的哈希值只有吻合的情况下，才能执行。</p>
+
+<p>nonce值的例子如下，服务器发送网页的时候，告诉浏览器一个随机生成的token。</p>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy: script-src 'nonce-EDNnf03nceIOfn39fn3e9h3sdfa'
+
+# 页面内嵌脚本，必须有这个token才能执行。
+&lt;script nonce=EDNnf03nceIOfn39fn3e9h3sdfa&gt;
+  // some code
+&lt;/script&gt;
+
+#hash值的例子如下，服务器给出一个允许执行的代码的hash值。注意，计算hash值的时候，&lt;script&gt;标签不算在内。
+Content-Security-Policy: script-src 'sha256-qznLcsROx4GACP2dm0UCKCzCG-HiZ1guq6ZZDob_Tng='
+#除了script-src选项，nonce值和hash值还可以用在style-src选项，控制页面内嵌的样式表。
+</code></pre>
+
+<hr />
+
+<h2 id="重要点">重要点</h2>
+
+<ul>
+<li>script-src和object-src是必设的，除非设置了default-src。<br />
+因为攻击者只要能注入脚本，其他限制都可以规避。而object-src必设是因为 Flash 里面可以执行外部脚本。</li>
+<li>script-src不能使用unsafe-inline关键字（除非伴随一个nonce值），也不能允许设置data:URL。<br />
+下面是两个恶意攻击的例子。</li>
+</ul>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-html">&lt;img src="x" onerror="evil()"&gt;
+&lt;script src="data:text/javascript,evil()"&gt;&lt;/script&gt;
+</code></pre>
+
+<ul>
+<li>必须特别注意 JSONP 的回调函数。</li>
+</ul>
+
+<pre class="line-numbers prism-highlight" data-start="1"><code class="language-html">&lt;script
+src="/path/jsonp?callback=alert(document.domain)//"&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p>上面的代码中，虽然加载的脚本来自当前域名，但是通过改写回调函数，攻击者依然可以执行恶意代码。</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/base-uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/base-uri</a><br />
+<a href="http://www.ruanyifeng.com/blog/2016/09/csp.html">http://www.ruanyifeng.com/blog/2016/09/csp.html</a></p>
+
+    
+	</div>
+  <footer class="article-footer clearfix">
+  
+
+<div class="article-tags">
+  <span></span>
+  
+  <a href="https://ifunboxp.toptags/html">Html</a>
+  
+  <a href="https://ifunboxp.toptags/nginx">Nginx</a>
+  
+</div>
+
+
+
+
+
+<div class="article-categories">
+  <span></span>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/hack">Hack</a>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/html">HTML</a>
+  
+</div>
+
+
+
+  <div class="article-share" id="share">
+    <div data-url="https://ifunboxp.top/content-security-policy/" data-title="Content Security Policy教程" data-tsina="" class="share clearfix">
+    </div>
+  </div>
+</footer>
+
+	</article>
+  
+
+
+
+</div>
+
+    <div class="openaside"><a class="navbutton" href="#" title=""></a></div>
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title=""></a></div>
+<aside class="clearfix">
+  
+
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+  <ul>
+    
+    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+      
+			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+      
+		</ul>
+</div>
+
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle">Archives</p>
+    <ul class="archive-list">
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+      </li>
+      
+    </ul>
+
+  </div>
+
+
+  
+
+<div class="tagcloudlist">
+  <p class="asidetitle">Tags Cloud</p>
+  <div class="tagcloudlist clearfix">
+    
+    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    
+    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    
+    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    
+    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    
+    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    
+    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    
+    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    
+    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    
+    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    
+    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    
+    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</aside>
+</div>
+
+  </div>
+  <footer><div id="footer" >
+  <div class="line">
+    <span></span>
+    
+    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+  </div>
+  <section class="info">
+    <p></p>
+  </section>
+  <div class="social-font clearfix">
+    <a href='http://weibo.com/coderzh' target="_blank" title="weibo"></a>
+    <a href='https://twitter.com/coderzh' target="_blank" title="twitter"></a>
+    <a href='https://github.com/coderzh' target="_blank" title="github"></a>
+    <a href='https://www.facebook.com/coderzh' target="_blank" title="facebook"></a>
+    <a href='https://www.linkedin.com/coderzh' target="_blank" title="linkedin"></a>
+  </div>
+  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
+    
+    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    
+  </p>
+</div>
+</footer>
+  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+done = false;
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  $('form.search').on('submit', function (event) {
+    if (false === done) {
+      event.preventDefault();
+      var orgVal = $(this).find('#search').val();
+      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      done = true;
+      $(this).submit();
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://b.bshare.cn/barCode?site=weixin&url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>

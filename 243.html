@@ -1,0 +1,955 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>PHP采集利器snoopy应用详解 - 记录点点滴滴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  <meta name="description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
+一、Snoopy的一些特点:
+1.抓取网页的内容 fetch
+2.抓取网页的文本内容 (去除HTML标签) fetchtext
+3.抓取网页的链接，表单 fetchlinks fetchform
+4.支持代理主机
+5.支持基本的用户名/密码验证
+6.支持设置user_agent, referer(来路), cookies和header content(头文件)
+7.支持浏览器重定向，并能控制重定向深度
+8.能把网页中的链接扩展成高质量的url(默认)
+9.提交数据并且获取返回值
+10.支持跟踪HTML框架
+11.支持重定向的时候传递cookies，要求php4以上就可以了，由于本身是php一个类，无需扩支持，服务器不支持curl时候的最好选择。
+二、类方法:
+fetch($URI)
+———–
+这是为了抓取网页的内容而使用的方法。$URI参数是被抓取网页的URL地址。抓取的结果被存储在 $this-&gt;results 中。如果你正在抓取的是一个框架，Snoopy将会将每个框架追踪后存入数组中，然后存入 $this-&gt;results。
+fetchtext($URI)
+—————
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中的文字内容。
+fetchform($URI)
+—————
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中表单内容(form)。
+fetchlinks($URI)
+—————-
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。
+默认情况下，相对链接将自动补全，转换成完整的URL。
+submit($URI,$formvars)
+———————-
+本方法向$URL指定的链接地址发送确认表单。$formvars是一个存储表单参数的数组。
+submittext($URI,$formvars)
+————————–
+本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回登陆后网页中的文字内容。
+submitlinks($URI)
+—————-
+本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。
+默认情况下，相对链接将自动补全，转换成完整的URL。
+三、类属性: (缺省值在括号里)
+$host 连接的主机
+$port 连接的端口
+$proxy_host 使用的代理主机，如果有的话
+$proxy_port 使用的代理主机端口，如果有的话
+$agent 用户代理伪装 (Snoopy v0.1)
+$referer 来路信息，如果有的话
+$cookies cookies， 如果有的话">
+  
+  <meta itemprop="name" content="PHP采集利器snoopy应用详解 - 记录点点滴滴">
+  <meta itemprop="description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
+一、Snoopy的一些特点:
+1.抓取网页的内容 fetch
+2.抓取网页的文本内容 (去除HTML标签) fetchtext
+3.抓取网页的链接，表单 fetchlinks fetchform
+4.支持代理主机
+5.支持基本的用户名/密码验证
+6.支持设置user_agent, referer(来路), cookies和header content(头文件)
+7.支持浏览器重定向，并能控制重定向深度
+8.能把网页中的链接扩展成高质量的url(默认)
+9.提交数据并且获取返回值
+10.支持跟踪HTML框架
+11.支持重定向的时候传递cookies，要求php4以上就可以了，由于本身是php一个类，无需扩支持，服务器不支持curl时候的最好选择。
+二、类方法:
+fetch($URI)
+———–
+这是为了抓取网页的内容而使用的方法。$URI参数是被抓取网页的URL地址。抓取的结果被存储在 $this-&gt;results 中。如果你正在抓取的是一个框架，Snoopy将会将每个框架追踪后存入数组中，然后存入 $this-&gt;results。
+fetchtext($URI)
+—————
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中的文字内容。
+fetchform($URI)
+—————
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中表单内容(form)。
+fetchlinks($URI)
+—————-
+本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。
+默认情况下，相对链接将自动补全，转换成完整的URL。
+submit($URI,$formvars)
+———————-
+本方法向$URL指定的链接地址发送确认表单。$formvars是一个存储表单参数的数组。
+submittext($URI,$formvars)
+————————–
+本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回登陆后网页中的文字内容。
+submitlinks($URI)
+—————-
+本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。
+默认情况下，相对链接将自动补全，转换成完整的URL。
+三、类属性: (缺省值在括号里)
+$host 连接的主机
+$port 连接的端口
+$proxy_host 使用的代理主机，如果有的话
+$proxy_port 使用的代理主机端口，如果有的话
+$agent 用户代理伪装 (Snoopy v0.1)
+$referer 来路信息，如果有的话
+$cookies cookies， 如果有的话">
+  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  
+  
+  <meta name="twitter:description" content="">
+  
+  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
+  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+  <div id="imglogo">
+    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+  </div>
+  <div id="textlogo">
+    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h2 class="blog-motto">awesome!</h2>
+  </div>
+  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <nav class="animated">
+    <ul>
+      
+      <li><a href="/">Home</a></li>
+      
+      <li>
+        <form class="search" method="get" action="https://www.google.com/search">
+          <div>
+            <input type="text" id="search" name="q" placeholder='Search'>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <div id="container">
+    <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+      <a href="https://ifunboxp.top/243.html" title="PHP采集利器snoopy应用详解" itemprop="url">PHP采集利器snoopy应用详解</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="" title="">you</a>
+    
+  </p>
+  <p class="article-time">
+    <time datetime="2012-01-18 08:22:03 &#43;0000 &#43;0000" itemprop="datePublished">2012-01-18</time>
+  </p>
+</header>
+
+	<div class="article-content">
+    
+    <p><span style="font-size: medium;"><strong>Snoopy</strong>是一个<strong>php类</strong>，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。</span></p>
+
+<p><span style="font-size: medium;">一、Snoopy的一些特点:</span></p>
+
+<p><span style="font-size: medium;">1.抓取网页的内容 fetch</span><br />
+ <span style="font-size: medium;">2.抓取网页的文本内容 (去除HTML标签) fetchtext</span><br />
+ <span style="font-size: medium;">3.抓取网页的链接，表单 fetchlinks fetchform</span><br />
+ <span style="font-size: medium;">4.支持代理主机</span><br />
+ <span style="font-size: medium;">5.支持基本的用户名/密码验证</span><br />
+ <span style="font-size: medium;">6.支持设置user_agent, referer(来路), cookies和header content(头文件)</span><br />
+ <span style="font-size: medium;">7.支持浏览器重定向，并能控制重定向深度</span><br />
+ <span style="font-size: medium;">8.能把网页中的链接扩展成高质量的url(默认)</span><br />
+ <span style="font-size: medium;">9.提交数据并且获取返回值</span><br />
+ <span style="font-size: medium;">10.支持跟踪HTML框架</span><br />
+ <span style="font-size: medium;">11.支持重定向的时候传递cookies，要求php4以上就可以了，由于本身是php一个类，无需扩支持，服务器不支持curl时候的最好选择。</span></p>
+
+<p><span style="font-size: medium;">二、类方法:</span></p>
+
+<p><span style="font-size: medium;">fetch($URI)</span><br />
+ <span style="font-size: medium;">———–</span></p>
+
+<p><span style="font-size: medium;">这是为了抓取网页的内容而使用的方法。$URI参数是被抓取网页的URL地址。抓取的结果被存储在 $this-&gt;results 中。如果你正在抓取的是一个框架，Snoopy将会将每个框架追踪后存入数组中，然后存入 $this-&gt;results。</span></p>
+
+<p><span style="font-size: medium;">fetchtext($URI)</span><br />
+ <span style="font-size: medium;">—————</span></p>
+
+<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中的文字内容。</span></p>
+
+<p><span style="font-size: medium;">fetchform($URI)</span><br />
+ <span style="font-size: medium;">—————</span></p>
+
+<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中表单内容(form)。</span></p>
+
+<p><span style="font-size: medium;">fetchlinks($URI)</span><br />
+ <span style="font-size: medium;">—————-</span></p>
+
+<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。</span><br />
+ <span style="font-size: medium;">默认情况下，相对链接将自动补全，转换成完整的URL。</span></p>
+
+<p><span style="font-size: medium;">submit($URI,$formvars)</span><br />
+ <span style="font-size: medium;">———————-</span></p>
+
+<p><span style="font-size: medium;">本方法向$URL指定的链接地址发送确认表单。$formvars是一个存储表单参数的数组。</span></p>
+
+<p><span style="font-size: medium;">submittext($URI,$formvars)</span><br />
+ <span style="font-size: medium;">————————–</span></p>
+
+<p><span style="font-size: medium;">本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回登陆后网页中的文字内容。</span></p>
+
+<p><span style="font-size: medium;">submitlinks($URI)</span><br />
+ <span style="font-size: medium;">—————-</span></p>
+
+<p><span style="font-size: medium;">本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。</span><br />
+ <span style="font-size: medium;">默认情况下，相对链接将自动补全，转换成完整的URL。</span></p>
+
+<p><span style="font-size: medium;">三、类属性: (缺省值在括号里)</span></p>
+
+<p><span style="font-size: medium;">$host 连接的主机</span><br />
+ <span style="font-size: medium;">$port 连接的端口</span><br />
+ <span style="font-size: medium;">$proxy_host 使用的代理主机，如果有的话</span><br />
+ <span style="font-size: medium;">$proxy_port 使用的代理主机端口，如果有的话</span><br />
+ <span style="font-size: medium;">$agent 用户代理伪装 (Snoopy v0.1)</span><br />
+ <span style="font-size: medium;">$referer 来路信息，如果有的话</span><br />
+ <span style="font-size: medium;">$cookies cookies， 如果有的话</span><br />
+ <span style="font-size: medium;">$rawheaders 其他的头信息, 如果有的话</span><br />
+ <span style="font-size: medium;">$maxredirs 最大重定向次数， 0=不允许 (5)</span><br />
+ <span style="font-size: medium;">$offsiteok whether or not to allow redirects off-site. (true)</span><br />
+ <span style="font-size: medium;">$expandlinks 是否将链接都补全为完整地址 (true)</span><br />
+ <span style="font-size: medium;">$user 认证用户名, 如果有的话</span><br />
+ <span style="font-size: medium;">$pass 认证用户名, 如果有的话</span><br />
+ <span style="font-size: medium;">$accept http 接受类型 (image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, <em>/</em>)</span><br />
+ <span style="font-size: medium;">$error 哪里报错, 如果有的话</span><br />
+ <span style="font-size: medium;">$response_code 从服务器返回的响应代码</span><br />
+ <span style="font-size: medium;">$headers 从服务器返回的头信息</span><br />
+ <span style="font-size: medium;">$maxlength 最长返回数据长度</span><br />
+ <span style="font-size: medium;">$read_timeout 读取操作超时 (requires PHP 4 Beta 4+)</span><br />
+ <span style="font-size: medium;">设置为0为没有超时</span><br />
+ <span style="font-size: medium;">$timed_out 如果一次读取操作超时了，本属性返回 true (requires PHP 4 Beta 4+)</span><br />
+ <span style="font-size: medium;">$maxframes 允许追踪的框架最大数量</span><br />
+ <span style="font-size: medium;">$status 抓取的http的状态</span><br />
+ <span style="font-size: medium;">$temp_dir 网页服务器能够写入的临时文件目录 (/tmp)</span><br />
+ <span style="font-size: medium;">$curl_path cURL binary 的目录, 如果没有cURL binary就设置为 false</span></p>
+
+<p><span style="font-size: medium;">四、以下是demo</span></p>
+
+<pre>include "Snoopy.class.php";
+$snoopy = new Snoopy;
+
+$snoopy->proxy_host = "www.baidu.com";
+$snoopy->proxy_port = "8080″;
+
+$snoopy->agent = "(compatible; MSIE 4.01; MSN 2.5; AOL 4.0; Windows 98)";
+$snoopy->referer = "http://www.baidu.com/";
+
+$snoopy->cookies["SessionID"] = 238472834723489l;
+$snoopy->cookies["favoriteColor"] = "RED";
+
+$snoopy->rawheaders["Pragma"] = "no-cache";
+
+$snoopy->maxredirs = 2;
+$snoopy->offsiteok = false;
+$snoopy->expandlinks = false;
+
+$snoopy->user = "joe";
+$snoopy->pass = "bloe";
+
+if($snoopy->fetchtext("http://www.baidu.com"))
+{
+    echo "".htmlspecialchars($snoopy->results)."\n";
+
+}else
+    echo "error fetching document: ".$snoopy->error."\n";
+
+snoopy采集phpchina示例
+submit($submit_url,$submit_vars);
+if ($snoopy->results)
+{
+//获取连接地址
+$snoopy->fetchlinks("http://www.phpchina.com/bbs");
+$url=array();
+$url=$snoopy->results;
+//print_r($url);
+foreach ($url as $key=>$value)
+{
+    //匹配http://www.phpchina.com/bbs/forumdisplay.php?fid=156&sid=VfcqTR地址即论坛板块地址
+    if (!preg_match("/^(http:\/\/www\.phpchina\.com\/bbs\/forumdisplay\.php\?fid=)[0-9]*&sid=[a-zA-Z]{6}/i",$value))
+    {
+        unset($url[$key]);
+    }
+}
+//print_r($url);
+//获取到板块数组$url，循环访问，此处获取第一个模块第一页的数据
+$i=0;
+foreach ($url as $key=>$value)
+{
+if ($i>=1)
+{
+//测试限制
+    break;
+}
+else
+{
+//访问该模块，提取帖子的连接地址，正式访问里需要提取帖子分页的数据，然后根据分页数据提取帖子数据
+$snoopy=new Snoopy();
+$snoopy->fetchlinks($value);
+$tie=array();
+$tie[$i]=$snoopy->results;
+//print_r($tie);
+//转换数组
+foreach ($tie[$i] as $key=>$value)
+{
+//匹配http://www.phpchina.com/bbs/viewthread.php?tid=68127& extra=page%3D1&page=1&sid=iBLZfK
+if (!preg_match("/^(http:\/\/www\.phpchina\.com\/bbs\/viewthread\.php\?tid=)[0-9]*&extra=page\%3D1&page=[0-9]*&sid=[a-zA-Z]{6}/i",$value))
+{
+    unset($tie[$i][$key]);
+}
+}
+//print_r($tie[$i]);
+//归类数组，将同一个帖子不同页面的内容放一个数组里
+$left=";//连接左边公用地址
+$j=0;
+$page=array();
+foreach ($tie[$i] as $key=>$value)
+{
+$left=substr($value,0,52);
+$m=0;
+foreach ($tie[$i] as $pkey=>$pvalue)
+{
+//重组数组
+if (substr($pvalue,0,52)==$left)
+{
+$page[$j][$m]=$pvalue;
+$m++;
+}
+}
+$j++;
+}
+//去除重复项开始
+//$page=array_unique($page);只能用于一维数组
+$paget[0]=$page[0];
+$nums=count($page);
+for ($n=1;$n $value)
+{
+//外围循环，针对一个帖子
+if (is_array($value))
+{
+foreach ($value as $k1=>$v1)
+{
+//页内循环，针对一个帖子的N页
+$snoopy=new Snoopy();
+$snoopy->fetch($v1);
+$temp=$snoopy->results;
+//读取标题
+if (!preg_match_all("/
+
+(.*) /i",$temp,$tt))
+{
+echo "no title";
+exit;
+}
+else
+{
+$title[$u]=$tt[1][1];
+}
+unset($tt);
+//读取内容
+if (!preg_match_all("/
+(.*) /i",$temp,$tt))
+{
+print_r($tt);
+echo "no content1″;
+exit;
+}
+else
+{
+foreach ($tt[1] as $c=>$c2)
+{
+$content[$u].=$c2;
+}
+}
+}
+}
+else
+{
+//直接取页内容
+$snoopy=new Snoopy();
+$snoopy->fetch($value);
+$temp=$snoopy->results;
+//读取标题
+if (!preg_match_all("/
+
+(.*) /i",$temp,$tt))
+{
+echo "no title";
+exit;
+}
+else
+{
+$title[$u]=$tt[1][1];
+}
+unset($tt);
+//读取内容
+if (!preg_match_all("/
+(.*) /i",$temp,$tt))
+{
+echo "no content2″;
+exit;
+}
+else
+{
+foreach ($tt[1] as $c=>$c2)
+{
+$content[$u].=$c2;
+}
+}
+}
+$u++;
+}
+print_r($content);
+}
+$i++;
+}
+}
+else
+{
+echo "login failed";
+exit;
+}
+?>
+</pre>
+
+    
+	</div>
+  <footer class="article-footer clearfix">
+  
+
+
+
+<div class="article-categories">
+  <span></span>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/php">PHP</a>
+  
+</div>
+
+
+
+  <div class="article-share" id="share">
+    <div data-url="https://ifunboxp.top/243.html" data-title="PHP采集利器snoopy应用详解" data-tsina="" class="share clearfix">
+    </div>
+  </div>
+</footer>
+
+	</article>
+  
+
+
+
+</div>
+
+    <div class="openaside"><a class="navbutton" href="#" title=""></a></div>
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title=""></a></div>
+<aside class="clearfix">
+  
+
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+  <ul>
+    
+    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+      
+			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+      
+		</ul>
+</div>
+
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle">Archives</p>
+    <ul class="archive-list">
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+      </li>
+      
+    </ul>
+
+  </div>
+
+
+  
+
+<div class="tagcloudlist">
+  <p class="asidetitle">Tags Cloud</p>
+  <div class="tagcloudlist clearfix">
+    
+    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    
+    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    
+    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    
+    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    
+    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    
+    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    
+    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    
+    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    
+    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    
+    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    
+    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</aside>
+</div>
+
+  </div>
+  <footer><div id="footer" >
+  <div class="line">
+    <span></span>
+    
+    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+  </div>
+  <section class="info">
+    <p></p>
+  </section>
+  <div class="social-font clearfix">
+    <a href='http://weibo.com/coderzh' target="_blank" title="weibo"></a>
+    <a href='https://twitter.com/coderzh' target="_blank" title="twitter"></a>
+    <a href='https://github.com/coderzh' target="_blank" title="github"></a>
+    <a href='https://www.facebook.com/coderzh' target="_blank" title="facebook"></a>
+    <a href='https://www.linkedin.com/coderzh' target="_blank" title="linkedin"></a>
+  </div>
+  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
+    
+    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    
+  </p>
+</div>
+</footer>
+  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+done = false;
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  $('form.search').on('submit', function (event) {
+    if (false === done) {
+      event.preventDefault();
+      var orgVal = $(this).find('#search').val();
+      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      done = true;
+      $(this).submit();
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://b.bshare.cn/barCode?site=weixin&url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>

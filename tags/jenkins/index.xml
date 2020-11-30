@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/tags/jenkins/</link>
+    <description>Recent content in Jenkins on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 17 Nov 2016 09:33:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CentOS下Jenkins安装及使用</title>
+      <link>https://ifunboxp.top/centos-jenkins-install-config/</link>
+      <pubDate>Thu, 17 Nov 2016 09:33:09 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/centos-jenkins-install-config/</guid>
+      <description>安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
+2.系统会创建一个用户“jenkins”来执行这个服务
+3.启动参数在/etc/sysconfig/jenkins文件中，修改默认端口也在此改
+4.Jenkins运行在8080端口，浏览器访问http://ip:8080
+5.Jenkins的RPM仓库配置被加到/etc/yum.repos.d/jenkins.repo
+6.启动/停止
+sudo service jenkins start/stop/restart sudo chkconfig jenkins on  在浏览器中访问 首次进入会要求输入初始密码，初始密码在：/var/lib/jenkins/secrets/initialAdminPassword
+输入密码，选择要安装的插件，等待插件安装结束然后创建管理者账号就好了。
+一些常见的问题： 1.修改默认端口
+/etc/sysconfig/jenkins
+JENKINS_PORT=&amp;#8221;8080&amp;#8243;
+2.插件下载国内镜像
+插件管理-&amp;gt;高级-&amp;gt;升级站点
+http://mirror.bit.edu.cn/jenkins/updates/update-center.json
+3.绑定域名
+系统管理-&amp;gt;Jenkins Location-&amp;gt; Jenkins URL
+服务端持续可集成配置参考 http://yyqian.com/post/1460773574738/
+https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</description>
+    </item>
+    
+  </channel>
+</rss>

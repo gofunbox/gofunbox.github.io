@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lua on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/tags/lua/</link>
+    <description>Recent content in Lua on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 30 Mar 2016 02:30:09 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>通过ngx-lua来统计nginx上的虚拟主机性能数据</title>
+      <link>https://ifunboxp.top/ngx-lua-stats/</link>
+      <pubDate>Wed, 30 Mar 2016 02:30:09 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/ngx-lua-stats/</guid>
+      <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
+用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
+1.几乎对原有项目代码分离
+2.性能佳
+3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
+4.可以统计与query-times、request-time、status-code、speed相关的数据
+因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块
+github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码
+使用方法就是在nginx.conf的http中配置加入
+lua_shared_dict log_dict 5M; lua_shared_dict result_dict 5M;  然后在入口nginx上配置
+server { listen 80; server_name funboxpower.com; access_log /home/logs/funboxpower.com.log main; location / { proxy_set_header Host $host; proxy_set_header X-Forwarded-For $remote_addr; proxy_pass http://funboxpower.com_backend; log_by_lua_file ./site-enable/record.lua; } }  记得配upstream，否则之后用到的统计有关于upstream的值是出不来的，这个我还要进一步确认下
+然后可以再配一个server
+server { listen 8080 default; server_name _; location / { return 404; } location /status { content_by_lua_file ./site-enable/output.lua; } location /empty_dict { content_by_lua_file ./site-enable/empty_dict.lua; } }  配置好后，就可以通过如下命令获取</description>
+    </item>
+    
+    <item>
+      <title>Nginx安装lua-nginx-module模块</title>
+      <link>https://ifunboxp.top/nginx_install_lua-nginx-module/</link>
+      <pubDate>Fri, 25 Mar 2016 08:30:57 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/nginx_install_lua-nginx-module/</guid>
+      <description>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
+安装了nginx的小伙伴就继续往下看咯~
+1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
+http://luajit.org/download.html
+wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-beta2.tar.gz cd LuaJIT-2.1.0-beta2 make PREFIX=/usr/local/luajit make install PREFIX=/usr/local/luajit  2.下载最新的ngx_devel_kit（NDK）模块
+https://github.com/simpl/ngx_devel_kit/tags
+wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
+https://github.com/openresty/lua-nginx-module/tags
+wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+在nginx下配置
+location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+    </item>
+    
+  </channel>
+</rss>

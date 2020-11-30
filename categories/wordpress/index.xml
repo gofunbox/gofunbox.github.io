@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/wordpress/</link>
+    <description>Recent content in WordPress on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 12 Oct 2015 07:25:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>wordpress数据库posts文章表优化</title>
+      <link>https://ifunboxp.top/optimize_wordpress_posts_table/</link>
+      <pubDate>Mon, 12 Oct 2015 07:25:01 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/optimize_wordpress_posts_table/</guid>
+      <description>wordpress数据库wp_posts文章表结构中post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered这几个字段的字段类型差点没把我吓死，都是longtext,mediumtext类型，非常占用存储空间不说，还占用传输带宽影响速度。
+首先用下面这条sql语句分析下当前表数据情况，找出每个字段下最长的字符串数
+SELECT MAX(LENGTH(字段名)) from wp_posts
+字段名换成post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered依次搜索几下每个的最大长度
+得出如我的wordpress数据库posts文章表优化建议:
+post_content字段类型改成mediumtext
+post_title字段类型改成varchar(255)
+post_excerpt字段类型改成varchar(255)
+to_ping字段类型改成varchar(50)
+pinged字段类型改成varchar(100)
+post_content_filtered字段类型改成varchar(50)
+注:修改前先记得备份，以免数据被截了，优化因人而异，方法是一样的~~
+优化前后 分析下SELECT * from wpasbfd_posts语句在Sending data的耗时就减少很多~~
+最后说一句，如果优化完升级了wordpress需要再次优化哦，因为升级会把之前改的数据结构还原~~</description>
+    </item>
+    
+    <item>
+      <title>Apache/Nginx Basic HTTP Authentication用户认证</title>
+      <link>https://ifunboxp.top/apache_nginx_basic_http_authentication/</link>
+      <pubDate>Sun, 16 Feb 2014 14:55:21 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/apache_nginx_basic_http_authentication/</guid>
+      <description>由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
+今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
+1.apache下的实现方法
+AuthType Basic
+AuthName &amp;#8220;My Protected Area&amp;#8221;
+AuthUserFile /path/to/.htpasswd
+Require valid-user
+参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示语，AuthUserFile密码文件存储路径
+网上有个自动生成验证.htaccess的网站，点击这里
+密码文件.htpasswd自动生成地址，点击这里
+2.nginx下的实现方法
+在nginx.conf中的虚拟主机配置：
+location ^~ /phpmyadmin/{
+auth_basic &amp;#8220;phpmyadmin admin&amp;#8221;;
+auth_basic_user_file /var/www/.htpasswd;
+}
+参数的含义：auth_basic访问被保护文件后的提示语，auth_basic_user_file密码文件存储路径（这里密码文件都可以用apache生成的密码文件），具有参数介绍，点击这里
+配置完毕后都需要重启服务</description>
+    </item>
+    
+    <item>
+      <title>解决Nginx下WordPress后台链接wp-admin消失的问题</title>
+      <link>https://ifunboxp.top/nginx_wordpress_wp-admin_display/</link>
+      <pubDate>Thu, 13 Feb 2014 08:35:54 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/nginx_wordpress_wp-admin_display/</guid>
+      <description>服务器换到阿里云，环境变成LNMP后，wordpress后台操作都404了，查看了下发现链接都少了wp-admin。
+直接访问后台，如xxxx.com/wp-admin少了一个/导致，如果手动加入/就一切正常~~
+查一下才发现原来是nginx的问题，这样以来我这中症状就不是个例了，于是去官方文档上搜了一下。
+http://codex.wordpress.org/Nginx
+解决方式在伪静态文件中加入
+# Add trailing slash to */wp-admin requests. rewrite /wp-admin$ $scheme://$host$uri/ permanent; </description>
+    </item>
+    
+    <item>
+      <title>wordpress页面速度优化必备插件</title>
+      <link>https://ifunboxp.top/112.html</link>
+      <pubDate>Mon, 31 Oct 2011 01:30:03 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/112.html</guid>
+      <description>简单简单安装wordpress相关页面优化插件，轻轻松松实现WordPress页面打开速度优化，插件采用：DB Cache Reloaded ,Hyper Cache,Wp Widget Cache , Gzip，script gzip 。
+DB Cache Reloaded ：针对MySql使用一段时间会有相关的数据亢於(也就是数据缺乏关联)而进行自动的数据库优化。（DB Cache Reloaded Fix是在原有版本基础上爱好者开发的加强版）
+Hyper Cache：针对动态网页需不断向服务器请求从而导致请求时间延误wordpress加载速度，该插件把网页实现Html静态化，减小上述的请求次数也就是优化时间。（Hyper Cache Extended也是原有版本的加强版）
+Wp Widget Cache：Widget是wp的一个函数调用，同样会向服务器发出一些请求。可是一般的优化插件不会优化Widget，把Widdget Html的话，就可以减少了请求时间加快速度了！Wp Widget Cache 实现了侧边栏缓存，这个对性能提高也很明显哦~
+Gzip：当我们实现了上述的网页非动态化时候，相对应的Html文件同样也可以进一步优化，Gzip就是实现了原来的Html压缩。
+script gzip： Gzip只会压缩Html并不理会当下流行的CSS，针对Gzip只是压缩页面的Html内容并不默认压缩JS/CSS，且默认JS代码加载于网页的头部 影响搜索引擎打开速度的缺点。script gzip使得js以及css代码大幅度减小体积，且把代码的加载提到网页加载的末时间。有利于百度或者Google的加载。
+上述的插件一定程度上实现了wordpress在服务器中的优化，还有其他优化技巧，欢迎大家一起探讨。</description>
+    </item>
+    
+    <item>
+      <title>WordPress迁移、复制多站的方法</title>
+      <link>https://ifunboxp.top/63.html</link>
+      <pubDate>Tue, 25 Oct 2011 13:23:07 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/63.html</guid>
+      <description>1.修改wordpress根目录下wp-config.php配置文件，更新以下内容
+define(&amp;#8216;DB_NAME&amp;#8217;, &amp;#8221;);
+define(&amp;#8216;DB_USER&amp;#8217;, &amp;#8221;);
+define(&amp;#8216;DB_PASSWORD&amp;#8217;, &amp;#8221;);
+define(&amp;#8216;DB_HOST&amp;#8217;, &amp;#8221;);
+
+2.进入数据库导入原始数据库数据
+然后wordpress的wp_options表下更新siteurl，home为当前域名即可</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1119 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Linux下SVN安装配置以及使用 - 记录点点滴滴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  <meta name="description" content="第一章 安装
+1. 采用源文件编译安装。源文件共两个，为：
+subversion-1.6.21.tar.gz （subversion 源文件）
+subversion-deps-1.6.21.tar.gz （subversion依赖文件）
+注意文件版本必须一致,否则很容易产生各种奇怪的问题.
+2. 上传以上两个文件到服务器上，解压。解压命令为：
+          
+ &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz &lt;/code&gt;&lt;/span&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;div&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;/td&gt; &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-deps-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz&lt;/code&gt;&lt;/span&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt;   
+指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。
+
+3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。
+4. 进入解压子目录：
+       cd subversion-1.">
+  
+  <meta itemprop="name" content="Linux下SVN安装配置以及使用 - 记录点点滴滴">
+  <meta itemprop="description" content="第一章 安装
+1. 采用源文件编译安装。源文件共两个，为：
+subversion-1.6.21.tar.gz （subversion 源文件）
+subversion-deps-1.6.21.tar.gz （subversion依赖文件）
+注意文件版本必须一致,否则很容易产生各种奇怪的问题.
+2. 上传以上两个文件到服务器上，解压。解压命令为：
+          
+ &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz &lt;/code&gt;&lt;/span&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;div&gt; &lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;/td&gt; &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-deps-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz&lt;/code&gt;&lt;/span&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt;   
+指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。
+
+3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。
+4. 进入解压子目录：
+       cd subversion-1.">
+  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  
+  
+  <meta name="twitter:description" content="">
+  
+  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
+  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+  <div id="imglogo">
+    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+  </div>
+  <div id="textlogo">
+    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h2 class="blog-motto">awesome!</h2>
+  </div>
+  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <nav class="animated">
+    <ul>
+      
+      <li><a href="/">Home</a></li>
+      
+      <li>
+        <form class="search" method="get" action="https://www.google.com/search">
+          <div>
+            <input type="text" id="search" name="q" placeholder='Search'>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <div id="container">
+    <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+      <a href="https://ifunboxp.top/linux_svn_configuration/" title="Linux下SVN安装配置以及使用" itemprop="url">Linux下SVN安装配置以及使用</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="" title="">you</a>
+    
+  </p>
+  <p class="article-time">
+    <time datetime="2013-05-18 08:07:03 &#43;0000 &#43;0000" itemprop="datePublished">2013-05-18</time>
+  </p>
+</header>
+
+	<div class="article-content">
+    
+    <p><span style="font-size: medium;"><strong>第一章 安装</strong></span></p>
+
+<p><span style="font-size: medium;">1. 采用源文件编译安装。源文件共两个，为：</span><br />
+ <span style="font-size: medium;"><a href="http://subversion.tigris.org/downloads/subversion-1.6.21.tar.gz" target="_blank">subversion-1.6.21.tar.gz </a>（subversion 源文件）</span><br />
+ <span style="font-size: medium;"><a href="http://subversion.tigris.org/downloads/subversion-deps-1.6.21.tar.gz" target="_blank">subversion-deps-1.6.21.tar.gz </a>（subversion依赖文件）</span><br />
+ <span style="font-size: medium;">注意文件版本必须一致,否则很容易产生各种奇怪的问题.</span></p>
+
+<p><span style="font-size: medium;">2. 上传以上两个文件到服务器上，解压。解压命令为：</span></p>
+
+<div id="highlighter_854817">
+  <div>
+    <span style="font-size: medium;"> </span>
+  </div>
+  
+
+<p><div>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <span style="font-size: medium;"><code> </code></span>
+          </td></p>
+
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz &lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+      &lt;/td&gt;
+
+      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-deps-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p></div>
+</div></p>
+
+<p><span style="font-size: medium;">指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。</span><br />
+ <span style="font-size: medium;"> </span><br />
+ <span style="font-size: medium;">3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。</span></p>
+
+<p><span style="font-size: medium;">4. 进入解压子目录：</span></p>
+
+<div id="highlighter_267287">
+  <div>
+    <div>
+      <table>
+        <tr>
+          <td>
+          </td>
+          
+          <td>
+            <span style="font-size: medium;"><code>cd</code> <code>subversion-1.6.21</code></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">5. 执行 ./configure –prefix=/opt/subversion 进行配置设定并指明安装目录. 注意prefix前是两个减号. 默认不带BDB包, 所以默认使用的是FSFS模式. 若想使用BDB模式需另外下载BDB包.建议使用FSFS模式.两种模式比较参考以下链接:</span></p>
+
+<p><span style="font-size: medium;"><a href="http://doc.iusesvn.com/show-21-1.html">http://doc.iusesvn.com/show-21-1.html</a></span></p>
+
+<p><span style="font-size: medium;">指令简介：configure命令用于检查安装平台和目标特征，prefix用于指定路径。</span></p>
+
+<p><span style="font-size: medium;">6. 执行 make 编译.</span></p>
+
+<p><span style="font-size: medium;">7. 执行 make install 安装.</span></p>
+
+<p><span style="font-size: medium;">8. 添加环境变量:</span></p>
+
+<div id="highlighter_609078">
+  <table>
+    <tr>
+      <td>
+        <span style="font-size: medium;"><code> </code></span>
+      </td>
+      
+      <td>
+        <span style="font-size: medium;"><code>vi</code> <code>/etc/profile</code></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p><span style="font-size: medium;">在文件最后加入:</span><br />
+<span style="font-size: medium;">export PATH=$PATH:/usr/local/svn/bin<br /> </span></p>
+
+<p><span style="font-size: medium;">9. 测试SVN是否安装成功,执行:</span></p>
+
+<div id="highlighter_29006">
+  <div>
+    <div>
+      <table>
+        <tr>
+          <td>
+          </td>
+          
+          <td>
+            <span style="font-size: medium;"><code>svnserve --version</code></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">如果显示版本信息, 则安装成功.</span></p>
+
+<p><span style="font-size: medium;"><strong>第二章 配置</strong></span></p>
+
+<p><span style="font-size: medium;">本系统采用为每个项目单独建一版本库的策略。配置文件，密码文件，访问控制文件等都放在版本库的conf目录下。所以每次开始一个新项目都必须新建一个版本库，并重新配置各配置文件。还有很重要的一条，要求各组员重新配置客户端，包括服务器版本库路径，本地路径等信息。</span></p>
+
+<p><span style="font-size: medium;">1. 建立版本库目录(可建立多个，新建库后以下各项都需重新配置。注意区别安装目录与版本库目录,以下讲的都是版本库目录)</span></p>
+
+<div id="highlighter_361468">
+  <div>
+    <div>
+      <table>
+        <tr>
+          <td>
+          </td>
+          
+          <td>
+            <span style="font-size: medium;"><code>mkdir</code> <code>–p /opt/svndata/repos</code></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">2. 建立svn版本库(与上面目录对应)</span></p>
+
+<div id="highlighter_817847">
+  <table>
+    <tr>
+      <td>
+        <span style="font-size: medium;"><code> </code></span>
+      </td>
+      
+      <td>
+        <span style="font-size: medium;"><code>svnadmin create /opt/svndata/repos</code></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p><span style="font-size: medium;">执行此命令后svn自动在repos目录下添加必须的配置文件.</span><br />
+ <span style="font-size: medium;">注意:版本库不同于一般的文件夹, 直接在操作系统上新建文件无法被SVN识别, 必须使用import等命令将文件导入版本库.</span><br />
+ <span style="font-size: medium;">此为svn内部指令，create用于新建版本库。请使用svn help查看详细说明。</span></p>
+
+<p><span style="font-size: medium;">3. 修改版本库配置文件</span></p>
+
+<div id="highlighter_297281">
+  <table>
+    <tr>
+      <td>
+        <span style="font-size: medium;"><code> </code></span>
+      </td>
+      
+      <td>
+        <span style="font-size: medium;"><code>vi</code> <code>/opt/svndata/repos/conf/svnserve.conf</code></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p><span style="font-size: medium;">各参数功能在配置文件的注释中有说明, 此处配置如下:</span><br />
+ <span style="font-size: medium;">[general]</span><br />
+ <span style="font-size: medium;">anon-access = none # 使非授权用户无法访问</span><br />
+ <span style="font-size: medium;">auth-access = write # 使授权用户有写权限</span><br />
+ <span style="font-size: medium;">password-db = /opt/svndata/conf/pwd.conf # 指明密码文件路径</span><br />
+ <span style="font-size: medium;">authz-db = /opt/svndata/conf/authz.conf # 访问控制文件</span><br />
+ <span style="font-size: medium;">realm = /repos # 认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字。</span><br />
+ <span style="font-size: medium;">其它采用默认配置. 各语句都必须顶格写, 左侧不能留空格, 否则会出错.(这个参数跟之后访问的地址有关)</span><br />
+ <span style="font-size: medium;">其中pwd.conf 与 authz.conf 在新建版本库时系统不会自动创建，需要自己创建。</span><br />
+ <span style="font-size: medium;">指令简介：这是svn配置文件的格式，请按照以上格式书写。</span></p>
+
+<p><span style="font-size: medium;">4. 配置用户</span></p>
+
+<div id="highlighter_692825">
+  <div>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <span style="font-size: medium;"><code>1</code></span>
+          </td>
+          
+          <td>
+            <span style="font-size: medium;"><code>vi</code> <code>/opt/svndata/repos/conf/</code><code>pwd</code><code>.conf</code></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">输入以下内容：</span><br />
+ <span style="font-size: medium;">[users]</span><br />
+ <span style="font-size: medium;">username1 = password1</span><br />
+ <span style="font-size: medium;">username2 = password2</span><br />
+ <span style="font-size: medium;">可以添加多个，此为用户名密码对。</span></p>
+
+<p><span style="font-size: medium;">5. 配置权限</span><br />
+ <span style="font-size: medium;">vi /opt/svndata/repos/conf/authz.conf</span><br />
+ <span style="font-size: medium;">指令简介：此配置文件采用“基于路径的授权”策略，中括号里指定路径，以下列出对各用户的授权。包括只读r，读写rw。没有列出的用户，则不允许访问。还可以对用户分组，具体请参考svn手册，以下是简单例子：</span><br />
+ <span style="font-size: medium;">[/]</span><br />
+ <span style="font-size: medium;">user1 = rw</span><br />
+ <span style="font-size: medium;">user2 = r</span></p>
+
+<p><span style="font-size: medium;">注意：</span></p>
+
+<p><span style="font-size: medium;">* 权限配置文件中出现的用户名必须已在用户配置文件中定义。</span></p>
+
+<p><span style="font-size: medium;">* 对权限配置文件的修改立即生效，不必重启svn。</span></p>
+
+<p><span style="font-size: medium;"><strong>权限:注意配置文件格式,</strong><strong>前面不能有空格</strong></span></p>
+
+<p><span style="font-size: medium;">用户组格式：</span></p>
+
+<p><span style="font-size: medium;">[groups]</span></p>
+
+<p><span style="font-size: medium;">&lt;用户组名&gt; = &lt;用户1&gt;,&lt;用户2&gt;</span></p>
+
+<p><span style="font-size: medium;">————————</span></p>
+
+<p><span style="font-size: medium;">[groups]</span></p>
+
+<p><span style="font-size: medium;">Svnadmin = shengchao,yingzi</span></p>
+
+<p><span style="font-size: medium;">g_chengxu= test1,test2,test2</span></p>
+
+<p><span style="font-size: medium;">————————</span></p>
+
+<p><span style="font-size: medium;">其中，1个用户组可以包含1个或多个用户，用户间以逗号分隔。</span></p>
+
+<p><span style="font-size: medium;">版本库目录格式：</span></p>
+
+<p><span style="font-size: medium;">[&lt;版本库&gt;:/项目/目录]</span></p>
+
+<p><span style="font-size: medium;">@&lt;用户组名&gt; = &lt;权限&gt;</span></p>
+
+<p><span style="font-size: medium;">&lt;用户名&gt; = &lt;权限&gt;</span></p>
+
+<p><span style="font-size: medium;">其中，方框号内部分可以有多种写法:</span></p>
+
+<p><span style="font-size: medium;">/,表示根目录及以下。根目录是svnserve启动时指定的，我们指定为/www/svndata。这样，/就是表示对全部版本库设置权限。</span></p>
+
+<p><span style="font-size: medium;">repos1:/,表示对版本库1设置权限</span></p>
+
+<p><span style="font-size: medium;">repos2:/abc, ,表示对版本库2中的abc项目设置权限</span></p>
+
+<p><span style="font-size: medium;">repos2:/abc/aaa, ,表示对版本库2中的abc项目的aaa目录设置权限</span></p>
+
+<p><span style="font-size: medium;">权限主体可以是用户组、用户或*，用户组在前面加@，*表示全部用户。权限可以是w、r、wr和空，空表示没有任何权限。</span></p>
+
+<p><span style="font-size: medium;">示例：</span></p>
+
+<p><span style="font-size: medium;">[groups]</span></p>
+
+<p><span style="font-size: medium;">admin = shengchao</span></p>
+
+<p><span style="font-size: medium;">[/]</span></p>
+
+<p><span style="font-size: medium;">@admin = rw</span></p>
+
+<p><span style="font-size: medium;">[repos1:/abc/aaa]</span></p>
+
+<p><span style="font-size: medium;">yingzi = rw</span></p>
+
+<p><span style="font-size: medium;">[repos2:/pass]</span></p>
+
+<p><span style="font-size: medium;">yingzi =</span></p>
+
+<p><span style="font-size: medium;">6. 使用import导入文件</span><br />
+ <span style="font-size: medium;">新建好的版本库是空的，需要导入工作目录。</span></p>
+
+<div id="highlighter_217936">
+  <div>
+    <table>
+      <tr>
+        <td>
+        </td>
+        
+        <td>
+          <span style="font-size: medium;"><code>$ svnadmin create /usr/</code><code>local</code><code>/svn/newrepos </code></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+
+<p><div>
+    <table>
+      <tr>
+        <td>
+          <span style="font-size: medium;"><code> </code></span>
+        </td></p>
+
+<pre><code>    &lt;td&gt;
+      &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;$ svnimport mytree &lt;/code&gt;&lt;code&gt;file&lt;/code&gt;&lt;code&gt;:///usr/&lt;/code&gt;&lt;code&gt;local&lt;/code&gt;&lt;code&gt;/svn/newrepos/some/project&lt;/code&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p></div>
+</div></p>
+
+<p><span style="font-size: medium;">但是在导入后,用来的目录树并没有转换成工作拷贝，为了开始工作，还是需要运行svn checkout导出一个工作拷贝。因为导入后，文件在版本库中是以特殊的形式存在db文件夹中的，不能以明文的方式查看。必须使用svn checkout导出工作副本（workcopy）才能以正常方式查看。</span></p>
+
+<div id="highlighter_24081">
+  <div>
+    <div>
+      <table>
+        <tr>
+          <td>
+          </td>
+          
+          <td>
+            <span style="font-size: medium;"><code>svn checkout </code><code>file</code><code>:///usr/</code><code>local</code><code>/svn/newrepos/some/project workcopy</code></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">7. 启动服务</span><br />
+ <span style="font-size: medium;">执行svnserve –d –r /opt/svndata/ 启动服务, 以deamon方式运行。</span><br />
+ <span style="font-size: medium;">本系统采用svnserve方式, 这是小团队项目的推荐方法. 这种方法维护最少, 配置最简单.</span><br />
+ <span style="font-size: medium;">指令简介：此指令用于启动svn服务，-d指明以守护模式运行，svn自动在3690端口监听。3690是默认端口，可以使用“–listen-port=”或者“–listen-host=”来指定其它端口。-r选项用来指定svn服务的根目录，这样用户就可以使用相对路径访问，而不用提供完整路径。</span><br />
+ <span style="font-size: medium;">使用以下命令检出：(svnserver方式)</span></p>
+
+<div id="highlighter_558454">
+  <table>
+    <tr>
+      <td>
+        <span style="font-size: medium;"><code> </code></span>
+      </td>
+      
+      <td>
+        <span style="font-size: medium;"><code>svn checkout svn://127.0.0.1/</code><code>dir</code></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p><span style="font-size: medium;">以上为示例。IP需要根据具体情况调整，dir为版本库路径，若在启动时已指定则可省略。</span><br />
+ <span style="font-size: medium;">版本库信息在版本库文件夹里，所以要删除版本库只需要删除版本库所在的文件夹即可。</span><br />
+ <span style="font-size: medium;">另外工作副本只是自己维护的文件夹，可以用Windows直接删掉，对别人没有影响。千万不要使用版本库的删除命令，否则版本库里的内容也会被删除。</span></p>
+
+<p><span style="font-size: medium;"> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</span></p>
+
+<p><span style="font-size: medium;">配置两个资源库：svn默认端口是3690</span></p>
+
+<p><span style="font-size: medium;"> 1.启动命令： svnserve -d -r 版本库路径 &#8211;listen-host 192.168.1.178  </span></p>
+
+<p><span style="font-size: medium;">如：svnserve -d -r /opt/svndata &#8211;listen-host 192.168.1.178</span></p>
+
+<p><span style="font-size: medium;">启动时遇到的问题: </span></p>
+
+<p><span style="font-size: medium;">启动svnserve时出现cannot bind server socket:address already in use </span></p>
+
+<p><span style="font-size: medium;">解决方法: </span><br />
+ <span style="font-size: medium;">方法一:找出svnserve id 杀死掉进程 </span></p>
+
+<p><span style="font-size: medium;">netstat -ntlp </span></p>
+
+<p><span style="font-size: medium;">kill -9 id </span></p>
+
+<p><span style="font-size: medium;">方法二:重新指定一个端口号(默认端口3690) </span></p>
+
+<p><span style="font-size: medium;">svnserve -d &#8211;listen-port 3691 -r /opt/svndata/repos</span></p>
+
+<p><span style="font-size: medium;">2.检查是否启动成功:（查看是否存在svnserve 进程）</span></p>
+
+<p><span style="font-size: medium;">ps -ef|grep svnserve</span></p>
+
+<p><span style="font-size: medium;"> </span></p>
+
+<p><span style="font-size: medium;">貌似更简单的安装方法：好尴尬</span></p>
+
+<p><span style="font-size: medium;">一：安装</span><br />
+<span style="font-size: medium;">1、下载安装包，这里下载1.7.13版本</span></p>
+
+<div>
+  <div id="highlighter_533027" class="syntaxhighlighter bash">
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="gutter">
+          <div class="line number1 index0 alt2">
+            1
+          </div>
+        </td>
+        
+        <td class="code">
+          <div class="container">
+            <div class="line number1 index0 alt2">
+              <code class="bash plain">wget </code><code class="bash plain">http://archive.apache.org/dist/subversion/subversion-1.7.13.tar.gz</code>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">2、编译 &#8211;without-berkeley-db取消使用berkeley-db，采</span></p>
+
+<div>
+  <div id="highlighter_807238" class="syntaxhighlighter bash">
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="gutter">
+          <div class="line number1 index0 alt2">
+            1
+          </div>
+        </td>
+        
+        <td class="code">
+          <div class="container">
+            <div class="line number1 index0 alt2">
+              <code class="bash plain">.</code><code class="bash plain">/configure</code> <code class="bash plain">--prefix=</code><code class="bash plain">/usr/local/subversion</code> <code class="bash plain">--without-berkeley-db</code>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">出现了错误</span></p>
+
+<div>
+  <div id="highlighter_612633" class="syntaxhighlighter bash">
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="gutter">
+          <div class="line number1 index0 alt2">
+            1
+          </div>
+        </td>
+        
+        <td class="code">
+          <div class="container">
+            <div class="line number1 index0 alt2">
+              <code class="bash plain">configure: error: no suitable apr found</code>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">在网上找了一下，是因为缺少必要的依赖文件，</span><br />
+<span style="font-size: medium;">运行./get-deps.sh下载一下文件</span></p>
+
+<div>
+  <div id="highlighter_792971" class="syntaxhighlighter bash">
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="gutter">
+          <div class="line number1 index0 alt2">
+            1
+          </div>
+        </td>
+        
+        <td class="code">
+          <div class="container">
+            <div class="line number1 index0 alt2">
+              <code class="bash plain">.</code><code class="bash plain">/get-deps</code><code class="bash plain">.sh</code>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<p><span style="font-size: medium;">之后再./configure &#8211;pre&#8230;一下</span><br />
+make &amp;&amp; make install</p>
+
+<p>&nbsp;</p>
+
+    
+	</div>
+  <footer class="article-footer clearfix">
+  
+
+
+
+<div class="article-categories">
+  <span></span>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">版本管理工具</a>
+  
+</div>
+
+
+
+  <div class="article-share" id="share">
+    <div data-url="https://ifunboxp.top/linux_svn_configuration/" data-title="Linux下SVN安装配置以及使用" data-tsina="" class="share clearfix">
+    </div>
+  </div>
+</footer>
+
+	</article>
+  
+
+
+
+</div>
+
+    <div class="openaside"><a class="navbutton" href="#" title=""></a></div>
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title=""></a></div>
+<aside class="clearfix">
+  
+
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+  <ul>
+    
+    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+      
+			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+      
+		</ul>
+</div>
+
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle">Archives</p>
+    <ul class="archive-list">
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+      </li>
+      
+    </ul>
+
+  </div>
+
+
+  
+
+<div class="tagcloudlist">
+  <p class="asidetitle">Tags Cloud</p>
+  <div class="tagcloudlist clearfix">
+    
+    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    
+    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    
+    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    
+    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    
+    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    
+    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    
+    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    
+    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    
+    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    
+    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    
+    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</aside>
+</div>
+
+  </div>
+  <footer><div id="footer" >
+  <div class="line">
+    <span></span>
+    
+    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+  </div>
+  <section class="info">
+    <p></p>
+  </section>
+  <div class="social-font clearfix">
+    <a href='http://weibo.com/coderzh' target="_blank" title="weibo"></a>
+    <a href='https://twitter.com/coderzh' target="_blank" title="twitter"></a>
+    <a href='https://github.com/coderzh' target="_blank" title="github"></a>
+    <a href='https://www.facebook.com/coderzh' target="_blank" title="facebook"></a>
+    <a href='https://www.linkedin.com/coderzh' target="_blank" title="linkedin"></a>
+  </div>
+  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
+    
+    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    
+  </p>
+</div>
+</footer>
+  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+done = false;
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  $('form.search').on('submit', function (event) {
+    if (false === done) {
+      event.preventDefault();
+      var orgVal = $(this).find('#search').val();
+      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      done = true;
+      $(this).submit();
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://b.bshare.cn/barCode?site=weixin&url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>

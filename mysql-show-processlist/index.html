@@ -1,0 +1,1283 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL SHOW PROCESSLIST输出详解 - 记录点点滴滴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  <meta name="description" content="mysql&gt; SHOW FULL PROCESSLIST; &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; | Id | User | Host | db | Command | Time | State | Info | &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; 1 row in set (0.00 sec)   id
+连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
+发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。 Host
+发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。 db
+默认数据库，如果选择了一个，否则为NULL。 Command
+线程正在执行的命令类型。     命令类型   说明     Binlog Dump   这是主服务器上的线程，用于将二进制日志内容发送到从属服务器。     Change user   线程正在执行改变用户操作。     Close stmt   线程正在关闭准备好的语句。     Connect   复制从库连接到其主库。     Connect Out   复制从库正在连接到其主库。     Create DB   线程正在执行create-database操作。     Daemon   此线程在服务器内部，而不是服务客户端连接的线程。     Debug   线程正在生成调试信息。     Delayed insert   线程是一个延迟插入处理程序。     Drop DB   线程正在执行drop-database操作。     Debug   线程正在生成调试信息。     Error       Execute   线程正在执行一个准备好的语句。     Fetch   线程正在获取一个准备语句的结果。     Field List   线程正在检索表列的信息。     Init DB   线程正在选择默认数据库。     Kill   线程正在杀死另一个线程。     Long Data   该线程在执行一个准备语句的结果中检索长数据。     Ping   线程正在处理服务器ping请求。     Prepare   线程正在准备一个准备好的语句。     Processlist   线程正在处理服务器ping请求。     Query   该线程正在执行一个语句。     Quit   线程正在终止。     Refresh   线程是刷新表，日志或缓存，或重置状态变量或复制服务器信息。     Register Slave   线程正在注册从服务器。     Reset stmt   线程正在重置一个准备好的语句。     Set option   线程正在设置或重置客户端语句执行选项。     Shutdown   线程正在关闭服务器。     Sleep   线程正在等待客户端向其发送新的语句。     Statistics   线程正在生成服务器状态信息。     Table Dump   线程将表内容发送到从属服务器。     Time   Unused。    上述只是一部分，此列的值对应于客户端/服务器协议和Com_xxx状态变量的COM_xxx命令。https://dev.">
+  
+  <meta itemprop="name" content="MySQL SHOW PROCESSLIST输出详解 - 记录点点滴滴">
+  <meta itemprop="description" content="mysql&gt; SHOW FULL PROCESSLIST; &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; | Id | User | Host | db | Command | Time | State | Info | &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | &#43;----&#43;------&#43;-----------&#43;------&#43;---------&#43;------&#43;-------&#43;-----------------------&#43; 1 row in set (0.00 sec)   id
+连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
+发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。 Host
+发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。 db
+默认数据库，如果选择了一个，否则为NULL。 Command
+线程正在执行的命令类型。     命令类型   说明     Binlog Dump   这是主服务器上的线程，用于将二进制日志内容发送到从属服务器。     Change user   线程正在执行改变用户操作。     Close stmt   线程正在关闭准备好的语句。     Connect   复制从库连接到其主库。     Connect Out   复制从库正在连接到其主库。     Create DB   线程正在执行create-database操作。     Daemon   此线程在服务器内部，而不是服务客户端连接的线程。     Debug   线程正在生成调试信息。     Delayed insert   线程是一个延迟插入处理程序。     Drop DB   线程正在执行drop-database操作。     Debug   线程正在生成调试信息。     Error       Execute   线程正在执行一个准备好的语句。     Fetch   线程正在获取一个准备语句的结果。     Field List   线程正在检索表列的信息。     Init DB   线程正在选择默认数据库。     Kill   线程正在杀死另一个线程。     Long Data   该线程在执行一个准备语句的结果中检索长数据。     Ping   线程正在处理服务器ping请求。     Prepare   线程正在准备一个准备好的语句。     Processlist   线程正在处理服务器ping请求。     Query   该线程正在执行一个语句。     Quit   线程正在终止。     Refresh   线程是刷新表，日志或缓存，或重置状态变量或复制服务器信息。     Register Slave   线程正在注册从服务器。     Reset stmt   线程正在重置一个准备好的语句。     Set option   线程正在设置或重置客户端语句执行选项。     Shutdown   线程正在关闭服务器。     Sleep   线程正在等待客户端向其发送新的语句。     Statistics   线程正在生成服务器状态信息。     Table Dump   线程将表内容发送到从属服务器。     Time   Unused。    上述只是一部分，此列的值对应于客户端/服务器协议和Com_xxx状态变量的COM_xxx命令。https://dev.">
+  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  
+  
+  <meta name="twitter:description" content="">
+  
+  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
+  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+  <div id="imglogo">
+    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+  </div>
+  <div id="textlogo">
+    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h2 class="blog-motto">awesome!</h2>
+  </div>
+  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <nav class="animated">
+    <ul>
+      
+      <li><a href="/">Home</a></li>
+      
+      <li>
+        <form class="search" method="get" action="https://www.google.com/search">
+          <div>
+            <input type="text" id="search" name="q" placeholder='Search'>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <div id="container">
+    <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+      <a href="https://ifunboxp.top/mysql-show-processlist/" title="MySQL SHOW PROCESSLIST输出详解" itemprop="url">MySQL SHOW PROCESSLIST输出详解</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="" title="">you</a>
+    
+  </p>
+  <p class="article-time">
+    <time datetime="2017-07-25 14:36:39 &#43;0000 &#43;0000" itemprop="datePublished">2017-07-25</time>
+  </p>
+</header>
+
+	<div class="article-content">
+    
+    <pre class="line-numbers prism-highlight" data-start="1"><code class="language-sql">
+mysql&gt; SHOW FULL PROCESSLIST;
++----+------+-----------+------+---------+------+-------+-----------------------+
+| Id | User | Host | db | Command | Time | State | Info |
++----+------+-----------+------+---------+------+-------+-----------------------+
+| 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST |
++----+------+-----------+------+---------+------+-------+-----------------------+
+1 row in set (0.00 sec)
+
+</code></pre>
+
+<ul>
+<li>id<br />
+连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。</li>
+<li>User<br />
+发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。</li>
+<li>Host<br />
+发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。</li>
+<li>db<br />
+默认数据库，如果选择了一个，否则为NULL。</li>
+<li>Command<br />
+线程正在执行的命令类型。</li>
+</ul>
+
+<table>
+  <tr>
+    <th>
+      命令类型
+    </th>
+    
+    <th>
+      说明
+    </th>
+  </tr>
+  
+  <tr>
+    <td>
+      Binlog Dump
+    </td>
+    
+    <td>
+      这是主服务器上的线程，用于将二进制日志内容发送到从属服务器。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Change user
+    </td>
+    
+    <td>
+      线程正在执行改变用户操作。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Close stmt
+    </td>
+    
+    <td>
+      线程正在关闭准备好的语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Connect
+    </td>
+    
+    <td>
+      复制从库连接到其主库。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Connect Out
+    </td>
+    
+    <td>
+      复制从库正在连接到其主库。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Create DB
+    </td>
+    
+    <td>
+      线程正在执行create-database操作。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Daemon
+    </td>
+    
+    <td>
+      此线程在服务器内部，而不是服务客户端连接的线程。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Debug
+    </td>
+    
+    <td>
+      线程正在生成调试信息。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Delayed insert
+    </td>
+    
+    <td>
+      线程是一个延迟插入处理程序。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Drop DB
+    </td>
+    
+    <td>
+      线程正在执行drop-database操作。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Debug
+    </td>
+    
+    <td>
+      线程正在生成调试信息。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Error
+    </td>
+    
+    <td>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Execute
+    </td>
+    
+    <td>
+      线程正在执行一个准备好的语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Fetch
+    </td>
+    
+    <td>
+      线程正在获取一个准备语句的结果。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Field List
+    </td>
+    
+    <td>
+      线程正在检索表列的信息。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Init DB
+    </td>
+    
+    <td>
+      线程正在选择默认数据库。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Kill
+    </td>
+    
+    <td>
+      线程正在杀死另一个线程。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Long Data
+    </td>
+    
+    <td>
+      该线程在执行一个准备语句的结果中检索长数据。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Ping
+    </td>
+    
+    <td>
+      线程正在处理服务器ping请求。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Prepare
+    </td>
+    
+    <td>
+      线程正在准备一个准备好的语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Processlist
+    </td>
+    
+    <td>
+      线程正在处理服务器ping请求。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Query
+    </td>
+    
+    <td>
+      该线程正在执行一个语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Quit
+    </td>
+    
+    <td>
+      线程正在终止。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Refresh
+    </td>
+    
+    <td>
+      线程是刷新表，日志或缓存，或重置状态变量或复制服务器信息。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Register Slave
+    </td>
+    
+    <td>
+      线程正在注册从服务器。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Reset stmt
+    </td>
+    
+    <td>
+      线程正在重置一个准备好的语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Set option
+    </td>
+    
+    <td>
+      线程正在设置或重置客户端语句执行选项。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Shutdown
+    </td>
+    
+    <td>
+      线程正在关闭服务器。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Sleep
+    </td>
+    
+    <td>
+      线程正在等待客户端向其发送新的语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Statistics
+    </td>
+    
+    <td>
+      线程正在生成服务器状态信息。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Table Dump
+    </td>
+    
+    <td>
+      线程将表内容发送到从属服务器。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Time
+    </td>
+    
+    <td>
+      Unused。
+    </td>
+  </tr>
+</table>
+
+<p>上述只是一部分，此列的值对应于客户端/服务器协议和Com_xxx状态变量的COM_xxx命令。<a href="https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html">https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html</a></p>
+
+<ul>
+<li>Time<br />
+线程已处于当前状态的时间（秒）。对于从库SQL线程，该值是上次复制事件的时间戳与从机实时的秒数。</li>
+<li>State<br />
+指示线程正在做什么的动作，事件或状态。<br />
+大多数状态对应于非常快速的操作。如果线程在给定状态下保持多秒，则可能存在需要调查的问题。</li>
+</ul>
+
+<table>
+  <tr>
+    <th>
+      状态
+    </th>
+    
+    <th>
+      说明
+    </th>
+  </tr>
+  
+  <tr>
+    <td>
+      Checking table
+    </td>
+    
+    <td>
+      线程正在执行表检查操作。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      closing tables
+    </td>
+    
+    <td>
+      线程将更改的表数据刷新到磁盘并关闭已用表。这应该是一个快速的操作。如果没有，请验证您是否没有完整的磁盘，并且磁盘没有被非常大的使用。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      copy to tmp table
+    </td>
+    
+    <td>
+      线程正在处理ALTER TABLE语句。此状态发生在已创建新结构的表之后，但是将行复制到该表之前。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Copying to group table
+    </td>
+    
+    <td>
+      如果一条语句具有不同的ORDER BY和GROUP BY条件，则按行分组并将其复制到临时表中。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Copying to tmp table
+    </td>
+    
+    <td>
+      服务器正在复制到内存中的临时表。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Copying to tmp table on disk
+    </td>
+    
+    <td>
+      服务器正在复制到磁盘上的临时表。临时结果集已经变得太大了（大于tmp_table_size）。因此，线程将临时表从内存中更改为基于磁盘的格式以节省内存。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Creating tmp table
+    </td>
+    
+    <td>
+      线程正在内存或磁盘上创建临时表。如果表在内存中创建，但后来转换为磁盘表，则该操作期间的状态将变为Copying to tmp table on disk。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      deleting from main table
+    </td>
+    
+    <td>
+      服务器正在执行多表删除的第一部分。它仅从第一个表中删除，并从其他（引用）表中保存要用于删除的列和偏移量。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      deleting from reference tables
+    </td>
+    
+    <td>
+      服务器正在执行多表删除的第二部分，并从其他表中删除匹配的行。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      init
+    </td>
+    
+    <td>
+      这发生在ALTER TABLE，DELETE，INSERT，SELECT或UPDATE语句的初始化之前。处于此状态的服务器采取的操作包括刷新二进制日志，InnoDB日志和一些查询缓存清理操作。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Killed
+    </td>
+    
+    <td>
+      有人向线程发送了KILL语句，下次检查kill标志时应该中止它。在MySQL的每个主循环中检查该标志，但在某些情况下，线程可能需要很短时间才能死机。如果线程被某个其他线程锁定，则一旦其他线程释放锁定，该kill就会生效。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      FULLTEXT initialization
+    </td>
+    
+    <td>
+      服务器正在准备执行自然语言全文搜索。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Locked
+    </td>
+    
+    <td>
+      该查询被其它查询锁定。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Sending data
+    </td>
+    
+    <td>
+      线程正在读取和处理SELECT语句的行，并向客户端发送数据。由于在此状态期间发生的操作往往执行大量的磁盘访问（读取），所以在给定查询的整个生命周期内通常是最长的运行状态。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Sorting for group
+    </td>
+    
+    <td>
+      线程正在做一个满足GROUP BY的排序。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Sorting for order
+    </td>
+    
+    <td>
+      线程正在做一个排序来满足ORDER BY。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Opening tables
+    </td>
+    
+    <td>
+      线程正在尝试打开一个表。这应该是非常快的程序，除非有事情阻止打开。例如，ALTER TABLE或LOCK TABLE语句可以阻止打开表，直到语句完成。还要检查你的table_open_cache值是否足够大。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Removing duplicates
+    </td>
+    
+    <td>
+      查询正在使用SELECT DISTINCT。使用时，在早期阶段，MySQL不能优化不同的操作。因此，MySQL要求一个额外的阶段，以便在把结果发送给客户端之前取消所有的复制行。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Reopen table
+    </td>
+    
+    <td>
+      线程得到一个表锁定，但是在得到锁定后被通知带下方的表结构已更改了。它已经释放了锁定，关闭了表，并试图重新打开它。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Searching rows for update
+    </td>
+    
+    <td>
+      线程正在进行第一阶段，以在更新之前，查找所有匹配的行。如果UPDATE正在更改用于查找相关行的索引，则必须这么做。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Sleeping
+    </td>
+    
+    <td>
+      　　线程正在等待客户端，以向它发送一个新语句。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      System lock
+    </td>
+    
+    <td>
+      线程已经调用了mysql_lock_tables（），线程状态从未更新。这是一个非常普遍的状态，可能由于许多原因而发生。例如，线程将要求或正在等待表的内部或外部系统锁定。当InnoDB在执行LOCK TABLES期间等待表级锁时，可能会发生这种情况。如果此状态是由外部锁的请求引起的，并且您没有使用正在访问相同MyISAM表的多个mysqld服务器，则可以使用&#8211;skip-external-locking选项禁用外部系统锁。但是，默认情况下禁用外部锁定，因此这个选项很有可能不起作用。对于SHOW PROFILE，此状态表示线程正在请求锁定（不等待）。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Upgrading lock
+    </td>
+    
+    <td>
+      INSERT DELAYED管理程序正在试图得到一个表锁定，以插入行。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Updating
+    </td>
+    
+    <td>
+      线程正在搜索行，并正在更新这些行。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      User Lock
+    </td>
+    
+    <td>
+      线程正在等待GET_LOCK()。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      Waiting for tables
+    </td>
+    
+    <td>
+      线程得到一个通知，表格的底层结构已经改变，需要重新打开表以获得新的结构。但是，要重新打开表格，必须等到所有其他线程都关闭该表。如果另一个线程在相关表中使用FLUSH TABLES或以下语句之一，则会发生此通知：FLUSH TABLES tbl_name，ALTER TABLE，RENAME TABLE，REPAIR TABLE，ANALYZE TABLE或OPTIMIZE TABLE。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      waiting for handler insert
+    </td>
+    
+    <td>
+      　INSERT DELAYED管理程序已经处理了所有处于等待状态的插入，并正在等待新插入。
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      还有很多没有列出
+    </td>
+    
+    <td>
+      https://dev.mysql.com/doc/refman/5.7/en/thread-information.html
+    </td>
+  </tr>
+</table>
+
+<ul>
+<li>Info<br />
+线程正在执行的语句，如果没有执行任何语句，则为NULL。该语句可能是发送到服务器的语句，也可能是语句执行其他语句时的内部语句。例如，如果CALL语句执行执行SELECT语句的存储过程，则Info值将显示SELECT语句。</li>
+</ul>
+
+<p>参考<br />
+<a href="https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html">https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html</a><br />
+<a href="https://dev.mysql.com/doc/refman/5.7/en/thread-information.html">https://dev.mysql.com/doc/refman/5.7/en/thread-information.html</a><br />
+<a href="https://dev.mysql.com/doc/refman/5.7/en/thread-commands.html">https://dev.mysql.com/doc/refman/5.7/en/thread-commands.html</a><br />
+<a href="https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html">https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html</a></p>
+
+    
+	</div>
+  <footer class="article-footer clearfix">
+  
+
+<div class="article-tags">
+  <span></span>
+  
+  <a href="https://ifunboxp.toptags/mysql">MySQL</a>
+  
+</div>
+
+
+
+
+
+<div class="article-categories">
+  <span></span>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+  
+</div>
+
+
+
+  <div class="article-share" id="share">
+    <div data-url="https://ifunboxp.top/mysql-show-processlist/" data-title="MySQL SHOW PROCESSLIST输出详解" data-tsina="" class="share clearfix">
+    </div>
+  </div>
+</footer>
+
+	</article>
+  
+
+
+
+</div>
+
+    <div class="openaside"><a class="navbutton" href="#" title=""></a></div>
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title=""></a></div>
+<aside class="clearfix">
+  
+
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+  <ul>
+    
+    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+      
+			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+      
+		</ul>
+</div>
+
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle">Archives</p>
+    <ul class="archive-list">
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+      </li>
+      
+    </ul>
+
+  </div>
+
+
+  
+
+<div class="tagcloudlist">
+  <p class="asidetitle">Tags Cloud</p>
+  <div class="tagcloudlist clearfix">
+    
+    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    
+    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    
+    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    
+    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    
+    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    
+    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    
+    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    
+    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    
+    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    
+    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    
+    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</aside>
+</div>
+
+  </div>
+  <footer><div id="footer" >
+  <div class="line">
+    <span></span>
+    
+    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+  </div>
+  <section class="info">
+    <p></p>
+  </section>
+  <div class="social-font clearfix">
+    <a href='http://weibo.com/coderzh' target="_blank" title="weibo"></a>
+    <a href='https://twitter.com/coderzh' target="_blank" title="twitter"></a>
+    <a href='https://github.com/coderzh' target="_blank" title="github"></a>
+    <a href='https://www.facebook.com/coderzh' target="_blank" title="facebook"></a>
+    <a href='https://www.linkedin.com/coderzh' target="_blank" title="linkedin"></a>
+  </div>
+  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
+    
+    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    
+  </p>
+</div>
+</footer>
+  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+done = false;
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  $('form.search').on('submit', function (event) {
+    if (false === done) {
+      event.preventDefault();
+      var orgVal = $(this).find('#search').val();
+      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      done = true;
+      $(this).submit();
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://b.bshare.cn/barCode?site=weixin&url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>SEO入门级知识问答 - 记录点点滴滴</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+  
+  <meta name="description" content="1、SEO是什么？
+全称叫搜索引擎优化。人们使用搜索引擎查找自己需要的信息，那么作为网站的主人，我们希望用户通过搜索引擎能来到自己的网站。这就需要对网站进行SEO（搜索引擎优化）。
+2、SEO了之后，有什么结果呢？
+SEO的目的是一方面让你的网站某些词排名提高，另一方面让你网站的流量整体提高。
+假设没有做SEO，那么你也不会来到SEO十万个为什么这个网站。
+3、如何知道网站在搜索引擎上的排名情况呢？
+你先需要知道，希望有排名的是什么词？比如：SEO十万个为什么这个网站，希望有排名的是 SEO，那么你可以直接在百度或Google上搜索SEO，然后去查找自己的网站。如果20页之内没有自己的网站，则一般就不用找了。说明目前还没很好的排名。
+4、如何知道网站是否被搜索引擎收录了呢？
+直接在搜索引擎输入：site:你的网站域名。比如：看SEO十万个为什么的收录情况，site:fanhefan.com
+5、为什么site带www的域名和不带www的域名，收录量不一样呢？
+site不带www的域名，包含了site带www域名的收录情况。比如：site:fanhefan.com那么就包含了site:www.fanhefan.com和site:bbs.fanhefan.com的收录量之和。
+6、那为什么有时site带www的，比没带www的收录量多呢?
+这往往是临时情况，过一段时间会稳定下来。
+7、听说外链很重要，那我如何知道我网站的外链呢？
+在百度和google上查外链都不是很准确，目前比较全面的是采用雅虎。比如：要查SEO十万个为什么的外链，则在www.yahoo.cn上输入：link:http://fanhefan.4430.0-168.com/注意：http://
+8、听大家在说百度蜘蛛，那是什么呢？
+百度蜘蛛和google机器人，具体说是一个程序。这个程序的功能是抓取网页的内容。
+9、百度蜘蛛来抓取网站内容，我们能知道吗?
+可以。通过网站的日志可以看到。
+10、有意思，网站日志怎么看？
+登陆你网站ＦＴＰ后台，看到一个包含ｌｏｇ的文件夹，里面就是日志，一般按日期存放。下载，解压，里面就是了。（如果没有，那是空间不支持日志）
+11、网站日志下来了，也解压了，然后呢？
+是一个记事本，打开后，搜索baiduspider，或googlebot，可以看到它们访问的地址。
+12、我看到了。很多呀，一般有类似
+[11/Jan/2009:04:03:07 &#43;0800] “GET /bbs/thread-7125-1-1.html HTTP/1.1″ 200 7375 “-” “Baiduspider&#43;(&#43;http://www.baidu.com/search/spider.htm)”
+是吗？
+是的。200代表正常收录了。7375代表这次抓取的7375个字节的内容。如果不是这样的情况，那是具体服务器设置不同。
+13、一般做SEO是怎么做？
+SEO如果说要简单，是很简单。一般人说是在外链。因为在排名中外链很重要。但，当你反过来思考，整个SEO思维会引导你到底应该做什么，怎么做。
+14、一般做SEO是需要多长时间有效果呢？
+一般我们考虑的排名周期是1-3个月。也就是，这次修改，在1个月到3个月内会显示效果。
+15、为什么有的做SEO有效果，有的没效果呢？
+这里主要是一个思维认识问题。做SEO和打针吃药的思路还不一样，它更像是一套行为标准。你这样做了，可能获得很好的排名，但不是一定。因为有可能其人人也这样做，而且做得比你好。
+16、那目前做SEO的人多吗？
+比起美国SEO的火热和普及程度，国内目前SEO才刚刚开始。所以，你会看到很多学SEO的人，很快就排名上来了。
+17、像我这样，从来没有建过网站的人，怎么学SEO？
+学SEO的目的是排名和网站流量。所以，SEO本身的存在就带有功利性。学会建站是迟早的事情，但“建站”这个字眼对于新手可能是可怕的。其实，绝大部分的网站，都不是网站主人自己写的程序，而是采用开源的程序搭建。">
+  
+  <meta itemprop="name" content="SEO入门级知识问答 - 记录点点滴滴">
+  <meta itemprop="description" content="1、SEO是什么？
+全称叫搜索引擎优化。人们使用搜索引擎查找自己需要的信息，那么作为网站的主人，我们希望用户通过搜索引擎能来到自己的网站。这就需要对网站进行SEO（搜索引擎优化）。
+2、SEO了之后，有什么结果呢？
+SEO的目的是一方面让你的网站某些词排名提高，另一方面让你网站的流量整体提高。
+假设没有做SEO，那么你也不会来到SEO十万个为什么这个网站。
+3、如何知道网站在搜索引擎上的排名情况呢？
+你先需要知道，希望有排名的是什么词？比如：SEO十万个为什么这个网站，希望有排名的是 SEO，那么你可以直接在百度或Google上搜索SEO，然后去查找自己的网站。如果20页之内没有自己的网站，则一般就不用找了。说明目前还没很好的排名。
+4、如何知道网站是否被搜索引擎收录了呢？
+直接在搜索引擎输入：site:你的网站域名。比如：看SEO十万个为什么的收录情况，site:fanhefan.com
+5、为什么site带www的域名和不带www的域名，收录量不一样呢？
+site不带www的域名，包含了site带www域名的收录情况。比如：site:fanhefan.com那么就包含了site:www.fanhefan.com和site:bbs.fanhefan.com的收录量之和。
+6、那为什么有时site带www的，比没带www的收录量多呢?
+这往往是临时情况，过一段时间会稳定下来。
+7、听说外链很重要，那我如何知道我网站的外链呢？
+在百度和google上查外链都不是很准确，目前比较全面的是采用雅虎。比如：要查SEO十万个为什么的外链，则在www.yahoo.cn上输入：link:http://fanhefan.4430.0-168.com/注意：http://
+8、听大家在说百度蜘蛛，那是什么呢？
+百度蜘蛛和google机器人，具体说是一个程序。这个程序的功能是抓取网页的内容。
+9、百度蜘蛛来抓取网站内容，我们能知道吗?
+可以。通过网站的日志可以看到。
+10、有意思，网站日志怎么看？
+登陆你网站ＦＴＰ后台，看到一个包含ｌｏｇ的文件夹，里面就是日志，一般按日期存放。下载，解压，里面就是了。（如果没有，那是空间不支持日志）
+11、网站日志下来了，也解压了，然后呢？
+是一个记事本，打开后，搜索baiduspider，或googlebot，可以看到它们访问的地址。
+12、我看到了。很多呀，一般有类似
+[11/Jan/2009:04:03:07 &#43;0800] “GET /bbs/thread-7125-1-1.html HTTP/1.1″ 200 7375 “-” “Baiduspider&#43;(&#43;http://www.baidu.com/search/spider.htm)”
+是吗？
+是的。200代表正常收录了。7375代表这次抓取的7375个字节的内容。如果不是这样的情况，那是具体服务器设置不同。
+13、一般做SEO是怎么做？
+SEO如果说要简单，是很简单。一般人说是在外链。因为在排名中外链很重要。但，当你反过来思考，整个SEO思维会引导你到底应该做什么，怎么做。
+14、一般做SEO是需要多长时间有效果呢？
+一般我们考虑的排名周期是1-3个月。也就是，这次修改，在1个月到3个月内会显示效果。
+15、为什么有的做SEO有效果，有的没效果呢？
+这里主要是一个思维认识问题。做SEO和打针吃药的思路还不一样，它更像是一套行为标准。你这样做了，可能获得很好的排名，但不是一定。因为有可能其人人也这样做，而且做得比你好。
+16、那目前做SEO的人多吗？
+比起美国SEO的火热和普及程度，国内目前SEO才刚刚开始。所以，你会看到很多学SEO的人，很快就排名上来了。
+17、像我这样，从来没有建过网站的人，怎么学SEO？
+学SEO的目的是排名和网站流量。所以，SEO本身的存在就带有功利性。学会建站是迟早的事情，但“建站”这个字眼对于新手可能是可怕的。其实，绝大部分的网站，都不是网站主人自己写的程序，而是采用开源的程序搭建。">
+  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  
+  
+  <meta name="twitter:description" content="">
+  
+  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
+  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
+  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+  <div id="imglogo">
+    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+  </div>
+  <div id="textlogo">
+    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h2 class="blog-motto">awesome!</h2>
+  </div>
+  <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
+  <nav class="animated">
+    <ul>
+      
+      <li><a href="/">Home</a></li>
+      
+      <li>
+        <form class="search" method="get" action="https://www.google.com/search">
+          <div>
+            <input type="text" id="search" name="q" placeholder='Search'>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  </header>
+  <div id="container">
+    <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+      <a href="https://ifunboxp.top/12211212/" title="SEO入门级知识问答" itemprop="url">SEO入门级知识问答</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="" title="">you</a>
+    
+  </p>
+  <p class="article-time">
+    <time datetime="2011-10-25 12:59:53 &#43;0000 &#43;0000" itemprop="datePublished">2011-10-25</time>
+  </p>
+</header>
+
+	<div class="article-content">
+    
+    <p><span style="font-size: medium;">    1、SEO是什么？</span><br />
+ <span style="font-size: medium;">全称叫搜索引擎优化。人们使用搜索引擎查找自己需要的信息，那么作为网站的主人，我们希望用户通过搜索引擎能来到自己的网站。这就需要对网站进行SEO（搜索引擎优化）。</span><br />
+<span style="font-size: medium;">    2、SEO了之后，有什么结果呢？</span><br />
+ <span style="font-size: medium;">SEO的目的是一方面让你的网站某些词排名提高，另一方面让你网站的流量整体提高。</span><br />
+ <span style="font-size: medium;">假设没有做SEO，那么你也不会来到SEO十万个为什么这个网站。</span><br />
+<span style="font-size: medium;">    3、如何知道网站在搜索引擎上的排名情况呢？</span><br />
+ <span style="font-size: medium;">你先需要知道，希望有排名的是什么词？比如：SEO十万个为什么这个网站，希望有排名的是 SEO，那么你可以直接在百度或Google上搜索SEO，然后去查找自己的网站。如果20页之内没有自己的网站，则一般就不用找了。说明目前还没很好的排名。</span><br />
+<span style="font-size: medium;">    4、如何知道网站是否被搜索引擎收录了呢？</span><br />
+ <span style="font-size: medium;">直接在搜索引擎输入：site:你的网站域名。比如：看SEO十万个为什么的收录情况，site:fanhefan.com</span><br />
+<span style="font-size: medium;">    5、为什么site带www的域名和不带www的域名，收录量不一样呢？</span><br />
+ <span style="font-size: medium;">site不带www的域名，包含了site带www域名的收录情况。比如：site:fanhefan.com那么就包含了site:www.fanhefan.com和site:bbs.fanhefan.com的收录量之和。</span><br />
+<span style="font-size: medium;">    6、那为什么有时site带www的，比没带www的收录量多呢?</span><br />
+ <span style="font-size: medium;">这往往是临时情况，过一段时间会稳定下来。</span><br />
+<span style="font-size: medium;">    7、听说外链很重要，那我如何知道我网站的外链呢？</span><br />
+ <span style="font-size: medium;">在百度和google上查外链都不是很准确，目前比较全面的是采用雅虎。比如：要查SEO十万个为什么的外链，则在www.yahoo.cn上输入：link:<a href="http://fanhefan.4430.0-168.com/注意：http://">http://fanhefan.4430.0-168.com/注意：http://</a></span><br />
+<span style="font-size: medium;">    8、听大家在说百度蜘蛛，那是什么呢？</span><br />
+ <span style="font-size: medium;">百度蜘蛛和google机器人，具体说是一个程序。这个程序的功能是抓取网页的内容。</span><br />
+<span style="font-size: medium;">    9、百度蜘蛛来抓取网站内容，我们能知道吗?</span><br />
+ <span style="font-size: medium;">可以。通过网站的日志可以看到。</span><br />
+<span style="font-size: medium;">    10、有意思，网站日志怎么看？</span><br />
+ <span style="font-size: medium;">登陆你网站ＦＴＰ后台，看到一个包含ｌｏｇ的文件夹，里面就是日志，一般按日期存放。下载，解压，里面就是了。（如果没有，那是空间不支持日志）</span><br />
+<span style="font-size: medium;">    11、网站日志下来了，也解压了，然后呢？</span><br />
+ <span style="font-size: medium;">是一个记事本，打开后，搜索baiduspider，或googlebot，可以看到它们访问的地址。</span><br />
+<span style="font-size: medium;">    12、我看到了。很多呀，一般有类似</span><br />
+ <span style="font-size: medium;">[11/Jan/2009:04:03:07 +0800] “GET /bbs/thread-7125-1-1.html HTTP/1.1″ 200 7375 “-” “Baiduspider+(+<a href="http://www.baidu.com/search/spider.htm)”">http://www.baidu.com/search/spider.htm)”</a></span><br />
+ <span style="font-size: medium;">是吗？</span><br />
+ <span style="font-size: medium;">是的。200代表正常收录了。7375代表这次抓取的7375个字节的内容。如果不是这样的情况，那是具体服务器设置不同。</span><br />
+<span style="font-size: medium;">    13、一般做SEO是怎么做？</span><br />
+ <span style="font-size: medium;">SEO如果说要简单，是很简单。一般人说是在外链。因为在排名中外链很重要。但，当你反过来思考，整个SEO思维会引导你到底应该做什么，怎么做。</span><br />
+<span style="font-size: medium;">    14、一般做SEO是需要多长时间有效果呢？</span><br />
+ <span style="font-size: medium;">一般我们考虑的排名周期是1-3个月。也就是，这次修改，在1个月到3个月内会显示效果。</span><br />
+<span style="font-size: medium;">    15、为什么有的做SEO有效果，有的没效果呢？</span><br />
+ <span style="font-size: medium;">这里主要是一个思维认识问题。做SEO和打针吃药的思路还不一样，它更像是一套行为标准。你这样做了，可能获得很好的排名，但不是一定。因为有可能其人人也这样做，而且做得比你好。</span><br />
+<span style="font-size: medium;">    16、那目前做SEO的人多吗？</span><br />
+ <span style="font-size: medium;">比起美国SEO的火热和普及程度，国内目前SEO才刚刚开始。所以，你会看到很多学SEO的人，很快就排名上来了。</span><br />
+<span style="font-size: medium;">    17、像我这样，从来没有建过网站的人，怎么学SEO？</span><br />
+ <span style="font-size: medium;">学SEO的目的是排名和网站流量。所以，SEO本身的存在就带有功利性。学会建站是迟早的事情，但“建站”这个字眼对于新手可能是可怕的。其实，绝大部分的网站，都不是网站主人自己写的程序，而是采用开源的程序搭建。</span></p>
+
+    
+	</div>
+  <footer class="article-footer clearfix">
+  
+
+
+
+<div class="article-categories">
+  <span></span>
+  
+  <a class="article-category-link" href="https://ifunboxp.topcategories/seo">SEO</a>
+  
+</div>
+
+
+
+  <div class="article-share" id="share">
+    <div data-url="https://ifunboxp.top/12211212/" data-title="SEO入门级知识问答" data-tsina="" class="share clearfix">
+    </div>
+  </div>
+</footer>
+
+	</article>
+  
+
+
+
+</div>
+
+    <div class="openaside"><a class="navbutton" href="#" title=""></a></div>
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title=""></a></div>
+<aside class="clearfix">
+  
+
+<div class="categorieslist">
+  <p class="asidetitle">Categories</p>
+  <ul>
+    
+    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    
+    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    
+  </ul>
+</div>
+
+
+
+  
+
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+      
+			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+      
+			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+      
+		</ul>
+</div>
+
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle">Archives</p>
+    <ul class="archive-list">
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+      </li>
+      
+      
+      <li class="archive-list-item">
+        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+      </li>
+      
+    </ul>
+
+  </div>
+
+
+  
+
+<div class="tagcloudlist">
+  <p class="asidetitle">Tags Cloud</p>
+  <div class="tagcloudlist clearfix">
+    
+    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    
+    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    
+    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    
+    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    
+    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    
+    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    
+    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    
+    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    
+    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    
+    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    
+    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</aside>
+</div>
+
+  </div>
+  <footer><div id="footer" >
+  <div class="line">
+    <span></span>
+    
+    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+  </div>
+  <section class="info">
+    <p></p>
+  </section>
+  <div class="social-font clearfix">
+    <a href='http://weibo.com/coderzh' target="_blank" title="weibo"></a>
+    <a href='https://twitter.com/coderzh' target="_blank" title="twitter"></a>
+    <a href='https://github.com/coderzh' target="_blank" title="github"></a>
+    <a href='https://www.facebook.com/coderzh' target="_blank" title="facebook"></a>
+    <a href='https://www.linkedin.com/coderzh' target="_blank" title="linkedin"></a>
+  </div>
+  <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
+    
+    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    
+  </p>
+</div>
+</footer>
+  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+done = false;
+$(document).ready(function(){
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize();
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  $('form.search').on('submit', function (event) {
+    if (false === done) {
+      event.preventDefault();
+      var orgVal = $(this).find('#search').val();
+      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      done = true;
+      $(this).submit();
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://b.bshare.cn/barCode?site=weixin&url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
+
+
+
+
+
+</body>
+</html>

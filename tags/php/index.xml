@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHP on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/tags/php/</link>
+    <description>Recent content in PHP on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 22 Sep 2016 08:47:04 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP调试利器XDebug Mac下在phpstorm中的安装与使用</title>
+      <link>https://ifunboxp.top/mac_php_xdebug_phpstorm_install/</link>
+      <pubDate>Thu, 22 Sep 2016 08:47:04 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/mac_php_xdebug_phpstorm_install/</guid>
+      <description>之前一直用比较原始的调试方法echo、print_r()、var_dump()、printf()，可能小项目比较小吧
+最近有时间，就研究了Mac系统下集成phpstorm的xdebug安装配置使用，下面记录一下~
+安装篇 1.xdebug的安装
+下载地址https://xdebug.org/
+我是直接用神器brew安装（版本号自行替换）
+brew install homebrew/php/php56-xdebug
+安装完毕后brew info homebrew/php/php56-xdebug 包含了很多信息 包括xdebug的配置文件路径，如何判断安装成功等等
+2.配置xdebug
+在/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini
+[xdebug]
+zend_extension=&amp;#8221;/usr/local/opt/php56-xdebug/xdebug.so&amp;#8221;
+xdebug.remote_enable=1
+xdebug.remote_host=&amp;#8221;127.0.0.1&amp;#8243;
+xdebug.remote_port=9001
+xdebug.profiler_enable=1
+xdebug.profiler_output_dir=&amp;#8221;/Users/www/debug&amp;#8221;
+xdebug.idekey=&amp;#8221;PHPSTORM&amp;#8221;
+3.在phpstorm中配置xdebug
+上面都配置好后要在主菜单中，选择Run | Web Server Debug Validation.下图是验证成功的效果，但是没有那么顺利，报错Remote host is configured as “localhost” despite server host is probably not local，在stackoverflow有人说把xdebug.remote_host改成自己项目的域名就可以了，还真是不知道是为何。。。
+4.phpstorm配置一个PHP Web Application
+5.打开Chrome下载安装xdebug-helper，地址https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc
+点开选项记得把IDE key配置得跟之前设置的一样
+到这里安装配置就结束了~~~
+使用篇 1.phpstorm 打开监听 Run | Start Listening For PHP Debug Connections
+2.打个断点
+3.访问项目域名，就可以在phpstorm中看到变量信息，点击红框，可以查看每次执行的代码行，也会看到因为执行代码行所赋值的变量。
+还有一个就是php报错的时候回显示堆栈信息参考
+https://www.jetbrains.com/help/phpstorm/2016.2/configuring-xdebug.html
+http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-configured-as-localhost-despite-server-host</description>
+    </item>
+    
+    <item>
+      <title>Nginx下php-fpm防止跨站跨目录安全设置</title>
+      <link>https://ifunboxp.top/nginx_php-fpm_cross-site/</link>
+      <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/nginx_php-fpm_cross-site/</guid>
+      <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
+而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
+首先php的版本必须大于等于php5.3.3。
+方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
+fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
+/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
+/proc/ 可以让php查看系统负载信息。
+本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。
+本方法，非常推荐使用，本人就是用这个方法！！
+方法2 在php.ini 中配置
+在php.ini的末尾加入：
+[HOST=www.funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ [PATH=/home/funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/  本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。
+方法3 网站根目录下增加 .user.ini 文件。
+在网站根目录下创建.user.ini 加入：
+open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。
+关于.user.ini文件的详细说明：http://php.net/manual/zh/configuration.file.per-user.php</description>
+    </item>
+    
+    <item>
+      <title>Mac OS X上brew安装多版本php切换</title>
+      <link>https://ifunboxp.top/mac_osx_brew_php_version/</link>
+      <pubDate>Mon, 21 Mar 2016 13:40:21 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/mac_osx_brew_php_version/</guid>
+      <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
+用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
+偶然发现php-version这个工具可以在mac下任意切换php各个版本
+brew install php-version  然后运行
+source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+直接运行php-version php版本号，即可完成切换
+php -v 显示php版本已经变了，切换成功
+brew真心强大</description>
+    </item>
+    
+  </channel>
+</rss>

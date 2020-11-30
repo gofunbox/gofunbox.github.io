@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSX on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/tags/osx/</link>
+    <description>Recent content in OSX on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 21 Mar 2016 13:40:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac OS X上brew安装多版本php切换</title>
+      <link>https://ifunboxp.top/mac_osx_brew_php_version/</link>
+      <pubDate>Mon, 21 Mar 2016 13:40:21 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/mac_osx_brew_php_version/</guid>
+      <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
+用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
+偶然发现php-version这个工具可以在mac下任意切换php各个版本
+brew install php-version  然后运行
+source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+直接运行php-version php版本号，即可完成切换
+php -v 显示php版本已经变了，切换成功
+brew真心强大</description>
+    </item>
+    
+  </channel>
+</rss>

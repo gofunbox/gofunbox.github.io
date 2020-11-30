@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discuz! on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/discuz/</link>
+    <description>Recent content in Discuz! on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 03 Jul 2013 01:52:36 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/discuz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Discuz管理员前台可以登录后台无法登录</title>
+      <link>https://ifunboxp.top/discuz_admin_cannot_login/</link>
+      <pubDate>Wed, 03 Jul 2013 01:52:36 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/discuz_admin_cannot_login/</guid>
+      <description>    1. 取消ip认证  config_global.php 中找到  $_config[&amp;#8216;admincp&amp;#8217;][&amp;#8216;checkip&amp;#8217;] = 0  2.管理员用户组变为普通用户组了 进入不了后台  直接更改数据库 common_member中 找到管理员对应的记录 将groupid 和adminid 都更改为 1  3. 后台设置了ip列表导致访问不了后台  进入数据库 common_setting 表中搜索 skey 为 adminipaccess ，然后删除svalue中的值  4.有其它用户在同时登录 同一个帐号后台也是进入不了后台的 （只要取消ip认证 就能同时多点登录）  5.密码丢失  如果能够登录uc ，在uc中更改管理员帐号、如果uc和管理员帐号都忘记了。用tools（tools有论坛版 和 uc版 。）工具重置管理员帐  6、设置帐号为创始人，打开/config/config_global.php文件，查找$_config[&amp;#8216;admincp&amp;#8217;][&amp;#8216;founder&amp;#8217;] = ’1′;将帐号id添加进来，多个id用逗号分隔开。(新建管理员账号后台不能登录一般是这个原因)  7、修改\source\class\discuz\discuz_admincp.php中，查找$this-cpaccess = 2;修改为$this-cpaccess = 3;    </description>
+    </item>
+    
+    <item>
+      <title>Discuz! Debug 模式的开启与使用</title>
+      <link>https://ifunboxp.top/489.html</link>
+      <pubDate>Wed, 27 Feb 2013 03:42:48 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/489.html</guid>
+      <description>1.面向对象：
+有一定mysql基础的站长，程序开发者
+2.作用：
+可以明细的列出当前页面的查询可以具体查询出现的文件，和时间。并且有查询的 explain 信息。便于检查哪里出现了慢查询。
+可以查看当前页面内存使用情况
+可以列出当前页面 $_G 变量中的内容
+可以列出当前页面的 cookie 内容
+可以查看当前浏览器的信息，User Agent 等
+
+3.所需文件：
+解压，将 function_debug.php 放到 source/function 目录下。
+
+4.修改配置文件：
+修改 config\config_global.php 
+在 $_config[&amp;#8216;remote&amp;#8217;][&amp;#8216;cron&amp;#8217;] = 1; 后加入一行：
+$_config[&amp;#8216;debug&amp;#8217;] = 1;
+则，每个页面都将开启 debug 模式。
+
+如果修改为：
+$_config[&amp;#8216;debug&amp;#8217;] = &amp;#8216;debug&amp;#8217;;
+
+
+则不是每个页面都显示 debug 信息只有在 url 后面加上 &amp;amp;debug=debug 才会显示，这就可以避免普通用户也看到 debug 信息了。
+
+5.debug 信息解释
+
+下载地址http://url.cn/AZnkRO</description>
+    </item>
+    
+    <item>
+      <title>最全discuz X2 DB数据库类详细说明</title>
+      <link>https://ifunboxp.top/471.html</link>
+      <pubDate>Thu, 21 Feb 2013 06:18:39 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/471.html</guid>
+      <description>discuzX 系列的db数据库类写的已经非常好了，从性能、安全性和易用性上都做的非常优秀了。
+了解discuzX 系列的db数据库类，不仅可以使我们能快速上手二次开发，也可以移植到自己的项目中来。
+下面我们来分析讲解一下db数据类：
+ &amp;lt;?php class DB { /** * 返回表名(pre_$table) * * @param 原始表名 $table * @return 增加pre之后的名字 */ function table($table) { return DB::_execute(&#39;table_name&#39;, $table); } /** * 删除一条或者多条记录 * * @param string $table 原始表名 * @param string $condition 数组的形式，条件语句，不需要写WHERE * @param int $limit 删除条目数 * @param boolean $unbuffered 可以参考php自带的mysql_unbuffered_query()函数 */ function delete($table, $condition, $limit = 0, $unbuffered = true) { if(empty($condition)) { $where = &#39;1&#39;; } elseif(is_array($condition)) { $where = DB::implode_field_value($condition, &#39; AND &#39;); } else { $where = $condition; } $sql = &#34;</description>
+    </item>
+    
+    <item>
+      <title>Discuz! 的编码规范</title>
+      <link>https://ifunboxp.top/463.html</link>
+      <pubDate>Tue, 19 Feb 2013 06:59:57 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/463.html</guid>
+      <description>前言  本规范由编程原则组成，融合并提炼了开发人员长时间积累下来的成熟经验，意在帮助形成良好一致的编程风格。  适用范围  如无特殊说明，以下规则要求完全适用于Discuz!项目，同时也可大部分适用于COMSENZ旗下其他PHP项目。  标准化的重要性和好处  当一个软件项目尝试着遵守公共一致的标准时，可以使参与项目的开发人员更容易了解项目中的代码、弄清程序的状况。使新的参与者可以很快的适应环境，防止部分参与者出于节省时间的需要，自创一套风格并养成终生的习惯，导致其它人在阅读时浪费过多的时间和精力。而且在一致的环境下，也可以减少编码出错的机会。缺陷是由于每个人的标准不同，所以需要一段时间来适应和改变自己的编码风格，暂时性的降底了工作效率。从使项目长远健康的发展以及后期更高的团队工作效率来考虑暂时的工作效率降低是值得的，也是必须要经过的一个过程。标准不是项目成功的关键，但可以帮助我们在团队协作中有更高的效率并且更加顺利的完成既定的任务。
+ * 程序员可以了解任何代码，弄清程序的状况  新人可以很快的适应环境 防止新接触PHP的人出于节省时间的需要，自创一套风格并养成终生的习惯 防止新接触PHP的人一次次的犯同样的错误 在一致的环境下，人们可以减少犯错的机会 程序员们有了一致的敌人    PHP编码规范与原则 代码标记  PHP程序可以使用&amp;lt;?php ?&amp;gt;来界定 PHP 代码，在HTML页面中嵌入纯变量时，可以使用&amp;lt;?php echo $variablename;?&amp;gt;这样的形式。 注意：为了使代码进一步规范化和标准化，从Discuz! X2版本起开始禁用&amp;lt;? ?&amp;gt;和&amp;lt;?=$variablename?&amp;gt;这种速记形式。  注释  注释是对于那些容易忘记作用的代码添加简短的介绍性内容。请使用 C 样式的注释“/* */”和标准 C++ 注释“//”。 在Discuz!每一个程序文件头部中，应放入相应SVN控制字串，以方便SVN提交时自动更新：
+ $Id$   例如：
+/** * [Discuz!] (C)2001-2099 Comsenz Inc. * This is NOT a freeware, use is subject to license terms * * $Id$ */ : 程序开发中难免留下一些临时代码和调试代码，此类代码必须添加注释，以免日后遗忘。所有临时性、调试性、试验性的代码，必须添加统一的注释标记“//debug”并后跟完整的注释信息，这样可以方便在程序发布和最终调试前批量检查程序中是否还存在有疑问的代码。例如： $num = 1; $flag = TRUE; //debug 这里不能确定是否需要对$flag进行赋值 if(empty($flag)) { //Statements } 书写规则 缩进  每个缩进的单位约定是一个TAB(4个空白字符宽度)，需每个参与项目的开发人员在编辑器(UltraEdit、EditPlus、Zend Studio等)中进行强制设定，以防在编写代码时遗忘而造成格式上的不规范。 本缩进规范适用于PHP、JavaScript中的函数、类、逻辑结构、循环等。  大括号{}、if和switch  * 首括号与关键词同行，尾括号与关键字同列；  if结构中，else和elseif与前后两个大括号同行，左右各一个空格。另外，即便if后只有一行语句，仍然需要加入大括号，以保证结构清晰； switch结构中，通常当一个case块处理后，将跳过之后的case块处理，因此大多数情况下需要添加break。break的位置视程序逻辑，与case同在一行，或新起一行均可，但同一switch体中，break的位置格式应当保持一致。   以下是符合上述规范的例子：</description>
+    </item>
+    
+  </channel>
+</rss>

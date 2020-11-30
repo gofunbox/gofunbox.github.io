@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThinkPHP on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/thinkphp/</link>
+    <description>Recent content in ThinkPHP on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 26 Mar 2015 09:22:12 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>结合MongoDB开发LBS应用-查看附近的人</title>
+      <link>https://ifunboxp.top/mongodb_lbs_nearby_people/</link>
+      <pubDate>Thu, 26 Mar 2015 09:22:12 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/mongodb_lbs_nearby_people/</guid>
+      <description>最近负责的APP要上查看附件的人的功能
+之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
+就开始寻找新的解决方案，查找到深入浅出Symfony2 &amp;#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
+首先加一点往MongoDB数据
+
+了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
+
+thinkphp实现的代码，距离单位都是km
+&amp;lt;span style=&#34;font-size: 12pt;&#34;$where[&#39;geoNear&#39;] = &#39;user_coordinate&#39;; $where[&#39;near&#39;] = array($longitude,$latitude); $where[&#39;spherical&#39;] = true; $where[&#39;maxDistance&#39;] = $maxDistance/6371; $where[&#39;distanceMultiplier&#39;] = 6371; $where[&#39;query&#39;] = array(&#34;status&#34;=&amp;gt;1); $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&#39;results&#39;])) { foreach ($res[&#39;results&#39;] as $key =&amp;gt; $value) { $data[$key] = $value[&#39;obj&#39;]; $data[$key][&#39;dis&#39;] = $value[&#39;dis&#39;]; } } return $data;&amp;lt;/span  就这样搞定了</description>
+    </item>
+    
+    <item>
+      <title>thinkphp Mongo模型的使用问题</title>
+      <link>https://ifunboxp.top/thinkphp_mongodb_model/</link>
+      <pubDate>Wed, 07 Jan 2015 08:51:42 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/thinkphp_mongodb_model/</guid>
+      <description>先上官方使用Mongo模型开发文档
+感觉写的不是很全，也许我不熟悉tp吧 😳
+目前这个项目默认是连接MYSQL数据库
+最近开发消息中心，涉及到在程序期间要连接Mongo数据库
+最开始用了下面这个方式创建模式
+define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); define(&#39;MONGO_DB_PORT&#39;, 30000); define(&#39;MONGO_DB_NAME&#39;, &#39;funbox_test&#39;); define(&#39;MONGO_DSN&#39;, &#39;mongo://&#39;.MONGO_DB_HOST.&#39;:&#39;.MONGO_DB_PORT.&#39;/&#39;.MONGO_DB_NAME); M(&#39;MongoModel:msg_log&#39;,&#39;&#39;,MONGO_DSN);  死活连不上funbox_test这个库，连上的是funbox，十分费解
+最好耐下性子看了源码
+MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。
+继续看父类Model，在Model类中的__construct发现了线索，第79行
+$this-&amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;lt;stronglist($this-&amp;gt;dbName,$this-&amp;gt;name) = explode(&#39;.&#39;,$name);&amp;lt;/strong }else{ $this-&amp;gt;name = $name; } }elseif(empty($this-&amp;gt;name)){ $this-&amp;gt;name = $this-&amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
+M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;,&amp;#8221;,MONGO_DSN);
+研究了一个下午，希望能为大家排排雷。</description>
+    </item>
+    
+    <item>
+      <title>ThinkPHP实现伪静态如何去掉目录中的index.php</title>
+      <link>https://ifunboxp.top/thinkphp_remove_index.php</link>
+      <pubDate>Fri, 06 Sep 2013 09:35:38 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/thinkphp_remove_index.php</guid>
+      <description>ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
+Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
+1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号
+2。讲httpd.conf中的Allowoverride None 将None改为All
+3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一行，‘URL_MODEL’=&amp;gt;2
+4。在项目的根目录下面建立一个.htaccess文件，里面写入下面的内容：
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+如果你的服务器支持rewrite，现在就可以通过http://localhost/Myapp/Index/index/访问Index模块下面的index操作。</description>
+    </item>
+    
+  </channel>
+</rss>

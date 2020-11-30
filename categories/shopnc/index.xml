@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ShopNC on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/shopnc/</link>
+    <description>Recent content in ShopNC on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Oct 2014 07:27:03 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/shopnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决阿里云RDS安装shopnc B2B2C报错OPERATION need to be executed set by ADMIN</title>
+      <link>https://ifunboxp.top/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</link>
+      <pubDate>Sat, 11 Oct 2014 07:27:03 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</guid>
+      <description>今天在阿里云+RDS环境下安装shopnc B2B2C
+确保已经创建了数据库，以及授权操作用户的情况下
+还报错了OPERATION need to be executed set by ADMIN的错误
+解决方法如下
+找到/shop/install/index.php
+将126行的$install_error = mysql_error();return ; 注释掉就可以顺利跑过了
+还有一个问题安装输入的数据库主机地址被限制20个字符，用firebug手动修改下maxlength即可。
+&amp;nbsp;
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>ShopNC商城前后台注册登陆验证码总是错误解决办法</title>
+      <link>https://ifunboxp.top/shopnc_captcha_error/</link>
+      <pubDate>Thu, 27 Jun 2013 09:14:15 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/shopnc_captcha_error/</guid>
+      <description>验证码若出现问题可尝试以下办法：
+1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉
+2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存
+3. 查看cache目录是否有写权限（升级后有时会出现目录权限被更改的情况）
+4. 删除 cache/setting.php 文件 ，然后再运行(多发生于升级的情况)
+5. 打开数据库表setting，找到name为 subdomain_suffix的行，查看对应的value，
+如果为空，则无误，如果不为空，查看是否正确(假设域名为http://www.shopnc.net 此处需要填写&amp;#8221;.shopnc.net&amp;#8221;)，然后删除cache/setting.php文件
+6. 使用editplus或zend studio打开 根目录下 config.ini.php，index.php，global.php，查看是开头的&amp;lt;? 是否有空格或其它字符，如有删除，或用原始安装包对应文件替换
+7. 如果总提示验证码错误，查看一下客户端与服务器时间是否一致
+官方技术人员提的原文链接http://bbs.shopnc.net/forum.php?mod=viewthread&amp;tid=10210</description>
+    </item>
+    
+    <item>
+      <title>ShopNC开发腾付通、宝付支付接口心得体会</title>
+      <link>https://ifunboxp.top/485.html</link>
+      <pubDate>Tue, 26 Feb 2013 04:19:45 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/485.html</guid>
+      <description>api\payment下每一个文件夹都对应一个支付接口，如alipay是支付宝
+api\payment\payment.inc.php里面配置当前在使用的支付接口，新建一个支付接口也需要配置
+以alipay为例，简单的介绍一下shopnc的支付接口
+logo.gif支付方式图标
+alipay.php接口类
+info.php接口配置信息
+notify_url.php异步返回
+return_url.php同步通知
+alipay.php接口类中的方法get_payurl()是构造以get的方式传值支付链接(注有是用POST传值可以参考网银在线接口)
+处理返回的数据：
+通过notify_url.php调用了控制类payment.php的notify()方法，该方法无非就是检查了订单状态、签名验证( 通过alipay.php接口类中的方法notify_verify() )、修改订单状态
+return_url.php与notify_url.php差不多~~
+这样大概流程都在上面啦，各位可以去实践下~~
+需要shopnc腾付通支付接口、shopnc宝付支付接口可以联系我哦~QQ:614944530~</description>
+    </item>
+    
+  </channel>
+</rss>

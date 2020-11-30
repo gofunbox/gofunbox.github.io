@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ShopEx on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/categories/shopex/</link>
+    <description>Recent content in ShopEx on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Sep 2013 04:56:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/categories/shopex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>修复shopex4.8.5.80797列表无法快速编辑(切换是否状态)</title>
+      <link>https://ifunboxp.top/fix_shopex_quick_edit/</link>
+      <pubDate>Sat, 14 Sep 2013 04:56:01 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/fix_shopex_quick_edit/</guid>
+      <description>shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。
+shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
+出现的原因估计是跟数据库字段1,0修改成true,false有关
+现在提供解决方案。
+下载修复补丁地址:http://url.cn/KR4AIa</description>
+    </item>
+    
+    <item>
+      <title>shopex 解决首页产品图片无法显示，刷新缓存又显示问题</title>
+      <link>https://ifunboxp.top/548.html</link>
+      <pubDate>Sat, 04 May 2013 10:59:11 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/548.html</guid>
+      <description>最近一些客户反应，个别shopex网站首页商品图片会出现不显示的问题（图挂了），清空或者关闭缓存，图片又显示，但是不定时又会不显示的问题。
+经过我反复研究终于搞定了，现有偿提供修复，有意联系QQ：614944530.
+也可拍下这个宝贝http://item.taobao.com/item.htm?id=20334635319</description>
+    </item>
+    
+    <item>
+      <title>shopex安全设置指南(如何设置shopex保障网站安全教程)</title>
+      <link>https://ifunboxp.top/451.html</link>
+      <pubDate>Fri, 01 Feb 2013 06:19:21 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/451.html</guid>
+      <description>Shopex是一个比较成熟、优秀的网店销售平台。由于该系统在国内使用的普遍性，也成为黑客攻击的目标，也由于该系统的特殊性，网站数据安全就显非常重要，网站一旦被黑，不仅会影响正常的营业时间，而且还会危及到客户数据、交易数据的安全。 关于Shopex网店系统的安全设置使用的教程还非常少，官方网站上也没有专门的针对shopex网站安全使用设置有一个明确的教程， 那怎么设置shopex才能最大限度的保障网站安全呢？ 本人特为各位老板提点小小的建议。 1、 密码保护。不要为了方便登录，而使用简单密码。请设置字母加数字加特殊符号为组合的复杂密码，这样就大大增加了黑客的破解MD5密码的难度。 2、 如果你的网站出现问题或者功能开发的要求，需要维护、二次开发，请选择正规的公司或官方工程师为你处理(愿意为您效劳)，请不要随便相信那些打着免费、低价解决故障的人为你解决网站故障。这些人，往往是带着其它目的给你解决问题的。你把管理员密码和ftp帐号密码提供给这样的人，安装盗版免费插件，网站都可能被挂马、挂后门。 3、 关注官方网站，及时升级、打补丁。 4、 用户经常会忘记的事情，修改网站管理员后台登录地址。shopadmin改成不容易被黑客猜出的名字。 5、数据库表前缀名默认是sdb，这个也要改成不容易被黑客猜出的名字。 6、给文件适当的权限 api 可读不可写可运行 config 可读不可写可运行 core 可读不可写可运行 home 可读可写可运行 home/ upload可读可写不可运行  fanhefan_core（二次开发目录，名字可能不一样）可读不可写可运行 images 可读可写不可运行  install 删除 plugins 可读可写可运行(如果您插件支付接口都安装好了，可以改成不可写) public 可读可写不可运行（这个文件夹一般都是空的） shopadmin 改文件夹名，可读不可写可运行 statics 可读可写不可运行（如果网站的界面图片css不更改了，可以改成不可写） themes 可读可写不可运行（如果网站的HTML模板图片css不更改了，可以改成不可写） 7、 最后，请定期备份数据。 </description>
+    </item>
+    
+    <item>
+      <title>解决ShopEx云登录 登录成功后返回无反应错误的方法</title>
+      <link>https://ifunboxp.top/432.html</link>
+      <pubDate>Tue, 27 Nov 2012 08:02:02 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/432.html</guid>
+      <description>云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下
+function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; unset($_GET[&#39;passport-other_login_verify_html&#39;]); unset($_GET[&#39;passport-1-other_login_verify_html&#39;]); unset($_GET[&#39;sign&#39;]); $make_sign = $this-&amp;gt;get_ce_sign($_GET,$this-&amp;system-&amp;gt;getConf(&#39;certificate.token&#39;)); if($make_sign!=$sign){ echo &#34;sign is error&#34;; exit; } $account = $this-&amp;system-&amp;gt;loadModel(&#39;member/account&#39;); //查询sdb_trust_login是否之前登录过，首次登录会插入会员信息，不是首次就读取 $result_m = $account-&amp;gt;createotherlogin($_GET); if($result_m[&#39;redirect_url&#39;]){ echo &#34;&#34;; exit; }else{ echo &#34;&#34;; } } 程序流程是先检查sdb_trust_login表，如果没有用户信息说明是第一次登录，系统就会读取系统后台设置默认的会员信息，比如等级、默认货币单位等等，然后结合信任登录返回会员信息（如昵称、邮箱信息等等）一起在sdb_members表里生成新的一条会员记录。如果有用户信息说明不是第一次登录，系统会读取之前导入的会员记录。
+问题出在如果你删除了信任登录会员，这里的删除指的是永久删除，由于程序bug，sdb_trust_login表的信息没有被一起删除，如果被删除会员下次又用登录，系统会认为该会员不是第一次登录，直接读取已经被删除不存在的会员信息，就会出现，云登录成功返回后，会员没有登录网站的尴尬。
+解决方法，找到sdb_members表中删除云登录会员的id，然后删除sdb_trust_login表内对应的信息即可。
+不过我建议不要删除云登录，信任登录的会员信息，以免有不必要的麻烦。</description>
+    </item>
+    
+    <item>
+      <title>shopex短信无法发送问题解决方案总结</title>
+      <link>https://ifunboxp.top/421.html</link>
+      <pubDate>Wed, 07 Nov 2012 01:58:23 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/421.html</guid>
+      <description>最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。
+咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。
+1.备份shopex数据库，文件。这个是必须的啦。
+2.进入数据库删除数据表sdb_settings下的s_name字段值为enterprise的记录
+3.上传最新的core，然后上传最新的shopex短信通安装包。
+4.重新安装shopex短信通功能，如果您的后台改了地址，需要改成shopadmin。
+5.在配置文件中禁掉二次开发的目录，然后登陆后台，系统会提示输入shopexid以及密码重新安装shopex短信通功能。安装成功后，一般shopex短信无法发送的问题立即解决。
+我还发现一个问题，这个操作后，之前系统因为安装shopex短信通功能而导致一直提示证书错误的问题也解决了~</description>
+    </item>
+    
+    <item>
+      <title>ShopEx与Discuz论坛（Ucenter）整合以及限制UID登录</title>
+      <link>https://ifunboxp.top/327.html</link>
+      <pubDate>Mon, 07 May 2012 04:00:25 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/327.html</guid>
+      <description>最近碰到一个客户，需求是以限制UID限制Ucenter用户登录shopex系统，我也研究了下ShopEx与Discuz论坛（Ucenter）整合，发现确实强大无比。
+我按照官网的ShopEx与Discuz论坛（Ucenter）整合说明整合了两个系统。
+实现以限制UID限制Ucenter用户登录shopex系统方法如下
+core\shop\controller\ctl.passport.php找到约554行
+if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])0)||$info = $memberObj-verifyLogin($_POST[&#39;login&#39;],$_POST[&#39;passwd&#39;],$message)){ 替换成
+if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])2&amp;&amp;$uinfo[0]&amp;lt;5)||$info = $memberObj-verifyLogin($_POST[&#39;login&#39;],$_POST[&#39;passwd&#39;],$message)){ intval($uinfo[0])&amp;gt;2&amp;amp;&amp;amp;$uinfo[0]2且
+前提是Ucenter用户均未登录过shopex系统，因为登录过后shopex系统会插入Ucenter用户的用户信息，导致限制不准确。
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>shopex4.8.5 后台群发,手动发送优惠券(可指定会员)</title>
+      <link>https://ifunboxp.top/316.html</link>
+      <pubDate>Tue, 24 Apr 2012 07:13:51 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/316.html</guid>
+      <description>问题：shopex优惠券发放的不足，shopex优惠券发放一般有2种模式，一是通过促销活动系统自动发放，二是下载优惠券，然后把优惠券号码告之用户。
+第二种方式弊端多多，1.加大了后台工作量（比如要发放给谁，发什么优惠券，发到哪里等这些都要详细的记录，优惠券与会员号要一一对应，难免会出现错误，降低网站的威信）；2.不利于客户管理自己的优惠券，如果通过之前的方式二，发放优惠券，优惠券可以通过邮箱或者站内消息发送给客户，但是不会出现在我的优惠栏目下。
+插件展示：
+
+群发按钮下多了一发优惠券按钮，下方画红圈的优惠券栏目是显示当前会员的优惠券信息，这是新加入的模块。
+
+选中要发放优惠券的会员，然后点击多优惠券效果图如上所示。
+
+优惠券发放成功的效果图，因为有了新模块，后台可以直接看到优惠券信息了
+也可以登录前台查看</description>
+    </item>
+    
+    <item>
+      <title>shopex4.8.5工作记录,售后服务,售前服务登记 后台优化模块|插件</title>
+      <link>https://ifunboxp.top/284.html</link>
+      <pubDate>Fri, 30 Mar 2012 09:18:02 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/284.html</guid>
+      <description>随着商城的慢慢壮大，客服也越来越多了。
+由于客服采用轮休制导致如果这个客服休息，其他客服无法跟踪正在休息客服正在跟踪客户的情况。又考虑客服系统培训时间有限，系统不能太复杂。
+为了解决这些问题，我基于shopex系统操作风格开发了一个记录售后服务信息的小模块。
+先展示下效果图吧，该模版完全兼容原先shopex系统模块，不冲突，继承原shopex系统的界面，查询，导出，删除，恢复等功能。
+
+&amp;nbsp;
+&amp;nbsp;
+
+&amp;nbsp;
+shopex4.8.5工作记录,售后服务模块可以记录信息 如下 会员名，联系人姓名，联系方式，售后服务状态(待处理，已处理，处理中)，具体内容，也可以指定标签，添加信息备注，便于查找。
+系统今天刚上线，目前使用良好。有了这个系统希望可以减少客服的工作量、信息更便于管理。
+&amp;nbsp;
+系统还会跟着需求，慢慢更新的，呵呵，给自己加个油！ 
+&amp;nbsp;
+基本思路
+core\include_v5\adminSchema.php 需破解
+相应加入左栏新菜单
+在core\admin\controller\service新建ctl_service.php
+在core\schemas新建service.php
+在core\model_v5\service新建mdl.service.php
+&amp;nbsp;
+这个插件是有偿的 http://item.taobao.com/item.htm?id=16634764343
+&amp;nbsp;
+&amp;nbsp;
+&amp;nbsp;
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>完美解决shopex捆绑销售页的捆绑销售产品不显示规格的问题</title>
+      <link>https://ifunboxp.top/274.html</link>
+      <pubDate>Tue, 07 Feb 2012 07:38:31 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/274.html</guid>
+      <description>未经修改的shopex在捆绑销售页以及产品页中的捆绑销售产品不显示规格，这个问题显得很不人性化。
+首先下载mdl.package.php，然后覆盖掉core\model_v5\trading下的同名文件
+PS:这个附件我已经改过了，破解了原本加密的代码，然后在getPackageItems方法下多输出了g.pdt_desc显示规格的参数。
+然后打开core\shop\view\package\index.html在代码&amp;lt;{$items.name}&amp;gt;后加入 
+&amp;lt;{if $items.pdt_desc!=&amp;#8221;}&amp;gt;(&amp;lt;{$items.pdt_desc}&amp;gt;)&amp;lt;{/if}&amp;gt;
+PS:显示刚才多输出的规格，这边改的是捆绑销售页面，同理也可以改产品页下的捆绑销售板块。
+
+原文地址：http://www.fanhefan.com/274.htm</description>
+    </item>
+    
+    <item>
+      <title>完美解决shopex产品页面捆绑销售重复显示的问题</title>
+      <link>https://ifunboxp.top/269.html</link>
+      <pubDate>Tue, 07 Feb 2012 07:18:32 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/269.html</guid>
+      <description>今天无意中发现shopex产品页面捆绑销售重复显示的问题
+
+觉得很神奇，回想自己明明只添加了一个捆绑销售信息（如图），怎么会显示出两条信息。
+
+经过分析，才发现shopex产品页面捆绑销售重复显示可能是shopex 4.8.5之前都存在的小BUG，原因是把不同货品添加到了同一个捆绑销售里面，如上图所示的菜板，黑色大、绿色小不同规格。知道问题的原因，就开始寻找解决方法了。
+打开core\shop\controller\ctl.product.php文件找到
+$this-&amp;gt;pagedata[&amp;#8216;package&amp;#8217;] = $aPkgList;这段代码替换为
+$this-&amp;gt;pagedata[&amp;#8216;package&amp;#8217;] = array_unique($aPkgList);
+array_unique函数是php自带去除重复数组的函数，去除了重复内容后当然就只有自己想要显示的内容啦。
+就此shopex产品页面捆绑销售重复显示的问题完美解决。
+
+原文地址:http://www.fanhefan.com/269.html
+&amp;nbsp;
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>基于mootools的SHOPEX图片延迟加载挂件</title>
+      <link>https://ifunboxp.top/249.html</link>
+      <pubDate>Thu, 19 Jan 2012 11:38:17 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/249.html</guid>
+      <description>有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
+在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。
+网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件&amp;#8212;lazyload,感动得都快哭了。
+
+应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。
+下面我就具体说说如何操作吧。
+首先在head中引入lazyload这个插件，具体方法看lazyload介绍页，很简单的。
+这里需要说明下下载的MooTools Javascript Class中有个elements的值需要改变自己shopex中的值，这个值如何取是根据的是shopex需要延迟加载图片div的class或者id值，就是选择器要选择正确就是了。留意红体字。
+ SHOPEX中需要延迟加载图片附近代码：       lazyload代码片段:  options: { range: 200, elements: &amp;ldquo;.goodsImg img&amp;rdquo;, container: window, mode: &amp;ldquo;vertical&amp;rdquo;, realSrcAttribute: &amp;ldquo;data-src&amp;rdquo;, useFade: true },
+ 然后就是修改&amp;lt;img width=&amp;#8221;185&amp;#8243; height=&amp;#8221;185&amp;#8243; title=&amp;#8221;竹纤维洗碗布（硬）&amp;#8221; src=&amp;#8221;images/goods/20120109/1a1b7031b81f8e6b.jpg&amp;#8221;&amp;gt;为img width=&amp;#8221;185&amp;#8243; height=&amp;#8221;185&amp;#8243; title=&amp;#8221;竹纤维洗碗布（硬）&amp;#8221; data-src=&amp;#8221;images/goods/20120109/1a1b7031b81f8e6b.jpg&amp;#8221;&amp;gt;  &amp;nbsp;  到了这里基于mootools的SHOPEX图片延迟加载挂件就安装结束了，shopex系统浏览速度就有了很大的提高了。  &amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>如何解决Shopex4.8.5中关于 Mootools和jQuery 的冲突问题?</title>
+      <link>https://ifunboxp.top/247.html</link>
+      <pubDate>Thu, 19 Jan 2012 07:47:10 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/247.html</guid>
+      <description>ShopEx4.8.5系统用了很多客户端JS特效，特别是后台的管理界面，为了给用户更好的软件体验，更是大量加入了Javascript脚本实现界面和Ajax操作。
+ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属于比较轻巧的Js库，是做前端开发必不可少的脚本库，两者功能相近，开源协议也一样都可以使用 MIT license，Jquery的插件库更丰富一点，在国内使用Jquery的网站也多于mootools，要找些现成的JS脚本制作ShopEx插件应该是更容易，那为什么ShopEx的设计者当初选用了Mootools作为前端脚本库而不是Jquery。ShopEx系统研究认为这可能是设计者的技术偏好，因为mootools更符合所谓的编程模式，让开发人员更容易去定义扩展一个类，代码的类结构更合理清晰，写一个类所需的代码量更少，所以决定选用mootools也合情合理，因为开发人员的出发点永远是写最少的代码在最多的地方使用，达到代码重用的目的。
+不过这增加了普通模板设计师以及第三方服务商基于ShopEx系统定制做模板和插件的难度，因为Jquery更直接简单，国内可找到的资源多，论坛上也有用户提到一个办法可以解决在ShopEx系统中使用Jquery冲突的办法，虽然比较麻烦不利于升级，有急需安装某个Jquery效果的也可以一试：
+解决Shopex中关于 Mootools和jQuery 的冲突问题的方法
+在你的模板目录/block/header.html 里面的标签前添加以下代码
+
+
+jQuery.noConflict();
+
+然后是替换选择器，把使用jquery里面的所有$都替换为jQuery。</description>
+    </item>
+    
+    <item>
+      <title>shopex优惠券使用简化教程(购物车自动列出优惠券)</title>
+      <link>https://ifunboxp.top/239.html</link>
+      <pubDate>Mon, 16 Jan 2012 02:18:16 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/239.html</guid>
+      <description>最近自己负责维护运营的shopex购物站，做迎新大促销，只要用户登录这个shopex网站就会得到一张优惠券，随之问题就来了，很多客户反复的询问优惠券的如何使用这个问题，让人不堪其扰。
+其实导致这个问题出现的原因就是在shopex下使用优惠券太麻烦了，流程太繁琐。未经修改的shopex优惠券使用流程是，先进入我的优惠券，查看优惠券信息，然后复制优惠券号码，进入shopex购物车，粘帖优惠券号码到相应位置。
+显然查看复制优惠券号码是多余的一步，然后我们要简化他，让shopex系统自己查询列出来。
+ 
+详情点击</description>
+    </item>
+    
+    <item>
+      <title>怎么让shopex捆绑促销显示出产品图片？</title>
+      <link>https://ifunboxp.top/235.html</link>
+      <pubDate>Fri, 13 Jan 2012 08:37:22 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/235.html</guid>
+      <description>最近打开shopex的捆绑促销页面越看越不爽，没有产品图用户体验太差了，后决心修改下，研究才发现那么的简单。希望能帮助到被shopex捆绑促销不显示出产品图片的朋友们。
+打开core\shop\view\package\index.html，下面捆绑促销显示页面代码中加粗的地方就是显示捆绑促销产品图片的代码。可以自己加入该页面的任何页面，自己喜欢就好！另附CSS。
+先上效果图：
+
+捆绑促销页面代码:
+&amp;lt;{foreach from=$package item=&#34;itemlist&#34;}&amp;gt; &amp;lt;{$itemlist.name}&amp;gt; &amp;lt;{if $itemlist.intro}&amp;gt; &amp;lt;{$itemlist.intro}&amp;gt; &amp;lt;{/if}&amp;gt; &amp;lt;{t}&amp;gt;此买就送促销产品包括：&amp;lt;{/t}&amp;gt; &amp;lt;{foreach from=$itemlist.items item=&#34;items&#34;}&amp;gt; &#34; target=&#34;_blank&#34;&amp;gt;&#34;&amp;lt;{$items.name}&#34;/&amp;gt; &amp;lt;{$items.name}&amp;gt; &amp;lt;{t}&amp;gt;数量:&amp;lt;{/t}&amp;gt;&amp;lt;{$items.pkgnum}&amp;gt;&amp;lt;{t}&amp;gt; 单价:&amp;lt;{/t}&amp;gt;&amp;lt;{$items.price|cur}&amp;gt; &amp;lt;{/foreach}&amp;gt; &amp;lt;{t}&amp;gt;原价：&amp;lt;{/t}&amp;gt; &amp;lt;{$itemlist.mktprice|cur}&amp;gt; &amp;lt;{t}&amp;gt;买就送价：&amp;lt;{/t}&amp;gt; &amp;lt;{$itemlist.price|cur}&amp;gt; &amp;lt;{if $itemlist.mktprice &amp;gt; $itemlist.price &amp;&amp; $setting.mktprice &amp;&amp; $setting.saveprice &amp;gt; 0}&amp;gt; &amp;lt;{if $setting.saveprice == 1}&amp;gt;&amp;lt;{t}&amp;gt;节省：&amp;lt;{/t}&amp;gt;&amp;lt;{$itemlist.mktprice-$itemlist.price|cur}&amp;gt; &amp;lt;{elseif $setting.saveprice == 2}&amp;gt;&amp;lt;{t}&amp;gt;优惠：&amp;lt;{/t}&amp;gt;&amp;lt;{$itemlist.price/$itemlist.mktprice*100|number:&#39;2&#39;}&amp;gt;% &amp;lt;{elseif $setting.saveprice == 3}&amp;gt;&amp;lt;{$itemlist.price/$itemlist.mktprice*10|number:&#39;1&#39;}&amp;gt;折 &amp;lt;{/if}&amp;gt; &amp;lt;{/if}&amp;gt; &#34;&amp;gt;&amp;lt;{t}&amp;gt;购买&amp;lt;{/t}&amp;gt; &amp;lt;{/foreach}&amp;gt; &amp;lt;{pager data=$pager}&amp;gt;  CSS代码：
+/*捆绑页面出图CSS*/ .PackageGoodsWrap ul.list li{float:left;background:url(ra.gif) no-repeat 0 8px;padding-left:15px;color:#666;display:block;line-height:23px;margin-left:30px;border-bottom: none;} .PackageGoodsWrap .push-6{margin:0;} .PackageGoodsWrap .span-6{float:right;}  </description>
+    </item>
+    
+    <item>
+      <title>在站外调用ShopEx网店中的widget挂件</title>
+      <link>https://ifunboxp.top/204.html</link>
+      <pubDate>Fri, 25 Nov 2011 01:31:26 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/204.html</guid>
+      <description>ShopEx中的widget挂件可以灵活展示网店内的商品、分类、文章等数据，但widget挂件只能用在ShopEx自身系统中，如果想在站外引用就没那么简单了，比如在博客中引用一个ShopEx的挂件展示一下网店内的商品，解决方法如下利用ShopEx自定义模板页面结合Iframe方式显示网店内挂件内容的方法：
+1、在页面管理/模板列表/编辑模板，创建一个新的“站点栏目单独页”模板页面，编辑这个模板页面的源码，用以下代码替换原有的模板页面代码，然后保存。
+
+
+
+
+
+
+
+
+&amp;lt;{main}&amp;gt;
+
+
+2、在站点栏目中添加一个顶级栏目，类型选“单独页面”，模板选刚才我们新建的这个，保存后在可视编辑这个页面的界面上，添加我们所需要展示的挂件版块到页面。保存后在站点栏目中设置这个页面不显示在导航中，以免在网店导航菜单中显示这个页面的链接。可以在站点栏目点浏览按钮查看这个页面的URL，这个页面现在只有一个我们刚才添加的widget挂件，可以在站外被干净的引用了。
+
+
+3、在博客编辑时插入iframe代码引用展示这个新创建的独立页面，代码如下：
+
+转自http://www.shopextool.cn/blog/?p=77
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>如何自定义shopex边框</title>
+      <link>https://ifunboxp.top/202.html</link>
+      <pubDate>Thu, 24 Nov 2011 02:45:18 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/202.html</guid>
+      <description>首先：在模板文件themes/fanhefan/borders/目录下新建文件border9.html，这里的border_nav.html是你等下要调用的文件，可以随便命名。
+其次：在themes/fanhefan下修改这两个文件：theme.xml，info.xml。再两个文件中找 到,在中间你会看到原来的一些东西，需要的话就不用删除，直接加
+然后，可以开始写border_nav.html的内容了，css+div不二的选则，写作规则可以参照这个例子，也可以结合其他自带边框的例子。
+&amp;lt;div id=”&amp;lt;{$widgets_id}”   &amp;lt;{$title}    &amp;lt;{$body}    &amp;lt;/div  根据自己的需要调整，相信大家可以写好的。样式表在themes/fanhefan/images/border中添加。
+最后就是要应用了，我们要先到网站后台备份一下模板，然后再次点击应用备份模板，你就会发现你写的边框在板块边框选择中出现了。注意，一定要先备份下模板，否则你写的东西是没法显示的。</description>
+    </item>
+    
+    <item>
+      <title>ShopEx自动生成用户名以及随机密码（MD5）</title>
+      <link>https://ifunboxp.top/190.html</link>
+      <pubDate>Fri, 18 Nov 2011 09:13:19 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/190.html</guid>
+      <description>ShopEx自动生成用户名以及随机密码（MD5）
+该程序是自动生成10000个用户名（11位数字没有4，首位为1），用户名后5位为密码。
+之前不知道ShopEx是怎么加密的，但是研究了发现ShopEx是用MD5加密的，所以SQL语句中密码（用户名后5位数字）都经过MD5处理。
+&#34;; ?  </description>
+    </item>
+    
+  </channel>
+</rss>

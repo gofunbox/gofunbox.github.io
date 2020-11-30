@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on 记录点点滴滴</title>
+    <link>https://ifunboxp.top/tags/html/</link>
+    <description>Recent content in Html on 记录点点滴滴</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Jul 2017 06:05:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunboxp.top/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Content Security Policy教程</title>
+      <link>https://ifunboxp.top/content-security-policy/</link>
+      <pubDate>Wed, 26 Jul 2017 06:05:08 +0000</pubDate>
+      
+      <guid>https://ifunboxp.top/content-security-policy/</guid>
+      <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
+为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
+这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
+CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
+开启方式
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;lt;meta&amp;gt;标签。 &amp;lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&amp;gt;  具体含义:
+* 脚本：只信任当前域名
+* &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
+* 样式表：只信任cdn.example.org和third-party.org
+* 框架（frame）：必须使用HTTPS协议加载
+* 其他资源：没有限制
+启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。
+限制选项  资源加载限制  script-src：外部脚本 style-src：样式表 img-src：图像 media-src：媒体文件（音频和视频） font-src：字体文件 object-src：插件（比如 Flash） child-src：框架 frame-ancestors：嵌入的外部资源（比如&amp;lt;frame&amp;gt;、&amp;lt;iframe&amp;gt;、&amp;lt;embed&amp;gt;和&amp;lt;applet&amp;gt;） connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等） worker-src：worker脚本 manifest-src：manifest 文件  default-src</description>
+    </item>
+    
+  </channel>
+</rss>
