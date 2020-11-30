@@ -9,30 +9,30 @@
   
   <meta itemprop="name" content="数据库 - 记录点点滴滴">
   <meta itemprop="description" content="数据库">
-  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  <meta itemprop="image" content="https://gofunbox.github.io/img/author.jpg">
   
   
   <meta name="twitter:description" content="">
-  <link rel="alternate" href="https://ifunboxp.topfeed.xml" title="记录点点滴滴" type="application/rss+xml"/>
-  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
-  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
-  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
-  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <link rel="alternate" href="https://gofunbox.github.io/feed.xml" title="记录点点滴滴" type="application/rss+xml"/>
+  <link rel="shortcut icon" href="https://gofunbox.github.io/img/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://gofunbox.github.io/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://gofunbox.github.io/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://gofunbox.github.io/highlight/styles/github.css">
+  <script src="https://gofunbox.github.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   
-  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
-  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+  <link rel="stylesheet" href="https://gofunbox.github.io/font/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://gofunbox.github.io/css/style.css">
 </head>
 
 <body>
   <header>
     <div>
   <div id="imglogo">
-    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+    <a href="https://gofunbox.github.io/"><img src='https://gofunbox.github.io/img/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
   </div>
   <div id="textlogo">
-    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h1 class="site-name"><a href="https://gofunbox.github.io/" title="记录点点滴滴">记录点点滴滴</a></h1>
     <h2 class="blog-motto">awesome!</h2>
   </div>
   <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
@@ -59,7 +59,7 @@
       <h2 id="2017-07">2017-07</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysql-show-processlist/" title="MySQL SHOW PROCESSLIST输出详解" itemprop="url">
+    <a href="https://gofunbox.github.io/mysql-show-processlist/" title="MySQL SHOW PROCESSLIST输出详解" itemprop="url">
     <h1 itemprop="name">MySQL SHOW PROCESSLIST输出详解</h1>
     <p itemprop="description">mysql&gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
 连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
@@ -76,7 +76,7 @@
       <h2 id="2015-12">2015-12</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/linux_mysql56_replication/" title="Linux MySQL5.6 主从复制配置" itemprop="url">
+    <a href="https://gofunbox.github.io/linux_mysql56_replication/" title="Linux MySQL5.6 主从复制配置" itemprop="url">
     <h1 itemprop="name">Linux MySQL5.6 主从复制配置</h1>
     <p itemprop="description">环境说明：
 两台安装在CentOS6.5的MySQL5.6.21服务器：master 和 slave Master服务器： IP：192.168.80.51 Port：3316 Slave 服务器： IP：192.168.80.52 Port：3316 配置步骤：
@@ -120,7 +120,7 @@ Slave_IO_Running: Yes</p>
       <h2 id="2015-11">2015-11</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/global_airport_mysql_data/" title="全球机场数据mysql(包含全国机场数据，国外大中小机场数据)" itemprop="url">
+    <a href="https://gofunbox.github.io/global_airport_mysql_data/" title="全球机场数据mysql(包含全国机场数据，国外大中小机场数据)" itemprop="url">
     <h1 itemprop="name">全球机场数据mysql(包含全国机场数据，国外大中小机场数据)</h1>
     <p itemprop="description">最近整理了一个全球机场数据mysql版，挺全的 包含全国全球各大机场数据（所属城市 三字代码 国家 国家代码 四字代码 机场名称 英文） 全国全球机场数据由三个表组成lk_airport（机场名称数据表）、lk_airport_city（国内城市表）、lk_airport_inter_city（国外城市表）组成 城市表数据是参考携程的，机场名称数据是http://www.hlhkys.com/dmair/cx.asp这边采集的 直接上mysql语句 /* Date: 2015-11-27 17:24:30 */ SET FOREIGN_KEY_CHECKS=0; -- ---------------------------- -- Table structure for lk_airport -- ---------------------------- DROP TABLE IF EXISTS `lk_airport`; CREATE TABLE `lk_airport` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL DEFAULT '' COMMENT '机场名', `city_id` int(10) unsigned NOT NULL DEFAULT '0', `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '1正常 0删除', PRIMARY KEY (`id`) ) ENGINE=MyISAM AUTO_INCREMENT=1397 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport -- ---------------------------- INSERT INTO `lk_airport` VALUES ('1', '首都机场', '17', '0'); INSERT INTO `lk_airport` VALUES ('2', '宝安机场', '146', '0'); INSERT INTO `lk_airport` VALUES ('3', '凤凰国际机场', '145', '0'); INSERT INTO `lk_airport` VALUES ('4', '仁川国际机场', '301', '0'); INSERT INTO `lk_airport` VALUES ('5', '白云机场', '399', '0'); INSERT INTO `lk_airport` VALUES ('6', '白云机场', '54', '0'); INSERT INTO `lk_airport` VALUES ('7', '安康富强机场', '2', '0'); INSERT INTO `lk_airport` VALUES ('8', '阿里昆莎机场', '8', '0'); INSERT INTO `lk_airport` VALUES ('9', 'AAA机场', '351', '0'); INSERT INTO `lk_airport` VALUES ('10', 'BBB机场', '142', '0'); INSERT INTO `lk_airport` VALUES ('11', '北京首都国际机场T3', '17', '0'); INSERT INTO `lk_airport` VALUES ('1001', '洛杉矶机场', '358', '1'); INSERT INTO `lk_airport` VALUES ('1002', '伦敦希思罗机场', '327', '1'); INSERT INTO `lk_airport` VALUES ('1003', '肯尼迪机场', '357', '1'); INSERT INTO `lk_airport` VALUES ('1004', '法兰克福机场', '329', '1'); INSERT INTO `lk_airport` VALUES ('1005', '上海虹桥机场', '141', '1'); INSERT INTO `lk_airport` VALUES ('1006', '迪拜机场', '314', '1'); INSERT INTO `lk_airport` VALUES ('1007', '戴高乐机场', '328', '1'); INSERT INTO `lk_airport` VALUES ('1008', '广州白云机场', '54', '1'); INSERT INTO `lk_airport` VALUES ('1009', '北京首都机场', '17', '1'); INSERT INTO `lk_airport` VALUES ('1010', '樟宜机场', '302', '1'); INSERT INTO `lk_airport` VALUES ('1011', '悉尼', '412', '1'); INSERT INTO `lk_airport` VALUES ('1012', '谢诺梅杰沃机场', '330', '1'); INSERT INTO `lk_airport` VALUES ('1013', '多伦多', '362', '1'); INSERT INTO `lk_airport` VALUES ('1014', '深圳宝安机场', '146', '1'); INSERT INTO `lk_airport` VALUES ('1015', '布达佩斯机场', '353', '1'); INSERT INTO `lk_airport` VALUES ('1016', '墨西哥城机场', '377', '1'); INSERT INTO `lk_airport` VALUES ('1017', '温哥华', '360', '1'); INSERT INTO `lk_airport` VALUES ('1018', '爱华隆机场', '413', '1'); INSERT INTO `lk_airport` VALUES ('1019', '汉堡机场', '354', '1'); INSERT INTO `lk_airport` VALUES ('1020', '孟买机场', '325', '1'); INSERT INTO `lk_airport` VALUES ('1021', '阿塔图尔克机场', '323', '1'); INSERT INTO `lk_airport` VALUES ('1022', '米兰马尔本萨机场', '333', '1'); INSERT INTO `lk_airport` VALUES ('1023', '芝加哥机场', '361', '1'); INSERT INTO `lk_airport` VALUES ('1024', '荷兰阿姆斯特丹斯史基浦(西霍普)机场', '332', '1'); INSERT INTO `lk_airport` VALUES ('1025', '香港赤鱲角国际机场', '209', '1'); INSERT INTO `lk_airport` VALUES ('1026', '曼谷(素万那普)机场', '303', '1'); INSERT INTO `lk_airport` VALUES ('1027', '东京机场', '300', '1'); INSERT INTO `lk_airport` VALUES ('1028', '圣保罗机场', '375', '1'); INSERT INTO `lk_airport` VALUES ('1029', '成都双流机场', '30', '1'); INSERT INTO `lk_airport` VALUES ('1030', '开罗机场', '387', '1'); INSERT INTO `lk_airport` VALUES ('1031', '吉隆坡机场', '304', '1'); INSERT INTO `lk_airport` VALUES ('1032', '拉各斯机场', '391', '1'); INSERT INTO `lk_airport` VALUES ('1033', '约翰内斯堡机场', '388', '1'); INSERT INTO `lk_airport` VALUES ('1034', '乌鲁木齐地窝堡机场', '161', '1'); INSERT INTO `lk_airport` VALUES ('1035', '重庆江北机场', '27', '1'); INSERT INTO `lk_airport` VALUES ('1036', '迈阿密机场', '380', '1'); INSERT INTO `lk_airport` VALUES ('1037', '蒙特利尔', '369', '1'); INSERT INTO `lk_airport` VALUES ('1038', '雅加达 苏加诺-哈达机场', '306', '1'); INSERT INTO `lk_airport` VALUES ('1039', '旧金山机场', '359', '1'); INSERT INTO `lk_airport` VALUES ('1040', '布鲁塞尔机场', '340', '1'); INSERT INTO `lk_airport` VALUES ('1041', '卢萨卡机场', '402', '1'); INSERT INTO `lk_airport` VALUES ('1042', '台北松山机场', '211', '1'); INSERT INTO `lk_airport` VALUES ('1043', '胡志明市机场', '307', '1'); INSERT INTO `lk_airport` VALUES ('1044', '基辅机场', '352', '1'); INSERT INTO `lk_airport` VALUES ('1045', '马德里机场', '338', '1'); INSERT INTO `lk_airport` VALUES ('1046', '马尼拉机场', '308', '1'); INSERT INTO `lk_airport` VALUES ('1047', '奥克兰机场', '414', '1'); INSERT INTO `lk_airport` VALUES ('1048', '曼彻斯特机场', '337', '1'); INSERT INTO `lk_airport` VALUES ('1049', '上海浦东机场', '141', '1'); INSERT INTO `lk_airport` VALUES ('1050', '布宜诺斯艾利斯机场', '386', '1'); INSERT INTO `lk_airport` VALUES ('1051', '昆明巫家坝机场', '98', '1'); INSERT INTO `lk_airport` VALUES ('1052', '菲乌米奇诺机场', '331', '1'); INSERT INTO `lk_airport` VALUES ('1053', '巴塞罗那机场', '344', '1'); INSERT INTO `lk_airport` VALUES ('1054', '哥本哈根机场', '341', '1'); INSERT INTO `lk_airport` VALUES ('1055', '赫尔辛基机场', '342', '1'); INSERT INTO `lk_airport` VALUES ('1056', '达拉斯沃尔斯堡机场', '372', '1'); INSERT INTO `lk_airport` VALUES ('1057', '西雅图机场', '363', '1'); INSERT INTO `lk_airport` VALUES ('1058', '加德满都机场', '316', '1'); INSERT INTO `lk_airport` VALUES ('1059', '河内机场', '312', '1'); INSERT INTO `lk_airport` VALUES ('1060', '首尔仁川机场', '301', '1'); INSERT INTO `lk_airport` VALUES ('1061', '布拉格机场', '355', '1'); INSERT INTO `lk_airport` VALUES ('1062', '青岛流亭机场', '138', '1'); INSERT INTO `lk_airport` VALUES ('1063', '布里斯班机场', '415', '1'); INSERT INTO `lk_airport` VALUES ('1064', '关西机场', '305', '1'); INSERT INTO `lk_airport` VALUES ('1065', '斯德哥尔摩机场', '335', '1'); INSERT INTO `lk_airport` VALUES ('1066', '武汉天河机场', '167', '1'); INSERT INTO `lk_airport` VALUES ('1067', '底特律机场', '366', '1'); INSERT INTO `lk_airport` VALUES ('1068', '哈尔滨太平机场', '75', '1'); INSERT INTO `lk_airport` VALUES ('1069', '沈阳桃仙机场', '142', '1'); INSERT INTO `lk_airport` VALUES ('1070', '大连国际机场', '39', '1'); INSERT INTO `lk_airport` VALUES ('1071', '波士顿机场', '365', '1'); INSERT INTO `lk_airport` VALUES ('1072', '华盛顿机场', '364', '1'); INSERT INTO `lk_airport` VALUES ('1073', '日内瓦机场', '349', '1'); INSERT INTO `lk_airport` VALUES ('1074', '苏黎世机场', '339', '1'); INSERT INTO `lk_airport` VALUES ('1075', '亚特兰大机场', '367', '1'); INSERT INTO `lk_airport` VALUES ('1076', '伯明翰机场', '347', '1'); INSERT INTO `lk_airport` VALUES ('1077', '雅典机场', '345', '1'); INSERT INTO `lk_airport` VALUES ('1078', '西安咸阳机场', '178', '1'); INSERT INTO `lk_airport` VALUES ('1079', '天津滨海机场', '157', '1'); INSERT INTO `lk_airport` VALUES ('1080', '杭州萧山机场', '70', '1'); INSERT INTO `lk_airport` VALUES ('1081', '默罕默德V机场', '399', '1'); INSERT INTO `lk_airport` VALUES ('1082', '慕尼黑机场', '334', '1'); INSERT INTO `lk_airport` VALUES ('1083', '圣彼得堡机场', '350', '1'); INSERT INTO `lk_airport` VALUES ('1084', '维也纳机场', '343', '1'); INSERT INTO `lk_airport` VALUES ('1085', '泰格尔机场', '336', '1'); INSERT INTO `lk_airport` VALUES ('1086', '珀斯机场', '417', '1'); INSERT INTO `lk_airport` VALUES ('1087', '长沙黄花机场', '29', '1'); INSERT INTO `lk_airport` VALUES ('1088', '科托卡机场', '397', '1'); INSERT INTO `lk_airport` VALUES ('1089', '郑州新郑机场', '198', '1'); INSERT INTO `lk_airport` VALUES ('1090', '开普顿机场', '389', '1'); INSERT INTO `lk_airport` VALUES ('1091', '济南遥墙机场', '92', '1'); INSERT INTO `lk_airport` VALUES ('1092', '罗安达二月四日机场', '392', '1'); INSERT INTO `lk_airport` VALUES ('1093', '厦门高崎机场', '179', '1'); INSERT INTO `lk_airport` VALUES ('1094', '丹佛机场', '381', '1'); INSERT INTO `lk_airport` VALUES ('1095', '杜塞尔多夫机场', '356', '1'); INSERT INTO `lk_airport` VALUES ('1096', '阿尔及尔机场', '398', '1'); INSERT INTO `lk_airport` VALUES ('1097', '贵阳龙洞堡机场', '60', '1'); INSERT INTO `lk_airport` VALUES ('1098', '海口美兰机场', '64', '1'); INSERT INTO `lk_airport` VALUES ('1099', '长春龙嘉国际机场', '23', '1'); INSERT INTO `lk_airport` VALUES ('1100', '德班机场', '400', '1'); INSERT INTO `lk_airport` VALUES ('1101', '南京禄口机场', '125', '1'); INSERT INTO `lk_airport` VALUES ('1102', '温州永强机场', '165', '1'); INSERT INTO `lk_airport` VALUES ('1103', '喀土穆机场', '396', '1'); INSERT INTO `lk_airport` VALUES ('1104', '拉斯维加斯麦卡伦国际机场机场', '378', '1'); INSERT INTO `lk_airport` VALUES ('1105', '金边机场', '319', '1'); INSERT INTO `lk_airport` VALUES ('1106', '宁波栎社机场', '124', '1'); INSERT INTO `lk_airport` VALUES ('1107', '哈拉雷机场', '403', '1'); INSERT INTO `lk_airport` VALUES ('1108', '马累机场', '313', '1'); INSERT INTO `lk_airport` VALUES ('1109', '南昌昌北机场', '122', '1'); INSERT INTO `lk_airport` VALUES ('1110', '波特兰机场', '383', '1'); INSERT INTO `lk_airport` VALUES ('1111', '亚的斯亚贝巴机场', '395', '1'); INSERT INTO `lk_airport` VALUES ('1112', '格拉斯哥机场', '351', '1'); INSERT INTO `lk_airport` VALUES ('1113', '名古屋中部/新特丽亚机场', '310', '1'); INSERT INTO `lk_airport` VALUES ('1114', '突尼斯机场', '401', '1'); INSERT INTO `lk_airport` VALUES ('1115', '合肥骆岗机场', '69', '1'); INSERT INTO `lk_airport` VALUES ('1116', '奥兰多机场', '382', '1'); INSERT INTO `lk_airport` VALUES ('1117', '高雄机场', '317', '1'); INSERT INTO `lk_airport` VALUES ('1118', '尼雷尔机场', '394', '1'); INSERT INTO `lk_airport` VALUES ('1119', '三亚凤凰机场', '145', '1'); INSERT INTO `lk_airport` VALUES ('1120', '南宁吴圩机场', '127', '1'); INSERT INTO `lk_airport` VALUES ('1121', '费城机场', '374', '1'); INSERT INTO `lk_airport` VALUES ('1122', '毛里求斯机场', '393', '1'); INSERT INTO `lk_airport` VALUES ('1123', '明尼阿波利斯―圣保罗机场', '373', '1'); INSERT INTO `lk_airport` VALUES ('1124', '金海机场', '315', '1'); INSERT INTO `lk_airport` VALUES ('1125', '阿德莱德机场', '416', '1'); INSERT INTO `lk_airport` VALUES ('1126', '石家庄正定机场', '144', '1'); INSERT INTO `lk_airport` VALUES ('1127', '烟台莱山机场', '194', '1'); INSERT INTO `lk_airport` VALUES ('1128', '阿比让', '410', '1'); INSERT INTO `lk_airport` VALUES ('1129', '休斯敦机场', '368', '1'); INSERT INTO `lk_airport` VALUES ('1130', '银川河东机场', '183', '1'); INSERT INTO `lk_airport` VALUES ('1131', '兰州机场', '103', '1'); INSERT INTO `lk_airport` VALUES ('1132', '乌兰巴托机场', '324', '1'); INSERT INTO `lk_airport` VALUES ('1133', '福州长乐机场', '50', '1'); INSERT INTO `lk_airport` VALUES ('1134', '西宁曹家堡机场', '180', '1'); INSERT INTO `lk_airport` VALUES ('1135', '拉萨贡嘎机场', '109', '1'); INSERT INTO `lk_airport` VALUES ('1136', '桂林两江机场', '61', '1'); INSERT INTO `lk_airport` VALUES ('1137', '埃德蒙顿市中心机场', '385', '1'); INSERT INTO `lk_airport` VALUES ('1138', '澳门机场', '210', '1'); INSERT INTO `lk_airport` VALUES ('1139', '湛江机场', '204', '1'); INSERT INTO `lk_airport` VALUES ('1140', '杜阿拉机场', '408', '1'); INSERT INTO `lk_airport` VALUES ('1141', '金沙萨恩吉利机场', '406', '1'); INSERT INTO `lk_airport` VALUES ('1142', '爱丁堡机场', '346', '1'); INSERT INTO `lk_airport` VALUES ('1143', '徐州观音机场', '181', '1'); INSERT INTO `lk_airport` VALUES ('1144', 'CALGARY机场', '379', '1'); INSERT INTO `lk_airport` VALUES ('1145', '威海文登大水泊机场', '163', '1'); INSERT INTO `lk_airport` VALUES ('1146', '渥太华机场', '376', '1'); INSERT INTO `lk_airport` VALUES ('1147', '福冈机场', '318', '1'); INSERT INTO `lk_airport` VALUES ('1148', '佳木斯机场', '86', '1'); INSERT INTO `lk_airport` VALUES ('1149', '呼和浩特白塔国际机场', '68', '1'); INSERT INTO `lk_airport` VALUES ('1150', '马普托机场', '407', '1'); INSERT INTO `lk_airport` VALUES ('1151', '达尔文机场', '425', '1'); INSERT INTO `lk_airport` VALUES ('1152', '无锡硕放机场', '169', '1'); INSERT INTO `lk_airport` VALUES ('1153', '义乌机场', '192', '1'); INSERT INTO `lk_airport` VALUES ('1154', '景洪(西双版纳)机场', '174', '1'); INSERT INTO `lk_airport` VALUES ('1155', '珠海三灶机场', '207', '1'); INSERT INTO `lk_airport` VALUES ('1156', '大庆萨尔图机场', '43', '1'); INSERT INTO `lk_airport` VALUES ('1157', '喀什机场', '95', '1'); INSERT INTO `lk_airport` VALUES ('1158', '黄金海岸机场', '422', '1'); INSERT INTO `lk_airport` VALUES ('1159', '宜昌三峡机场', '190', '1'); INSERT INTO `lk_airport` VALUES ('1160', '宜宾(菜坝)机场', '187', '1'); INSERT INTO `lk_airport` VALUES ('1161', '柳州白莲机场', '114', '1'); INSERT INTO `lk_airport` VALUES ('1162', '临沂沭埠岭机场', '113', '1'); INSERT INTO `lk_airport` VALUES ('1163', '堪培拉机场', '419', '1'); INSERT INTO `lk_airport` VALUES ('1164', '纽卡斯尔机场', '348', '1'); INSERT INTO `lk_airport` VALUES ('1165', '鄂尔多斯伊金霍洛机场', '46', '1'); INSERT INTO `lk_airport` VALUES ('1166', '包头二里半机场', '12', '1'); INSERT INTO `lk_airport` VALUES ('1167', '普吉机场', '311', '1'); INSERT INTO `lk_airport` VALUES ('1168', '牡丹江海浪机场', '117', '1'); INSERT INTO `lk_airport` VALUES ('1169', '阿克苏机场', '3', '1'); INSERT INTO `lk_airport` VALUES ('1170', '丽江三义机场', '105', '1'); INSERT INTO `lk_airport` VALUES ('1171', '锦州小岭子机场', '88', '1'); INSERT INTO `lk_airport` VALUES ('1172', '延吉朝阳川机场', '193', '1'); INSERT INTO `lk_airport` VALUES ('1173', '丹东浪头机场', '37', '1'); INSERT INTO `lk_airport` VALUES ('1174', '泉州晋江机场', '85', '1'); INSERT INTO `lk_airport` VALUES ('1175', '惠灵顿机场', '418', '1'); INSERT INTO `lk_airport` VALUES ('1176', '潍坊机场', '162', '1'); INSERT INTO `lk_airport` VALUES ('1177', '常州奔牛机场', '31', '1'); INSERT INTO `lk_airport` VALUES ('1178', '连云港白塔埠机场', '112', '1'); INSERT INTO `lk_airport` VALUES ('1179', '佛山沙堤机场', '52', '1'); INSERT INTO `lk_airport` VALUES ('1180', '洛阳机场', '111', '1'); INSERT INTO `lk_airport` VALUES ('1181', '内蒙古海拉尔东山机场', '73', '1'); INSERT INTO `lk_airport` VALUES ('1182', '齐齐哈尔三家子机场', '136', '1'); INSERT INTO `lk_airport` VALUES ('1183', '北海福城机场', '14', '1'); INSERT INTO `lk_airport` VALUES ('1184', '揭阳潮汕机场', '91', '1'); INSERT INTO `lk_airport` VALUES ('1185', '秦皇岛山海关机场', '137', '1'); INSERT INTO `lk_airport` VALUES ('1186', '襄阳刘集机场', '175', '1'); INSERT INTO `lk_airport` VALUES ('1187', '绵阳南郊机场', '118', '1'); INSERT INTO `lk_airport` VALUES ('1188', '哈密机场', '74', '1'); INSERT INTO `lk_airport` VALUES ('1189', '嘉峪关机场', '81', '1'); INSERT INTO `lk_airport` VALUES ('1190', '凯恩斯机场', '420', '1'); INSERT INTO `lk_airport` VALUES ('1191', '南通兴东机场', '129', '1'); INSERT INTO `lk_airport` VALUES ('1192', '张家界荷花机场', '199', '1'); INSERT INTO `lk_airport` VALUES ('1193', '武夷山机场', '168', '1'); INSERT INTO `lk_airport` VALUES ('1194', '攀枝花保安营机场', '130', '1'); INSERT INTO `lk_airport` VALUES ('1195', '南阳姜营机场', '128', '1'); INSERT INTO `lk_airport` VALUES ('1196', '赣州黄金机场', '59', '1'); INSERT INTO `lk_airport` VALUES ('1197', '台州路桥（原黄岩路桥）机场', '149', '1'); INSERT INTO `lk_airport` VALUES ('1198', '山西大同机场', '34', '1'); INSERT INTO `lk_airport` VALUES ('1199', '伊宁机场', '191', '1'); INSERT INTO `lk_airport` VALUES ('1200', '遵义机场', '208', '1'); INSERT INTO `lk_airport` VALUES ('1201', '江苏盐城南洋机场', '195', '1'); INSERT INTO `lk_airport` VALUES ('1202', '库尔勒机场', '99', '1'); INSERT INTO `lk_airport` VALUES ('1203', '九江庐山机场', '84', '1'); INSERT INTO `lk_airport` VALUES ('1204', '西昌青山机场', '176', '1'); INSERT INTO `lk_airport` VALUES ('1205', '榆林西沙机场', '186', '1'); INSERT INTO `lk_airport` VALUES ('1206', '艾塞尼亚机场', '382', '1'); INSERT INTO `lk_airport` VALUES ('1207', '扬州泰州机场', '196', '1'); INSERT INTO `lk_airport` VALUES ('1208', '泸州蓝田机场', '115', '1'); INSERT INTO `lk_airport` VALUES ('1209', '卢克索机场', '411', '1'); INSERT INTO `lk_airport` VALUES ('1210', '札幌机场', '322', '1'); INSERT INTO `lk_airport` VALUES ('1211', '南充高坪机场', '123', '1'); INSERT INTO `lk_airport` VALUES ('1212', '大理荒草坝机场', '40', '1'); INSERT INTO `lk_airport` VALUES ('1213', '湖南永州零陵机场', '185', '1'); INSERT INTO `lk_airport` VALUES ('1214', '黄山屯溪机场', '78', '1'); INSERT INTO `lk_airport` VALUES ('1215', '呼伦贝尔满洲里西郊机场', '120', '1'); INSERT INTO `lk_airport` VALUES ('1216', '衢州机场', '135', '1'); INSERT INTO `lk_airport` VALUES ('1217', '唐山三女河机场', '158', '1'); INSERT INTO `lk_airport` VALUES ('1218', '巴厘', '309', '1'); INSERT INTO `lk_airport` VALUES ('1219', '乌兰浩特机场', '160', '1'); INSERT INTO `lk_airport` VALUES ('1220', '贵州黎平机场', '101', '1'); INSERT INTO `lk_airport` VALUES ('1221', '常德桃花源(斗姆湖)机场', '22', '1'); INSERT INTO `lk_airport` VALUES ('1222', '格尔木机场', '56', '1'); INSERT INTO `lk_airport` VALUES ('1223', '济州机场', '321', '1'); INSERT INTO `lk_airport` VALUES ('1224', '恩施机场', '48', '1'); INSERT INTO `lk_airport` VALUES ('1225', '阜阳西关机场', '51', '1'); INSERT INTO `lk_airport` VALUES ('1226', '淮安涟水机场', '71', '1'); INSERT INTO `lk_airport` VALUES ('1227', '景德镇罗家机场', '79', '1'); INSERT INTO `lk_airport` VALUES ('1228', '二连浩特赛乌苏国际机场', '49', '1'); INSERT INTO `lk_airport` VALUES ('1229', '林芝机场', '116', '1'); INSERT INTO `lk_airport` VALUES ('1230', '通辽机场', '153', '1'); INSERT INTO `lk_airport` VALUES ('1231', '巴厘岛', '309', '1'); INSERT INTO `lk_airport` VALUES ('1232', '怀化芷江机场', '72', '1'); INSERT INTO `lk_airport` VALUES ('1233', '河北邯郸机场机场', '66', '1'); INSERT INTO `lk_airport` VALUES ('1234', '运城关公机场', '188', '1'); INSERT INTO `lk_airport` VALUES ('1235', '巴彦淖尔天吉泰机场', '18', '1'); INSERT INTO `lk_airport` VALUES ('1236', '敦煌机场', '41', '1'); INSERT INTO `lk_airport` VALUES ('1237', '鸡西兴凯湖机场', '89', '1'); INSERT INTO `lk_airport` VALUES ('1238', '克拉玛依机场', '100', '1'); INSERT INTO `lk_airport` VALUES ('1239', '荆州沙市机场', '143', '1'); INSERT INTO `lk_airport` VALUES ('1240', '茨城机场', '326', '1'); INSERT INTO `lk_airport` VALUES ('1241', '中卫(香山、沙坡头)机场', '205', '1'); INSERT INTO `lk_airport` VALUES ('1242', '汉中西关机场', '77', '1'); INSERT INTO `lk_airport` VALUES ('1243', '青海玉树三江源(巴塘)机场', '197', '1'); INSERT INTO `lk_airport` VALUES ('1244', '重庆万州五桥机场', '171', '1'); INSERT INTO `lk_airport` VALUES ('1245', '锡林浩特机场', '177', '1'); INSERT INTO `lk_airport` VALUES ('1246', '安庆(天柱山）机场', '5', '1'); INSERT INTO `lk_airport` VALUES ('1247', '济宁机场', '87', '1'); INSERT INTO `lk_airport` VALUES ('1248', '霍巴特机场', '424', '1'); INSERT INTO `lk_airport` VALUES ('1249', '赤峰玉龙机场', '25', '1'); INSERT INTO `lk_airport` VALUES ('1250', '黑河机场', '67', '1'); INSERT INTO `lk_airport` VALUES ('1251', '长白山机场', '33', '1'); INSERT INTO `lk_airport` VALUES ('1252', '塞班机场', '371', '1'); INSERT INTO `lk_airport` VALUES ('1253', '和田机场', '76', '1'); INSERT INTO `lk_airport` VALUES ('1254', '腾冲（驼峰）机场', '151', '1'); INSERT INTO `lk_airport` VALUES ('1255', '漠河古莲机场', '121', '1'); INSERT INTO `lk_airport` VALUES ('1256', '长治王村机场', '26', '1'); INSERT INTO `lk_airport` VALUES ('1257', '通化机场', '156', '1'); INSERT INTO `lk_airport` VALUES ('1258', '库车机场', '93', '1'); INSERT INTO `lk_airport` VALUES ('1259', '金昌机场', '83', '1'); INSERT INTO `lk_airport` VALUES ('1260', '舟山普陀山朱家尖机场', '200', '1'); INSERT INTO `lk_airport` VALUES ('1261', '井冈山机场', '82', '1'); INSERT INTO `lk_airport` VALUES ('1262', '甘肃天水机场', '154', '1'); INSERT INTO `lk_airport` VALUES ('1263', '云南文山普者黑机场', '164', '1'); INSERT INTO `lk_airport` VALUES ('1264', '临沧机场', '108', '1'); INSERT INTO `lk_airport` VALUES ('1265', '庆阳机场', '133', '1'); INSERT INTO `lk_airport` VALUES ('1266', '昭通机场', '202', '1'); INSERT INTO `lk_airport` VALUES ('1267', '广元机场', '57', '1'); INSERT INTO `lk_airport` VALUES ('1268', '伊春林都机场', '184', '1'); INSERT INTO `lk_airport` VALUES ('1269', '吐鲁番交河机场', '155', '1'); INSERT INTO `lk_airport` VALUES ('1270', '康定机场', '94', '1'); INSERT INTO `lk_airport` VALUES ('1271', '铜仁凤凰机场', '152', '1'); INSERT INTO `lk_airport` VALUES ('1272', '广汉机场', '55', '1'); INSERT INTO `lk_airport` VALUES ('1273', '鞍山机场', '4', '1'); INSERT INTO `lk_airport` VALUES ('1274', '福建龙岩冠豸山机场', '102', '1'); INSERT INTO `lk_airport` VALUES ('1275', '扬', '196', '1'); INSERT INTO `lk_airport` VALUES ('1276', '安康机场', '2', '1'); INSERT INTO `lk_airport` VALUES ('1277', '贵州安顺黄果树机场', '6', '1'); INSERT INTO `lk_airport` VALUES ('1278', '普洱(思茅)机场', '131', '1'); INSERT INTO `lk_airport` VALUES ('1279', '且末机场', '132', '1'); INSERT INTO `lk_airport` VALUES ('1280', '迪庆香格里拉机场', '38', '1'); INSERT INTO `lk_airport` VALUES ('1281', '九寨沟黄龙(九黄）机场', '90', '1'); INSERT INTO `lk_airport` VALUES ('1282', '阿勒泰机场', '1', '1'); INSERT INTO `lk_airport` VALUES ('1283', '广西梧州长洲岛机场', '170', '1'); INSERT INTO `lk_airport` VALUES ('1284', '辽宁朝阳机场', '24', '1'); INSERT INTO `lk_airport` VALUES ('1285', '西藏昌都邦达机场', '21', '1'); INSERT INTO `lk_airport` VALUES ('1286', '延安二十里铺机场', '182', '1'); INSERT INTO `lk_airport` VALUES ('1287', '阿勒', '1', '1'); INSERT INTO `lk_airport` VALUES ('1288', '张掖机场', '201', '1'); INSERT INTO `lk_airport` VALUES ('1289', '新疆博乐机场', '15', '1'); INSERT INTO `lk_airport` VALUES ('1290', '日喀则和平机场', '139', '1'); INSERT INTO `lk_airport` VALUES ('1291', '宁夏固原六盘山机场', '58', '1'); INSERT INTO `lk_airport` VALUES ('1292', '乌海机场', '166', '1'); INSERT INTO `lk_airport` VALUES ('1293', '保山云瑞机场', '16', '1'); INSERT INTO `lk_airport` VALUES ('1294', '那拉提机场', '126', '1'); INSERT INTO `lk_airport` VALUES ('1295', '长海（大长山岛）机场', '28', '1'); INSERT INTO `lk_airport` VALUES ('1296', '东营永安机场', '42', '1'); INSERT INTO `lk_airport` VALUES ('1297', '荔波机场', '106', '1'); INSERT INTO `lk_airport` VALUES ('1298', '广西百色(田阳)机场', '11', '1'); INSERT INTO `lk_airport` VALUES ('1299', '达尼丁', '426', '1'); INSERT INTO `lk_airport` VALUES ('1300', '黔江舟白机场', '134', '1'); INSERT INTO `lk_airport` VALUES ('1301', '塔城机场', '150', '1'); INSERT INTO `lk_airport` VALUES ('1302', '阿里昆莎机场', '8', '1'); INSERT INTO `lk_airport` VALUES ('1303', '黎', '101', '1'); INSERT INTO `lk_airport` VALUES ('1304', '苏', '339', '1'); INSERT INTO `lk_airport` VALUES ('1305', '帕', '423', '1'); INSERT INTO `lk_airport` VALUES ('1306', '新疆喀纳斯机场', '97', '1'); INSERT INTO `lk_airport` VALUES ('1307', '阿尔山伊尔施机场', '10', '1'); INSERT INTO `lk_airport` VALUES ('1308', '兴义机场', '172', '1'); INSERT INTO `lk_airport` VALUES ('1309', '蒙特利尔机场', '369', '1'); INSERT INTO `lk_airport` VALUES ('1310', '温哥华机场', '360', '1'); INSERT INTO `lk_airport` VALUES ('1311', '华盛顿', '364', '1'); INSERT INTO `lk_airport` VALUES ('1312', '圣保罗', '375', '1'); INSERT INTO `lk_airport` VALUES ('1313', '北海', '14', '1'); INSERT INTO `lk_airport` VALUES ('1314', '罗马', '331', '1'); INSERT INTO `lk_airport` VALUES ('1315', '华盛顿', '364', '1'); INSERT INTO `lk_airport` VALUES ('1316', '巴黎', '328', '1'); INSERT INTO `lk_airport` VALUES ('1317', '珀斯', '417', '1'); INSERT INTO `lk_airport` VALUES ('1318', '波特兰', '383', '1'); INSERT INTO `lk_airport` VALUES ('1319', '卡萨布兰卡', '399', '1'); INSERT INTO `lk_airport` VALUES ('1320', '华盛顿', '364', '1'); INSERT INTO `lk_airport` VALUES ('1321', '芝加哥', '361', '1'); INSERT INTO `lk_airport` VALUES ('1322', '奥克兰', '414', '1'); INSERT INTO `lk_airport` VALUES ('1323', '底特律', '366', '1'); INSERT INTO `lk_airport` VALUES ('1324', '雅典', '345', '1'); INSERT INTO `lk_airport` VALUES ('1325', '圣保罗', '375', '1'); INSERT INTO `lk_airport` VALUES ('1326', '纽卡斯尔', '348', '1'); INSERT INTO `lk_airport` VALUES ('1327', '哥本哈根', '341', '1'); INSERT INTO `lk_airport` VALUES ('1328', '东京', '300', '1'); INSERT INTO `lk_airport` VALUES ('1329', '伦敦', '327', '1'); INSERT INTO `lk_airport` VALUES ('1330', '斯德哥尔摩', '335', '1'); INSERT INTO `lk_airport` VALUES ('1331', '罗马', '331', '1'); INSERT INTO `lk_airport` VALUES ('1332', '名古屋', '310', '1'); INSERT INTO `lk_airport` VALUES ('1333', '布宜诺斯艾利斯', '386', '1'); INSERT INTO `lk_airport` VALUES ('1334', '格拉斯哥', '351', '1'); INSERT INTO `lk_airport` VALUES ('1335', '格拉斯哥', '351', '1'); INSERT INTO `lk_airport` VALUES ('1336', '曼彻斯特', '337', '1'); INSERT INTO `lk_airport` VALUES ('1337', '波特兰', '383', '1'); INSERT INTO `lk_airport` VALUES ('1338', '首尔', '301', '1'); INSERT INTO `lk_airport` VALUES ('1339', '首尔', '301', '1'); INSERT INTO `lk_airport` VALUES ('1340', '斯德哥尔摩', '335', '1'); INSERT INTO `lk_airport` VALUES ('1341', '米兰', '333', '1'); INSERT INTO `lk_airport` VALUES ('1342', '巴黎', '328', '1'); INSERT INTO `lk_airport` VALUES ('1343', '伦敦', '327', '1'); INSERT INTO `lk_airport` VALUES ('1344', '布宜诺斯艾利斯', '386', '1'); INSERT INTO `lk_airport` VALUES ('1345', '伦敦', '327', '1'); INSERT INTO `lk_airport` VALUES ('1346', '华盛顿', '364', '1'); INSERT INTO `lk_airport` VALUES ('1347', '柏林', '336', '1'); INSERT INTO `lk_airport` VALUES ('1348', '巴厘岛', '309', '1'); INSERT INTO `lk_airport` VALUES ('1349', '圣保罗', '375', '1'); INSERT INTO `lk_airport` VALUES ('1350', '米兰', '333', '1'); INSERT INTO `lk_airport` VALUES ('1351', '多伦多', '362', '1'); INSERT INTO `lk_airport` VALUES ('1352', '斯德哥尔摩', '335', '1'); INSERT INTO `lk_airport` VALUES ('1353', '罗马', '331', '1'); INSERT INTO `lk_airport` VALUES ('1354', '雅典', '345', '1'); INSERT INTO `lk_airport` VALUES ('1355', '吉隆坡苏丹阿卜杜尔机场', '304', '1'); INSERT INTO `lk_airport` VALUES ('1356', 'CALGARY机场', '379', '1'); INSERT INTO `lk_airport` VALUES ('1357', '米兰利纳特机场', '333', '1'); INSERT INTO `lk_airport` VALUES ('1358', '柏林勃兰登堡机场', '336', '1'); INSERT INTO `lk_airport` VALUES ('1359', '底特律都会韦恩县机场', '366', '1'); INSERT INTO `lk_airport` VALUES ('1360', '赫登机场', '382', '1'); INSERT INTO `lk_airport` VALUES ('1361', '斯德哥尔摩史卡夫斯塔机场', '335', '1'); INSERT INTO `lk_airport` VALUES ('1362', '华盛顿杜勒斯机场', '364', '1'); INSERT INTO `lk_airport` VALUES ('1363', '巴黎－奥利机场', '328', '1'); INSERT INTO `lk_airport` VALUES ('1364', 'Hamburg Finkenwerder机场', '354', '1'); INSERT INTO `lk_airport` VALUES ('1365', '法兰克福哈恩机场', '329', '1'); INSERT INTO `lk_airport` VALUES ('1366', '普雷斯蒂克机场', '351', '1'); INSERT INTO `lk_airport` VALUES ('1367', '加州奥克兰机场', '414', '1'); INSERT INTO `lk_airport` VALUES ('1368', '罗纳德・里根机场', '364', '1'); INSERT INTO `lk_airport` VALUES ('1369', '芝加哥中途机场', '361', '1'); INSERT INTO `lk_airport` VALUES ('1370', '盖特威克机场', '327', '1'); INSERT INTO `lk_airport` VALUES ('1371', '萨比哈・格克琴机场', '323', '1'); INSERT INTO `lk_airport` VALUES ('1372', '北九州机场', '318', '1'); INSERT INTO `lk_airport` VALUES ('1373', '莫斯科机场', '330', '1'); INSERT INTO `lk_airport` VALUES ('1374', '巴黎机场', '328', '1'); INSERT INTO `lk_airport` VALUES ('1375', '罗马机场', '331', '1'); INSERT INTO `lk_airport` VALUES ('1376', '墨尔本机场', '413', '1'); INSERT INTO `lk_airport` VALUES ('1377', '悉尼金斯福德・史密斯机场', '412', '1'); INSERT INTO `lk_airport` VALUES ('1378', '多伦多市中心机场', '362', '1'); INSERT INTO `lk_airport` VALUES ('1379', '多伦多皮尔逊机场', '362', '1'); INSERT INTO `lk_airport` VALUES ('1380', '伏努科沃机场', '330', '1'); INSERT INTO `lk_airport` VALUES ('1381', '多莫杰多沃机场', '330', '1'); INSERT INTO `lk_airport` VALUES ('1382', '滕伯尔霍夫机场', '336', '1'); INSERT INTO `lk_airport` VALUES ('1383', '埃塞萨皮斯塔里尼部长机场', '386', '1'); INSERT INTO `lk_airport` VALUES ('1384', '伦敦卢顿机场', '327', '1'); INSERT INTO `lk_airport` VALUES ('1385', '波里斯珀尔机场', '352', '1'); INSERT INTO `lk_airport` VALUES ('1386', '伦敦城市机场', '327', '1'); INSERT INTO `lk_airport` VALUES ('1387', '埃德蒙顿机场', '385', '1'); INSERT INTO `lk_airport` VALUES ('1388', '威廉斯敦机场', '348', '1'); INSERT INTO `lk_airport` VALUES ('1389', '米拉贝尔机场', '369', '1'); INSERT INTO `lk_airport` VALUES ('1390', '桃园/桃園(原中正)机场', '211', '1'); INSERT INTO `lk_airport` VALUES ('1391', '奥兰多桑福德机场', '382', '1'); INSERT INTO `lk_airport` VALUES ('1392', '伯明翰舒特尔斯沃思机场', '347', '1'); INSERT INTO `lk_airport` VALUES ('1393', '舍讷费尔德机场', '336', '1'); INSERT INTO `lk_airport` VALUES ('1394', '波音场国王郡立机场', '363', '1'); INSERT INTO `lk_airport` VALUES ('1395', '雅加达机场', '306', '1'); INSERT INTO `lk_airport` VALUES ('1396', '伦敦斯坦斯特德机场', '327', '1'); -- ---------------------------- -- Table structure for lk_airport_city -- ---------------------------- DROP TABLE IF EXISTS `lk_airport_city`; CREATE TABLE `lk_airport_city` ( `city_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT, `city_name` varchar(10) NOT NULL DEFAULT '', `initial` char(1) NOT NULL DEFAULT '' COMMENT '首字母', `airport_code` varchar(5) NOT NULL DEFAULT '' COMMENT '机场代码', `is_hot` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否热门 1是 0否', `is_inter__hot` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否国外热门 1是 0否', PRIMARY KEY (`city_id`) ) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport_city -- ---------------------------- INSERT INTO `lk_airport_city` VALUES ('24', '朝阳', 'C', 'CHG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('182', '延安', 'Y', 'ENY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('165', '温州', 'W', 'WNZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('36', '稻城', 'D', 'DCY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('111', '洛阳', 'L', 'LYA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('201', '张掖', 'Z', 'YZY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('128', '南阳', 'N', 'NNY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('136', '齐齐哈尔', 'Q', 'NDG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('114', '柳州', 'L', 'LZH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('105', '丽江', 'L', 'LJG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('100', '克拉玛依', 'K', 'KRY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('14', '北海', 'B', 'BHY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('192', '义乌', 'Y', 'YIW', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('123', '南充', 'N', 'NAO', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('96', '凯里', 'K', 'KJH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('121', '漠河', 'M', 'OHE', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('38', '迪庆', 'D', 'DIG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('207', '珠海', 'Z', 'ZUH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('157', '天津', 'T', 'TSN', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('1', '阿勒泰', 'A', 'AAT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('110', '林西', 'L', 'LXI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('97', '喀纳斯', 'K', 'KJI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('23', '长春', 'C', 'CGQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('155', '吐鲁番', 'T', 'TLQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('175', '襄阳', 'X', 'XFN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('191', '伊宁市', 'Y', 'YIN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('108', '临沧', 'L', 'LNJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('8', '阿里', 'A', 'NGQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('78', '黄山', 'H', 'TXN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('37', '丹东', 'D', 'DDG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('164', '文山县', 'W', 'WNH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('122', '南昌', 'N', 'KHN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('193', '延吉', 'Y', 'YNJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('197', '玉树县', 'Y', 'YUS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('171', '万州', 'W', 'WXN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('204', '湛江', 'Z', 'ZHA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('152', '铜仁市', 'T', 'TEN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('135', '衢州', 'Q', 'JUZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('150', '塔城', 'T', 'TCG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('58', '固原', 'G', 'GYU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('143', '沙市', 'S', 'SHS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('76', '和田市', 'H', 'HTN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('125', '南京', 'N', 'NKG', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('115', '泸州', 'L', 'LZO', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('183', '银川', 'Y', 'INC', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('109', '拉萨', 'L', 'LXA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('139', '日喀则', 'R', 'RKZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('2', '安康', 'A', 'AKA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('89', '鸡西', 'J', 'JXA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('90', '九寨沟', 'J', 'JZH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('45', '德宏', 'D', 'LUM', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('83', '金昌', 'J', 'JIC', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('162', '潍坊', 'W', 'WEF', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('166', '乌海', 'W', 'WUA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('46', '鄂尔多斯', 'E', 'DSN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('178', '西安', 'X', 'SIA', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('103', '兰州', 'L', 'LHW', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('159', '太原', 'T', 'TYN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('73', '海拉尔', 'H', 'HLD', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('86', '佳木斯', 'J', 'JMU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('149', '台州', 'T', 'HYN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('133', '庆阳', 'Q', 'IQN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('198', '郑州', 'Z', 'CGO', '1', '0'); INSERT INTO `lk_airport_city` VALUES ('74', '哈密市', 'H', 'HMI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('9', '阿拉善右旗', 'A', 'RHT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('55', '广汉', 'G', 'GHN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('6', '安顺', 'A', 'AVA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('84', '九江', 'J', 'JIU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('205', '中卫', 'Z', 'ZHY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('95', '喀什市', 'K', 'KHG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('187', '宜宾', 'Y', 'YBP', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('69', '合肥', 'H', 'HFE', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('80', '加格达奇', 'J', 'JGD', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('206', '张家口', 'Z', 'ZQZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('172', '兴义', 'X', 'ACX', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('138', '青岛', 'Q', 'TAO', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('64', '海口', 'H', 'HAK', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('63', '红原', 'H', 'AHJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('154', '天水', 'T', 'THQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('21', '昌都', 'C', 'BPX', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('68', '呼和浩特', 'H', 'HET', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('163', '威海', 'W', 'WEH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('82', '井冈山', 'J', 'JGS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('101', '黎平', 'L', 'HZH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('53', '抚远', 'F', 'FYJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('127', '南宁', 'N', 'NNG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('129', '南通', 'N', 'NTG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('62', '光化', 'G', 'LHK', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('15', '博乐', 'B', 'BPL', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('142', '沈阳', 'S', 'SHE', '0', '1'); INSERT INTO `lk_airport_city` VALUES ('176', '西昌', 'X', 'XIC', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('85', '晋江', 'J', 'JJN', '0', '1'); INSERT INTO `lk_airport_city` VALUES ('181', '徐州', 'X', 'XUZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('102', '龙岩', 'L', 'LCX', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('42', '东营', 'D', 'DOY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('119', '梅州', 'M', 'MXZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('87', '济宁', 'J', 'JNG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('94', '康定', 'K', 'KGT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('16', '保山', 'B', 'BSD', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('177', '锡林浩特', 'X', 'XIL', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('39', '大连', 'D', 'DLC', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('184', '伊春', 'Y', 'LDS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('61', '桂林', 'G', 'KWL', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('161', '乌鲁木齐', 'W', 'URC', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('26', '长治', 'C', 'CIH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('13', '毕节', 'B', 'BFJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('126', '那拉提', 'N', 'NLT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('60', '贵阳', 'G', 'KWE', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('44', '德令哈', 'D', 'HXD', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('17', '北京', 'B', 'BJS', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('72', '怀化', 'H', 'HJJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('116', '林芝', 'L', 'LZY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('10', '阿尔山', 'A', 'YIE', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('106', '荔波', 'L', 'LLB', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('12', '包头', 'B', 'BAV', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('169', '无锡', 'W', 'WUX', '0', '1'); INSERT INTO `lk_airport_city` VALUES ('57', '广元', 'G', 'GYS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('27', '重庆', 'C', 'CKG', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('70', '杭州', 'H', 'HGH', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('99', '库尔勒', 'K', 'KRL', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('4', '鞍山', 'A', 'AOG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('34', '大同', 'D', 'DAT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('120', '满洲里', 'M', 'NZH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('18', '巴彦淖尔', 'B', 'RLK', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('130', '攀枝花', 'P', 'PZI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('25', '赤峰', 'C', 'CIF', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('81', '嘉峪关', 'J', 'JGN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('195', '盐城', 'Y', 'YNZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('93', '库车', 'K', 'KCA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('88', '锦州', 'J', 'JNZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('131', '普洱', 'P', 'SYM', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('104', '梁平', 'L', 'LIA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('5', '安庆', 'A', 'AQG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('140', '神农架', 'S', 'HPG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('170', '梧州', 'W', 'WUZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('11', '百色', 'B', 'AEB', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('113', '临沂', 'L', 'LYI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('153', '通辽', 'T', 'TGO', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('202', '昭通', 'Z', 'ZAT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('180', '西宁', 'X', 'XNN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('141', '上海', 'S', 'SHA', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('137', '秦皇岛', 'Q', 'SHP', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('28', '长海', 'C', 'CNI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('118', '绵阳', 'M', 'MIG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('71', '淮安', 'H', 'HIA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('35', '达县', 'D', 'DAX', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('92', '济南', 'J', 'TNA', '1', '0'); INSERT INTO `lk_airport_city` VALUES ('50', '福州', 'F', 'FOC', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('112', '连云港', 'L', 'LYG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('30', '成都', 'C', 'CTU', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('65', '河池', 'H', 'HCJ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('194', '烟台', 'Y', 'YNT', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('75', '哈尔滨', 'H', 'HRB', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('146', '深圳', 'S', 'SZX', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('49', '二连浩特', 'E', 'ERL', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('188', '运城', 'Y', 'YCU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('158', '唐山', 'T', 'TVS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('47', '额济纳旗', 'E', 'EJN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('144', '石家庄', 'S', 'SJW', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('31', '常州', 'C', 'CZX', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('186', '榆林', 'Y', 'UYN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('199', '张家界', 'Z', 'DYG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('22', '常德', 'C', 'CGD', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('203', '中山', 'Z', 'ZGN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('185', '永州', 'Y', 'LLF', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('196', '扬州', 'Y', 'YTY', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('156', '通化', 'T', 'TNH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('51', '阜阳', 'F', 'FUG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('200', '舟山', 'Z', 'HSN', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('132', '且末', 'Q', 'IQM', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('98', '昆明', 'K', 'KMG', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('3', '阿克苏', 'A', 'AKU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('145', '三亚', 'S', 'SYX', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('7', '阿拉善左旗', 'A', 'AXF', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('40', '大理市', 'D', 'DLU', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('179', '厦门', 'X', 'XMN', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('151', '腾冲', 'T', 'TCZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('59', '赣州', 'G', 'KOW', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('167', '武汉', 'W', 'WUH', '1', '1'); INSERT INTO `lk_airport_city` VALUES ('48', '恩施', 'E', 'ENH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('66', '邯郸', 'H', 'HDG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('189', '宜春', 'Y', 'YIC', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('160', '乌兰浩特', 'W', 'HLH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('173', '夏河', 'X', 'GXH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('33', '长白山', 'C', 'NBS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('41', '敦煌', 'D', 'DNH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('29', '长沙', 'C', 'CSX', '1', '0'); INSERT INTO `lk_airport_city` VALUES ('56', '格尔木', 'G', 'GOQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('43', '大庆', 'D', 'DQA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('91', '揭阳', 'J', 'SWA', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('52', '佛山', 'F', 'FUO', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('77', '汉中', 'H', 'HZG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('168', '武夷山', 'W', 'WUS', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('174', '西双版纳', 'X', 'JHG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('134', '黔江', 'Q', 'JIQ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('107', '吕梁', 'L', 'LLV', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('32', '池州', 'C', 'JUH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('79', '景德镇', 'J', 'JDZ', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('124', '宁波', 'N', 'NGB', '0', '1'); INSERT INTO `lk_airport_city` VALUES ('190', '宜昌', 'Y', 'YIH', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('67', '黑河', 'H', 'HEK', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('208', '遵义', 'Z', 'ZYI', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('117', '牡丹江', 'M', 'MDG', '0', '0'); INSERT INTO `lk_airport_city` VALUES ('54', '广州', 'G', 'CAN', '1', '1'); -- ---------------------------- -- Table structure for lk_airport_inter_city -- ---------------------------- DROP TABLE IF EXISTS `lk_airport_inter_city`; CREATE TABLE `lk_airport_inter_city` ( `city_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT, `city_name` varchar(10) NOT NULL DEFAULT '', `airport_code` varchar(5) NOT NULL DEFAULT '' COMMENT '机场代码', `is_hot` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否热门 1是 0否', `continents` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '1亚洲 2欧洲 3美洲 4非洲 5大洋洲', PRIMARY KEY (`city_id`) ) ENGINE=MyISAM AUTO_INCREMENT=427 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport_inter_city -- ---------------------------- INSERT INTO `lk_airport_inter_city` VALUES ('399', '卡萨布兰卡', 'CAS', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('412', '悉尼(澳大利亚)', 'SYD', '1', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('330', '莫斯科', 'MOW', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('335', '斯德哥尔摩', 'STO', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('307', '胡志明市', 'SGN', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('351', '格拉斯哥', 'GLA', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('340', '布鲁塞尔', 'BRU', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('318', '福冈', 'FUK', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('312', '河内', 'HAN', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('406', '金沙萨', 'FIH', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('347', '伯明翰(英国)', 'BHX', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('419', '堪培拉', 'CBR', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('323', '伊斯坦布尔', 'IST', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('371', '塞班', 'SPN', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('370', '夏威夷', 'HNL', '1', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('346', '爱丁堡', 'EDI', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('363', '西雅图', 'SEA', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('310', '名古屋', 'NGO', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('309', '巴厘岛', 'DPS', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('402', '卢萨卡', 'LUN', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('362', '多伦多', 'YTO', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('302', '新加坡', 'SIN', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('210', '澳门', 'MFM', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('392', '罗安达', 'LAD', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('344', '巴塞罗那', 'BCN', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('328', '巴黎', 'PAR', '1', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('400', '德班', 'DUR', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('389', '开普敦', 'CPT', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('420', '凯恩斯', 'CNS', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('422', '黄金海岸', 'OOL', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('349', '日内瓦', 'GVA', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('353', '布达佩斯', 'BUD', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('395', '亚的斯亚贝巴', 'ADD', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('358', '洛杉矶', 'LAX', '1', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('418', '惠灵顿', 'WLG', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('416', '阿德莱德', 'ADL', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('410', '阿比让', 'ABJ', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('386', '布宜诺斯艾利斯', 'BUE', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('211', '台北', 'TPE', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('315', '釜山', 'PUS', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('337', '曼彻斯特(英国)', 'MAN', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('426', '达尼丁', 'DUD', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('388', '约翰内斯堡', 'JNB', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('308', '马尼拉', 'MNL', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('342', '赫尔辛基', 'HEL', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('331', '罗马', 'ROM', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('397', '阿克拉', 'ACC', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('316', '加德满都', 'KTM', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('354', '汉堡', 'HAM', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('343', '维也纳', 'VIE', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('378', '拉斯维加斯', 'LAS', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('300', '东京', 'TYO', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('367', '亚特兰大', 'ATL', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('365', '波士顿', 'BOS', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('306', '雅加达', 'JKT', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('301', '首尔', 'SEL', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('366', '底特律', 'DTT', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('409', '费里敦', 'FNA', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('403', '哈拉雷', 'HRE', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('345', '雅典', 'ATH', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('361', '芝加哥', 'CHI', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('380', '迈阿密', 'MIA', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('381', '丹佛', 'DEN', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('407', '马普托', 'MPM', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('377', '墨西哥城', 'MEX', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('341', '哥本哈根', 'CPH', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('396', '喀土穆', 'KRT', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('408', '杜阿拉', 'DLA', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('332', '阿姆斯特丹', 'AMS', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('379', '卡尔加里', 'YYC', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('317', '高雄', 'KHH', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('320', '德里', 'DEL', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('338', '马德里', 'MAD', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('314', '迪拜', 'DXB', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('385', '埃德蒙顿', 'YEA', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('329', '法兰克福', 'FRA', '1', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('324', '乌兰巴托', 'ULN', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('326', '茨城', 'IBR', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('360', '温哥华', 'YVR', '1', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('303', '曼谷', 'BKK', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('393', '毛里求斯', 'MRU', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('359', '旧金山', 'SFO', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('311', '普吉岛', 'HKT', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('387', '开罗', 'CAI', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('209', '香港', 'HKG', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('368', '休斯敦', 'HOU', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('327', '伦敦(英国)', 'LON', '1', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('333', '米兰', 'MIL', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('322', '札幌', 'SPK', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('405', '哈博罗内', 'GBE', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('373', '明尼阿波利斯', 'MSP', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('383', '波特兰(美国)', 'PDX', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('398', '阿尔及尔', 'ALG', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('391', '拉各斯', 'LOS', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('325', '孟买', 'BOM', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('384', '曼彻斯特(美国)', 'MHT', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('334', '慕尼黑', 'MUC', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('369', '蒙特利尔', 'YMQ', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('304', '吉隆坡', 'KUL', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('425', '达尔文', 'DRW', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('336', '柏林', 'BER', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('376', '渥太华', 'YOW', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('413', '墨尔本(澳大利亚)', 'MEL', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('411', '卢克索', 'LXR', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('305', '大阪', 'OSA', '1', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('364', '华盛顿', 'WAS', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('414', '奥克兰(新西兰)', 'AKL', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('357', '纽约', 'NYC', '1', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('352', '基辅', 'IEV', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('417', '珀斯', 'PER', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('339', '苏黎世', 'ZRH', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('372', '达拉斯', 'DFW', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('321', '济州岛', 'CJU', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('375', '圣保罗(巴西)', 'SAO', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('319', '金边', 'PNH', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('355', '布拉格', 'MIL', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('390', '内罗毕', 'NBO', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('348', '纽卡斯尔(英国)', 'NCL', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('404', '雅温得', 'YAO', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('350', '圣彼得堡', 'LED', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('356', '杜塞尔多夫', 'DUS', '0', '2'); INSERT INTO `lk_airport_inter_city` VALUES ('394', '达累斯萨拉姆', 'DAR', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('424', '霍巴特', 'HBA', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('374', '费城', 'PHL', '0', '3'); INSERT INTO `lk_airport_inter_city` VALUES ('415', '布里斯班', 'BNE', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('423', '帕皮堤', 'PPT', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('421', '楠迪', 'NAN', '0', '5'); INSERT INTO `lk_airport_inter_city` VALUES ('401', '突尼斯', 'TUN', '0', '4'); INSERT INTO `lk_airport_inter_city` VALUES ('313', '马累', 'MLE', '0', '1'); INSERT INTO `lk_airport_inter_city` VALUES ('382', '奥兰多', 'ORL', '0', '3');  如果觉得不太适合自己的项目也有采集的全球机场数据txt版，附上下载链接（这里要感谢车爷的友情采集）</p>
     <time datetime="2015-11-27 09:25:40 &#43;0000 &#43;0000" itemprop="datePublished">2015-11-27</time>
@@ -132,7 +132,7 @@ Slave_IO_Running: Yes</p>
       <h2 id="2015-08">2015-08</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysql_design_standards/" title="MYSQL数据库命名及设计规范" itemprop="url">
+    <a href="https://gofunbox.github.io/mysql_design_standards/" title="MYSQL数据库命名及设计规范" itemprop="url">
     <h1 itemprop="name">MYSQL数据库命名及设计规范</h1>
     <p itemprop="description">命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀  基础规范  使用INNODB存储引擎 表字符集使用UTF8 所有表都需要添加注释 单表数据量建议控制在5000W以内 禁止在数据库中使用VARBINARY、BLOB存储图片、文件等 禁止在线上做数据库压力测试 禁止从测试、开发环境直连数据库 存储精确浮点数必须使用DECIMAL替代FLOAT和DOUBLE 建议使用UNSIGNED存储非负数值。 建议使用INT UNSIGNED存储IPV4。（不过个人感觉可读性不是非常好） 整形定义中不添加长度，比如使用INT，而不是INT[4] 使用短数据类型，比如取值范围为0-80时，使用TINYINT UNSIGNED 不建议使用ENUM、SET类型，使用TINYINT来代替 尽可能不使用TEXT、BLOB类型 VARCHAR(N)，N表示的是字符数不是字节数，比如VARCHAR(255)，可以最大可存储255个汉字，需要根据实际的宽度来选择N。 VARCHAR(N)，N尽可能小，因为MySQL一个表中所有的VARCHAR字段最大长度是65535个字节，进行排序和创建临时表一类的内存操作时，会使用N的长度申请内存。 使用VARBINARY存储变长字符串。 存储年使用YEAR类型。 存储日期使用DATE类型。 存储时间（精确到秒）建议使用TIMESTAMP类型，因为TIMESTAMP使用4字节，DATETIME使用8个字节。 建议字段定义为NOT NULL  索引规范  非唯一索引必须按照“idx_字段名称_字段名称[_字段名]”进行命名 唯一索引必须按照“uniq_字段名称_字段名称[_字段名]”进行命名 索引中的字段数建议不超过5个 单张表的索引数量控制在5个以内 对字符串使用前缀索引，前缀索引长度不超过8个字符 建议优先考虑前缀索引，必要时可添加伪列并建立索引 合理创建联合索引（避免冗余），(a,b,c) 相当于 (a) 、(a,b) 、(a,b,c) 合理利用覆盖索引 表必须有主键 不使用更新频繁的列 尽量不选择字符串列 不使用UUID MD5 HASH 重要的SQL必须被索引,
 UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,多表JOIN的字段 区分度最大的字段放在前面 核心SQL优先考虑覆盖索引 索引不是越多越好 不在低基数列上建立索引，例如性别 不在索引列进行数学运算和函数运算 尽量不使用外键 不使用%前导的查询，如like “%ab” 不使用负向查询，如not in/like(考虑用sphinx)  SQL设计  使用prepared statement，可以提供性能并且避免SQL注入 SQL语句中IN包含的值不超过500 UPDATE、DELETE语句不使用LIMIT WHERE条件中必须使用合适的类型，避免MySQL进行隐式类型转化 SELECT语句只获取需要的字段 SELECT、INSERT语句必须显式的指明字段名称，不使用SELECT *，不使用INSERT INTO table() INSERT语句使用batch提交（INSERT INTO table VALUES(),(),()……），values的个数不超过500 避免使用存储过程、触发器、UDF、events等 避免使用大表的JOIN 避免在数据库中进行数学运算 使用合理的SQL语句减少与数据库的交互次数 不使用ORDER BY RAND()，使用其他方法替换 建议使用合理的分页方式以提高分页的效率(只能点击上一页、下一页) 统计表中记录数时使用COUNT(*)，而不是COUNT(primary_key)和COUNT(1) 禁止在从库上执行后台管理和统计类型功能的QUERY。 使用EXPLAIN诊断，避免生成临时表 用union all而不是union 程序应有捕获SQL异常的处理机制 禁止单条SQL语句同时更新多个表  散表  每张表数据量建议控制在5000w以下 可以结合使用hash、range、lookup table进行散表 Hash散表，表名后缀使用16进制，比如user_ff 使用时间散表，表名后缀必须使用特定格式，比如按日散表user_20110209、按月散表user_201102。 采用合适的分库分表策略。例如千库十表、十库百表等  行为规范  批量导入、导出数据必须提前通知DBA协助观察 禁止在线上从库执行后台管理和统计类查询 禁止有super权限的应用程序账号存在 产品出现非数据库导致的故障时及时通知DBA协助排查 推广活动或上线新功能必须提前通知DBA进行流量评估 数据库数据丢失，及时联系DBA进行恢复 对单表的多次alter操作必须合并为一次操作 不在MySQL数据库中存放业务逻辑 重大项目的数据库方案选型和设计必须提前通知DBA参与 对特别重要的库表，提前与DBA沟通确定维护和备份优先级 不在业务高峰期批量更新、查询数据库 提交线上建表改表需求，必须详细注明所有相关SQL语句  FAQ</p>
@@ -145,7 +145,7 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
       <h2 id="2015-04">2015-04</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/php_mysql_data_dictionary_tools/" title="mysql数据字典生成工具php版" itemprop="url">
+    <a href="https://gofunbox.github.io/php_mysql_data_dictionary_tools/" title="mysql数据字典生成工具php版" itemprop="url">
     <h1 itemprop="name">mysql数据字典生成工具php版</h1>
     <p itemprop="description">工作交接，哭晕~
 找了一个php写的数据字典生成工具，跟大家分享下
@@ -160,7 +160,7 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
       <h2 id="2015-03">2015-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mongodb_lbs_nearby_people/" title="结合MongoDB开发LBS应用-查看附近的人" itemprop="url">
+    <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/" title="结合MongoDB开发LBS应用-查看附近的人" itemprop="url">
     <h1 itemprop="name">结合MongoDB开发LBS应用-查看附近的人</h1>
     <p itemprop="description">最近负责的APP要上查看附件的人的功能
 之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
@@ -180,7 +180,7 @@ thinkphp实现的代码，距离单位都是km
       <h2 id="2014-06">2014-06</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysql_utf8mb4_emoji/" title="MySQL utf8mb4字符集：支持emoji表情符号" itemprop="url">
+    <a href="https://gofunbox.github.io/mysql_utf8mb4_emoji/" title="MySQL utf8mb4字符集：支持emoji表情符号" itemprop="url">
     <h1 itemprop="name">MySQL utf8mb4字符集：支持emoji表情符号</h1>
     <p itemprop="description">最近参与的app项目中，ios开发人员反映上传ios自带emoji表情字符，api会出现异常。
 上网查询下才发现mysql要用utf8mb4，不能用utf8。
@@ -196,7 +196,7 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysqlsla_mysql_slow_log_analysis_tools/" title="Mysql慢查询和慢查询日志分析利器–mysqlsla" itemprop="url">
+    <a href="https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/" title="Mysql慢查询和慢查询日志分析利器–mysqlsla" itemprop="url">
     <h1 itemprop="name">Mysql慢查询和慢查询日志分析利器–mysqlsla</h1>
     <p itemprop="description">1.安装mysqlsla
 wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
@@ -223,7 +223,7 @@ c_sum_p: sql语句执行次数占总执行次数的百分比。
       <h2 id="2014-05">2014-05</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/gbk_addslashes_mysql_real_escape_string_injection/" title="GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法" itemprop="url">
+    <a href="https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/" title="GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法" itemprop="url">
     <h1 itemprop="name">GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法</h1>
     <p itemprop="description">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
@@ -238,7 +238,7 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
       <h2 id="2013-11">2013-11</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/optimize_mysql/" title="mysql 性能优化方案" itemprop="url">
+    <a href="https://gofunbox.github.io/optimize_mysql/" title="mysql 性能优化方案" itemprop="url">
     <h1 itemprop="name">mysql 性能优化方案</h1>
     <p itemprop="description">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
  &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
@@ -260,7 +260,7 @@ mysql&gt; show global status like ‘%slow%‘;
       <h2 id="2013-10">2013-10</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/php_mysql_distance/" title="php、mysql两个经纬度之间的距离的方法" itemprop="url">
+    <a href="https://gofunbox.github.io/php_mysql_distance/" title="php、mysql两个经纬度之间的距离的方法" itemprop="url">
     <h1 itemprop="name">php、mysql两个经纬度之间的距离的方法</h1>
     <p itemprop="description">php计算两个经纬度之间的距离的方法   /**
 * 函数用途描述 计算经纬度 计算弧度
@@ -295,7 +295,7 @@ $s = 2 * asin(sqrt(pow(sin($a/2),2) +</p>
       <h2 id="2013-07">2013-07</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysql_index_type/" title="MySQL索引类型一览 让MySQL高效运行起来" itemprop="url">
+    <a href="https://gofunbox.github.io/mysql_index_type/" title="MySQL索引类型一览 让MySQL高效运行起来" itemprop="url">
     <h1 itemprop="name">MySQL索引类型一览 让MySQL高效运行起来</h1>
     <p itemprop="description">索引是快速搜索的关键。MySQL索引的建立对于MySQL的高效运行是很重要的。下面介绍几种常见的MySQL索引类型。
 在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表：
@@ -323,7 +323,7 @@ DROP INDEX [indexName] ON mytable;
       <h2 id="2013-06">2013-06</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/mysql_data_deduplication/" title="mysql删除重复记录语句的方法(数据去重)" itemprop="url">
+    <a href="https://gofunbox.github.io/mysql_data_deduplication/" title="mysql删除重复记录语句的方法(数据去重)" itemprop="url">
     <h1 itemprop="name">mysql删除重复记录语句的方法(数据去重)</h1>
     <p itemprop="description">最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。
 记录下以备以后再用。
@@ -359,7 +359,7 @@ delete a from 表名 a left join(select (id) from 表名 group by name,value)
       <h2 id="2013-03">2013-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/505.html" title="MySql中启用InnoDB数据引擎的方法" itemprop="url">
+    <a href="https://gofunbox.github.io/505.html" title="MySql中启用InnoDB数据引擎的方法" itemprop="url">
     <h1 itemprop="name">MySql中启用InnoDB数据引擎的方法</h1>
     <p itemprop="description">1、存储引擎是什么?
 Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引擎(也称作表类型)。MySql默认配置了许多不同的存储引擎， 可以预先设置或者在MySql服务器中启用。
@@ -391,7 +391,7 @@ Mysql中默认的是MyISAM数据引擎，可惜此引擎不支持事务处理，
       <h2 id="2013-02">2013-02</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/467.html" title="MySQL中insert into、insert ignore into和replace into的使用区别" itemprop="url">
+    <a href="https://gofunbox.github.io/467.html" title="MySQL中insert into、insert ignore into和replace into的使用区别" itemprop="url">
     <h1 itemprop="name">MySQL中insert into、insert ignore into和replace into的使用区别</h1>
     <p itemprop="description">mysql中insert into和replace into以及insert ignore用法区别：
 mysql中常用的三种插入数据的语句:
@@ -416,39 +416,39 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   <p class="asidetitle">Categories</p>
   <ul>
     
-    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/discuz" title="discuz">discuz<sup>4</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/hack" title="hack">hack<sup>6</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/html" title="html">html<sup>5</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/linux" title="linux">linux<sup>19</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/php" title="php">php<sup>53</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/seo" title="seo">seo<sup>13</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/shopex" title="shopex">shopex<sup>17</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/zencart" title="zencart">zencart<sup>9</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
     
   </ul>
 </div>
@@ -461,27 +461,27 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
       
-			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/html" title="html">html<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/javascript" title="javascript">javascript<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/linux" title="linux">linux<sup>9</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/lua" title="lua">lua<sup>2</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/mysql" title="mysql">mysql<sup>3</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/nginx" title="nginx">nginx<sup>7</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/osx" title="osx">osx<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/php" title="php">php<sup>3</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/ssl" title="ssl">ssl<sup>5</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/vmware" title="vmware">vmware<sup>1</sup></a></li>
       
 		</ul>
 </div>
@@ -495,252 +495,252 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
       </li>
       
     </ul>
@@ -754,27 +754,27 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   <p class="asidetitle">Tags Cloud</p>
   <div class="tagcloudlist clearfix">
     
-    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    <a href="https://gofunbox.github.io/tags/html" style="font-size: 12px;">html</a>
     
-    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    <a href="https://gofunbox.github.io/tags/javascript" style="font-size: 12px;">javascript</a>
     
-    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    <a href="https://gofunbox.github.io/tags/jenkins" style="font-size: 12px;">jenkins</a>
     
-    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    <a href="https://gofunbox.github.io/tags/linux" style="font-size: 12px;">linux</a>
     
-    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    <a href="https://gofunbox.github.io/tags/lua" style="font-size: 12px;">lua</a>
     
-    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    <a href="https://gofunbox.github.io/tags/mysql" style="font-size: 12px;">mysql</a>
     
-    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    <a href="https://gofunbox.github.io/tags/nginx" style="font-size: 12px;">nginx</a>
     
-    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    <a href="https://gofunbox.github.io/tags/osx" style="font-size: 12px;">osx</a>
     
-    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    <a href="https://gofunbox.github.io/tags/php" style="font-size: 12px;">php</a>
     
-    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    <a href="https://gofunbox.github.io/tags/ssl" style="font-size: 12px;">ssl</a>
     
-    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    <a href="https://gofunbox.github.io/tags/vmware" style="font-size: 12px;">vmware</a>
     
   </div>
 </div>
@@ -783,7 +783,7 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
 
   
 <div class="rsspart">
-  <a rel="nofollow" href="https://ifunboxp.topfeed.xml" type="application/rss+xml" target="_blank"></a>
+  <a rel="nofollow" href="https://gofunbox.github.io/feed.xml" type="application/rss+xml" target="_blank"></a>
 </div>
 
 
@@ -795,7 +795,7 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   <div class="line">
     <span></span>
     
-    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+    <div style='background:no-repeat url("https://gofunbox.github.io/img/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
   </div>
   <section class="info">
     <p></p>
@@ -809,12 +809,12 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   </div>
   <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
     
-    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    <a href="https://gofunbox.github.io/" title="记录点点滴滴">记录点点滴滴</a>
     
   </p>
 </div>
 </footer>
-  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+  <script src="https://gofunbox.github.io/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 done = false;
 $(document).ready(function(){
@@ -861,7 +861,7 @@ $(document).ready(function(){
     if (false === done) {
       event.preventDefault();
       var orgVal = $(this).find('#search').val();
-      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      $(this).find('#search').val('site:https:\/\/gofunbox.github.io\/ ' + orgVal);
       done = true;
       $(this).submit();
     }

@@ -9,30 +9,30 @@
   
   <meta itemprop="name" content="服务器 - 记录点点滴滴">
   <meta itemprop="description" content="服务器">
-  <meta itemprop="image" content="https://ifunboxp.topimg/author.jpg">
+  <meta itemprop="image" content="https://gofunbox.github.io/img/author.jpg">
   
   
   <meta name="twitter:description" content="">
-  <link rel="alternate" href="https://ifunboxp.topfeed.xml" title="记录点点滴滴" type="application/rss+xml"/>
-  <link rel="shortcut icon" href="https://ifunboxp.topimg/favicon.ico"/>
-  <link rel="apple-touch-icon" href="https://ifunboxp.topapple-touch-icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="https://ifunboxp.topapple-touch-icon.png" />
-  <link rel="stylesheet" href="https://ifunboxp.tophighlight/styles/github.css">
-  <script src="https://ifunboxp.tophighlight/highlight.pack.js"></script>
+  <link rel="alternate" href="https://gofunbox.github.io/feed.xml" title="记录点点滴滴" type="application/rss+xml"/>
+  <link rel="shortcut icon" href="https://gofunbox.github.io/img/favicon.ico"/>
+  <link rel="apple-touch-icon" href="https://gofunbox.github.io/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" href="https://gofunbox.github.io/apple-touch-icon.png" />
+  <link rel="stylesheet" href="https://gofunbox.github.io/highlight/styles/github.css">
+  <script src="https://gofunbox.github.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   
-  <link rel="stylesheet" href="https://ifunboxp.topfont/hack/css/hack.min.css">
-  <link rel="stylesheet" href="https://ifunboxp.topcss/style.css">
+  <link rel="stylesheet" href="https://gofunbox.github.io/font/hack/css/hack.min.css">
+  <link rel="stylesheet" href="https://gofunbox.github.io/css/style.css">
 </head>
 
 <body>
   <header>
     <div>
   <div id="imglogo">
-    <a href="https://ifunboxp.top"><img src='https://ifunboxp.topimg/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
+    <a href="https://gofunbox.github.io/"><img src='https://gofunbox.github.io/img/logo.svg' alt="记录点点滴滴" title="记录点点滴滴"/></a>
   </div>
   <div id="textlogo">
-    <h1 class="site-name"><a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a></h1>
+    <h1 class="site-name"><a href="https://gofunbox.github.io/" title="记录点点滴滴">记录点点滴滴</a></h1>
     <h2 class="blog-motto">awesome!</h2>
   </div>
   <div class="navbar"><a class="navbutton navmobile" href="#" title="menu"></a></div>
@@ -59,7 +59,7 @@
       <h2 id="2017-12">2017-12</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx-ban-ip-access-for-http-https/" title="Nginx配置禁止IP直接HTTP/HTTPS访问" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" title="Nginx配置禁止IP直接HTTP/HTTPS访问" itemprop="url">
     <h1 itemprop="name">Nginx配置禁止IP直接HTTP/HTTPS访问</h1>
     <p itemprop="description">这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
 #http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
@@ -70,7 +70,7 @@ yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 20
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx-ssl-performance-optimization/" title="Nginx SSL 性能优化" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx-ssl-performance-optimization/" title="Nginx SSL 性能优化" itemprop="url">
     <h1 itemprop="name">Nginx SSL 性能优化</h1>
     <p itemprop="description">禁用 SSLv3 协议 Google 的一个员工发现了 SSLv3 协议中一个名叫 Poodle 的漏洞，被证实为可以窃取加密的部分信息。这是一个协议层的漏洞，因此无法打补丁。
 # nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA'; ... }  添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
@@ -86,7 +86,7 @@ server { ... add_header Strict-Transport-Security "max-age=31536000;includeSubDo
       <h2 id="2017-08">2017-08</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/automake-and-makefile/" title="自动化编译 如何生成configure和Makefile" itemprop="url">
+    <a href="https://gofunbox.github.io/automake-and-makefile/" title="自动化编译 如何生成configure和Makefile" itemprop="url">
     <h1 itemprop="name">自动化编译 如何生成configure和Makefile</h1>
     <p itemprop="description">在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件
 通常在一个源码包中，已经包含了configure脚本和Makefile文件，作为课外知识，我们大致了解一下怎么生成这两个文件
@@ -105,7 +105,7 @@ Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/security-https-and-mitm/" title="HTTPS原理以及HTTPS中间人攻击" itemprop="url">
+    <a href="https://gofunbox.github.io/security-https-and-mitm/" title="HTTPS原理以及HTTPS中间人攻击" itemprop="url">
     <h1 itemprop="name">HTTPS原理以及HTTPS中间人攻击</h1>
     <p itemprop="description">https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
@@ -121,7 +121,7 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/centos-cli-mailx/" title="CentOS CLI命令行mailx发送邮件基本用法" itemprop="url">
+    <a href="https://gofunbox.github.io/centos-cli-mailx/" title="CentOS CLI命令行mailx发送邮件基本用法" itemprop="url">
     <h1 itemprop="name">CentOS CLI命令行mailx发送邮件基本用法</h1>
     <p itemprop="description">mailx安装，很简单！貌似我的系统自带的。
 yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
@@ -134,7 +134,7 @@ set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/" title="解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))" itemprop="url">
+    <a href="https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/" title="解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))" itemprop="url">
     <h1 itemprop="name">解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</h1>
     <p itemprop="description">问题 服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)
 解决方案：  sudo yum install ca-certificates （无论有没有，安装确认一下） 重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下 curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)  相关知识点 什么是CA Certificates？ Certification authority (CA)
@@ -159,7 +159,7 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</p>
       <h2 id="2016-11">2016-11</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx-proxy-google-fonts-ajax/" title="Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx-proxy-google-fonts-ajax/" title="Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程" itemprop="url">
     <h1 itemprop="name">Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程</h1>
     <p itemprop="description">nginx.conf配置开启proxy缓存
 ## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
@@ -170,7 +170,7 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</p>
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/centos-jenkins-install-config/" title="CentOS下Jenkins安装及使用" itemprop="url">
+    <a href="https://gofunbox.github.io/centos-jenkins-install-config/" title="CentOS下Jenkins安装及使用" itemprop="url">
     <h1 itemprop="name">CentOS下Jenkins安装及使用</h1>
     <p itemprop="description">安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
@@ -200,7 +200,7 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</p>
       <h2 id="2016-10">2016-10</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/letsencrypt-nginx-https/" title="Let’s Encrypt，给自己的博客加https" itemprop="url">
+    <a href="https://gofunbox.github.io/letsencrypt-nginx-https/" title="Let’s Encrypt，给自己的博客加https" itemprop="url">
     <h1 itemprop="name">Let’s Encrypt，给自己的博客加https</h1>
     <p itemprop="description">对Let&#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
 Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
@@ -219,7 +219,7 @@ Error: open CFI at the end of file; missing .</p>
       <h2 id="2016-04">2016-04</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx_php-fpm_cross-site/" title="Nginx下php-fpm防止跨站跨目录安全设置" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx_php-fpm_cross-site/" title="Nginx下php-fpm防止跨站跨目录安全设置" itemprop="url">
     <h1 itemprop="name">Nginx下php-fpm防止跨站跨目录安全设置</h1>
     <p itemprop="description">apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
 而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
@@ -248,7 +248,7 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
       <h2 id="2016-03">2016-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/ngx-lua-stats/" title="通过ngx-lua来统计nginx上的虚拟主机性能数据" itemprop="url">
+    <a href="https://gofunbox.github.io/ngx-lua-stats/" title="通过ngx-lua来统计nginx上的虚拟主机性能数据" itemprop="url">
     <h1 itemprop="name">通过ngx-lua来统计nginx上的虚拟主机性能数据</h1>
     <p itemprop="description">最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
 用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
@@ -269,7 +269,7 @@ server { listen 8080 default; server_name _; location / { return 404; } location
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx_install_lua-nginx-module/" title="Nginx安装lua-nginx-module模块" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx_install_lua-nginx-module/" title="Nginx安装lua-nginx-module模块" itemprop="url">
     <h1 itemprop="name">Nginx安装lua-nginx-module模块</h1>
     <p itemprop="description">如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
 安装了nginx的小伙伴就继续往下看咯~
@@ -293,7 +293,7 @@ location /hello_lua { default_type 'text/plain'; content_by_lua 'ngx.</p>
       <h2 id="2015-10">2015-10</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/redis_windows_php/" title="Redis在Windows下安装和PHP中使用" itemprop="url">
+    <a href="https://gofunbox.github.io/redis_windows_php/" title="Redis在Windows下安装和PHP中使用" itemprop="url">
     <h1 itemprop="name">Redis在Windows下安装和PHP中使用</h1>
     <p itemprop="description">一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
 1、redis简介
@@ -337,7 +337,7 @@ windows下自动启动Redis隐藏命令行窗口的方法</p>
       <h2 id="2015-09">2015-09</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/linux_memcacheq_configuration/" title="MemcacheQ消息队列在Linux中编译安装自启动教程" itemprop="url">
+    <a href="https://gofunbox.github.io/linux_memcacheq_configuration/" title="MemcacheQ消息队列在Linux中编译安装自启动教程" itemprop="url">
     <h1 itemprop="name">MemcacheQ消息队列在Linux中编译安装自启动教程</h1>
     <p itemprop="description">队列（Queue）是一种常用的数据结构。在队列这种数据结构中，最先插入的元素将会最先被取出；反之最后插入的元素将会最后被取出，因此队列又称为“先进先出”（FIFO：First In First Out）的线性表。
 加入元素的一端叫“队尾”，取出元素的一端叫“队头”。利用消息队列可以很好地异步处理数据的传送和存储，当遇到频繁且密集地向后端数据库中插入数据时，就可采用消息队列来异步处理这些数据写入。
@@ -355,7 +355,7 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
       <h2 id="2015-08">2015-08</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/memcached_cas/" title="Memcached的CAS (Check And Set) 协议" itemprop="url">
+    <a href="https://gofunbox.github.io/memcached_cas/" title="Memcached的CAS (Check And Set) 协议" itemprop="url">
     <h1 itemprop="name">Memcached的CAS (Check And Set) 协议</h1>
     <p itemprop="description">最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
 1. 什么是CAS协议
@@ -385,7 +385,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <h2 id="2015-02">2015-02</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/tengine_trim_filter/" title="tengine安装trim filter模块" itemprop="url">
+    <a href="https://gofunbox.github.io/tengine_trim_filter/" title="tengine安装trim filter模块" itemprop="url">
     <h1 itemprop="name">tengine安装trim filter模块</h1>
     <p itemprop="description">最近闲来无事想用用淘宝tengine的trim filter模块
 官方介绍配置链接http://tengine.taobao.org/document_cn/http_trim_filter_cn.html
@@ -407,7 +407,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <h2 id="2015-01">2015-01</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/optimize_linux_time_wait/" title="TIME_WAIT过多导致负载爆表优化方法" itemprop="url">
+    <a href="https://gofunbox.github.io/optimize_linux_time_wait/" title="TIME_WAIT过多导致负载爆表优化方法" itemprop="url">
     <h1 itemprop="name">TIME_WAIT过多导致负载爆表优化方法</h1>
     <p itemprop="description"><div id="cnblogs_post_body">
   <p>
@@ -442,7 +442,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <h2 id="2014-12">2014-12</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx_concat_module_400/" title="nginx1.6下安装nginx_concat_module报400错误" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx_concat_module_400/" title="nginx1.6下安装nginx_concat_module报400错误" itemprop="url">
     <h1 itemprop="name">nginx1.6下安装nginx_concat_module报400错误</h1>
     <p itemprop="description">第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。
 瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
@@ -455,7 +455,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/nginx_concat_module_combine_http/" title="nginx1.6添加第三方模块nginx_concat_module合并http请求" itemprop="url">
+    <a href="https://gofunbox.github.io/nginx_concat_module_combine_http/" title="nginx1.6添加第三方模块nginx_concat_module合并http请求" itemprop="url">
     <h1 itemprop="name">nginx1.6添加第三方模块nginx_concat_module合并http请求</h1>
     <p itemprop="description">1.安装nginx_concat_module
 存放模块的路径下
@@ -477,7 +477,7 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
       <h2 id="2014-11">2014-11</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/google_pagespeed_website_optimizer/" title="pagespeed超级智能的谷歌网页优化利器" itemprop="url">
+    <a href="https://gofunbox.github.io/google_pagespeed_website_optimizer/" title="pagespeed超级智能的谷歌网页优化利器" itemprop="url">
     <h1 itemprop="name">pagespeed超级智能的谷歌网页优化利器</h1>
     <p itemprop="description">最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
 用火狐查看，大部分js，css大部分时间耗在阻挡上面。
@@ -506,7 +506,7 @@ http://ywwd.net/read-346</p>
       <h2 id="2014-08">2014-08</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/hide_nginx_apache_php_version/" title="屏蔽nginx/apache/php版本信息" itemprop="url">
+    <a href="https://gofunbox.github.io/hide_nginx_apache_php_version/" title="屏蔽nginx/apache/php版本信息" itemprop="url">
     <h1 itemprop="name">屏蔽nginx/apache/php版本信息</h1>
     <p itemprop="description">可使用以下命令查看服务器提供HTTP服务的相关信息 curl &#8211;head http://www.funboxpower.com
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
@@ -526,7 +526,7 @@ expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</p
       <h2 id="2014-05">2014-05</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/chinese_character_set/" title="中文字符集与字符编码(gb2312,big5)的基础知识" itemprop="url">
+    <a href="https://gofunbox.github.io/chinese_character_set/" title="中文字符集与字符编码(gb2312,big5)的基础知识" itemprop="url">
     <h1 itemprop="name">中文字符集与字符编码(gb2312,big5)的基础知识</h1>
     <p itemprop="description">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。
 中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。
@@ -580,7 +580,7 @@ Big5码使用了双字节储存方法，以两个字节来编码一个字。第�
       <h2 id="2014-03">2014-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/coreseek_sphinx_all-recursive_sphinx.o_error" title="coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error" itemprop="url">
+    <a href="https://gofunbox.github.io/coreseek_sphinx_all-recursive_sphinx.o_error" title="coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error" itemprop="url">
     <h1 itemprop="name">coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error</h1>
     <p itemprop="description">今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
 第一个错误
@@ -611,7 +611,7 @@ make: *** [all-recursive] Error 1
       <h2 id="2014-02">2014-02</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/apache_nginx_basic_http_authentication/" title="Apache/Nginx Basic HTTP Authentication用户认证" itemprop="url">
+    <a href="https://gofunbox.github.io/apache_nginx_basic_http_authentication/" title="Apache/Nginx Basic HTTP Authentication用户认证" itemprop="url">
     <h1 itemprop="name">Apache/Nginx Basic HTTP Authentication用户认证</h1>
     <p itemprop="description">由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
 今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
@@ -637,7 +637,7 @@ auth_basic_user_file /var/www/.htpasswd;
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/php_run_mode/" title="php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式" itemprop="url">
+    <a href="https://gofunbox.github.io/php_run_mode/" title="php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式" itemprop="url">
     <h1 itemprop="name">php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式</h1>
     <p itemprop="description">CGI:
 CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。
@@ -663,7 +663,7 @@ apache模块的DLL:
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/linux_svn_move/" title="linux svn版本库/数据迁移" itemprop="url">
+    <a href="https://gofunbox.github.io/linux_svn_move/" title="linux svn版本库/数据迁移" itemprop="url">
     <h1 itemprop="name">linux svn版本库/数据迁移</h1>
     <p itemprop="description">1.源服务器:A
 使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库
@@ -694,7 +694,7 @@ svnadmin load /data/new/svndata/fanhefan&lt; /root/svn_bak
       <h2 id="2013-07">2013-07</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/linux_svn_autostart/" title="linux下svn服务开机自启动设置方法" itemprop="url">
+    <a href="https://gofunbox.github.io/linux_svn_autostart/" title="linux下svn服务开机自启动设置方法" itemprop="url">
     <h1 itemprop="name">linux下svn服务开机自启动设置方法</h1>
     <p itemprop="description">1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
@@ -706,7 +706,7 @@ svnadmin load /data/new/svndata/fanhefan&lt; /root/svn_bak
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/ie_download_apk/" title="解决IE系列浏览器下下载apk变为zip问题" itemprop="url">
+    <a href="https://gofunbox.github.io/ie_download_apk/" title="解决IE系列浏览器下下载apk变为zip问题" itemprop="url">
     <h1 itemprop="name">解决IE系列浏览器下下载apk变为zip问题</h1>
     <p itemprop="description">有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；
 简单修改：
@@ -723,7 +723,7 @@ application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事�
       <h2 id="2013-06">2013-06</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/apache_log_analysis/" title="PHP开源Apache日志分析工具收集与比较" itemprop="url">
+    <a href="https://gofunbox.github.io/apache_log_analysis/" title="PHP开源Apache日志分析工具收集与比较" itemprop="url">
     <h1 itemprop="name">PHP开源Apache日志分析工具收集与比较</h1>
     <p itemprop="description">我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
 1、LogAnalyzer
@@ -760,7 +760,7 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
 
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/sudu_icp_background/" title="华夏名网ICP备案拍照背景图免费下载" itemprop="url">
+    <a href="https://gofunbox.github.io/sudu_icp_background/" title="华夏名网ICP备案拍照背景图免费下载" itemprop="url">
     <h1 itemprop="name">华夏名网ICP备案拍照背景图免费下载</h1>
     <p itemprop="description">今天收到华夏名网快递的ICP备案拍照幕布背景图
 各种麻烦还邮寄
@@ -777,7 +777,7 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
       <h2 id="2013-03">2013-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/510.html" title="Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名" itemprop="url">
+    <a href="https://gofunbox.github.io/510.html" title="Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名" itemprop="url">
     <h1 itemprop="name">Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名</h1>
     <p itemprop="description">平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。
 Window2003 iis+mysql+php+zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237
@@ -795,7 +795,7 @@ IIS服务的命令行方式重启命令 iisreset /RESTART 停止后启动</p>
       <h2 id="2013-01">2013-01</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/windows-apache-ab/" title="Windows下Apache服务器自带Ab.exe的压力测试方法" itemprop="url">
+    <a href="https://gofunbox.github.io/windows-apache-ab/" title="Windows下Apache服务器自带Ab.exe的压力测试方法" itemprop="url">
     <h1 itemprop="name">Windows下Apache服务器自带Ab.exe的压力测试方法</h1>
     <p itemprop="description">ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多
 ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中
@@ -836,7 +836,7 @@ Concurrency Level: 10
       <h2 id="2012-03">2012-03</h2>
       
       <section class="post" itemscope itemprop="blogPost">
-    <a href="https://ifunboxp.top/279.html" title="IXWebhosting美国虚拟主机/空间视频教程" itemprop="url">
+    <a href="https://gofunbox.github.io/279.html" title="IXWebhosting美国虚拟主机/空间视频教程" itemprop="url">
     <h1 itemprop="name">IXWebhosting美国虚拟主机/空间视频教程</h1>
     <p itemprop="description">最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程
 感觉不错，希望能帮助到大家！
@@ -860,39 +860,39 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   <p class="asidetitle">Categories</p>
   <ul>
     
-    <li><a href="https://ifunboxp.topcategories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/dedecms" title="dedecms">dedecms<sup>1</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/discuz" title="discuz">discuz<sup>4</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/discuz" title="discuz">discuz<sup>4</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/hack" title="hack">hack<sup>6</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/hack" title="hack">hack<sup>6</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/html" title="html">html<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/html" title="html">html<sup>5</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/linux" title="linux">linux<sup>19</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/linux" title="linux">linux<sup>19</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/php" title="php">php<sup>53</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/php" title="php">php<sup>53</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/seo" title="seo">seo<sup>13</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/seo" title="seo">seo<sup>13</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/shopex" title="shopex">shopex<sup>17</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/shopex" title="shopex">shopex<sup>17</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/shopnc" title="shopnc">shopnc<sup>3</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/thinkphp" title="thinkphp">thinkphp<sup>3</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/wordpress" title="wordpress">wordpress<sup>5</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/zencart" title="zencart">zencart<sup>9</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/zencart" title="zencart">zencart<sup>9</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e4%b8%aa%e4%ba%ba%e6%9d%82%e8%b0%88" title="个人杂谈">个人杂谈<sup>2</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" title="性能优化">性能优化<sup>9</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%95%b0%e6%8d%ae%e5%ba%93" title="数据库">数据库<sup>15</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e6%9c%8d%e5%8a%a1%e5%99%a8" title="服务器">服务器<sup>33</sup></a></li>
     
-    <li><a href="https://ifunboxp.topcategories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
+    <li><a href="https://gofunbox.github.io/categories/%e7%89%88%e6%9c%ac%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" title="版本管理工具">版本管理工具<sup>5</sup></a></li>
     
   </ul>
 </div>
@@ -905,27 +905,27 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
       
-			<li><a href="https://ifunboxp.toptags/html" title="html">html<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/html" title="html">html<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/javascript" title="javascript">javascript<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/javascript" title="javascript">javascript<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/jenkins" title="jenkins">jenkins<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/linux" title="linux">linux<sup>9</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/linux" title="linux">linux<sup>9</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/lua" title="lua">lua<sup>2</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/lua" title="lua">lua<sup>2</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/mysql" title="mysql">mysql<sup>3</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/mysql" title="mysql">mysql<sup>3</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/nginx" title="nginx">nginx<sup>7</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/nginx" title="nginx">nginx<sup>7</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/osx" title="osx">osx<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/osx" title="osx">osx<sup>1</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/php" title="php">php<sup>3</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/php" title="php">php<sup>3</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/ssl" title="ssl">ssl<sup>5</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/ssl" title="ssl">ssl<sup>5</sup></a></li>
       
-			<li><a href="https://ifunboxp.toptags/vmware" title="vmware">vmware<sup>1</sup></a></li>
+			<li><a href="https://gofunbox.github.io/tags/vmware" title="vmware">vmware<sup>1</sup></a></li>
       
 		</ul>
 </div>
@@ -939,252 +939,252 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-12">2017年12月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-09">2017年09月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-08">2017年08月</a><span class="archive-list-count">9</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2017-07">2017年07月</a><span class="archive-list-count">5</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-11">2016年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-10">2016年10月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-09">2016年09月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-06">2016年06月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-04">2016年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2016-03">2016年03月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-12">2015年12月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-11">2015年11月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-10">2015年10月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-09">2015年09月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-08">2015年08月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-04">2015年04月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-03">2015年03月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-02">2015年02月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2015-01">2015年01月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-12">2014年12月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-11">2014年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-10">2014年10月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-08">2014年08月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-06">2014年06月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-05">2014年05月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-04">2014年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-03">2014年03月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2014-02">2014年02月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-11">2013年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-10">2013年10月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-09">2013年09月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-08">2013年08月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-07">2013年07月</a><span class="archive-list-count">6</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-06">2013年06月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-05">2013年05月</a><span class="archive-list-count">4</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-04">2013年04月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-03">2013年03月</a><span class="archive-list-count">8</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-02">2013年02月</a><span class="archive-list-count">10</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2013-01">2013年01月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-11">2012年11月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-10">2012年10月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-09">2012年09月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-07">2012年07月</a><span class="archive-list-count">1</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-05">2012年05月</a><span class="archive-list-count">5</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-04">2012年04月</a><span class="archive-list-count">3</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-03">2012年03月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-02">2012年02月</a><span class="archive-list-count">2</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2012-01">2012年01月</a><span class="archive-list-count">7</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2011-11">2011年11月</a><span class="archive-list-count">15</span>
       </li>
       
       
       <li class="archive-list-item">
-        <a class="archive-list-link" href="https://ifunboxp.toppost/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
+        <a class="archive-list-link" href="https://gofunbox.github.io/post/#2011-10">2011年10月</a><span class="archive-list-count">16</span>
       </li>
       
     </ul>
@@ -1198,27 +1198,27 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   <p class="asidetitle">Tags Cloud</p>
   <div class="tagcloudlist clearfix">
     
-    <a href="https://ifunboxp.toptags/html" style="font-size: 12px;">html</a>
+    <a href="https://gofunbox.github.io/tags/html" style="font-size: 12px;">html</a>
     
-    <a href="https://ifunboxp.toptags/javascript" style="font-size: 12px;">javascript</a>
+    <a href="https://gofunbox.github.io/tags/javascript" style="font-size: 12px;">javascript</a>
     
-    <a href="https://ifunboxp.toptags/jenkins" style="font-size: 12px;">jenkins</a>
+    <a href="https://gofunbox.github.io/tags/jenkins" style="font-size: 12px;">jenkins</a>
     
-    <a href="https://ifunboxp.toptags/linux" style="font-size: 12px;">linux</a>
+    <a href="https://gofunbox.github.io/tags/linux" style="font-size: 12px;">linux</a>
     
-    <a href="https://ifunboxp.toptags/lua" style="font-size: 12px;">lua</a>
+    <a href="https://gofunbox.github.io/tags/lua" style="font-size: 12px;">lua</a>
     
-    <a href="https://ifunboxp.toptags/mysql" style="font-size: 12px;">mysql</a>
+    <a href="https://gofunbox.github.io/tags/mysql" style="font-size: 12px;">mysql</a>
     
-    <a href="https://ifunboxp.toptags/nginx" style="font-size: 12px;">nginx</a>
+    <a href="https://gofunbox.github.io/tags/nginx" style="font-size: 12px;">nginx</a>
     
-    <a href="https://ifunboxp.toptags/osx" style="font-size: 12px;">osx</a>
+    <a href="https://gofunbox.github.io/tags/osx" style="font-size: 12px;">osx</a>
     
-    <a href="https://ifunboxp.toptags/php" style="font-size: 12px;">php</a>
+    <a href="https://gofunbox.github.io/tags/php" style="font-size: 12px;">php</a>
     
-    <a href="https://ifunboxp.toptags/ssl" style="font-size: 12px;">ssl</a>
+    <a href="https://gofunbox.github.io/tags/ssl" style="font-size: 12px;">ssl</a>
     
-    <a href="https://ifunboxp.toptags/vmware" style="font-size: 12px;">vmware</a>
+    <a href="https://gofunbox.github.io/tags/vmware" style="font-size: 12px;">vmware</a>
     
   </div>
 </div>
@@ -1227,7 +1227,7 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
 
   
 <div class="rsspart">
-  <a rel="nofollow" href="https://ifunboxp.topfeed.xml" type="application/rss+xml" target="_blank"></a>
+  <a rel="nofollow" href="https://gofunbox.github.io/feed.xml" type="application/rss+xml" target="_blank"></a>
 </div>
 
 
@@ -1239,7 +1239,7 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   <div class="line">
     <span></span>
     
-    <div style='background:no-repeat url("https://ifunboxp.topimg/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
+    <div style='background:no-repeat url("https://gofunbox.github.io/img/author.jpg") left top;-webkit-background-size:6.875em 6.875em;-moz-background-size:6.875em 6.875em;background-size:6.875em 6.875em;' class="author" ></div>
   </div>
   <section class="info">
     <p></p>
@@ -1253,12 +1253,12 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   </div>
   <p class="copyright">Powered by <a href="http://gohugo.io" target="_blank" title="hugo">hugo</a> and Theme by <a href="https://github.com/coderzh/hugo-pacman-theme" target="_blank" title="hugo-pacman-theme">hugo-pacman-theme</a> © 2020
     
-    <a href="https://ifunboxp.top" title="记录点点滴滴">记录点点滴滴</a>
+    <a href="https://gofunbox.github.io/" title="记录点点滴滴">记录点点滴滴</a>
     
   </p>
 </div>
 </footer>
-  <script src="https://ifunboxp.topjs/jquery-2.1.0.min.js"></script>
+  <script src="https://gofunbox.github.io/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 done = false;
 $(document).ready(function(){
@@ -1305,7 +1305,7 @@ $(document).ready(function(){
     if (false === done) {
       event.preventDefault();
       var orgVal = $(this).find('#search').val();
-      $(this).find('#search').val('site:https:\/\/ifunboxp.top ' + orgVal);
+      $(this).find('#search').val('site:https:\/\/gofunbox.github.io\/ ' + orgVal);
       done = true;
       $(this).submit();
     }

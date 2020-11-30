@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/categories/linux/</link>
+    <link>https://gofunbox.github.io/categories/linux/</link>
     <description>Recent content in Linux on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 06 Dec 2017 09:26:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux 添加开机启动项的三种方法</title>
-      <link>https://ifunboxp.top/linux-autostart-method/</link>
+      <link>https://gofunbox.github.io/linux-autostart-method/</link>
       <pubDate>Wed, 06 Dec 2017 09:26:00 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux-autostart-method/</guid>
+      <guid>https://gofunbox.github.io/linux-autostart-method/</guid>
       <description>linux 添加开机启动项的三种方法。
  编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
 #!/bin/sh #
@@ -28,19 +28,19 @@ This script will be executed after all the other init scripts. You can put your 
     
     <item>
       <title>Vim 编辑器简单使用教程</title>
-      <link>https://ifunboxp.top/vim-guide/</link>
+      <link>https://gofunbox.github.io/vim-guide/</link>
       <pubDate>Fri, 25 Aug 2017 06:59:23 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/vim-guide/</guid>
+      <guid>https://gofunbox.github.io/vim-guide/</guid>
       <description>模式切换    当前模式 切换为 按键 说明     其它模式 普通模式 Esc    普通模式 插入模式 i 在光标前插入     I 在行首插入     a 在光标后插入     A 在行末插入     o 在当前行之下新建行     O 在当前行之上新建行     r 替换当前字符     R 从当前字符开始替换   普通模式 命令模式 :    普通模式 可视模式 v 可视模式     V 可视行模式     Ctrl+v 可视块模式    移动 在普通模式中，您可以使用以下方式移动光标</description>
     </item>
     
     <item>
       <title>自动化编译 如何生成configure和Makefile</title>
-      <link>https://ifunboxp.top/automake-and-makefile/</link>
+      <link>https://gofunbox.github.io/automake-and-makefile/</link>
       <pubDate>Tue, 22 Aug 2017 09:54:09 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/automake-and-makefile/</guid>
+      <guid>https://gofunbox.github.io/automake-and-makefile/</guid>
       <description>在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件
 通常在一个源码包中，已经包含了configure脚本和Makefile文件，作为课外知识，我们大致了解一下怎么生成这两个文件
 autoconf autoconf用来生成configure脚本，它可以检查系统特性、编译环境、环境变量、软件参数、依赖关系等
@@ -56,10 +56,10 @@ Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的
     
     <item>
       <title>CentOS CLI命令行mailx发送邮件基本用法</title>
-      <link>https://ifunboxp.top/centos-cli-mailx/</link>
+      <link>https://gofunbox.github.io/centos-cli-mailx/</link>
       <pubDate>Tue, 15 Aug 2017 06:50:01 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/centos-cli-mailx/</guid>
+      <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
 yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
 [root@localhost ~]# mailx -V 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
@@ -69,10 +69,10 @@ set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@
     
     <item>
       <title>监控PHP fatal errors错误日志发送邮件</title>
-      <link>https://ifunboxp.top/monitor-php-error-log-sendmail/</link>
+      <link>https://gofunbox.github.io/monitor-php-error-log-sendmail/</link>
       <pubDate>Mon, 07 Aug 2017 09:17:46 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/monitor-php-error-log-sendmail/</guid>
+      <guid>https://gofunbox.github.io/monitor-php-error-log-sendmail/</guid>
       <description>最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
  安装 EPEL 资源 sudo yum install epel-release 
@@ -85,10 +85,10 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
     
     <item>
       <title>分区概念</title>
-      <link>https://ifunboxp.top/dev-partition/</link>
+      <link>https://gofunbox.github.io/dev-partition/</link>
       <pubDate>Thu, 03 Aug 2017 09:27:23 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/dev-partition/</guid>
+      <guid>https://gofunbox.github.io/dev-partition/</guid>
       <description>首先我们需要知道，硬盘分区的存在，是由硬盘的物理特性决定的，并不会因为操作系统的不同而有所改变。
 如果您需要Linux，您首先需要找到一本书名为《linux》的书，书名相当于硬盘中的MBR，也就是主引导纪录。不同的是，MBR可以是几个书名合在一起，类似于《XX合订本》。这部分内容暂时还没有什么实用价值，您只需要大概的了解。
 而正文，就是硬盘中纪录的数据，这也非常容易理解，且对于安装系统并没有什么影响，所以现在我们来了解目录:
@@ -108,10 +108,10 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
     
     <item>
       <title>标准编译安装</title>
-      <link>https://ifunboxp.top/gcc-install/</link>
+      <link>https://gofunbox.github.io/gcc-install/</link>
       <pubDate>Thu, 03 Aug 2017 08:30:26 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/gcc-install/</guid>
+      <guid>https://gofunbox.github.io/gcc-install/</guid>
       <description>为什么要编译安装 包管理系统是绝大多数发行版的必备组件，也是一个发行版区别于其它发行版的主要特征。但是有些软件，并不能通过包管理系统安装，这就需要下载源码编译安装。
 一个软件可能有许多功能，但是发行版中提供的安装包，通常只具有一些常见的功能。如果提供所有功能，那么无疑会占用更多的资源，而这些功能，大多数用户不会用到；而你会用到的功能，可能安装包中刚好没有。编译安装可以灵活地定制软件，选择自己需要的，取消自己不需要的。
 编译安装还可以针对特定的硬件进行优化，以获得更好的性能表现。
@@ -122,28 +122,28 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
     
     <item>
       <title>Linux服务启动介绍</title>
-      <link>https://ifunboxp.top/linux-boot/</link>
+      <link>https://gofunbox.github.io/linux-boot/</link>
       <pubDate>Wed, 26 Jul 2017 07:13:35 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux-boot/</guid>
+      <guid>https://gofunbox.github.io/linux-boot/</guid>
       <description>启动流程  读取 MBR (主引导记录Master Boot Record)的信息，启动 Boot Manager 加载系统内核，启动 init进程 init进程 读取 /etc/inittab 文件中的信息，并进入预设的运行级别，按顺序运行该运行级别对应文件夹下的脚本。脚本通常以 start选项启动，并指向一个系统中的程序。 根据 /etc/rcS.d/文件夹中对应的脚本启动 Xwindow 服务器 xorg 启动登录管理器，等待用户登录  Windows 使用 NTLDR 作为 Boot Manager，如果您的系统中安装多个版本的 Windows，您就需要在 NTLDR 中选择您要进入的系统。 Linux 通常使用功能强大，配置灵活的 GRUB 作为 Boot Manager。 init进程 是 Linux 的根进程，所有的系统进程都是它的子进程。 通常情况下， /etc/rcS.d/ 目录下的启动脚本首先被执行，然后是 /etc/rcN.d/ 目录。例如您设定的运行级别为 3,那么它对应的启动目录为 /etc/rc3.d/ 。 Xwindow 为 Linux 下的图形用户界面系统。 大多 Linux 系统默认使用 GDM 作为登录管理器，您在登录管理器界面中输入用户名和密码后，便可以登录系统。（您可以在 /etc/rc3.d/ 文件夹中找到一个名为 S13gdm 的链接）   更改运行级别 在 /etc/inittab 文件中找到如下内容：</description>
     </item>
     
     <item>
       <title>Linux配置文件说明</title>
-      <link>https://ifunboxp.top/linux-etc/</link>
+      <link>https://gofunbox.github.io/linux-etc/</link>
       <pubDate>Wed, 26 Jul 2017 07:11:41 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux-etc/</guid>
+      <guid>https://gofunbox.github.io/linux-etc/</guid>
       <description>组   文件路径   说明     系统初始化   /etc/inittab   运行级别、控制台数量       /etc/timezone   时区       /etc/inetd.conf   超级进程     文件系统   /etc/fstab   开机时挂载的文件系统       /etc/mtab   当前挂载的文件系统     用户系统   /etc/passwd   用户信息       /etc/shadow   用户密码       /etc/group   群组信息       /etc/gshadow   群组密码       /etc/sudoers   Sudoer 列表     Shell   /etc/shell   可用 Shell 列表       /etc/inputrc   ReadLine 控件设定       /etc/profile   用户首选项       /etc/bash.</description>
     </item>
     
     <item>
       <title>Linux操作系统目录简介</title>
-      <link>https://ifunboxp.top/linux_directory/</link>
+      <link>https://gofunbox.github.io/linux_directory/</link>
       <pubDate>Wed, 26 Jul 2017 00:41:31 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux_directory/</guid>
+      <guid>https://gofunbox.github.io/linux_directory/</guid>
       <description>Linux 系统中的目录    目录   说明     /   根目录，万物起源。     /bin   包含系统启动和运行所必须的二进制程序。     /boot   包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和 启动加载程序。有趣的文件：
  /boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。
 /boot/vmlinuz，Linux 内核。    /dev   这是一个包含设备结点的特殊目录。“一切都是文件”，也适用于设备。 在这个目录里，内核维护着所有设备的列表。     /etc   这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本， 在系统启动时，这些脚本会开启每个系统服务。这个目录中的任何文件应该是可读的文本文件。
@@ -152,10 +152,10 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
     
     <item>
       <title>Linux free命令查看内存情况学习小记</title>
-      <link>https://ifunboxp.top/linux_command_free/</link>
+      <link>https://gofunbox.github.io/linux_command_free/</link>
       <pubDate>Tue, 14 Jun 2016 01:53:04 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux_command_free/</guid>
+      <guid>https://gofunbox.github.io/linux_command_free/</guid>
       <description>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
 1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
 total:总计物理内存的大小。
@@ -169,10 +169,10 @@ _ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk an
     
     <item>
       <title>Nginx安装lua-nginx-module模块</title>
-      <link>https://ifunboxp.top/nginx_install_lua-nginx-module/</link>
+      <link>https://gofunbox.github.io/nginx_install_lua-nginx-module/</link>
       <pubDate>Fri, 25 Mar 2016 08:30:57 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_install_lua-nginx-module/</guid>
+      <guid>https://gofunbox.github.io/nginx_install_lua-nginx-module/</guid>
       <description>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
 安装了nginx的小伙伴就继续往下看咯~
 1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
@@ -190,10 +190,10 @@ location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx
     
     <item>
       <title>解决手动运行脚本执行正常而放入crontab后不正常的方法</title>
-      <link>https://ifunboxp.top/linux_crontab_error/</link>
+      <link>https://gofunbox.github.io/linux_crontab_error/</link>
       <pubDate>Wed, 22 Apr 2015 04:07:28 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/linux_crontab_error/</guid>
+      <guid>https://gofunbox.github.io/linux_crontab_error/</guid>
       <description>直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
 &amp;lt;span style=&#34;font-size: 12pt;&#34; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  也保证下写入文件夹的权限，还是不行
 直接运行，就正常运行
@@ -207,10 +207,10 @@ http://segmentfault.com/a/1190000000768446</description>
     
     <item>
       <title>安装tcpcopy/intercept configure checking for pcap.h not found错误解决方法</title>
-      <link>https://ifunboxp.top/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</link>
+      <link>https://gofunbox.github.io/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</link>
       <pubDate>Mon, 19 Jan 2015 14:53:01 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</guid>
+      <guid>https://gofunbox.github.io/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</guid>
       <description>安装tcpcopy的时候很顺利
 在安装intercept的时候
 敲./configure
@@ -222,10 +222,10 @@ yum install libpcap-devel 即可解决</description>
     
     <item>
       <title>nginx1.6添加第三方模块nginx_concat_module合并http请求</title>
-      <link>https://ifunboxp.top/nginx_concat_module_combine_http/</link>
+      <link>https://gofunbox.github.io/nginx_concat_module_combine_http/</link>
       <pubDate>Mon, 01 Dec 2014 02:41:04 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_concat_module_combine_http/</guid>
+      <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
 svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
@@ -241,10 +241,10 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
     
     <item>
       <title>常用linux命令</title>
-      <link>https://ifunboxp.top/useful_linux_command/</link>
+      <link>https://gofunbox.github.io/useful_linux_command/</link>
       <pubDate>Wed, 22 Oct 2014 03:51:06 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/useful_linux_command/</guid>
+      <guid>https://gofunbox.github.io/useful_linux_command/</guid>
       <description>记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
 # uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设备 # lsusb -tv # 列出所有USB设备 # lsmod # 列出加载的内核模块 # env # 查看环境变量 # /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源
@@ -253,10 +253,10 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
     
     <item>
       <title>通过DenyHosts阻止SSH暴力攻击教程</title>
-      <link>https://ifunboxp.top/denyhosts_thwart_ssh_server_attacks/</link>
+      <link>https://gofunbox.github.io/denyhosts_thwart_ssh_server_attacks/</link>
       <pubDate>Mon, 18 Aug 2014 15:05:35 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/denyhosts_thwart_ssh_server_attacks/</guid>
+      <guid>https://gofunbox.github.io/denyhosts_thwart_ssh_server_attacks/</guid>
       <description>Denyhosts是一个Linux系统下阻止暴力破解SSH密码的软件，它的原理与DDoS Deflate类似，可以自动拒绝过多次数尝试SSH登录的IP地址，防止互联网上某些机器常年破解密码的行为，也可以防止黑客对SSH密码进行穷举。
 众所周知，暴露在互联网上的计算机是非常危险的。并不要因为网站小，关注的人少或不惹眼就掉以轻心：互联网中的大多数攻击都是没有目的性的，黑客们 通过大范围IP端口扫描探测到可能存在漏洞的主机，然后通过自动扫描工具进行穷举破解。笔者的某台服务器在修改SSH 22号端口之前，平均每天接受近百个来自不同IP的连接尝试。而DenyHosts正是这样一款工具。下文将对该工具的安装与使用方法进行介绍。
 DenyHosts阻止攻击原理 DenyHosts会自动分析/var/log/secure 等安全日志文件，当发现异常的连接请求后，会自动将其IP加入到 /etc/hosts.deny 文件中，从而达到阻止此IP继续暴力破解的可能。同时，Denyhosts还能自动在一定时间后对已经屏蔽的IP地址进行解封，非常智能。
@@ -274,10 +274,10 @@ DENY_THRESHOLD_INVALID：某一无效用户名（不存在的用户）尝试多�
     
     <item>
       <title>Centos如何挂载硬盘</title>
-      <link>https://ifunboxp.top/centos_mount_disk/</link>
+      <link>https://gofunbox.github.io/centos_mount_disk/</link>
       <pubDate>Thu, 12 Sep 2013 07:02:34 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/centos_mount_disk/</guid>
+      <guid>https://gofunbox.github.io/centos_mount_disk/</guid>
       <description>远程SSH登录上Centos服务器后，进行如下操作
 提醒：挂载操作会清空数据，请确认挂载盘无数据或者未使用
 第一步：列出所有磁盘 命令： ll /dev/disk/by-path
@@ -297,10 +297,10 @@ mount /dev/sdb1 /data # 将sdb这个硬盘挂载成为/data
     
     <item>
       <title>Linux SSH常用命令</title>
-      <link>https://ifunboxp.top/519.html</link>
+      <link>https://gofunbox.github.io/519.html</link>
       <pubDate>Mon, 11 Mar 2013 05:17:06 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/519.html</guid>
+      <guid>https://gofunbox.github.io/519.html</guid>
       <description>目录操作：
 rm -rf mydir /删除mydir目录/
 mkdir dirname /创建名为dirname的目录/

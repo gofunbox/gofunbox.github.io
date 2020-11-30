@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Html on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/tags/html/</link>
+    <link>https://gofunbox.github.io/tags/html/</link>
     <description>Recent content in Html on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Jul 2017 06:05:08 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/tags/html/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Content Security Policy教程</title>
-      <link>https://ifunboxp.top/content-security-policy/</link>
+      <link>https://gofunbox.github.io/content-security-policy/</link>
       <pubDate>Wed, 26 Jul 2017 06:05:08 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/content-security-policy/</guid>
+      <guid>https://gofunbox.github.io/content-security-policy/</guid>
       <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
 这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。

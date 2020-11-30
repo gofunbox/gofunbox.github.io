@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>性能优化 on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <link>https://gofunbox.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
     <description>Recent content in 性能优化 on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 12 Oct 2015 07:25:01 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>wordpress数据库posts文章表优化</title>
-      <link>https://ifunboxp.top/optimize_wordpress_posts_table/</link>
+      <link>https://gofunbox.github.io/optimize_wordpress_posts_table/</link>
       <pubDate>Mon, 12 Oct 2015 07:25:01 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/optimize_wordpress_posts_table/</guid>
+      <guid>https://gofunbox.github.io/optimize_wordpress_posts_table/</guid>
       <description>wordpress数据库wp_posts文章表结构中post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered这几个字段的字段类型差点没把我吓死，都是longtext,mediumtext类型，非常占用存储空间不说，还占用传输带宽影响速度。
 首先用下面这条sql语句分析下当前表数据情况，找出每个字段下最长的字符串数
 SELECT MAX(LENGTH(字段名)) from wp_posts
@@ -35,10 +35,10 @@ post_content_filtered字段类型改成varchar(50)
     
     <item>
       <title>Memcached的CAS (Check And Set) 协议</title>
-      <link>https://ifunboxp.top/memcached_cas/</link>
+      <link>https://gofunbox.github.io/memcached_cas/</link>
       <pubDate>Wed, 26 Aug 2015 10:35:09 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/memcached_cas/</guid>
+      <guid>https://gofunbox.github.io/memcached_cas/</guid>
       <description>最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
 1. 什么是CAS协议
 很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。
@@ -62,10 +62,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     
     <item>
       <title>避免SESSION锁阻塞请求</title>
-      <link>https://ifunboxp.top/avoid_session_lock/</link>
+      <link>https://gofunbox.github.io/avoid_session_lock/</link>
       <pubDate>Thu, 12 Feb 2015 06:38:36 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/avoid_session_lock/</guid>
+      <guid>https://gofunbox.github.io/avoid_session_lock/</guid>
       <description>这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
 问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。
 翻到了这两篇文章
@@ -95,10 +95,10 @@ test.html
     
     <item>
       <title>php-fpm-slow.log慢日志频繁出现session_start()</title>
-      <link>https://ifunboxp.top/slow_log_session_start/</link>
+      <link>https://gofunbox.github.io/slow_log_session_start/</link>
       <pubDate>Wed, 11 Feb 2015 06:09:54 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/slow_log_session_start/</guid>
+      <guid>https://gofunbox.github.io/slow_log_session_start/</guid>
       <description>最近项目php-fpm-slow.log慢日志中经常出现以下的记录
 
 php自带函数session_start()
@@ -118,10 +118,10 @@ session.save_path = &amp;#8220;tcp://127.0.0.1:11211&amp;#8221;
     
     <item>
       <title>安装tcpcopy/intercept configure checking for pcap.h not found错误解决方法</title>
-      <link>https://ifunboxp.top/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</link>
+      <link>https://gofunbox.github.io/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</link>
       <pubDate>Mon, 19 Jan 2015 14:53:01 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</guid>
+      <guid>https://gofunbox.github.io/tcpcopy/intercept_configure_checking_for_pcap.h_not_found</guid>
       <description>安装tcpcopy的时候很顺利
 在安装intercept的时候
 敲./configure
@@ -133,10 +133,10 @@ yum install libpcap-devel 即可解决</description>
     
     <item>
       <title>TIME_WAIT过多导致负载爆表优化方法</title>
-      <link>https://ifunboxp.top/optimize_linux_time_wait/</link>
+      <link>https://gofunbox.github.io/optimize_linux_time_wait/</link>
       <pubDate>Sun, 04 Jan 2015 11:34:01 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/optimize_linux_time_wait/</guid>
+      <guid>https://gofunbox.github.io/optimize_linux_time_wait/</guid>
       <description>&lt;div id=&#34;cnblogs_post_body&#34;&gt;
   &lt;p&gt;
     &lt;span style=&#34;font-size: 12pt;&#34;&gt;最近参与的项目每日大概有300w的请求量，8核的服务器负载竟然最高可以跑到20，给跪了&lt;/span&gt;
@@ -165,10 +165,10 @@ yum install libpcap-devel 即可解决</description>
     
     <item>
       <title>nginx1.6添加第三方模块nginx_concat_module合并http请求</title>
-      <link>https://ifunboxp.top/nginx_concat_module_combine_http/</link>
+      <link>https://gofunbox.github.io/nginx_concat_module_combine_http/</link>
       <pubDate>Mon, 01 Dec 2014 02:41:04 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_concat_module_combine_http/</guid>
+      <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
 svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
@@ -184,10 +184,10 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
     
     <item>
       <title>pagespeed超级智能的谷歌网页优化利器</title>
-      <link>https://ifunboxp.top/google_pagespeed_website_optimizer/</link>
+      <link>https://gofunbox.github.io/google_pagespeed_website_optimizer/</link>
       <pubDate>Tue, 25 Nov 2014 07:55:47 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/google_pagespeed_website_optimizer/</guid>
+      <guid>https://gofunbox.github.io/google_pagespeed_website_optimizer/</guid>
       <description>最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
 用火狐查看，大部分js，css大部分时间耗在阻挡上面。
 查了相关资料，这样解释阻挡(Blocking)：每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
@@ -210,10 +210,10 @@ http://ywwd.net/read-346</description>
     
     <item>
       <title>Mysql慢查询和慢查询日志分析利器–mysqlsla</title>
-      <link>https://ifunboxp.top/mysqlsla_mysql_slow_log_analysis_tools/</link>
+      <link>https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/</link>
       <pubDate>Sun, 15 Jun 2014 14:51:32 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/mysqlsla_mysql_slow_log_analysis_tools/</guid>
+      <guid>https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/</guid>
       <description>1.安装mysqlsla
 wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
 2.使用mysqlsla语法

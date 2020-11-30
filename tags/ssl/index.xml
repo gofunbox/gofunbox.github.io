@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSL on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/tags/ssl/</link>
+    <link>https://gofunbox.github.io/tags/ssl/</link>
     <description>Recent content in SSL on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 15 Dec 2017 07:08:59 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Nginx配置禁止IP直接HTTP/HTTPS访问</title>
-      <link>https://ifunboxp.top/nginx-ban-ip-access-for-http-https/</link>
+      <link>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</link>
       <pubDate>Fri, 15 Dec 2017 07:08:59 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx-ban-ip-access-for-http-https/</guid>
+      <guid>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</guid>
       <description>这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
 #http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
 yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key openssl req -new -key ssl.key -out ssl.csr …… 一路回车 …… openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.</description>
@@ -24,10 +24,10 @@ yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 20
     
     <item>
       <title>Nginx SSL 性能优化</title>
-      <link>https://ifunboxp.top/nginx-ssl-performance-optimization/</link>
+      <link>https://gofunbox.github.io/nginx-ssl-performance-optimization/</link>
       <pubDate>Thu, 07 Dec 2017 07:41:45 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx-ssl-performance-optimization/</guid>
+      <guid>https://gofunbox.github.io/nginx-ssl-performance-optimization/</guid>
       <description>禁用 SSLv3 协议 Google 的一个员工发现了 SSLv3 协议中一个名叫 Poodle 的漏洞，被证实为可以窃取加密的部分信息。这是一个协议层的漏洞，因此无法打补丁。
 # nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ... }  添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
 你也可以配置用 301 重定向 http 流量到 https，但是这个非加密的跳转过程随时可能被劫持。因此，HSTS 则告诉了浏览器在本地直接重定向 https。
@@ -37,10 +37,10 @@ server { ... add_header Strict-Transport-Security &#34;max-age=31536000;includeS
     
     <item>
       <title>HTTPS原理以及HTTPS中间人攻击</title>
-      <link>https://ifunboxp.top/security-https-and-mitm/</link>
+      <link>https://gofunbox.github.io/security-https-and-mitm/</link>
       <pubDate>Wed, 16 Aug 2017 03:15:35 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/security-https-and-mitm/</guid>
+      <guid>https://gofunbox.github.io/security-https-and-mitm/</guid>
       <description>https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
 https就是用于解决这样的安全问题的,它的全称为Hypertext Transfer Protocol Secure,它在http的基础上添加了SSL(安全套接字层)层来保证传输数据的安全问题.
@@ -53,10 +53,10 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
     
     <item>
       <title>解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</title>
-      <link>https://ifunboxp.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</link>
+      <link>https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</link>
       <pubDate>Tue, 08 Aug 2017 01:51:30 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</guid>
+      <guid>https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</guid>
       <description>问题 服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)
 解决方案：  sudo yum install ca-certificates （无论有没有，安装确认一下） 重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下 curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)  相关知识点 什么是CA Certificates？ Certification authority (CA)
 证书颁发机构（Certification authority 简称CA）证书是由CA向其自身或二级CA颁发的证书，用于在两个CA之间创建一个定义的关系。
@@ -75,10 +75,10 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
     
     <item>
       <title>Let’s Encrypt，给自己的博客加https</title>
-      <link>https://ifunboxp.top/letsencrypt-nginx-https/</link>
+      <link>https://gofunbox.github.io/letsencrypt-nginx-https/</link>
       <pubDate>Wed, 19 Oct 2016 13:02:06 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/letsencrypt-nginx-https/</guid>
+      <guid>https://gofunbox.github.io/letsencrypt-nginx-https/</guid>
       <description>对Let&amp;#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
 Let&amp;#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
 Let&amp;#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let&amp;#8217;s Encrypt安装简单，未来大规模采用可能性非常大。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/categories/php/</link>
+    <link>https://gofunbox.github.io/categories/php/</link>
     <description>Recent content in PHP on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 31 Aug 2017 03:02:55 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/categories/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>谈谈Redis的SETNX</title>
-      <link>https://ifunboxp.top/redis-setnx/</link>
+      <link>https://gofunbox.github.io/redis-setnx/</link>
       <pubDate>Thu, 31 Aug 2017 03:02:55 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/redis-setnx/</guid>
+      <guid>https://gofunbox.github.io/redis-setnx/</guid>
       <description>在 Redis 里，所谓 SETNX，是「SET if Not eXists」的缩写，也就是只有不存在的时候才设置，可以利用它来实现锁的效果，不过很多人没有意识到 SETNX 有陷阱！
 比如说：某个查询数据库的接口，因为调用量比较大，所以加了缓存，并设定缓存过期后刷新，问题是当并发量比较大的时候，如果没有锁机制，那么缓存过期的瞬间，大量并发请求会穿透缓存直接查询数据库，造成雪崩效应，如果有锁机制，那么就可以控制只有一个请求去更新缓存，其它的请求视情况要么等待，要么使用过期的缓存。
 下面以目前 PHP 社区里最流行的 PHPRedis 扩展为例，实现一段演示代码：
@@ -27,10 +27,10 @@ local key = KEYS[1] local value = KEYS[2] local ttl = KEYS[3] local ok = redis.<
     
     <item>
       <title>监控PHP fatal errors错误日志发送邮件</title>
-      <link>https://ifunboxp.top/monitor-php-error-log-sendmail/</link>
+      <link>https://gofunbox.github.io/monitor-php-error-log-sendmail/</link>
       <pubDate>Mon, 07 Aug 2017 09:17:46 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/monitor-php-error-log-sendmail/</guid>
+      <guid>https://gofunbox.github.io/monitor-php-error-log-sendmail/</guid>
       <description>最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
  安装 EPEL 资源 sudo yum install epel-release 
@@ -43,10 +43,10 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
     
     <item>
       <title>PHP调试利器XDebug Mac下在phpstorm中的安装与使用</title>
-      <link>https://ifunboxp.top/mac_php_xdebug_phpstorm_install/</link>
+      <link>https://gofunbox.github.io/mac_php_xdebug_phpstorm_install/</link>
       <pubDate>Thu, 22 Sep 2016 08:47:04 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/mac_php_xdebug_phpstorm_install/</guid>
+      <guid>https://gofunbox.github.io/mac_php_xdebug_phpstorm_install/</guid>
       <description>之前一直用比较原始的调试方法echo、print_r()、var_dump()、printf()，可能小项目比较小吧
 最近有时间，就研究了Mac系统下集成phpstorm的xdebug安装配置使用，下面记录一下~
 安装篇 1.xdebug的安装
@@ -80,10 +80,10 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
     
     <item>
       <title>Nginx下php-fpm防止跨站跨目录安全设置</title>
-      <link>https://ifunboxp.top/nginx_php-fpm_cross-site/</link>
+      <link>https://gofunbox.github.io/nginx_php-fpm_cross-site/</link>
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_php-fpm_cross-site/</guid>
+      <guid>https://gofunbox.github.io/nginx_php-fpm_cross-site/</guid>
       <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
 而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
 首先php的版本必须大于等于php5.3.3。
@@ -106,10 +106,10 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
     
     <item>
       <title>Mac OS X上brew安装多版本php切换</title>
-      <link>https://ifunboxp.top/mac_osx_brew_php_version/</link>
+      <link>https://gofunbox.github.io/mac_osx_brew_php_version/</link>
       <pubDate>Mon, 21 Mar 2016 13:40:21 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/mac_osx_brew_php_version/</guid>
+      <guid>https://gofunbox.github.io/mac_osx_brew_php_version/</guid>
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
@@ -122,19 +122,19 @@ brew真心强大</description>
     
     <item>
       <title>全球机场数据mysql(包含全国机场数据，国外大中小机场数据)</title>
-      <link>https://ifunboxp.top/global_airport_mysql_data/</link>
+      <link>https://gofunbox.github.io/global_airport_mysql_data/</link>
       <pubDate>Fri, 27 Nov 2015 09:25:40 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/global_airport_mysql_data/</guid>
+      <guid>https://gofunbox.github.io/global_airport_mysql_data/</guid>
       <description>最近整理了一个全球机场数据mysql版，挺全的 包含全国全球各大机场数据（所属城市 三字代码 国家 国家代码 四字代码 机场名称 英文） 全国全球机场数据由三个表组成lk_airport（机场名称数据表）、lk_airport_city（国内城市表）、lk_airport_inter_city（国外城市表）组成 城市表数据是参考携程的，机场名称数据是http://www.hlhkys.com/dmair/cx.asp这边采集的 直接上mysql语句 /* Date: 2015-11-27 17:24:30 */ SET FOREIGN_KEY_CHECKS=0; -- ---------------------------- -- Table structure for lk_airport -- ---------------------------- DROP TABLE IF EXISTS `lk_airport`; CREATE TABLE `lk_airport` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL DEFAULT &#39;&#39; COMMENT &#39;机场名&#39;, `city_id` int(10) unsigned NOT NULL DEFAULT &#39;0&#39;, `status` tinyint(3) unsigned NOT NULL DEFAULT &#39;1&#39; COMMENT &#39;1正常 0删除&#39;, PRIMARY KEY (`id`) ) ENGINE=MyISAM AUTO_INCREMENT=1397 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport -- ---------------------------- INSERT INTO `lk_airport` VALUES (&#39;1&#39;, &#39;首都机场&#39;, &#39;17&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;2&#39;, &#39;宝安机场&#39;, &#39;146&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;3&#39;, &#39;凤凰国际机场&#39;, &#39;145&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;4&#39;, &#39;仁川国际机场&#39;, &#39;301&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;5&#39;, &#39;白云机场&#39;, &#39;399&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;6&#39;, &#39;白云机场&#39;, &#39;54&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;7&#39;, &#39;安康富强机场&#39;, &#39;2&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;8&#39;, &#39;阿里昆莎机场&#39;, &#39;8&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;9&#39;, &#39;AAA机场&#39;, &#39;351&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;10&#39;, &#39;BBB机场&#39;, &#39;142&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;11&#39;, &#39;北京首都国际机场T3&#39;, &#39;17&#39;, &#39;0&#39;); INSERT INTO `lk_airport` VALUES (&#39;1001&#39;, &#39;洛杉矶机场&#39;, &#39;358&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1002&#39;, &#39;伦敦希思罗机场&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1003&#39;, &#39;肯尼迪机场&#39;, &#39;357&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1004&#39;, &#39;法兰克福机场&#39;, &#39;329&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1005&#39;, &#39;上海虹桥机场&#39;, &#39;141&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1006&#39;, &#39;迪拜机场&#39;, &#39;314&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1007&#39;, &#39;戴高乐机场&#39;, &#39;328&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1008&#39;, &#39;广州白云机场&#39;, &#39;54&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1009&#39;, &#39;北京首都机场&#39;, &#39;17&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1010&#39;, &#39;樟宜机场&#39;, &#39;302&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1011&#39;, &#39;悉尼&#39;, &#39;412&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1012&#39;, &#39;谢诺梅杰沃机场&#39;, &#39;330&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1013&#39;, &#39;多伦多&#39;, &#39;362&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1014&#39;, &#39;深圳宝安机场&#39;, &#39;146&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1015&#39;, &#39;布达佩斯机场&#39;, &#39;353&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1016&#39;, &#39;墨西哥城机场&#39;, &#39;377&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1017&#39;, &#39;温哥华&#39;, &#39;360&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1018&#39;, &#39;爱华隆机场&#39;, &#39;413&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1019&#39;, &#39;汉堡机场&#39;, &#39;354&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1020&#39;, &#39;孟买机场&#39;, &#39;325&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1021&#39;, &#39;阿塔图尔克机场&#39;, &#39;323&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1022&#39;, &#39;米兰马尔本萨机场&#39;, &#39;333&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1023&#39;, &#39;芝加哥机场&#39;, &#39;361&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1024&#39;, &#39;荷兰阿姆斯特丹斯史基浦(西霍普)机场&#39;, &#39;332&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1025&#39;, &#39;香港赤鱲角国际机场&#39;, &#39;209&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1026&#39;, &#39;曼谷(素万那普)机场&#39;, &#39;303&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1027&#39;, &#39;东京机场&#39;, &#39;300&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1028&#39;, &#39;圣保罗机场&#39;, &#39;375&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1029&#39;, &#39;成都双流机场&#39;, &#39;30&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1030&#39;, &#39;开罗机场&#39;, &#39;387&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1031&#39;, &#39;吉隆坡机场&#39;, &#39;304&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1032&#39;, &#39;拉各斯机场&#39;, &#39;391&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1033&#39;, &#39;约翰内斯堡机场&#39;, &#39;388&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1034&#39;, &#39;乌鲁木齐地窝堡机场&#39;, &#39;161&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1035&#39;, &#39;重庆江北机场&#39;, &#39;27&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1036&#39;, &#39;迈阿密机场&#39;, &#39;380&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1037&#39;, &#39;蒙特利尔&#39;, &#39;369&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1038&#39;, &#39;雅加达 苏加诺-哈达机场&#39;, &#39;306&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1039&#39;, &#39;旧金山机场&#39;, &#39;359&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1040&#39;, &#39;布鲁塞尔机场&#39;, &#39;340&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1041&#39;, &#39;卢萨卡机场&#39;, &#39;402&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1042&#39;, &#39;台北松山机场&#39;, &#39;211&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1043&#39;, &#39;胡志明市机场&#39;, &#39;307&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1044&#39;, &#39;基辅机场&#39;, &#39;352&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1045&#39;, &#39;马德里机场&#39;, &#39;338&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1046&#39;, &#39;马尼拉机场&#39;, &#39;308&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1047&#39;, &#39;奥克兰机场&#39;, &#39;414&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1048&#39;, &#39;曼彻斯特机场&#39;, &#39;337&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1049&#39;, &#39;上海浦东机场&#39;, &#39;141&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1050&#39;, &#39;布宜诺斯艾利斯机场&#39;, &#39;386&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1051&#39;, &#39;昆明巫家坝机场&#39;, &#39;98&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1052&#39;, &#39;菲乌米奇诺机场&#39;, &#39;331&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1053&#39;, &#39;巴塞罗那机场&#39;, &#39;344&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1054&#39;, &#39;哥本哈根机场&#39;, &#39;341&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1055&#39;, &#39;赫尔辛基机场&#39;, &#39;342&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1056&#39;, &#39;达拉斯沃尔斯堡机场&#39;, &#39;372&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1057&#39;, &#39;西雅图机场&#39;, &#39;363&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1058&#39;, &#39;加德满都机场&#39;, &#39;316&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1059&#39;, &#39;河内机场&#39;, &#39;312&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1060&#39;, &#39;首尔仁川机场&#39;, &#39;301&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1061&#39;, &#39;布拉格机场&#39;, &#39;355&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1062&#39;, &#39;青岛流亭机场&#39;, &#39;138&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1063&#39;, &#39;布里斯班机场&#39;, &#39;415&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1064&#39;, &#39;关西机场&#39;, &#39;305&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1065&#39;, &#39;斯德哥尔摩机场&#39;, &#39;335&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1066&#39;, &#39;武汉天河机场&#39;, &#39;167&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1067&#39;, &#39;底特律机场&#39;, &#39;366&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1068&#39;, &#39;哈尔滨太平机场&#39;, &#39;75&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1069&#39;, &#39;沈阳桃仙机场&#39;, &#39;142&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1070&#39;, &#39;大连国际机场&#39;, &#39;39&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1071&#39;, &#39;波士顿机场&#39;, &#39;365&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1072&#39;, &#39;华盛顿机场&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1073&#39;, &#39;日内瓦机场&#39;, &#39;349&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1074&#39;, &#39;苏黎世机场&#39;, &#39;339&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1075&#39;, &#39;亚特兰大机场&#39;, &#39;367&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1076&#39;, &#39;伯明翰机场&#39;, &#39;347&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1077&#39;, &#39;雅典机场&#39;, &#39;345&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1078&#39;, &#39;西安咸阳机场&#39;, &#39;178&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1079&#39;, &#39;天津滨海机场&#39;, &#39;157&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1080&#39;, &#39;杭州萧山机场&#39;, &#39;70&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1081&#39;, &#39;默罕默德V机场&#39;, &#39;399&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1082&#39;, &#39;慕尼黑机场&#39;, &#39;334&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1083&#39;, &#39;圣彼得堡机场&#39;, &#39;350&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1084&#39;, &#39;维也纳机场&#39;, &#39;343&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1085&#39;, &#39;泰格尔机场&#39;, &#39;336&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1086&#39;, &#39;珀斯机场&#39;, &#39;417&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1087&#39;, &#39;长沙黄花机场&#39;, &#39;29&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1088&#39;, &#39;科托卡机场&#39;, &#39;397&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1089&#39;, &#39;郑州新郑机场&#39;, &#39;198&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1090&#39;, &#39;开普顿机场&#39;, &#39;389&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1091&#39;, &#39;济南遥墙机场&#39;, &#39;92&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1092&#39;, &#39;罗安达二月四日机场&#39;, &#39;392&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1093&#39;, &#39;厦门高崎机场&#39;, &#39;179&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1094&#39;, &#39;丹佛机场&#39;, &#39;381&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1095&#39;, &#39;杜塞尔多夫机场&#39;, &#39;356&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1096&#39;, &#39;阿尔及尔机场&#39;, &#39;398&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1097&#39;, &#39;贵阳龙洞堡机场&#39;, &#39;60&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1098&#39;, &#39;海口美兰机场&#39;, &#39;64&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1099&#39;, &#39;长春龙嘉国际机场&#39;, &#39;23&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1100&#39;, &#39;德班机场&#39;, &#39;400&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1101&#39;, &#39;南京禄口机场&#39;, &#39;125&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1102&#39;, &#39;温州永强机场&#39;, &#39;165&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1103&#39;, &#39;喀土穆机场&#39;, &#39;396&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1104&#39;, &#39;拉斯维加斯麦卡伦国际机场机场&#39;, &#39;378&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1105&#39;, &#39;金边机场&#39;, &#39;319&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1106&#39;, &#39;宁波栎社机场&#39;, &#39;124&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1107&#39;, &#39;哈拉雷机场&#39;, &#39;403&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1108&#39;, &#39;马累机场&#39;, &#39;313&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1109&#39;, &#39;南昌昌北机场&#39;, &#39;122&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1110&#39;, &#39;波特兰机场&#39;, &#39;383&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1111&#39;, &#39;亚的斯亚贝巴机场&#39;, &#39;395&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1112&#39;, &#39;格拉斯哥机场&#39;, &#39;351&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1113&#39;, &#39;名古屋中部/新特丽亚机场&#39;, &#39;310&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1114&#39;, &#39;突尼斯机场&#39;, &#39;401&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1115&#39;, &#39;合肥骆岗机场&#39;, &#39;69&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1116&#39;, &#39;奥兰多机场&#39;, &#39;382&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1117&#39;, &#39;高雄机场&#39;, &#39;317&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1118&#39;, &#39;尼雷尔机场&#39;, &#39;394&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1119&#39;, &#39;三亚凤凰机场&#39;, &#39;145&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1120&#39;, &#39;南宁吴圩机场&#39;, &#39;127&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1121&#39;, &#39;费城机场&#39;, &#39;374&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1122&#39;, &#39;毛里求斯机场&#39;, &#39;393&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1123&#39;, &#39;明尼阿波利斯―圣保罗机场&#39;, &#39;373&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1124&#39;, &#39;金海机场&#39;, &#39;315&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1125&#39;, &#39;阿德莱德机场&#39;, &#39;416&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1126&#39;, &#39;石家庄正定机场&#39;, &#39;144&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1127&#39;, &#39;烟台莱山机场&#39;, &#39;194&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1128&#39;, &#39;阿比让&#39;, &#39;410&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1129&#39;, &#39;休斯敦机场&#39;, &#39;368&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1130&#39;, &#39;银川河东机场&#39;, &#39;183&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1131&#39;, &#39;兰州机场&#39;, &#39;103&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1132&#39;, &#39;乌兰巴托机场&#39;, &#39;324&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1133&#39;, &#39;福州长乐机场&#39;, &#39;50&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1134&#39;, &#39;西宁曹家堡机场&#39;, &#39;180&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1135&#39;, &#39;拉萨贡嘎机场&#39;, &#39;109&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1136&#39;, &#39;桂林两江机场&#39;, &#39;61&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1137&#39;, &#39;埃德蒙顿市中心机场&#39;, &#39;385&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1138&#39;, &#39;澳门机场&#39;, &#39;210&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1139&#39;, &#39;湛江机场&#39;, &#39;204&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1140&#39;, &#39;杜阿拉机场&#39;, &#39;408&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1141&#39;, &#39;金沙萨恩吉利机场&#39;, &#39;406&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1142&#39;, &#39;爱丁堡机场&#39;, &#39;346&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1143&#39;, &#39;徐州观音机场&#39;, &#39;181&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1144&#39;, &#39;CALGARY机场&#39;, &#39;379&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1145&#39;, &#39;威海文登大水泊机场&#39;, &#39;163&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1146&#39;, &#39;渥太华机场&#39;, &#39;376&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1147&#39;, &#39;福冈机场&#39;, &#39;318&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1148&#39;, &#39;佳木斯机场&#39;, &#39;86&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1149&#39;, &#39;呼和浩特白塔国际机场&#39;, &#39;68&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1150&#39;, &#39;马普托机场&#39;, &#39;407&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1151&#39;, &#39;达尔文机场&#39;, &#39;425&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1152&#39;, &#39;无锡硕放机场&#39;, &#39;169&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1153&#39;, &#39;义乌机场&#39;, &#39;192&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1154&#39;, &#39;景洪(西双版纳)机场&#39;, &#39;174&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1155&#39;, &#39;珠海三灶机场&#39;, &#39;207&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1156&#39;, &#39;大庆萨尔图机场&#39;, &#39;43&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1157&#39;, &#39;喀什机场&#39;, &#39;95&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1158&#39;, &#39;黄金海岸机场&#39;, &#39;422&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1159&#39;, &#39;宜昌三峡机场&#39;, &#39;190&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1160&#39;, &#39;宜宾(菜坝)机场&#39;, &#39;187&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1161&#39;, &#39;柳州白莲机场&#39;, &#39;114&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1162&#39;, &#39;临沂沭埠岭机场&#39;, &#39;113&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1163&#39;, &#39;堪培拉机场&#39;, &#39;419&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1164&#39;, &#39;纽卡斯尔机场&#39;, &#39;348&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1165&#39;, &#39;鄂尔多斯伊金霍洛机场&#39;, &#39;46&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1166&#39;, &#39;包头二里半机场&#39;, &#39;12&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1167&#39;, &#39;普吉机场&#39;, &#39;311&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1168&#39;, &#39;牡丹江海浪机场&#39;, &#39;117&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1169&#39;, &#39;阿克苏机场&#39;, &#39;3&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1170&#39;, &#39;丽江三义机场&#39;, &#39;105&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1171&#39;, &#39;锦州小岭子机场&#39;, &#39;88&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1172&#39;, &#39;延吉朝阳川机场&#39;, &#39;193&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1173&#39;, &#39;丹东浪头机场&#39;, &#39;37&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1174&#39;, &#39;泉州晋江机场&#39;, &#39;85&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1175&#39;, &#39;惠灵顿机场&#39;, &#39;418&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1176&#39;, &#39;潍坊机场&#39;, &#39;162&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1177&#39;, &#39;常州奔牛机场&#39;, &#39;31&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1178&#39;, &#39;连云港白塔埠机场&#39;, &#39;112&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1179&#39;, &#39;佛山沙堤机场&#39;, &#39;52&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1180&#39;, &#39;洛阳机场&#39;, &#39;111&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1181&#39;, &#39;内蒙古海拉尔东山机场&#39;, &#39;73&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1182&#39;, &#39;齐齐哈尔三家子机场&#39;, &#39;136&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1183&#39;, &#39;北海福城机场&#39;, &#39;14&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1184&#39;, &#39;揭阳潮汕机场&#39;, &#39;91&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1185&#39;, &#39;秦皇岛山海关机场&#39;, &#39;137&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1186&#39;, &#39;襄阳刘集机场&#39;, &#39;175&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1187&#39;, &#39;绵阳南郊机场&#39;, &#39;118&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1188&#39;, &#39;哈密机场&#39;, &#39;74&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1189&#39;, &#39;嘉峪关机场&#39;, &#39;81&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1190&#39;, &#39;凯恩斯机场&#39;, &#39;420&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1191&#39;, &#39;南通兴东机场&#39;, &#39;129&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1192&#39;, &#39;张家界荷花机场&#39;, &#39;199&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1193&#39;, &#39;武夷山机场&#39;, &#39;168&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1194&#39;, &#39;攀枝花保安营机场&#39;, &#39;130&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1195&#39;, &#39;南阳姜营机场&#39;, &#39;128&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1196&#39;, &#39;赣州黄金机场&#39;, &#39;59&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1197&#39;, &#39;台州路桥（原黄岩路桥）机场&#39;, &#39;149&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1198&#39;, &#39;山西大同机场&#39;, &#39;34&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1199&#39;, &#39;伊宁机场&#39;, &#39;191&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1200&#39;, &#39;遵义机场&#39;, &#39;208&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1201&#39;, &#39;江苏盐城南洋机场&#39;, &#39;195&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1202&#39;, &#39;库尔勒机场&#39;, &#39;99&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1203&#39;, &#39;九江庐山机场&#39;, &#39;84&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1204&#39;, &#39;西昌青山机场&#39;, &#39;176&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1205&#39;, &#39;榆林西沙机场&#39;, &#39;186&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1206&#39;, &#39;艾塞尼亚机场&#39;, &#39;382&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1207&#39;, &#39;扬州泰州机场&#39;, &#39;196&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1208&#39;, &#39;泸州蓝田机场&#39;, &#39;115&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1209&#39;, &#39;卢克索机场&#39;, &#39;411&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1210&#39;, &#39;札幌机场&#39;, &#39;322&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1211&#39;, &#39;南充高坪机场&#39;, &#39;123&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1212&#39;, &#39;大理荒草坝机场&#39;, &#39;40&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1213&#39;, &#39;湖南永州零陵机场&#39;, &#39;185&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1214&#39;, &#39;黄山屯溪机场&#39;, &#39;78&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1215&#39;, &#39;呼伦贝尔满洲里西郊机场&#39;, &#39;120&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1216&#39;, &#39;衢州机场&#39;, &#39;135&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1217&#39;, &#39;唐山三女河机场&#39;, &#39;158&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1218&#39;, &#39;巴厘&#39;, &#39;309&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1219&#39;, &#39;乌兰浩特机场&#39;, &#39;160&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1220&#39;, &#39;贵州黎平机场&#39;, &#39;101&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1221&#39;, &#39;常德桃花源(斗姆湖)机场&#39;, &#39;22&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1222&#39;, &#39;格尔木机场&#39;, &#39;56&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1223&#39;, &#39;济州机场&#39;, &#39;321&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1224&#39;, &#39;恩施机场&#39;, &#39;48&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1225&#39;, &#39;阜阳西关机场&#39;, &#39;51&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1226&#39;, &#39;淮安涟水机场&#39;, &#39;71&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1227&#39;, &#39;景德镇罗家机场&#39;, &#39;79&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1228&#39;, &#39;二连浩特赛乌苏国际机场&#39;, &#39;49&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1229&#39;, &#39;林芝机场&#39;, &#39;116&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1230&#39;, &#39;通辽机场&#39;, &#39;153&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1231&#39;, &#39;巴厘岛&#39;, &#39;309&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1232&#39;, &#39;怀化芷江机场&#39;, &#39;72&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1233&#39;, &#39;河北邯郸机场机场&#39;, &#39;66&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1234&#39;, &#39;运城关公机场&#39;, &#39;188&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1235&#39;, &#39;巴彦淖尔天吉泰机场&#39;, &#39;18&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1236&#39;, &#39;敦煌机场&#39;, &#39;41&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1237&#39;, &#39;鸡西兴凯湖机场&#39;, &#39;89&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1238&#39;, &#39;克拉玛依机场&#39;, &#39;100&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1239&#39;, &#39;荆州沙市机场&#39;, &#39;143&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1240&#39;, &#39;茨城机场&#39;, &#39;326&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1241&#39;, &#39;中卫(香山、沙坡头)机场&#39;, &#39;205&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1242&#39;, &#39;汉中西关机场&#39;, &#39;77&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1243&#39;, &#39;青海玉树三江源(巴塘)机场&#39;, &#39;197&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1244&#39;, &#39;重庆万州五桥机场&#39;, &#39;171&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1245&#39;, &#39;锡林浩特机场&#39;, &#39;177&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1246&#39;, &#39;安庆(天柱山）机场&#39;, &#39;5&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1247&#39;, &#39;济宁机场&#39;, &#39;87&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1248&#39;, &#39;霍巴特机场&#39;, &#39;424&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1249&#39;, &#39;赤峰玉龙机场&#39;, &#39;25&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1250&#39;, &#39;黑河机场&#39;, &#39;67&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1251&#39;, &#39;长白山机场&#39;, &#39;33&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1252&#39;, &#39;塞班机场&#39;, &#39;371&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1253&#39;, &#39;和田机场&#39;, &#39;76&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1254&#39;, &#39;腾冲（驼峰）机场&#39;, &#39;151&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1255&#39;, &#39;漠河古莲机场&#39;, &#39;121&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1256&#39;, &#39;长治王村机场&#39;, &#39;26&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1257&#39;, &#39;通化机场&#39;, &#39;156&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1258&#39;, &#39;库车机场&#39;, &#39;93&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1259&#39;, &#39;金昌机场&#39;, &#39;83&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1260&#39;, &#39;舟山普陀山朱家尖机场&#39;, &#39;200&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1261&#39;, &#39;井冈山机场&#39;, &#39;82&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1262&#39;, &#39;甘肃天水机场&#39;, &#39;154&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1263&#39;, &#39;云南文山普者黑机场&#39;, &#39;164&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1264&#39;, &#39;临沧机场&#39;, &#39;108&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1265&#39;, &#39;庆阳机场&#39;, &#39;133&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1266&#39;, &#39;昭通机场&#39;, &#39;202&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1267&#39;, &#39;广元机场&#39;, &#39;57&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1268&#39;, &#39;伊春林都机场&#39;, &#39;184&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1269&#39;, &#39;吐鲁番交河机场&#39;, &#39;155&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1270&#39;, &#39;康定机场&#39;, &#39;94&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1271&#39;, &#39;铜仁凤凰机场&#39;, &#39;152&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1272&#39;, &#39;广汉机场&#39;, &#39;55&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1273&#39;, &#39;鞍山机场&#39;, &#39;4&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1274&#39;, &#39;福建龙岩冠豸山机场&#39;, &#39;102&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1275&#39;, &#39;扬&#39;, &#39;196&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1276&#39;, &#39;安康机场&#39;, &#39;2&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1277&#39;, &#39;贵州安顺黄果树机场&#39;, &#39;6&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1278&#39;, &#39;普洱(思茅)机场&#39;, &#39;131&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1279&#39;, &#39;且末机场&#39;, &#39;132&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1280&#39;, &#39;迪庆香格里拉机场&#39;, &#39;38&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1281&#39;, &#39;九寨沟黄龙(九黄）机场&#39;, &#39;90&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1282&#39;, &#39;阿勒泰机场&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1283&#39;, &#39;广西梧州长洲岛机场&#39;, &#39;170&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1284&#39;, &#39;辽宁朝阳机场&#39;, &#39;24&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1285&#39;, &#39;西藏昌都邦达机场&#39;, &#39;21&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1286&#39;, &#39;延安二十里铺机场&#39;, &#39;182&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1287&#39;, &#39;阿勒&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1288&#39;, &#39;张掖机场&#39;, &#39;201&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1289&#39;, &#39;新疆博乐机场&#39;, &#39;15&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1290&#39;, &#39;日喀则和平机场&#39;, &#39;139&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1291&#39;, &#39;宁夏固原六盘山机场&#39;, &#39;58&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1292&#39;, &#39;乌海机场&#39;, &#39;166&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1293&#39;, &#39;保山云瑞机场&#39;, &#39;16&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1294&#39;, &#39;那拉提机场&#39;, &#39;126&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1295&#39;, &#39;长海（大长山岛）机场&#39;, &#39;28&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1296&#39;, &#39;东营永安机场&#39;, &#39;42&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1297&#39;, &#39;荔波机场&#39;, &#39;106&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1298&#39;, &#39;广西百色(田阳)机场&#39;, &#39;11&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1299&#39;, &#39;达尼丁&#39;, &#39;426&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1300&#39;, &#39;黔江舟白机场&#39;, &#39;134&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1301&#39;, &#39;塔城机场&#39;, &#39;150&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1302&#39;, &#39;阿里昆莎机场&#39;, &#39;8&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1303&#39;, &#39;黎&#39;, &#39;101&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1304&#39;, &#39;苏&#39;, &#39;339&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1305&#39;, &#39;帕&#39;, &#39;423&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1306&#39;, &#39;新疆喀纳斯机场&#39;, &#39;97&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1307&#39;, &#39;阿尔山伊尔施机场&#39;, &#39;10&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1308&#39;, &#39;兴义机场&#39;, &#39;172&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1309&#39;, &#39;蒙特利尔机场&#39;, &#39;369&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1310&#39;, &#39;温哥华机场&#39;, &#39;360&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1311&#39;, &#39;华盛顿&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1312&#39;, &#39;圣保罗&#39;, &#39;375&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1313&#39;, &#39;北海&#39;, &#39;14&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1314&#39;, &#39;罗马&#39;, &#39;331&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1315&#39;, &#39;华盛顿&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1316&#39;, &#39;巴黎&#39;, &#39;328&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1317&#39;, &#39;珀斯&#39;, &#39;417&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1318&#39;, &#39;波特兰&#39;, &#39;383&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1319&#39;, &#39;卡萨布兰卡&#39;, &#39;399&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1320&#39;, &#39;华盛顿&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1321&#39;, &#39;芝加哥&#39;, &#39;361&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1322&#39;, &#39;奥克兰&#39;, &#39;414&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1323&#39;, &#39;底特律&#39;, &#39;366&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1324&#39;, &#39;雅典&#39;, &#39;345&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1325&#39;, &#39;圣保罗&#39;, &#39;375&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1326&#39;, &#39;纽卡斯尔&#39;, &#39;348&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1327&#39;, &#39;哥本哈根&#39;, &#39;341&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1328&#39;, &#39;东京&#39;, &#39;300&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1329&#39;, &#39;伦敦&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1330&#39;, &#39;斯德哥尔摩&#39;, &#39;335&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1331&#39;, &#39;罗马&#39;, &#39;331&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1332&#39;, &#39;名古屋&#39;, &#39;310&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1333&#39;, &#39;布宜诺斯艾利斯&#39;, &#39;386&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1334&#39;, &#39;格拉斯哥&#39;, &#39;351&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1335&#39;, &#39;格拉斯哥&#39;, &#39;351&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1336&#39;, &#39;曼彻斯特&#39;, &#39;337&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1337&#39;, &#39;波特兰&#39;, &#39;383&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1338&#39;, &#39;首尔&#39;, &#39;301&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1339&#39;, &#39;首尔&#39;, &#39;301&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1340&#39;, &#39;斯德哥尔摩&#39;, &#39;335&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1341&#39;, &#39;米兰&#39;, &#39;333&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1342&#39;, &#39;巴黎&#39;, &#39;328&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1343&#39;, &#39;伦敦&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1344&#39;, &#39;布宜诺斯艾利斯&#39;, &#39;386&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1345&#39;, &#39;伦敦&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1346&#39;, &#39;华盛顿&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1347&#39;, &#39;柏林&#39;, &#39;336&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1348&#39;, &#39;巴厘岛&#39;, &#39;309&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1349&#39;, &#39;圣保罗&#39;, &#39;375&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1350&#39;, &#39;米兰&#39;, &#39;333&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1351&#39;, &#39;多伦多&#39;, &#39;362&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1352&#39;, &#39;斯德哥尔摩&#39;, &#39;335&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1353&#39;, &#39;罗马&#39;, &#39;331&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1354&#39;, &#39;雅典&#39;, &#39;345&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1355&#39;, &#39;吉隆坡苏丹阿卜杜尔机场&#39;, &#39;304&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1356&#39;, &#39;CALGARY机场&#39;, &#39;379&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1357&#39;, &#39;米兰利纳特机场&#39;, &#39;333&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1358&#39;, &#39;柏林勃兰登堡机场&#39;, &#39;336&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1359&#39;, &#39;底特律都会韦恩县机场&#39;, &#39;366&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1360&#39;, &#39;赫登机场&#39;, &#39;382&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1361&#39;, &#39;斯德哥尔摩史卡夫斯塔机场&#39;, &#39;335&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1362&#39;, &#39;华盛顿杜勒斯机场&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1363&#39;, &#39;巴黎－奥利机场&#39;, &#39;328&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1364&#39;, &#39;Hamburg Finkenwerder机场&#39;, &#39;354&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1365&#39;, &#39;法兰克福哈恩机场&#39;, &#39;329&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1366&#39;, &#39;普雷斯蒂克机场&#39;, &#39;351&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1367&#39;, &#39;加州奥克兰机场&#39;, &#39;414&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1368&#39;, &#39;罗纳德・里根机场&#39;, &#39;364&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1369&#39;, &#39;芝加哥中途机场&#39;, &#39;361&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1370&#39;, &#39;盖特威克机场&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1371&#39;, &#39;萨比哈・格克琴机场&#39;, &#39;323&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1372&#39;, &#39;北九州机场&#39;, &#39;318&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1373&#39;, &#39;莫斯科机场&#39;, &#39;330&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1374&#39;, &#39;巴黎机场&#39;, &#39;328&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1375&#39;, &#39;罗马机场&#39;, &#39;331&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1376&#39;, &#39;墨尔本机场&#39;, &#39;413&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1377&#39;, &#39;悉尼金斯福德・史密斯机场&#39;, &#39;412&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1378&#39;, &#39;多伦多市中心机场&#39;, &#39;362&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1379&#39;, &#39;多伦多皮尔逊机场&#39;, &#39;362&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1380&#39;, &#39;伏努科沃机场&#39;, &#39;330&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1381&#39;, &#39;多莫杰多沃机场&#39;, &#39;330&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1382&#39;, &#39;滕伯尔霍夫机场&#39;, &#39;336&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1383&#39;, &#39;埃塞萨皮斯塔里尼部长机场&#39;, &#39;386&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1384&#39;, &#39;伦敦卢顿机场&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1385&#39;, &#39;波里斯珀尔机场&#39;, &#39;352&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1386&#39;, &#39;伦敦城市机场&#39;, &#39;327&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1387&#39;, &#39;埃德蒙顿机场&#39;, &#39;385&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1388&#39;, &#39;威廉斯敦机场&#39;, &#39;348&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1389&#39;, &#39;米拉贝尔机场&#39;, &#39;369&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1390&#39;, &#39;桃园/桃園(原中正)机场&#39;, &#39;211&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1391&#39;, &#39;奥兰多桑福德机场&#39;, &#39;382&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1392&#39;, &#39;伯明翰舒特尔斯沃思机场&#39;, &#39;347&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1393&#39;, &#39;舍讷费尔德机场&#39;, &#39;336&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1394&#39;, &#39;波音场国王郡立机场&#39;, &#39;363&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1395&#39;, &#39;雅加达机场&#39;, &#39;306&#39;, &#39;1&#39;); INSERT INTO `lk_airport` VALUES (&#39;1396&#39;, &#39;伦敦斯坦斯特德机场&#39;, &#39;327&#39;, &#39;1&#39;); -- ---------------------------- -- Table structure for lk_airport_city -- ---------------------------- DROP TABLE IF EXISTS `lk_airport_city`; CREATE TABLE `lk_airport_city` ( `city_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT, `city_name` varchar(10) NOT NULL DEFAULT &#39;&#39;, `initial` char(1) NOT NULL DEFAULT &#39;&#39; COMMENT &#39;首字母&#39;, `airport_code` varchar(5) NOT NULL DEFAULT &#39;&#39; COMMENT &#39;机场代码&#39;, `is_hot` tinyint(3) unsigned NOT NULL DEFAULT &#39;0&#39; COMMENT &#39;是否热门 1是 0否&#39;, `is_inter__hot` tinyint(3) unsigned NOT NULL DEFAULT &#39;0&#39; COMMENT &#39;是否国外热门 1是 0否&#39;, PRIMARY KEY (`city_id`) ) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport_city -- ---------------------------- INSERT INTO `lk_airport_city` VALUES (&#39;24&#39;, &#39;朝阳&#39;, &#39;C&#39;, &#39;CHG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;182&#39;, &#39;延安&#39;, &#39;Y&#39;, &#39;ENY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;165&#39;, &#39;温州&#39;, &#39;W&#39;, &#39;WNZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;36&#39;, &#39;稻城&#39;, &#39;D&#39;, &#39;DCY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;111&#39;, &#39;洛阳&#39;, &#39;L&#39;, &#39;LYA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;201&#39;, &#39;张掖&#39;, &#39;Z&#39;, &#39;YZY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;128&#39;, &#39;南阳&#39;, &#39;N&#39;, &#39;NNY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;136&#39;, &#39;齐齐哈尔&#39;, &#39;Q&#39;, &#39;NDG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;114&#39;, &#39;柳州&#39;, &#39;L&#39;, &#39;LZH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;105&#39;, &#39;丽江&#39;, &#39;L&#39;, &#39;LJG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;100&#39;, &#39;克拉玛依&#39;, &#39;K&#39;, &#39;KRY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;14&#39;, &#39;北海&#39;, &#39;B&#39;, &#39;BHY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;192&#39;, &#39;义乌&#39;, &#39;Y&#39;, &#39;YIW&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;123&#39;, &#39;南充&#39;, &#39;N&#39;, &#39;NAO&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;96&#39;, &#39;凯里&#39;, &#39;K&#39;, &#39;KJH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;121&#39;, &#39;漠河&#39;, &#39;M&#39;, &#39;OHE&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;38&#39;, &#39;迪庆&#39;, &#39;D&#39;, &#39;DIG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;207&#39;, &#39;珠海&#39;, &#39;Z&#39;, &#39;ZUH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;157&#39;, &#39;天津&#39;, &#39;T&#39;, &#39;TSN&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;1&#39;, &#39;阿勒泰&#39;, &#39;A&#39;, &#39;AAT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;110&#39;, &#39;林西&#39;, &#39;L&#39;, &#39;LXI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;97&#39;, &#39;喀纳斯&#39;, &#39;K&#39;, &#39;KJI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;23&#39;, &#39;长春&#39;, &#39;C&#39;, &#39;CGQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;155&#39;, &#39;吐鲁番&#39;, &#39;T&#39;, &#39;TLQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;175&#39;, &#39;襄阳&#39;, &#39;X&#39;, &#39;XFN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;191&#39;, &#39;伊宁市&#39;, &#39;Y&#39;, &#39;YIN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;108&#39;, &#39;临沧&#39;, &#39;L&#39;, &#39;LNJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;8&#39;, &#39;阿里&#39;, &#39;A&#39;, &#39;NGQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;78&#39;, &#39;黄山&#39;, &#39;H&#39;, &#39;TXN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;37&#39;, &#39;丹东&#39;, &#39;D&#39;, &#39;DDG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;164&#39;, &#39;文山县&#39;, &#39;W&#39;, &#39;WNH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;122&#39;, &#39;南昌&#39;, &#39;N&#39;, &#39;KHN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;193&#39;, &#39;延吉&#39;, &#39;Y&#39;, &#39;YNJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;197&#39;, &#39;玉树县&#39;, &#39;Y&#39;, &#39;YUS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;171&#39;, &#39;万州&#39;, &#39;W&#39;, &#39;WXN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;204&#39;, &#39;湛江&#39;, &#39;Z&#39;, &#39;ZHA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;152&#39;, &#39;铜仁市&#39;, &#39;T&#39;, &#39;TEN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;135&#39;, &#39;衢州&#39;, &#39;Q&#39;, &#39;JUZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;150&#39;, &#39;塔城&#39;, &#39;T&#39;, &#39;TCG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;58&#39;, &#39;固原&#39;, &#39;G&#39;, &#39;GYU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;143&#39;, &#39;沙市&#39;, &#39;S&#39;, &#39;SHS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;76&#39;, &#39;和田市&#39;, &#39;H&#39;, &#39;HTN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;125&#39;, &#39;南京&#39;, &#39;N&#39;, &#39;NKG&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;115&#39;, &#39;泸州&#39;, &#39;L&#39;, &#39;LZO&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;183&#39;, &#39;银川&#39;, &#39;Y&#39;, &#39;INC&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;109&#39;, &#39;拉萨&#39;, &#39;L&#39;, &#39;LXA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;139&#39;, &#39;日喀则&#39;, &#39;R&#39;, &#39;RKZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;2&#39;, &#39;安康&#39;, &#39;A&#39;, &#39;AKA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;89&#39;, &#39;鸡西&#39;, &#39;J&#39;, &#39;JXA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;90&#39;, &#39;九寨沟&#39;, &#39;J&#39;, &#39;JZH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;45&#39;, &#39;德宏&#39;, &#39;D&#39;, &#39;LUM&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;83&#39;, &#39;金昌&#39;, &#39;J&#39;, &#39;JIC&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;162&#39;, &#39;潍坊&#39;, &#39;W&#39;, &#39;WEF&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;166&#39;, &#39;乌海&#39;, &#39;W&#39;, &#39;WUA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;46&#39;, &#39;鄂尔多斯&#39;, &#39;E&#39;, &#39;DSN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;178&#39;, &#39;西安&#39;, &#39;X&#39;, &#39;SIA&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;103&#39;, &#39;兰州&#39;, &#39;L&#39;, &#39;LHW&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;159&#39;, &#39;太原&#39;, &#39;T&#39;, &#39;TYN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;73&#39;, &#39;海拉尔&#39;, &#39;H&#39;, &#39;HLD&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;86&#39;, &#39;佳木斯&#39;, &#39;J&#39;, &#39;JMU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;149&#39;, &#39;台州&#39;, &#39;T&#39;, &#39;HYN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;133&#39;, &#39;庆阳&#39;, &#39;Q&#39;, &#39;IQN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;198&#39;, &#39;郑州&#39;, &#39;Z&#39;, &#39;CGO&#39;, &#39;1&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;74&#39;, &#39;哈密市&#39;, &#39;H&#39;, &#39;HMI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;9&#39;, &#39;阿拉善右旗&#39;, &#39;A&#39;, &#39;RHT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;55&#39;, &#39;广汉&#39;, &#39;G&#39;, &#39;GHN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;6&#39;, &#39;安顺&#39;, &#39;A&#39;, &#39;AVA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;84&#39;, &#39;九江&#39;, &#39;J&#39;, &#39;JIU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;205&#39;, &#39;中卫&#39;, &#39;Z&#39;, &#39;ZHY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;95&#39;, &#39;喀什市&#39;, &#39;K&#39;, &#39;KHG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;187&#39;, &#39;宜宾&#39;, &#39;Y&#39;, &#39;YBP&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;69&#39;, &#39;合肥&#39;, &#39;H&#39;, &#39;HFE&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;80&#39;, &#39;加格达奇&#39;, &#39;J&#39;, &#39;JGD&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;206&#39;, &#39;张家口&#39;, &#39;Z&#39;, &#39;ZQZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;172&#39;, &#39;兴义&#39;, &#39;X&#39;, &#39;ACX&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;138&#39;, &#39;青岛&#39;, &#39;Q&#39;, &#39;TAO&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;64&#39;, &#39;海口&#39;, &#39;H&#39;, &#39;HAK&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;63&#39;, &#39;红原&#39;, &#39;H&#39;, &#39;AHJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;154&#39;, &#39;天水&#39;, &#39;T&#39;, &#39;THQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;21&#39;, &#39;昌都&#39;, &#39;C&#39;, &#39;BPX&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;68&#39;, &#39;呼和浩特&#39;, &#39;H&#39;, &#39;HET&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;163&#39;, &#39;威海&#39;, &#39;W&#39;, &#39;WEH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;82&#39;, &#39;井冈山&#39;, &#39;J&#39;, &#39;JGS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;101&#39;, &#39;黎平&#39;, &#39;L&#39;, &#39;HZH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;53&#39;, &#39;抚远&#39;, &#39;F&#39;, &#39;FYJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;127&#39;, &#39;南宁&#39;, &#39;N&#39;, &#39;NNG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;129&#39;, &#39;南通&#39;, &#39;N&#39;, &#39;NTG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;62&#39;, &#39;光化&#39;, &#39;G&#39;, &#39;LHK&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;15&#39;, &#39;博乐&#39;, &#39;B&#39;, &#39;BPL&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;142&#39;, &#39;沈阳&#39;, &#39;S&#39;, &#39;SHE&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;176&#39;, &#39;西昌&#39;, &#39;X&#39;, &#39;XIC&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;85&#39;, &#39;晋江&#39;, &#39;J&#39;, &#39;JJN&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;181&#39;, &#39;徐州&#39;, &#39;X&#39;, &#39;XUZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;102&#39;, &#39;龙岩&#39;, &#39;L&#39;, &#39;LCX&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;42&#39;, &#39;东营&#39;, &#39;D&#39;, &#39;DOY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;119&#39;, &#39;梅州&#39;, &#39;M&#39;, &#39;MXZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;87&#39;, &#39;济宁&#39;, &#39;J&#39;, &#39;JNG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;94&#39;, &#39;康定&#39;, &#39;K&#39;, &#39;KGT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;16&#39;, &#39;保山&#39;, &#39;B&#39;, &#39;BSD&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;177&#39;, &#39;锡林浩特&#39;, &#39;X&#39;, &#39;XIL&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;39&#39;, &#39;大连&#39;, &#39;D&#39;, &#39;DLC&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;184&#39;, &#39;伊春&#39;, &#39;Y&#39;, &#39;LDS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;61&#39;, &#39;桂林&#39;, &#39;G&#39;, &#39;KWL&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;161&#39;, &#39;乌鲁木齐&#39;, &#39;W&#39;, &#39;URC&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;26&#39;, &#39;长治&#39;, &#39;C&#39;, &#39;CIH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;13&#39;, &#39;毕节&#39;, &#39;B&#39;, &#39;BFJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;126&#39;, &#39;那拉提&#39;, &#39;N&#39;, &#39;NLT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;60&#39;, &#39;贵阳&#39;, &#39;G&#39;, &#39;KWE&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;44&#39;, &#39;德令哈&#39;, &#39;D&#39;, &#39;HXD&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;17&#39;, &#39;北京&#39;, &#39;B&#39;, &#39;BJS&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;72&#39;, &#39;怀化&#39;, &#39;H&#39;, &#39;HJJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;116&#39;, &#39;林芝&#39;, &#39;L&#39;, &#39;LZY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;10&#39;, &#39;阿尔山&#39;, &#39;A&#39;, &#39;YIE&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;106&#39;, &#39;荔波&#39;, &#39;L&#39;, &#39;LLB&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;12&#39;, &#39;包头&#39;, &#39;B&#39;, &#39;BAV&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;169&#39;, &#39;无锡&#39;, &#39;W&#39;, &#39;WUX&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;57&#39;, &#39;广元&#39;, &#39;G&#39;, &#39;GYS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;27&#39;, &#39;重庆&#39;, &#39;C&#39;, &#39;CKG&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;70&#39;, &#39;杭州&#39;, &#39;H&#39;, &#39;HGH&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;99&#39;, &#39;库尔勒&#39;, &#39;K&#39;, &#39;KRL&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;4&#39;, &#39;鞍山&#39;, &#39;A&#39;, &#39;AOG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;34&#39;, &#39;大同&#39;, &#39;D&#39;, &#39;DAT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;120&#39;, &#39;满洲里&#39;, &#39;M&#39;, &#39;NZH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;18&#39;, &#39;巴彦淖尔&#39;, &#39;B&#39;, &#39;RLK&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;130&#39;, &#39;攀枝花&#39;, &#39;P&#39;, &#39;PZI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;25&#39;, &#39;赤峰&#39;, &#39;C&#39;, &#39;CIF&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;81&#39;, &#39;嘉峪关&#39;, &#39;J&#39;, &#39;JGN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;195&#39;, &#39;盐城&#39;, &#39;Y&#39;, &#39;YNZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;93&#39;, &#39;库车&#39;, &#39;K&#39;, &#39;KCA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;88&#39;, &#39;锦州&#39;, &#39;J&#39;, &#39;JNZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;131&#39;, &#39;普洱&#39;, &#39;P&#39;, &#39;SYM&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;104&#39;, &#39;梁平&#39;, &#39;L&#39;, &#39;LIA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;5&#39;, &#39;安庆&#39;, &#39;A&#39;, &#39;AQG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;140&#39;, &#39;神农架&#39;, &#39;S&#39;, &#39;HPG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;170&#39;, &#39;梧州&#39;, &#39;W&#39;, &#39;WUZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;11&#39;, &#39;百色&#39;, &#39;B&#39;, &#39;AEB&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;113&#39;, &#39;临沂&#39;, &#39;L&#39;, &#39;LYI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;153&#39;, &#39;通辽&#39;, &#39;T&#39;, &#39;TGO&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;202&#39;, &#39;昭通&#39;, &#39;Z&#39;, &#39;ZAT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;180&#39;, &#39;西宁&#39;, &#39;X&#39;, &#39;XNN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;141&#39;, &#39;上海&#39;, &#39;S&#39;, &#39;SHA&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;137&#39;, &#39;秦皇岛&#39;, &#39;Q&#39;, &#39;SHP&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;28&#39;, &#39;长海&#39;, &#39;C&#39;, &#39;CNI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;118&#39;, &#39;绵阳&#39;, &#39;M&#39;, &#39;MIG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;71&#39;, &#39;淮安&#39;, &#39;H&#39;, &#39;HIA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;35&#39;, &#39;达县&#39;, &#39;D&#39;, &#39;DAX&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;92&#39;, &#39;济南&#39;, &#39;J&#39;, &#39;TNA&#39;, &#39;1&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;50&#39;, &#39;福州&#39;, &#39;F&#39;, &#39;FOC&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;112&#39;, &#39;连云港&#39;, &#39;L&#39;, &#39;LYG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;30&#39;, &#39;成都&#39;, &#39;C&#39;, &#39;CTU&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;65&#39;, &#39;河池&#39;, &#39;H&#39;, &#39;HCJ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;194&#39;, &#39;烟台&#39;, &#39;Y&#39;, &#39;YNT&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;75&#39;, &#39;哈尔滨&#39;, &#39;H&#39;, &#39;HRB&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;146&#39;, &#39;深圳&#39;, &#39;S&#39;, &#39;SZX&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;49&#39;, &#39;二连浩特&#39;, &#39;E&#39;, &#39;ERL&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;188&#39;, &#39;运城&#39;, &#39;Y&#39;, &#39;YCU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;158&#39;, &#39;唐山&#39;, &#39;T&#39;, &#39;TVS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;47&#39;, &#39;额济纳旗&#39;, &#39;E&#39;, &#39;EJN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;144&#39;, &#39;石家庄&#39;, &#39;S&#39;, &#39;SJW&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;31&#39;, &#39;常州&#39;, &#39;C&#39;, &#39;CZX&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;186&#39;, &#39;榆林&#39;, &#39;Y&#39;, &#39;UYN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;199&#39;, &#39;张家界&#39;, &#39;Z&#39;, &#39;DYG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;22&#39;, &#39;常德&#39;, &#39;C&#39;, &#39;CGD&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;203&#39;, &#39;中山&#39;, &#39;Z&#39;, &#39;ZGN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;185&#39;, &#39;永州&#39;, &#39;Y&#39;, &#39;LLF&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;196&#39;, &#39;扬州&#39;, &#39;Y&#39;, &#39;YTY&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;156&#39;, &#39;通化&#39;, &#39;T&#39;, &#39;TNH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;51&#39;, &#39;阜阳&#39;, &#39;F&#39;, &#39;FUG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;200&#39;, &#39;舟山&#39;, &#39;Z&#39;, &#39;HSN&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;132&#39;, &#39;且末&#39;, &#39;Q&#39;, &#39;IQM&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;98&#39;, &#39;昆明&#39;, &#39;K&#39;, &#39;KMG&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;3&#39;, &#39;阿克苏&#39;, &#39;A&#39;, &#39;AKU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;145&#39;, &#39;三亚&#39;, &#39;S&#39;, &#39;SYX&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;7&#39;, &#39;阿拉善左旗&#39;, &#39;A&#39;, &#39;AXF&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;40&#39;, &#39;大理市&#39;, &#39;D&#39;, &#39;DLU&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;179&#39;, &#39;厦门&#39;, &#39;X&#39;, &#39;XMN&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;151&#39;, &#39;腾冲&#39;, &#39;T&#39;, &#39;TCZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;59&#39;, &#39;赣州&#39;, &#39;G&#39;, &#39;KOW&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;167&#39;, &#39;武汉&#39;, &#39;W&#39;, &#39;WUH&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;48&#39;, &#39;恩施&#39;, &#39;E&#39;, &#39;ENH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;66&#39;, &#39;邯郸&#39;, &#39;H&#39;, &#39;HDG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;189&#39;, &#39;宜春&#39;, &#39;Y&#39;, &#39;YIC&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;160&#39;, &#39;乌兰浩特&#39;, &#39;W&#39;, &#39;HLH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;173&#39;, &#39;夏河&#39;, &#39;X&#39;, &#39;GXH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;33&#39;, &#39;长白山&#39;, &#39;C&#39;, &#39;NBS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;41&#39;, &#39;敦煌&#39;, &#39;D&#39;, &#39;DNH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;29&#39;, &#39;长沙&#39;, &#39;C&#39;, &#39;CSX&#39;, &#39;1&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;56&#39;, &#39;格尔木&#39;, &#39;G&#39;, &#39;GOQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;43&#39;, &#39;大庆&#39;, &#39;D&#39;, &#39;DQA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;91&#39;, &#39;揭阳&#39;, &#39;J&#39;, &#39;SWA&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;52&#39;, &#39;佛山&#39;, &#39;F&#39;, &#39;FUO&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;77&#39;, &#39;汉中&#39;, &#39;H&#39;, &#39;HZG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;168&#39;, &#39;武夷山&#39;, &#39;W&#39;, &#39;WUS&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;174&#39;, &#39;西双版纳&#39;, &#39;X&#39;, &#39;JHG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;134&#39;, &#39;黔江&#39;, &#39;Q&#39;, &#39;JIQ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;107&#39;, &#39;吕梁&#39;, &#39;L&#39;, &#39;LLV&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;32&#39;, &#39;池州&#39;, &#39;C&#39;, &#39;JUH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;79&#39;, &#39;景德镇&#39;, &#39;J&#39;, &#39;JDZ&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;124&#39;, &#39;宁波&#39;, &#39;N&#39;, &#39;NGB&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;190&#39;, &#39;宜昌&#39;, &#39;Y&#39;, &#39;YIH&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;67&#39;, &#39;黑河&#39;, &#39;H&#39;, &#39;HEK&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;208&#39;, &#39;遵义&#39;, &#39;Z&#39;, &#39;ZYI&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;117&#39;, &#39;牡丹江&#39;, &#39;M&#39;, &#39;MDG&#39;, &#39;0&#39;, &#39;0&#39;); INSERT INTO `lk_airport_city` VALUES (&#39;54&#39;, &#39;广州&#39;, &#39;G&#39;, &#39;CAN&#39;, &#39;1&#39;, &#39;1&#39;); -- ---------------------------- -- Table structure for lk_airport_inter_city -- ---------------------------- DROP TABLE IF EXISTS `lk_airport_inter_city`; CREATE TABLE `lk_airport_inter_city` ( `city_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT, `city_name` varchar(10) NOT NULL DEFAULT &#39;&#39;, `airport_code` varchar(5) NOT NULL DEFAULT &#39;&#39; COMMENT &#39;机场代码&#39;, `is_hot` tinyint(3) unsigned NOT NULL DEFAULT &#39;0&#39; COMMENT &#39;是否热门 1是 0否&#39;, `continents` tinyint(3) unsigned NOT NULL DEFAULT &#39;0&#39; COMMENT &#39;1亚洲 2欧洲 3美洲 4非洲 5大洋洲&#39;, PRIMARY KEY (`city_id`) ) ENGINE=MyISAM AUTO_INCREMENT=427 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC; -- ---------------------------- -- Records of lk_airport_inter_city -- ---------------------------- INSERT INTO `lk_airport_inter_city` VALUES (&#39;399&#39;, &#39;卡萨布兰卡&#39;, &#39;CAS&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;412&#39;, &#39;悉尼(澳大利亚)&#39;, &#39;SYD&#39;, &#39;1&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;330&#39;, &#39;莫斯科&#39;, &#39;MOW&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;335&#39;, &#39;斯德哥尔摩&#39;, &#39;STO&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;307&#39;, &#39;胡志明市&#39;, &#39;SGN&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;351&#39;, &#39;格拉斯哥&#39;, &#39;GLA&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;340&#39;, &#39;布鲁塞尔&#39;, &#39;BRU&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;318&#39;, &#39;福冈&#39;, &#39;FUK&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;312&#39;, &#39;河内&#39;, &#39;HAN&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;406&#39;, &#39;金沙萨&#39;, &#39;FIH&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;347&#39;, &#39;伯明翰(英国)&#39;, &#39;BHX&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;419&#39;, &#39;堪培拉&#39;, &#39;CBR&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;323&#39;, &#39;伊斯坦布尔&#39;, &#39;IST&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;371&#39;, &#39;塞班&#39;, &#39;SPN&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;370&#39;, &#39;夏威夷&#39;, &#39;HNL&#39;, &#39;1&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;346&#39;, &#39;爱丁堡&#39;, &#39;EDI&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;363&#39;, &#39;西雅图&#39;, &#39;SEA&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;310&#39;, &#39;名古屋&#39;, &#39;NGO&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;309&#39;, &#39;巴厘岛&#39;, &#39;DPS&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;402&#39;, &#39;卢萨卡&#39;, &#39;LUN&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;362&#39;, &#39;多伦多&#39;, &#39;YTO&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;302&#39;, &#39;新加坡&#39;, &#39;SIN&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;210&#39;, &#39;澳门&#39;, &#39;MFM&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;392&#39;, &#39;罗安达&#39;, &#39;LAD&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;344&#39;, &#39;巴塞罗那&#39;, &#39;BCN&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;328&#39;, &#39;巴黎&#39;, &#39;PAR&#39;, &#39;1&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;400&#39;, &#39;德班&#39;, &#39;DUR&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;389&#39;, &#39;开普敦&#39;, &#39;CPT&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;420&#39;, &#39;凯恩斯&#39;, &#39;CNS&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;422&#39;, &#39;黄金海岸&#39;, &#39;OOL&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;349&#39;, &#39;日内瓦&#39;, &#39;GVA&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;353&#39;, &#39;布达佩斯&#39;, &#39;BUD&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;395&#39;, &#39;亚的斯亚贝巴&#39;, &#39;ADD&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;358&#39;, &#39;洛杉矶&#39;, &#39;LAX&#39;, &#39;1&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;418&#39;, &#39;惠灵顿&#39;, &#39;WLG&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;416&#39;, &#39;阿德莱德&#39;, &#39;ADL&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;410&#39;, &#39;阿比让&#39;, &#39;ABJ&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;386&#39;, &#39;布宜诺斯艾利斯&#39;, &#39;BUE&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;211&#39;, &#39;台北&#39;, &#39;TPE&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;315&#39;, &#39;釜山&#39;, &#39;PUS&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;337&#39;, &#39;曼彻斯特(英国)&#39;, &#39;MAN&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;426&#39;, &#39;达尼丁&#39;, &#39;DUD&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;388&#39;, &#39;约翰内斯堡&#39;, &#39;JNB&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;308&#39;, &#39;马尼拉&#39;, &#39;MNL&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;342&#39;, &#39;赫尔辛基&#39;, &#39;HEL&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;331&#39;, &#39;罗马&#39;, &#39;ROM&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;397&#39;, &#39;阿克拉&#39;, &#39;ACC&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;316&#39;, &#39;加德满都&#39;, &#39;KTM&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;354&#39;, &#39;汉堡&#39;, &#39;HAM&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;343&#39;, &#39;维也纳&#39;, &#39;VIE&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;378&#39;, &#39;拉斯维加斯&#39;, &#39;LAS&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;300&#39;, &#39;东京&#39;, &#39;TYO&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;367&#39;, &#39;亚特兰大&#39;, &#39;ATL&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;365&#39;, &#39;波士顿&#39;, &#39;BOS&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;306&#39;, &#39;雅加达&#39;, &#39;JKT&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;301&#39;, &#39;首尔&#39;, &#39;SEL&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;366&#39;, &#39;底特律&#39;, &#39;DTT&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;409&#39;, &#39;费里敦&#39;, &#39;FNA&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;403&#39;, &#39;哈拉雷&#39;, &#39;HRE&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;345&#39;, &#39;雅典&#39;, &#39;ATH&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;361&#39;, &#39;芝加哥&#39;, &#39;CHI&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;380&#39;, &#39;迈阿密&#39;, &#39;MIA&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;381&#39;, &#39;丹佛&#39;, &#39;DEN&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;407&#39;, &#39;马普托&#39;, &#39;MPM&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;377&#39;, &#39;墨西哥城&#39;, &#39;MEX&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;341&#39;, &#39;哥本哈根&#39;, &#39;CPH&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;396&#39;, &#39;喀土穆&#39;, &#39;KRT&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;408&#39;, &#39;杜阿拉&#39;, &#39;DLA&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;332&#39;, &#39;阿姆斯特丹&#39;, &#39;AMS&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;379&#39;, &#39;卡尔加里&#39;, &#39;YYC&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;317&#39;, &#39;高雄&#39;, &#39;KHH&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;320&#39;, &#39;德里&#39;, &#39;DEL&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;338&#39;, &#39;马德里&#39;, &#39;MAD&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;314&#39;, &#39;迪拜&#39;, &#39;DXB&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;385&#39;, &#39;埃德蒙顿&#39;, &#39;YEA&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;329&#39;, &#39;法兰克福&#39;, &#39;FRA&#39;, &#39;1&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;324&#39;, &#39;乌兰巴托&#39;, &#39;ULN&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;326&#39;, &#39;茨城&#39;, &#39;IBR&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;360&#39;, &#39;温哥华&#39;, &#39;YVR&#39;, &#39;1&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;303&#39;, &#39;曼谷&#39;, &#39;BKK&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;393&#39;, &#39;毛里求斯&#39;, &#39;MRU&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;359&#39;, &#39;旧金山&#39;, &#39;SFO&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;311&#39;, &#39;普吉岛&#39;, &#39;HKT&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;387&#39;, &#39;开罗&#39;, &#39;CAI&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;209&#39;, &#39;香港&#39;, &#39;HKG&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;368&#39;, &#39;休斯敦&#39;, &#39;HOU&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;327&#39;, &#39;伦敦(英国)&#39;, &#39;LON&#39;, &#39;1&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;333&#39;, &#39;米兰&#39;, &#39;MIL&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;322&#39;, &#39;札幌&#39;, &#39;SPK&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;405&#39;, &#39;哈博罗内&#39;, &#39;GBE&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;373&#39;, &#39;明尼阿波利斯&#39;, &#39;MSP&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;383&#39;, &#39;波特兰(美国)&#39;, &#39;PDX&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;398&#39;, &#39;阿尔及尔&#39;, &#39;ALG&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;391&#39;, &#39;拉各斯&#39;, &#39;LOS&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;325&#39;, &#39;孟买&#39;, &#39;BOM&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;384&#39;, &#39;曼彻斯特(美国)&#39;, &#39;MHT&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;334&#39;, &#39;慕尼黑&#39;, &#39;MUC&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;369&#39;, &#39;蒙特利尔&#39;, &#39;YMQ&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;304&#39;, &#39;吉隆坡&#39;, &#39;KUL&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;425&#39;, &#39;达尔文&#39;, &#39;DRW&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;336&#39;, &#39;柏林&#39;, &#39;BER&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;376&#39;, &#39;渥太华&#39;, &#39;YOW&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;413&#39;, &#39;墨尔本(澳大利亚)&#39;, &#39;MEL&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;411&#39;, &#39;卢克索&#39;, &#39;LXR&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;305&#39;, &#39;大阪&#39;, &#39;OSA&#39;, &#39;1&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;364&#39;, &#39;华盛顿&#39;, &#39;WAS&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;414&#39;, &#39;奥克兰(新西兰)&#39;, &#39;AKL&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;357&#39;, &#39;纽约&#39;, &#39;NYC&#39;, &#39;1&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;352&#39;, &#39;基辅&#39;, &#39;IEV&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;417&#39;, &#39;珀斯&#39;, &#39;PER&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;339&#39;, &#39;苏黎世&#39;, &#39;ZRH&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;372&#39;, &#39;达拉斯&#39;, &#39;DFW&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;321&#39;, &#39;济州岛&#39;, &#39;CJU&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;375&#39;, &#39;圣保罗(巴西)&#39;, &#39;SAO&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;319&#39;, &#39;金边&#39;, &#39;PNH&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;355&#39;, &#39;布拉格&#39;, &#39;MIL&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;390&#39;, &#39;内罗毕&#39;, &#39;NBO&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;348&#39;, &#39;纽卡斯尔(英国)&#39;, &#39;NCL&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;404&#39;, &#39;雅温得&#39;, &#39;YAO&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;350&#39;, &#39;圣彼得堡&#39;, &#39;LED&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;356&#39;, &#39;杜塞尔多夫&#39;, &#39;DUS&#39;, &#39;0&#39;, &#39;2&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;394&#39;, &#39;达累斯萨拉姆&#39;, &#39;DAR&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;424&#39;, &#39;霍巴特&#39;, &#39;HBA&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;374&#39;, &#39;费城&#39;, &#39;PHL&#39;, &#39;0&#39;, &#39;3&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;415&#39;, &#39;布里斯班&#39;, &#39;BNE&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;423&#39;, &#39;帕皮堤&#39;, &#39;PPT&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;421&#39;, &#39;楠迪&#39;, &#39;NAN&#39;, &#39;0&#39;, &#39;5&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;401&#39;, &#39;突尼斯&#39;, &#39;TUN&#39;, &#39;0&#39;, &#39;4&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;313&#39;, &#39;马累&#39;, &#39;MLE&#39;, &#39;0&#39;, &#39;1&#39;); INSERT INTO `lk_airport_inter_city` VALUES (&#39;382&#39;, &#39;奥兰多&#39;, &#39;ORL&#39;, &#39;0&#39;, &#39;3&#39;);  如果觉得不太适合自己的项目也有采集的全球机场数据txt版，附上下载链接（这里要感谢车爷的友情采集）</description>
     </item>
     
     <item>
       <title>windows下自动启动Redis隐藏命令行窗口的方法</title>
-      <link>https://ifunboxp.top/redis_windows_autorun/</link>
+      <link>https://gofunbox.github.io/redis_windows_autorun/</link>
       <pubDate>Fri, 16 Oct 2015 09:38:22 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/redis_windows_autorun/</guid>
+      <guid>https://gofunbox.github.io/redis_windows_autorun/</guid>
       <description>1.将启动命令写入bat。如下：
 D:/dev/redis-2.4.5/redis-server.exe D:/dev/redis-2.4.5/redis.conf
 保存为openredis.bat
@@ -152,10 +152,10 @@ CreateObject(&amp;#8220;WScript.Shell&amp;#8221;).Run &amp;#8220;cmd /c ‪D:/de
     
     <item>
       <title>Redis在Windows下安装和PHP中使用</title>
-      <link>https://ifunboxp.top/redis_windows_php/</link>
+      <link>https://gofunbox.github.io/redis_windows_php/</link>
       <pubDate>Fri, 16 Oct 2015 09:09:21 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/redis_windows_php/</guid>
+      <guid>https://gofunbox.github.io/redis_windows_php/</guid>
       <description>一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
 1、redis简介
 redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;#8211;有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
@@ -193,10 +193,10 @@ windows下自动启动Redis隐藏命令行窗口的方法</description>
     
     <item>
       <title>mysql数据字典生成工具php版</title>
-      <link>https://ifunboxp.top/php_mysql_data_dictionary_tools/</link>
+      <link>https://gofunbox.github.io/php_mysql_data_dictionary_tools/</link>
       <pubDate>Wed, 01 Apr 2015 06:15:11 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_mysql_data_dictionary_tools/</guid>
+      <guid>https://gofunbox.github.io/php_mysql_data_dictionary_tools/</guid>
       <description>工作交接，哭晕~
 找了一个php写的数据字典生成工具，跟大家分享下
 下载地址 http://vdisk.weibo.com/s/yThjZrryTIxQl
@@ -205,10 +205,10 @@ windows下自动启动Redis隐藏命令行窗口的方法</description>
     
     <item>
       <title>避免SESSION锁阻塞请求</title>
-      <link>https://ifunboxp.top/avoid_session_lock/</link>
+      <link>https://gofunbox.github.io/avoid_session_lock/</link>
       <pubDate>Thu, 12 Feb 2015 06:38:36 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/avoid_session_lock/</guid>
+      <guid>https://gofunbox.github.io/avoid_session_lock/</guid>
       <description>这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
 问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。
 翻到了这两篇文章
@@ -238,10 +238,10 @@ test.html
     
     <item>
       <title>php-fpm-slow.log慢日志频繁出现session_start()</title>
-      <link>https://ifunboxp.top/slow_log_session_start/</link>
+      <link>https://gofunbox.github.io/slow_log_session_start/</link>
       <pubDate>Wed, 11 Feb 2015 06:09:54 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/slow_log_session_start/</guid>
+      <guid>https://gofunbox.github.io/slow_log_session_start/</guid>
       <description>最近项目php-fpm-slow.log慢日志中经常出现以下的记录
 
 php自带函数session_start()
@@ -261,10 +261,10 @@ session.save_path = &amp;#8220;tcp://127.0.0.1:11211&amp;#8221;
     
     <item>
       <title>thinkphp Mongo模型的使用问题</title>
-      <link>https://ifunboxp.top/thinkphp_mongodb_model/</link>
+      <link>https://gofunbox.github.io/thinkphp_mongodb_model/</link>
       <pubDate>Wed, 07 Jan 2015 08:51:42 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/thinkphp_mongodb_model/</guid>
+      <guid>https://gofunbox.github.io/thinkphp_mongodb_model/</guid>
       <description>先上官方使用Mongo模型开发文档
 感觉写的不是很全，也许我不熟悉tp吧 😳
 目前这个项目默认是连接MYSQL数据库
@@ -281,10 +281,10 @@ M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;
     
     <item>
       <title>PHP基于PHP QR Code生成带不失真logo二维码</title>
-      <link>https://ifunboxp.top/php_generate_qrcode_logo/</link>
+      <link>https://gofunbox.github.io/php_generate_qrcode_logo/</link>
       <pubDate>Thu, 11 Dec 2014 08:16:23 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_generate_qrcode_logo/</guid>
+      <guid>https://gofunbox.github.io/php_generate_qrcode_logo/</guid>
       <description>最近项目要搞一个生成带logo二维码的接口
 google了下有一个超级强大的二维码库PHP QR Code
 这里有供快速上手的例子，个人认为不太容易懂http://phpqrcode.sourceforge.net/examples/index.php
@@ -296,10 +296,10 @@ $text = &#39;http://www.funboxpower.com&#39;; $logo = &#34;i/logo.png&#34;; //�
     
     <item>
       <title>Sublime Text 3 超屌的文本编辑器以及必备插件</title>
-      <link>https://ifunboxp.top/sublime_text3_and_plugins/</link>
+      <link>https://gofunbox.github.io/sublime_text3_and_plugins/</link>
       <pubDate>Thu, 13 Nov 2014 14:15:27 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/sublime_text3_and_plugins/</guid>
+      <guid>https://gofunbox.github.io/sublime_text3_and_plugins/</guid>
       <description>SublimeText 是一个代码编辑器,强大的拓展功能让其拥有各种插件，同时 SublimeText 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。
 有点相见恨晚的感觉，及其的轻量级，但是功能不轻量。
 SublimeText3安装
@@ -330,10 +330,10 @@ SublimeCodeIntel 代码提示自动完成
     
     <item>
       <title>屏蔽nginx/apache/php版本信息</title>
-      <link>https://ifunboxp.top/hide_nginx_apache_php_version/</link>
+      <link>https://gofunbox.github.io/hide_nginx_apache_php_version/</link>
       <pubDate>Thu, 21 Aug 2014 09:12:31 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/hide_nginx_apache_php_version/</guid>
+      <guid>https://gofunbox.github.io/hide_nginx_apache_php_version/</guid>
       <description>可使用以下命令查看服务器提供HTTP服务的相关信息 curl &amp;#8211;head http://www.funboxpower.com
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
@@ -347,10 +347,10 @@ expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</d
     
     <item>
       <title>PHP android ios相互兼容的AES加密算法</title>
-      <link>https://ifunboxp.top/php_android_ios_aes/</link>
+      <link>https://gofunbox.github.io/php_android_ios_aes/</link>
       <pubDate>Thu, 07 Aug 2014 07:18:38 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_android_ios_aes/</guid>
+      <guid>https://gofunbox.github.io/php_android_ios_aes/</guid>
       <description>APP项目用户密码传输一直没有用HTTPS，考虑到用户的隐私暂时先用AES对密码加密，以后也可以用于手机端与服务端加密交互。
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
@@ -360,10 +360,10 @@ PHP的AES加密算法：
     
     <item>
       <title>研究MySQL Sending data导致查询很慢的问题</title>
-      <link>https://ifunboxp.top/mysql_sending_data_slow/</link>
+      <link>https://gofunbox.github.io/mysql_sending_data_slow/</link>
       <pubDate>Fri, 13 Jun 2014 07:58:49 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/mysql_sending_data_slow/</guid>
+      <guid>https://gofunbox.github.io/mysql_sending_data_slow/</guid>
       <description>最近发现博客总是访问很慢，查看服务器负载又不高，觉得很奇怪。
 看了mysql慢查询日志
 select * from wpasBFD_posts limit 0,1000
@@ -385,10 +385,10 @@ show profile的结果如下：
     
     <item>
       <title>微信APP支付服务端php sdk开发教程</title>
-      <link>https://ifunboxp.top/php_wechat_payment_sdk/</link>
+      <link>https://gofunbox.github.io/php_wechat_payment_sdk/</link>
       <pubDate>Tue, 27 May 2014 07:40:16 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_wechat_payment_sdk/</guid>
+      <guid>https://gofunbox.github.io/php_wechat_payment_sdk/</guid>
       <description>&lt;p&gt;&lt;span style=&#34;font-size: medium;&#34;&gt;最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;span style=&#34;font-size: medium;&#34;&gt;微信官方就给了2个压缩包，一个是&lt;a title=&#34;微信支付android sdk&#34; href=&#34;http://vdisk.weibo.com/s/yThjZrrykVNUa&#34; target=&#34;_blank&#34;&gt;android&lt;/a&gt;，一个是&lt;a title=&#34;微信支付ios sdk&#34; href=&#34;http://vdisk.weibo.com/s/yThjZrrykVNUI&#34; target=&#34;_blank&#34;&gt;ios&lt;/a&gt;，&lt;/span&gt;&lt;/p&gt;
@@ -410,10 +410,10 @@ show profile的结果如下：
     
     <item>
       <title>GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法</title>
-      <link>https://ifunboxp.top/gbk_addslashes_mysql_real_escape_string_injection/</link>
+      <link>https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/</link>
       <pubDate>Thu, 22 May 2014 07:51:14 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/gbk_addslashes_mysql_real_escape_string_injection/</guid>
+      <guid>https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/</guid>
       <description>该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
 方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &#39;GBK&#39; 例：mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c);  问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞
@@ -422,10 +422,10 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
     
     <item>
       <title>基于bcrypt算法-开源phpass库来保护密码</title>
-      <link>https://ifunboxp.top/phpass_bcrypt_encrypted_password/</link>
+      <link>https://gofunbox.github.io/phpass_bcrypt_encrypted_password/</link>
       <pubDate>Wed, 09 Apr 2014 06:54:14 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/phpass_bcrypt_encrypted_password/</guid>
+      <guid>https://gofunbox.github.io/phpass_bcrypt_encrypted_password/</guid>
       <description>在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
 &amp;lt;?php // Include the phpass library require_once(&#39;phpass-03/PasswordHash.php&#39;) // Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, false); // Hash the password. $hashedPassword will be a 60-character string. $hashedPassword = $hasher-&amp;gt;HashPassword(&#39;my super cool password&#39;); // You can now safely store the contents of $hashedPassword in your database! // Check if a user has provided the correct password by comparing what they // typed with our hash $hasher-&amp;gt;CheckPassword(&#39;the wrong password&#39;, $hashedPassword); // false $hasher-&amp;gt;CheckPassword(&#39;my super cool password&#39;, $hashedPassword); // true ?</description>
@@ -433,10 +433,10 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
     
     <item>
       <title>owasp php filters介绍以及使用–过滤非法输入PHP函数库</title>
-      <link>https://ifunboxp.top/owasp_php_filters/</link>
+      <link>https://gofunbox.github.io/owasp_php_filters/</link>
       <pubDate>Fri, 28 Mar 2014 08:14:37 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/owasp_php_filters/</guid>
+      <guid>https://gofunbox.github.io/owasp_php_filters/</guid>
       <description>最近在研究关于php安全的问题，无意中看到使用 PHP 构建的 Web 应用如何避免 XSS 攻击，很受启发，尤其是字符集编码、动态内容为JavaScript事件处理函数的参数、动态内容位于 JavaScript 代码段中时的xss攻击，建议大家都看看，今天要介绍的owasp php filters也是从这篇文章中看到的。
 首先先介绍下owasp，开放Web应用程序安全性项目(OWASP)501&amp;copy;(3)全球非营利慈善组织专注于改进的安全软件。进他们的项目主页，项目好多，关于php也有不少，不过有几个很好的安全项目还没有提供相关类库的下载，想杀人的冲动。。。。
 owasp php filters的主页是https://www.owasp.org/index.php/OWASP_PHP_Filters，里面有关于一些安全过滤函数的介绍，
@@ -451,20 +451,20 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
     
     <item>
       <title>PHP性能分析工具-xhprof扩展的安装以及使用</title>
-      <link>https://ifunboxp.top/xhprof_php_analysis_tool/</link>
+      <link>https://gofunbox.github.io/xhprof_php_analysis_tool/</link>
       <pubDate>Thu, 06 Mar 2014 03:10:52 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/xhprof_php_analysis_tool/</guid>
+      <guid>https://gofunbox.github.io/xhprof_php_analysis_tool/</guid>
       <description>简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展的安装： % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure --with-php-config=&amp;lt;path to php-config&amp;gt; % make &amp;&amp; make install  修改php.ini最后面加入
 [xhprof] extension=xhprof.so ; ; directory used by default implementation of the iXHProfRuns ; interface (namely, the XHProfRuns_Default class) for storing ; XHProf runs. ; xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路径需要修改 记得给写权限 % php-fpm reload //重启一下fpm  Graphviz安装（这个主要是画图需要的库） % wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz % tar zxf graphviz-2.</description>
     </item>
     
     <item>
       <title>php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式</title>
-      <link>https://ifunboxp.top/php_run_mode/</link>
+      <link>https://gofunbox.github.io/php_run_mode/</link>
       <pubDate>Thu, 13 Feb 2014 08:05:38 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_run_mode/</guid>
+      <guid>https://gofunbox.github.io/php_run_mode/</guid>
       <description>CGI:
 CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。
 CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等
@@ -487,10 +487,10 @@ apache模块的DLL:
     
     <item>
       <title>用PHP提取中英文词语以及数字的首字母的方法介绍</title>
-      <link>https://ifunboxp.top/php_get_initial/</link>
+      <link>https://gofunbox.github.io/php_get_initial/</link>
       <pubDate>Mon, 04 Nov 2013 12:53:09 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_get_initial/</guid>
+      <guid>https://gofunbox.github.io/php_get_initial/</guid>
       <description>最近项目有个需求，在一个中英文（包括阿拉伯数字0-9）的海量词库中，提取每一个词语的首字母：
 gannicus——&amp;gt;G
 自由自在——&amp;gt;Z
@@ -503,10 +503,10 @@ function get_first_char($string){ $s=iconv(&#39;UTF-8&#39;,&#39;gb2312&#39;, $st
     
     <item>
       <title>php、mysql两个经纬度之间的距离的方法</title>
-      <link>https://ifunboxp.top/php_mysql_distance/</link>
+      <link>https://gofunbox.github.io/php_mysql_distance/</link>
       <pubDate>Wed, 23 Oct 2013 09:08:06 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_mysql_distance/</guid>
+      <guid>https://gofunbox.github.io/php_mysql_distance/</guid>
       <description>php计算两个经纬度之间的距离的方法   /**
 * 函数用途描述 计算经纬度 计算弧度
 * @date: 2013-8-26
@@ -535,10 +535,10 @@ $s = 2 * asin(sqrt(pow(sin($a/2),2) +</description>
     
     <item>
       <title>解决PHPExcel导出长数字末尾几位数为0的问题</title>
-      <link>https://ifunboxp.top/php_excel_remove_zero/</link>
+      <link>https://gofunbox.github.io/php_excel_remove_zero/</link>
       <pubDate>Wed, 28 Aug 2013 03:25:33 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_excel_remove_zero/</guid>
+      <guid>https://gofunbox.github.io/php_excel_remove_zero/</guid>
       <description> 在做充值卡号和密码导出Excel的时候遇到了问题，数字的后两位总是0；  经查  在Excel中默认“常规”情况下，单元格中能完全显示的数据只有11位，超过11位，系统自动用科学记数显示。
 当单元格格式设置为“数值”、小数点位数为0时，最多也只能完全显示15位数字，超过15位，从16位开始显示为0。  完整显示输入的所有数字，可以采用下述方法之一：
 一是首先输入一英文单引号再输入数字。
@@ -549,10 +549,10 @@ $objActSheet-setCellValue(&amp;#8216;C&amp;#8217;.$i, &amp;#8221; &amp;#8220;.$v
     
     <item>
       <title>基于firefox中控件firebug的php调试工具–firephp</title>
-      <link>https://ifunboxp.top/firefox_firebug_firephp/</link>
+      <link>https://gofunbox.github.io/firefox_firebug_firephp/</link>
       <pubDate>Wed, 24 Jul 2013 08:46:56 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/firefox_firebug_firephp/</guid>
+      <guid>https://gofunbox.github.io/firefox_firebug_firephp/</guid>
       <description>FirePHP是什么？
 FirePHP是一个利用Firebug console栏输出调试信息方便程序调试。
 这一切只需要调用几个简单的函数。
@@ -600,10 +600,10 @@ fb::info();
     
     <item>
       <title>PHP快速判断远程图片是否存在函数（不下载图片）</title>
-      <link>https://ifunboxp.top/php_if_exits_file/</link>
+      <link>https://gofunbox.github.io/php_if_exits_file/</link>
       <pubDate>Mon, 22 Jul 2013 08:59:00 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_if_exits_file/</guid>
+      <guid>https://gofunbox.github.io/php_if_exits_file/</guid>
       <description>网上找了一些PHP判断远程图片是否存在方法，有的不能用，有的加载了全部图片，导致响应很慢
 下面方法亲测可用，赞哦~~
 function img_exits($url) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL,$url); curl_setopt($ch, CURLOPT_NOBODY, 1); curl_setopt($ch, CURLOPT_FAILONERROR, 1); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); $contents = curl_exec($ch); if($contents!==false) return true; else return false; }  </description>
@@ -611,10 +611,10 @@ function img_exits($url) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL,$url)
     
     <item>
       <title>PHP开源Apache日志分析工具收集与比较</title>
-      <link>https://ifunboxp.top/apache_log_analysis/</link>
+      <link>https://gofunbox.github.io/apache_log_analysis/</link>
       <pubDate>Fri, 28 Jun 2013 02:39:53 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/apache_log_analysis/</guid>
+      <guid>https://gofunbox.github.io/apache_log_analysis/</guid>
       <description>我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
 1、LogAnalyzer
 LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。
@@ -648,10 +648,10 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
     
     <item>
       <title>php报错Fatal error: Class ‘ZipArchive’ not found解决办法</title>
-      <link>https://ifunboxp.top/php_ziparchive_not_found/</link>
+      <link>https://gofunbox.github.io/php_ziparchive_not_found/</link>
       <pubDate>Fri, 24 May 2013 13:27:39 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/php_ziparchive_not_found/</guid>
+      <guid>https://gofunbox.github.io/php_ziparchive_not_found/</guid>
       <description>最近在使用 PHPPowerPoint类的时候出现Fatal error: Class &amp;#8216;ZipArchive&amp;#8217; not found这个问题，网上搜索了下，解决方法如下
 出现这个错误说明是程序在调用&amp;#8217;ZipArchive&amp;#8217; 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。
 在Windows下的解决办法是：
@@ -675,20 +675,20 @@ sudo make instal
     
     <item>
       <title>PHP实现3DES加密解密，兼容java</title>
-      <link>https://ifunboxp.top/543.html</link>
+      <link>https://gofunbox.github.io/543.html</link>
       <pubDate>Thu, 02 May 2013 08:11:55 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/543.html</guid>
+      <guid>https://gofunbox.github.io/543.html</guid>
       <description>3DES（或称为Triple DES）是三重数据加密算法（TDEA，Triple Data Encryption Algorithm）块密码的通称。它相当于是对每个数据块应用三次DES加密算法。由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解；3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。
 padding( $input ); $key = base64_decode($this-key); $td = mcrypt_module_open( MCRYPT_3DES, &#39;&#39;, MCRYPT_MODE_CBC, &#39;&#39;); //使用MCRYPT_3DES算法,cbc模式 mcrypt_generic_init($td, $key, $this-iv); //初始处理 $data = mcrypt_generic($td, $input); //加密 mcrypt_generic_deinit($td); //结束 mcrypt_module_close($td); $data = $this-removeBR(base64_encode($data)); return $data; } //解密 public function decrypt($encrypted) { $encrypted = base64_decode($encrypted); $key = base64_decode($this-key); $td = mcrypt_module_open( MCRYPT_3DES,&#39;&#39;,MCRYPT_MODE_CBC,&#39;&#39;); //使用MCRYPT_3DES算法,cbc模式 mcrypt_generic_init($td, $key, $this-iv); //初始处理 $decrypted = mdecrypt_generic($td, $encrypted); //解密 mcrypt_generic_deinit($td); //结束 mcrypt_module_close($td); $decrypted = $this-removePadding($decrypted); return $decrypted; } //填充密码，填充至8的倍数 public function padding( $str ) { $len = 8 - strlen( $str ) % 8; for ( $i = 0; $i &amp;lt; $len; $i++ ) { $str .</description>
     </item>
     
     <item>
       <title>利用360安全防护代码加固你的shopex网店，其他网站也可使用</title>
-      <link>https://ifunboxp.top/537.html</link>
+      <link>https://gofunbox.github.io/537.html</link>
       <pubDate>Sun, 07 Apr 2013 09:09:20 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/537.html</guid>
+      <guid>https://gofunbox.github.io/537.html</guid>
       <description>Shopex作为国内用户量最大的独立网店程序，使用的人多，被发现的漏洞也多。安全性一直困扰着shopex电商站长，正可谓“成也shopex，败也shopex”。因为安全，很多站长都放弃了SHOPEX。
 360最近发布了一个PHP的通用安全代码，用来帮助站长建立网站安全机制。这个代码非常好用，也方便布署。推荐各位站长好好利用一下。
 今天就针对ShopEx网站，做一个说明，如何利用360的防护代码。
@@ -700,10 +700,10 @@ padding( $input ); $key = base64_decode($this-key); $td = mcrypt_module_open( MC
     
     <item>
       <title>phpQuery—基于jQuery的PHP实现</title>
-      <link>https://ifunboxp.top/531.html</link>
+      <link>https://gofunbox.github.io/531.html</link>
       <pubDate>Fri, 29 Mar 2013 18:26:56 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/531.html</guid>
+      <guid>https://gofunbox.github.io/531.html</guid>
       <description> Query的选择器之强大是有目共睹的，phpQuery 让php也拥有了这样的能力，它就相当于服务端的jQuery。
 存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然可以使用Google，但stackoverflow 作为一个专业的编程问答社区，会提供给你更多，更靠谱的答案。
 对于html页面，不应该使用正则的原因主要有3个
@@ -720,10 +720,10 @@ padding( $input ); $key = base64_decode($this-key); $td = mcrypt_module_open( MC
     
     <item>
       <title>QQ互联curl发起https请求无返回</title>
-      <link>https://ifunboxp.top/528.html</link>
+      <link>https://gofunbox.github.io/528.html</link>
       <pubDate>Tue, 26 Mar 2013 06:45:59 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/528.html</guid>
+      <guid>https://gofunbox.github.io/528.html</guid>
       <description>给一个客户安装QQ互联是发现请求https无返回
 以为是openssl没开，开了也还是如此。
 解决方法如下：
@@ -737,10 +737,10 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</description>
     
     <item>
       <title>SAFE MODE Restriction in effect 的问题</title>
-      <link>https://ifunboxp.top/525.html</link>
+      <link>https://gofunbox.github.io/525.html</link>
       <pubDate>Mon, 18 Mar 2013 09:25:43 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/525.html</guid>
+      <guid>https://gofunbox.github.io/525.html</guid>
       <description>当safe_mode设置为 on，PHP 将通过文件函数或其目录检查当前脚本的拥有者是否和将被操作的文件的拥有者相匹配。例如：
 -rw-rw-r&amp;#8211; 1 rasmus rasmus 33 Jul 1 19:20 script.php
 -rw-r&amp;#8211;r&amp;#8211; 1 root root 1116 May 26 18:01 /etc/passwd 
@@ -759,10 +759,10 @@ haohappy的说法：
     
     <item>
       <title>解决.sql大文件无法导入的问题 phpmyadmin上传文件大小限制</title>
-      <link>https://ifunboxp.top/514.html</link>
+      <link>https://gofunbox.github.io/514.html</link>
       <pubDate>Sat, 09 Mar 2013 03:18:15 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/514.html</guid>
+      <guid>https://gofunbox.github.io/514.html</guid>
       <description>用Navicat for MySQL 这个软件中的批处理任务导入.sql文件，经常会出现错误乱码的现象，所以一般用phpmyadmin导入文件和导出文件不会出现乱码的现象
 但是使用phpmyadmin导入.sql文件时有一个限制，开始是不能大于2M，所以要对php.ini的参数进行更改，以下是更改方法，更改后需要重新启动；
 下面是php.ini的参数设置提高上传大小限制
@@ -780,10 +780,10 @@ post_max_size = 8M (Post数据最大也设置为8MB,这个跟upload_max一样)
     
     <item>
       <title>在xp、apache环境中安装PHP Mcrypt.so加密扩展库教程</title>
-      <link>https://ifunboxp.top/501.html</link>
+      <link>https://gofunbox.github.io/501.html</link>
       <pubDate>Sat, 02 Mar 2013 15:16:12 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/501.html</guid>
+      <guid>https://gofunbox.github.io/501.html</guid>
       <description>PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。
 其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。
 更重要的是ShopEX更新需要Mcrypt加密扩展库的支持~~
@@ -797,10 +797,10 @@ linux上安装比较复杂，与xp安装不同，在win7上用此种方法安装
     
     <item>
       <title>利用百度地图api通过城市地址等信息取经纬度</title>
-      <link>https://ifunboxp.top/498.html</link>
+      <link>https://gofunbox.github.io/498.html</link>
       <pubDate>Thu, 28 Feb 2013 10:19:50 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/498.html</guid>
+      <guid>https://gofunbox.github.io/498.html</guid>
       <description>Geocoding API有哪些功能？ Geocoding API包括地址解析和逆地址解析功能。
  地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果是“lng:116.31985,lat:39.959836”，“百度大厦”地址解析的结果是“lng:116.30815,lat:40.056885” 逆地址解析是指，由百度经纬度信息得到结构化地址信息。例如：“lat:31.325152,lng:120.558957”逆地址解析的结果是“江苏省苏州市虎丘区塔园路318号”。注意： 1.因为Geocoding和反Geocoding使用的门址数据以及算法都不是一样的，所以会出现不能一一对应的现象。
 2.解析过程中可能会出现一对坐标值对应多个地址门牌信息，本接口将返回距离坐标点最近的一个地址门牌信息。
@@ -821,10 +821,10 @@ linux上安装比较复杂，与xp安装不同，在win7上用此种方法安装
     
     <item>
       <title>新浪通过IP地址获取当前地理位置（ip端、国家、省份、城市、运营商）的php接口</title>
-      <link>https://ifunboxp.top/496.html</link>
+      <link>https://gofunbox.github.io/496.html</link>
       <pubDate>Thu, 28 Feb 2013 10:15:26 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/496.html</guid>
+      <guid>https://gofunbox.github.io/496.html</guid>
       <description>新浪通过IP地址获取当前地理位置（ip端、国家、省份、城市、运营商）的php接口很强大呢
 返回的方式多种多样
 默认为html，format参数可以为json、js。
@@ -835,10 +835,10 @@ var remote_ip_info = {&#34;ret&#34;:1,&#34;start&#34;:&#34;222.76.250.147&#34;,&
     
     <item>
       <title>防御PHP木马攻击的技巧 PHP安全第一课</title>
-      <link>https://ifunboxp.top/410.html</link>
+      <link>https://gofunbox.github.io/410.html</link>
       <pubDate>Fri, 19 Oct 2012 07:16:34 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/410.html</guid>
+      <guid>https://gofunbox.github.io/410.html</guid>
       <description>PHP本身再老版本有一些问题，比如在 php4.3.10和php5.0.3以前有一些比较严重的bug，所以推荐使用新版。另外，目前闹的轰轰烈烈的SQL Injection也是在PHP上有很多利用方式，所以要保证安全，PHP代码编写是一方面，PHP的配置更是非常关键。
 我们php手手工安装的，php的默认配置文件在 /usr/local/apache2/conf/php.ini，我们最主要就是要配置php.ini中的内容，让我们执行php能够更安全。整个 PHP中的安全设置主要是为了防止phpshell和SQL Injection的攻击，一下我们慢慢探讨。我们先使用任何编辑工具打开/etc/local/apache2/conf/php.ini，如果你 是采用其他方式安装，配置文件可能不在该目录。
 (1) 打开php的安全模式
@@ -882,10 +882,10 @@ disable_functions = chdir,chroot,dir,getcwd,opendir,readdir,scandir,fopen,unlink
     
     <item>
       <title>批量mysql修改表前缀，以wordpress为例</title>
-      <link>https://ifunboxp.top/404.html</link>
+      <link>https://gofunbox.github.io/404.html</link>
       <pubDate>Thu, 06 Sep 2012 06:59:17 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/404.html</guid>
+      <guid>https://gofunbox.github.io/404.html</guid>
       <description>以wordpress数据库表为例。
 1、先登入你的phpmyadmin中，选中你的wordpress数据库,选择sql出现如下图，然后输入sql命令
 Select CONCAT(&amp;#8216;ALTER TABLE &amp;#8216;, table_name, &amp;#8216; RENAME TO &amp;#8216;, table_name,&amp;#8217;;&amp;#8217; ) FROM information_schema.tables Where tablename LIKE &amp;#8216;wp%&amp;#8217;; 
@@ -899,10 +899,10 @@ ALTER TABLE wp_opq RENAME TO wp_opq;
     
     <item>
       <title>使用phpExcel类导出excel文件相关问题总结</title>
-      <link>https://ifunboxp.top/389.html</link>
+      <link>https://gofunbox.github.io/389.html</link>
       <pubDate>Fri, 06 Jul 2012 01:07:48 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/389.html</guid>
+      <guid>https://gofunbox.github.io/389.html</guid>
       <description>总结一下最近使用phpexcel类导出excel 文件时遇到的问题，主要包括三大类：
 1.导出时提示找不到文件怎么办？
 2.导出excel时中文出现乱码的问题。
@@ -913,19 +913,19 @@ getProperties()-setCreator(&#34;Maarten Balliauw&#34;) -setLastModifiedBy(&#34;M
     
     <item>
       <title>支付宝接口出现ERROR: 0 – php_network_getaddresses: getaddrinfo failed: 错误</title>
-      <link>https://ifunboxp.top/337.html</link>
+      <link>https://gofunbox.github.io/337.html</link>
       <pubDate>Fri, 25 May 2012 03:55:11 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/337.html</guid>
+      <guid>https://gofunbox.github.io/337.html</guid>
       <description>服务器需开启openssl 和443 端口     支付宝接口出现ERROR: 0 &amp;#8211; php_network_getaddresses: getaddrinfo failed: 错误 就此解决！！   </description>
     </item>
     
     <item>
       <title>zend guard 4/5 破解版和免过期办法，已补授权Key一枚，成功注册。</title>
-      <link>https://ifunboxp.top/334.html</link>
+      <link>https://gofunbox.github.io/334.html</link>
       <pubDate>Tue, 08 May 2012 08:50:20 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/334.html</guid>
+      <guid>https://gofunbox.github.io/334.html</guid>
       <description>以下为本人收集的zend guard使用和注册方法。
 zend guard 4 有一个特别版，但使用破解补丁以后无法正常完成加密，但加密后的文件是可以正常使用的。以下是下载地址，可以使用迅雷和电驴下载。
 点此下载：Zend.Guard.v4.0.1.CRACKED.rar
@@ -943,10 +943,10 @@ http://downloads.zend.com/guard/5.5.0/ZendGuard-5_5_0.tar.gz
     
     <item>
       <title>同步发表WordPress博客日志到新浪博客插件</title>
-      <link>https://ifunboxp.top/297.html</link>
+      <link>https://gofunbox.github.io/297.html</link>
       <pubDate>Thu, 19 Apr 2012 01:40:36 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/297.html</guid>
+      <guid>https://gofunbox.github.io/297.html</guid>
       <description>OUT了，今天才发现可以把自己的博客日志同步到新浪博客的插件
 现在分享下 呵呵 希望对大家有帮助
 http://wordpress.org/extend/plugins/wp2sinablog/installation/
@@ -955,19 +955,19 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
     
     <item>
       <title>Unable to find the socket transport ‘ssl’ – did you forget to enable it when you configured PHP? 问题解</title>
-      <link>https://ifunboxp.top/291.html</link>
+      <link>https://gofunbox.github.io/291.html</link>
       <pubDate>Fri, 06 Apr 2012 08:21:29 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/291.html</guid>
+      <guid>https://gofunbox.github.io/291.html</guid>
       <description> 该错误表明PHP不支持openssl，解决方案：  windows下，在php.ini中打开opensll扩展（找到“;extension=php_openssl.dll”，去掉前面的分号，虚拟主机找服务商解决），并将php目录下的libeay32.dll和ssleay32.dll两个库拷贝到system32下；  linux下，重新编译php，编译时加上参数&amp;#8211;enable-ssl（具体参看configure的help）  </description>
     </item>
     
     <item>
       <title>PHP采集利器snoopy应用详解</title>
-      <link>https://ifunboxp.top/243.html</link>
+      <link>https://gofunbox.github.io/243.html</link>
       <pubDate>Wed, 18 Jan 2012 08:22:03 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/243.html</guid>
+      <guid>https://gofunbox.github.io/243.html</guid>
       <description>Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
 一、Snoopy的一些特点:
 1.抓取网页的内容 fetch
@@ -1017,10 +1017,10 @@ $cookies cookies， 如果有的话</description>
     
     <item>
       <title>Zend Studio 9.0正式版注册破解</title>
-      <link>https://ifunboxp.top/225.html</link>
+      <link>https://gofunbox.github.io/225.html</link>
       <pubDate>Thu, 12 Jan 2012 06:55:30 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/225.html</guid>
+      <guid>https://gofunbox.github.io/225.html</guid>
       <description>Zend Studio 9.0.0 正式版官方下载地址(未包含IBM i edition下载)
 windows版：http://downloads.zend…ZendStudio-9.0.0.msi
 linux版(32位)：http://downloads.zend…/ZendStudio-9.0.0-x86.tar.gz
@@ -1054,10 +1054,10 @@ Zend Studio 9汉化方法
     
     <item>
       <title>Apache&#43;PHP&#43;MySQL在Windows XP下的安装与配置</title>
-      <link>https://ifunboxp.top/175.html</link>
+      <link>https://gofunbox.github.io/175.html</link>
       <pubDate>Sat, 12 Nov 2011 13:37:28 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/175.html</guid>
+      <guid>https://gofunbox.github.io/175.html</guid>
       <description>＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝
 操作系统：Windows XP SP2
 Apache版本：2.2.8 下载 (安装在C:/Program Files/Apache Software Foundation/Apache2.2)
@@ -1087,10 +1087,10 @@ extension=php_mysql.dll  (3)libmysql.dll
     
     <item>
       <title>30 个最好的jQuery表单插件</title>
-      <link>https://ifunboxp.top/127.html</link>
+      <link>https://gofunbox.github.io/127.html</link>
       <pubDate>Tue, 08 Nov 2011 15:13:10 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/127.html</guid>
+      <guid>https://gofunbox.github.io/127.html</guid>
       <description>&lt;p&gt;&lt;span style=&#34;font-size: large;&#34;&gt;jQuery 的出现为我们的开发工作带来了极大的便利，而众多的基于jQuery插件的出现就犹如我们在 Firefox 中安装名目繁多的插件一样而乐此不疲，今天带给大家的是精心挑选的这30个最好的jQuery表单插件，希望能提高您的 工作效率，如果您还有更好的，请在次留下您的建议。&lt;/span&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;span-style-font-size-large-a-href-http-plugins-jquery-com-project-ufvalidator-rel-nofollow-target-blank-advanced-form-validation-a-span&#34;&gt;&lt;span style=&#34;font-size: large;&#34;&gt;&lt;a href=&#34;http://plugins.jquery.com/project/ufvalidator&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;Advanced Form Validation&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;
@@ -1112,10 +1112,10 @@ extension=php_mysql.dll  (3)libmysql.dll
     
     <item>
       <title>定时备份远程mysql数据库到本地的方法</title>
-      <link>https://ifunboxp.top/107.html</link>
+      <link>https://gofunbox.github.io/107.html</link>
       <pubDate>Sun, 30 Oct 2011 14:37:02 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/107.html</guid>
+      <guid>https://gofunbox.github.io/107.html</guid>
       <description>通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。
 &amp;nbsp;
 前提 ：本地机器上装有mysql服务。
@@ -1140,10 +1140,10 @@ IF NOT EXIST %5\%1\%4 md %5\%1\%4
     
     <item>
       <title>记录蜘蛛爬行日志代码(PHP)</title>
-      <link>https://ifunboxp.top/66.html</link>
+      <link>https://gofunbox.github.io/66.html</link>
       <pubDate>Tue, 25 Oct 2011 13:42:37 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/66.html</guid>
+      <guid>https://gofunbox.github.io/66.html</guid>
       <description>记录蜘蛛爬行的日志格式如下：
 爬行的时间，蜘蛛（搜索引擎机器人）类型，爬行目标页面，来自哪里
 Time:2011-6-17 21:34:06 robot:Baiduspider pageURL:http://fanhefan.4430.0-168.com/index.php preUrl: URL:Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)
@@ -1154,10 +1154,10 @@ Time:2011-6-18 17:45:16 robot:Googlebot pageURL:http://fanhefan.4430.0-168.com/i
     
     <item>
       <title>怎么使用Appserv配置多站点访问</title>
-      <link>https://ifunboxp.top/22.html</link>
+      <link>https://gofunbox.github.io/22.html</link>
       <pubDate>Tue, 25 Oct 2011 12:15:39 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/22.html</guid>
+      <guid>https://gofunbox.github.io/22.html</guid>
       <description>在之前的Appserv教程中，我介绍了AppServ配置与安装使用教程，Appserv作为PHP集成环境安装包，可以实现多种功能，配置Appserv实现多站点功能可方便PHP开发团队实时调试多个PHP网站，有访友向我提出怎么使用Appserv配置多站点问题，通过实践验证后，我以Appserv教程形式来作下解答。 
 Appserv配置多站点教程第一步：下载Appserv并安装 
 我下载的是Appserv-Win32-2.5.10版本，下载后直接双击并根据提示安装即可。 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DedeCms on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/categories/dedecms/</link>
+    <link>https://gofunbox.github.io/categories/dedecms/</link>
     <description>Recent content in DedeCms on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 17 Aug 2013 08:29:09 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/categories/dedecms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/categories/dedecms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>DedeCMS模板标签系统选项cfg_disable_tags,cfg_disable_funs</title>
-      <link>https://ifunboxp.top/dedecms_cfg_disable_tags/</link>
+      <link>https://gofunbox.github.io/dedecms_cfg_disable_tags/</link>
       <pubDate>Sat, 17 Aug 2013 08:29:09 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/dedecms_cfg_disable_tags/</guid>
+      <guid>https://gofunbox.github.io/dedecms_cfg_disable_tags/</guid>
       <description>cfg_disable_tags，模板引擎禁用标签
 用于控制哪些模板标签无法被加载，所有支持的模板标签可见系统目录下的“\include\taglib”，默认php标签是被禁用的。
 如果您对网站安全及PHP有一定的了解可以在后台[系统基本设置]中的“其他选项”中进行设置，如果需要禁用多个标签使用英文字符下的“,”进行分割。

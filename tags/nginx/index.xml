@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nginx on 记录点点滴滴</title>
-    <link>https://ifunboxp.top/tags/nginx/</link>
+    <link>https://gofunbox.github.io/tags/nginx/</link>
     <description>Recent content in Nginx on 记录点点滴滴</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 15 Dec 2017 07:08:59 +0000</lastBuildDate>
     
-	<atom:link href="https://ifunboxp.top/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gofunbox.github.io/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Nginx配置禁止IP直接HTTP/HTTPS访问</title>
-      <link>https://ifunboxp.top/nginx-ban-ip-access-for-http-https/</link>
+      <link>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</link>
       <pubDate>Fri, 15 Dec 2017 07:08:59 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx-ban-ip-access-for-http-https/</guid>
+      <guid>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</guid>
       <description>这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
 #http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
 yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key openssl req -new -key ssl.key -out ssl.csr …… 一路回车 …… openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.</description>
@@ -24,10 +24,10 @@ yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 20
     
     <item>
       <title>Nginx SSL 性能优化</title>
-      <link>https://ifunboxp.top/nginx-ssl-performance-optimization/</link>
+      <link>https://gofunbox.github.io/nginx-ssl-performance-optimization/</link>
       <pubDate>Thu, 07 Dec 2017 07:41:45 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx-ssl-performance-optimization/</guid>
+      <guid>https://gofunbox.github.io/nginx-ssl-performance-optimization/</guid>
       <description>禁用 SSLv3 协议 Google 的一个员工发现了 SSLv3 协议中一个名叫 Poodle 的漏洞，被证实为可以窃取加密的部分信息。这是一个协议层的漏洞，因此无法打补丁。
 # nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ... }  添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
 你也可以配置用 301 重定向 http 流量到 https，但是这个非加密的跳转过程随时可能被劫持。因此，HSTS 则告诉了浏览器在本地直接重定向 https。
@@ -37,10 +37,10 @@ server { ... add_header Strict-Transport-Security &#34;max-age=31536000;includeS
     
     <item>
       <title>Content Security Policy教程</title>
-      <link>https://ifunboxp.top/content-security-policy/</link>
+      <link>https://gofunbox.github.io/content-security-policy/</link>
       <pubDate>Wed, 26 Jul 2017 06:05:08 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/content-security-policy/</guid>
+      <guid>https://gofunbox.github.io/content-security-policy/</guid>
       <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
 这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
@@ -59,10 +59,10 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     
     <item>
       <title>Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程</title>
-      <link>https://ifunboxp.top/nginx-proxy-google-fonts-ajax/</link>
+      <link>https://gofunbox.github.io/nginx-proxy-google-fonts-ajax/</link>
       <pubDate>Fri, 18 Nov 2016 04:00:23 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx-proxy-google-fonts-ajax/</guid>
+      <guid>https://gofunbox.github.io/nginx-proxy-google-fonts-ajax/</guid>
       <description>nginx.conf配置开启proxy缓存
 ## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
 #fonts.funboxpower.com.conf upstream google { server fonts.googleapis.com:443; } upstream gstatic { server fonts.gstatic.com:443; } server { listen 443 ssl; server_name fonts.funboxpower.com; #控制来源refer valid_referers server_name *.funboxpower.com funboxpower.com *.chengyinet.com chengyinet.com fonts.funboxpower.com; if ($invalid_referer) { return 404; } #配置https ssl_certificate /your_path/fullchain.pem; ssl_certificate_key /your_path/privkey.pem; location /css { #将获取的信息fonts.gstatic.com转化成fonts.funboxpower.com sub_filter &#39;fonts.gstatic.com&#39; &#39;fonts.funboxpower.com&#39;; sub_filter_once off; sub_filter_types text/css; proxy_pass_header Server; proxy_set_header Host fonts.</description>
@@ -70,10 +70,10 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     
     <item>
       <title>Nginx下php-fpm防止跨站跨目录安全设置</title>
-      <link>https://ifunboxp.top/nginx_php-fpm_cross-site/</link>
+      <link>https://gofunbox.github.io/nginx_php-fpm_cross-site/</link>
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_php-fpm_cross-site/</guid>
+      <guid>https://gofunbox.github.io/nginx_php-fpm_cross-site/</guid>
       <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
 而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
 首先php的版本必须大于等于php5.3.3。
@@ -96,10 +96,10 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
     
     <item>
       <title>通过ngx-lua来统计nginx上的虚拟主机性能数据</title>
-      <link>https://ifunboxp.top/ngx-lua-stats/</link>
+      <link>https://gofunbox.github.io/ngx-lua-stats/</link>
       <pubDate>Wed, 30 Mar 2016 02:30:09 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/ngx-lua-stats/</guid>
+      <guid>https://gofunbox.github.io/ngx-lua-stats/</guid>
       <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
 用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
 1.几乎对原有项目代码分离
@@ -117,10 +117,10 @@ server { listen 8080 default; server_name _; location / { return 404; } location
     
     <item>
       <title>Nginx安装lua-nginx-module模块</title>
-      <link>https://ifunboxp.top/nginx_install_lua-nginx-module/</link>
+      <link>https://gofunbox.github.io/nginx_install_lua-nginx-module/</link>
       <pubDate>Fri, 25 Mar 2016 08:30:57 +0000</pubDate>
       
-      <guid>https://ifunboxp.top/nginx_install_lua-nginx-module/</guid>
+      <guid>https://gofunbox.github.io/nginx_install_lua-nginx-module/</guid>
       <description>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
 安装了nginx的小伙伴就继续往下看咯~
 1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
