@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 06:01:59 +0000</lastBuildDate>
     
 	<atom:link href="https://ifunbox.top/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博客从WordPress迁移到hugo咯</title>
+      <link>https://ifunbox.top/wordpress-migrate-to-hugo/</link>
+      <pubDate>Tue, 01 Dec 2020 06:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/wordpress-migrate-to-hugo/</guid>
+      <description>WordPress确实感觉挺卡 痛下决心切换到Hugo，真的是丝般顺滑。
+主题是用hugo-clarity，自己加入支持cnzz，畅言评论，喜欢自取，记得star一下。 https://github.com/gofunbox/hugo-clarity</description>
+    </item>
     
     <item>
       <title>Laravel缓存相关命令</title>
@@ -86,16 +96,6 @@ Inplace方式：这是原生MySQL 5.5，以及innodb_plugin中提供的方式。
 Online方式：这是MySQL 5.6以上版本中提供的方式，也是今天我们重点说明的方式。无论是Copy Table方式，还是Inplace方式，原表只能允许读取，不可写。对应用有较大的限制，因此MySQL最新版本中，InnoDB支持了所谓的Online方式DDL。与以上两种方式相比，online方式支持DDL时不仅可以读，还可以写，对于dba来说，这是一个非常棒的改进。
 考虑不同的DDL操作类别 https://dev.mysql.com/doc/refman/5.6/en/innodb-create-index-overview.html 从表看出，In-Place为No，DML一定是No，说明 ALGORITHM=COPY 一定会发生拷贝表，只读。但 ALGORITHM=INPLACEE 也要可能发生拷贝表，但可以并发DML:
 In-Place 为Yes是优选项，说明该操作支持INPLACE Rebuilds Table 为No是优选项，因为为Yes需要重建表。大部分情况与In-Place是相反的 Allows Concurrent DML? 为Yes是优选项，说明ddl期间表依然可读写，可以指定 LOCK=NONE（如果操作允许的话mysql自动就是NONE） Allows Concurrent Query? 默认所有DDL操作期间都允许查询请求，放在这只是便于参考 Notes 会对前面几列Yes/No带 * 号的限制说明 参考 http://seanlook.com/2016/05/24/mysql-online-ddl-concept/ http://fivezh.github.io/2017/07/23/MySQL-InnoDB-online-DDL/</description>
-    </item>
-    
-    <item>
-      <title>博客从WordPress迁移到hugo咯</title>
-      <link>https://ifunbox.top/wordpress-migrate-to-hugo/</link>
-      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
-      
-      <guid>https://ifunbox.top/wordpress-migrate-to-hugo/</guid>
-      <description>WordPress确实感觉挺卡 痛下决心切换到Hugo，真的是丝般顺滑。
-主题是用hugo-clarity，自己加入支持cnzz，畅言评论，喜欢自取，记得star一下。 https://github.com/gofunbox/hugo-clarity</description>
     </item>
     
     <item>

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://ifunbox.top/</loc>
-    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -19,7 +19,7 @@
   
   <url>
     <loc>https://ifunbox.top/categories/</loc>
-    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -30,6 +30,46 @@
                 hreflang="en"
                 href="https://ifunbox.top/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/tags/hugo/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/posts/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/tags/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://ifunbox.top/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ifunbox.top/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/tags/wordpress/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/categories/wordpress/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ifunbox.top/wordpress-migrate-to-hugo/</loc>
+    <lastmod>2020-12-01T06:01:59+00:00</lastmod>
   </url>
   
   <url>
@@ -63,33 +103,8 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/posts/</loc>
-    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ifunbox.top/tags/</loc>
-    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://ifunbox.top/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ifunbox.top/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2020-12-01T05:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ifunbox.top/tags/hugo/</loc>
-    <lastmod>2020-12-01T03:01:59+00:00</lastmod>
   </url>
   
   <url>
@@ -108,22 +123,7 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/tags/wordpress/</loc>
-    <lastmod>2020-12-01T03:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ifunbox.top/categories/wordpress/</loc>
-    <lastmod>2020-12-01T03:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ifunbox.top/ddl-online/</loc>
-    <lastmod>2020-12-01T03:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ifunbox.top/wordpress-migrate-to-hugo/</loc>
     <lastmod>2020-12-01T03:01:59+00:00</lastmod>
   </url>
   

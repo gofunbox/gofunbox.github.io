@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 06:01:59 +0000</lastBuildDate>
     
 	<atom:link href="https://ifunbox.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WordPress</title>
+      <link>https://ifunbox.top/categories/wordpress/</link>
+      <pubDate>Tue, 01 Dec 2020 06:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/categories/wordpress/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Laravel</title>
@@ -35,15 +44,6 @@
       <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
       
       <guid>https://ifunbox.top/categories/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WordPress</title>
-      <link>https://ifunbox.top/categories/wordpress/</link>
-      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
-      
-      <guid>https://ifunbox.top/categories/wordpress/</guid>
       <description></description>
     </item>
     
