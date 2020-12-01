@@ -120,6 +120,34 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/">解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 8, 2017</span>
+    <a href='https://gofunbox.github.io/tags/ssl' class="post_tag button button_translucent">SSL
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">问题 服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)
+解决方案：  sudo yum install ca-certificates （无论有没有，安装确认一下） 重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下 curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)  相关知识点 什么是CA Certificates？ Certification authority (CA)
+证书颁发 …</p>
+          <a href="https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/monitor-php-error-log-sendmail/">监控PHP fatal errors错误日志发送邮件</a>
       </h3>
       <div class="post_meta">
@@ -371,37 +399,6 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/centos-jenkins-install-config/">CentOS下Jenkins安装及使用</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 17, 2016</span>
-    <a href='https://gofunbox.github.io/tags/jenkins' class="post_tag button button_translucent">Jenkins
-    </a>
-    <a href='https://gofunbox.github.io/tags/linux' class="post_tag button button_translucent">Linux
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
-2.系统会创建一个用户“jenkins”来执行这个服务
-3.启动参数在/etc/sysconfig/jenkins文件中， …</p>
-          <a href="https://gofunbox.github.io/centos-jenkins-install-config/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -611,6 +608,9 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -630,9 +630,6 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -683,13 +680,13 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -764,6 +761,11 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -781,6 +783,11 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

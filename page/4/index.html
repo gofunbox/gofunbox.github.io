@@ -125,6 +125,38 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/redis_windows_autorun/">windows下自动启动Redis隐藏命令行窗口的方法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 16, 2015</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">1.将启动命令写入bat。如下：
+D:/dev/redis-2.4.5/redis-server.exe D:/dev/redis-2.4.5/redis.conf
+保存为openredis.bat
+2.利用vbs调用bat。
+新建vbs文件openredis.vbs。写入命令：
+CreateObject(&#8220;WScript.Shell&#8221;).Run &#8220;cmd /c ‪D:/dev/redis-2.4.5/bin/openredis.bat&#8221;,0
+下面就是考虑如何调用vbs了。
+3.设置开机自动启动
+点击运行输入regedt32.exe …</p>
+          <a href="https://gofunbox.github.io/redis_windows_autorun/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/redis_windows_php/">Redis在Windows下安装和PHP中使用</a>
       </h3>
       <div class="post_meta">
@@ -373,38 +405,6 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/">结合MongoDB开发LBS应用-查看附近的人</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Mar 26, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">最近负责的APP要上查看附件的人的功能
-之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
-就开始寻找新的解决方案，查找到深入浅出Symfony2 &#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
-首先加一点往MongoDB数据
-
-了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
-
-thinkphp实现的代码，距离单位都是km
-&lt;span style="font-size: 12pt;"$where['geoNear'] = 'user_coordinate'; …</p>
-          <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -618,6 +618,9 @@ thinkphp实现的代码，距离单位都是km
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -637,9 +640,6 @@ thinkphp实现的代码，距离单位都是km
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -690,13 +690,13 @@ thinkphp实现的代码，距离单位都是km
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -771,6 +771,11 @@ thinkphp实现的代码，距离单位都是km
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -788,6 +793,11 @@ thinkphp实现的代码，距离单位都是km
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

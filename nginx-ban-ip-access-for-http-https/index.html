@@ -158,7 +158,7 @@
     
     <p>这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">#http
+<pre><code>#http
 server 
 {
   listen 80 default_server;
@@ -179,7 +179,7 @@ server
 
 <p>需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">yum install -y openssl
+<pre><code>yum install -y openssl
 openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048
 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key
 openssl req -new -key ssl.key -out ssl.csr
@@ -215,6 +215,9 @@ openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
       </li>
       <li>
@@ -234,9 +237,6 @@ openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
       </li>
       <li>
         <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/centos-cli-mailx/" class="nav-link">CentOS CLI命令行mailx发送邮件基本用法</a>
       </li>
     </ul>
     <div>
@@ -287,13 +287,13 @@ openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -368,6 +368,11 @@ openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -385,6 +390,11 @@ openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.crt
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

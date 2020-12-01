@@ -125,6 +125,42 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/107.html">定时备份远程mysql数据库到本地的方法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 30, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。
+&nbsp;
+前提 ：本地机器上装有mysql服务。
+假设本地机器上mysql服务目录 d:/mysql
+假设远程数据库地址：111.0.0.111
+假设远程数据库名称：testdata
+假设远程数据库用户名：admin
+假设远程数据库密码：123456
+&nbsp;
+1、新建一个记事本文件，路径为d:/backup/backup.txt，编辑该文件，内容如下
+ title %1服务器mysql数据库备份 
+IF NOT EXIST %5 md %5 
+IF NOT EXIST %5\%1 md %5\%1 …</p>
+          <a href="https://gofunbox.github.io/107.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/93.html">zencart robots.txt的阻止收录写法</a>
       </h3>
       <div class="post_meta">
@@ -398,36 +434,6 @@ define(&#8216;DB_HOST&#8217;, &#8221;);
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/12211212/">SEO入门级知识问答</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 25, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">1、SEO是什么？
-全称叫搜索引擎优化。人们使用搜索引擎查找自己需要的信息，那么作为网站的主人，我们希望用户通过搜索引擎能来到自己的网站。这就需要对网站进行SEO（搜索引擎优化）。
-2、SEO了之后，有什么结果呢？
-SEO的目的是一方面让你的网站某些词排名提高，另一方面让你网站的流量整体提高。
-假设没有做SEO，那么你也不会来到SEO十万个为什么这个网站。
-3、如何知道网站在搜索引擎上的排名情况呢？
-你先需要知道，希望有排名的是什么词？比如：SEO十万个为什么这个网站，希望有排名的是 SEO，那么你可以直接在百度或Google上搜索SEO，然后去查找自己的网站。如果20页之内没有自己的网站，则一般就不用找了。说明目前还没很好的排名。 …</p>
-          <a href="https://gofunbox.github.io/12211212/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -641,6 +647,9 @@ SEO的目的是一方面让你的网站某些词排名提高，另一方面让�
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -660,9 +669,6 @@ SEO的目的是一方面让你的网站某些词排名提高，另一方面让�
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -713,13 +719,13 @@ SEO的目的是一方面让你的网站某些词排名提高，另一方面让�
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -794,6 +800,11 @@ SEO的目的是一方面让你的网站某些词排名提高，另一方面让�
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -811,6 +822,11 @@ SEO的目的是一方面让你的网站某些词排名提高，另一方面让�
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

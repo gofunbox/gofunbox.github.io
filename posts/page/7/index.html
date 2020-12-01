@@ -120,6 +120,33 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/admin_being_attacked/">博客后台被逗比不断尝试暴力破解~</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jun 3, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
+查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
+记录post请求参数的日志格式
+log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '"$http_referer" $status $body_bytes_sent $request_body ' '"$http_user_agent" …</p>
+          <a href="https://gofunbox.github.io/admin_being_attacked/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/php_wechat_payment_sdk/">微信APP支付服务端php sdk开发教程</a>
       </h3>
       <div class="post_meta">
@@ -370,37 +397,6 @@ make: *** [all-recursive] error …</p>
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/apache_nginx_basic_http_authentication/">Apache/Nginx Basic HTTP Authentication用户认证</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Feb 16, 2014</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
-今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
-1.apache下的实现方法
-AuthType Basic
-AuthName &#8220;My Protected Area&#8221;
-AuthUserFile /path/to/.htpasswd
-Require valid-user
-参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示 …</p>
-          <a href="https://gofunbox.github.io/apache_nginx_basic_http_authentication/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -618,6 +614,9 @@ Require valid-user
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -637,9 +636,6 @@ Require valid-user
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -690,13 +686,13 @@ Require valid-user
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -771,6 +767,11 @@ Require valid-user
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -788,6 +789,11 @@ Require valid-user
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

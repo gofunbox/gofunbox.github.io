@@ -120,6 +120,38 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/528.html">QQ互联curl发起https请求无返回</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 26, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">给一个客户安装QQ互联是发现请求https无返回
+以为是openssl没开，开了也还是如此。
+解决方法如下：
+设定为不验证证书和host。
+在执行curl_exec()之前。设置option
+$ch = curl_init();
+&#8230;&#8230;
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</p>
+          <a href="https://gofunbox.github.io/528.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/525.html">SAFE MODE Restriction in effect 的问题</a>
       </h3>
       <div class="post_meta">
@@ -376,43 +408,6 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/489.html">Discuz! Debug 模式的开启与使用</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Feb 27, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">1.面向对象：
-有一定mysql基础的站长，程序开发者
-2.作用：
-可以明细的列出当前页面的查询可以具体查询出现的文件，和时间。并且有查询的 explain 信息。便于检查哪里出现了慢查询。
-可以查看当前页面内存使用情况
-可以列出当前页面 $_G 变量中的内容
-可以列出当前页面的 cookie 内容
-可以查看当前浏览器的信息，User Agent 等
-
-3.所需文件：
-解压，将 function_debug.php 放到 source/function 目录下。
-
-4.修改配置文件：
-修改 config\config_global.php …</p>
-          <a href="https://gofunbox.github.io/489.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -630,6 +625,9 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -649,9 +647,6 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -702,13 +697,13 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -783,6 +778,11 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -800,6 +800,11 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

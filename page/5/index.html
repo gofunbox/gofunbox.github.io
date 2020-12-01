@@ -125,6 +125,38 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/">结合MongoDB开发LBS应用-查看附近的人</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 26, 2015</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">最近负责的APP要上查看附件的人的功能
+之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
+就开始寻找新的解决方案，查找到深入浅出Symfony2 &#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
+首先加一点往MongoDB数据
+
+了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
+
+thinkphp实现的代码，距离单位都是km
+&lt;span style="font-size: 12pt;"$where['geoNear'] = 'user_coordinate'; …</p>
+          <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/avoid_session_lock/">避免SESSION锁阻塞请求</a>
       </h3>
       <div class="post_meta">
@@ -401,36 +433,6 @@ location /resource/ { concat on; …</p>
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/google_pagespeed_website_optimizer/">pagespeed超级智能的谷歌网页优化利器</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 25, 2014</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
-用火狐查看，大部分js，css大部分时间耗在阻挡上面。
-查了相关资料，这样解释阻挡(Blocking)：每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
-也就是多js，css太多了，那着手合并一下。
-先是找了淘宝的combo，其实就可以满足现在我的需求，但是无意间发现了pagespeed
-被其强大的功能所震惊了，而且是代码层面不需要任何修改
-功能介绍页http://ngxpagespeed.com/ngx_pagespeed_example/ …</p>
-          <a href="https://gofunbox.github.io/google_pagespeed_website_optimizer/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -646,6 +648,9 @@ location /resource/ { concat on; …</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -665,9 +670,6 @@ location /resource/ { concat on; …</p>
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -718,13 +720,13 @@ location /resource/ { concat on; …</p>
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -799,6 +801,11 @@ location /resource/ { concat on; …</p>
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -816,6 +823,11 @@ location /resource/ { concat on; …</p>
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

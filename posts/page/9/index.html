@@ -120,6 +120,44 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/centos_mount_disk/">Centos如何挂载硬盘</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Sep 12, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">远程SSH登录上Centos服务器后，进行如下操作
+提醒：挂载操作会清空数据，请确认挂载盘无数据或者未使用
+第一步：列出所有磁盘 命令： ll /dev/disk/by-path
+
+提示：如果无法确认数据盘设备名称，请使用df命令来确认系统盘的名称，从而排除挂错盘的情况。
+第二步：格式化硬盘 命令： fdisk /dev/sdb
+
+注意：图中箭头标注处续手动键入
+第三步：创建分区  命令： mkfs.ext4 /dev/sdb1
+
+第四步：挂载分区 命令： mkdir /data
+mount /dev/sdb1 /data # 将sdb这个硬盘挂载成为/data
+
+**第五步：将信息写入fstab,让系统开启自动挂载。
+** 命令： …</p>
+          <a href="https://gofunbox.github.io/centos_mount_disk/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/thinkphp_remove_index.php">ThinkPHP实现伪静态如何去掉目录中的index.php</a>
       </h3>
       <div class="post_meta">
@@ -370,34 +408,6 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/apache_log_analysis/">PHP开源Apache日志分析工具收集与比较</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jun 28, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
-1、LogAnalyzer
-LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。
-LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且正式改名为LogAnalyzer。
-程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用MonitorWare …</p>
-          <a href="https://gofunbox.github.io/apache_log_analysis/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -615,6 +625,9 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -634,9 +647,6 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -687,13 +697,13 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -768,6 +778,11 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -785,6 +800,11 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         

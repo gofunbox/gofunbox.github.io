@@ -120,6 +120,35 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/">博客从WordPress迁移到hugo咯</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://gofunbox.github.io/tags/wordpress' class="post_tag button button_translucent">WordPress
+    </a>
+    <a href='https://gofunbox.github.io/tags/hugo' class="post_tag button button_translucent">Hugo
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">WordPress确实感觉挺卡 痛下决心切换到Hugo，真的是丝般顺滑。
+主题是用hugo-clarity，自己加入支付cnzz，畅言评论，喜欢自取，记得star一下。 https://github.com/gofunbox/hugo-clarity</p>
+          <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </h3>
       <div class="post_meta">
@@ -196,8 +225,7 @@ yum install -y openssl openssl …</p>
         <div>
           <p class="pale">linux 添加开机启动项的三种方法。
  编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
-#!/bin/sh #
-This script will be executed after all the other init scripts. You can put your own initialization stuff in here if you don&rsquo;t want to do the full Sys V style init stuff.  touch /var/lock/subsys/local /etc/init.d/mysqld start …</p>
+#!/bin/sh # # This script will be executed *after* all the other init scripts. # You can put your own initialization stuff in here if you don't # want to do the full Sys V style init stuff. touch /var/lock/subsys/local /etc/init.d/mysqld start …</p>
           <a href="https://gofunbox.github.io/linux-autostart-method/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -360,34 +388,6 @@ https就是用于解决这样的安全问题的,它的全称为Hypertext …</p>
           <p class="pale">mailx安装，很简单！貌似我的系统自带的。
 yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail # …</p>
           <a href="https://gofunbox.github.io/centos-cli-mailx/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/">解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Aug 8, 2017</span>
-    <a href='https://gofunbox.github.io/tags/ssl' class="post_tag button button_translucent">SSL
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">问题 服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)
-解决方案：  sudo yum install ca-certificates （无论有没有，安装确认一下） 重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下 curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)  相关知识点 什么是CA Certificates？ Certification authority (CA)
-证书颁发 …</p>
-          <a href="https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -602,6 +602,9 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://gofunbox.github.io/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
+      </li>
+      <li>
         <a href="https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
       </li>
       <li>
@@ -621,9 +624,6 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
       </li>
       <li>
         <a href="https://gofunbox.github.io/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
-      </li>
-      <li>
-        <a href="https://gofunbox.github.io/security-https-and-mitm/" class="nav-link">HTTPS原理以及HTTPS中间人攻击</a>
       </li>
     </ul>
     <div>
@@ -674,13 +674,13 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
           <span class="button_tally">6</span>
         </a>
         
-        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
-          HTML
-          <span class="button_tally">5</span>
-        </a>
-        
         <a href='https://gofunbox.github.io/categories/wordpress/' class="post_tag button button_translucent">
           WORDPRESS
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/categories/html/' class="post_tag button button_translucent">
+          HTML
           <span class="button_tally">5</span>
         </a>
         
@@ -755,6 +755,11 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://gofunbox.github.io/tags/hugo/' class="post_tag button button_translucent">
+          HUGO
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://gofunbox.github.io/tags/javascript/' class="post_tag button button_translucent">
           JAVASCRIPT
           <span class="button_tally">1</span>
@@ -772,6 +777,11 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
         
         <a href='https://gofunbox.github.io/tags/vmware/' class="post_tag button button_translucent">
           VMWARE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://gofunbox.github.io/tags/wordpress/' class="post_tag button button_translucent">
+          WORDPRESS
           <span class="button_tally">1</span>
         </a>
         
