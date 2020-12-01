@@ -120,6 +120,57 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/ddl-online/">关于DDL ONLINE</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">MySQL各版本，对于DDL的处理方式是不同的，主要有三种
+Copy Table方式： 这是InnoDB最早支持的方式。顾名思义，通过临时表拷贝的方式实现的。新建一个带有新结构的临时表，将原表数据全部拷贝到临时表，然后Rename，完成创建操作。这个方式过程中，原表是可读的，不可写。但是会消耗一倍的存储空间。
+Inplace方式：这是原生MySQL 5.5，以及innodb_plugin中提供的方式。所谓Inplace，也就是在原表上直接进行，不会拷贝临时表。相对于Copy Table方式，这比较高效率。原表同样可读的，但是不可写。
+Online方式：这是MySQL 5.6以上版本中提供的方式，也是今天我们重点说明的方式。无论 …</p>
+          <a href="https://ifunbox.top/ddl-online/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/time-complexity/">时间复杂度</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale"></p>
+          <a href="https://ifunbox.top/time-complexity/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/redis-setnx/">谈谈Redis的SETNX</a>
       </h3>
       <div class="post_meta">
@@ -358,62 +409,6 @@ redis是一个高性能的key-value存储系统。和Memcached类似，它支持
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_mysql_data_dictionary_tools/">mysql数据字典生成工具php版</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Apr 1, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">工作交接，哭晕~
-找了一个php写的数据字典生成工具，跟大家分享下
-下载地址 http://vdisk.weibo.com/s/yThjZrryTIxQl
-效果图</p>
-          <a href="https://ifunbox.top/php_mysql_data_dictionary_tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/avoid_session_lock/">避免SESSION锁阻塞请求</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Feb 12, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
-问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。
-翻到了这两篇文章
-http://konrness.com/php5/how-to-prevent-blocking-php-requests/
-http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/
-介绍了什么是session lock，怎么工作，为什么需要，如 …</p>
-          <a href="https://ifunbox.top/avoid_session_lock/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -515,28 +510,28 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -544,7 +539,7 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -607,6 +602,11 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -624,6 +624,11 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -650,12 +655,12 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -680,6 +685,11 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

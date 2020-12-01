@@ -125,6 +125,200 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/optimize_mysql/">mysql 性能优化方案</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 24, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
+ &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
+ 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
+          <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/php_get_initial/">用PHP提取中英文词语以及数字的首字母的方法介绍</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 4, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">最近项目有个需求，在一个中英文（包括阿拉伯数字0-9）的海量词库中，提取每一个词语的首字母：
+gannicus——&gt;G
+自由自在——&gt;Z
+2B——&gt;E
+傻X——&gt;S
+&nbsp;
+&nbsp;
+function get_first_char($string){ $s=iconv('UTF-8','gb2312', $string); if (ord($string)&amp;gt;128) { //汉字开头 $asc=ord($s{0})*256+ord($s{1})-65536; if($asc&amp;gt;=-20319 and $asc&amp;lt;=-20284)return …</p>
+          <a href="https://ifunbox.top/php_get_initial/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/what_is_httponly/">什么是HttpOnly</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 26, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">1.什么是HttpOnly?
+
+如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
+具体一点的介绍请google进行搜索
+
+
+2.javaEE的API是否支持?
+
+目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现
+
+3.HttpOnly的设置样例
+
+javaEE
+   Javaee代码      response.setHeader(&#8220;Set-Cookie&#8221;, &#8220;cookiename=value; …</p>
+          <a href="https://ifunbox.top/what_is_httponly/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/php_mysql_distance/">php、mysql两个经纬度之间的距离的方法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 23, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">php计算两个经纬度之间的距离的方法   /**
+* 函数用途描述 计算经纬度 计算弧度
+* @date: 2013-8-26
+* @author: fanhe
+* @return: 
+*/
+function rad($d)
+{
+return $d * 3.1415926535898 / 180.0;
+}  /**
+* 函数用途描述 计算经纬度距离
+* @date: 2013-8-26
+* @author: fanhe
+* @return:
+*/
+function get_distance($lng1, $lat1, $lng2, $lat2)
+{
+$EARTH_RADIUS = 6378.137;
+$radLat1 = …</p>
+          <a href="https://ifunbox.top/php_mysql_distance/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/php_anti-antivirus-/">避开eval关键字，打造免杀一句话木马</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 8, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">首先我想到的是将eval从字符串类型赋给一个变量。
+如：$func = ‘phpinfo’;
+$func();
+这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。
+还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？
+没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。
+既然是将字符串作为php代码评估 …</p>
+          <a href="https://ifunbox.top/php_anti-antivirus-/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/fix_shopex_quick_edit/">修复shopex4.8.5.80797列表无法快速编辑(切换是否状态)</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Sep 14, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。
+shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
+出现的原因估计是跟数据库字段1,0修改成true,false有关
+现在提供解决方案。
+下载修复补丁地址:http://url.cn/KR4AIa</p>
+          <a href="https://ifunbox.top/fix_shopex_quick_edit/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/centos_mount_disk/">Centos如何挂载硬盘</a>
       </h3>
       <div class="post_meta">
@@ -238,176 +432,6 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
 cfg_disable_funs，模板标签中禁用函数
 主要是针对标签中出现执行php代码，通过禁用危险的函数 …</p>
           <a href="https://ifunbox.top/dedecms_cfg_disable_tags/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux_svn_autostart/">linux下svn服务开机自启动设置方法</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 25, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">1 在/etc/rc.d/init.d/下建立svnserved文档
-2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &quot;$1&quot; in start) echo &quot;starting svnserve...&quot; svnserve -d -r /xxx/xxx/xxx …</p>
-          <a href="https://ifunbox.top/linux_svn_autostart/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/firefox_firebug_firephp/">基于firefox中控件firebug的php调试工具–firephp</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 24, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">FirePHP是什么？
-FirePHP是一个利用Firebug console栏输出调试信息方便程序调试。
-这一切只需要调用几个简单的函数。
-为什么要用它？
-在开发环境下正常运行的程序放在生产环境出问题了！
-我期望可以在生产环境中进行修改。但不期望客户看到这一切的发生。
-请选择FirePHP。
-常规的PHPUnit确实能帮助大家进行自动化测试。但我期望更为直观的结果显示。
-让我知道程序内发生了什么。看到结果按约输出心里才放心。
-请选择FirePHP。
-常规var_export()显示在页面上，破坏了页面结构，影响了界面开发人员的工作。
-请选择FirePHP。
-更多好处等待您的发现。
-开始我们的FirePHP之旅：
-1、确认您安装 …</p>
-          <a href="https://ifunbox.top/firefox_firebug_firephp/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/ie_download_apk/">解决IE系列浏览器下下载apk变为zip问题</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 23, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；
-简单修改：
-1，进入 /usr/local/nginx/conf
-2，编辑mime.types文件，在其中加入以下两句，分别是对apk和ipa的支持；
-application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事儿重启；
-/etc/init.d/nginx restart ok，记录完成。</p>
-          <a href="https://ifunbox.top/ie_download_apk/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_if_exits_file/">PHP快速判断远程图片是否存在函数（不下载图片）</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 22, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">网上找了一些PHP判断远程图片是否存在方法，有的不能用，有的加载了全部图片，导致响应很慢
-下面方法亲测可用，赞哦~~
-function img_exits($url) { $ch = curl_init(); curl_setopt($ch, CURLOPT_URL,$url); curl_setopt($ch, CURLOPT_NOBODY, 1); curl_setopt($ch, CURLOPT_FAILONERROR, 1); curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); $contents = curl_exec($ch); if($contents!==false) …</p>
-          <a href="https://ifunbox.top/php_if_exits_file/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/mysql_index_type/">MySQL索引类型一览 让MySQL高效运行起来</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 8, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">索引是快速搜索的关键。MySQL索引的建立对于MySQL的高效运行是很重要的。下面介绍几种常见的MySQL索引类型。
-在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表：
-CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我们随机向里面插入了10000条记录，其中有一条：5555, admin。
-在查找username=&#8221;admin&#8221;的记录 SELECT * FROM mytable WHERE username=&#8217;admin&#8217;;时，如果在username上 …</p>
-          <a href="https://ifunbox.top/mysql_index_type/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/discuz_admin_cannot_login/">Discuz管理员前台可以登录后台无法登录</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 3, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">    1. 取消ip认证  config_global.php 中找到  $_config[&#8216;admincp&#8217;][&#8216;checkip&#8217;] = 0  2.管理员用户组变为普通用户组了 进入不了后台  直接更改数据库 common_member中 找到管理员对应的记录 将groupid 和adminid 都更改为 1  3. 后台设置了ip列表导致访问不了后台  进入数据库 common_setting 表中搜索 skey 为 adminipaccess ，然后删除svalue中的值  4.有其它用户在同时登录 同一个帐号后台也是进入不了后台的 （只要取消ip认证 就能同时多点登录） …</p>
-          <a href="https://ifunbox.top/discuz_admin_cannot_login/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -630,28 +654,28 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -659,7 +683,7 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -722,6 +746,11 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -739,6 +768,11 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -765,12 +799,12 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -795,6 +829,11 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

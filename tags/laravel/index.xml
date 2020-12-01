@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on Funbox的技术记事本</title>
+    <link>https://ifunbox.top/tags/laravel/</link>
+    <description>Recent content in Laravel on Funbox的技术记事本</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
+    
+	<atom:link href="https://ifunbox.top/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Laravel缓存相关命令</title>
+      <link>https://ifunbox.top/laravel-cache-cmd/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/laravel-cache-cmd/</guid>
+      <description>配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
+php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:clear  此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
+注意：配置信息缓存不会随着更新而自动重载，所以，开发时候建议关闭配置信息缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
+路由缓存 路由缓存可以有效的提高路由器的注册效率，在大型应用程序中效果越加明显，可以使用以下命令：
+php artisan route:cache  以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。
+可以使用下面命令清除路由缓存：
+php artisan route:clear  此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。
+注意：路由缓存不会随着更新而自动重载，所以，开发时候建议关闭路由缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
+类映射加载优化 optimize 命令把常用加载的类合并到一个文件里，通过减少文件的加载，来提高运行效率：
+php artisan optimize --force  会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。
+你可以可以通过修改 config/compile.php 文件来添加要合并的类。
+在 production 环境中，参数 &amp;ndash;force 不需要指定，文件就会自动生成。
+要清除类映射加载优化，请运行以下命令：
+php artisan optimize:clear  注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.</description>
+    </item>
+    
+  </channel>
+</rss>

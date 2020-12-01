@@ -125,6 +125,188 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/81.html">zencart安装时出现”PHP中没有编译CURL”</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 27, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">1.寻找PHP.ini并打开
+2.按Ctrl-F键查找如下关键字：extension=php_curl.dll 把前面的那个&#8221;;&#8221;去掉。保存退出。重新启动Apache2服务
+版本：php5.05
+已经内置有php_curl.dll,在ext目录下,此DLL用于支持SSL和zlib.
+在php.ini中找到有extension=php_curl.dll, 去掉前面的注释.
+设置extension_dir=c:\php\ext, 刷新PHP页面时报错, 说找不到模块php_curl.dll.
+拷贝php_curl.dll 到windows\system32,还是同样的错.
+在网上找了一下,需要将: …</p>
+          <a href="https://ifunbox.top/81.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/66.html">记录蜘蛛爬行日志代码(PHP)</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 25, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">记录蜘蛛爬行的日志格式如下：
+爬行的时间，蜘蛛（搜索引擎机器人）类型，爬行目标页面，来自哪里
+Time:2011-6-17 21:34:06 robot:Baiduspider pageURL:http://fanhefan.4430.0-168.com/index.php preUrl: URL:Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)
+Time:2011-6-18 17:45:16 robot:Googlebot …</p>
+          <a href="https://ifunbox.top/66.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/63.html">WordPress迁移、复制多站的方法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 25, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">1.修改wordpress根目录下wp-config.php配置文件，更新以下内容
+define(&#8216;DB_NAME&#8217;, &#8221;);
+define(&#8216;DB_USER&#8217;, &#8221;);
+define(&#8216;DB_PASSWORD&#8217;, &#8221;);
+define(&#8216;DB_HOST&#8217;, &#8221;);
+
+2.进入数据库导入原始数据库数据
+然后wordpress的wp_options表下更新siteurl，home为当前域名即可</p>
+          <a href="https://ifunbox.top/63.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/54.html">常见Http Header返回状态详解</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 25, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">常见Http Header返回状态详解： &nbsp;
+当用户点击或搜索引擎向网站服务器发出浏览请求时，服务器将返回Http Header Http头信息状态码,常见几种如下:
+  1、Http/1.1 200 OK 访问正常
+表示成功访问,为网站可正常访问时的状态。&nbsp;
+   2、Http/1.1 301 Moved Permanently 301重定向永久重定向
+对搜索引擎相对友好的跳转方式，当网站更换域名时可将原域名作301永久重定向到新域名，原域名权重可传递到新域名，也常有将不含www的域名301跳转到含www的，如xxx.com通过301跳转到www.xxx.com&nbsp;
+   3、Http/1.1 302 …</p>
+          <a href="https://ifunbox.top/54.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/52.html">Http状态码一览表</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 25, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">Http状态码一览表    所谓的404页就是服务器404重定向状态返回页面。数字404指的是404号状态码。一般常用到的有200号状态码和404号状态码。200号表示网页被下载成功，而404号表示不能成功下载并产生错误。下面是HTTP状态码一览表。
+1xx：请求收到，继续处理
+2xx：操作成功收到，分析、接受
+3xx：完成此请求必须进一步处理
+4xx：请求包含一个错误语法或不能完成
+5xx：服务器执行一个完全有效请求失败
+100——客户必须继续发出请求
+101——客户要求服务器根据请求转换HTTP协议版本
+200——交易成功
+201——提示知道新文件的URL
+202——接受和处理、但处理未完成
+203—— …</p>
+          <a href="https://ifunbox.top/52.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/48.html">设置网站301跳转（全）</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Oct 25, 2011</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">当有多个域名指向你的站点时，301跳转是每个网站常用的一种页面跳转方式，针对SEO来说，作用有以下几点：
+1，301跳转是搜索引擎认可的一种跳转方式，也就是说通过这种方式从一个网址跳转到另外一个网址并不会受到搜索引擎的惩罚。
+2，上面说过这种跳转方式是搜索引擎认可的，搜索引擎的设计者以及考虑到一个域名并不一定会跟随一个网站一辈子，利用这种跳转方式可以让搜索引擎认为您“永久”放弃这个域名并启用了新的域名，那么搜索引擎会把你的老域名相应权重转移到新的域名上来。不过这里要说明一下，并不是通过301跳转就能使权重完全转移的，这个还有很多因素决定。301只能说可以让损失减少到最低。
+301的具体设置方式
+1、IIS下301 …</p>
+          <a href="https://ifunbox.top/48.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/12211212/">SEO入门级知识问答</a>
       </h3>
       <div class="post_meta">
@@ -444,28 +626,28 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -473,7 +655,7 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -536,6 +718,11 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -553,6 +740,11 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -579,12 +771,12 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -609,6 +801,11 @@ Appserv配置多站点教程第二步：修改Windows系统hosts文件
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

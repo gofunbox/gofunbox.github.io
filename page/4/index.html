@@ -125,6 +125,201 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/nginx_php-fpm_cross-site/">Nginx下php-fpm防止跨站跨目录安全设置</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Apr 13, 2016</span>
+    <a href='https://ifunbox.top/tags/nginx' class="post_tag button button_translucent">Nginx
+    </a>
+    <a href='https://ifunbox.top/tags/php' class="post_tag button button_translucent">PHP
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
+而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
+首先php的版本必须大于等于php5.3.3。
+方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
+fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。 …</p>
+          <a href="https://ifunbox.top/nginx_php-fpm_cross-site/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/ngx-lua-stats/">通过ngx-lua来统计nginx上的虚拟主机性能数据</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 30, 2016</span>
+    <a href='https://ifunbox.top/tags/lua' class="post_tag button button_translucent">Lua
+    </a>
+    <a href='https://ifunbox.top/tags/nginx' class="post_tag button button_translucent">Nginx
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
+用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
+1.几乎对原有项目代码分离
+2.性能佳
+3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
+4.可以统计与query-times、request-time、status-code、speed相关的数据
+因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块
+github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码
+使用方法就是 …</p>
+          <a href="https://ifunbox.top/ngx-lua-stats/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/nginx_install_lua-nginx-module/">Nginx安装lua-nginx-module模块</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 25, 2016</span>
+    <a href='https://ifunbox.top/tags/lua' class="post_tag button button_translucent">Lua
+    </a>
+    <a href='https://ifunbox.top/tags/nginx' class="post_tag button button_translucent">Nginx
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
+安装了nginx的小伙伴就继续往下看咯~
+1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
+http://luajit.org/download.html
+wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-beta2.tar.gz cd LuaJIT-2.1.0-beta2 make PREFIX=/usr/local/luajit …</p>
+          <a href="https://ifunbox.top/nginx_install_lua-nginx-module/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/mac_osx_brew_php_version/">Mac OS X上brew安装多版本php切换</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 21, 2016</span>
+    <a href='https://ifunbox.top/tags/osx' class="post_tag button button_translucent">OSX
+    </a>
+    <a href='https://ifunbox.top/tags/php' class="post_tag button button_translucent">PHP
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
+用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
+偶然发现php-version这个工具可以在mac下任意切换php各个版本
+ 然后运行
+ 安装完毕之后php-version，显示当前安装的全部php版本列表
+直接运行php-version php版本号，即可完成切换
+php -v 显示php版本已经变了，切换成功
+brew真心强大</p>
+          <a href="https://ifunbox.top/mac_osx_brew_php_version/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/linux_mysql56_replication/">Linux MySQL5.6 主从复制配置</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 15, 2015</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">MySQL
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">环境说明：
+两台安装在CentOS6.5的MySQL5.6.21服务器：master 和 slave Master服务器： IP：192.168.80.51 Port：3316 Slave 服务器： IP：192.168.80.52 Port：3316 配置步骤：
+1、 修改master的my.cnf配置文件，开启记录日志并设置server-id。
+2、 修改slave的my.cnf配置文件，开启读取二进制日志并设置server-id。
+3、 在slave上启动slave与master的连接。
+4、 检查是否配置成功与排错。
+1、 修改 master 的my.cnf配置文件，在[mysqld]下添加如下配置：
+[mysqld] …</p>
+          <a href="https://ifunbox.top/linux_mysql56_replication/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/global_airport_mysql_data/">全球机场数据mysql(包含全国机场数据，国外大中小机场数据)</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 27, 2015</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">MySQL
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">最近整理了一个全球机场数据mysql版，挺全的 包含全国全球各大机场数据（所属城市 三字代码 国家 国家代码 四字代码 机场名称 英文） 全国全球机场数据由三个表组成lk_airport（机场名称数据表）、lk_airport_city（国内城市表）、lk_airport_inter_city（国外城市表）组成 城市表数据是参考携程的，机场名称数据是http://www.hlhkys.com/dmair/cx.asp这边采集的 直接上mysql语句 /* Date: 2015-11-27 17:24:30 */ SET FOREIGN_KEY_CHECKS=0; -- ---------------------------- -- …</p>
+          <a href="https://ifunbox.top/global_airport_mysql_data/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/redis_windows_autorun/">windows下自动启动Redis隐藏命令行窗口的方法</a>
       </h3>
       <div class="post_meta">
@@ -235,170 +430,6 @@ JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(
 SELECT MAX(LENGTH(字段名)) from wp_posts
 字段名换成post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered依 …</p>
           <a href="https://ifunbox.top/optimize_wordpress_posts_table/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/centos_git_configuration/">centos搭建Git服务器</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Sep 6, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
-假设你已经有sudo权限的用户账号，下面，正式开始安装。
-第一步，安装git：
-&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;yum install -y git&amp;lt;/span&gt;  第二步，创建一个git用户，用来运行git服务：
-&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;adduser git -d …</p>
-          <a href="https://ifunbox.top/centos_git_configuration/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux_memcacheq_configuration/">MemcacheQ消息队列在Linux中编译安装自启动教程</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Sep 5, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">队列（Queue）是一种常用的数据结构。在队列这种数据结构中，最先插入的元素将会最先被取出；反之最后插入的元素将会最后被取出，因此队列又称为“先进先出”（FIFO：First In First Out）的线性表。
-加入元素的一端叫“队尾”，取出元素的一端叫“队头”。利用消息队列可以很好地异步处理数据的传送和存储，当遇到频繁且密集地向后端数据库中插入数据时，就可采用消息队列来异步处理这些数据写入。
-MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于其遵循了Memcache协议，因此开发成本很低，不需要学习额外的知识便可轻松掌握。
-我在最近的一个项目中也应用了MemcacheQ，下面我将分享一 …</p>
-          <a href="https://ifunbox.top/linux_memcacheq_configuration/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/memcached_cas/">Memcached的CAS (Check And Set) 协议</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Aug 26, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
-1. 什么是CAS协议
-很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。
-2. CAS协议原文
-http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
-3. CAS的基本原理
-基本原理非常简单，一言以蔽之，就是“版本号”。每个存储的数据对象，多有一个版本 …</p>
-          <a href="https://ifunbox.top/memcached_cas/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/mysql_design_standards/">MYSQL数据库命名及设计规范</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Aug 7, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀  基础规范  使用INNODB存储引擎 表字符集使用UTF8 所有表都需要添加注释 单表数据量建议控制在5000W以内 禁止在数据库中使用VARBINARY、BLOB存储图片、文件等 禁止在线上做数据库压力测试 禁止从测试、开发环境直连数据库 存储精确浮点数必须使用DECIMAL替代FLOAT和DOUBLE 建议使用UNSIGNED存储非负数值。 建议使用INT …</p>
-          <a href="https://ifunbox.top/mysql_design_standards/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux_crontab_error/">解决手动运行脚本执行正常而放入crontab后不正常的方法</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Apr 22, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
-&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&gt;  也保证下写入文件夹的权限，还是不行
-直接运行，就正常运行
-&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&gt;  
-最后网络上找说是有可 …</p>
-          <a href="https://ifunbox.top/linux_crontab_error/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_mysql_data_dictionary_tools/">mysql数据字典生成工具php版</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Apr 1, 2015</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">工作交接，哭晕~
-找了一个php写的数据字典生成工具，跟大家分享下
-下载地址 http://vdisk.weibo.com/s/yThjZrryTIxQl
-效果图</p>
-          <a href="https://ifunbox.top/php_mysql_data_dictionary_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -617,28 +648,28 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -646,7 +677,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -709,6 +740,11 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -726,6 +762,11 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -752,12 +793,12 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -782,6 +823,11 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

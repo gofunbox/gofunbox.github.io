@@ -125,6 +125,167 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/ascii-unicode-utf8/">字符编码简介（ASCII、Unicode、UTF-8）</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Sep 4, 2017</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">字符串也是一种数据类型，但是，字符串比较特殊的是还有一个编码问题。
+因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。
+由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。
+但是要处理中 …</p>
+          <a href="https://ifunbox.top/ascii-unicode-utf8/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/redis-setnx/">谈谈Redis的SETNX</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 31, 2017</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">在 Redis 里，所谓 SETNX，是「SET if Not eXists」的缩写，也就是只有不存在的时候才设置，可以利用它来实现锁的效果，不过很多人没有意识到 SETNX 有陷阱！
+比如说：某个查询数据库的接口，因为调用量比较大，所以加了缓存，并设定缓存过期后刷新，问题是当并发量比较大的时候，如果没有锁机制，那么缓存过期的瞬间，大量并发请求会穿透缓存直接查询数据库，造成雪崩效应，如果有锁机制，那么就可以控制只有一个请求去更新缓存，其它的请求视情况要么等待，要么使用过期的缓存。
+下面以目前 PHP 社区里最流行的 PHPRedis 扩展为例，实现一段演示代码：
+&lt;?php $ok = …</p>
+          <a href="https://ifunbox.top/redis-setnx/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/vim-guide/">Vim 编辑器简单使用教程</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 25, 2017</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">模式切换    当前模式 切换为 按键 说明     其它模式 普通模式 Esc    普通模式 插入模式 i 在光标前插入     I 在行首插入     a 在光标后插入     A 在行末插入     o 在当前行之下新建行     O 在当前行之上新建行     r 替换当前字符     R 从当前字符开始替换   普通模式 命令模式 :    普通模式 可视模式 v 可视模式     V 可视行模式     Ctrl+v 可视块模式    移动 在普通模式中，您可以使用以下方式移动光标</p>
+          <a href="https://ifunbox.top/vim-guide/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/automake-and-makefile/">自动化编译 如何生成configure和Makefile</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 22, 2017</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件
+通常在一个源码包中，已经包含了configure脚本和Makefile文件，作为课外知识，我们大致了解一下怎么生成这两个文件
+autoconf autoconf用来生成configure脚本，它可以检查系统特性、编译环境、环境变量、软件参数、依赖关系等
+autoconf需要用到 m4
+ 用autoscan描源代码目录生成configure.scan文件 将configure.scan改名为configure.in 用aclocal根据configure.in文件的内容，自动生 …</p>
+          <a href="https://ifunbox.top/automake-and-makefile/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/security-https-and-mitm/">HTTPS原理以及HTTPS中间人攻击</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 16, 2017</span>
+    <a href='https://ifunbox.top/tags/ssl' class="post_tag button button_translucent">SSL
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
+http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
+https就是用于解决这样的安全问题的,它的全称为Hypertext …</p>
+          <a href="https://ifunbox.top/security-https-and-mitm/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/centos-cli-mailx/">CentOS CLI命令行mailx发送邮件基本用法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Aug 15, 2017</span>
+    <a href='https://ifunbox.top/tags/linux' class="post_tag button button_translucent">Linux
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">mailx安装，很简单！貌似我的系统自带的。
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s …</p>
+          <a href="https://ifunbox.top/centos-cli-mailx/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/">解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</a>
       </h3>
       <div class="post_meta">
@@ -232,174 +393,6 @@ vim /etc/sec/php.conf type=Single …</p>
 编译环境 编译环境包括多个工具，它们环环相扣，称作编译工具链。主要包括以下工具：
    工具 简介     binutils 连接器、汇编器和其他用于目标文 …</p>
           <a href="https://ifunbox.top/gcc-install/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux-boot/">Linux服务启动介绍</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 26, 2017</span>
-    <a href='https://ifunbox.top/tags/linux' class="post_tag button button_translucent">Linux
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">启动流程  读取 MBR (主引导记录Master Boot Record)的信息，启动 Boot Manager 加载系统内核，启动 init进程 init进程 读取 /etc/inittab 文件中的信息，并进入预设的运行级别，按顺序运行该运行级别对应文件夹下的脚本。脚本通常以 start选项启动，并指向一个系统中的程序。 根据 /etc/rcS.d/文件夹中对应的脚本启动 Xwindow 服务器 xorg 启动登录管理器，等待用户登录  Windows 使用 NTLDR 作为 Boot Manager，如果您的系统中安装多个版本的 Windows，您就需要在 NTLDR 中选择您要进入的系统。 Linux 通常使用功能强大，配 …</p>
-          <a href="https://ifunbox.top/linux-boot/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux-etc/">Linux配置文件说明</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 26, 2017</span>
-    <a href='https://ifunbox.top/tags/linux' class="post_tag button button_translucent">Linux
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">组   文件路径   说明     系统初始化   /etc/inittab   运行级别、控制台数量       /etc/timezone   时区       /etc/inetd.conf   超级进程     文件系统   /etc/fstab   开机时挂载的文件系统       /etc/mtab   当前挂载的文件系统     用户系统   /etc/passwd   用户信息       /etc/shadow   用户密码       /etc/group   群组信息       /etc/gshadow   群组密码       /etc/sudoers   Sudoer 列表     Shell …</p>
-          <a href="https://ifunbox.top/linux-etc/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/content-security-policy/">Content Security Policy教程</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 26, 2017</span>
-    <a href='https://ifunbox.top/tags/html' class="post_tag button button_translucent">Html
-    </a>
-    <a href='https://ifunbox.top/tags/nginx' class="post_tag button button_translucent">Nginx
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
-为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
-这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
-CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
-CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
-开启方式
-#通过 HTTP 头 …</p>
-          <a href="https://ifunbox.top/content-security-policy/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/linux_directory/">Linux操作系统目录简介</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 26, 2017</span>
-    <a href='https://ifunbox.top/tags/linux' class="post_tag button button_translucent">Linux
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">Linux 系统中的目录    目录   说明     /   根目录，万物起源。     /bin   包含系统启动和运行所必须的二进制程序。     /boot   包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和 启动加载程序。有趣的文件：
- /boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。
-/boot/vmlinuz，Linux 内核。    /dev   这是一个包含设备结点的特殊目录。“一切都是文件”，也适用于设备。 在这个目录里，内核维护着所有设备的列表。     /etc   这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本，  …</p>
-          <a href="https://ifunbox.top/linux_directory/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/mysql-show-processlist/">MySQL SHOW PROCESSLIST输出详解</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jul 25, 2017</span>
-    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">MySQL
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL …</p>
-          <a href="https://ifunbox.top/mysql-show-processlist/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/nginx-proxy-google-fonts-ajax/">Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 18, 2016</span>
-    <a href='https://ifunbox.top/tags/nginx' class="post_tag button button_translucent">Nginx
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">nginx.conf配置开启proxy缓存
-## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
-#fonts.funboxpower.com.conf upstream google { server …</p>
-          <a href="https://ifunbox.top/nginx-proxy-google-fonts-ajax/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -614,28 +607,28 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -643,7 +636,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -706,6 +699,11 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -723,6 +721,11 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -749,12 +752,12 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -779,6 +782,11 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

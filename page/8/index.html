@@ -125,6 +125,165 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/">GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    May 22, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
+mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在 …</p>
+          <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/phpass_bcrypt_encrypted_password/">基于bcrypt算法-开源phpass库来保护密码</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Apr 9, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
+对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
+&amp;lt;?php // Include the phpass library require_once('phpass-03/PasswordHash.php') // Initialize the hasher without portable hashes (this is more secure) $hasher = new …</p>
+          <a href="https://ifunbox.top/phpass_bcrypt_encrypted_password/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/owasp_php_filters/">owasp php filters介绍以及使用–过滤非法输入PHP函数库</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 28, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">最近在研究关于php安全的问题，无意中看到使用 PHP 构建的 Web 应用如何避免 XSS 攻击，很受启发，尤其是字符集编码、动态内容为JavaScript事件处理函数的参数、动态内容位于 JavaScript 代码段中时的xss攻击，建议大家都看看，今天要介绍的owasp php filters也是从这篇文章中看到的。
+首先先介绍下owasp，开放Web应用程序安全性项目(OWASP)501&copy;(3)全球非营利慈善组织专注于改进的安全软件。进他们的项目主页，项目好多，关于php也有不少，不过有几个很好的安全项目还没有提供相关类库的下载，想杀人的冲动。。。。
+owasp php filters的主页 …</p>
+          <a href="https://ifunbox.top/owasp_php_filters/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/tamper_data_xss_sql_injection/">Tamper Data使用–WEB服务器调试/XSS攻击/sql注入利器</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 27, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">一. 简介 作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。
+安装地址：https://addons.mozilla.org/en-us/firefox/addon/tamper-data/
+二. 使用 点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗 …</p>
+          <a href="https://ifunbox.top/tamper_data_xss_sql_injection/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error">coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 17, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
+第一个错误
+Internal error: Killed (program cc1plus)
+make[2]:  [sphinx.o] error
+make[2]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;
+make[1]:  [all] error 2
+make[1]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;
+make: *** [all-recursive] error …</p>
+          <a href="https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/xhprof_php_analysis_tool/">PHP性能分析工具-xhprof扩展的安装以及使用</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Mar 6, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展 …</p>
+          <a href="https://ifunbox.top/xhprof_php_analysis_tool/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/apache_nginx_basic_http_authentication/">Apache/Nginx Basic HTTP Authentication用户认证</a>
       </h3>
       <div class="post_meta">
@@ -237,200 +396,6 @@ svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak
 2.目标服务器: B
 目标服务器上请先安 …</p>
           <a href="https://ifunbox.top/linux_svn_move/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/optimize_mysql/">mysql 性能优化方案</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 24, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
- &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
- 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
-          <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_get_initial/">用PHP提取中英文词语以及数字的首字母的方法介绍</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 4, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">最近项目有个需求，在一个中英文（包括阿拉伯数字0-9）的海量词库中，提取每一个词语的首字母：
-gannicus——&gt;G
-自由自在——&gt;Z
-2B——&gt;E
-傻X——&gt;S
-&nbsp;
-&nbsp;
-function get_first_char($string){ $s=iconv('UTF-8','gb2312', $string); if (ord($string)&amp;gt;128) { //汉字开头 $asc=ord($s{0})*256+ord($s{1})-65536; if($asc&amp;gt;=-20319 and $asc&amp;lt;=-20284)return …</p>
-          <a href="https://ifunbox.top/php_get_initial/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/what_is_httponly/">什么是HttpOnly</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 26, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">1.什么是HttpOnly?
-
-如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
-具体一点的介绍请google进行搜索
-
-
-2.javaEE的API是否支持?
-
-目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现
-
-3.HttpOnly的设置样例
-
-javaEE
-   Javaee代码      response.setHeader(&#8220;Set-Cookie&#8221;, &#8220;cookiename=value; …</p>
-          <a href="https://ifunbox.top/what_is_httponly/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_mysql_distance/">php、mysql两个经纬度之间的距离的方法</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 23, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">php计算两个经纬度之间的距离的方法   /**
-* 函数用途描述 计算经纬度 计算弧度
-* @date: 2013-8-26
-* @author: fanhe
-* @return: 
-*/
-function rad($d)
-{
-return $d * 3.1415926535898 / 180.0;
-}  /**
-* 函数用途描述 计算经纬度距离
-* @date: 2013-8-26
-* @author: fanhe
-* @return:
-*/
-function get_distance($lng1, $lat1, $lng2, $lat2)
-{
-$EARTH_RADIUS = 6378.137;
-$radLat1 = …</p>
-          <a href="https://ifunbox.top/php_mysql_distance/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/php_anti-antivirus-/">避开eval关键字，打造免杀一句话木马</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Oct 8, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">首先我想到的是将eval从字符串类型赋给一个变量。
-如：$func = ‘phpinfo’;
-$func();
-这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。
-还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？
-没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。
-既然是将字符串作为php代码评估 …</p>
-          <a href="https://ifunbox.top/php_anti-antivirus-/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/fix_shopex_quick_edit/">修复shopex4.8.5.80797列表无法快速编辑(切换是否状态)</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Sep 14, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。
-shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
-出现的原因估计是跟数据库字段1,0修改成true,false有关
-现在提供解决方案。
-下载修复补丁地址:http://url.cn/KR4AIa</p>
-          <a href="https://ifunbox.top/fix_shopex_quick_edit/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -653,28 +618,28 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -682,7 +647,7 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -745,6 +710,11 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -762,6 +732,11 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -788,12 +763,12 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -818,6 +793,11 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

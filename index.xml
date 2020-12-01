@@ -6,10 +6,87 @@
     <description>Recent content on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 03:01:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
     
 	<atom:link href="https://ifunbox.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Laravel缓存相关命令</title>
+      <link>https://ifunbox.top/laravel-cache-cmd/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/laravel-cache-cmd/</guid>
+      <description>配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
+php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:clear  此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
+注意：配置信息缓存不会随着更新而自动重载，所以，开发时候建议关闭配置信息缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
+路由缓存 路由缓存可以有效的提高路由器的注册效率，在大型应用程序中效果越加明显，可以使用以下命令：
+php artisan route:cache  以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。
+可以使用下面命令清除路由缓存：
+php artisan route:clear  此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。
+注意：路由缓存不会随着更新而自动重载，所以，开发时候建议关闭路由缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
+类映射加载优化 optimize 命令把常用加载的类合并到一个文件里，通过减少文件的加载，来提高运行效率：
+php artisan optimize --force  会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。
+你可以可以通过修改 config/compile.php 文件来添加要合并的类。
+在 production 环境中，参数 &amp;ndash;force 不需要指定，文件就会自动生成。
+要清除类映射加载优化，请运行以下命令：
+php artisan optimize:clear  注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.</description>
+    </item>
+    
+    <item>
+      <title>Mysql数据误删除的恢复，drop表或库的恢复</title>
+      <link>https://ifunbox.top/mysql-data-recovery/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/mysql-data-recovery/</guid>
+      <description>误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&amp;quot;2017-11-01 00:00:00&amp;quot; --stop-datetime=&amp;quot;2017-11-11 00:00:00&amp;quot; --database=test mysql-bin.000012 &amp;gt; aaa.sql  输出内容大致如下:
+#171008 12:35:19 server id 1 &amp;lt;strong&amp;gt;&amp;lt;span style=&amp;quot;color:#ff0000;&amp;quot;&amp;gt;end_log_pos 69295&amp;lt;/span&amp;gt;&amp;lt;/strong&amp;gt; CRC32 0x015beaa8 Query thread_id=1 exec_time=0 error_code=0 SET TIMESTAMP=1507437319/*!*/; COMMIT ## end_log_pos 为标识点，需要注意  然后，根据实际情况，找到自己误操作的起始点和结束点， 就是两个end_log_pos的值。然后导出为sql文件，需要将sql文件反写，也就是insert变成delete等，可以参考使用binlog2sql工具。
+mysqlbinlog --start-position=123212(起始点) --stop-position=3333333(结束点) --database=test mysql-bin.000012 &amp;gt; restore.sql ## 起始点结束点则是操作的 end_log_pos值  ps： 另外，&amp;ndash;start-position 指定的end_log_pos是不会被提取的，会从指定的这个end_log_pos的下一条日志开始。 但 &amp;ndash;stop-position 指定的end_log_pos是会被提取出来的。大家提取指定节点之间的操作日志时需要注意。
+然后执行：
+mysql [-f] -u root -p &amp;lt; restore_fanxie.sql ## 执行导出的sql文件的反写sql，怎么反写可以自己手动也可以用工具：binlog2sql  -f : 这个为忽略错误，继续执行的参数，可以根据情况确定是否使用。</description>
+    </item>
+    
+    <item>
+      <title>MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</title>
+      <link>https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/</link>
+      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/</guid>
+      <description>innodb_flush_log_at_trx_commit 和 sync_binlog 是 MySQL 的两个配置参数，前者是 InnoDB 引擎特有的。之所以把这两个参数放在一起讨论，是因为在实际应用中，它们的配置对于 MySQL 的性能有很大影响。
+innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参数指定了 InnoDB 在事务提交后的日志写入频率。这么说其实并不严谨，且看其不同取值的意义和表现。
+当 innodb_flush_log_at_trx_commit 取值为 0 的时候，log buffer 会 每秒写入到日志文件并刷写（flush）到磁盘。但每次事务提交不会有任何影响，也就是 log buffer 的刷写操作和事务提交操作没有关系。在这种情况下，MySQL性能最好，但如果 mysqld 进程崩溃，通常会导致最后 1s 的日志丢失。 当取值为 1 时，每次事务提交时，log buffer 会被写入到日志文件并刷写到磁盘。这也是默认值。这是最安全的配置，但由于每次事务都需要进行磁盘I/O，所以也最慢。 当取值为 2 时，每次事务提交会写入日志文件，但并不会立即刷写到磁盘，日志文件会每秒刷写一次到磁盘。这时如果 mysqld 进程崩溃，由于日志已经写入到系统缓存，所以并不会丢失数据；在操作系统崩溃的情况下，通常会导致最后 1s 的日志丢失。 上面说到的「最后 1s」并不是绝对的，有的时候会丢失更多数据。有时候由于调度的问题，每秒刷写（once-per-second flushing）并不能保证 100% 执行。对于一些数据一致性和完整性要求不高的应用，配置为 2 就足够了；如果为了最高性能，可以设置为 0。有些应用，如支付服务，对一致性和完整性要求很高，所以即使最慢，也最好设置为 1.
+sync_binlog sync_binlog 是 MySQL 的二进制日志（binary log）同步到磁盘的频率。MySQL server 在 binary log 每写入 sync_binlog 次后，刷写到磁盘。
+如果 autocommit 开启，每个语句都写一次 binary log，否则每次事务写一次。默认值是 0，不主动同步，而依赖操作系统本身不定期把文件内容 flush 到磁盘。设为 1 最安全，在每个语句或事务后同步一次 binary log，即使在崩溃时也最多丢失一个语句或事务的日志，但因此也最慢。</description>
+    </item>
+    
+    <item>
+      <title>MySQL锁</title>
+      <link>https://ifunbox.top/time-complexity/</link>
+      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/time-complexity/</guid>
+      <description>表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
+mysql&amp;gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&amp;gt; select * from products where id = 100; mysql&amp;gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！
+对于读锁 * 持有读锁的会话可以读表，但不能写表； * 允许多个会话同时持有读锁； * 其他会话就算没有给表加读锁，也是可以读表的，但是不能写表； * 其他会话申请该表写锁时会阻塞，直到锁释放。
+对于写锁 * 持有写锁的会话既可以读表，也可以写表； * 只有持有写锁的会话才可以访问该表，其他会话访问该表会被阻塞，直到锁释放； * 其他会话无论申请该表的读锁或写锁，都会阻塞，直到锁释放。
+锁的释放规则如下 * 使用 UNLOCK TABLES 语句可以显示释放表锁； * 如果会话在持有表锁的情况下执行 LOCK TABLES 语句，将会释放该会话之前持有的锁； * 如果会话在持有表锁的情况下执行 START TRANSACTION 或 BEGIN 开启一个事务，将会释放该会话之前持有的锁； * 如果会话连接断开，将会释放该会话所有的锁。</description>
+    </item>
+    
+    <item>
+      <title>关于DDL ONLINE</title>
+      <link>https://ifunbox.top/ddl-online/</link>
+      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/ddl-online/</guid>
+      <description>MySQL各版本，对于DDL的处理方式是不同的，主要有三种
+Copy Table方式： 这是InnoDB最早支持的方式。顾名思义，通过临时表拷贝的方式实现的。新建一个带有新结构的临时表，将原表数据全部拷贝到临时表，然后Rename，完成创建操作。这个方式过程中，原表是可读的，不可写。但是会消耗一倍的存储空间。
+Inplace方式：这是原生MySQL 5.5，以及innodb_plugin中提供的方式。所谓Inplace，也就是在原表上直接进行，不会拷贝临时表。相对于Copy Table方式，这比较高效率。原表同样可读的，但是不可写。
+Online方式：这是MySQL 5.6以上版本中提供的方式，也是今天我们重点说明的方式。无论是Copy Table方式，还是Inplace方式，原表只能允许读取，不可写。对应用有较大的限制，因此MySQL最新版本中，InnoDB支持了所谓的Online方式DDL。与以上两种方式相比，online方式支持DDL时不仅可以读，还可以写，对于dba来说，这是一个非常棒的改进。
+考虑不同的DDL操作类别 https://dev.mysql.com/doc/refman/5.6/en/innodb-create-index-overview.html 从表看出，In-Place为No，DML一定是No，说明 ALGORITHM=COPY 一定会发生拷贝表，只读。但 ALGORITHM=INPLACEE 也要可能发生拷贝表，但可以并发DML:
+In-Place 为Yes是优选项，说明该操作支持INPLACE Rebuilds Table 为No是优选项，因为为Yes需要重建表。大部分情况与In-Place是相反的 Allows Concurrent DML? 为Yes是优选项，说明ddl期间表依然可读写，可以指定 LOCK=NONE（如果操作允许的话mysql自动就是NONE） Allows Concurrent Query? 默认所有DDL操作期间都允许查询请求，放在这只是便于参考 Notes 会对前面几列Yes/No带 * 号的限制说明 参考 http://seanlook.com/2016/05/24/mysql-online-ddl-concept/ http://fivezh.github.io/2017/07/23/MySQL-InnoDB-online-DDL/</description>
+    </item>
     
     <item>
       <title>博客从WordPress迁移到hugo咯</title>
@@ -18,7 +95,16 @@
       
       <guid>https://ifunbox.top/wordpress-migrate-to-hugo/</guid>
       <description>WordPress确实感觉挺卡 痛下决心切换到Hugo，真的是丝般顺滑。
-主题是用hugo-clarity，自己加入支付cnzz，畅言评论，喜欢自取，记得star一下。 https://github.com/gofunbox/hugo-clarity</description>
+主题是用hugo-clarity，自己加入支持cnzz，畅言评论，喜欢自取，记得star一下。 https://github.com/gofunbox/hugo-clarity</description>
+    </item>
+    
+    <item>
+      <title>时间复杂度</title>
+      <link>https://ifunbox.top/time-complexity/</link>
+      <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/time-complexity/</guid>
+      <description></description>
     </item>
     
     <item>

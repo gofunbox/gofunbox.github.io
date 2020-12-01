@@ -125,6 +125,177 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/274.html">完美解决shopex捆绑销售页的捆绑销售产品不显示规格的问题</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Feb 7, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">未经修改的shopex在捆绑销售页以及产品页中的捆绑销售产品不显示规格，这个问题显得很不人性化。
+首先下载mdl.package.php，然后覆盖掉core\model_v5\trading下的同名文件
+PS:这个附件我已经改过了，破解了原本加密的代码，然后在getPackageItems方法下多输出了g.pdt_desc显示规格的参数。
+然后打开core\shop\view\package\index.html在代码&lt;{$items.name}&gt;后加入 
+&lt;{if $items.pdt_desc!=&#8221;}&gt;(&lt;{$items.pdt_desc}&gt;)&lt;{/if}&gt;
+PS:显示 …</p>
+          <a href="https://ifunbox.top/274.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/269.html">完美解决shopex产品页面捆绑销售重复显示的问题</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Feb 7, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">今天无意中发现shopex产品页面捆绑销售重复显示的问题
+
+觉得很神奇，回想自己明明只添加了一个捆绑销售信息（如图），怎么会显示出两条信息。
+
+经过分析，才发现shopex产品页面捆绑销售重复显示可能是shopex 4.8.5之前都存在的小BUG，原因是把不同货品添加到了同一个捆绑销售里面，如上图所示的菜板，黑色大、绿色小不同规格。知道问题的原因，就开始寻找解决方法了。
+打开core\shop\controller\ctl.product.php文件找到
+$this-&gt;pagedata[&#8216;package&#8217;] = $aPkgList; …</p>
+          <a href="https://ifunbox.top/269.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/259.html">使用Google搜索全球网络摄像头(偷窥就在你身边)</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jan 20, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">你的电脑联网了么？你喜欢使用摄像头么？不管你使用摄像头做什么用途。现在提醒你，可要小心了。 
+近来，网上流传着一些用google搜索到的网络摄像头地址。网友们可以通过在google里面输入一段代码而捕捉到安装于世界各地的网络摄像头。并且可以调整摄像头的摄像角度和变焦来对某个物体或地方进行监视或偷窥。摄像头使用者们原本以为只有自己才能够看到的内容，在不知不觉中已经失去了安全保护，赤裸裸的暴露在互联网上。
+通过google 搜索到带有网页的网络摄像头无疑使我们担忧再次加重了。被一个人偷窥已经是很糟糕的事情了，想想如果连到互联网上&#8230; &#8230;，你的心情会如何？当你在商场试衣间里换衣服的时候是否会突然想到有没有摄像头在窥视 …</p>
+          <a href="https://ifunbox.top/259.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/249.html">基于mootools的SHOPEX图片延迟加载挂件</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jan 19, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
+在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。
+网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件&#8212;lazyload,感动得都快哭了。
+
+应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。
+下面我就具体说说如何操作 …</p>
+          <a href="https://ifunbox.top/249.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/247.html">如何解决Shopex4.8.5中关于 Mootools和jQuery 的冲突问题?</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jan 19, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">ShopEx4.8.5系统用了很多客户端JS特效，特别是后台的管理界面，为了给用户更好的软件体验，更是大量加入了Javascript脚本实现界面和Ajax操作。
+ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属于比较轻巧的Js库，是做前端开发必不可少的脚本库，两者功能相近，开源协议也一样都可以使用 MIT license，Jquery的插件库更丰富一点，在国内使用Jquery的网站也多于mootools，要找些现成的JS脚本制作ShopEx插件应该是更容易，那为什么ShopEx的设计者当初选用了Mootools作为前端脚本库而不是Jquery。ShopEx系统研究认为这可能是设计者的技术偏 …</p>
+          <a href="https://ifunbox.top/247.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/243.html">PHP采集利器snoopy应用详解</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jan 18, 2012</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
+一、Snoopy的一些特点:
+1.抓取网页的内容 fetch
+2.抓取网页的文本内容 (去除HTML标签) fetchtext
+3.抓取网页的链接，表单 fetchlinks fetchform
+4.支持代理主机
+5.支持基本的用户名/密码验证
+6.支持设置user_agent, referer(来路), cookies和header content(头文件)
+7.支持浏览器重定向， …</p>
+          <a href="https://ifunbox.top/243.html" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/239.html">shopex优惠券使用简化教程(购物车自动列出优惠券)</a>
       </h3>
       <div class="post_meta">
@@ -239,170 +410,6 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
 
 2、在站点栏目中添加一个顶级栏目，类型选“单独页面”，模板选刚才我们新建的这个，保存后在可视编辑这个页面的界面上，添加我们所需要展示的挂 …</p>
           <a href="https://ifunbox.top/204.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/202.html">如何自定义shopex边框</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 24, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">首先：在模板文件themes/fanhefan/borders/目录下新建文件border9.html，这里的border_nav.html是你等下要调用的文件，可以随便命名。
-其次：在themes/fanhefan下修改这两个文件：theme.xml，info.xml。再两个文件中找 到,在中间你会看到原来的一些东西，需要的话就不用删除，直接加
-然后，可以开始写border_nav.html的内容了，css+div不二的选则，写作规则可以参照这个例子，也可以结合其他自带边框的例子。
-&amp;lt;div id=”&amp;lt;{$widgets_id}&gt;”&gt; &lt;div&gt; &lt;h3&gt; …</p>
-          <a href="https://ifunbox.top/202.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/197.html">加入收藏夹javascript代码</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 23, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">&lt;a href=&quot;#&quot; onclick=&quot;addfavorite()&quot;&gt;加入收藏！&lt;/a&gt;  测试了下IE6.0+和FireFox均正常，Chrome 没效果</p>
-          <a href="https://ifunbox.top/197.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/194.html">解决fast_and_easy_checkout与seo_urls冲突导致页面打不开的方法</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 19, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">fast_and_easy_checkout与seo_urls冲突导致页面打不开的根本原因是zencart静态化全开后，系统把index.php?main_page=checkout&amp;fecaction=null优化成checkout.html。
-解决fast_and_easy_checkout与seo_urls冲突的问题其实很简单，找到includes/functions/html_output.php内20行附近
-if((SEO_URLS_ONLY_IN!=&#8221;&#8221;) &amp;&amp; !in_array($page,$sefu)) { …</p>
-          <a href="https://ifunbox.top/194.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/190.html">ShopEx自动生成用户名以及随机密码（MD5）</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 18, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">ShopEx自动生成用户名以及随机密码（MD5）
-该程序是自动生成10000个用户名（11位数字没有4，首位为1），用户名后5位为密码。
-之前不知道ShopEx是怎么加密的，但是研究了发现ShopEx是用MD5加密的，所以SQL语句中密码（用户名后5位数字）都经过MD5处理。
-&lt;?php //生成XLS //header(&quot;Content-type:application/vnd.ms-excel&quot;); //header(&quot;Content-Disposition:filename=test.xls&quot;); //echo &quot;卡号\t&quot;; //echo &quot;密 …</p>
-          <a href="https://ifunbox.top/190.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/181.html">Windows 7中虚拟机VMware无线网络图文配置教程</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 13, 2011</span>
-    <a href='https://ifunbox.top/tags/vmware' class="post_tag button button_translucent">VMware
-    </a>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
-先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
- 成功用虚拟机VMware网络配置的前提条件：
-首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：
- 其次，控制面板\网络和共享中心-&gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge …</p>
-          <a href="https://ifunbox.top/181.html" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/175.html">Apache&#43;PHP&#43;MySQL在Windows XP下的安装与配置</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 12, 2011</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝
-操作系统：Windows XP SP2
-Apache版本：2.2.8 下载 (安装在C:/Program Files/Apache Software Foundation/Apache2.2)
-PHP版本：5.2.5 下载 (安装在C:/php)
-MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
-＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-软件的安装很简单，按提示一步一步操作，一般不会出什么问题，这里略过，主要讲一下如何配置。Apache安装成功后，在浏览 …</p>
-          <a href="https://ifunbox.top/175.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -625,28 +632,28 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://ifunbox.top/laravel-cache-cmd/" class="nav-link">Laravel缓存相关命令</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/mysql-data-recovery/" class="nav-link">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+      </li>
+      <li>
+        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/wordpress-migrate-to-hugo/" class="nav-link">博客从WordPress迁移到hugo咯</a>
       </li>
       <li>
+        <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
+      </li>
+      <li>
         <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="nav-link">Nginx配置禁止IP直接HTTP/HTTPS访问</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/nginx-ssl-performance-optimization/" class="nav-link">Nginx SSL 性能优化</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/linux-autostart-method/" class="nav-link">Linux 添加开机启动项的三种方法</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/ascii-unicode-utf8/" class="nav-link">字符编码简介（ASCII、Unicode、UTF-8）</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/redis-setnx/" class="nav-link">谈谈Redis的SETNX</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/vim-guide/" class="nav-link">Vim 编辑器简单使用教程</a>
-      </li>
-      <li>
-        <a href="https://ifunbox.top/automake-and-makefile/" class="nav-link">自动化编译 如何生成configure和Makefile</a>
       </li>
     </ul>
     <div>
@@ -654,7 +661,7 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
       <nav class="tags_nav">
         <a href='https://ifunbox.top/categories/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">53</span>
+          <span class="button_tally">55</span>
         </a>
         
         <a href='https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/' class="post_tag button button_translucent">
@@ -717,6 +724,11 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
           SHOPNC
           <span class="button_tally">3</span>
@@ -734,6 +746,11 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
         
         <a href='https://ifunbox.top/categories/dedecms/' class="post_tag button button_translucent">
           DEDECMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/categories/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         
@@ -760,12 +777,12 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
         
         <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
           MYSQL
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
           PHP
-          <span class="button_tally">3</span>
+          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/lua/' class="post_tag button button_translucent">
@@ -790,6 +807,11 @@ MySQL版本：5.0.51a下载 (安装在C:/Program Files/MySQL/MySQL Server 5.0)
         
         <a href='https://ifunbox.top/tags/jenkins/' class="post_tag button button_translucent">
           JENKINS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://ifunbox.top/tags/laravel/' class="post_tag button button_translucent">
+          LARAVEL
           <span class="button_tally">1</span>
         </a>
         

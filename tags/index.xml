@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 03:01:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
     
 	<atom:link href="https://ifunbox.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Laravel</title>
+      <link>https://ifunbox.top/tags/laravel/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://ifunbox.top/tags/mysql/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://ifunbox.top/tags/php/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/tags/php/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo</title>
@@ -66,29 +93,11 @@
     </item>
     
     <item>
-      <title>MySQL</title>
-      <link>https://ifunbox.top/tags/mysql/</link>
-      <pubDate>Tue, 25 Jul 2017 14:36:39 +0000</pubDate>
-      
-      <guid>https://ifunbox.top/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Jenkins</title>
       <link>https://ifunbox.top/tags/jenkins/</link>
       <pubDate>Thu, 17 Nov 2016 09:33:09 +0000</pubDate>
       
       <guid>https://ifunbox.top/tags/jenkins/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PHP</title>
-      <link>https://ifunbox.top/tags/php/</link>
-      <pubDate>Thu, 22 Sep 2016 08:47:04 +0000</pubDate>
-      
-      <guid>https://ifunbox.top/tags/php/</guid>
       <description></description>
     </item>
     

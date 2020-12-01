@@ -6,10 +6,24 @@
     <description>Recent content in MySQL on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 25 Jul 2017 14:36:39 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
     
 	<atom:link href="https://ifunbox.top/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql数据误删除的恢复，drop表或库的恢复</title>
+      <link>https://ifunbox.top/mysql-data-recovery/</link>
+      <pubDate>Tue, 01 Dec 2020 05:01:59 +0000</pubDate>
+      
+      <guid>https://ifunbox.top/mysql-data-recovery/</guid>
+      <description>误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&amp;quot;2017-11-01 00:00:00&amp;quot; --stop-datetime=&amp;quot;2017-11-11 00:00:00&amp;quot; --database=test mysql-bin.000012 &amp;gt; aaa.sql  输出内容大致如下:
+#171008 12:35:19 server id 1 &amp;lt;strong&amp;gt;&amp;lt;span style=&amp;quot;color:#ff0000;&amp;quot;&amp;gt;end_log_pos 69295&amp;lt;/span&amp;gt;&amp;lt;/strong&amp;gt; CRC32 0x015beaa8 Query thread_id=1 exec_time=0 error_code=0 SET TIMESTAMP=1507437319/*!*/; COMMIT ## end_log_pos 为标识点，需要注意  然后，根据实际情况，找到自己误操作的起始点和结束点， 就是两个end_log_pos的值。然后导出为sql文件，需要将sql文件反写，也就是insert变成delete等，可以参考使用binlog2sql工具。
+mysqlbinlog --start-position=123212(起始点) --stop-position=3333333(结束点) --database=test mysql-bin.000012 &amp;gt; restore.sql ## 起始点结束点则是操作的 end_log_pos值  ps： 另外，&amp;ndash;start-position 指定的end_log_pos是不会被提取的，会从指定的这个end_log_pos的下一条日志开始。 但 &amp;ndash;stop-position 指定的end_log_pos是会被提取出来的。大家提取指定节点之间的操作日志时需要注意。
+然后执行：
+mysql [-f] -u root -p &amp;lt; restore_fanxie.sql ## 执行导出的sql文件的反写sql，怎么反写可以自己手动也可以用工具：binlog2sql  -f : 这个为忽略错误，继续执行的参数，可以根据情况确定是否使用。</description>
+    </item>
     
     <item>
       <title>MySQL SHOW PROCESSLIST输出详解</title>
