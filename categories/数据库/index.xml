@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on 记录点点滴滴</title>
+    <title>数据库 on Funbox的技术记事本</title>
     <link>https://gofunbox.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
-    <description>Recent content in 数据库 on 记录点点滴滴</description>
+    <description>Recent content in 数据库 on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh</language>
     <lastBuildDate>Tue, 25 Jul 2017 14:36:39 +0000</lastBuildDate>
     
 	<atom:link href="https://gofunbox.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
