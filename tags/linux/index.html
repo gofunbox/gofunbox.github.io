@@ -164,7 +164,7 @@
       <div class="excerpt_footer">
         <div>
           <p class="pale">mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail # …</p>
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s …</p>
           <a href="https://gofunbox.github.io/centos-cli-mailx/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -361,7 +361,7 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
       <div class="excerpt_footer">
         <div>
           <p class="pale">最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内 …</p>
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使 …</p>
           <a href="https://gofunbox.github.io/linux_command_free/" class="excerpt_more button">Read More</a>
         </div>
       </div>

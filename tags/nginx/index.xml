@@ -48,7 +48,7 @@ server { ... add_header Strict-Transport-Security &amp;quot;max-age=31536000;inc
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;lt;meta&amp;gt;标签。 &amp;lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&amp;gt;  具体含义:
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt;  具体含义:
 * 脚本：只信任当前域名
 * &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
 * 样式表：只信任cdn.example.org和third-party.org
@@ -80,7 +80,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
 $document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
 /tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
 /proc/ 可以让php查看系统负载信息。
@@ -130,11 +130,11 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 https://github.com/simpl/ngx_devel_kit/tags
 wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
-./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
 在nginx下配置
-location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
   </channel>

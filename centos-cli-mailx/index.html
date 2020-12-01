@@ -16,14 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： …">
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="CentOS CLI命令行mailx发送邮件基本用法" />
 <meta property="og:url" content="https://gofunbox.github.io/centos-cli-mailx/" />
 <meta property="og:title" content="CentOS CLI命令行mailx发送邮件基本用法" />
 <meta property="og:description" content="mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： …" />
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar …" />
 <meta property="og:image" content="https://gofunbox.github.io/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://gofunbox.github.io/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://gofunbox.github.io/icons/favicon-32x32.png'>
@@ -156,8 +156,7 @@ yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编
     
     <p>mailx安装，很简单！貌似我的系统自带的。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">yum install mailx #安装
-yum remove mailx #卸载系统自带的旧版mailx
+<pre><code class="language-yum">yum remove mailx #卸载系统自带的旧版mailx
 
 编译安装mailx：
 http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2
@@ -171,8 +170,7 @@ ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接
 
 <p>我先介绍下系统的版本和mailx的版本</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">[root@localhost ~]# mailx -V
-12.4 7/29/08
+<pre><code class="language-[root@localhost">12.4 7/29/08
 [root@localhost ~]# cat /etc/issue
 CentOS release 6.8 (Final)
 Kernel \r on an \m
@@ -181,8 +179,7 @@ Kernel \r on an \m
 <p>mailx的配置文件在/etc/mail.rc<br />
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">set from=111******53@qq.com
-set smtp=smtp.qq.com
+<pre><code class="language-set">set smtp=smtp.qq.com
 set smtp-auth-user=111******53@qq.com
 set smtp-auth-password=euia********chb   #授权码
 set smtp-auth=login
@@ -190,16 +187,14 @@ set smtp-auth=login
 
 <p>直接报错了(没有使用ssl的节奏)</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
-smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
-"/root/dead.letter" 19/438
+<pre><code class="language-530">smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
+&quot;/root/dead.letter&quot; 19/438
 . . . message not sent
 </code></pre>
 
 <p>改成</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">set from=111******53@qq.com
-set smtp=smtp.qq.com
+<pre><code class="language-set">set smtp=smtp.qq.com
 set smtp-auth-user=111******53@qq.com
 set smtp-auth-password=euia********chb   #授权码
 set smtp-auth=login
@@ -212,20 +207,18 @@ set nss-config-dir=/root/.certs
 
 <p>证书问题，解决方法</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">mkdir -p /root/.certs/
-echo -n | openssl s_client -connect smtp.qq.com:465 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' &gt; ~/.certs/qq.crt
-certutil -A -n "GeoTrust SSL CA" -t "C,," -d ~/.certs -i ~/.certs/qq.crt
-certutil -A -n "GeoTrust Global CA" -t "C,," -d ~/.certs -i ~/.certs/qq.crt
+<pre><code class="language-mkdir">echo -n | openssl s_client -connect smtp.qq.com:465 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' &amp;gt; ~/.certs/qq.crt
+certutil -A -n &quot;GeoTrust SSL CA&quot; -t &quot;C,,&quot; -d ~/.certs -i ~/.certs/qq.crt
+certutil -A -n &quot;GeoTrust Global CA&quot; -t &quot;C,,&quot; -d ~/.certs -i ~/.certs/qq.crt
 certutil -L -d /root/.certs
-certutil -A -n "GeoTrust SSL CA - G3" -t "Pu,Pu,Pu"  -d ./ -i qq.crt
+certutil -A -n &quot;GeoTrust SSL CA - G3&quot; -t &quot;Pu,Pu,Pu&quot;  -d ./ -i qq.crt
 </code></pre>
 
 <p>有些邮箱无法通过上述方式获取证书，我们可以在装有火狐浏览器的服务器中把证书拷贝过来</p>
 
 <p>一些常用的命令</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">#查看到邮件发送队列，里边会列出有几个邮件等待发送
-mailq
+<pre><code class="language-#查看到邮件发送队列，里边会列出有几个邮件等待发送">mailq
 
 #邮件队列的文件都保存在 /var/spool/mqueue/ 文件夹内，查看此文件夹时，可以看到邮件队列内的邮件:
 [root@CHINFO3 mqueue]# pwd

@@ -166,16 +166,16 @@
 
 <p><span style="font-size: 12pt;">开启 httpd.conf，加入以下两行:</span></p>
 
-<pre><code class="apache"> 
+<p><pre><code class="apache">
 ServerTokensProductOnly
-ServerSignatureOff
-</code></pre>
+ServerSignatureOff</p>
 
-<h2 id="隐藏nginx版本信息">隐藏Nginx版本信息:</h2>
+<pre><code>
+## 隐藏Nginx版本信息:
 
-<p><span style="font-size: 12pt;">打开 nginx.conf，在http { }里加上：</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;打开 nginx.conf，在http { }里加上：&lt;/span&gt;
 
-<pre><code class="nginx"> 
+&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt; 
 server_tokens off;
 </code></pre>
 
@@ -183,13 +183,13 @@ server_tokens off;
 
 <p><span style="font-size: 12pt;">开启php-fpm配置文件,找到：</span></p>
 
-<pre><code class="php"> 
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;
-</code></pre>
+<p><pre><code class="php">
+fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;</p>
 
-<p><span style="font-size: 12pt;">改为： </span></p>
+<pre><code>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;改为： &lt;/span&gt;
 
-<pre><code class="php"> 
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt; 
 fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)
 </code></pre>
 
@@ -197,9 +197,9 @@ fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容
 
 <p><span style="font-size: 12pt;">开启php.ini，加入:</span></p>
 
-<pre><code class="php"> 
+<p><pre><code class="php">
 expose_php = Off
-</code></pre>
+```</p>
 
 <p><span class="typ">完成以上设定后，重新启动 Apache/Nginx 即可。</span></p>
 

@@ -29,10 +29,11 @@
       
       <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
-[root@localhost ~]# mailx -V 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
+12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）
-set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)</description>
+set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)
+smtp-server: 530 Error: A secure connection is requiered(such as ssl).</description>
     </item>
     
     <item>
@@ -50,12 +51,12 @@ set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@
 明白了这一点，我们来看看Linux和Windows对于分区不同的表示方法：
 可能您已经很熟悉Windows了，它使用盘符来表示分区，比如 C: D: E: ，每一个分区使用一个盘符来标识，而且顺序可以颠倒， D: 并不一定就是您系统中的第二个分区。（如果您给第二个分区分配最后一个硬盘盘符，把所有的盘符按顺序排列好，并且重装一次系统，您就会理解什么叫作“头疼”了）
 而在Linux中，分区是这样表示的
-/dev/hda /dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
+/dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
 因为在Linux中，每一个设备都是用 /dev/ 文件夹下的一个文件来表示，所以 /dev/hda5 中， /dev/ 表示的是根目录下的dev目录，我们来看剩下的部分 hda5 。
 前两位的字母 hd 表示这是一块IDE硬盘，如果是 sd ，则代表SATA硬盘，或者闪存等外设。
 第三位的字母 a 表示这是该类型接口上的第一个设备。同理， b、c、d…… 分别代表该类型接口上的第二三四……个设备。例如 hdc 表示第二个IDE接口上的主硬盘（每个IDE接口上允许一个主设备和一个从设备）。
 第四位的数字 5 ，并不表示这是该硬盘中的第5个分区，而是第一个逻辑分区。因为在Linux中，为了避免不必要的混乱，分区的顺序是不能改变的，分区标识则由它们在硬盘中的位置决定。系统又要为所有可能的主分区预留标识，所以 1-4 一定不会是逻辑分区， 5 则是第一个逻辑分区，以此类推。
-/dev/hda1 第一块硬盘的第一主分区 /dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
+/dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
     </item>
     
     <item>
@@ -136,14 +137,15 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</description>
       
       <guid>https://gofunbox.github.io/linux_command_free/</guid>
       <description>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
 total:总计物理内存的大小。
 used:已使用多大。
 free:可用有多少。
 Shared:多个进程共享的内存总额，现在已经deprecated，其值总是0（当然在一些系统上也可能不是0，主要取决于free命令是怎么实现的）。
 Buffers/cached:磁盘缓存的大小，FO[2][5]表示被OS buffer住的内存。FO[2][6]表示被OS cache的内存。在有些时候buffer和cache这两个词经常混用。不过在一些比较低层的软件里是要区分这两个词的，看老外的洋文:
  _A buffer is something that has yet to be &amp;#8220;written&amp;#8221; to disk.
-_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.</description>
+_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.  也就是说buffer是用于存放要输出到disk（块设备）的数据的，而cache是存放从disk上读出的数据。这二者是为了提高IO性能的，并由OS管理。
+第三行(-/+ buffers/cached)，从应用程序角度来看，对于应用程序来说，buffers/cached 是等于可用的，因为buffer/cached是为了提高文件读取的性能，当应用程序需在用到内存的时候，buffer/cached会很快地被回收。</description>
     </item>
     
   </channel>

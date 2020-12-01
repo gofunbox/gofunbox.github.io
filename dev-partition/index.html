@@ -174,8 +174,7 @@
 
 <p>而在Linux中，分区是这样表示的</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">/dev/hda
-/dev/hda1
+<pre><code class="language-/dev/hda">/dev/hda1
 /dev/hda2
 /dev/hda5
 /dev/sdb1  
@@ -191,8 +190,7 @@
 
 <p>第四位的数字 5 ，并不表示这是该硬盘中的第5个分区，而是第一个逻辑分区。因为在Linux中，为了避免不必要的混乱，分区的顺序是不能改变的，分区标识则由它们在硬盘中的位置决定。系统又要为所有可能的主分区预留标识，所以 1-4 一定不会是逻辑分区， 5 则是第一个逻辑分区，以此类推。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">/dev/hda1 第一块硬盘的第一主分区
-/dev/hdb5 第二块硬盘的第一逻辑分区
+<pre><code class="language-/dev/hda1">/dev/hdb5 第二块硬盘的第一逻辑分区
 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区
 /dev/null 黑洞设备   
 </code></pre>

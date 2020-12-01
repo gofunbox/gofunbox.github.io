@@ -141,7 +141,7 @@
           <p class="pale">之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
 查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
 记录post请求参数的日志格式
-log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '"$http_referer" $status $body_bytes_sent $request_body ' '"$http_user_agent" …</p>
+log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request&rdquo; &lsquo; &lsquo;&ldquo;$http_referer&rdquo; $status $body_bytes_sent …</p>
           <a href="https://gofunbox.github.io/admin_being_attacked/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -288,7 +288,8 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
         <div>
           <p class="pale">在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&lt;?php // Include the phpass library require_once('phpass-03/PasswordHash.php') // Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, …</p>
+&lt;?php // Include the phpass library require_once(&lsquo;phpass-03/PasswordHash.php&rsquo;)
+// Initialize the hasher without portable hashes (this is more secure) $hasher = new …</p>
           <a href="https://gofunbox.github.io/phpass_bcrypt_encrypted_password/" class="excerpt_more button">Read More</a>
         </div>
       </div>

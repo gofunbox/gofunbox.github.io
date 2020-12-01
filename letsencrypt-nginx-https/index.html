@@ -163,7 +163,7 @@ Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会
 <p>旧版的安装方式，新版往下拉~<br />
 获取证书，非常的简单，但由于国内网络的原因，会比较慢一些</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">git clone https://github.com/letsencrypt/letsencrypt
+<pre><code>git clone https://github.com/letsencrypt/letsencrypt
 cd letsencrypt
 #每个-d参数后面跟一个域名，需要申请几个域名的证书就跟几个，需要确认这些域名都解析到当前vps的ip上
 ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
@@ -171,7 +171,7 @@ cd letsencrypt
 
 <p>完成后会有如下提示：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">Congratulations! Your certificate and chain have been saved at
+<pre><code>Congratulations! Your certificate and chain have been saved at
 /etc/letsencrypt/live/example.com/fullchain.pem. Your cert will
 expire on xxxx-xx-xx. To obtain a new version of the certificate in
 the future, simply run Let's Encrypt again.
@@ -179,28 +179,28 @@ the future, simply run Let's Encrypt again.
 
 <p>但过程并非那么顺利，报错了，跟我的屌丝配置内存512M有关~~~</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">Error: open CFI at the end of file; missing .cfi_endproc directive
+<pre><code>Error: open CFI at the end of file; missing .cfi_endproc directive
 </code></pre>
 
 <p>解决方法</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">swapon -s
+<pre><code>swapon -s
 #如果没有任何输出，则继续
-umask 0077 && dd if=/dev/zero of=/.swap.img bs=1M count=1024 && mkswap /.swap.img && swapon /.swap.img
+umask 0077 &amp;&amp; dd if=/dev/zero of=/.swap.img bs=1M count=1024 &amp;&amp; mkswap /.swap.img &amp;&amp; swapon /.swap.img
 </code></pre>
 
 <p>这时你的证书就申请好了，去它提示的目录里，fullchain.pem即为证书文件，private.pem即为私钥</p>
 
 <p>注意：申请到的证书有效期3个月，到期后需要用如下命令重新续期，建议加到crontab里面</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">./letsencrypt-auto renew
+<pre><code>./letsencrypt-auto renew
 </code></pre>
 
 <hr />
 
 <p>然而新版的安装方式更上述有些不同(certbot)</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">wget https://dl.eff.org/certbot-auto
+<pre><code>wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
 
 #1. 单域名生成证书：
@@ -216,7 +216,7 @@ chmod a+x certbot-auto
 
 <p>nginx配置也很简单，包含301跳转</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">server {
+<pre><code>server {
 listen 80;
 server_name example.com www.example.com;
 return 301 https://www.example.com$request_uri;

@@ -158,7 +158,7 @@
 
 <p>下面以目前 PHP 社区里最流行的 PHPRedis 扩展为例，实现一段演示代码：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-php">&lt;?php
+<pre><code>&lt;?php
 $ok = $redis-&gt;setNX($key, $value);
 if ($ok) {
     $cache-&gt;update();
@@ -169,7 +169,7 @@ if ($ok) {
 
 <p>缓存过期时，通过 SetNX 获取锁，如果成功了，那么更新缓存，然后删除锁。看上去逻辑非常简单，可惜有问题：如果请求执行因为某些原因意外退出了，导致创建了锁但是没有删除锁，那么这个锁将一直存在，以至于以后缓存再也得不到更新。于是乎我们需要给锁加一个过期时间以防不测：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-php">&lt;?php
+<pre><code>&lt;?php
 $redis-&gt;multi();
 $redis-&gt;setNX($key, $value);
 $redis-&gt;expire($key, $ttl);
@@ -179,7 +179,7 @@ $redis-&gt;exec();
 
 <p>因为 SetNX 不具备设置过期时间的功能，所以我们需要借助 Expire 来设置，同时我们需要把两者用 Multi/Exec 包裹起来以确保请求的原子性，以免 SetNX 成功了 Expire 却失败了。 可惜还有问题：当多个请求到达时，虽然只有一个请求的 SetNX 可以成功，但是任何一个请求的 Expire 却都可以成功，如此就意味着即便获取不到锁，也可以刷新过期时间，如果请求比较密集的话，那么过期时间会一直被刷新，导致锁一直有效。于是乎我们需要在保证原子性的同时，有条件的执行 Expire，接着便有了如下 Lua 代码：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-lua">local key   = KEYS[1]
+<pre><code>local key   = KEYS[1]
 local value = KEYS[2]
 local ttl   = KEYS[3]
 
@@ -194,21 +194,20 @@ return ok
 
 <p>没想到实现一个看起来很简单的功能还要用到 Lua 脚本，着实有些麻烦。其实 Redis 已经考虑到了大家的疾苦，从 2.6.12 起，SET 涵盖了 SETEX 的功能，并且 SET 本身已经包含了设置过期时间的功能，也就是说，我们前面需要的功能只用 SET 就可以实现。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-php">&lt;?php
-
-$ok = $redis-&gt;set($key, $value, array('nx', 'ex' =&gt; $ttl));
+<pre><code class="language-&amp;lt;?php">
+$ok = $redis-&amp;gt;set($key, $value, array('nx', 'ex' =&amp;gt; $ttl));
 
 if ($ok) {
-    $cache-&gt;update();
-    $redis-&gt;del($key);
+    $cache-&amp;gt;update();
+    $redis-&amp;gt;del($key);
 }
 
-?&gt;
+?&amp;gt;
 </code></pre>
 
 <p>如上代码是完美的吗？答案是还差一点！设想一下，如果一个请求更新缓存的时间比较长，甚至比锁的有效期还要长，导致在缓存更新过程中，锁就失效了，此时另一个请求会获取锁，但前一个请求在缓存更新完毕的时候，如果不加以判断直接删除锁，就会出现误删除其它请求创建的锁的情况，所以我们在创建锁的时候需要引入一个随机值：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-php">&lt;?php
+<pre><code>&lt;?php
 
 $ok = $redis-&gt;set($key, $random, array('nx', 'ex' =&gt; $ttl));
 

@@ -46,11 +46,11 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 https://github.com/simpl/ngx_devel_kit/tags
 wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
-./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
 在nginx下配置
-location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
   </channel>

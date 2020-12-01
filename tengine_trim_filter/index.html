@@ -170,26 +170,26 @@
 
 <p><span style="font-size: 12pt;">看了这些基本知识，开始尝试安装吧</span></p>
 
-<pre><code class="bash">
-&lt;span style="font-size: 12pt;">./configure --with--http_trim_filter_module=shared
+<p><pre><code class="bash">
+&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;./configure &ndash;with&ndash;http_trim_filter_module=shared
 make
-make dso_install&lt;/span>
-</code></pre>
+make dso_install&lt;/span&gt;</p>
 
-<p><span style="font-size: 12pt;">nginx.conf中events上方加入</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;nginx.conf中events上方加入&lt;/span&gt;
 
-<pre><code class="apache">
-&lt;span style="font-size: 12pt;">dso {
+&lt;pre&gt;&lt;code class=&quot;apache&quot;&gt;
+&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;dso {
     load ngx_http_trim_filter_module.so;
-}&lt;/span>
+}&amp;lt;/span&gt;
 </code></pre>
 
 <p><span style="font-size: 12pt;">网站配置内加入</span></p>
 
-<pre><code class="apache">
-&lt;span style="font-size: 12pt;">trim on;
-trim_jscss on;&lt;/span>
-</code></pre>
+<p><pre><code class="apache">
+&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;trim on;
+trim_jscss on;&lt;/span&gt;
+```</p>
 
 <p><span style="font-size: 12pt;">官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~</span></p>
 

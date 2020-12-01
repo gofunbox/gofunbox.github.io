@@ -246,12 +246,12 @@
 
 <p>通常解包后会在当前位置得到一个 xxx/ 目录，进入这个目录</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">cd xxx/
+<pre><code>cd xxx/
 </code></pre>
 
 <p>使用下列命令编译安装：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">./configure --prefix=/opt/xxx
+<pre><code>./configure --prefix=/opt/xxx
 make
 sudo make install 
 make clean  
@@ -269,10 +269,10 @@ make clean
 
 <p>将下面代码保存为 Hello.c：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-c">#include &lt;stdio.h&gt;
+<pre><code>#include &amp;lt;stdio.h&amp;gt;
 int main(void)
 {
-printf("Hello World!\n");
+printf(&quot;Hello World!\n&quot;);
 return 0;
 }  
 </code></pre>

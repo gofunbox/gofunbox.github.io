@@ -171,12 +171,12 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
 
 <p>开启方式</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">#通过 HTTP 头信息的Content-Security-Policy
+<pre><code>#通过 HTTP 头信息的Content-Security-Policy
 Content-Security-Policy: script-src 'self'; object-src 'none';
 style-src cdn.example.org third-party.org; child-src https:
 
-#通过网页的&lt;meta&gt;标签。
-&lt;meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; child-src https:"&gt;
+#通过网页的&amp;lt;meta&amp;gt;标签。
+&amp;lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;script-src 'self'; object-src 'none'; style-src cdn.example.org third-party.org; child-src https:&quot;&amp;gt;
 </code></pre>
 
 <p>具体含义:<br />
@@ -227,22 +227,23 @@ default-src用来设置上面各个选项的默认值。</li>
 <li>plugin-types：限制可以使用的插件格式</li>
 <li>sandbox：浏览器行为的限制，比如不能有弹出窗口等。</li>
 </ul></li>
-<li>report-uri<br />
-有时，我们不仅希望防止 XSS，还希望记录此类行为。report-uri就用来告诉浏览器，应该把注入行为报告给哪个网址。</li>
-</ol>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
-</code></pre>
+<li><p>report-uri<br />
+有时，我们不仅希望防止 XSS，还希望记录此类行为。report-uri就用来告诉浏览器，应该把注入行为报告给哪个网址。</p>
+
+<pre><code>Content-Security-Policy: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+</code></pre></li>
+</ol>
 
 <p>浏览器会使用POST方法，发送一个JSON对象，下面是一个例子。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-json">{
-  "csp-report": {
-    "document-uri": "http://example.org/page.html",
-    "referrer": "http://evil.example.com/",
-    "blocked-uri": "http://evil.example.com/evil.js",
-    "violated-directive": "script-src 'self' https://apis.google.com",
-    "original-policy": "script-src 'self' https://apis.google.com; report-uri http://example.org/my_amazing_csp_report_parser"
+<pre><code>{
+  &quot;csp-report&quot;: {
+    &quot;document-uri&quot;: &quot;http://example.org/page.html&quot;,
+    &quot;referrer&quot;: &quot;http://evil.example.com/&quot;,
+    &quot;blocked-uri&quot;: &quot;http://evil.example.com/evil.js&quot;,
+    &quot;violated-directive&quot;: &quot;script-src 'self' https://apis.google.com&quot;,
+    &quot;original-policy&quot;: &quot;script-src 'self' https://apis.google.com; report-uri http://example.org/my_amazing_csp_report_parser&quot;
   }
 }
 </code></pre>
@@ -254,7 +255,7 @@ default-src用来设置上面各个选项的默认值。</li>
 <p>除了Content-Security-Policy，还有一个Content-Security-Policy-Report-Only字段，表示不执行限制选项，只是记录违反限制的行为。<br />
 它必须与report-uri选项配合使用。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy-Report-Only: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
+<pre><code>Content-Security-Policy-Report-Only: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
 </code></pre>
 
 <hr />
@@ -269,10 +270,10 @@ default-src用来设置上面各个选项的默认值。</li>
 <li>通配符：<em>.example.org，</em>://_.example.com:_（表示任意协议、任意子域名、任意端口）</li>
 <li>协议名：https:、data:</li>
 <li>关键字&#8217;self&#8217;：当前域名，需要加引号</li>
-<li>关键字&#8217;none&#8217;：禁止加载任何外部资源，需要加引号</li>
-</ul>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">#多个值也可以并列，用空格分隔。
+<li><p>关键字&#8217;none&#8217;：禁止加载任何外部资源，需要加引号</p>
+
+<pre><code>#多个值也可以并列，用空格分隔。
 Content-Security-Policy: script-src 'self' https://apis.google.com
 
 #如果同一个限制选项使用多次，只有第一次会生效。
@@ -280,7 +281,8 @@ Content-Security-Policy: script-src 'self' https://apis.google.com
 script-src https://host1.com; script-src https://host2.com
 # 正确的写法
 script-src https://host1.com https://host2.com
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>如果不设置某个限制选项，就是默认允许任何值。</p>
 
@@ -296,14 +298,14 @@ script-src https://host1.com https://host2.com
 
 <p>nonce值的例子如下，服务器发送网页的时候，告诉浏览器一个随机生成的token。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">Content-Security-Policy: script-src 'nonce-EDNnf03nceIOfn39fn3e9h3sdfa'
+<pre><code>Content-Security-Policy: script-src 'nonce-EDNnf03nceIOfn39fn3e9h3sdfa'
 
 # 页面内嵌脚本，必须有这个token才能执行。
-&lt;script nonce=EDNnf03nceIOfn39fn3e9h3sdfa&gt;
+&amp;lt;script nonce=EDNnf03nceIOfn39fn3e9h3sdfa&amp;gt;
   // some code
-&lt;/script&gt;
+&amp;lt;/script&amp;gt;
 
-#hash值的例子如下，服务器给出一个允许执行的代码的hash值。注意，计算hash值的时候，&lt;script&gt;标签不算在内。
+#hash值的例子如下，服务器给出一个允许执行的代码的hash值。注意，计算hash值的时候，&amp;lt;script&amp;gt;标签不算在内。
 Content-Security-Policy: script-src 'sha256-qznLcsROx4GACP2dm0UCKCzCG-HiZ1guq6ZZDob_Tng='
 #除了script-src选项，nonce值和hash值还可以用在style-src选项，控制页面内嵌的样式表。
 </code></pre>
@@ -315,22 +317,21 @@ Content-Security-Policy: script-src 'sha256-qznLcsROx4GACP2dm0UCKCzCG-HiZ1guq6ZZ
 <ul>
 <li>script-src和object-src是必设的，除非设置了default-src。<br />
 因为攻击者只要能注入脚本，其他限制都可以规避。而object-src必设是因为 Flash 里面可以执行外部脚本。</li>
-<li>script-src不能使用unsafe-inline关键字（除非伴随一个nonce值），也不能允许设置data:URL。<br />
-下面是两个恶意攻击的例子。</li>
+
+<li><p>script-src不能使用unsafe-inline关键字（除非伴随一个nonce值），也不能允许设置data:URL。<br />
+下面是两个恶意攻击的例子。</p>
+
+<pre><code>&amp;lt;img src=&quot;x&quot; onerror=&quot;evil()&quot;&amp;gt;
+&amp;lt;script src=&quot;data:text/javascript,evil()&quot;&amp;gt;&amp;lt;/script&amp;gt;
+</code></pre></li>
+
+<li><p>必须特别注意 JSONP 的回调函数。</p>
+
+<pre><code>&amp;lt;script
+src=&quot;/path/jsonp?callback=alert(document.domain)//&quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+</code></pre></li>
 </ul>
-
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-html">&lt;img src="x" onerror="evil()"&gt;
-&lt;script src="data:text/javascript,evil()"&gt;&lt;/script&gt;
-</code></pre>
-
-<ul>
-<li>必须特别注意 JSONP 的回调函数。</li>
-</ul>
-
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-html">&lt;script
-src="/path/jsonp?callback=alert(document.domain)//"&gt;
-&lt;/script&gt;
-</code></pre>
 
 <p>上面的代码中，虽然加载的脚本来自当前域名，但是通过改写回调函数，攻击者依然可以执行恶意代码。</p>
 

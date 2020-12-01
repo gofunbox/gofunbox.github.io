@@ -135,7 +135,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">mysql&gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL …</p>
+          <p class="pale">mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL …</p>
           <a href="https://gofunbox.github.io/mysql-show-processlist/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -277,7 +277,7 @@
 了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
 
 thinkphp实现的代码，距离单位都是km
-&lt;span style="font-size: 12pt;"$where['geoNear'] = 'user_coordinate'; …</p>
+&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;$where[&lsquo;geoNear&rsquo;] = …</p>
           <a href="https://gofunbox.github.io/mongodb_lbs_nearby_people/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -306,8 +306,8 @@ thinkphp实现的代码，距离单位都是km
 涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
 utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
 首先先查看下mysql当前版本所支持的字符集
-show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
-1.修改database,table,column字符 …</p>
+show charset;
+ &lt;span style=&quot;font-size: medium;&quot;&gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上 …</p>
           <a href="https://gofunbox.github.io/mysql_utf8mb4_emoji/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -332,9 +332,8 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
       <div class="excerpt_footer">
         <div>
           <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
-Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
+ &lt;span style=&quot;font-size: medium;&quot;&gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&lt;/span&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;2.使 …</p>
           <a href="https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>

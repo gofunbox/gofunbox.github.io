@@ -172,7 +172,7 @@ session.save_path = &#8220;tcp://127.0.0.1:11211&#8221;
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define('MONGO_DB_HOST', '192.168.1.172'); define('MONGO_DB_PORT', 30000); define('MONGO_DB_NAME', 'funbox_test'); define('MONGO_DSN', 'mongo://'.MONGO_DB_HOST.':'.MONGO_DB_PORT.'/'.MONGO_DB_NAME); …</p>
+define(&lsquo;MONGO_DB_HOST&rsquo;, &lsquo;192.168.1.172&rsquo;); define(&lsquo;MONGO_DB_PORT&rsquo;, 30000); define(&lsquo;MONGO_DB_NAME&rsquo;, &lsquo;funbox_test&rsquo;); define(&lsquo;MONGO_DSN&rsquo;, …</p>
           <a href="https://gofunbox.github.io/thinkphp_mongodb_model/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -202,7 +202,8 @@ google了下有一个超级强大的二维码库PHP QR Code
 找了半天貌似官方库，没有一个二维码中间加logo的功能
 给跪了
 网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。
-$text = 'http://www.funboxpower.com'; $logo = "i/logo.png"; //加的logo可以是本地路径也可以是网址 $errorCorrectionLevel = 3;// …</p>
+$text = &lsquo;http://www.funboxpower.com'; $logo = &ldquo;i/logo.png&rdquo;; //加的logo可以是本地路径也可以是网址
+$errorCorrectionLevel = 3;//容 …</p>
           <a href="https://gofunbox.github.io/php_generate_qrcode_logo/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -263,8 +264,8 @@ Bracket Highlightter …</p>
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens …</p>
+ServerTokensProductOnly ServerSignatureOff
+ ## 隐藏Nginx版本信息: &lt;span style=&quot;font-size: …</p>
           <a href="https://gofunbox.github.io/hide_nginx_apache_php_version/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -292,7 +293,8 @@ server_tokens …</p>
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
 PHP的AES加密算法：
-&lt;?php class MCrypt { private $hex_iv = '00000000000000000000000000000000'; # converted JAVA byte code in to HEX and placed it here private $key = 'U1MjU1M0FDOUZ.Qz'; #Same …</p>
+&lt;?php class MCrypt { private $hex_iv = &lsquo;00000000000000000000000000000000&rsquo;; # converted JAVA byte code in to HEX and placed it here
+private $key = …</p>
           <a href="https://gofunbox.github.io/php_android_ios_aes/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -413,7 +415,8 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
         <div>
           <p class="pale">在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&lt;?php // Include the phpass library require_once('phpass-03/PasswordHash.php') // Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, …</p>
+&lt;?php // Include the phpass library require_once(&lsquo;phpass-03/PasswordHash.php&rsquo;)
+// Initialize the hasher without portable hashes (this is more secure) $hasher = new …</p>
           <a href="https://gofunbox.github.io/phpass_bcrypt_encrypted_password/" class="excerpt_more button">Read More</a>
         </div>
       </div>

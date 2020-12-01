@@ -17,7 +17,7 @@
       <pubDate>Tue, 25 Jul 2017 14:36:39 +0000</pubDate>
       
       <guid>https://gofunbox.github.io/mysql-show-processlist/</guid>
-      <description>mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
+      <description>mysql&amp;amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
 连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
 发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。 Host
 发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。 db
@@ -111,7 +111,10 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
 了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
 
 thinkphp实现的代码，距离单位都是km
-&amp;lt;span style=&#34;font-size: 12pt;&#34;$where[&#39;geoNear&#39;] = &#39;user_coordinate&#39;; $where[&#39;near&#39;] = array($longitude,$latitude); $where[&#39;spherical&#39;] = true; $where[&#39;maxDistance&#39;] = $maxDistance/6371; $where[&#39;distanceMultiplier&#39;] = 6371; $where[&#39;query&#39;] = array(&#34;status&#34;=&amp;gt;1); $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&#39;results&#39;])) { foreach ($res[&#39;results&#39;] as $key =&amp;gt; $value) { $data[$key] = $value[&#39;obj&#39;]; $data[$key][&#39;dis&#39;] = $value[&#39;dis&#39;]; } } return $data;&amp;lt;/span  就这样搞定了</description>
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;$where[&amp;lsquo;geoNear&amp;rsquo;] = &amp;lsquo;user_coordinate&amp;rsquo;; $where[&amp;lsquo;near&amp;rsquo;] = array($longitude,$latitude); $where[&amp;lsquo;spherical&amp;rsquo;] = true; $where[&amp;lsquo;maxDistance&amp;rsquo;] = $maxDistance/6371; $where[&amp;lsquo;distanceMultiplier&amp;rsquo;] = 6371; $where[&amp;lsquo;query&amp;rsquo;] = array(&amp;ldquo;status&amp;rdquo;=&amp;gt;1);
+$res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&amp;lsquo;results&amp;rsquo;])) { foreach ($res[&amp;lsquo;results&amp;rsquo;] as $key =&amp;gt; $value) { $data[$key] = $value[&amp;lsquo;obj&amp;rsquo;]; $data[$key][&amp;lsquo;dis&amp;rsquo;] = $value[&amp;lsquo;dis&amp;rsquo;]; }
+} return $data;&amp;lt;/span&amp;gt; ```
+就这样搞定了</description>
     </item>
     
     <item>
@@ -125,9 +128,8 @@ thinkphp实现的代码，距离单位都是km
 涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
 utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
 首先先查看下mysql当前版本所支持的字符集
-show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
-1.修改database,table,column字符集mysql语句如下
-# For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
+show charset;
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;1.修改database,table,column字符集mysql语句如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;sql&amp;quot;&amp;gt; # For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
     </item>
     
     <item>
@@ -137,9 +139,8 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
       
       <guid>https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/</guid>
       <description>1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
-Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;2.使用mysqlsla语法&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
 1) -log-type (-lt) type logs:
 通过这个参数来制定log的类型，主要有slow, general, binary, msl, udl,分析slow log时通过制定为slow.
 2) -sort:
@@ -149,9 +150,7 @@ c_sum:按总次数排序
 c_sum_p: sql语句执行次数占总执行次数的百分比。
 3) -top:
 显示sql的数量，默认是10,表示按规则取排序的前多少条
-4) –statement-filter (-sf) [+-][TYPE]:
-过滤sql语句的类型，比如select、update、drop.
-[TYPE]有SELECT, CREATE, DROP, UPDATE, INSERT，例如&amp;#8221;+SELECT,INSERT&amp;#8221;，不出现的默认是-，即不包括。</description>
+4) –statement-filter (-sf) [+-][TYPE]:</description>
     </item>
     
     <item>
@@ -162,8 +161,8 @@ c_sum_p: sql语句执行次数占总执行次数的百分比。
       <guid>https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/</guid>
       <description>该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &#39;GBK&#39; 例：mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c);  问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞
-&amp;lt;?php $c = mysql_connect(&#34;localhost&#34;, &#34;user&#34;, &#34;pass&#34;); mysql_select_db(&#34;database&#34;, $c); // change our character set mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c); // create demo table mysql_query(&#34;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&#34;, $c); mysql_query(&#34;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&#34;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &amp;lsquo;GBK&amp;rsquo; 例：mysql_query(&amp;ldquo;SET CHARACTER SET &amp;lsquo;gbk&amp;rsquo;&amp;rdquo;, $c);
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;?php $c = mysql_connect(&amp;quot;localhost&amp;quot;, &amp;quot;user&amp;quot;, &amp;quot;pass&amp;quot;); mysql_select_db(&amp;quot;database&amp;quot;, $c); // change our character set mysql_query(&amp;quot;SET CHARACTER SET &#39;gbk&#39;&amp;quot;, $c); // create demo table mysql_query(&amp;quot;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&amp;quot;, $c); mysql_query(&amp;quot;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&amp;quot;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
     </item>
     
     <item>

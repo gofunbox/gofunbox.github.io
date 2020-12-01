@@ -164,18 +164,18 @@
   <span style="font-size: medium;">xhprof扩展的安装：</span>
 </p>
 
-<pre><code class="bash">
-% wget http://pecl.php.net/get/xhprof-0.9.4.tgz
+<p><pre><code class="bash">
+% wget <a href="http://pecl.php.net/get/xhprof-0.9.4.tgz">http://pecl.php.net/get/xhprof-0.9.4.tgz</a>
 % tar zxf xhprof-0.9.4.tgz
 % cd &lt;xhprof_source_directory&gt;/extension/
 % phpize
-% ./configure --with-php-config=&lt;path to php-config&gt;
-% make && make install
-</code></pre>
+% ./configure &ndash;with-php-config=&lt;path to php-config&gt;
+% make &amp;&amp; make install</p>
 
-<p><span style="font-size: medium;">修改php.ini最后面加入</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;修改php.ini最后面加入&lt;/span&gt;
 
-<pre><code class="bash">
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
 [xhprof]
 extension=xhprof.so
 ;
@@ -183,7 +183,7 @@ extension=xhprof.so
 ; interface (namely, the XHProfRuns_Default class) for storing
 ; XHProf runs.
 ;
-xhprof.output_dir=&lt;directory_for_storing_xhprof_runs&gt; //日志路径需要修改 记得给写权限
+xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路径需要修改 记得给写权限
 % php-fpm reload //重启一下fpm
 </code></pre>
 
@@ -191,42 +191,42 @@ xhprof.output_dir=&lt;directory_for_storing_xhprof_runs&gt; //日志路径需要
   <span style="font-size: medium;">Graphviz安装（这个主要是画图需要的库）</span>
 </p>
 
-<pre><code class="bash">
-% wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz
+<p><pre><code class="bash">
+% wget <a href="http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz">http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz</a>
 % tar zxf graphviz-2.24.0.tar.gz
 % cd graphviz-2.24.0
 % ./configure
-% make && make install
-</code></pre>
+% make &amp;&amp; make install</p>
 
-<h2 id="使用分析">使用分析</h2>
+<pre><code>
+## 使用分析
 
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">复制安装包下的xhprof_html、xhprof_lib文件夹到网站根目录内</span>
-</p>
+&lt;p style=&quot;padding-left: 30px;&quot;&gt;
+  &lt;span style=&quot;font-size: medium;&quot;&gt;复制安装包下的xhprof_html、xhprof_lib文件夹到网站根目录内&lt;/span&gt;
+&lt;/p&gt;
 
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">然后在系统入口文件中加入</span>
-</p>
+&lt;p style=&quot;padding-left: 30px;&quot;&gt;
+  &lt;span style=&quot;font-size: medium;&quot;&gt;然后在系统入口文件中加入&lt;/span&gt;
+&lt;/p&gt;
 
-<pre><code class="php">
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
 if(function_exists('xhprof_enable')){
-    //if (mt_rand(1, 1000) == 1) { 生产环境中开启
-    $xhprof_on = true;
-    xhprof_enable(XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);
-    define('XHPROF_ROOT',realpath(dirname(__FILE__)));
-    include_once XHPROF_ROOT . "/xhprof_lib/utils/xhprof_lib.php";
-    include_once XHPROF_ROOT . "/xhprof_lib/utils/xhprof_runs.php";
-    //}
+	//if (mt_rand(1, 1000) == 1) { 生产环境中开启
+	$xhprof_on = true;
+	xhprof_enable(XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);
+	define('XHPROF_ROOT',realpath(dirname(__FILE__)));
+	include_once XHPROF_ROOT . &quot;/xhprof_lib/utils/xhprof_lib.php&quot;;
+	include_once XHPROF_ROOT . &quot;/xhprof_lib/utils/xhprof_runs.php&quot;;
+	//}
 }
 //程序源码
 if ($xhprof_on) {
-    $xhprof_data = xhprof_disable();
-    // save raw data for this profiler run using default
-    // implementation of iXHProfRuns.
-    $xhprof_runs = new XHProfRuns_Default();
-    // save the run under a namespace "xhprof_foo"
-    $run_id = $xhprof_runs-&gt;save_run($xhprof_data, "xhprof_foo");
+	$xhprof_data = xhprof_disable();
+	// save raw data for this profiler run using default
+	// implementation of iXHProfRuns.
+	$xhprof_runs = new XHProfRuns_Default();
+	// save the run under a namespace &quot;xhprof_foo&quot;
+	$run_id = $xhprof_runs-&amp;gt;save_run($xhprof_data, &quot;xhprof_foo&quot;);
 }
 </code></pre>
 

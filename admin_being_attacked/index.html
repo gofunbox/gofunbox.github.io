@@ -160,51 +160,51 @@
 
 <p><span style="font-size: medium;">记录post请求参数的日志格式</span></p>
 
-<pre><code class="nginx">
-log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-                '"$http_referer" $status $body_bytes_sent $request_body '
-                '"$http_user_agent" "$http_x_forwarded_for"';
-</code></pre>
+<p><pre><code class="nginx">
+log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request&rdquo; &lsquo;
+                &lsquo;&ldquo;$http_referer&rdquo; $status $body_bytes_sent $request_body &lsquo;
+                &lsquo;&ldquo;$http_user_agent&rdquo; &ldquo;$http_x_forwarded_for&rdquo;&lsquo;;</p>
 
-<p><span style="font-size: medium;">其实就是增加$request_body字段到log_format里。</span><br />
-<span style="font-size: medium;">如果为了调试程序可以打开开该字段，不然不推荐记录，以免泄露信息给恶意攻击者。</span><br />
-<span style="font-size: medium;">日志现身了</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;其实就是增加$request_body字段到log_format里。&lt;/span&gt;  
+&lt;span style=&quot;font-size: medium;&quot;&gt;如果为了调试程序可以打开开该字段，不然不推荐记录，以免泄露信息给恶意攻击者。&lt;/span&gt;  
+&lt;span style=&quot;font-size: medium;&quot;&gt;日志现身了&lt;/span&gt;
 
-<pre><code class="nginx">
-61.160.224.137 - - [03/Jun/2014:10:33:32 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=snoopy1 "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:33 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=pipeline "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:34 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=pocket "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:35 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=legs "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:41 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=maple "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:42 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=mickey1 "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:42 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=manuela "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:43 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=mermaid "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:44 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=micro "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:45 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=meowmeow "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:46 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=redbird "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:47 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=alisha "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:48 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=baura "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:49 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=battery "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:50 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=grass "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:51 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=chevys "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:52 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=chestnut "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:53 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=caravan "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:54 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=carina "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:55 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=charmed "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:55 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=fraser "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:56 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=frogman "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:57 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=diving "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:33:59 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=dogger "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:00 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=draven "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:01 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=drifter "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:02 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=oatmeal "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:03 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=paris1 "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:04 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=longdong "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:05 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=quant4307s "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:06 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=rachel1 "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:07 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=vegitta "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:07 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=cole "-" "213.239.201.157"
-61.160.224.137 - - [03/Jun/2014:10:34:08 +0800] "POST /wp-login.php HTTP/1.0" "-" 200 4664 log=admin&pwd=cobras "-" "213.239.201.157"
+&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;
+61.160.224.137 - - [03/Jun/2014:10:33:32 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=snoopy1 &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:33 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=pipeline &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:34 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=pocket &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:35 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=legs &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:41 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=maple &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:42 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=mickey1 &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:42 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=manuela &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:43 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=mermaid &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:44 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=micro &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:45 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=meowmeow &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:46 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=redbird &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:47 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=alisha &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:48 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=baura &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:49 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=battery &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:50 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=grass &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:51 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=chevys &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:52 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=chestnut &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:53 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=caravan &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:54 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=carina &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:55 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=charmed &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:55 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=fraser &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:56 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=frogman &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:57 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=diving &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:33:59 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=dogger &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:00 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=draven &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:01 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=drifter &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:02 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=oatmeal &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:03 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=paris1 &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:04 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=longdong &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:05 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=quant4307s &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:06 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=rachel1 &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:07 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=vegitta &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:07 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=cole &quot;-&quot; &quot;213.239.201.157&quot;
+61.160.224.137 - - [03/Jun/2014:10:34:08 +0800] &quot;POST /wp-login.php HTTP/1.0&quot; &quot;-&quot; 200 4664 log=admin&amp;pwd=cobras &quot;-&quot; &quot;213.239.201.157&quot;
 </code></pre>
 
 <p><span style="font-size: medium;">呵呵，一看就是黑客小菜。为了安全关闭post参数记录。</span></p>
@@ -213,16 +213,16 @@ log_format main '$remote_addr - $remote_user [$time_local] "$request" '
 
 <p><span style="font-size: medium;">新建 blockips.conf 需要屏蔽的ip列表文件</span></p>
 
-<pre><code class="nginx">
+<p><pre><code class="nginx">
 deny 113.108.12.154;    #此为屏蔽IP
 deny 124.115.0.0/24;    #此为屏蔽124.115.0.1 ~ 124.115.0.255整个网段IP
 deny 124.115.4.0/24;    #此为屏蔽124.115.4.1 ~ 124.115.4.255整个网段IP
-屏蔽整个网段的IP时有可能会造成错杀，不过几率很低。
-</code></pre>
+屏蔽整个网段的IP时有可能会造成错杀，不过几率很低。</p>
 
-<p><span style="font-size: medium;">继续，将blockips.conf 加入到nginx配置中</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;继续，将blockips.conf 加入到nginx配置中&lt;/span&gt;
 
-<pre><code class="nginx">
+&lt;pre&gt;&lt;code class=&quot;nginx&quot;&gt;
 在http中加入代码
 
 http {

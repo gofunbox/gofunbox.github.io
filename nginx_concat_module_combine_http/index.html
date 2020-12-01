@@ -17,9 +17,8 @@
 <meta property="og:type" content="article">
 <meta name="description" content="1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6 …">
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &lt;span style=&quot;font-size: …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="nginx1.6添加第三方模块nginx_concat_module合并http请求" />
@@ -27,9 +26,8 @@ svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_m
 <meta property="og:title" content="nginx1.6添加第三方模块nginx_concat_module合并http请求" />
 <meta property="og:description" content="1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6 …" />
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &lt;span style=&quot;font-size: …" />
 <meta property="og:image" content="https://gofunbox.github.io/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://gofunbox.github.io/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://gofunbox.github.io/icons/favicon-32x32.png'>
@@ -162,35 +160,35 @@ svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_m
 
 <p><span style="font-size: 12pt;">存放模块的路径下</span></p>
 
-<pre><code class="bash">
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
-</code></pre>
+<p><pre><code class="bash">
+svn checkout <a href="http://code.taobao.org/svn/nginx_concat_module/trunk">http://code.taobao.org/svn/nginx_concat_module/trunk</a> nginx_concat_module</p>
 
-<p><span style="font-size: 12pt;">前提要安装过svn</span></p>
+<pre><code>
+ &lt;span style=&quot;font-size: 12pt;&quot;&gt;前提要安装过svn&lt;/span&gt;
 
-<p><span style="font-size: 12pt;"> </span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt; &lt;/span&gt;
 
-<p><span style="font-size: 12pt;">然后下载nginx 我下的是1.6版的</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;然后下载nginx 我下的是1.6版的&lt;/span&gt;
 
-<p><span style="font-size: 12pt;">解压切换至解压目录</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;解压切换至解压目录&lt;/span&gt;
 
-<pre><code class="html">
+&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;
 ./configure --add-module=/刚才存放的路径/nginx_concat_module
-make && make install
+make &amp;&amp; make install
 </code></pre>
 
 <p><span style="font-size: 12pt;">2.配置nginx_concat_module</span></p>
 
 <p><span style="font-size: 12pt;">打开需要配置网站的nginx vhost配置文件加入</span></p>
 
-<pre><code class="html">
+<p><pre><code class="html">
 location /resource/ {
     concat on;
         concat_max_files 10;
     concat_unique on;
         concat_types text/html,application/x-javascript,text/css;
  }
-</code></pre>
+```</p>
 
 <p><span style="font-size: 12pt;">重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了</span></p>
 

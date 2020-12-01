@@ -165,7 +165,7 @@
 <p>1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）<br />
 <a href="http://luajit.org/download.html">http://luajit.org/download.html</a></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz
+<pre><code>wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz
 tar zxf LuaJIT-2.1.0-beta2.tar.gz
 cd LuaJIT-2.1.0-beta2
 make PREFIX=/usr/local/luajit
@@ -175,28 +175,25 @@ make install PREFIX=/usr/local/luajit
 <p>2.下载最新的ngx_devel_kit（NDK）模块<br />
 <a href="https://github.com/simpl/ngx_devel_kit/tags">https://github.com/simpl/ngx_devel_kit/tags</a></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
+<pre><code>wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
 tar -xzvf v0.2.19.tar.gz
 </code></pre>
 
 <p>3.下载最新的lua-nginx-module 模块<br />
 <a href="https://github.com/openresty/lua-nginx-module/tags">https://github.com/openresty/lua-nginx-module/tags</a></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz
-tar -xzvf v0.10.2.tar.gz
+<pre><code class="language-wget">tar -xzvf v0.10.2.tar.gz
 </code></pre>
 
 <p>nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash"># tell nginx's build system where to find LuaJIT 2.1:
-export LUAJIT_LIB=/usr/local/luajit/lib
+<pre><code class="language-#">export LUAJIT_LIB=/usr/local/luajit/lib
 export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1
 </code></pre>
 
 <p>nginx -V看下之前的安装都带了哪些参数</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">./configure (之前安装的参数) --with-ld-opt="-Wl,-rpath,/usr/local/luajit/lib" --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module
---add-module后参数路径根据解压路径为准
+<pre><code class="language-./configure">--add-module后参数路径根据解压路径为准
 make -j2
 make install
 </code></pre>
@@ -204,9 +201,8 @@ make install
 <p>4.验证lua-nginx-module安装是否成功<br />
 在nginx下配置</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">location /hello_lua { 
-      default_type 'text/plain'; 
-      content_by_lua 'ngx.say("hello, lua")'; 
+<pre><code class="language-location">      default_type 'text/plain'; 
+      content_by_lua 'ngx.say(&quot;hello, lua&quot;)'; 
 }
 </code></pre>
 

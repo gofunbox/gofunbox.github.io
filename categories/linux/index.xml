@@ -57,10 +57,11 @@ Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的
       
       <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
-[root@localhost ~]# mailx -V 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
+12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）
-set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)</description>
+set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)
+smtp-server: 530 Error: A secure connection is requiered(such as ssl).</description>
     </item>
     
     <item>
@@ -71,12 +72,11 @@ set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@
       <guid>https://gofunbox.github.io/monitor-php-error-log-sendmail/</guid>
       <description>最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
- 安装 EPEL 资源 sudo yum install epel-release 
- 安装SEC yum install sec 
- 配置SEC vim /etc/sec/php.conf
-  type=Single ptype=RegExp pattern=^[.+] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0
-type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;ldquo;example.com PHP errors&amp;rdquo; admin@example.com; delete nginx-php-errors; 
- 启动配置 vim /etc/sysconfig/sec  SEC_ARGS[0]=&amp;ldquo;-detach &amp;ndash;conf=/etc/sec/php.conf &amp;ndash;input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid &amp;ndash;debug=6&amp;rdquo;</description>
+ 安装 EPEL 资源
+sudo yum install epel-release  安装SEC
+yum install sec  配置SEC
+vim /etc/sec/php.conf type=Single ptype=RegExp pattern=^\[.+\] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0 type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;quot;example.com PHP errors&amp;quot; admin@example.com; delete nginx-php-errors;  启动配置
+vim /etc/sysconfig/sec SEC_ARGS[0]=&amp;quot;-detach --conf=/etc/sec/php.conf --input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid --debug=6&amp;quot; #加载多配置 SEC_ARGS[1]=&amp;quot;-detach --conf=/etc/sec/php2.conf --input=/var/log/php-fpm/example2.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec2.</description>
     </item>
     
     <item>
@@ -94,12 +94,12 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
 明白了这一点，我们来看看Linux和Windows对于分区不同的表示方法：
 可能您已经很熟悉Windows了，它使用盘符来表示分区，比如 C: D: E: ，每一个分区使用一个盘符来标识，而且顺序可以颠倒， D: 并不一定就是您系统中的第二个分区。（如果您给第二个分区分配最后一个硬盘盘符，把所有的盘符按顺序排列好，并且重装一次系统，您就会理解什么叫作“头疼”了）
 而在Linux中，分区是这样表示的
-/dev/hda /dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
+/dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
 因为在Linux中，每一个设备都是用 /dev/ 文件夹下的一个文件来表示，所以 /dev/hda5 中， /dev/ 表示的是根目录下的dev目录，我们来看剩下的部分 hda5 。
 前两位的字母 hd 表示这是一块IDE硬盘，如果是 sd ，则代表SATA硬盘，或者闪存等外设。
 第三位的字母 a 表示这是该类型接口上的第一个设备。同理， b、c、d…… 分别代表该类型接口上的第二三四……个设备。例如 hdc 表示第二个IDE接口上的主硬盘（每个IDE接口上允许一个主设备和一个从设备）。
 第四位的数字 5 ，并不表示这是该硬盘中的第5个分区，而是第一个逻辑分区。因为在Linux中，为了避免不必要的混乱，分区的顺序是不能改变的，分区标识则由它们在硬盘中的位置决定。系统又要为所有可能的主分区预留标识，所以 1-4 一定不会是逻辑分区， 5 则是第一个逻辑分区，以此类推。
-/dev/hda1 第一块硬盘的第一主分区 /dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
+/dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
     </item>
     
     <item>
@@ -153,14 +153,15 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
       
       <guid>https://gofunbox.github.io/linux_command_free/</guid>
       <description>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
 total:总计物理内存的大小。
 used:已使用多大。
 free:可用有多少。
 Shared:多个进程共享的内存总额，现在已经deprecated，其值总是0（当然在一些系统上也可能不是0，主要取决于free命令是怎么实现的）。
 Buffers/cached:磁盘缓存的大小，FO[2][5]表示被OS buffer住的内存。FO[2][6]表示被OS cache的内存。在有些时候buffer和cache这两个词经常混用。不过在一些比较低层的软件里是要区分这两个词的，看老外的洋文:
  _A buffer is something that has yet to be &amp;#8220;written&amp;#8221; to disk.
-_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.</description>
+_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.  也就是说buffer是用于存放要输出到disk（块设备）的数据的，而cache是存放从disk上读出的数据。这二者是为了提高IO性能的，并由OS管理。
+第三行(-/+ buffers/cached)，从应用程序角度来看，对于应用程序来说，buffers/cached 是等于可用的，因为buffer/cached是为了提高文件读取的性能，当应用程序需在用到内存的时候，buffer/cached会很快地被回收。</description>
     </item>
     
     <item>
@@ -177,11 +178,11 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 https://github.com/simpl/ngx_devel_kit/tags
 wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
-./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
 在nginx下配置
-location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
     <item>
@@ -191,12 +192,11 @@ location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx
       
       <guid>https://gofunbox.github.io/linux_crontab_error/</guid>
       <description>直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
-&amp;lt;span style=&#34;font-size: 12pt;&#34; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  也保证下写入文件夹的权限，还是不行
-直接运行，就正常运行
-&amp;lt;span style=&#34;font-size: 12pt;&#34;/usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;也保证下写入文件夹的权限，还是不行&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;直接运行，就正常运行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  
 最后网络上找说是有可能是相对路径的问题，就改成
-&amp;lt;span style=&#34;font-size: 12pt;&#34;0 1 * * * sh /home/stock/stock.sh&amp;lt;/span  stock.sh代码如下
-&amp;lt;span style=&#34;font-size: 12pt;&#34;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  先cd到执行脚本路径下就可以正常执行了
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;0 1 * * * sh /home/stock/stock.sh&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;stock.sh代码如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  先cd到执行脚本路径下就可以正常执行了
 也找到一个帖子解决方法不过貌似不适用我这个情况，不过大家也可以看看
 http://segmentfault.com/a/1190000000768446</description>
     </item>
@@ -224,13 +224,11 @@ yum install libpcap-devel 即可解决</description>
       <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
+重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -243,8 +241,7 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
       <guid>https://gofunbox.github.io/useful_linux_command/</guid>
       <description>记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设备 # lsusb -tv # 列出所有USB设备 # lsmod # 列出加载的内核模块 # env # 查看环境变量 # /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源
-# free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;lt;目录名 # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;lt;目录名 -type f -name &#34;</description>
+uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb -tv # 列出所有USB设备 lsmod # 列出加载的内核模块 env # 查看环境变量 /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源 &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; # free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;amp;lt;目录名&amp;gt; # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;amp;lt;目录名&amp;gt; -type f -name &amp;quot;*.</description>
     </item>
     
     <item>
@@ -258,14 +255,10 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
 DenyHosts阻止攻击原理 DenyHosts会自动分析/var/log/secure 等安全日志文件，当发现异常的连接请求后，会自动将其IP加入到 /etc/hosts.deny 文件中，从而达到阻止此IP继续暴力破解的可能。同时，Denyhosts还能自动在一定时间后对已经屏蔽的IP地址进行解封，非常智能。
 官方网站 Denyhosts的官方网站为：http://denyhosts.sourceforge.net/（杜绝Putty后门事件，谨记安全软件官网）
 安装方法 1、下载DenyHosts源码并解压（目前最新版为2.6）
-[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6  2、安装部署
-[root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
-[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control  4、编辑配置文件denyhosts.cfg
-[root@www denyhosts]# vi denyhosts.cfg  该配置文件结构比较简单，简要说明主要参数如下：
- PURGE_DENY：当一个IP被阻止以后，过多长时间被自动解禁。可选如3m（三分钟）、5h（5小时）、2d（两天）、8w（8周）、1y（一年）；
-PURGE_THRESHOLD：定义了某一IP最多被解封多少次。即某一IP由于暴力破解SSH密码被阻止/解封达到了PURGE_THRESHOLD次，则会被永久禁止；
-BLOCK_SERVICE：需要阻止的服务名；
-DENY_THRESHOLD_INVALID：某一无效用户名（不存在的用户）尝试多少次登录后被阻止；</description>
+&amp;gt;[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;2、安装部署&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
+[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;4、编辑配置文件denyhosts.cfg&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www denyhosts]# vi denyhosts.</description>
     </item>
     
     <item>

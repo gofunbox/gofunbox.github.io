@@ -39,7 +39,7 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;lt;meta&amp;gt;标签。 &amp;lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&amp;gt;  具体含义:
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt;  具体含义:
 * 脚本：只信任当前域名
 * &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
 * 样式表：只信任cdn.example.org和third-party.org

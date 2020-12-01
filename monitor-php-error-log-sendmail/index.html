@@ -157,40 +157,46 @@ SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会�
 <p>SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~</p>
 
 <ol>
-<li><p>安装 EPEL 资源 <pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">sudo yum install epel-release
-</code></pre></p></li>
+<li><p>安装 EPEL 资源</p>
 
-<li><p>安装SEC <pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">yum install sec
-</code></pre></p></li>
+<pre><code>sudo yum install epel-release
+</code></pre></li>
 
-<li><p>配置SEC <pre class="line-numbers prism-highlight" data-start="1"><code class="language-null">vim /etc/sec/php.conf</p></li>
-</ol>
+<li><p>安装SEC</p>
 
-<p>type=Single
+<pre><code>yum install sec
+</code></pre></li>
+
+<li><p>配置SEC</p>
+
+<pre><code>vim /etc/sec/php.conf  
+
+type=Single
 ptype=RegExp
-pattern=^[.+] PHP Fatal error.+$
+pattern=^\[.+\] PHP Fatal error.+$
 desc=PHP error
-action=add nginx-php-errors $0</p>
+action=add nginx-php-errors $0
 
-<p>type=Calendar
+type=Calendar
 time=* * * * *
 desc=Mail web errors
 context=nginx-php-errors
-action=report nginx-php-errors /bin/mail -s &ldquo;example.com PHP errors&rdquo; admin@example.com; delete nginx-php-errors;
-</code></pre></p>
+action=report nginx-php-errors /bin/mail -s &quot;example.com PHP errors&quot; admin@example.com; delete nginx-php-errors;
+</code></pre></li>
 
-<ol>
-<li>启动配置 <pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">vim /etc/sysconfig/sec</li>
-</ol>
+<li><p>启动配置</p>
 
-<p>SEC_ARGS[0]=&ldquo;-detach &ndash;conf=/etc/sec/php.conf &ndash;input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid &ndash;debug=6&rdquo;</p>
+<pre><code>vim /etc/sysconfig/sec
 
-<p>#加载多配置
-SEC_ARGS[1]=&ldquo;-detach &ndash;conf=/etc/sec/php2.conf &ndash;input=/var/log/php-fpm/example2.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec2.pid &ndash;debug=6&rdquo;
-</code></pre></p>
+SEC_ARGS[0]=&quot;-detach --conf=/etc/sec/php.conf --input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid --debug=6&quot;
 
-<ol>
-<li>启动 <pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">service sec start
+#加载多配置
+SEC_ARGS[1]=&quot;-detach --conf=/etc/sec/php2.conf --input=/var/log/php-fpm/example2.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec2.pid --debug=6&quot;
+</code></pre></li>
+
+<li><p>启动</p>
+
+<pre><code>service sec start
 #自启动
 chkconfig sec on
 </code></pre></li>

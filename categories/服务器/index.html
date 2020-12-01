@@ -251,7 +251,7 @@ https就是用于解决这样的安全问题的,它的全称为Hypertext …</p>
       <div class="excerpt_footer">
         <div>
           <p class="pale">mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail # …</p>
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s …</p>
           <a href="https://gofunbox.github.io/centos-cli-mailx/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -399,8 +399,7 @@ Let&#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证�
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE "open_basedir=$document_root:/tmp/:/proc/";  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
-$document_root …</p>
+fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。 …</p>
           <a href="https://gofunbox.github.io/nginx_php-fpm_cross-site/" class="excerpt_more button">Read More</a>
         </div>
       </div>

@@ -136,7 +136,7 @@
           <p class="pale">之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
 查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
 记录post请求参数的日志格式
-log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '"$http_referer" $status $body_bytes_sent $request_body ' '"$http_user_agent" …</p>
+log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request&rdquo; &lsquo; &lsquo;&ldquo;$http_referer&rdquo; $status $body_bytes_sent …</p>
           <a href="https://gofunbox.github.io/admin_being_attacked/" class="excerpt_more button">Read More</a>
         </div>
       </div>

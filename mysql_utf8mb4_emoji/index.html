@@ -166,15 +166,15 @@ utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符
 
 <p><span style="font-size: medium;">首先先查看下mysql当前版本所支持的字符集</span></p>
 
-<pre><code class="sql">
-show charset;
-</code></pre>
+<p><pre><code class="sql">
+show charset;</p>
 
-<p><span style="font-size: medium;">阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。&lt;/span&gt;
 
-<p><span style="font-size: medium;">1.修改database,table,column字符集mysql语句如下</span></p>
+&lt;span style=&quot;font-size: medium;&quot;&gt;1.修改database,table,column字符集mysql语句如下&lt;/span&gt;
 
-<pre><code class="sql">
+&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;
 # For each database:
 ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 # For each table:
@@ -186,24 +186,24 @@ ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET
 
 <p><span style="font-size: medium;">2.修改my.cnf</span></p>
 
-<pre><code class="bash">
-[client]  
-default-character-set = utf8mb4  
-      
-[mysql]  
-default-character-set = utf8mb4  
-      
-[mysqld]  
-character-set-client-handshake = FALSE  
-character-set-server = utf8mb4  
-collation-server = utf8mb4_unicode_ci  
-init_connect='SET NAMES utf8mb4'
-</code></pre>
+<p><pre><code class="bash">
+[client]<br />
+default-character-set = utf8mb4</p>
 
-<p><span style="font-size: medium;">3.重启mysql,检查字符集</span></p>
+<p>[mysql]<br />
+default-character-set = utf8mb4</p>
 
-<pre><code class="bash">
-mysql&gt; SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';  
+<p>[mysqld]<br />
+character-set-client-handshake = FALSE<br />
+character-set-server = utf8mb4<br />
+collation-server = utf8mb4_unicode_ci<br />
+init_connect=&lsquo;SET NAMES utf8mb4&rsquo;</p>
+
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;3.重启mysql,检查字符集&lt;/span&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
+mysql&amp;gt; SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';  
     +--------------------------+--------------------+  
     | Variable_name            | Value              |  
     +--------------------------+--------------------+  

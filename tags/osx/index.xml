@@ -20,8 +20,8 @@
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
-brew install php-version  然后运行
-source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+ 然后运行
+ 安装完毕之后php-version，显示当前安装的全部php版本列表
 直接运行php-version php版本号，即可完成切换
 php -v 显示php版本已经变了，切换成功
 brew真心强大</description>

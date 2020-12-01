@@ -25,7 +25,10 @@
 了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
 
 thinkphp实现的代码，距离单位都是km
-&amp;lt;span style=&#34;font-size: 12pt;&#34;$where[&#39;geoNear&#39;] = &#39;user_coordinate&#39;; $where[&#39;near&#39;] = array($longitude,$latitude); $where[&#39;spherical&#39;] = true; $where[&#39;maxDistance&#39;] = $maxDistance/6371; $where[&#39;distanceMultiplier&#39;] = 6371; $where[&#39;query&#39;] = array(&#34;status&#34;=&amp;gt;1); $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&#39;results&#39;])) { foreach ($res[&#39;results&#39;] as $key =&amp;gt; $value) { $data[$key] = $value[&#39;obj&#39;]; $data[$key][&#39;dis&#39;] = $value[&#39;dis&#39;]; } } return $data;&amp;lt;/span  就这样搞定了</description>
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;$where[&amp;lsquo;geoNear&amp;rsquo;] = &amp;lsquo;user_coordinate&amp;rsquo;; $where[&amp;lsquo;near&amp;rsquo;] = array($longitude,$latitude); $where[&amp;lsquo;spherical&amp;rsquo;] = true; $where[&amp;lsquo;maxDistance&amp;rsquo;] = $maxDistance/6371; $where[&amp;lsquo;distanceMultiplier&amp;rsquo;] = 6371; $where[&amp;lsquo;query&amp;rsquo;] = array(&amp;ldquo;status&amp;rdquo;=&amp;gt;1);
+$res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&amp;lsquo;results&amp;rsquo;])) { foreach ($res[&amp;lsquo;results&amp;rsquo;] as $key =&amp;gt; $value) { $data[$key] = $value[&amp;lsquo;obj&amp;rsquo;]; $data[$key][&amp;lsquo;dis&amp;rsquo;] = $value[&amp;lsquo;dis&amp;rsquo;]; }
+} return $data;&amp;lt;/span&amp;gt; ```
+就这样搞定了</description>
     </item>
     
     <item>
@@ -39,11 +42,9 @@ thinkphp实现的代码，距离单位都是km
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); define(&#39;MONGO_DB_PORT&#39;, 30000); define(&#39;MONGO_DB_NAME&#39;, &#39;funbox_test&#39;); define(&#39;MONGO_DSN&#39;, &#39;mongo://&#39;.MONGO_DB_HOST.&#39;:&#39;.MONGO_DB_PORT.&#39;/&#39;.MONGO_DB_NAME); M(&#39;MongoModel:msg_log&#39;,&#39;&#39;,MONGO_DSN);  死活连不上funbox_test这个库，连上的是funbox，十分费解
-最好耐下性子看了源码
-MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。
-继续看父类Model，在Model类中的__construct发现了线索，第79行
-$this-&amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;lt;stronglist($this-&amp;gt;dbName,$this-&amp;gt;name) = explode(&#39;.&#39;,$name);&amp;lt;/strong }else{ $this-&amp;gt;name = $name; } }elseif(empty($this-&amp;gt;name)){ $this-&amp;gt;name = $this-&amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
+define(&amp;lsquo;MONGO_DB_HOST&amp;rsquo;, &amp;lsquo;192.168.1.172&amp;rsquo;); define(&amp;lsquo;MONGO_DB_PORT&amp;rsquo;, 30000); define(&amp;lsquo;MONGO_DB_NAME&amp;rsquo;, &amp;lsquo;funbox_test&amp;rsquo;); define(&amp;lsquo;MONGO_DSN&amp;rsquo;, &amp;lsquo;mongo://&amp;lsquo;.MONGO_DB_HOST.&amp;rsquo;:&amp;lsquo;.MONGO_DB_PORT.&amp;lsquo;/&amp;rsquo;.MONGO_DB_NAME);
+M(&amp;lsquo;MongoModel:msg_log&amp;rsquo;,&amp;ldquo;,MONGO_DSN);
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;死活连不上funbox_test这个库，连上的是funbox，十分费解&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;最好耐下性子看了源码&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;继续看父类Model，在Model类中的__construct发现了线索，第79行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; $this-&amp;amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;amp;lt;strong&amp;gt;list($this-&amp;amp;gt;dbName,$this-&amp;amp;gt;name) = explode(&#39;.&#39;,$name);&amp;amp;lt;/strong&amp;gt; }else{ $this-&amp;amp;gt;name = $name; } }elseif(empty($this-&amp;amp;gt;name)){ $this-&amp;amp;gt;name = $this-&amp;amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
 M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;,&amp;#8221;,MONGO_DSN);
 研究了一个下午，希望能为大家排排雷。</description>
     </item>

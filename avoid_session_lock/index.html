@@ -168,30 +168,30 @@
 
 <p><span style="font-size: 12pt;">test.html</span></p>
 
-<pre><code class="html">
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=1"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=2"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=3"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=4"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=5"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=6"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=7"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=8"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=9"&gt;
-&lt;img src="https://ifunbox.top/demo/session_start_test/test.php?v=10"&gt;&lt;/span>
-</code></pre>
+<p><pre><code class="html">
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=1&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=1&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=2&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=2&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=3&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=3&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=4&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=4&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=5&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=5&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=6&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=6&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=7&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=7&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=8&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=8&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=9&quot;&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=9&quot;&gt;</a>
+&lt;img src=&ldquo;<a href="https://ifunbox.top/demo/session_start_test/test.php?v=10&quot;&gt;&lt;/span&gt;">https://ifunbox.top/demo/session_start_test/test.php?v=10&quot;&gt;&lt;/span&gt;</a></p>
 
-<p><span style="font-size: 12pt;">test.php</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;test.php&lt;/span&gt;
 
-<pre><code class="php">
-&lt;span style="font-size: 12pt;">&lt;?php
-    session_start();
-    $_SESSION['latestRequestTime'] = time();
-    //session_write_close();
-    sleep(2);
-    $twitterId = $_SESSION['latestRequestTime'];
-    echo json_encode($twitterId);
-?&gt;&lt;/span>
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
+&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;&amp;lt;?php
+	session_start();
+	$_SESSION['latestRequestTime'] = time();
+	//session_write_close();
+	sleep(2);
+	$twitterId = $_SESSION['latestRequestTime'];
+	echo json_encode($twitterId);
+?&amp;gt;&amp;lt;/span&gt;
 </code></pre>
 
 <p><span style="font-size: 12pt;">1.我们先在火狐上访问test.html，里面有10个php请求到test.php。</span><br />

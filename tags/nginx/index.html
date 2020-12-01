@@ -263,8 +263,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE "open_basedir=$document_root:/tmp/:/proc/";  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
-$document_root …</p>
+fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。 …</p>
           <a href="https://gofunbox.github.io/nginx_php-fpm_cross-site/" class="excerpt_more button">Read More</a>
         </div>
       </div>

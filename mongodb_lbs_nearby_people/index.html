@@ -176,24 +176,24 @@
 
 <p><span style="font-size: 12pt;">thinkphp实现的代码，距离单位都是km</span></p>
 
-<pre><code class="php"> 
-&lt;span style="font-size: 12pt;">$where['geoNear'] = 'user_coordinate';
-$where['near'] = array($longitude,$latitude);
-$where['spherical'] = true;
-$where['maxDistance'] = $maxDistance/6371;
-$where['distanceMultiplier'] = 6371;
-$where['query'] = array("status"=&gt;1);
+<p><pre><code class="php">
+&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;$where[&lsquo;geoNear&rsquo;] = &lsquo;user_coordinate&rsquo;;
+$where[&lsquo;near&rsquo;] = array($longitude,$latitude);
+$where[&lsquo;spherical&rsquo;] = true;
+$where[&lsquo;maxDistance&rsquo;] = $maxDistance/6371;
+$where[&lsquo;distanceMultiplier&rsquo;] = 6371;
+$where[&lsquo;query&rsquo;] = array(&ldquo;status&rdquo;=&gt;1);</p>
 
-$res = $this-&gt;_user_coordinate_mod-&gt;command($where);
-if (!empty($res['results'])) {
-    foreach ($res['results'] as $key =&gt; $value) {
-        $data[$key] = $value['obj'];
-        $data[$key]['dis'] = $value['dis'];
-    }
+<p>$res = $this-&gt;_user_coordinate_mod-&gt;command($where);
+if (!empty($res[&lsquo;results&rsquo;])) {
+    foreach ($res[&lsquo;results&rsquo;] as $key =&gt; $value) {
+        $data[$key] = $value[&lsquo;obj&rsquo;];
+        $data[$key][&lsquo;dis&rsquo;] = $value[&lsquo;dis&rsquo;];
+    }</p>
 
-}
-return $data;&lt;/span>
-</code></pre>
+<p>}
+return $data;&lt;/span&gt;
+```</p>
 
 <p><span style="font-size: 12pt;">就这样搞定了</span></p>
 

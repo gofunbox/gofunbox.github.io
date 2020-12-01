@@ -166,34 +166,34 @@ PHP的AES加密算法：
 
 <p><span style="font-size: 14pt;"><span style="font-size: 12pt;">PHP的AES加密算法：</span></p></p>
 
-<pre><code class="php">
+<p><pre><code class="php">
 &lt;?php
 class MCrypt {
-    private $hex_iv = '00000000000000000000000000000000'; # converted JAVA byte code in to HEX and placed it here           
-    private $key = 'U1MjU1M0FDOUZ.Qz'; #Same as in JAVA
+    private $hex_iv = &lsquo;00000000000000000000000000000000&rsquo;; # converted JAVA byte code in to HEX and placed it here<br />
+    private $key = &lsquo;U1MjU1M0FDOUZ.Qz&rsquo;; #Same as in JAVA
     function __construct() {
-        $this-&gt;key = hash('sha256', $this-&gt;key, true);
-        //echo $this-&gt;key.'&lt;br/&gt;';
+        $this-&gt;key = hash(&lsquo;sha256&rsquo;, $this-&gt;key, true);
+        //echo $this-&gt;key.&rsquo;&lt;br/&gt;&rsquo;;
     }
-    function encrypt($str) {   
-        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+    function encrypt($str) {<br />
+        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &ldquo;, MCRYPT_MODE_CBC, &ldquo;);
         mcrypt_generic_init($td, $this-&gt;key, $this-&gt;hexToStr($this-&gt;hex_iv));
         $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
         $pad = $block - (strlen($str) % $block);
         $str .= str_repeat(chr($pad), $pad);
         $encrypted = mcrypt_generic($td, $str);
         mcrypt_generic_deinit($td);
-        mcrypt_module_close($td);    
+        mcrypt_module_close($td);<br />
         return base64_encode($encrypted);
     }
-    function decrypt($code) {    
-        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+    function decrypt($code) {<br />
+        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &ldquo;, MCRYPT_MODE_CBC, &ldquo;);
         mcrypt_generic_init($td, $this-&gt;key, $this-&gt;hexToStr($this-&gt;hex_iv));
         $str = mdecrypt_generic($td, base64_decode($code));
         $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
         mcrypt_generic_deinit($td);
-        mcrypt_module_close($td);    
-        return $this-&gt;strippadding($str);           
+        mcrypt_module_close($td);<br />
+        return $this-&gt;strippadding($str);<br />
     }
     /*
       For PKCS7 padding
@@ -208,7 +208,7 @@ class MCrypt {
         $slast = ord(substr($string, -1));
         $slastc = chr($slast);
         $pcheck = substr($string, -$slast);
-        if (preg_match("/$slastc{" . $slast . "}/", $string)) {
+        if (preg_match(&ldquo;/$slastc{&rdquo; . $slast . &ldquo;}/&rdquo;, $string)) {
             $string = substr($string, 0, strlen($string) - $slast);
             return $string;
         } else {
@@ -217,7 +217,7 @@ class MCrypt {
     }
 function hexToStr($hex)
 {
-    $string='';
+    $string=&ldquo;;
     for ($i=0; $i &lt; strlen($hex)-1; $i+=2)
     {
         $string .= chr(hexdec($hex[$i].$hex[$i+1]));
@@ -226,41 +226,41 @@ function hexToStr($hex)
 }
 }
 $encryption = new MCrypt();
-echo $encryption-&gt;encrypt('123456') . "&lt;br/&gt;";
-echo $encryption-&gt;decrypt('tpyxISJ83dqEs3uw8bN/+w==');
+echo $encryption-&gt;encrypt(&lsquo;123456&rsquo;) . &ldquo;&lt;br/&gt;&rdquo;;
+echo $encryption-&gt;decrypt(&lsquo;tpyxISJ83dqEs3uw8bN/+w==&rsquo;);</p>
 
-?&gt;
-</code></pre>
+<p>?&gt;</p>
 
-<p>
-  <span style="font-size: 12pt;">java的AES加密算法：</span>
-</p>
+<pre><code>
+&lt;p&gt;
+  &lt;span style=&quot;font-size: 12pt;&quot;&gt;java的AES加密算法：&lt;/span&gt;
+&lt;/p&gt;
 
-<pre><code class="java">
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import android.util.Base64;
 /**
- * @author vipin.cb , vipin.cb@experionglobal.com &lt;br&gt;
- *         Sep 27, 2013, 5:18:34 PM &lt;br&gt;
- *         Package:- &lt;b&gt;com.veebow.util&lt;/b&gt; &lt;br&gt;
- *         Project:- &lt;b&gt;Veebow&lt;/b&gt;
- *         &lt;p&gt;
+ * @author vipin.cb , vipin.cb@experionglobal.com &amp;lt;br&amp;gt;
+ *         Sep 27, 2013, 5:18:34 PM &amp;lt;br&amp;gt;
+ *         Package:- &amp;lt;b&amp;gt;com.veebow.util&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;
+ *         Project:- &amp;lt;b&amp;gt;Veebow&amp;lt;/b&amp;gt;
+ *         &amp;lt;p&amp;gt;
  */
 public class AESCrypt {
     private final Cipher cipher;
     private final SecretKeySpec key;
     private AlgorithmParameterSpec spec;
-    public static final String SEED_16_CHARACTER = "U1MjU1M0FDOUZ.Qz";
+    public static final String SEED_16_CHARACTER = &quot;U1MjU1M0FDOUZ.Qz&quot;;
     public AESCrypt() throws Exception {
         // hash password with SHA-256 and crop the output to 128-bit for key
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.update(SEED_16_CHARACTER.getBytes("UTF-8"));
+        MessageDigest digest = MessageDigest.getInstance(&quot;SHA-256&quot;);
+        digest.update(SEED_16_CHARACTER.getBytes(&quot;UTF-8&quot;));
         byte[] keyBytes = new byte[32];
         System.arraycopy(digest.digest(), 0, keyBytes, 0, keyBytes.length);
-        cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
-        key = new SecretKeySpec(keyBytes, "AES");
+        cipher = Cipher.getInstance(&quot;AES/CBC/PKCS7Padding&quot;);
+        key = new SecretKeySpec(keyBytes, &quot;AES&quot;);
         spec = getIV();
     }
     public AlgorithmParameterSpec getIV() {
@@ -271,16 +271,16 @@ public class AESCrypt {
     }
     public String encrypt(String plainText) throws Exception {
         cipher.init(Cipher.ENCRYPT_MODE, key, spec);
-        byte[] encrypted = cipher.doFinal(plainText.getBytes("UTF-8"));
+        byte[] encrypted = cipher.doFinal(plainText.getBytes(&quot;UTF-8&quot;));
         String encryptedText = new String(Base64.encode(encrypted,
-                Base64.DEFAULT), "UTF-8");
+                Base64.DEFAULT), &quot;UTF-8&quot;);
         return encryptedText;
     }
     public String decrypt(String cryptedText) throws Exception {
         cipher.init(Cipher.DECRYPT_MODE, key, spec);
         byte[] bytes = Base64.decode(cryptedText, Base64.DEFAULT);
         byte[] decrypted = cipher.doFinal(bytes);
-        String decryptedText = new String(decrypted, "UTF-8");
+        String decryptedText = new String(decrypted, &quot;UTF-8&quot;);
         return decryptedText;
     }
 }

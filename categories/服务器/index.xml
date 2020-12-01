@@ -78,10 +78,11 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
       
       <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
-[root@localhost ~]# mailx -V 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
+12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）
-set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)</description>
+set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)
+smtp-server: 530 Error: A secure connection is requiered(such as ssl).</description>
     </item>
     
     <item>
@@ -171,7 +172,7 @@ Error: open CFI at the end of file; missing .</description>
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
 $document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
 /tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
 /proc/ 可以让php查看系统负载信息。
@@ -221,11 +222,11 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 https://github.com/simpl/ngx_devel_kit/tags
 wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
-./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
 在nginx下配置
-location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
     <item>
@@ -281,7 +282,7 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
 我在最近的一个项目中也应用了MemcacheQ，下面我将分享一下MemcacheQ在Linux中的编译和安装过程。
 首先，MemcacheQ依赖于BerkeleyDB和Libevent，如果服务器中曾经安装过Memcached，那么Libevent应该已经存在了，否则就需要先下载安装Libevent。
 下载链接如下：
-  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span   安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span   安装MemcacheQ &amp;lt;span style=&#34;</description>
+  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装MemcacheQ &amp;lt;span style=&#34;</description>
     </item>
     
     <item>
@@ -323,9 +324,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 这个模块貌似只能动态加载
 官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html
 看了这些基本知识，开始尝试安装吧
-&amp;lt;span style=&#34;font-size: 12pt;&#34;./configure --with--http_trim_filter_module=shared make make dso_install&amp;lt;/span  nginx.conf中events上方加入
-&amp;lt;span style=&#34;font-size: 12pt;&#34;dso { load ngx_http_trim_filter_module.so; }&amp;lt;/span  网站配置内加入
-&amp;lt;span style=&#34;font-size: 12pt;&#34;trim on; trim_jscss on;&amp;lt;/span  官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;./configure &amp;ndash;with&amp;ndash;http_trim_filter_module=shared make make dso_install&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;nginx.conf中events上方加入&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;apache&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt;  网站配置内加入
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;trim on; trim_jscss on;&amp;lt;/span&amp;gt; ```
+官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
 至此安装成功，看下效果首页减少2K，嘿嘿~
 还有一点：trim_jscss开启不一定适合全部网站哦，开启可能会影响js</description>
     </item>
@@ -372,7 +374,8 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
 由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。
 也就是模块认不到js文件了。。。
-[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&#34;application/x-javascript&#34;),  因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
+[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;ldquo;application/x-javascript&amp;rdquo;), ```
+因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
     </item>
     
     <item>
@@ -383,13 +386,11 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
+重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -415,7 +416,8 @@ https://developers.google.com/speed/pagespeed/module/configuration
 这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
 还有一个问题压缩合并js，css都有缓存，看了文档貌似没有提缓存时间的问题
 如果需要刷新缓存，我是用重启nginx的方法
-pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &#34;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&#34; { add_header &#34;&#34; &#34;&#34;; } location ~ &#34;^/pagespeed_static/&#34; { } location ~ &#34;^/ngx_pagespeed_beacon$&#34; { }  关于阻挡blocking的介绍
+pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;ldquo;.pagespeed.([a-z].)?[a-z]{2}.[^.]{10}.[^.]+&amp;rdquo; { add_header &amp;ldquo;&amp;rdquo; &amp;ldquo;&amp;rdquo;; } location ~ &amp;ldquo;^/pagespeed_static/&amp;rdquo; { } location ~ &amp;ldquo;^/ngx_pagespeed_beacon$&amp;rdquo; { } ```
+关于阻挡blocking的介绍
 http://www.zhihu.com/question/24506110
 http://ywwd.net/read-346</description>
     </item>
@@ -430,11 +432,12 @@ http://ywwd.net/read-346</description>
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;  改为： 
-fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
-expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</description>
+ServerTokensProductOnly ServerSignatureOff
+ ## 隐藏Nginx版本信息: &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;打开 nginx.conf，在http { }里加上：&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
+fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;改为： &amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
+expose_php = Off ```
+完成以上设定后，重新启动 Apache/Nginx 即可。</description>
     </item>
     
     <item>
@@ -604,7 +607,26 @@ svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
       <guid>https://gofunbox.github.io/linux_svn_autostart/</guid>
       <description>1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &#34;$1&#34; in start) echo &#34;starting svnserve...&#34; svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx echo &#34;finished&#34; ;; stop) echo &#34;stoping svnserve&#34; killall svnserve echo &#34;finished&#34; ;; restart) $0 stop $0 start ;; *) exit esac  3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
+#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
+case &amp;ldquo;$1&amp;rdquo; in
+start)
+echo &amp;ldquo;starting svnserve&amp;hellip;&amp;rdquo;
+svnserve -d -r /xxx/xxx/xxx &amp;ndash;listen-host xxx.xxx.xxx.xxx
+echo &amp;ldquo;finished&amp;rdquo;
+;;
+stop)
+echo &amp;ldquo;stoping svnserve&amp;rdquo;
+killall svnserve
+echo &amp;ldquo;finished&amp;rdquo;
+;;
+restart)
+$0 stop
+$0 start
+;;
+*)
+exit
+esac ```
+3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
 4 将svnserved脚本设置为系统服务，chkconfig &amp;#8211;add svnserved， 重启系统，ok！</description>
     </item>
     

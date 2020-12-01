@@ -17,7 +17,7 @@
       <pubDate>Tue, 25 Jul 2017 14:36:39 +0000</pubDate>
       
       <guid>https://gofunbox.github.io/mysql-show-processlist/</guid>
-      <description>mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
+      <description>mysql&amp;amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
 连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
 发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。 Host
 发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。 db

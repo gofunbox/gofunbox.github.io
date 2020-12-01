@@ -16,14 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 …">
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux free命令查看内存情况学习小记" />
 <meta property="og:url" content="https://gofunbox.github.io/linux_command_free/" />
 <meta property="og:title" content="Linux free命令查看内存情况学习小记" />
 <meta property="og:description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 …" />
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …" />
 <meta property="og:image" content="https://gofunbox.github.io/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://gofunbox.github.io/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://gofunbox.github.io/icons/favicon-32x32.png'>
@@ -156,8 +156,7 @@
     
     <p>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下<del></del></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">              1          2          3          4          5          6
-1              total       used       free     shared    buffers     cached
+<pre><code class="language-1">1              total       used       free     shared    buffers     cached
 2 Mem:      24677460   23276064    1401396          0     870540   12084008
 3 -/+ buffers/cache:   10321516   14355944
 4 Swap:     25151484     224188   24927296

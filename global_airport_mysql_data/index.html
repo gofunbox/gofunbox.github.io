@@ -172,7 +172,7 @@
   <span style="font-size: 14pt;">直接上mysql语句</span>
 </p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-sql">/*
+<pre><code>/*
 Date: 2015-11-27 17:24:30
 */
 
@@ -975,10 +975,9 @@ INSERT INTO `lk_airport_inter_city` VALUES ('382', '奥兰多', 'ORL', '0', '3')
 
 <p><span style="font-size: 14pt;">\n换行 \t分隔数据，用php下面这段代码就可以整理好数据，然后转换成自己的mysql数据结构插入数据库即可</span></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-php">$file = file_get_contents('./data.txt');
-$lines = explode("\n", $file);
-foreach ($lines as $key =&gt; $value) {
-    $data[] = explode("\t", $value);
+<pre><code class="language-$file">$lines = explode(&quot;\n&quot;, $file);
+foreach ($lines as $key =&amp;gt; $value) {
+    $data[] = explode(&quot;\t&quot;, $value);
 }
 </code></pre>
 

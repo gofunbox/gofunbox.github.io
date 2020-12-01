@@ -20,7 +20,7 @@
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); …">
+define(&lsquo;MONGO_DB_HOST&rsquo;, …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="thinkphp Mongo模型的使用问题" />
@@ -31,7 +31,7 @@ define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); …">
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); …" />
+define(&lsquo;MONGO_DB_HOST&rsquo;, …" />
 <meta property="og:image" content="https://gofunbox.github.io/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://gofunbox.github.io/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://gofunbox.github.io/icons/favicon-32x32.png'>
@@ -170,34 +170,34 @@ define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); …" />
 
 <p><span style="font-size: 12pt;">最开始用了下面这个方式创建模式</span></p>
 
-<pre><code class="php">
-define('MONGO_DB_HOST', '192.168.1.172');
-define('MONGO_DB_PORT', 30000);
-define('MONGO_DB_NAME', 'funbox_test');
-define('MONGO_DSN', 'mongo://'.MONGO_DB_HOST.':'.MONGO_DB_PORT.'/'.MONGO_DB_NAME);
+<p><pre><code class="php">
+define(&lsquo;MONGO_DB_HOST&rsquo;, &lsquo;192.168.1.172&rsquo;);
+define(&lsquo;MONGO_DB_PORT&rsquo;, 30000);
+define(&lsquo;MONGO_DB_NAME&rsquo;, &lsquo;funbox_test&rsquo;);
+define(&lsquo;MONGO_DSN&rsquo;, &lsquo;mongo://&lsquo;.MONGO_DB_HOST.&rsquo;:&lsquo;.MONGO_DB_PORT.&lsquo;/&rsquo;.MONGO_DB_NAME);</p>
 
-M('MongoModel:msg_log','',MONGO_DSN);
-</code></pre>
+<p>M(&lsquo;MongoModel:msg_log&rsquo;,&ldquo;,MONGO_DSN);</p>
 
-<p><span style="font-size: 12pt;">死活连不上funbox_test这个库，连上的是funbox，十分费解</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;死活连不上funbox_test这个库，连上的是funbox，十分费解&lt;/span&gt;
 
-<p><span style="font-size: 12pt;">最好耐下性子看了源码</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;最好耐下性子看了源码&lt;/span&gt;
 
-<p><span style="font-size: 12pt;">MongoModel类中有$this-&gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;MongoModel类中有$this-&gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。&lt;/span&gt;
 
-<p><span style="font-size: 12pt;">继续看父类Model，在Model类中的__construct发现了线索，第79行</span></p>
+&lt;span style=&quot;font-size: 12pt;&quot;&gt;继续看父类Model，在Model类中的__construct发现了线索，第79行&lt;/span&gt;
 
-<pre><code class="php">
-$this-&gt;_initialize();
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
+$this-&amp;gt;_initialize();
 // 获取模型名称
 if(!empty($name)) {
 if(strpos($name,'.')) { // 支持 数据库名.模型名的 定义
-&lt;strong>list($this-&gt;dbName,$this-&gt;name) = explode('.',$name);&lt;/strong>
+&amp;lt;strong&gt;list($this-&amp;gt;dbName,$this-&amp;gt;name) = explode('.',$name);&amp;lt;/strong&gt;
 }else{
-$this-&gt;name   =  $name;
+$this-&amp;gt;name   =  $name;
 }
-}elseif(empty($this-&gt;name)){
-$this-&gt;name =   $this-&gt;getModelName();
+}elseif(empty($this-&amp;gt;name)){
+$this-&amp;gt;name =   $this-&amp;gt;getModelName();
 }
 </code></pre>
 

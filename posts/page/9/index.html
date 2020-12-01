@@ -257,7 +257,11 @@ cfg_disable_funs，模板标签中禁用函数
         <div>
           <p class="pale">1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case "$1" in start) echo "starting svnserve..." svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx …</p>
+#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
+case &ldquo;$1&rdquo; in
+start)
+echo &ldquo;starting svnserve&hellip;&rdquo;
+svnserve -d -r /xxx/xxx/xxx …</p>
           <a href="https://gofunbox.github.io/linux_svn_autostart/" class="excerpt_more button">Read More</a>
         </div>
       </div>

@@ -171,7 +171,7 @@
 <p><strong><span style="font-size: 12pt;">方法1 在nginx 配置 fastcgi_param参数</span></strong><br />
 <span style="font-size: 12pt;">在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：</span></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">fastcgi_param  PHP_VALUE          "open_basedir=$document_root:/tmp/:/proc/";
+<pre><code>fastcgi_param  PHP_VALUE          &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;
 </code></pre>
 
 <p><span style="font-size: 12pt;">意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。</span><br />
@@ -184,7 +184,7 @@
 <p><strong><span style="font-size: 12pt;">方法2 在php.ini 中配置</span></strong><br />
 <span style="font-size: 12pt;">在php.ini的末尾加入：</span></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">[HOST=www.funboxpower.com]
+<pre><code>[HOST=www.funboxpower.com]
 open_basedir=/home/funboxpower.com:/tmp/:/proc/
 [PATH=/home/funboxpower.com]
 open_basedir=/home/funboxpower.com:/tmp/:/proc/
@@ -195,7 +195,7 @@ open_basedir=/home/funboxpower.com:/tmp/:/proc/
 <p><strong><span style="font-size: 12pt;">方法3 网站根目录下增加 .user.ini 文件。</span></strong><br />
 <span style="font-size: 12pt;">在网站根目录下创建.user.ini 加入：</span></p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-nginx">open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/
+<pre><code>open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/
 </code></pre>
 
 <p><span style="font-size: 12pt;">这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。</span></p>

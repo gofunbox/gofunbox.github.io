@@ -168,9 +168,10 @@
         <div>
           <p class="pale">最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
- 安装 EPEL 资源 sudo yum install epel-release 
- 安装SEC yum install sec 
- 配置SEC vim /etc/sec/php.conf …</p>
+ 安装 EPEL 资源
+sudo yum install epel-release  安装SEC
+yum install sec  配置SEC
+vim /etc/sec/php.conf type=Single …</p>
           <a href="https://gofunbox.github.io/monitor-php-error-log-sendmail/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -369,7 +370,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">mysql&gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL …</p>
+          <p class="pale">mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL …</p>
           <a href="https://gofunbox.github.io/mysql-show-processlist/" class="excerpt_more button">Read More</a>
         </div>
       </div>

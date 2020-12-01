@@ -75,8 +75,8 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
 决定自己动手体验下。
 准备两段测试代码。
 test.html
-&amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=1&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=2&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=3&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=4&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=5&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=6&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=7&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=8&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=9&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=10&#34;&amp;gt;&amp;lt;/span  test.php
-&amp;lt;span style=&#34;font-size: 12pt;&#34;&amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;gt;&amp;lt;/span  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
+&amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=1&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=2&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=3&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=4&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=5&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=6&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=7&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=8&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=9&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=10&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;test.php&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;amp;gt;&amp;amp;lt;/span&amp;gt;  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
 效果如下图，因为火狐默认6个并发连接，所以前6个请求是木有阻隔的，但是由于session lock的原因，每个请求时间都比上一个晚2S，必须等上一个请求释放session lock。第7个请求就被阻隔了2S，因为要等第一个请求被释放嘛，O(∩_∩)O~
 
 2.然后去除test.php中session_write_close();前面的注释
@@ -88,9 +88,7 @@ test.html
 
 到这里对session lock阻塞就大致明白了。
 回过头解决问题了，我回想了自己项目的应用场景好多ajax加载界面甚至有ajax定时刷新，难道这个是罪魁祸首！
-于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。
-
-优化了下全部请求下来总时长快了1S，我tm惊呆了~</description>
+于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。</description>
     </item>
     
     <item>
@@ -171,13 +169,11 @@ yum install libpcap-devel 即可解决</description>
       <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
+重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -203,7 +199,8 @@ https://developers.google.com/speed/pagespeed/module/configuration
 这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
 还有一个问题压缩合并js，css都有缓存，看了文档貌似没有提缓存时间的问题
 如果需要刷新缓存，我是用重启nginx的方法
-pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &#34;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&#34; { add_header &#34;&#34; &#34;&#34;; } location ~ &#34;^/pagespeed_static/&#34; { } location ~ &#34;^/ngx_pagespeed_beacon$&#34; { }  关于阻挡blocking的介绍
+pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;ldquo;.pagespeed.([a-z].)?[a-z]{2}.[^.]{10}.[^.]+&amp;rdquo; { add_header &amp;ldquo;&amp;rdquo; &amp;ldquo;&amp;rdquo;; } location ~ &amp;ldquo;^/pagespeed_static/&amp;rdquo; { } location ~ &amp;ldquo;^/ngx_pagespeed_beacon$&amp;rdquo; { } ```
+关于阻挡blocking的介绍
 http://www.zhihu.com/question/24506110
 http://ywwd.net/read-346</description>
     </item>
@@ -215,9 +212,8 @@ http://ywwd.net/read-346</description>
       
       <guid>https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/</guid>
       <description>1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
-Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;2.使用mysqlsla语法&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
 1) -log-type (-lt) type logs:
 通过这个参数来制定log的类型，主要有slow, general, binary, msl, udl,分析slow log时通过制定为slow.
 2) -sort:
@@ -227,9 +223,7 @@ c_sum:按总次数排序
 c_sum_p: sql语句执行次数占总执行次数的百分比。
 3) -top:
 显示sql的数量，默认是10,表示按规则取排序的前多少条
-4) –statement-filter (-sf) [+-][TYPE]:
-过滤sql语句的类型，比如select、update、drop.
-[TYPE]有SELECT, CREATE, DROP, UPDATE, INSERT，例如&amp;#8221;+SELECT,INSERT&amp;#8221;，不出现的默认是-，即不包括。</description>
+4) –statement-filter (-sf) [+-][TYPE]:</description>
     </item>
     
   </channel>

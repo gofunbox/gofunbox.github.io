@@ -23,7 +23,7 @@
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;lt;meta&amp;gt;标签。 &amp;lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&amp;gt;  具体含义:
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt;  具体含义:
 * 脚本：只信任当前域名
 * &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
 * 样式表：只信任cdn.example.org和third-party.org
@@ -51,7 +51,8 @@ JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(
 可定制的
 可以使用自定义构建只包括项目所需的特定功能。
 只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了
-&amp;lt;span style=&#34;font-size: 14pt;&#34;gifshot.createGIF({ images: [ &#39;http://i.imgur.com/2OO33vX.jpg&#39;, &#39;http://i.imgur.com/qOwVaSN.png&#39;, &#39;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&#39;img&#39;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;lt;/span  就不上更多代码了，因为官网介绍得非常详细。
+&amp;lt;span style=&amp;ldquo;font-size: 14pt;&amp;ldquo;&amp;gt;gifshot.createGIF({ images: [ &amp;lsquo;http://i.imgur.com/2OO33vX.jpg&#39;, &amp;lsquo;http://i.imgur.com/qOwVaSN.png&#39;, &amp;lsquo;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&amp;lsquo;img&amp;rsquo;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;lt;/span&amp;gt; ```
+就不上更多代码了，因为官网介绍得非常详细。
 附上官网地址https://yahoo.github.io/gifshot/</description>
     </item>
     

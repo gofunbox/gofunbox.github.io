@@ -59,7 +59,7 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
 $document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
 /tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
 /proc/ 可以让php查看系统负载信息。
@@ -83,8 +83,8 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
-brew install php-version  然后运行
-source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+ 然后运行
+ 安装完毕之后php-version，显示当前安装的全部php版本列表
 直接运行php-version php版本号，即可完成切换
 php -v 显示php版本已经变了，切换成功
 brew真心强大</description>

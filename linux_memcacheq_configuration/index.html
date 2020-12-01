@@ -188,7 +188,7 @@ cd libevent-2.0.21-stable
 make && make install
 echo "/usr/local/libevent/lib" &gt;&gt; /etc/ld.so.conf
 ldconfig&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;">安装BerkeleyDB</span>
@@ -210,7 +210,7 @@ make && make install
 ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/
 echo "/usr/local/berkeleydb/lib/" &gt;&gt; /etc/ld.so.conf
 ldconfig&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;">安装MemcacheQ</span>
@@ -221,7 +221,7 @@ ldconfig&lt;/span>
 cd memcacheq-0.2.0
 ./configure --prefix=/usr/local/memcacheq --with-bdb=/usr/local/berkeleydb --with-libevent=/usr/local/libevent --enable-threads
 make && make install&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;">启动MemcacheQ</span>
@@ -229,7 +229,7 @@ make && make install&lt;/span>
   
   <pre><code class="bash">
 &lt;span style="font-size: 12pt;">/usr/local/memcacheq/bin/memcacheq -d -uroot -r -l 127.0.0.1 -p11210 -H /usr/local/mcq -N -R -v -L 1024 -B 1024 &gt; /usr/local/mcq/logs/mcq_error.log 2&gt;&1&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;">MemcacheQ自启动</span>
@@ -241,7 +241,7 @@ make && make install&lt;/span>
   
   <pre><code class="php">
 &lt;span style="font-size: 12pt;">vi /etc/rc.local&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;"> 在文件最后一行添加要执行shell的全路径和参数，就是启动MemcacheQ的shell</span>
@@ -266,7 +266,7 @@ make && make install&lt;/span>
 -i  打印许可证信息
 -P  PID文件
 -t  线程数(default 4)&lt;/span>
-</code></pre>
+```
   
   <p>
     <span style="font-size: 12pt;">用PHP测试一下</span>
@@ -290,7 +290,7 @@ for ($i=1; $i&lt;=6; $i++) {
 memcache_close($mcq);
 ?&gt;
 ~                &lt;/span>
-</code></pre>
+```
 </div>
 
     

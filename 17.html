@@ -158,39 +158,39 @@
 
 <p><span style="font-size: medium;">找到代码&lt;!&#8211;eof also purchased products module&#8211;&gt;在下方加入</span></p>
 
-<pre><code class="php"> 
-&lt;span style="font-size: medium;">&lt;?php &lt;/span>
-&lt;span style="font-size: medium;">require($template-&gt;get_template_dir('tpl_modules_whats_new.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_whats_new.php');&lt;/span>
-&lt;span style="font-size: medium;">?&gt;&lt;/span>
-</code></pre>
+<p><pre><code class="php">
+&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;&lt;?php &lt;/span&gt;
+&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;require($template-&gt;get_template_dir(&lsquo;tpl_modules_whats_new.php&rsquo;,DIR_WS_TEMPLATE, $current_page_base,&lsquo;templates&rsquo;). &lsquo;/tpl_modules_whats_new.php&rsquo;);&lt;/span&gt;
+&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;?&gt;&lt;/span&gt;</p>
 
-<p><span style="font-size: medium;">这里我们调用的是新产品的函数，所以<strong>zencart中产品页下方显示的是随机产品</strong>。</span></p>
+<pre><code>
+&lt;span style=&quot;font-size: medium;&quot;&gt;这里我们调用的是新产品的函数，所以&lt;strong&gt;zencart中产品页下方显示的是随机产品&lt;/strong&gt;。&lt;/span&gt;
 
-<p><span style="font-size: medium;">2.然后找到includes/templates/模板名/common/tpl_columnar_display.php用下面的代码覆盖这个文件下的代码</span></p>
+&lt;span style=&quot;font-size: medium;&quot;&gt;2.然后找到includes/templates/模板名/common/tpl_columnar_display.php用下面的代码覆盖这个文件下的代码&lt;/span&gt;
 
-<pre><code class="php"> 
-<!--?php /** * Common Template - tpl_columnar_display.php * * This file is used for generating tabular output where needed, based on the supplied array of table-cell contents. * * @package templateSystem * @copyright Copyright 2003-2006 Zen Cart Development Team * @copyright Portions Copyright 2003 osCommerce * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0 * @version $Id: tpl_columnar_display.php 3157 2006-03-10 23:24:22Z drbyte $ */ ?-->
-> 0 ) {
-        $params = "";
-        for($col=0;$col&lt;3;$col++) {  //这边的3是显示zencart产品页下方随机产品数，默认是一行，所以就是一行三列的显示模式如果改成4就是一行4列，不过没有测试过。
-          $r_params = "";
+&lt;pre&gt;&lt;code class=&quot;php&quot;&gt; 
+&lt;!--?php /** * Common Template - tpl_columnar_display.php * * This file is used for generating tabular output where needed, based on the supplied array of table-cell contents. * * @package templateSystem * @copyright Copyright 2003-2006 Zen Cart Development Team * @copyright Portions Copyright 2003 osCommerce * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0 * @version $Id: tpl_columnar_display.php 3157 2006-03-10 23:24:22Z drbyte $ */ ?--&gt;
+&gt; 0 ) {
+        $params = &quot;&quot;;
+        for($col=0;$col&amp;lt;3;$col++) {  //这边的3是显示zencart产品页下方随机产品数，默认是一行，所以就是一行三列的显示模式如果改成4就是一行4列，不过没有测试过。
+          $r_params = &quot;&quot;;
           if (isset($list_box_contents[0][$col]['params'])) $r_params .= ' ' . (string)$list_box_contents[0][$col]['params'];
             if (isset($list_box_contents[0][$col]['text'])) {
-                echo '' . $list_box_contents[0][$col]['text'] .  '' . "\n"; 
+                echo '' . $list_box_contents[0][$col]['text'] .  '' . &quot;\n&quot;; 
             }
         }
-    ?&gt;
+    ?&amp;gt;
     
 
      0 ) {
-         for($row=0;$row' . $list_box_contents[$row][$col]['text'] .  '' . "\n"; 
+         for($row=0;$row' . $list_box_contents[$row][$col]['text'] .  '' . &quot;\n&quot;; 
                  }
             }
-?&gt;
-&lt;div' .="" $r_params="" '=""&gt;&lt;sizeof($list_box_contents);$row++) {="" $params="" ;="" if="" (isset($list_box_contents[$row]['params']))="" .=" " $list_box_contents[$row]['params'];="" for($col="0;$col&lt;sizeof($list_box_contents[$row]);$col++)" $r_params="" (isset($list_box_contents[$row][$col]['params']))="" (string)$list_box_contents[$row][$col]['params'];="" (isset($list_box_contents[$row][$col]['text']))="" echo="" '&lt;div'="" '=""&gt;
+?&amp;gt;
+&amp;lt;div' .=&quot;&quot; $r_params=&quot;&quot; '=&quot;&quot;&amp;gt;&amp;lt;sizeof($list_box_contents);$row++) {=&quot;&quot; $params=&quot;&quot; ;=&quot;&quot; if=&quot;&quot; (isset($list_box_contents[$row]['params']))=&quot;&quot; .=&quot; &quot; $list_box_contents[$row]['params'];=&quot;&quot; for($col=&quot;0;$col&amp;lt;sizeof($list_box_contents[$row]);$col++)&quot; $r_params=&quot;&quot; (isset($list_box_contents[$row][$col]['params']))=&quot;&quot; (string)$list_box_contents[$row][$col]['params'];=&quot;&quot; (isset($list_box_contents[$row][$col]['text']))=&quot;&quot; echo=&quot;&quot; '&amp;lt;div'=&quot;&quot; '=&quot;&quot;&amp;gt;
  
 
-<!--?php } } } ?-->
+&lt;!--?php } } } ?--&gt;
 </code></pre>
 
     

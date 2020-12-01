@@ -33,12 +33,11 @@ local key = KEYS[1] local value = KEYS[2] local ttl = KEYS[3] local ok = redis.<
       <guid>https://gofunbox.github.io/monitor-php-error-log-sendmail/</guid>
       <description>最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
- 安装 EPEL 资源 sudo yum install epel-release 
- 安装SEC yum install sec 
- 配置SEC vim /etc/sec/php.conf
-  type=Single ptype=RegExp pattern=^[.+] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0
-type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;ldquo;example.com PHP errors&amp;rdquo; admin@example.com; delete nginx-php-errors; 
- 启动配置 vim /etc/sysconfig/sec  SEC_ARGS[0]=&amp;ldquo;-detach &amp;ndash;conf=/etc/sec/php.conf &amp;ndash;input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid &amp;ndash;debug=6&amp;rdquo;</description>
+ 安装 EPEL 资源
+sudo yum install epel-release  安装SEC
+yum install sec  配置SEC
+vim /etc/sec/php.conf type=Single ptype=RegExp pattern=^\[.+\] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0 type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;quot;example.com PHP errors&amp;quot; admin@example.com; delete nginx-php-errors;  启动配置
+vim /etc/sysconfig/sec SEC_ARGS[0]=&amp;quot;-detach --conf=/etc/sec/php.conf --input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid --debug=6&amp;quot; #加载多配置 SEC_ARGS[1]=&amp;quot;-detach --conf=/etc/sec/php2.conf --input=/var/log/php-fpm/example2.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec2.</description>
     </item>
     
     <item>
@@ -89,7 +88,7 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
 $document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
 /tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
 /proc/ 可以让php查看系统负载信息。
@@ -113,8 +112,8 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
-brew install php-version  然后运行
-source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+ 然后运行
+ 安装完毕之后php-version，显示当前安装的全部php版本列表
 直接运行php-version php版本号，即可完成切换
 php -v 显示php版本已经变了，切换成功
 brew真心强大</description>
@@ -218,8 +217,8 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
 决定自己动手体验下。
 准备两段测试代码。
 test.html
-&amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=1&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=2&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=3&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=4&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=5&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=6&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=7&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=8&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=9&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=10&#34;&amp;gt;&amp;lt;/span  test.php
-&amp;lt;span style=&#34;font-size: 12pt;&#34;&amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;gt;&amp;lt;/span  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
+&amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=1&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=2&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=3&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=4&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=5&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=6&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=7&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=8&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=9&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=10&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;test.php&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;amp;gt;&amp;amp;lt;/span&amp;gt;  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
 效果如下图，因为火狐默认6个并发连接，所以前6个请求是木有阻隔的，但是由于session lock的原因，每个请求时间都比上一个晚2S，必须等上一个请求释放session lock。第7个请求就被阻隔了2S，因为要等第一个请求被释放嘛，O(∩_∩)O~
 
 2.然后去除test.php中session_write_close();前面的注释
@@ -231,9 +230,7 @@ test.html
 
 到这里对session lock阻塞就大致明白了。
 回过头解决问题了，我回想了自己项目的应用场景好多ajax加载界面甚至有ajax定时刷新，难道这个是罪魁祸首！
-于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。
-
-优化了下全部请求下来总时长快了1S，我tm惊呆了~</description>
+于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。</description>
     </item>
     
     <item>
@@ -270,11 +267,9 @@ session.save_path = &amp;#8220;tcp://127.0.0.1:11211&amp;#8221;
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); define(&#39;MONGO_DB_PORT&#39;, 30000); define(&#39;MONGO_DB_NAME&#39;, &#39;funbox_test&#39;); define(&#39;MONGO_DSN&#39;, &#39;mongo://&#39;.MONGO_DB_HOST.&#39;:&#39;.MONGO_DB_PORT.&#39;/&#39;.MONGO_DB_NAME); M(&#39;MongoModel:msg_log&#39;,&#39;&#39;,MONGO_DSN);  死活连不上funbox_test这个库，连上的是funbox，十分费解
-最好耐下性子看了源码
-MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。
-继续看父类Model，在Model类中的__construct发现了线索，第79行
-$this-&amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;lt;stronglist($this-&amp;gt;dbName,$this-&amp;gt;name) = explode(&#39;.&#39;,$name);&amp;lt;/strong }else{ $this-&amp;gt;name = $name; } }elseif(empty($this-&amp;gt;name)){ $this-&amp;gt;name = $this-&amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
+define(&amp;lsquo;MONGO_DB_HOST&amp;rsquo;, &amp;lsquo;192.168.1.172&amp;rsquo;); define(&amp;lsquo;MONGO_DB_PORT&amp;rsquo;, 30000); define(&amp;lsquo;MONGO_DB_NAME&amp;rsquo;, &amp;lsquo;funbox_test&amp;rsquo;); define(&amp;lsquo;MONGO_DSN&amp;rsquo;, &amp;lsquo;mongo://&amp;lsquo;.MONGO_DB_HOST.&amp;rsquo;:&amp;lsquo;.MONGO_DB_PORT.&amp;lsquo;/&amp;rsquo;.MONGO_DB_NAME);
+M(&amp;lsquo;MongoModel:msg_log&amp;rsquo;,&amp;ldquo;,MONGO_DSN);
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;死活连不上funbox_test这个库，连上的是funbox，十分费解&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;最好耐下性子看了源码&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;继续看父类Model，在Model类中的__construct发现了线索，第79行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; $this-&amp;amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;amp;lt;strong&amp;gt;list($this-&amp;amp;gt;dbName,$this-&amp;amp;gt;name) = explode(&#39;.&#39;,$name);&amp;amp;lt;/strong&amp;gt; }else{ $this-&amp;amp;gt;name = $name; } }elseif(empty($this-&amp;amp;gt;name)){ $this-&amp;amp;gt;name = $this-&amp;amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
 M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;,&amp;#8221;,MONGO_DSN);
 研究了一个下午，希望能为大家排排雷。</description>
     </item>
@@ -291,7 +286,11 @@ google了下有一个超级强大的二维码库PHP QR Code
 找了半天貌似官方库，没有一个二维码中间加logo的功能
 给跪了
 网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。
-$text = &#39;http://www.funboxpower.com&#39;; $logo = &#34;i/logo.png&#34;; //加的logo可以是本地路径也可以是网址 $errorCorrectionLevel = 3;//容错级别 $matrixPointSize = 9;//生成图片大小 生成大概400*400的二维码 //生成二维码图片 $QR = &#34;i/qrcode.png&#34;; //临时保存的文件名i文件夹里面 QRcode::png($text, $QR, $errorCorrectionLevel, $matrixPointSize, 2); //加logo if ($logo !== FALSE) { $QR = imagecreatefromstring(file_get_contents($QR)); $logo = imagecreatefromstring(file_get_contents($logo)); $QR_width = imagesx($QR); $QR_height = imagesy($QR); $logo_width = imagesx($logo); $logo_height = imagesy($logo); $logo_qr_width = $QR_width / 4; $scale = $logo_width / $logo_qr_width; $logo_qr_height = $logo_height / $scale; $from_width = ($QR_width - $logo_qr_width) / 2; imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height); } header(&#34;</description>
+$text = &amp;lsquo;http://www.funboxpower.com&#39;; $logo = &amp;ldquo;i/logo.png&amp;rdquo;; //加的logo可以是本地路径也可以是网址
+$errorCorrectionLevel = 3;//容错级别
+$matrixPointSize = 9;//生成图片大小 生成大概400*400的二维码
+//生成二维码图片 $QR = &amp;ldquo;i/qrcode.png&amp;rdquo;; //临时保存的文件名i文件夹里面 QRcode::png($text, $QR, $errorCorrectionLevel, $matrixPointSize, 2); //加logo if ($logo !== FALSE) { $QR = imagecreatefromstring(file_get_contents($QR));
+$logo = imagecreatefromstring(file_get_contents($logo)); $QR_width = imagesx($QR); $QR_height = imagesy($QR); $logo_width = imagesx($logo); $logo_height = imagesy($logo); $logo_qr_width = $QR_width / 4; $scale = $logo_width / $logo_qr_width; $logo_qr_height = $logo_height / $scale; $from_width = ($QR_width - $logo_qr_width) / 2; imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height); } header(&amp;ldquo;Content-type: image/png&amp;rdquo;); imagepng($QR);</description>
     </item>
     
     <item>
@@ -338,11 +337,12 @@ SublimeCodeIntel 代码提示自动完成
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;  改为： 
-fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
-expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</description>
+ServerTokensProductOnly ServerSignatureOff
+ ## 隐藏Nginx版本信息: &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;打开 nginx.conf，在http { }里加上：&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
+fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;改为： &amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
+expose_php = Off ```
+完成以上设定后，重新启动 Apache/Nginx 即可。</description>
     </item>
     
     <item>
@@ -355,7 +355,9 @@ expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</d
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
 PHP的AES加密算法：
-&amp;lt;?php class MCrypt { private $hex_iv = &#39;00000000000000000000000000000000&#39;; # converted JAVA byte code in to HEX and placed it here private $key = &#39;U1MjU1M0FDOUZ.Qz&#39;; #Same as in JAVA function __construct() { $this-&amp;gt;key = hash(&#39;sha256&#39;, $this-&amp;gt;key, true); //echo $this-&amp;gt;key.&#39;&amp;lt;br/&amp;gt;&#39;; } function encrypt($str) { $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &#39;&#39;, MCRYPT_MODE_CBC, &#39;&#39;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); $pad = $block - (strlen($str) % $block); $str .= str_repeat(chr($pad), $pad); $encrypted = mcrypt_generic($td, $str); mcrypt_generic_deinit($td); mcrypt_module_close($td); return base64_encode($encrypted); } function decrypt($code) { $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &#39;&#39;, MCRYPT_MODE_CBC, &#39;&#39;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $str = mdecrypt_generic($td, base64_decode($code)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); mcrypt_generic_deinit($td); mcrypt_module_close($td); return $this-&amp;gt;strippadding($str); } /* For PKCS7 padding */ private function addpadding($string, $blocksize = 16) { $len = strlen($string); $pad = $blocksize - ($len % $blocksize); $string .</description>
+&amp;lt;?php class MCrypt { private $hex_iv = &amp;lsquo;00000000000000000000000000000000&amp;rsquo;; # converted JAVA byte code in to HEX and placed it here
+private $key = &amp;lsquo;U1MjU1M0FDOUZ.Qz&amp;rsquo;; #Same as in JAVA function __construct() { $this-&amp;gt;key = hash(&amp;lsquo;sha256&amp;rsquo;, $this-&amp;gt;key, true); //echo $this-&amp;gt;key.&amp;rsquo;&amp;lt;br/&amp;gt;&amp;rsquo;; } function encrypt($str) {
+$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &amp;ldquo;, MCRYPT_MODE_CBC, &amp;ldquo;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); $pad = $block - (strlen($str) % $block); $str .= str_repeat(chr($pad), $pad); $encrypted = mcrypt_generic($td, $str); mcrypt_generic_deinit($td); mcrypt_module_close($td);</description>
     </item>
     
     <item>
@@ -416,8 +418,8 @@ show profile的结果如下：
       <guid>https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/</guid>
       <description>该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &#39;GBK&#39; 例：mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c);  问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞
-&amp;lt;?php $c = mysql_connect(&#34;localhost&#34;, &#34;user&#34;, &#34;pass&#34;); mysql_select_db(&#34;database&#34;, $c); // change our character set mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c); // create demo table mysql_query(&#34;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&#34;, $c); mysql_query(&#34;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&#34;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &amp;lsquo;GBK&amp;rsquo; 例：mysql_query(&amp;ldquo;SET CHARACTER SET &amp;lsquo;gbk&amp;rsquo;&amp;rdquo;, $c);
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;?php $c = mysql_connect(&amp;quot;localhost&amp;quot;, &amp;quot;user&amp;quot;, &amp;quot;pass&amp;quot;); mysql_select_db(&amp;quot;database&amp;quot;, $c); // change our character set mysql_query(&amp;quot;SET CHARACTER SET &#39;gbk&#39;&amp;quot;, $c); // create demo table mysql_query(&amp;quot;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&amp;quot;, $c); mysql_query(&amp;quot;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&amp;quot;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
     </item>
     
     <item>
@@ -428,7 +430,11 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
       <guid>https://gofunbox.github.io/phpass_bcrypt_encrypted_password/</guid>
       <description>在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&amp;lt;?php // Include the phpass library require_once(&#39;phpass-03/PasswordHash.php&#39;) // Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, false); // Hash the password. $hashedPassword will be a 60-character string. $hashedPassword = $hasher-&amp;gt;HashPassword(&#39;my super cool password&#39;); // You can now safely store the contents of $hashedPassword in your database! // Check if a user has provided the correct password by comparing what they // typed with our hash $hasher-&amp;gt;CheckPassword(&#39;the wrong password&#39;, $hashedPassword); // false $hasher-&amp;gt;CheckPassword(&#39;my super cool password&#39;, $hashedPassword); // true ?</description>
+&amp;lt;?php // Include the phpass library require_once(&amp;lsquo;phpass-03/PasswordHash.php&amp;rsquo;)
+// Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, false);
+// Hash the password. $hashedPassword will be a 60-character string. $hashedPassword = $hasher-&amp;gt;HashPassword(&amp;lsquo;my super cool password&amp;rsquo;);
+// You can now safely store the contents of $hashedPassword in your database!
+// Check if a user has provided the correct password by comparing what they // typed with our hash $hasher-&amp;gt;CheckPassword(&amp;lsquo;the wrong password&amp;rsquo;, $hashedPassword); // false</description>
     </item>
     
     <item>
@@ -455,8 +461,8 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
       <pubDate>Thu, 06 Mar 2014 03:10:52 +0000</pubDate>
       
       <guid>https://gofunbox.github.io/xhprof_php_analysis_tool/</guid>
-      <description>简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展的安装： % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure --with-php-config=&amp;lt;path to php-config&amp;gt; % make &amp;&amp; make install  修改php.ini最后面加入
-[xhprof] extension=xhprof.so ; ; directory used by default implementation of the iXHProfRuns ; interface (namely, the XHProfRuns_Default class) for storing ; XHProf runs. ; xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路径需要修改 记得给写权限 % php-fpm reload //重启一下fpm  Graphviz安装（这个主要是画图需要的库） % wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz % tar zxf graphviz-2.</description>
+      <description>简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展的安装： % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure &amp;ndash;with-php-config=&amp;lt;path to php-config&amp;gt; % make &amp;amp;&amp;amp; make install
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;修改php.ini最后面加入&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [xhprof] extension=xhprof.so ; ; directory used by default implementation of the iXHProfRuns ; interface (namely, the XHProfRuns_Default class) for storing ; XHProf runs. ; xhprof.output_dir=&amp;amp;lt;directory_for_storing_xhprof_runs&amp;amp;gt; //日志路径需要修改 记得给写权限 % php-fpm reload //重启一下fpm  Graphviz安装（这个主要是画图需要的库） % wget http://www.</description>
     </item>
     
     <item>

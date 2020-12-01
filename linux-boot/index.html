@@ -176,8 +176,7 @@
 
 <p>在 /etc/inittab 文件中找到如下内容：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash"># The default runlevel.
-id:2:initdefault:    
+<pre><code class="language-#">id:2:initdefault:    
 </code></pre>
 
 <p>2为系统的运行级别，默认的运行级别涵义如下：<br />
@@ -190,8 +189,7 @@ id:2:initdefault:
 
 <p>在运行级别对应的文件夹中，您可以看到许多文件名以 S## 和 K## 起始的启动脚本链接。例如：</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">/etc/rcS.d/S35mountall.sh   挂载文件系统
-/etc/rcS.d/S40networking    启用网络支持
+<pre><code class="language-/etc/rcS.d/S35mountall.sh">/etc/rcS.d/S40networking    启用网络支持
 /etc/rc2.d/S13gdm           启动登录管理器
 /etc/rc2.d/S20makedev       创建设备文件
 /etc/rc2.d/S23xinetd        启动超级进程
@@ -209,13 +207,11 @@ id:2:initdefault:
 
 <p>您也可以手动运行带有以下选项的启动脚本，来控制系统服务。 start 启动 stop 停止 restart 重启</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">/etc/rc2.d/K20powernowd start    
-</code></pre>
+<pre><code class="language-/etc/rc2.d/K20powernowd"></code></pre>
 
 <p>有时您并不清楚某一运行级别有什么启动脚本；而且此类脚本的前三位字符并不固定，不便于记忆。这时，可以直接使用 /etc/init.d/ 文件夹中的启动脚本（ /etc/rcX.d/ 中的启动脚本链接到 /etc/init.d/ 文件夹下相应脚本），这也是推荐的方式。</p>
 
-<pre class="line-numbers prism-highlight" data-start="1"><code class="language-bash">/etc/init.d/powernowd start        
-</code></pre>
+<pre><code class="language-/etc/init.d/powernowd"></code></pre>
 
 <h3 id="常见系统服务">常见系统服务</h3>
 

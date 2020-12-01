@@ -177,21 +177,21 @@ JavaScript库的性质使得它非常 …" />
 
 <p><span style="font-size: 14pt;">只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了</span></p>
 
-<pre><code class="javascript">
-&lt;span style="font-size: 14pt;">gifshot.createGIF({
+<p><pre><code class="javascript">
+&lt;span style=&ldquo;font-size: 14pt;&ldquo;&gt;gifshot.createGIF({
     images: [
-        'http://i.imgur.com/2OO33vX.jpg',
-        'http://i.imgur.com/qOwVaSN.png',
-        'http://i.imgur.com/Vo5mFZJ.gif'
+        &lsquo;<a href="http://i.imgur.com/2OO33vX.jpg'">http://i.imgur.com/2OO33vX.jpg'</a>,
+        &lsquo;<a href="http://i.imgur.com/qOwVaSN.png'">http://i.imgur.com/qOwVaSN.png'</a>,
+        &lsquo;<a href="http://i.imgur.com/Vo5mFZJ.gif'">http://i.imgur.com/Vo5mFZJ.gif'</a>
     ]
 }, function (obj) {
     if (!obj.error) {
-        var image = obj.image, animatedImage = document.createElement('img');
+        var image = obj.image, animatedImage = document.createElement(&lsquo;img&rsquo;);
         animatedImage.src = image;
         document.body.appendChild(animatedImage);
     }
-});&lt;/span>
-</code></pre>
+});&lt;/span&gt;
+```</p>
 
 <p><span style="font-size: 14pt;">就不上更多代码了，因为官网介绍得非常详细。</span></p>
 

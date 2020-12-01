@@ -152,10 +152,11 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
       
       <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
-yum install mailx #安装 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
-[root@localhost ~]# mailx -V 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
+12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）
-set from=111******53@qq.com set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)</description>
+set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)
+smtp-server: 530 Error: A secure connection is requiered(such as ssl).</description>
     </item>
     
     <item>
@@ -188,12 +189,11 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
       <guid>https://gofunbox.github.io/monitor-php-error-log-sendmail/</guid>
       <description>最近自己搞的小项目php报错几天后才被人发现，看来来个监控十分重要了。需要自动监控error_log一有新错误发送邮件通知下技术员，发现SEC -simple event correlator这个强大稳定的工具可以满足我的需要。
 SEC是一个Perl脚本（〜11k行代码！），当有致命错误时，SEC会向您发送通知。可以使用正则表达式来查找需要发送的内容。所以您可以将其用于更复杂的设置，如应用程序日志或Web服务器访问日志~~~
- 安装 EPEL 资源 sudo yum install epel-release 
- 安装SEC yum install sec 
- 配置SEC vim /etc/sec/php.conf
-  type=Single ptype=RegExp pattern=^[.+] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0
-type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;ldquo;example.com PHP errors&amp;rdquo; admin@example.com; delete nginx-php-errors; 
- 启动配置 vim /etc/sysconfig/sec  SEC_ARGS[0]=&amp;ldquo;-detach &amp;ndash;conf=/etc/sec/php.conf &amp;ndash;input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid &amp;ndash;debug=6&amp;rdquo;</description>
+ 安装 EPEL 资源
+sudo yum install epel-release  安装SEC
+yum install sec  配置SEC
+vim /etc/sec/php.conf type=Single ptype=RegExp pattern=^\[.+\] PHP Fatal error.+$ desc=PHP error action=add nginx-php-errors $0 type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors action=report nginx-php-errors /bin/mail -s &amp;quot;example.com PHP errors&amp;quot; admin@example.com; delete nginx-php-errors;  启动配置
+vim /etc/sysconfig/sec SEC_ARGS[0]=&amp;quot;-detach --conf=/etc/sec/php.conf --input=/var/log/php-fpm/example.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec.pid --debug=6&amp;quot; #加载多配置 SEC_ARGS[1]=&amp;quot;-detach --conf=/etc/sec/php2.conf --input=/var/log/php-fpm/example2.com-error.log -log=/var/log/sec -intevents -pid=/var/run/sec2.</description>
     </item>
     
     <item>
@@ -211,12 +211,12 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
 明白了这一点，我们来看看Linux和Windows对于分区不同的表示方法：
 可能您已经很熟悉Windows了，它使用盘符来表示分区，比如 C: D: E: ，每一个分区使用一个盘符来标识，而且顺序可以颠倒， D: 并不一定就是您系统中的第二个分区。（如果您给第二个分区分配最后一个硬盘盘符，把所有的盘符按顺序排列好，并且重装一次系统，您就会理解什么叫作“头疼”了）
 而在Linux中，分区是这样表示的
-/dev/hda /dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
+/dev/hda1 /dev/hda2 /dev/hda5 /dev/sdb1  以 /dev/hda5 为例:
 因为在Linux中，每一个设备都是用 /dev/ 文件夹下的一个文件来表示，所以 /dev/hda5 中， /dev/ 表示的是根目录下的dev目录，我们来看剩下的部分 hda5 。
 前两位的字母 hd 表示这是一块IDE硬盘，如果是 sd ，则代表SATA硬盘，或者闪存等外设。
 第三位的字母 a 表示这是该类型接口上的第一个设备。同理， b、c、d…… 分别代表该类型接口上的第二三四……个设备。例如 hdc 表示第二个IDE接口上的主硬盘（每个IDE接口上允许一个主设备和一个从设备）。
 第四位的数字 5 ，并不表示这是该硬盘中的第5个分区，而是第一个逻辑分区。因为在Linux中，为了避免不必要的混乱，分区的顺序是不能改变的，分区标识则由它们在硬盘中的位置决定。系统又要为所有可能的主分区预留标识，所以 1-4 一定不会是逻辑分区， 5 则是第一个逻辑分区，以此类推。
-/dev/hda1 第一块硬盘的第一主分区 /dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
+/dev/hdb5 第二块硬盘的第一逻辑分区 /dev/sda4 第一块 SATA 硬盘的第四主分区，或者扩展分区 /dev/null 黑洞设备  挂载分区 https://i.linuxtoy.org/docs/guide/ch08s02.html</description>
     </item>
     
     <item>
@@ -263,7 +263,7 @@ type=Calendar time=* * * * * desc=Mail web errors context=nginx-php-errors actio
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;lt;meta&amp;gt;标签。 &amp;lt;meta http-equiv=&#34;Content-Security-Policy&#34; content=&#34;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&#34;&amp;gt;  具体含义:
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt;  具体含义:
 * 脚本：只信任当前域名
 * &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
 * 样式表：只信任cdn.example.org和third-party.org
@@ -291,7 +291,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <pubDate>Tue, 25 Jul 2017 14:36:39 +0000</pubDate>
       
       <guid>https://gofunbox.github.io/mysql-show-processlist/</guid>
-      <description>mysql&amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
+      <description>mysql&amp;amp;gt; SHOW FULL PROCESSLIST; +----+------+-----------+------+---------+------+-------+-----------------------+ | Id | User | Host | db | Command | Time | State | Info | +----+------+-----------+------+---------+------+-------+-----------------------+ | 65 | root | localhost | NULL | Query | 0 | NULL | SHOW FULL PROCESSLIST | +----+------+-----------+------+---------+------+-------+-----------------------+ 1 row in set (0.00 sec)   id
 连接标识符。这是跟INFORMATION_SCHEMA.PROCESSLIST表的ID列中显示相同的值，即Performance_Schema.threads的PROCESSLIST_ID列，并由CONNECTION_ID函数返回。 User
 发出语句的MySQL用户。如果这是system user，则它是指MYSQL服务器产生的非客户端线程，以在内部处理任务。这可能是复制从站或延迟行处理程序使用的I / O或SQL线程。unauthenticated user指的是已经与客户端连接关联但是尚未完成客户端用户的身份验证的线程。event_scheduler是指监视预定事件的线程。对于system user，在主机列中没有指定主机。 Host
 发出该语句的客户端的主机名（除了没有主机的system user除外）。SHOW PROCESSLIST报告host_name中的TCP / IP连接的主机名称：client_port格式，以便更容易地确定哪个客户端正在做什么。 db
@@ -397,14 +397,15 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
       
       <guid>https://gofunbox.github.io/linux_command_free/</guid>
       <description>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 2 3 4 5 6 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
+1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
 total:总计物理内存的大小。
 used:已使用多大。
 free:可用有多少。
 Shared:多个进程共享的内存总额，现在已经deprecated，其值总是0（当然在一些系统上也可能不是0，主要取决于free命令是怎么实现的）。
 Buffers/cached:磁盘缓存的大小，FO[2][5]表示被OS buffer住的内存。FO[2][6]表示被OS cache的内存。在有些时候buffer和cache这两个词经常混用。不过在一些比较低层的软件里是要区分这两个词的，看老外的洋文:
  _A buffer is something that has yet to be &amp;#8220;written&amp;#8221; to disk.
-_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.</description>
+_ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk and stored for later use.  也就是说buffer是用于存放要输出到disk（块设备）的数据的，而cache是存放从disk上读出的数据。这二者是为了提高IO性能的，并由OS管理。
+第三行(-/+ buffers/cached)，从应用程序角度来看，对于应用程序来说，buffers/cached 是等于可用的，因为buffer/cached是为了提高文件读取的性能，当应用程序需在用到内存的时候，buffer/cached会很快地被回收。</description>
     </item>
     
     <item>
@@ -418,7 +419,7 @@ _ A cache is something that has been &amp;#8220;read&amp;#8221; from the disk an
 首先php的版本必须大于等于php5.3.3。
 方法1 在nginx 配置 fastcgi_param参数
 在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &#34;open_basedir=$document_root:/tmp/:/proc/&#34;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
+fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
 $document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
 /tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
 /proc/ 可以让php查看系统负载信息。
@@ -468,11 +469,11 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 https://github.com/simpl/ngx_devel_kit/tags
 wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-wget https://github.com/openresty/lua-nginx-module/archive/v0.10.2.tar.gz tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-# tell nginx&#39;s build system where to find LuaJIT 2.1: export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
-./configure (之前安装的参数) --with-ld-opt=&#34;-Wl,-rpath,/usr/local/luajit/lib&#34; --add-module=/path/to/ngx_devel_kit --add-module=/path/to/lua-nginx-module --add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
 在nginx下配置
-location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
     <item>
@@ -484,8 +485,8 @@ location /hello_lua { default_type &#39;text/plain&#39;; content_by_lua &#39;ngx
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
-brew install php-version  然后运行
-source $(brew --prefix php-version)/php-version.sh php-version 5  安装完毕之后php-version，显示当前安装的全部php版本列表
+ 然后运行
+ 安装完毕之后php-version，显示当前安装的全部php版本列表
 直接运行php-version php版本号，即可完成切换
 php -v 显示php版本已经变了，切换成功
 brew真心强大</description>
@@ -621,7 +622,8 @@ JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(
 可定制的
 可以使用自定义构建只包括项目所需的特定功能。
 只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了
-&amp;lt;span style=&#34;font-size: 14pt;&#34;gifshot.createGIF({ images: [ &#39;http://i.imgur.com/2OO33vX.jpg&#39;, &#39;http://i.imgur.com/qOwVaSN.png&#39;, &#39;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&#39;img&#39;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;lt;/span  就不上更多代码了，因为官网介绍得非常详细。
+&amp;lt;span style=&amp;ldquo;font-size: 14pt;&amp;ldquo;&amp;gt;gifshot.createGIF({ images: [ &amp;lsquo;http://i.imgur.com/2OO33vX.jpg&#39;, &amp;lsquo;http://i.imgur.com/qOwVaSN.png&#39;, &amp;lsquo;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&amp;lsquo;img&amp;rsquo;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;lt;/span&amp;gt; ```
+就不上更多代码了，因为官网介绍得非常详细。
 附上官网地址https://yahoo.github.io/gifshot/</description>
     </item>
     
@@ -656,15 +658,7 @@ post_content_filtered字段类型改成varchar(50)
       <description>GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
 假设你已经有sudo权限的用户账号，下面，正式开始安装。
 第一步，安装git：
-&amp;lt;span style=&#34;font-size: 12pt;&#34;yum install -y git&amp;lt;/span  第二步，创建一个git用户，用来运行git服务：
-&amp;lt;span style=&#34;font-size: 12pt;&#34;adduser git -d /home/git/ -s /usr/bin/git-shell&amp;lt;/span  第三步，创建证书登录：
-收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。
-&amp;lt;span style=&#34;font-size: 12pt;&#34;[ssh-keygen -t rsa -C &#34;name@baidu.com&#34;]&amp;lt;/span  第四步，初始化Git仓库：
-先选定一个目录作为Git仓库，假定是/home/git/sample.git，在/home/git目录下输入命令：
-&amp;lt;span style=&#34;font-size: 12pt;&#34;sudo git init --bare sample.git&amp;lt;/span  Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：
-&amp;lt;span style=&#34;font-size: 12pt;&#34;sudo chown -R git:git sample.git&amp;lt;/span  第五步，禁用shell登录：
-出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：
-&amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:/bin/bash&amp;lt;/span 改成 &amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;</description>
+&amp;lt;span style=&#34;font-size: 12pt;&#34;yum install -y git&amp;lt;/span ``` 第二步，创建一个git用户，用来运行git服务： &amp;lt;span style=&#34;font-size: 12pt;&#34;adduser git -d /home/git/ -s /usr/bin/git-shell&amp;lt;/span ``` 第三步，创建证书登录： 收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。 &amp;lt;span style=&#34;font-size: 12pt;&#34;[ssh-keygen -t rsa -C &#34;name@baidu.com&#34;]&amp;lt;/span ``` 第四步，初始化Git仓库： 先选定一个目录作为Git仓库，假定是/home/git/sample.git，在/home/git目录下输入命令： &amp;lt;span style=&#34;font-size: 12pt;&#34;sudo git init --bare sample.git&amp;lt;/span ``` Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git： &amp;lt;span style=&#34;font-size: 12pt;&#34;sudo chown -R git:git sample.git&amp;lt;/span ``` 第五步，禁用shell登录： 出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行： &amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:/bin/bash&amp;lt;/span 改成 &amp;lt;span class=&#34;symbol&#34;git:&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;x:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span&amp;lt;span class=&#34;number&#34;1001&amp;lt;/span&amp;lt;span class=&#34;symbol&#34;:&amp;lt;/span,,,&amp;lt;span class=&#34;symbol&#34;:/home/git&amp;lt;/span&amp;lt;span class=&#34;</description>
     </item>
     
     <item>
@@ -679,7 +673,7 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
 我在最近的一个项目中也应用了MemcacheQ，下面我将分享一下MemcacheQ在Linux中的编译和安装过程。
 首先，MemcacheQ依赖于BerkeleyDB和Libevent，如果服务器中曾经安装过Memcached，那么Libevent应该已经存在了，否则就需要先下载安装Libevent。
 下载链接如下：
-  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span   安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span   安装MemcacheQ &amp;lt;span style=&#34;</description>
+  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装MemcacheQ &amp;lt;span style=&#34;</description>
     </item>
     
     <item>
@@ -726,12 +720,11 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
       
       <guid>https://gofunbox.github.io/linux_crontab_error/</guid>
       <description>直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
-&amp;lt;span style=&#34;font-size: 12pt;&#34; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  也保证下写入文件夹的权限，还是不行
-直接运行，就正常运行
-&amp;lt;span style=&#34;font-size: 12pt;&#34;/usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;也保证下写入文件夹的权限，还是不行&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;直接运行，就正常运行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  
 最后网络上找说是有可能是相对路径的问题，就改成
-&amp;lt;span style=&#34;font-size: 12pt;&#34;0 1 * * * sh /home/stock/stock.sh&amp;lt;/span  stock.sh代码如下
-&amp;lt;span style=&#34;font-size: 12pt;&#34;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span  先cd到执行脚本路径下就可以正常执行了
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;0 1 * * * sh /home/stock/stock.sh&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;stock.sh代码如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  先cd到执行脚本路径下就可以正常执行了
 也找到一个帖子解决方法不过貌似不适用我这个情况，不过大家也可以看看
 http://segmentfault.com/a/1190000000768446</description>
     </item>
@@ -762,7 +755,10 @@ http://segmentfault.com/a/1190000000768446</description>
 了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
 
 thinkphp实现的代码，距离单位都是km
-&amp;lt;span style=&#34;font-size: 12pt;&#34;$where[&#39;geoNear&#39;] = &#39;user_coordinate&#39;; $where[&#39;near&#39;] = array($longitude,$latitude); $where[&#39;spherical&#39;] = true; $where[&#39;maxDistance&#39;] = $maxDistance/6371; $where[&#39;distanceMultiplier&#39;] = 6371; $where[&#39;query&#39;] = array(&#34;status&#34;=&amp;gt;1); $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&#39;results&#39;])) { foreach ($res[&#39;results&#39;] as $key =&amp;gt; $value) { $data[$key] = $value[&#39;obj&#39;]; $data[$key][&#39;dis&#39;] = $value[&#39;dis&#39;]; } } return $data;&amp;lt;/span  就这样搞定了</description>
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;$where[&amp;lsquo;geoNear&amp;rsquo;] = &amp;lsquo;user_coordinate&amp;rsquo;; $where[&amp;lsquo;near&amp;rsquo;] = array($longitude,$latitude); $where[&amp;lsquo;spherical&amp;rsquo;] = true; $where[&amp;lsquo;maxDistance&amp;rsquo;] = $maxDistance/6371; $where[&amp;lsquo;distanceMultiplier&amp;rsquo;] = 6371; $where[&amp;lsquo;query&amp;rsquo;] = array(&amp;ldquo;status&amp;rdquo;=&amp;gt;1);
+$res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&amp;lsquo;results&amp;rsquo;])) { foreach ($res[&amp;lsquo;results&amp;rsquo;] as $key =&amp;gt; $value) { $data[$key] = $value[&amp;lsquo;obj&amp;rsquo;]; $data[$key][&amp;lsquo;dis&amp;rsquo;] = $value[&amp;lsquo;dis&amp;rsquo;]; }
+} return $data;&amp;lt;/span&amp;gt; ```
+就这样搞定了</description>
     </item>
     
     <item>
@@ -780,8 +776,8 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
 决定自己动手体验下。
 准备两段测试代码。
 test.html
-&amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=1&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=2&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=3&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=4&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=5&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=6&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=7&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=8&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=9&#34;&amp;gt; &amp;lt;img src=&#34;https://ifunbox.top/demo/session_start_test/test.php?v=10&#34;&amp;gt;&amp;lt;/span  test.php
-&amp;lt;span style=&#34;font-size: 12pt;&#34;&amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;gt;&amp;lt;/span  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
+&amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=1&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=2&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=3&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=4&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=5&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=6&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=7&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=8&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=9&amp;quot;&amp;gt; &amp;lt;img src=&amp;ldquo;https://ifunbox.top/demo/session_start_test/test.php?v=10&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;test.php&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;amp;lt;?php session_start(); $_SESSION[&#39;latestRequestTime&#39;] = time(); //session_write_close(); sleep(2); $twitterId = $_SESSION[&#39;latestRequestTime&#39;]; echo json_encode($twitterId); ?&amp;amp;gt;&amp;amp;lt;/span&amp;gt;  1.我们先在火狐上访问test.html，里面有10个php请求到test.php。
 效果如下图，因为火狐默认6个并发连接，所以前6个请求是木有阻隔的，但是由于session lock的原因，每个请求时间都比上一个晚2S，必须等上一个请求释放session lock。第7个请求就被阻隔了2S，因为要等第一个请求被释放嘛，O(∩_∩)O~
 
 2.然后去除test.php中session_write_close();前面的注释
@@ -793,9 +789,7 @@ test.html
 
 到这里对session lock阻塞就大致明白了。
 回过头解决问题了，我回想了自己项目的应用场景好多ajax加载界面甚至有ajax定时刷新，难道这个是罪魁祸首！
-于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。
-
-优化了下全部请求下来总时长快了1S，我tm惊呆了~</description>
+于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。</description>
     </item>
     
     <item>
@@ -833,9 +827,10 @@ session.save_path = &amp;#8220;tcp://127.0.0.1:11211&amp;#8221;
 这个模块貌似只能动态加载
 官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html
 看了这些基本知识，开始尝试安装吧
-&amp;lt;span style=&#34;font-size: 12pt;&#34;./configure --with--http_trim_filter_module=shared make make dso_install&amp;lt;/span  nginx.conf中events上方加入
-&amp;lt;span style=&#34;font-size: 12pt;&#34;dso { load ngx_http_trim_filter_module.so; }&amp;lt;/span  网站配置内加入
-&amp;lt;span style=&#34;font-size: 12pt;&#34;trim on; trim_jscss on;&amp;lt;/span  官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;./configure &amp;ndash;with&amp;ndash;http_trim_filter_module=shared make make dso_install&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;nginx.conf中events上方加入&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;apache&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt;  网站配置内加入
+&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;trim on; trim_jscss on;&amp;lt;/span&amp;gt; ```
+官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
 至此安装成功，看下效果首页减少2K，嘿嘿~
 还有一点：trim_jscss开启不一定适合全部网站哦，开启可能会影响js</description>
     </item>
@@ -866,11 +861,9 @@ yum install libpcap-devel 即可解决</description>
 目前这个项目默认是连接MYSQL数据库
 最近开发消息中心，涉及到在程序期间要连接Mongo数据库
 最开始用了下面这个方式创建模式
-define(&#39;MONGO_DB_HOST&#39;, &#39;192.168.1.172&#39;); define(&#39;MONGO_DB_PORT&#39;, 30000); define(&#39;MONGO_DB_NAME&#39;, &#39;funbox_test&#39;); define(&#39;MONGO_DSN&#39;, &#39;mongo://&#39;.MONGO_DB_HOST.&#39;:&#39;.MONGO_DB_PORT.&#39;/&#39;.MONGO_DB_NAME); M(&#39;MongoModel:msg_log&#39;,&#39;&#39;,MONGO_DSN);  死活连不上funbox_test这个库，连上的是funbox，十分费解
-最好耐下性子看了源码
-MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。
-继续看父类Model，在Model类中的__construct发现了线索，第79行
-$this-&amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;lt;stronglist($this-&amp;gt;dbName,$this-&amp;gt;name) = explode(&#39;.&#39;,$name);&amp;lt;/strong }else{ $this-&amp;gt;name = $name; } }elseif(empty($this-&amp;gt;name)){ $this-&amp;gt;name = $this-&amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
+define(&amp;lsquo;MONGO_DB_HOST&amp;rsquo;, &amp;lsquo;192.168.1.172&amp;rsquo;); define(&amp;lsquo;MONGO_DB_PORT&amp;rsquo;, 30000); define(&amp;lsquo;MONGO_DB_NAME&amp;rsquo;, &amp;lsquo;funbox_test&amp;rsquo;); define(&amp;lsquo;MONGO_DSN&amp;rsquo;, &amp;lsquo;mongo://&amp;lsquo;.MONGO_DB_HOST.&amp;rsquo;:&amp;lsquo;.MONGO_DB_PORT.&amp;lsquo;/&amp;rsquo;.MONGO_DB_NAME);
+M(&amp;lsquo;MongoModel:msg_log&amp;rsquo;,&amp;ldquo;,MONGO_DSN);
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;死活连不上funbox_test这个库，连上的是funbox，十分费解&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;最好耐下性子看了源码&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;继续看父类Model，在Model类中的__construct发现了线索，第79行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; $this-&amp;amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;amp;lt;strong&amp;gt;list($this-&amp;amp;gt;dbName,$this-&amp;amp;gt;name) = explode(&#39;.&#39;,$name);&amp;amp;lt;/strong&amp;gt; }else{ $this-&amp;amp;gt;name = $name; } }elseif(empty($this-&amp;amp;gt;name)){ $this-&amp;amp;gt;name = $this-&amp;amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
 M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;,&amp;#8221;,MONGO_DSN);
 研究了一个下午，希望能为大家排排雷。</description>
     </item>
@@ -919,7 +912,11 @@ google了下有一个超级强大的二维码库PHP QR Code
 找了半天貌似官方库，没有一个二维码中间加logo的功能
 给跪了
 网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。
-$text = &#39;http://www.funboxpower.com&#39;; $logo = &#34;i/logo.png&#34;; //加的logo可以是本地路径也可以是网址 $errorCorrectionLevel = 3;//容错级别 $matrixPointSize = 9;//生成图片大小 生成大概400*400的二维码 //生成二维码图片 $QR = &#34;i/qrcode.png&#34;; //临时保存的文件名i文件夹里面 QRcode::png($text, $QR, $errorCorrectionLevel, $matrixPointSize, 2); //加logo if ($logo !== FALSE) { $QR = imagecreatefromstring(file_get_contents($QR)); $logo = imagecreatefromstring(file_get_contents($logo)); $QR_width = imagesx($QR); $QR_height = imagesy($QR); $logo_width = imagesx($logo); $logo_height = imagesy($logo); $logo_qr_width = $QR_width / 4; $scale = $logo_width / $logo_qr_width; $logo_qr_height = $logo_height / $scale; $from_width = ($QR_width - $logo_qr_width) / 2; imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height); } header(&#34;</description>
+$text = &amp;lsquo;http://www.funboxpower.com&#39;; $logo = &amp;ldquo;i/logo.png&amp;rdquo;; //加的logo可以是本地路径也可以是网址
+$errorCorrectionLevel = 3;//容错级别
+$matrixPointSize = 9;//生成图片大小 生成大概400*400的二维码
+//生成二维码图片 $QR = &amp;ldquo;i/qrcode.png&amp;rdquo;; //临时保存的文件名i文件夹里面 QRcode::png($text, $QR, $errorCorrectionLevel, $matrixPointSize, 2); //加logo if ($logo !== FALSE) { $QR = imagecreatefromstring(file_get_contents($QR));
+$logo = imagecreatefromstring(file_get_contents($logo)); $QR_width = imagesx($QR); $QR_height = imagesy($QR); $logo_width = imagesx($logo); $logo_height = imagesy($logo); $logo_qr_width = $QR_width / 4; $scale = $logo_width / $logo_qr_width; $logo_qr_height = $logo_height / $scale; $from_width = ($QR_width - $logo_qr_width) / 2; imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height); } header(&amp;ldquo;Content-type: image/png&amp;rdquo;); imagepng($QR);</description>
     </item>
     
     <item>
@@ -932,7 +929,8 @@ $text = &#39;http://www.funboxpower.com&#39;; $logo = &#34;i/logo.png&#34;; //�
 瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
 由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。
 也就是模块认不到js文件了。。。
-[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&#34;application/x-javascript&#34;),  因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
+[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;ldquo;application/x-javascript&amp;rdquo;), ```
+因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
     </item>
     
     <item>
@@ -943,13 +941,11 @@ $text = &#39;http://www.funboxpower.com&#39;; $logo = &#34;i/logo.png&#34;; //�
       <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
+重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -975,7 +971,8 @@ https://developers.google.com/speed/pagespeed/module/configuration
 这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
 还有一个问题压缩合并js，css都有缓存，看了文档貌似没有提缓存时间的问题
 如果需要刷新缓存，我是用重启nginx的方法
-pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &#34;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&#34; { add_header &#34;&#34; &#34;&#34;; } location ~ &#34;^/pagespeed_static/&#34; { } location ~ &#34;^/ngx_pagespeed_beacon$&#34; { }  关于阻挡blocking的介绍
+pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;ldquo;.pagespeed.([a-z].)?[a-z]{2}.[^.]{10}.[^.]+&amp;rdquo; { add_header &amp;ldquo;&amp;rdquo; &amp;ldquo;&amp;rdquo;; } location ~ &amp;ldquo;^/pagespeed_static/&amp;rdquo; { } location ~ &amp;ldquo;^/ngx_pagespeed_beacon$&amp;rdquo; { } ```
+关于阻挡blocking的介绍
 http://www.zhihu.com/question/24506110
 http://ywwd.net/read-346</description>
     </item>
@@ -1022,8 +1019,7 @@ SublimeCodeIntel 代码提示自动完成
       <guid>https://gofunbox.github.io/useful_linux_command/</guid>
       <description>记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设备 # lsusb -tv # 列出所有USB设备 # lsmod # 列出加载的内核模块 # env # 查看环境变量 # /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源
-# free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;lt;目录名 # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;lt;目录名 -type f -name &#34;</description>
+uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb -tv # 列出所有USB设备 lsmod # 列出加载的内核模块 env # 查看环境变量 /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源 &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; # free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;amp;lt;目录名&amp;gt; # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;amp;lt;目录名&amp;gt; -type f -name &amp;quot;*.</description>
     </item>
     
     <item>
@@ -1053,11 +1049,12 @@ SublimeCodeIntel 代码提示自动完成
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;  改为： 
-fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
-expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</description>
+ServerTokensProductOnly ServerSignatureOff
+ ## 隐藏Nginx版本信息: &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;打开 nginx.conf，在http { }里加上：&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
+fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;改为： &amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
+expose_php = Off ```
+完成以上设定后，重新启动 Apache/Nginx 即可。</description>
     </item>
     
     <item>
@@ -1071,14 +1068,10 @@ expose_php = Off  完成以上设定后，重新启动 Apache/Nginx 即可。</d
 DenyHosts阻止攻击原理 DenyHosts会自动分析/var/log/secure 等安全日志文件，当发现异常的连接请求后，会自动将其IP加入到 /etc/hosts.deny 文件中，从而达到阻止此IP继续暴力破解的可能。同时，Denyhosts还能自动在一定时间后对已经屏蔽的IP地址进行解封，非常智能。
 官方网站 Denyhosts的官方网站为：http://denyhosts.sourceforge.net/（杜绝Putty后门事件，谨记安全软件官网）
 安装方法 1、下载DenyHosts源码并解压（目前最新版为2.6）
-[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6  2、安装部署
-[root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
-[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control  4、编辑配置文件denyhosts.cfg
-[root@www denyhosts]# vi denyhosts.cfg  该配置文件结构比较简单，简要说明主要参数如下：
- PURGE_DENY：当一个IP被阻止以后，过多长时间被自动解禁。可选如3m（三分钟）、5h（5小时）、2d（两天）、8w（8周）、1y（一年）；
-PURGE_THRESHOLD：定义了某一IP最多被解封多少次。即某一IP由于暴力破解SSH密码被阻止/解封达到了PURGE_THRESHOLD次，则会被永久禁止；
-BLOCK_SERVICE：需要阻止的服务名；
-DENY_THRESHOLD_INVALID：某一无效用户名（不存在的用户）尝试多少次登录后被阻止；</description>
+&amp;gt;[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;2、安装部署&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
+[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control
+ &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;4、编辑配置文件denyhosts.cfg&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www denyhosts]# vi denyhosts.</description>
     </item>
     
     <item>
@@ -1091,7 +1084,9 @@ DENY_THRESHOLD_INVALID：某一无效用户名（不存在的用户）尝试多�
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
 PHP的AES加密算法：
-&amp;lt;?php class MCrypt { private $hex_iv = &#39;00000000000000000000000000000000&#39;; # converted JAVA byte code in to HEX and placed it here private $key = &#39;U1MjU1M0FDOUZ.Qz&#39;; #Same as in JAVA function __construct() { $this-&amp;gt;key = hash(&#39;sha256&#39;, $this-&amp;gt;key, true); //echo $this-&amp;gt;key.&#39;&amp;lt;br/&amp;gt;&#39;; } function encrypt($str) { $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &#39;&#39;, MCRYPT_MODE_CBC, &#39;&#39;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); $pad = $block - (strlen($str) % $block); $str .= str_repeat(chr($pad), $pad); $encrypted = mcrypt_generic($td, $str); mcrypt_generic_deinit($td); mcrypt_module_close($td); return base64_encode($encrypted); } function decrypt($code) { $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &#39;&#39;, MCRYPT_MODE_CBC, &#39;&#39;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $str = mdecrypt_generic($td, base64_decode($code)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); mcrypt_generic_deinit($td); mcrypt_module_close($td); return $this-&amp;gt;strippadding($str); } /* For PKCS7 padding */ private function addpadding($string, $blocksize = 16) { $len = strlen($string); $pad = $blocksize - ($len % $blocksize); $string .</description>
+&amp;lt;?php class MCrypt { private $hex_iv = &amp;lsquo;00000000000000000000000000000000&amp;rsquo;; # converted JAVA byte code in to HEX and placed it here
+private $key = &amp;lsquo;U1MjU1M0FDOUZ.Qz&amp;rsquo;; #Same as in JAVA function __construct() { $this-&amp;gt;key = hash(&amp;lsquo;sha256&amp;rsquo;, $this-&amp;gt;key, true); //echo $this-&amp;gt;key.&amp;rsquo;&amp;lt;br/&amp;gt;&amp;rsquo;; } function encrypt($str) {
+$td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &amp;ldquo;, MCRYPT_MODE_CBC, &amp;ldquo;); mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv)); $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC); $pad = $block - (strlen($str) % $block); $str .= str_repeat(chr($pad), $pad); $encrypted = mcrypt_generic($td, $str); mcrypt_generic_deinit($td); mcrypt_module_close($td);</description>
     </item>
     
     <item>
@@ -1105,9 +1100,8 @@ PHP的AES加密算法：
 涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
 utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
 首先先查看下mysql当前版本所支持的字符集
-show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
-1.修改database,table,column字符集mysql语句如下
-# For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
+show charset;
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;1.修改database,table,column字符集mysql语句如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;sql&amp;quot;&amp;gt; # For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
     </item>
     
     <item>
@@ -1117,9 +1111,8 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
       
       <guid>https://gofunbox.github.io/mysqlsla_mysql_slow_log_analysis_tools/</guid>
       <description>1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
-Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;2.使用mysqlsla语法&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
 1) -log-type (-lt) type logs:
 通过这个参数来制定log的类型，主要有slow, general, binary, msl, udl,分析slow log时通过制定为slow.
 2) -sort:
@@ -1129,9 +1122,7 @@ c_sum:按总次数排序
 c_sum_p: sql语句执行次数占总执行次数的百分比。
 3) -top:
 显示sql的数量，默认是10,表示按规则取排序的前多少条
-4) –statement-filter (-sf) [+-][TYPE]:
-过滤sql语句的类型，比如select、update、drop.
-[TYPE]有SELECT, CREATE, DROP, UPDATE, INSERT，例如&amp;#8221;+SELECT,INSERT&amp;#8221;，不出现的默认是-，即不包括。</description>
+4) –statement-filter (-sf) [+-][TYPE]:</description>
     </item>
     
     <item>
@@ -1168,10 +1159,8 @@ show profile的结果如下：
       <description>之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
 查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
 记录post请求参数的日志格式
-log_format main &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39; &#39;&#34;$http_referer&#34; $status $body_bytes_sent $request_body &#39; &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;  其实就是增加$request_body字段到log_format里。
-如果为了调试程序可以打开开该字段，不然不推荐记录，以免泄露信息给恶意攻击者。
-日志现身了
-61.160.224.137 - - [03/Jun/2014:10:33:32 +0800] &#34;POST /wp-login.php HTTP/1.0&#34; &#34;-&#34; 200 4664 log=admin&amp;pwd=snoopy1 &#34;-&#34; &#34;213.239.201.157&#34; 61.160.224.137 - - [03/Jun/2014:10:33:33 +0800] &#34;POST /wp-login.php HTTP/1.0&#34; &#34;-&#34; 200 4664 log=admin&amp;pwd=pipeline &#34;-&#34; &#34;213.239.201.157&#34; 61.160.224.137 - - [03/Jun/2014:10:33:34 +0800] &#34;POST /wp-login.php HTTP/1.0&#34; &#34;-&#34; 200 4664 log=admin&amp;pwd=pocket &#34;-&#34; &#34;213.239.201.157&#34; 61.160.224.137 - - [03/Jun/2014:10:33:35 +0800] &#34;</description>
+log_format main &amp;lsquo;$remote_addr - $remote_user [$time_local] &amp;ldquo;$request&amp;rdquo; &amp;lsquo; &amp;lsquo;&amp;ldquo;$http_referer&amp;rdquo; $status $body_bytes_sent $request_body &amp;lsquo; &amp;lsquo;&amp;ldquo;$http_user_agent&amp;rdquo; &amp;ldquo;$http_x_forwarded_for&amp;rdquo;&amp;lsquo;;
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;其实就是增加$request_body字段到log_format里。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;如果为了调试程序可以打开开该字段，不然不推荐记录，以免泄露信息给恶意攻击者。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;日志现身了&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; 61.160.224.137 - - [03/Jun/2014:10:33:32 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=snoopy1 &amp;quot;-&amp;quot; &amp;quot;213.239.201.157&amp;quot; 61.160.224.137 - - [03/Jun/2014:10:33:33 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=pipeline &amp;quot;-&amp;quot; &amp;quot;213.239.201.157&amp;quot; 61.160.224.137 - - [03/Jun/2014:10:33:34 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=pocket &amp;quot;-&amp;quot; &amp;quot;213.</description>
     </item>
     
     <item>
@@ -1214,7 +1203,8 @@ log_format main &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34
 360网站服务监控，http://jk.cloud.360.cn
 360的东东挺不错的尤其是第二个插件真心赞
 拦截规则如下，拦截后平台后台会有记录
-//get拦截规则 $getfilter = &#34;\\&amp;lt;.+javascript:window\\[.{1}\\\\x|&amp;lt;.*=(&amp;#\\d+?;?)+?&amp;gt;|&amp;lt;.*(data|src)=data:text\\/html.*&amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;lt;[a-z]+?\\b[^&amp;gt;]*?\\bon([a-z]{4,})\s*?=|^\\+\\/v(8|9)|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&#34;\\d]+?=[\\(\\)&#39;\&#34;\\d]+?|[\\(\\)&#39;\&#34;a-zA-Z]+?=[\\(\\)&#39;\&#34;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&#34;&#39;])|\\/\\*.+?\\*\\/|&amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&#34;; //post拦截规则 $postfilter = &#34;&amp;lt;.*=(&amp;#\\d+?;?)+?&amp;gt;|&amp;lt;.*data=data:text\\/html.*&amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;lt;[^&amp;gt;]*?\\b(onerror|onmousemove|onload|onclick|onmouseover)\\b|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&#34;\\d]+?=[\\(\\)&#39;\&#34;\\d]+?|[\\(\\)&#39;\&#34;a-zA-Z]+?=[\\(\\)&#39;\&#34;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&#34;&#39;])|\\/\\*.+?\\*\\/|&amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&#34;; //cookie拦截规则 $cookiefilter = &#34;benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\(|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&#34;\\d]+?=[\\(\\)&#39;\&#34;\\d]+?|[\\(\\)&#39;\&#34;a-zA-Z]+?=[\\(\\)&#39;\&#34;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&#34;&#39;])|\\/\\*.+?\\*\\/|&amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&#34;;  用goaccess分析日志，发现被攻击了5.5G流量，分类攻击源虽然用了代理，但是还是发现八成来自莆田电信ip，万恶的莆田垃圾制造机啊。
+//get拦截规则 $getfilter = &amp;ldquo;\&amp;lt;.+javascript:window\[.{1}\\x|&amp;lt;.=(&amp;amp;#\d+?;?)+?&amp;gt;|&amp;lt;.(data|src)=data:text\/html.&amp;gt;|\b(alert\(|confirm\(|expression\(|prompt\(|benchmark\s?\(\d+?|sleep\s?\([\d.]+?\)|load_file\s?\()|&amp;lt;[a-z]+?\b[^&amp;gt;]?\bon([a-z]{4,})\s?=|^\+\/v(8|9)|\b(and|or)\b\s?([\(\)&amp;rsquo;\&amp;rdquo;\d]+?=[\(\)&amp;rsquo;\&amp;rdquo;\d]+?|[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?=[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\w]+?\s+?\bin\b\s?(|\blike\b\s+?[\&amp;ldquo;&amp;lsquo;])|\/\*.+?\*\/|&amp;lt;\sscript\b|\bEXEC\b|UNION.+?SELECT(\(.+\)|\s+?.+?)|UPDATE(\(.+\)|\s+?.+?)SET|INSERT\s+INTO.+?VALUES|(SELECT|DELETE)(\(.+\)|\s+?.+?\s+?)FROM(\(.+\)|\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\s+(TABLE|DATABASE)&amp;ldquo;; //post拦截规则 $postfilter = &amp;ldquo;&amp;lt;.=(&amp;amp;#\d+?;?)+?&amp;gt;|&amp;lt;.data=data:text\/html.&amp;gt;|\b(alert\(|confirm\(|expression\(|prompt\(|benchmark\s?\(\d+?|sleep\s?\([\d.]+?\)|load_file\s?\()|&amp;lt;[^&amp;gt;]?\b(onerror|onmousemove|onload|onclick|onmouseover)\b|\b(and|or)\b\s?([\(\)&amp;rsquo;\&amp;rdquo;\d]+?=[\(\)&amp;rsquo;\&amp;rdquo;\d]+?|[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?=[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\w]+?\s+?\bin\b\s?(|\blike\b\s+?[\&amp;ldquo;&amp;lsquo;])|\/\*.+?\*\/|&amp;lt;\sscript\b|\bEXEC\b|UNION.+?SELECT(\(.+\)|\s+?.+?)|UPDATE(\(.+\)|\s+?.+?)SET|INSERT\s+INTO.+?VALUES|(SELECT|DELETE)(\(.+\)|\s+?.+?\s+?)FROM(\(.+\)|\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\s+(TABLE|DATABASE)&amp;ldquo;; //cookie拦截规则 $cookiefilter = &amp;ldquo;benchmark\s?\(\d+?|sleep\s?\([\d.]+?\)|load_file\s?\(|\b(and|or)\b\s?([\(\)&amp;rsquo;\&amp;rdquo;\d]+?=[\(\)&amp;rsquo;\&amp;rdquo;\d]+?|[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?=[\(\)&amp;rsquo;\&amp;ldquo;a-zA-Z]+?|&amp;gt;|&amp;lt;|\s+?[\w]+?\s+?\bin\b\s?(|\blike\b\s+?[\&amp;ldquo;&amp;lsquo;])|\/\*.+?\*\/|&amp;lt;\s*script\b|\bEXEC\b|UNION.+?SELECT(\(.+\)|\s+?.+?)|UPDATE(\(.+\)|\s+?.+?)SET|INSERT\s+INTO.+?VALUES|(SELECT|DELETE)(\(.+\)|\s+?.+?\s+?)FROM(\(.+\)|\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\s+(TABLE|DATABASE)&amp;ldquo;; ```
+用goaccess分析日志，发现被攻击了5.5G流量，分类攻击源虽然用了代理，但是还是发现八成来自莆田电信ip，万恶的莆田垃圾制造机啊。
 
 
 
@@ -1280,8 +1270,8 @@ Big5码使用了双字节储存方法，以两个字节来编码一个字。第�
       <guid>https://gofunbox.github.io/gbk_addslashes_mysql_real_escape_string_injection/</guid>
       <description>该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &#39;GBK&#39; 例：mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c);  问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞
-&amp;lt;?php $c = mysql_connect(&#34;localhost&#34;, &#34;user&#34;, &#34;pass&#34;); mysql_select_db(&#34;database&#34;, $c); // change our character set mysql_query(&#34;SET CHARACTER SET &#39;gbk&#39;&#34;, $c); // create demo table mysql_query(&#34;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&#34;, $c); mysql_query(&#34;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&#34;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &amp;lsquo;GBK&amp;rsquo; 例：mysql_query(&amp;ldquo;SET CHARACTER SET &amp;lsquo;gbk&amp;rsquo;&amp;rdquo;, $c);
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;?php $c = mysql_connect(&amp;quot;localhost&amp;quot;, &amp;quot;user&amp;quot;, &amp;quot;pass&amp;quot;); mysql_select_db(&amp;quot;database&amp;quot;, $c); // change our character set mysql_query(&amp;quot;SET CHARACTER SET &#39;gbk&#39;&amp;quot;, $c); // create demo table mysql_query(&amp;quot;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&amp;quot;, $c); mysql_query(&amp;quot;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&amp;quot;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
     </item>
     
     <item>
@@ -1292,7 +1282,11 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
       <guid>https://gofunbox.github.io/phpass_bcrypt_encrypted_password/</guid>
       <description>在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&amp;lt;?php // Include the phpass library require_once(&#39;phpass-03/PasswordHash.php&#39;) // Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, false); // Hash the password. $hashedPassword will be a 60-character string. $hashedPassword = $hasher-&amp;gt;HashPassword(&#39;my super cool password&#39;); // You can now safely store the contents of $hashedPassword in your database! // Check if a user has provided the correct password by comparing what they // typed with our hash $hasher-&amp;gt;CheckPassword(&#39;the wrong password&#39;, $hashedPassword); // false $hasher-&amp;gt;CheckPassword(&#39;my super cool password&#39;, $hashedPassword); // true ?</description>
+&amp;lt;?php // Include the phpass library require_once(&amp;lsquo;phpass-03/PasswordHash.php&amp;rsquo;)
+// Initialize the hasher without portable hashes (this is more secure) $hasher = new PasswordHash(8, false);
+// Hash the password. $hashedPassword will be a 60-character string. $hashedPassword = $hasher-&amp;gt;HashPassword(&amp;lsquo;my super cool password&amp;rsquo;);
+// You can now safely store the contents of $hashedPassword in your database!
+// Check if a user has provided the correct password by comparing what they // typed with our hash $hasher-&amp;gt;CheckPassword(&amp;lsquo;the wrong password&amp;rsquo;, $hashedPassword); // false</description>
     </item>
     
     <item>
@@ -1365,8 +1359,8 @@ make: *** [all-recursive] Error 1
       <pubDate>Thu, 06 Mar 2014 03:10:52 +0000</pubDate>
       
       <guid>https://gofunbox.github.io/xhprof_php_analysis_tool/</guid>
-      <description>简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展的安装： % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure --with-php-config=&amp;lt;path to php-config&amp;gt; % make &amp;&amp; make install  修改php.ini最后面加入
-[xhprof] extension=xhprof.so ; ; directory used by default implementation of the iXHProfRuns ; interface (namely, the XHProfRuns_Default class) for storing ; XHProf runs. ; xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路径需要修改 记得给写权限 % php-fpm reload //重启一下fpm  Graphviz安装（这个主要是画图需要的库） % wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz % tar zxf graphviz-2.</description>
+      <description>简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。 安装 xhprof扩展的安装： % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure &amp;ndash;with-php-config=&amp;lt;path to php-config&amp;gt; % make &amp;amp;&amp;amp; make install
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;修改php.ini最后面加入&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [xhprof] extension=xhprof.so ; ; directory used by default implementation of the iXHProfRuns ; interface (namely, the XHProfRuns_Default class) for storing ; XHProf runs. ; xhprof.output_dir=&amp;amp;lt;directory_for_storing_xhprof_runs&amp;amp;gt; //日志路径需要修改 记得给写权限 % php-fpm reload //重启一下fpm  Graphviz安装（这个主要是画图需要的库） % wget http://www.</description>
     </item>
     
     <item>
@@ -1673,7 +1667,26 @@ cfg_disable_funs，模板标签中禁用函数
       <guid>https://gofunbox.github.io/linux_svn_autostart/</guid>
       <description>1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &#34;$1&#34; in start) echo &#34;starting svnserve...&#34; svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx echo &#34;finished&#34; ;; stop) echo &#34;stoping svnserve&#34; killall svnserve echo &#34;finished&#34; ;; restart) $0 stop $0 start ;; *) exit esac  3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
+#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
+case &amp;ldquo;$1&amp;rdquo; in
+start)
+echo &amp;ldquo;starting svnserve&amp;hellip;&amp;rdquo;
+svnserve -d -r /xxx/xxx/xxx &amp;ndash;listen-host xxx.xxx.xxx.xxx
+echo &amp;ldquo;finished&amp;rdquo;
+;;
+stop)
+echo &amp;ldquo;stoping svnserve&amp;rdquo;
+killall svnserve
+echo &amp;ldquo;finished&amp;rdquo;
+;;
+restart)
+$0 stop
+$0 start
+;;
+*)
+exit
+esac ```
+3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
 4 将svnserved脚本设置为系统服务，chkconfig &amp;#8211;add svnserved， 重启系统，ok！</description>
     </item>
     
@@ -2838,8 +2851,9 @@ $cookies cookies， 如果有的话</description>
 先上效果图：
 
 捆绑促销页面代码:
-&amp;lt;{foreach from=$package item=&#34;itemlist&#34;}&amp;gt; &amp;lt;{$itemlist.name}&amp;gt; &amp;lt;{if $itemlist.intro}&amp;gt; &amp;lt;{$itemlist.intro}&amp;gt; &amp;lt;{/if}&amp;gt; &amp;lt;{t}&amp;gt;此买就送促销产品包括：&amp;lt;{/t}&amp;gt; &amp;lt;{foreach from=$itemlist.items item=&#34;items&#34;}&amp;gt; &#34; target=&#34;_blank&#34;&amp;gt;&#34;&amp;lt;{$items.name}&#34;/&amp;gt; &amp;lt;{$items.name}&amp;gt; &amp;lt;{t}&amp;gt;数量:&amp;lt;{/t}&amp;gt;&amp;lt;{$items.pkgnum}&amp;gt;&amp;lt;{t}&amp;gt; 单价:&amp;lt;{/t}&amp;gt;&amp;lt;{$items.price|cur}&amp;gt; &amp;lt;{/foreach}&amp;gt; &amp;lt;{t}&amp;gt;原价：&amp;lt;{/t}&amp;gt; &amp;lt;{$itemlist.mktprice|cur}&amp;gt; &amp;lt;{t}&amp;gt;买就送价：&amp;lt;{/t}&amp;gt; &amp;lt;{$itemlist.price|cur}&amp;gt; &amp;lt;{if $itemlist.mktprice &amp;gt; $itemlist.price &amp;&amp; $setting.mktprice &amp;&amp; $setting.saveprice &amp;gt; 0}&amp;gt; &amp;lt;{if $setting.saveprice == 1}&amp;gt;&amp;lt;{t}&amp;gt;节省：&amp;lt;{/t}&amp;gt;&amp;lt;{$itemlist.mktprice-$itemlist.price|cur}&amp;gt; &amp;lt;{elseif $setting.saveprice == 2}&amp;gt;&amp;lt;{t}&amp;gt;优惠：&amp;lt;{/t}&amp;gt;&amp;lt;{$itemlist.price/$itemlist.mktprice*100|number:&#39;2&#39;}&amp;gt;% &amp;lt;{elseif $setting.saveprice == 3}&amp;gt;&amp;lt;{$itemlist.price/$itemlist.mktprice*10|number:&#39;1&#39;}&amp;gt;折 &amp;lt;{/if}&amp;gt; &amp;lt;{/if}&amp;gt; &#34;&amp;gt;&amp;lt;{t}&amp;gt;购买&amp;lt;{/t}&amp;gt; &amp;lt;{/foreach}&amp;gt; &amp;lt;{pager data=$pager}&amp;gt;  CSS代码：
-/*捆绑页面出图CSS*/ .PackageGoodsWrap ul.list li{float:left;background:url(ra.gif) no-repeat 0 8px;padding-left:15px;color:#666;display:block;line-height:23px;margin-left:30px;border-bottom: none;} .PackageGoodsWrap .push-6{margin:0;} .PackageGoodsWrap .span-6{float:right;}  </description>
+&amp;lt;{foreach from=$package item=&amp;ldquo;itemlist&amp;rdquo;}&amp;gt; &amp;lt;{$itemlist.name}&amp;gt; &amp;lt;{if $itemlist.intro}&amp;gt; &amp;lt;{$itemlist.intro}&amp;gt; &amp;lt;{/if}&amp;gt; &amp;lt;{t}&amp;gt;此买就送促销产品包括：&amp;lt;{/t}&amp;gt;
+&amp;amp;lt;{foreach from=$itemlist.items item=&amp;quot;items&amp;quot;}&amp;amp;gt; &amp;quot; target=&amp;quot;_blank&amp;quot;&amp;amp;gt;&amp;quot;&amp;amp;lt;{$items.name}&amp;quot;/&amp;amp;gt; &amp;amp;lt;{$items.name}&amp;amp;gt; &amp;amp;lt;{t}&amp;amp;gt;数量:&amp;amp;lt;{/t}&amp;amp;gt;&amp;amp;lt;{$items.pkgnum}&amp;amp;gt;&amp;amp;lt;{t}&amp;amp;gt; 单价:&amp;amp;lt;{/t}&amp;amp;gt;&amp;amp;lt;{$items.price|cur}&amp;amp;gt; &amp;amp;lt;{/foreach}&amp;amp;gt; &amp;amp;lt;{t}&amp;amp;gt;原价：&amp;amp;lt;{/t}&amp;amp;gt; &amp;amp;lt;{$itemlist.mktprice|cur}&amp;amp;gt; &amp;amp;lt;{t}&amp;amp;gt;买就送价：&amp;amp;lt;{/t}&amp;amp;gt; &amp;amp;lt;{$itemlist.price|cur}&amp;amp;gt; &amp;amp;lt;{if $itemlist.mktprice &amp;amp;gt; $itemlist.price &amp;amp;&amp;amp; $setting.mktprice &amp;amp;&amp;amp; $setting.saveprice &amp;amp;gt; 0}&amp;amp;gt; &amp;amp;lt;{if $setting.saveprice == 1}&amp;amp;gt;&amp;amp;lt;{t}&amp;amp;gt;节省：&amp;amp;lt;{/t}&amp;amp;gt;&amp;amp;lt;{$itemlist.mktprice-$itemlist.price|cur}&amp;amp;gt; &amp;amp;lt;{elseif $setting.saveprice == 2}&amp;amp;gt;&amp;amp;lt;{t}&amp;amp;gt;优惠：&amp;amp;lt;{/t}&amp;amp;gt;&amp;amp;lt;{$itemlist.price/$itemlist.mktprice*100|number:&#39;2&#39;}&amp;amp;gt;% &amp;amp;lt;{elseif $setting.saveprice == 3}&amp;amp;gt;&amp;amp;lt;{$itemlist.price/$itemlist.mktprice*10|number:&#39;1&#39;}&amp;amp;gt;折 &amp;amp;lt;{/if}&amp;amp;gt; &amp;amp;lt;{/if}&amp;amp;gt; &amp;quot;&amp;amp;gt;&amp;amp;lt;{t}&amp;amp;gt;购买&amp;amp;lt;{/t}&amp;amp;gt;  &amp;lt;{/foreach}&amp;gt; &amp;lt;{pager data=$pager}&amp;gt;
+ CSS代码： &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;css&amp;quot;&amp;gt; /*捆绑页面出图CSS*/ .PackageGoodsWrap ul.list li{float:left;background:url(ra.gif) no-repeat 0 8px;padding-left:15px;color:#666;display:block;line-height:23px;margin-left:30px;border-bottom: none;} .PackageGoodsWrap .push-6{margin:0;} .</description>
     </item>
     
     <item>
@@ -3568,9 +3582,8 @@ Appserv配置多站点实例如下
       <guid>https://gofunbox.github.io/17.html</guid>
       <description>1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php
 找到代码&amp;lt;!&amp;#8211;eof also purchased products module&amp;#8211;&amp;gt;在下方加入
-&amp;lt;span style=&#34;font-size: medium;&#34;&amp;lt;?php &amp;lt;/span &amp;lt;span style=&#34;font-size: medium;&#34;require($template-&amp;gt;get_template_dir(&#39;tpl_modules_whats_new.php&#39;,DIR_WS_TEMPLATE, $current_page_base,&#39;templates&#39;). &#39;/tpl_modules_whats_new.php&#39;);&amp;lt;/span &amp;lt;span style=&#34;font-size: medium;&#34;?&amp;gt;&amp;lt;/span  这里我们调用的是新产品的函数，所以zencart中产品页下方显示的是随机产品。
-2.然后找到includes/templates/模板名/common/tpl_columnar_display.php用下面的代码覆盖这个文件下的代码
- 0 ) { $params = &#34;&#34;; for($col=0;$col&amp;lt;3;$col++) { //这边的3是显示zencart产品页下方随机产品数，默认是一行，所以就是一行三列的显示模式如果改成4就是一行4列，不过没有测试过。 $r_params = &#34;&#34;; if (isset($list_box_contents[0][$col][&#39;params&#39;])) $r_params .= &#39; &#39; . (string)$list_box_contents[0][$col][&#39;params&#39;]; if (isset($list_box_contents[0][$col][&#39;text&#39;])) { echo &#39;&#39; . $list_box_contents[0][$col][&#39;text&#39;] . &#39;&#39; . &#34;\n&#34;; } } ?&amp;gt; 0 ) { for($row=0;$row&#39; . $list_box_contents[$row][$col][&#39;text&#39;] . &#39;&#39; . &#34;\n&#34;; } } ?&amp;gt; &amp;lt;div&#39; .</description>
+&amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;&amp;lt;?php &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;require($template-&amp;gt;get_template_dir(&amp;lsquo;tpl_modules_whats_new.php&amp;rsquo;,DIR_WS_TEMPLATE, $current_page_base,&amp;lsquo;templates&amp;rsquo;). &amp;lsquo;/tpl_modules_whats_new.php&amp;rsquo;);&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;?&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;这里我们调用的是新产品的函数，所以&amp;lt;strong&amp;gt;zencart中产品页下方显示的是随机产品&amp;lt;/strong&amp;gt;。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;2.然后找到includes/templates/模板名/common/tpl_columnar_display.php用下面的代码覆盖这个文件下的代码&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;lt;!--?php /** * Common Template - tpl_columnar_display.php * * This file is used for generating tabular output where needed, based on the supplied array of table-cell contents. * * @package templateSystem * @copyright Copyright 2003-2006 Zen Cart Development Team * @copyright Portions Copyright 2003 osCommerce * @license http://www.</description>
     </item>
     
   </channel>

@@ -158,26 +158,26 @@
 
 <p><span style="font-size: medium;">对密码进行哈希最安全的方法是使用bcrypt算法。开源的<a href="http://www.openwall.com/phpass/" target="_blank">phpass库</a>以一个易于使用的类来提供该功能。</span></p>
 
-<pre><code class="php"> 
+<p><pre><code class="php">
 &lt;?php
 // Include the phpass library
-require_once('phpass-03/PasswordHash.php')
+require_once(&lsquo;phpass-03/PasswordHash.php&rsquo;)</p>
 
-// Initialize the hasher without portable hashes (this is more secure)
-$hasher = new PasswordHash(8, false);
+<p>// Initialize the hasher without portable hashes (this is more secure)
+$hasher = new PasswordHash(8, false);</p>
 
-// Hash the password. $hashedPassword will be a 60-character string.
-$hashedPassword = $hasher-&gt;HashPassword('my super cool password');
+<p>// Hash the password. $hashedPassword will be a 60-character string.
+$hashedPassword = $hasher-&gt;HashPassword(&lsquo;my super cool password&rsquo;);</p>
 
-// You can now safely store the contents of $hashedPassword in your database!
+<p>// You can now safely store the contents of $hashedPassword in your database!</p>
 
-// Check if a user has provided the correct password by comparing what they
+<p>// Check if a user has provided the correct password by comparing what they
 // typed with our hash
-$hasher-&gt;CheckPassword('the wrong password', $hashedPassword);  // false
+$hasher-&gt;CheckPassword(&lsquo;the wrong password&rsquo;, $hashedPassword);  // false</p>
 
-$hasher-&gt;CheckPassword('my super cool password', $hashedPassword);  // true
+<p>$hasher-&gt;CheckPassword(&lsquo;my super cool password&rsquo;, $hashedPassword);  // true
 ?&gt;
-</code></pre>
+```</p>
 
 <p><span style="font-size: medium;">需要注意的是phpass在HashPassword()函数中已经对你的密码“加盐”了，这意味着你不需要自己“加盐”。</span></p>
 
