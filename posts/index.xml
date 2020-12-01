@@ -73,10 +73,10 @@ sync_binlog sync_binlog 是 MySQL 的二进制日志（binary log）同步到磁
     
     <item>
       <title>MySQL锁</title>
-      <link>https://ifunbox.top/time-complexity/</link>
+      <link>https://ifunbox.top/mysql-lock/</link>
       <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
       
-      <guid>https://ifunbox.top/time-complexity/</guid>
+      <guid>https://ifunbox.top/mysql-lock/</guid>
       <description>表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
 mysql&amp;gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&amp;gt; select * from products where id = 100; mysql&amp;gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！
 对于读锁 * 持有读锁的会话可以读表，但不能写表； * 允许多个会话同时持有读锁； * 其他会话就算没有给表加读锁，也是可以读表的，但是不能写表； * 其他会话申请该表写锁时会阻塞，直到锁释放。
@@ -86,10 +86,10 @@ mysql&amp;gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mys
     
     <item>
       <title>关于DDL ONLINE</title>
-      <link>https://ifunbox.top/ddl-online/</link>
+      <link>https://ifunbox.top/mysql-ddl-online/</link>
       <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
       
-      <guid>https://ifunbox.top/ddl-online/</guid>
+      <guid>https://ifunbox.top/mysql-ddl-online/</guid>
       <description>MySQL各版本，对于DDL的处理方式是不同的，主要有三种
 Copy Table方式： 这是InnoDB最早支持的方式。顾名思义，通过临时表拷贝的方式实现的。新建一个带有新结构的临时表，将原表数据全部拷贝到临时表，然后Rename，完成创建操作。这个方式过程中，原表是可读的，不可写。但是会消耗一倍的存储空间。
 Inplace方式：这是原生MySQL 5.5，以及innodb_plugin中提供的方式。所谓Inplace，也就是在原表上直接进行，不会拷贝临时表。相对于Copy Table方式，这比较高效率。原表同样可读的，但是不可写。

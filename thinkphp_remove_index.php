@@ -50,9 +50,10 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
   </head>
   
   
+  
     
   
-  <body data-code="100" data-lines="false" id="documentTop">
+  <body data-code="10" data-lines="true" id="documentTop">
 
 <header class="nav_header" >
   <nav class="nav">
@@ -69,7 +70,7 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
         </div>
       </div>
     </a>
-    <div class='nav_body nav_body_'>
+    <div class='nav_body nav_body_left'>
       
       
       
@@ -215,10 +216,10 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
         <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
       </li>
       <li>
-        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+        <a href="https://ifunbox.top/mysql-lock/" class="nav-link">MySQL锁</a>
       </li>
       <li>
-        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+        <a href="https://ifunbox.top/mysql-ddl-online/" class="nav-link">关于DDL ONLINE</a>
       </li>
       <li>
         <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>

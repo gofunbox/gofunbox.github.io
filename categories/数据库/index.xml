@@ -40,10 +40,10 @@ sync_binlog sync_binlog 是 MySQL 的二进制日志（binary log）同步到磁
     
     <item>
       <title>MySQL锁</title>
-      <link>https://ifunbox.top/time-complexity/</link>
+      <link>https://ifunbox.top/mysql-lock/</link>
       <pubDate>Tue, 01 Dec 2020 03:01:59 +0000</pubDate>
       
-      <guid>https://ifunbox.top/time-complexity/</guid>
+      <guid>https://ifunbox.top/mysql-lock/</guid>
       <description>表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
 mysql&amp;gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&amp;gt; select * from products where id = 100; mysql&amp;gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！
 对于读锁 * 持有读锁的会话可以读表，但不能写表； * 允许多个会话同时持有读锁； * 其他会话就算没有给表加读锁，也是可以读表的，但是不能写表； * 其他会话申请该表写锁时会阻塞，直到锁释放。

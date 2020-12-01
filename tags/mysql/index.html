@@ -46,9 +46,10 @@
   </head>
   
   
+  
     
   
-  <body data-code="100" data-lines="false" id="documentTop">
+  <body data-code="10" data-lines="true" id="documentTop">
 
 <header class="nav_header" >
   <nav class="nav">
@@ -65,7 +66,7 @@
         </div>
       </div>
     </a>
-    <div class='nav_body nav_body_'>
+    <div class='nav_body nav_body_left'>
       
       
       
@@ -176,7 +177,7 @@ innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
-        <a href="https://ifunbox.top/time-complexity/">MySQL锁</a>
+        <a href="https://ifunbox.top/mysql-lock/">MySQL锁</a>
       </h3>
       <div class="post_meta">
   <svg class="icon">
@@ -193,7 +194,7 @@ innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参
         <div>
           <p class="pale">表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
 mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = 100; mysql&gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这 …</p>
-          <a href="https://ifunbox.top/time-complexity/" class="excerpt_more button">Read More</a>
+          <a href="https://ifunbox.top/mysql-lock/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -311,10 +312,10 @@ mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&g
         <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="nav-link">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
       </li>
       <li>
-        <a href="https://ifunbox.top/time-complexity/" class="nav-link">MySQL锁</a>
+        <a href="https://ifunbox.top/mysql-lock/" class="nav-link">MySQL锁</a>
       </li>
       <li>
-        <a href="https://ifunbox.top/ddl-online/" class="nav-link">关于DDL ONLINE</a>
+        <a href="https://ifunbox.top/mysql-ddl-online/" class="nav-link">关于DDL ONLINE</a>
       </li>
       <li>
         <a href="https://ifunbox.top/time-complexity/" class="nav-link">时间复杂度</a>
