@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ShopNC on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/shopnc/</link>
+    <link>https://ifunbox.top/categories/shopnc/</link>
     <description>Recent content in ShopNC on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 11 Oct 2014 07:27:03 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/shopnc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/shopnc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>解决阿里云RDS安装shopnc B2B2C报错OPERATION need to be executed set by ADMIN</title>
-      <link>https://gofunbox.github.io/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</link>
+      <link>https://ifunbox.top/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</link>
       <pubDate>Sat, 11 Oct 2014 07:27:03 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</guid>
+      <guid>https://ifunbox.top/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/</guid>
       <description>今天在阿里云+RDS环境下安装shopnc B2B2C
 确保已经创建了数据库，以及授权操作用户的情况下
 还报错了OPERATION need to be executed set by ADMIN的错误
@@ -30,10 +30,10 @@
     
     <item>
       <title>ShopNC商城前后台注册登陆验证码总是错误解决办法</title>
-      <link>https://gofunbox.github.io/shopnc_captcha_error/</link>
+      <link>https://ifunbox.top/shopnc_captcha_error/</link>
       <pubDate>Thu, 27 Jun 2013 09:14:15 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/shopnc_captcha_error/</guid>
+      <guid>https://ifunbox.top/shopnc_captcha_error/</guid>
       <description>验证码若出现问题可尝试以下办法：
 1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉
 2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存
@@ -48,10 +48,10 @@
     
     <item>
       <title>ShopNC开发腾付通、宝付支付接口心得体会</title>
-      <link>https://gofunbox.github.io/485.html</link>
+      <link>https://ifunbox.top/485.html</link>
       <pubDate>Tue, 26 Feb 2013 04:19:45 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/485.html</guid>
+      <guid>https://ifunbox.top/485.html</guid>
       <description>api\payment下每一个文件夹都对应一个支付接口，如alipay是支付宝
 api\payment\payment.inc.php里面配置当前在使用的支付接口，新建一个支付接口也需要配置
 以alipay为例，简单的介绍一下shopnc的支付接口

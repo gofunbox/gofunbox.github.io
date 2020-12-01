@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ThinkPHP on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/thinkphp/</link>
+    <link>https://ifunbox.top/categories/thinkphp/</link>
     <description>Recent content in ThinkPHP on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 26 Mar 2015 09:22:12 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>结合MongoDB开发LBS应用-查看附近的人</title>
-      <link>https://gofunbox.github.io/mongodb_lbs_nearby_people/</link>
+      <link>https://ifunbox.top/mongodb_lbs_nearby_people/</link>
       <pubDate>Thu, 26 Mar 2015 09:22:12 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/mongodb_lbs_nearby_people/</guid>
+      <guid>https://ifunbox.top/mongodb_lbs_nearby_people/</guid>
       <description>最近负责的APP要上查看附件的人的功能
 之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
 就开始寻找新的解决方案，查找到深入浅出Symfony2 &amp;#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
@@ -33,10 +33,10 @@ $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($r
     
     <item>
       <title>thinkphp Mongo模型的使用问题</title>
-      <link>https://gofunbox.github.io/thinkphp_mongodb_model/</link>
+      <link>https://ifunbox.top/thinkphp_mongodb_model/</link>
       <pubDate>Wed, 07 Jan 2015 08:51:42 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/thinkphp_mongodb_model/</guid>
+      <guid>https://ifunbox.top/thinkphp_mongodb_model/</guid>
       <description>先上官方使用Mongo模型开发文档
 感觉写的不是很全，也许我不熟悉tp吧 😳
 目前这个项目默认是连接MYSQL数据库
@@ -51,10 +51,10 @@ M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;
     
     <item>
       <title>ThinkPHP实现伪静态如何去掉目录中的index.php</title>
-      <link>https://gofunbox.github.io/thinkphp_remove_index.php</link>
+      <link>https://ifunbox.top/thinkphp_remove_index.php</link>
       <pubDate>Fri, 06 Sep 2013 09:35:38 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/thinkphp_remove_index.php</guid>
+      <guid>https://ifunbox.top/thinkphp_remove_index.php</guid>
       <description>ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
 Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
 1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号

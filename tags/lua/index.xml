@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lua on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/lua/</link>
+    <link>https://ifunbox.top/tags/lua/</link>
     <description>Recent content in Lua on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 30 Mar 2016 02:30:09 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>通过ngx-lua来统计nginx上的虚拟主机性能数据</title>
-      <link>https://gofunbox.github.io/ngx-lua-stats/</link>
+      <link>https://ifunbox.top/ngx-lua-stats/</link>
       <pubDate>Wed, 30 Mar 2016 02:30:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/ngx-lua-stats/</guid>
+      <guid>https://ifunbox.top/ngx-lua-stats/</guid>
       <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
 用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
 1.几乎对原有项目代码分离
@@ -34,10 +34,10 @@ server { listen 8080 default; server_name _; location / { return 404; } location
     
     <item>
       <title>Nginx安装lua-nginx-module模块</title>
-      <link>https://gofunbox.github.io/nginx_install_lua-nginx-module/</link>
+      <link>https://ifunbox.top/nginx_install_lua-nginx-module/</link>
       <pubDate>Fri, 25 Mar 2016 08:30:57 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_install_lua-nginx-module/</guid>
+      <guid>https://ifunbox.top/nginx_install_lua-nginx-module/</guid>
       <description>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
 安装了nginx的小伙伴就继续往下看咯~
 1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）

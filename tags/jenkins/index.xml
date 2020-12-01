@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jenkins on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/jenkins/</link>
+    <link>https://ifunbox.top/tags/jenkins/</link>
     <description>Recent content in Jenkins on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 17 Nov 2016 09:33:09 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CentOS下Jenkins安装及使用</title>
-      <link>https://gofunbox.github.io/centos-jenkins-install-config/</link>
+      <link>https://ifunbox.top/centos-jenkins-install-config/</link>
       <pubDate>Thu, 17 Nov 2016 09:33:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/centos-jenkins-install-config/</guid>
+      <guid>https://ifunbox.top/centos-jenkins-install-config/</guid>
       <description>安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
 2.系统会创建一个用户“jenkins”来执行这个服务

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ShopEx on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/shopex/</link>
+    <link>https://ifunbox.top/categories/shopex/</link>
     <description>Recent content in ShopEx on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 14 Sep 2013 04:56:01 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/shopex/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/shopex/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>修复shopex4.8.5.80797列表无法快速编辑(切换是否状态)</title>
-      <link>https://gofunbox.github.io/fix_shopex_quick_edit/</link>
+      <link>https://ifunbox.top/fix_shopex_quick_edit/</link>
       <pubDate>Sat, 14 Sep 2013 04:56:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/fix_shopex_quick_edit/</guid>
+      <guid>https://ifunbox.top/fix_shopex_quick_edit/</guid>
       <description>shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。
 shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
 出现的原因估计是跟数据库字段1,0修改成true,false有关
@@ -26,10 +26,10 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
     
     <item>
       <title>shopex 解决首页产品图片无法显示，刷新缓存又显示问题</title>
-      <link>https://gofunbox.github.io/548.html</link>
+      <link>https://ifunbox.top/548.html</link>
       <pubDate>Sat, 04 May 2013 10:59:11 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/548.html</guid>
+      <guid>https://ifunbox.top/548.html</guid>
       <description>最近一些客户反应，个别shopex网站首页商品图片会出现不显示的问题（图挂了），清空或者关闭缓存，图片又显示，但是不定时又会不显示的问题。
 经过我反复研究终于搞定了，现有偿提供修复，有意联系QQ：614944530.
 也可拍下这个宝贝http://item.taobao.com/item.htm?id=20334635319</description>
@@ -37,19 +37,19 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
     
     <item>
       <title>shopex安全设置指南(如何设置shopex保障网站安全教程)</title>
-      <link>https://gofunbox.github.io/451.html</link>
+      <link>https://ifunbox.top/451.html</link>
       <pubDate>Fri, 01 Feb 2013 06:19:21 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/451.html</guid>
+      <guid>https://ifunbox.top/451.html</guid>
       <description>Shopex是一个比较成熟、优秀的网店销售平台。由于该系统在国内使用的普遍性，也成为黑客攻击的目标，也由于该系统的特殊性，网站数据安全就显非常重要，网站一旦被黑，不仅会影响正常的营业时间，而且还会危及到客户数据、交易数据的安全。 关于Shopex网店系统的安全设置使用的教程还非常少，官方网站上也没有专门的针对shopex网站安全使用设置有一个明确的教程， 那怎么设置shopex才能最大限度的保障网站安全呢？ 本人特为各位老板提点小小的建议。 1、 密码保护。不要为了方便登录，而使用简单密码。请设置字母加数字加特殊符号为组合的复杂密码，这样就大大增加了黑客的破解MD5密码的难度。 2、 如果你的网站出现问题或者功能开发的要求，需要维护、二次开发，请选择正规的公司或官方工程师为你处理(愿意为您效劳)，请不要随便相信那些打着免费、低价解决故障的人为你解决网站故障。这些人，往往是带着其它目的给你解决问题的。你把管理员密码和ftp帐号密码提供给这样的人，安装盗版免费插件，网站都可能被挂马、挂后门。 3、 关注官方网站，及时升级、打补丁。 4、 用户经常会忘记的事情，修改网站管理员后台登录地址。shopadmin改成不容易被黑客猜出的名字。 5、数据库表前缀名默认是sdb，这个也要改成不容易被黑客猜出的名字。 6、给文件适当的权限 api 可读不可写可运行 config 可读不可写可运行 core 可读不可写可运行 home 可读可写可运行 home/ upload可读可写不可运行  fanhefan_core（二次开发目录，名字可能不一样）可读不可写可运行 images 可读可写不可运行  install 删除 plugins 可读可写可运行(如果您插件支付接口都安装好了，可以改成不可写) public 可读可写不可运行（这个文件夹一般都是空的） shopadmin 改文件夹名，可读不可写可运行 statics 可读可写不可运行（如果网站的界面图片css不更改了，可以改成不可写） themes 可读可写不可运行（如果网站的HTML模板图片css不更改了，可以改成不可写） 7、 最后，请定期备份数据。 </description>
     </item>
     
     <item>
       <title>解决ShopEx云登录 登录成功后返回无反应错误的方法</title>
-      <link>https://gofunbox.github.io/432.html</link>
+      <link>https://ifunbox.top/432.html</link>
       <pubDate>Tue, 27 Nov 2012 08:02:02 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/432.html</guid>
+      <guid>https://ifunbox.top/432.html</guid>
       <description>云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下
 function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; unset($_GET[&#39;passport-other_login_verify_html&#39;]); unset($_GET[&#39;passport-1-other_login_verify_html&#39;]); unset($_GET[&#39;sign&#39;]); $make_sign = $this-&amp;gt;get_ce_sign($_GET,$this-&amp;system-&amp;gt;getConf(&#39;certificate.token&#39;)); if($make_sign!=$sign){ echo &#34;sign is error&#34;; exit; } $account = $this-&amp;system-&amp;gt;loadModel(&#39;member/account&#39;); //查询sdb_trust_login是否之前登录过，首次登录会插入会员信息，不是首次就读取 $result_m = $account-&amp;gt;createotherlogin($_GET); if($result_m[&#39;redirect_url&#39;]){ echo &#34;&#34;; exit; }else{ echo &#34;&#34;; } } 程序流程是先检查sdb_trust_login表，如果没有用户信息说明是第一次登录，系统就会读取系统后台设置默认的会员信息，比如等级、默认货币单位等等，然后结合信任登录返回会员信息（如昵称、邮箱信息等等）一起在sdb_members表里生成新的一条会员记录。如果有用户信息说明不是第一次登录，系统会读取之前导入的会员记录。
 问题出在如果你删除了信任登录会员，这里的删除指的是永久删除，由于程序bug，sdb_trust_login表的信息没有被一起删除，如果被删除会员下次又用登录，系统会认为该会员不是第一次登录，直接读取已经被删除不存在的会员信息，就会出现，云登录成功返回后，会员没有登录网站的尴尬。
@@ -59,10 +59,10 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; unset($_GET[&#39;p
     
     <item>
       <title>shopex短信无法发送问题解决方案总结</title>
-      <link>https://gofunbox.github.io/421.html</link>
+      <link>https://ifunbox.top/421.html</link>
       <pubDate>Wed, 07 Nov 2012 01:58:23 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/421.html</guid>
+      <guid>https://ifunbox.top/421.html</guid>
       <description>最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。
 咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。
 1.备份shopex数据库，文件。这个是必须的啦。
@@ -75,10 +75,10 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; unset($_GET[&#39;p
     
     <item>
       <title>ShopEx与Discuz论坛（Ucenter）整合以及限制UID登录</title>
-      <link>https://gofunbox.github.io/327.html</link>
+      <link>https://ifunbox.top/327.html</link>
       <pubDate>Mon, 07 May 2012 04:00:25 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/327.html</guid>
+      <guid>https://ifunbox.top/327.html</guid>
       <description>最近碰到一个客户，需求是以限制UID限制Ucenter用户登录shopex系统，我也研究了下ShopEx与Discuz论坛（Ucenter）整合，发现确实强大无比。
 我按照官网的ShopEx与Discuz论坛（Ucenter）整合说明整合了两个系统。
 实现以限制UID限制Ucenter用户登录shopex系统方法如下
@@ -91,10 +91,10 @@ if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])2&amp;&amp;$uinfo[0]&amp;lt;5)||
     
     <item>
       <title>shopex4.8.5 后台群发,手动发送优惠券(可指定会员)</title>
-      <link>https://gofunbox.github.io/316.html</link>
+      <link>https://ifunbox.top/316.html</link>
       <pubDate>Tue, 24 Apr 2012 07:13:51 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/316.html</guid>
+      <guid>https://ifunbox.top/316.html</guid>
       <description>问题：shopex优惠券发放的不足，shopex优惠券发放一般有2种模式，一是通过促销活动系统自动发放，二是下载优惠券，然后把优惠券号码告之用户。
 第二种方式弊端多多，1.加大了后台工作量（比如要发放给谁，发什么优惠券，发到哪里等这些都要详细的记录，优惠券与会员号要一一对应，难免会出现错误，降低网站的威信）；2.不利于客户管理自己的优惠券，如果通过之前的方式二，发放优惠券，优惠券可以通过邮箱或者站内消息发送给客户，但是不会出现在我的优惠栏目下。
 插件展示：
@@ -109,10 +109,10 @@ if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])2&amp;&amp;$uinfo[0]&amp;lt;5)||
     
     <item>
       <title>shopex4.8.5工作记录,售后服务,售前服务登记 后台优化模块|插件</title>
-      <link>https://gofunbox.github.io/284.html</link>
+      <link>https://ifunbox.top/284.html</link>
       <pubDate>Fri, 30 Mar 2012 09:18:02 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/284.html</guid>
+      <guid>https://ifunbox.top/284.html</guid>
       <description>随着商城的慢慢壮大，客服也越来越多了。
 由于客服采用轮休制导致如果这个客服休息，其他客服无法跟踪正在休息客服正在跟踪客户的情况。又考虑客服系统培训时间有限，系统不能太复杂。
 为了解决这些问题，我基于shopex系统操作风格开发了一个记录售后服务信息的小模块。
@@ -143,10 +143,10 @@ core\include_v5\adminSchema.php 需破解
     
     <item>
       <title>完美解决shopex捆绑销售页的捆绑销售产品不显示规格的问题</title>
-      <link>https://gofunbox.github.io/274.html</link>
+      <link>https://ifunbox.top/274.html</link>
       <pubDate>Tue, 07 Feb 2012 07:38:31 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/274.html</guid>
+      <guid>https://ifunbox.top/274.html</guid>
       <description>未经修改的shopex在捆绑销售页以及产品页中的捆绑销售产品不显示规格，这个问题显得很不人性化。
 首先下载mdl.package.php，然后覆盖掉core\model_v5\trading下的同名文件
 PS:这个附件我已经改过了，破解了原本加密的代码，然后在getPackageItems方法下多输出了g.pdt_desc显示规格的参数。
@@ -159,10 +159,10 @@ PS:显示刚才多输出的规格，这边改的是捆绑销售页面，同理�
     
     <item>
       <title>完美解决shopex产品页面捆绑销售重复显示的问题</title>
-      <link>https://gofunbox.github.io/269.html</link>
+      <link>https://ifunbox.top/269.html</link>
       <pubDate>Tue, 07 Feb 2012 07:18:32 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/269.html</guid>
+      <guid>https://ifunbox.top/269.html</guid>
       <description>今天无意中发现shopex产品页面捆绑销售重复显示的问题
 
 觉得很神奇，回想自己明明只添加了一个捆绑销售信息（如图），怎么会显示出两条信息。
@@ -181,10 +181,10 @@ array_unique函数是php自带去除重复数组的函数，去除了重复内�
     
     <item>
       <title>基于mootools的SHOPEX图片延迟加载挂件</title>
-      <link>https://gofunbox.github.io/249.html</link>
+      <link>https://ifunbox.top/249.html</link>
       <pubDate>Thu, 19 Jan 2012 11:38:17 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/249.html</guid>
+      <guid>https://ifunbox.top/249.html</guid>
       <description>有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
 在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。
 网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件&amp;#8212;lazyload,感动得都快哭了。
@@ -199,10 +199,10 @@ array_unique函数是php自带去除重复数组的函数，去除了重复内�
     
     <item>
       <title>如何解决Shopex4.8.5中关于 Mootools和jQuery 的冲突问题?</title>
-      <link>https://gofunbox.github.io/247.html</link>
+      <link>https://ifunbox.top/247.html</link>
       <pubDate>Thu, 19 Jan 2012 07:47:10 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/247.html</guid>
+      <guid>https://ifunbox.top/247.html</guid>
       <description>ShopEx4.8.5系统用了很多客户端JS特效，特别是后台的管理界面，为了给用户更好的软件体验，更是大量加入了Javascript脚本实现界面和Ajax操作。
 ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属于比较轻巧的Js库，是做前端开发必不可少的脚本库，两者功能相近，开源协议也一样都可以使用 MIT license，Jquery的插件库更丰富一点，在国内使用Jquery的网站也多于mootools，要找些现成的JS脚本制作ShopEx插件应该是更容易，那为什么ShopEx的设计者当初选用了Mootools作为前端脚本库而不是Jquery。ShopEx系统研究认为这可能是设计者的技术偏好，因为mootools更符合所谓的编程模式，让开发人员更容易去定义扩展一个类，代码的类结构更合理清晰，写一个类所需的代码量更少，所以决定选用mootools也合情合理，因为开发人员的出发点永远是写最少的代码在最多的地方使用，达到代码重用的目的。
 不过这增加了普通模板设计师以及第三方服务商基于ShopEx系统定制做模板和插件的难度，因为Jquery更直接简单，国内可找到的资源多，论坛上也有用户提到一个办法可以解决在ShopEx系统中使用Jquery冲突的办法，虽然比较麻烦不利于升级，有急需安装某个Jquery效果的也可以一试：
@@ -217,10 +217,10 @@ jQuery.noConflict();
     
     <item>
       <title>shopex优惠券使用简化教程(购物车自动列出优惠券)</title>
-      <link>https://gofunbox.github.io/239.html</link>
+      <link>https://ifunbox.top/239.html</link>
       <pubDate>Mon, 16 Jan 2012 02:18:16 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/239.html</guid>
+      <guid>https://ifunbox.top/239.html</guid>
       <description>最近自己负责维护运营的shopex购物站，做迎新大促销，只要用户登录这个shopex网站就会得到一张优惠券，随之问题就来了，很多客户反复的询问优惠券的如何使用这个问题，让人不堪其扰。
 其实导致这个问题出现的原因就是在shopex下使用优惠券太麻烦了，流程太繁琐。未经修改的shopex优惠券使用流程是，先进入我的优惠券，查看优惠券信息，然后复制优惠券号码，进入shopex购物车，粘帖优惠券号码到相应位置。
 显然查看复制优惠券号码是多余的一步，然后我们要简化他，让shopex系统自己查询列出来。
@@ -230,10 +230,10 @@ jQuery.noConflict();
     
     <item>
       <title>怎么让shopex捆绑促销显示出产品图片？</title>
-      <link>https://gofunbox.github.io/235.html</link>
+      <link>https://ifunbox.top/235.html</link>
       <pubDate>Fri, 13 Jan 2012 08:37:22 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/235.html</guid>
+      <guid>https://ifunbox.top/235.html</guid>
       <description>最近打开shopex的捆绑促销页面越看越不爽，没有产品图用户体验太差了，后决心修改下，研究才发现那么的简单。希望能帮助到被shopex捆绑促销不显示出产品图片的朋友们。
 打开core\shop\view\package\index.html，下面捆绑促销显示页面代码中加粗的地方就是显示捆绑促销产品图片的代码。可以自己加入该页面的任何页面，自己喜欢就好！另附CSS。
 先上效果图：
@@ -246,10 +246,10 @@ jQuery.noConflict();
     
     <item>
       <title>在站外调用ShopEx网店中的widget挂件</title>
-      <link>https://gofunbox.github.io/204.html</link>
+      <link>https://ifunbox.top/204.html</link>
       <pubDate>Fri, 25 Nov 2011 01:31:26 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/204.html</guid>
+      <guid>https://ifunbox.top/204.html</guid>
       <description>ShopEx中的widget挂件可以灵活展示网店内的商品、分类、文章等数据，但widget挂件只能用在ShopEx自身系统中，如果想在站外引用就没那么简单了，比如在博客中引用一个ShopEx的挂件展示一下网店内的商品，解决方法如下利用ShopEx自定义模板页面结合Iframe方式显示网店内挂件内容的方法：
 1、在页面管理/模板列表/编辑模板，创建一个新的“站点栏目单独页”模板页面，编辑这个模板页面的源码，用以下代码替换原有的模板页面代码，然后保存。
 
@@ -274,10 +274,10 @@ jQuery.noConflict();
     
     <item>
       <title>如何自定义shopex边框</title>
-      <link>https://gofunbox.github.io/202.html</link>
+      <link>https://ifunbox.top/202.html</link>
       <pubDate>Thu, 24 Nov 2011 02:45:18 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/202.html</guid>
+      <guid>https://ifunbox.top/202.html</guid>
       <description>首先：在模板文件themes/fanhefan/borders/目录下新建文件border9.html，这里的border_nav.html是你等下要调用的文件，可以随便命名。
 其次：在themes/fanhefan下修改这两个文件：theme.xml，info.xml。再两个文件中找 到,在中间你会看到原来的一些东西，需要的话就不用删除，直接加
 然后，可以开始写border_nav.html的内容了，css+div不二的选则，写作规则可以参照这个例子，也可以结合其他自带边框的例子。
@@ -287,10 +287,10 @@ jQuery.noConflict();
     
     <item>
       <title>ShopEx自动生成用户名以及随机密码（MD5）</title>
-      <link>https://gofunbox.github.io/190.html</link>
+      <link>https://ifunbox.top/190.html</link>
       <pubDate>Fri, 18 Nov 2011 09:13:19 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/190.html</guid>
+      <guid>https://ifunbox.top/190.html</guid>
       <description>ShopEx自动生成用户名以及随机密码（MD5）
 该程序是自动生成10000个用户名（11位数字没有4，首位为1），用户名后5位为密码。
 之前不知道ShopEx是怎么加密的，但是研究了发现ShopEx是用MD5加密的，所以SQL语句中密码（用户名后5位数字）都经过MD5处理。

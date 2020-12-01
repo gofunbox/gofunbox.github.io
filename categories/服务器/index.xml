@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>服务器 on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <link>https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
     <description>Recent content in 服务器 on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 15 Dec 2017 07:08:59 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Nginx配置禁止IP直接HTTP/HTTPS访问</title>
-      <link>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</link>
+      <link>https://ifunbox.top/nginx-ban-ip-access-for-http-https/</link>
       <pubDate>Fri, 15 Dec 2017 07:08:59 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx-ban-ip-access-for-http-https/</guid>
+      <guid>https://ifunbox.top/nginx-ban-ip-access-for-http-https/</guid>
       <description>这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
 #http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
 yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key openssl req -new -key ssl.key -out ssl.csr …… 一路回车 …… openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.</description>
@@ -24,10 +24,10 @@ yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 20
     
     <item>
       <title>Nginx SSL 性能优化</title>
-      <link>https://gofunbox.github.io/nginx-ssl-performance-optimization/</link>
+      <link>https://ifunbox.top/nginx-ssl-performance-optimization/</link>
       <pubDate>Thu, 07 Dec 2017 07:41:45 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx-ssl-performance-optimization/</guid>
+      <guid>https://ifunbox.top/nginx-ssl-performance-optimization/</guid>
       <description>禁用 SSLv3 协议 Google 的一个员工发现了 SSLv3 协议中一个名叫 Poodle 的漏洞，被证实为可以窃取加密的部分信息。这是一个协议层的漏洞，因此无法打补丁。
 # nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ... }  添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
 你也可以配置用 301 重定向 http 流量到 https，但是这个非加密的跳转过程随时可能被劫持。因此，HSTS 则告诉了浏览器在本地直接重定向 https。
@@ -38,10 +38,10 @@ server { ... add_header Strict-Transport-Security &amp;quot;max-age=31536000;inc
     
     <item>
       <title>自动化编译 如何生成configure和Makefile</title>
-      <link>https://gofunbox.github.io/automake-and-makefile/</link>
+      <link>https://ifunbox.top/automake-and-makefile/</link>
       <pubDate>Tue, 22 Aug 2017 09:54:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/automake-and-makefile/</guid>
+      <guid>https://ifunbox.top/automake-and-makefile/</guid>
       <description>在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件
 通常在一个源码包中，已经包含了configure脚本和Makefile文件，作为课外知识，我们大致了解一下怎么生成这两个文件
 autoconf autoconf用来生成configure脚本，它可以检查系统特性、编译环境、环境变量、软件参数、依赖关系等
@@ -57,10 +57,10 @@ Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的
     
     <item>
       <title>HTTPS原理以及HTTPS中间人攻击</title>
-      <link>https://gofunbox.github.io/security-https-and-mitm/</link>
+      <link>https://ifunbox.top/security-https-and-mitm/</link>
       <pubDate>Wed, 16 Aug 2017 03:15:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/security-https-and-mitm/</guid>
+      <guid>https://ifunbox.top/security-https-and-mitm/</guid>
       <description>https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
 https就是用于解决这样的安全问题的,它的全称为Hypertext Transfer Protocol Secure,它在http的基础上添加了SSL(安全套接字层)层来保证传输数据的安全问题.
@@ -73,10 +73,10 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
     
     <item>
       <title>CentOS CLI命令行mailx发送邮件基本用法</title>
-      <link>https://gofunbox.github.io/centos-cli-mailx/</link>
+      <link>https://ifunbox.top/centos-cli-mailx/</link>
       <pubDate>Tue, 15 Aug 2017 06:50:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
+      <guid>https://ifunbox.top/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
@@ -87,10 +87,10 @@ smtp-server: 530 Error: A secure connection is requiered(such as ssl).</descript
     
     <item>
       <title>解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?))</title>
-      <link>https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</link>
+      <link>https://ifunbox.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</link>
       <pubDate>Tue, 08 Aug 2017 01:51:30 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</guid>
+      <guid>https://ifunbox.top/php-curl-https-error-77-problem-with-reading-the-ssl-ca-cert/</guid>
       <description>问题 服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)
 解决方案：  sudo yum install ca-certificates （无论有没有，安装确认一下） 重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下 curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)  相关知识点 什么是CA Certificates？ Certification authority (CA)
 证书颁发机构（Certification authority 简称CA）证书是由CA向其自身或二级CA颁发的证书，用于在两个CA之间创建一个定义的关系。
@@ -109,10 +109,10 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
     
     <item>
       <title>Nginx配置Google Fonts、Google Ajax、Gravatar反向代理教程</title>
-      <link>https://gofunbox.github.io/nginx-proxy-google-fonts-ajax/</link>
+      <link>https://ifunbox.top/nginx-proxy-google-fonts-ajax/</link>
       <pubDate>Fri, 18 Nov 2016 04:00:23 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx-proxy-google-fonts-ajax/</guid>
+      <guid>https://ifunbox.top/nginx-proxy-google-fonts-ajax/</guid>
       <description>nginx.conf配置开启proxy缓存
 ## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
 #fonts.funboxpower.com.conf upstream google { server fonts.googleapis.com:443; } upstream gstatic { server fonts.gstatic.com:443; } server { listen 443 ssl; server_name fonts.funboxpower.com; #控制来源refer valid_referers server_name *.funboxpower.com funboxpower.com *.chengyinet.com chengyinet.com fonts.funboxpower.com; if ($invalid_referer) { return 404; } #配置https ssl_certificate /your_path/fullchain.pem; ssl_certificate_key /your_path/privkey.pem; location /css { #将获取的信息fonts.gstatic.com转化成fonts.funboxpower.com sub_filter &#39;fonts.gstatic.com&#39; &#39;fonts.funboxpower.com&#39;; sub_filter_once off; sub_filter_types text/css; proxy_pass_header Server; proxy_set_header Host fonts.</description>
@@ -120,10 +120,10 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
     
     <item>
       <title>CentOS下Jenkins安装及使用</title>
-      <link>https://gofunbox.github.io/centos-jenkins-install-config/</link>
+      <link>https://ifunbox.top/centos-jenkins-install-config/</link>
       <pubDate>Thu, 17 Nov 2016 09:33:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/centos-jenkins-install-config/</guid>
+      <guid>https://ifunbox.top/centos-jenkins-install-config/</guid>
       <description>安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
 2.系统会创建一个用户“jenkins”来执行这个服务
@@ -147,10 +147,10 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</description>
     
     <item>
       <title>Let’s Encrypt，给自己的博客加https</title>
-      <link>https://gofunbox.github.io/letsencrypt-nginx-https/</link>
+      <link>https://ifunbox.top/letsencrypt-nginx-https/</link>
       <pubDate>Wed, 19 Oct 2016 13:02:06 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/letsencrypt-nginx-https/</guid>
+      <guid>https://ifunbox.top/letsencrypt-nginx-https/</guid>
       <description>对Let&amp;#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
 Let&amp;#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
 Let&amp;#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let&amp;#8217;s Encrypt安装简单，未来大规模采用可能性非常大。
@@ -163,10 +163,10 @@ Error: open CFI at the end of file; missing .</description>
     
     <item>
       <title>Nginx下php-fpm防止跨站跨目录安全设置</title>
-      <link>https://gofunbox.github.io/nginx_php-fpm_cross-site/</link>
+      <link>https://ifunbox.top/nginx_php-fpm_cross-site/</link>
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_php-fpm_cross-site/</guid>
+      <guid>https://ifunbox.top/nginx_php-fpm_cross-site/</guid>
       <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
 而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
 首先php的版本必须大于等于php5.3.3。
@@ -189,10 +189,10 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
     
     <item>
       <title>通过ngx-lua来统计nginx上的虚拟主机性能数据</title>
-      <link>https://gofunbox.github.io/ngx-lua-stats/</link>
+      <link>https://ifunbox.top/ngx-lua-stats/</link>
       <pubDate>Wed, 30 Mar 2016 02:30:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/ngx-lua-stats/</guid>
+      <guid>https://ifunbox.top/ngx-lua-stats/</guid>
       <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
 用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
 1.几乎对原有项目代码分离
@@ -210,10 +210,10 @@ server { listen 8080 default; server_name _; location / { return 404; } location
     
     <item>
       <title>Nginx安装lua-nginx-module模块</title>
-      <link>https://gofunbox.github.io/nginx_install_lua-nginx-module/</link>
+      <link>https://ifunbox.top/nginx_install_lua-nginx-module/</link>
       <pubDate>Fri, 25 Mar 2016 08:30:57 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_install_lua-nginx-module/</guid>
+      <guid>https://ifunbox.top/nginx_install_lua-nginx-module/</guid>
       <description>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html
 安装了nginx的小伙伴就继续往下看咯~
 1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
@@ -231,10 +231,10 @@ default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, 
     
     <item>
       <title>Redis在Windows下安装和PHP中使用</title>
-      <link>https://gofunbox.github.io/redis_windows_php/</link>
+      <link>https://ifunbox.top/redis_windows_php/</link>
       <pubDate>Fri, 16 Oct 2015 09:09:21 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/redis_windows_php/</guid>
+      <guid>https://ifunbox.top/redis_windows_php/</guid>
       <description>一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
 1、redis简介
 redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;#8211;有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
@@ -272,10 +272,10 @@ windows下自动启动Redis隐藏命令行窗口的方法</description>
     
     <item>
       <title>MemcacheQ消息队列在Linux中编译安装自启动教程</title>
-      <link>https://gofunbox.github.io/linux_memcacheq_configuration/</link>
+      <link>https://ifunbox.top/linux_memcacheq_configuration/</link>
       <pubDate>Sat, 05 Sep 2015 06:58:44 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux_memcacheq_configuration/</guid>
+      <guid>https://ifunbox.top/linux_memcacheq_configuration/</guid>
       <description>队列（Queue）是一种常用的数据结构。在队列这种数据结构中，最先插入的元素将会最先被取出；反之最后插入的元素将会最后被取出，因此队列又称为“先进先出”（FIFO：First In First Out）的线性表。
 加入元素的一端叫“队尾”，取出元素的一端叫“队头”。利用消息队列可以很好地异步处理数据的传送和存储，当遇到频繁且密集地向后端数据库中插入数据时，就可采用消息队列来异步处理这些数据写入。
 MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于其遵循了Memcache协议，因此开发成本很低，不需要学习额外的知识便可轻松掌握。
@@ -287,10 +287,10 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
     
     <item>
       <title>Memcached的CAS (Check And Set) 协议</title>
-      <link>https://gofunbox.github.io/memcached_cas/</link>
+      <link>https://ifunbox.top/memcached_cas/</link>
       <pubDate>Wed, 26 Aug 2015 10:35:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/memcached_cas/</guid>
+      <guid>https://ifunbox.top/memcached_cas/</guid>
       <description>最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
 1. 什么是CAS协议
 很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。
@@ -314,10 +314,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     
     <item>
       <title>tengine安装trim filter模块</title>
-      <link>https://gofunbox.github.io/tengine_trim_filter/</link>
+      <link>https://ifunbox.top/tengine_trim_filter/</link>
       <pubDate>Sat, 07 Feb 2015 13:41:19 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/tengine_trim_filter/</guid>
+      <guid>https://ifunbox.top/tengine_trim_filter/</guid>
       <description>最近闲来无事想用用淘宝tengine的trim filter模块
 官方介绍配置链接http://tengine.taobao.org/document_cn/http_trim_filter_cn.html
 但是没有安装的方法指南
@@ -334,10 +334,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     
     <item>
       <title>TIME_WAIT过多导致负载爆表优化方法</title>
-      <link>https://gofunbox.github.io/optimize_linux_time_wait/</link>
+      <link>https://ifunbox.top/optimize_linux_time_wait/</link>
       <pubDate>Sun, 04 Jan 2015 11:34:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/optimize_linux_time_wait/</guid>
+      <guid>https://ifunbox.top/optimize_linux_time_wait/</guid>
       <description>&lt;div id=&#34;cnblogs_post_body&#34;&gt;
   &lt;p&gt;
     &lt;span style=&#34;font-size: 12pt;&#34;&gt;最近参与的项目每日大概有300w的请求量，8核的服务器负载竟然最高可以跑到20，给跪了&lt;/span&gt;
@@ -366,10 +366,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     
     <item>
       <title>nginx1.6下安装nginx_concat_module报400错误</title>
-      <link>https://gofunbox.github.io/nginx_concat_module_400/</link>
+      <link>https://ifunbox.top/nginx_concat_module_400/</link>
       <pubDate>Mon, 01 Dec 2014 03:48:50 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_concat_module_400/</guid>
+      <guid>https://ifunbox.top/nginx_concat_module_400/</guid>
       <description>第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。
 瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
 由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。
@@ -380,10 +380,10 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     
     <item>
       <title>nginx1.6添加第三方模块nginx_concat_module合并http请求</title>
-      <link>https://gofunbox.github.io/nginx_concat_module_combine_http/</link>
+      <link>https://ifunbox.top/nginx_concat_module_combine_http/</link>
       <pubDate>Mon, 01 Dec 2014 02:41:04 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_concat_module_combine_http/</guid>
+      <guid>https://ifunbox.top/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
 svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
@@ -397,10 +397,10 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
     
     <item>
       <title>pagespeed超级智能的谷歌网页优化利器</title>
-      <link>https://gofunbox.github.io/google_pagespeed_website_optimizer/</link>
+      <link>https://ifunbox.top/google_pagespeed_website_optimizer/</link>
       <pubDate>Tue, 25 Nov 2014 07:55:47 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/google_pagespeed_website_optimizer/</guid>
+      <guid>https://ifunbox.top/google_pagespeed_website_optimizer/</guid>
       <description>最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
 用火狐查看，大部分js，css大部分时间耗在阻挡上面。
 查了相关资料，这样解释阻挡(Blocking)：每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
@@ -424,10 +424,10 @@ http://ywwd.net/read-346</description>
     
     <item>
       <title>屏蔽nginx/apache/php版本信息</title>
-      <link>https://gofunbox.github.io/hide_nginx_apache_php_version/</link>
+      <link>https://ifunbox.top/hide_nginx_apache_php_version/</link>
       <pubDate>Thu, 21 Aug 2014 09:12:31 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/hide_nginx_apache_php_version/</guid>
+      <guid>https://ifunbox.top/hide_nginx_apache_php_version/</guid>
       <description>可使用以下命令查看服务器提供HTTP服务的相关信息 curl &amp;#8211;head http://www.funboxpower.com
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
@@ -442,10 +442,10 @@ expose_php = Off ```
     
     <item>
       <title>中文字符集与字符编码(gb2312,big5)的基础知识</title>
-      <link>https://gofunbox.github.io/chinese_character_set/</link>
+      <link>https://ifunbox.top/chinese_character_set/</link>
       <pubDate>Fri, 23 May 2014 03:10:06 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/chinese_character_set/</guid>
+      <guid>https://ifunbox.top/chinese_character_set/</guid>
       <description>字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。
 中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。
 ASCII 字符集
@@ -493,10 +493,10 @@ Big5码使用了双字节储存方法，以两个字节来编码一个字。第�
     
     <item>
       <title>coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error</title>
-      <link>https://gofunbox.github.io/coreseek_sphinx_all-recursive_sphinx.o_error</link>
+      <link>https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error</link>
       <pubDate>Mon, 17 Mar 2014 06:21:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/coreseek_sphinx_all-recursive_sphinx.o_error</guid>
+      <guid>https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error</guid>
       <description>今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
 第一个错误
 Internal error: Killed (program cc1plus)
@@ -521,10 +521,10 @@ make: *** [all-recursive] Error 1
     
     <item>
       <title>Apache/Nginx Basic HTTP Authentication用户认证</title>
-      <link>https://gofunbox.github.io/apache_nginx_basic_http_authentication/</link>
+      <link>https://ifunbox.top/apache_nginx_basic_http_authentication/</link>
       <pubDate>Sun, 16 Feb 2014 14:55:21 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/apache_nginx_basic_http_authentication/</guid>
+      <guid>https://ifunbox.top/apache_nginx_basic_http_authentication/</guid>
       <description>由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
 今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
 1.apache下的实现方法
@@ -547,10 +547,10 @@ auth_basic_user_file /var/www/.htpasswd;
     
     <item>
       <title>php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式</title>
-      <link>https://gofunbox.github.io/php_run_mode/</link>
+      <link>https://ifunbox.top/php_run_mode/</link>
       <pubDate>Thu, 13 Feb 2014 08:05:38 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/php_run_mode/</guid>
+      <guid>https://ifunbox.top/php_run_mode/</guid>
       <description>CGI:
 CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。
 CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等
@@ -573,10 +573,10 @@ apache模块的DLL:
     
     <item>
       <title>linux svn版本库/数据迁移</title>
-      <link>https://gofunbox.github.io/linux_svn_move/</link>
+      <link>https://ifunbox.top/linux_svn_move/</link>
       <pubDate>Sat, 01 Feb 2014 15:17:14 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux_svn_move/</guid>
+      <guid>https://ifunbox.top/linux_svn_move/</guid>
       <description>1.源服务器:A
 使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库
 将/data/svndata/fanhefan库备份成svn_bak 文件,操作如下:
@@ -601,10 +601,10 @@ svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
     
     <item>
       <title>linux下svn服务开机自启动设置方法</title>
-      <link>https://gofunbox.github.io/linux_svn_autostart/</link>
+      <link>https://ifunbox.top/linux_svn_autostart/</link>
       <pubDate>Thu, 25 Jul 2013 06:11:55 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux_svn_autostart/</guid>
+      <guid>https://ifunbox.top/linux_svn_autostart/</guid>
       <description>1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
 #!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
@@ -632,10 +632,10 @@ esac ```
     
     <item>
       <title>解决IE系列浏览器下下载apk变为zip问题</title>
-      <link>https://gofunbox.github.io/ie_download_apk/</link>
+      <link>https://ifunbox.top/ie_download_apk/</link>
       <pubDate>Tue, 23 Jul 2013 09:36:20 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/ie_download_apk/</guid>
+      <guid>https://ifunbox.top/ie_download_apk/</guid>
       <description>有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；
 简单修改：
 1，进入 /usr/local/nginx/conf
@@ -646,10 +646,10 @@ application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事�
     
     <item>
       <title>PHP开源Apache日志分析工具收集与比较</title>
-      <link>https://gofunbox.github.io/apache_log_analysis/</link>
+      <link>https://ifunbox.top/apache_log_analysis/</link>
       <pubDate>Fri, 28 Jun 2013 02:39:53 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/apache_log_analysis/</guid>
+      <guid>https://ifunbox.top/apache_log_analysis/</guid>
       <description>我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
 1、LogAnalyzer
 LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。
@@ -683,10 +683,10 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
     
     <item>
       <title>华夏名网ICP备案拍照背景图免费下载</title>
-      <link>https://gofunbox.github.io/sudu_icp_background/</link>
+      <link>https://ifunbox.top/sudu_icp_background/</link>
       <pubDate>Thu, 20 Jun 2013 02:10:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/sudu_icp_background/</guid>
+      <guid>https://ifunbox.top/sudu_icp_background/</guid>
       <description>今天收到华夏名网快递的ICP备案拍照幕布背景图
 各种麻烦还邮寄
 为方便各位站友及时提交备案照片特将背景图拍下来供没有收到图的站友们及时使用
@@ -697,10 +697,10 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
     
     <item>
       <title>Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名</title>
-      <link>https://gofunbox.github.io/510.html</link>
+      <link>https://ifunbox.top/510.html</link>
       <pubDate>Wed, 06 Mar 2013 13:39:22 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/510.html</guid>
+      <guid>https://ifunbox.top/510.html</guid>
       <description>平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。
 Window2003 iis+mysql+php+zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;amp;helpId=1237
 里面的教程非常详细有图有真相，还有视频呢
@@ -712,10 +712,10 @@ IIS服务的命令行方式重启命令 iisreset /RESTART 停止后启动</desc
     
     <item>
       <title>Windows下Apache服务器自带Ab.exe的压力测试方法</title>
-      <link>https://gofunbox.github.io/windows-apache-ab/</link>
+      <link>https://ifunbox.top/windows-apache-ab/</link>
       <pubDate>Wed, 30 Jan 2013 08:48:26 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/windows-apache-ab/</guid>
+      <guid>https://ifunbox.top/windows-apache-ab/</guid>
       <description>ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多
 ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中
 ab是专门用于HTTP Server的benchmark testing，可以同时模拟多个并发请求
@@ -750,10 +750,10 @@ Concurrency Level: 10
     
     <item>
       <title>IXWebhosting美国虚拟主机/空间视频教程</title>
-      <link>https://gofunbox.github.io/279.html</link>
+      <link>https://ifunbox.top/279.html</link>
       <pubDate>Fri, 23 Mar 2012 05:05:22 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/279.html</guid>
+      <guid>https://ifunbox.top/279.html</guid>
       <description>最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程
 感觉不错，希望能帮助到大家！
 IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWebhosting视频教程之免费赠送域名开通方法之实例演示 IXWebhosting视频教程之控制面板功能之详解 IXWebhosting视频教程之虚拟主机FTP的相关操作 IXWebhosting视频教程之虚拟主机PHPMyadmin的使用 IXWebhosting视频教程之虚拟主机MySQL独立数据库的建立 IXWebhosting视频教程之虚拟主机在线文件管理功能之实例演示 IXWebhosting视频教程之域名解析操作之实例演示 IXWebhosting视频教程之虚拟主机建立一个网站的完整步骤 IXWebhosting视频教程之虚拟主机搭建ShopEx网店 IXWebhosting视频教程之域名转出操作之实例演示 IXWebhosting视频教程之虚拟主机产品的续费 &amp;nbsp;

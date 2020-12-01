@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>个人杂谈 on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</link>
+    <link>https://ifunbox.top/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/</link>
     <description>Recent content in 个人杂谈 on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 03 Jun 2014 03:00:59 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>博客后台被逗比不断尝试暴力破解~</title>
-      <link>https://gofunbox.github.io/admin_being_attacked/</link>
+      <link>https://ifunbox.top/admin_being_attacked/</link>
       <pubDate>Tue, 03 Jun 2014 03:00:59 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/admin_being_attacked/</guid>
+      <guid>https://ifunbox.top/admin_being_attacked/</guid>
       <description>之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
 查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
 记录post请求参数的日志格式
@@ -26,10 +26,10 @@ log_format main &amp;lsquo;$remote_addr - $remote_user [$time_local] &amp;ldquo;
     
     <item>
       <title>博客被攻击了~</title>
-      <link>https://gofunbox.github.io/blog_being_attacked/</link>
+      <link>https://ifunbox.top/blog_being_attacked/</link>
       <pubDate>Mon, 26 May 2014 09:48:32 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/blog_being_attacked/</guid>
+      <guid>https://ifunbox.top/blog_being_attacked/</guid>
       <description>最近博客一直被cc攻击，不堪其扰
 之前博客一直用安全宝的免费DDoS云防护，很可惜现在不免费啦~
 换到加速乐，貌似效果不是很理想，dns解析貌似昨天下午出现问题，ping不通

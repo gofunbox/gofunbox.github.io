@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SEO on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/seo/</link>
+    <link>https://ifunbox.top/categories/seo/</link>
     <description>Recent content in SEO on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 20 Jan 2012 08:59:13 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/seo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/seo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用Google搜索全球网络摄像头(偷窥就在你身边)</title>
-      <link>https://gofunbox.github.io/259.html</link>
+      <link>https://ifunbox.top/259.html</link>
       <pubDate>Fri, 20 Jan 2012 08:59:13 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/259.html</guid>
+      <guid>https://ifunbox.top/259.html</guid>
       <description>你的电脑联网了么？你喜欢使用摄像头么？不管你使用摄像头做什么用途。现在提醒你，可要小心了。 
 近来，网上流传着一些用google搜索到的网络摄像头地址。网友们可以通过在google里面输入一段代码而捕捉到安装于世界各地的网络摄像头。并且可以调整摄像头的摄像角度和变焦来对某个物体或地方进行监视或偷窥。摄像头使用者们原本以为只有自己才能够看到的内容，在不知不觉中已经失去了安全保护，赤裸裸的暴露在互联网上。
 通过google 搜索到带有网页的网络摄像头无疑使我们担忧再次加重了。被一个人偷窥已经是很糟糕的事情了，想想如果连到互联网上&amp;#8230; &amp;#8230;，你的心情会如何？当你在商场试衣间里换衣服的时候是否会突然想到有没有摄像头在窥视自己。当你在合租的房子里洗澡时是否会担心被不知道安在何处的摄像头偷窥？当你在和朋友视频聊天的时候是否也会有&amp;#8221;第三只眼&amp;#8221;躲在你不知道的角落里？办公室里、大街上、商场、公园、家里&amp;#8230;&amp;#8230;&amp;#8230;..偷窥仿佛已经无处不在。现在，我只能迫切希望在科技发展的同时，安全防范问题也及时的跟上脚步。这样才能使人们真正享受到高科技发展所带来的意义。
@@ -40,10 +40,10 @@ inurl:&amp;#8221;axis-cgi/mjpg&amp;#8221;
     
     <item>
       <title>Robots META标签的语法规则及其使用技巧</title>
-      <link>https://gofunbox.github.io/168.html</link>
+      <link>https://ifunbox.top/168.html</link>
       <pubDate>Sat, 12 Nov 2011 05:32:52 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/168.html</guid>
+      <guid>https://ifunbox.top/168.html</guid>
       <description> Robots META标签与robots.txt不同之处在于Robots META标签则主要是针对一个个具体的页面。和其他的META标签（如使用的语言、页面的描述、关键词等）一样，Robots META标签也是放在页面的＜head＞＜/head＞中，专门用来告诉搜索引擎ROBOTS如何抓取该页的内容。 
 Robots META标签的写法：  Robots META标签中没有大小写之分，name=”Robots”表示所有的搜索引擎，可以针对某个具体搜索引擎写为name=”BaiduSpider”。 content部分有四个指令选项：index、noindex、follow、nofollow，指令间以“,”分隔。 
 INDEX 指令告诉搜索机器人抓取该页面； 
@@ -58,10 +58,10 @@ Robots Meta标签的缺省值是INDEX和FOLLOW，只有inktomi除外，对于它
     
     <item>
       <title>robots.txt语法规则及其使用技巧</title>
-      <link>https://gofunbox.github.io/162.html</link>
+      <link>https://ifunbox.top/162.html</link>
       <pubDate>Sat, 12 Nov 2011 05:22:43 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/162.html</guid>
+      <guid>https://ifunbox.top/162.html</guid>
       <description>robots.txt是搜索引擎中访问网站时访问的第一个文件。robots.txt文件提示蜘蛛在服务器上什么文件网页是可以被访问的，什么文件网页不是能被访问的。
 当一个搜索蜘蛛访问一个站点时，它会首先检查该站点根目录下是否存在robots.txt，如果存在，搜索机器人就会按照该文件中的内容来确定访问的范围；如果该文件不存在，所有的搜索蜘蛛将能够访问网站上所有没有被robots meta标签口令保护的页面。
  robots.txt必须放置在一个站点的根目录下，而且文件名必须全部小写。   基本语法：最简单的 robots.txt 文件使用两条规则：  · User-Agent: 适用下列规则的漫游器
@@ -84,10 +84,10 @@ User-agent: Baiduspider</description>
     
     <item>
       <title>高级链轮解析</title>
-      <link>https://gofunbox.github.io/146.html</link>
+      <link>https://ifunbox.top/146.html</link>
       <pubDate>Wed, 09 Nov 2011 14:50:49 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/146.html</guid>
+      <guid>https://ifunbox.top/146.html</guid>
       <description>下文中会涉及到Xrumer这是来自俄罗斯的一个黑帽工具，由于破解版其少无比、正版价格在4000RMB左右，这里就不建议朋友们用了，那东西最大的好处就是迅速提升外链，今天我们的重点是讲 link wheel 策略，这里就将Xrumer换掉，改成适合国内站长使用的策略吧，自己动手丰衣足食啊。 
 在建设链轮前，请优化好你的站点，你的站点就如车子，如果车子的内部结构还没完成，要轮子也没用，所以建议还是先闭门将车身造好，再配上精心打造的轮子，这样就可以驰骋在搜索引擎的天地里了。
 
@@ -107,10 +107,10 @@ User-agent: Baiduspider</description>
     
     <item>
       <title>高级链接轮—链接轮群落（Link Wheel Village）模型</title>
-      <link>https://gofunbox.github.io/141.html</link>
+      <link>https://ifunbox.top/141.html</link>
       <pubDate>Wed, 09 Nov 2011 14:28:33 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/141.html</guid>
+      <guid>https://ifunbox.top/141.html</guid>
       <description>链接轮群落感觉上更为立体，在站群的权重培养上更为注重。隐蔽性较强，复杂庞大的站外链接群，更不易被搜索引擎判断为作弊行为。
 链接轮群落模型说明： 
 
@@ -139,10 +139,10 @@ f、valid code 规范的网站代码；
     
     <item>
       <title>简单的链接轮的基本模型介绍</title>
-      <link>https://gofunbox.github.io/138.html</link>
+      <link>https://ifunbox.top/138.html</link>
       <pubDate>Wed, 09 Nov 2011 14:08:46 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/138.html</guid>
+      <guid>https://ifunbox.top/138.html</guid>
       <description>SQUIDOO、WordPress、Blogger、Quizill、Weebly 等为群建网站，然后站点进行一个单方向的链接形成一个环状，形象的称之为链接轮。传统的链接建设方式则少了黑色箭头示意的环状单向链接部分。将上面简单的链接轮模型进一步扩展，使用一些使用一些web2.0站点Digg、buzz、del.icio.us、twitter进行链接，继续加强Blogger权重培养。 
 简单的链接轮的基本模型如下图所示： 
 
@@ -154,10 +154,10 @@ f、valid code 规范的网站代码；
     
     <item>
       <title>博客 SEO 链轮模型介绍</title>
-      <link>https://gofunbox.github.io/135.html</link>
+      <link>https://ifunbox.top/135.html</link>
       <pubDate>Wed, 09 Nov 2011 13:49:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/135.html</guid>
+      <guid>https://ifunbox.top/135.html</guid>
       <description>以 ABCDE 五个博客名，其中在 A 博客中发一个文章，关键词以你要优化的网
 站的关键字，在文章里面做指向你网站的锚文本。然后在文章结尾的时候，再做一个锚文本指向 B 博客，这个锚文本的名字可能是 B 博客的名字。同样的方法，B 博客写的文章也是关键字指向你的网站，在文章的结尾做一个链接到 C 博客,以此类推。这样就一定程度上形成了SEO链轮了。 
 SEO链轮模型示意图如下所示：
@@ -173,10 +173,10 @@ SEO链轮模型示意图如下所示：
     
     <item>
       <title>搜索引擎优化相关知识-百度篇</title>
-      <link>https://gofunbox.github.io/120.html</link>
+      <link>https://ifunbox.top/120.html</link>
       <pubDate>Mon, 31 Oct 2011 14:32:38 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/120.html</guid>
+      <guid>https://ifunbox.top/120.html</guid>
       <description>什么是好的url？  创建具有良好描述性、规范、简单的url，有利于用户更方便的记忆和判断网页的内容，也有利于搜索引擎更有效的抓取您的网站。网站设计之初，就应该有合理的url规划。 
 我们建议： 
 网站中同一网页，只对应一个url。 
@@ -190,10 +190,10 @@ Meta description是对网页内容的精练概括。如果description描述与�
     
     <item>
       <title>如何屏蔽禁止中国ip段</title>
-      <link>https://gofunbox.github.io/84.html</link>
+      <link>https://ifunbox.top/84.html</link>
       <pubDate>Thu, 27 Oct 2011 14:41:22 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/84.html</guid>
+      <guid>https://ifunbox.top/84.html</guid>
       <description>order allow,deny
 # 禁止一个ip地址
 deny from 123.125.125.147
@@ -214,10 +214,10 @@ deny from 58.22.0.0/15 58.56.0.0/15 58.58.0.0/16 58.59.0.0/17 58.60.0.0/14 58.82
     
     <item>
       <title>常见Http Header返回状态详解</title>
-      <link>https://gofunbox.github.io/54.html</link>
+      <link>https://ifunbox.top/54.html</link>
       <pubDate>Tue, 25 Oct 2011 13:12:16 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/54.html</guid>
+      <guid>https://ifunbox.top/54.html</guid>
       <description>常见Http Header返回状态详解： &amp;nbsp;
 当用户点击或搜索引擎向网站服务器发出浏览请求时，服务器将返回Http Header Http头信息状态码,常见几种如下:
   1、Http/1.1 200 OK 访问正常
@@ -238,10 +238,10 @@ deny from 58.22.0.0/15 58.56.0.0/15 58.58.0.0/16 58.59.0.0/17 58.60.0.0/14 58.82
     
     <item>
       <title>Http状态码一览表</title>
-      <link>https://gofunbox.github.io/52.html</link>
+      <link>https://ifunbox.top/52.html</link>
       <pubDate>Tue, 25 Oct 2011 13:10:34 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/52.html</guid>
+      <guid>https://ifunbox.top/52.html</guid>
       <description>Http状态码一览表    所谓的404页就是服务器404重定向状态返回页面。数字404指的是404号状态码。一般常用到的有200号状态码和404号状态码。200号表示网页被下载成功，而404号表示不能成功下载并产生错误。下面是HTTP状态码一览表。
 1xx：请求收到，继续处理
 2xx：操作成功收到，分析、接受
@@ -307,10 +307,10 @@ deny from 58.22.0.0/15 58.56.0.0/15 58.58.0.0/16 58.59.0.0/17 58.60.0.0/14 58.82
     
     <item>
       <title>设置网站301跳转（全）</title>
-      <link>https://gofunbox.github.io/48.html</link>
+      <link>https://ifunbox.top/48.html</link>
       <pubDate>Tue, 25 Oct 2011 13:07:00 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/48.html</guid>
+      <guid>https://ifunbox.top/48.html</guid>
       <description>当有多个域名指向你的站点时，301跳转是每个网站常用的一种页面跳转方式，针对SEO来说，作用有以下几点：
 1，301跳转是搜索引擎认可的一种跳转方式，也就是说通过这种方式从一个网址跳转到另外一个网址并不会受到搜索引擎的惩罚。
 2，上面说过这种跳转方式是搜索引擎认可的，搜索引擎的设计者以及考虑到一个域名并不一定会跟随一个网站一辈子，利用这种跳转方式可以让搜索引擎认为您“永久”放弃这个域名并启用了新的域名，那么搜索引擎会把你的老域名相应权重转移到新的域名上来。不过这里要说明一下，并不是通过301跳转就能使权重完全转移的，这个还有很多因素决定。301只能说可以让损失减少到最低。
@@ -329,10 +329,10 @@ $q = new CGI; print $q-&amp;gt;redirect(&#34;www.fanhefan.com/301/&#34;); 6、JS
     
     <item>
       <title>SEO入门级知识问答</title>
-      <link>https://gofunbox.github.io/12211212/</link>
+      <link>https://ifunbox.top/12211212/</link>
       <pubDate>Tue, 25 Oct 2011 12:59:53 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/12211212/</guid>
+      <guid>https://ifunbox.top/12211212/</guid>
       <description>1、SEO是什么？
 全称叫搜索引擎优化。人们使用搜索引擎查找自己需要的信息，那么作为网站的主人，我们希望用户通过搜索引擎能来到自己的网站。这就需要对网站进行SEO（搜索引擎优化）。
 2、SEO了之后，有什么结果呢？

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTML on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/html/</link>
+    <link>https://ifunbox.top/categories/html/</link>
     <description>Recent content in HTML on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 26 Jul 2017 06:05:08 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/html/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/html/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Content Security Policy教程</title>
-      <link>https://gofunbox.github.io/content-security-policy/</link>
+      <link>https://ifunbox.top/content-security-policy/</link>
       <pubDate>Wed, 26 Jul 2017 06:05:08 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/content-security-policy/</guid>
+      <guid>https://ifunbox.top/content-security-policy/</guid>
       <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
 这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
@@ -35,10 +35,10 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     
     <item>
       <title>利用GifShot JavaScript库创建GIF动画</title>
-      <link>https://gofunbox.github.io/gifshot_javascript_create_animated_gifs/</link>
+      <link>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</link>
       <pubDate>Wed, 14 Oct 2015 02:15:30 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/gifshot_javascript_create_animated_gifs/</guid>
+      <guid>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</guid>
       <description>之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。
 GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。
 GifShot优点多多啊~
@@ -58,10 +58,10 @@ JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(
     
     <item>
       <title>禁止浏览器复制剪切</title>
-      <link>https://gofunbox.github.io/494.html</link>
+      <link>https://ifunbox.top/494.html</link>
       <pubDate>Wed, 27 Feb 2013 13:46:28 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/494.html</guid>
+      <guid>https://ifunbox.top/494.html</guid>
       <description>&amp;nbsp;
 
 &amp;nbsp;
@@ -70,19 +70,19 @@ JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(
     
     <item>
       <title>加入收藏夹javascript代码</title>
-      <link>https://gofunbox.github.io/197.html</link>
+      <link>https://ifunbox.top/197.html</link>
       <pubDate>Wed, 23 Nov 2011 08:34:00 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/197.html</guid>
+      <guid>https://ifunbox.top/197.html</guid>
       <description>加入收藏！  测试了下IE6.0+和FireFox均正常，Chrome 没效果</description>
     </item>
     
     <item>
       <title>CSS样式图片批量下载助手</title>
-      <link>https://gofunbox.github.io/123.html</link>
+      <link>https://ifunbox.top/123.html</link>
       <pubDate>Tue, 08 Nov 2011 09:32:20 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/123.html</guid>
+      <guid>https://ifunbox.top/123.html</guid>
       <description>
 功能简介：
  本程序主要适用于仿站!其实全站静态化软件也可以实现他的功能，他更为小巧方便，国人开发中文界面。  使用方法：  打开从网上下载保存的Css样式文件，按照程序第一、二、三、四步进行处理，Css文件中的图片会被保存下来，默认保存路径是Css文件所在目录，并自动修改Css文件中原图片路径地址为相对地址，修改前会自动备份原文件。  下载链接：CSS样式图片下载助手  </description>

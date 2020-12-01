@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/php/</link>
+    <link>https://ifunbox.top/tags/php/</link>
     <description>Recent content in PHP on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 22 Sep 2016 08:47:04 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PHP调试利器XDebug Mac下在phpstorm中的安装与使用</title>
-      <link>https://gofunbox.github.io/mac_php_xdebug_phpstorm_install/</link>
+      <link>https://ifunbox.top/mac_php_xdebug_phpstorm_install/</link>
       <pubDate>Thu, 22 Sep 2016 08:47:04 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/mac_php_xdebug_phpstorm_install/</guid>
+      <guid>https://ifunbox.top/mac_php_xdebug_phpstorm_install/</guid>
       <description>之前一直用比较原始的调试方法echo、print_r()、var_dump()、printf()，可能小项目比较小吧
 最近有时间，就研究了Mac系统下集成phpstorm的xdebug安装配置使用，下面记录一下~
 安装篇 1.xdebug的安装
@@ -50,10 +50,10 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
     
     <item>
       <title>Nginx下php-fpm防止跨站跨目录安全设置</title>
-      <link>https://gofunbox.github.io/nginx_php-fpm_cross-site/</link>
+      <link>https://ifunbox.top/nginx_php-fpm_cross-site/</link>
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/nginx_php-fpm_cross-site/</guid>
+      <guid>https://ifunbox.top/nginx_php-fpm_cross-site/</guid>
       <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
 而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
 首先php的版本必须大于等于php5.3.3。
@@ -76,10 +76,10 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
     
     <item>
       <title>Mac OS X上brew安装多版本php切换</title>
-      <link>https://gofunbox.github.io/mac_osx_brew_php_version/</link>
+      <link>https://ifunbox.top/mac_osx_brew_php_version/</link>
       <pubDate>Mon, 21 Mar 2016 13:40:21 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/mac_osx_brew_php_version/</guid>
+      <guid>https://ifunbox.top/mac_osx_brew_php_version/</guid>
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本

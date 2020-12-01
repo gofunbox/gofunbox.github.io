@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/linux/</link>
+    <link>https://ifunbox.top/tags/linux/</link>
     <description>Recent content in Linux on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 06 Dec 2017 09:26:00 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux 添加开机启动项的三种方法</title>
-      <link>https://gofunbox.github.io/linux-autostart-method/</link>
+      <link>https://ifunbox.top/linux-autostart-method/</link>
       <pubDate>Wed, 06 Dec 2017 09:26:00 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux-autostart-method/</guid>
+      <guid>https://ifunbox.top/linux-autostart-method/</guid>
       <description>linux 添加开机启动项的三种方法。
  编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
 #!/bin/sh # # This script will be executed *after* all the other init scripts. # You can put your own initialization stuff in here if you don&#39;t # want to do the full Sys V style init stuff. touch /var/lock/subsys/local /etc/init.d/mysqld start #mysql开机启动 /etc/init.d/nginx start #nginx开机启动 /etc/init.d/php-fpm start #php-fpm开机启动 /etc/init.d/memcached start #memcache开机启动 #在文件末尾（exit 0之前）加上你开机需要启动的程序或执行的命令即可（执行的程序需要写绝对路径，添加到系统环境变量的除外），如： /usr/local/thttpd/sbin/thttpd -C /usr/local/thttpd/etc/thttpd.conf  自己写一个shell脚本 将写好的脚本（.sh文件）放到目录 /etc/profile.d/ 下，系统启动后就会自动执行该目录下的所有shell脚本。</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>CentOS CLI命令行mailx发送邮件基本用法</title>
-      <link>https://gofunbox.github.io/centos-cli-mailx/</link>
+      <link>https://ifunbox.top/centos-cli-mailx/</link>
       <pubDate>Tue, 15 Aug 2017 06:50:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/centos-cli-mailx/</guid>
+      <guid>https://ifunbox.top/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
 yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
 12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
@@ -38,10 +38,10 @@ smtp-server: 530 Error: A secure connection is requiered(such as ssl).</descript
     
     <item>
       <title>分区概念</title>
-      <link>https://gofunbox.github.io/dev-partition/</link>
+      <link>https://ifunbox.top/dev-partition/</link>
       <pubDate>Thu, 03 Aug 2017 09:27:23 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/dev-partition/</guid>
+      <guid>https://ifunbox.top/dev-partition/</guid>
       <description>首先我们需要知道，硬盘分区的存在，是由硬盘的物理特性决定的，并不会因为操作系统的不同而有所改变。
 如果您需要Linux，您首先需要找到一本书名为《linux》的书，书名相当于硬盘中的MBR，也就是主引导纪录。不同的是，MBR可以是几个书名合在一起，类似于《XX合订本》。这部分内容暂时还没有什么实用价值，您只需要大概的了解。
 而正文，就是硬盘中纪录的数据，这也非常容易理解，且对于安装系统并没有什么影响，所以现在我们来了解目录:
@@ -61,10 +61,10 @@ smtp-server: 530 Error: A secure connection is requiered(such as ssl).</descript
     
     <item>
       <title>标准编译安装</title>
-      <link>https://gofunbox.github.io/gcc-install/</link>
+      <link>https://ifunbox.top/gcc-install/</link>
       <pubDate>Thu, 03 Aug 2017 08:30:26 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/gcc-install/</guid>
+      <guid>https://ifunbox.top/gcc-install/</guid>
       <description>为什么要编译安装 包管理系统是绝大多数发行版的必备组件，也是一个发行版区别于其它发行版的主要特征。但是有些软件，并不能通过包管理系统安装，这就需要下载源码编译安装。
 一个软件可能有许多功能，但是发行版中提供的安装包，通常只具有一些常见的功能。如果提供所有功能，那么无疑会占用更多的资源，而这些功能，大多数用户不会用到；而你会用到的功能，可能安装包中刚好没有。编译安装可以灵活地定制软件，选择自己需要的，取消自己不需要的。
 编译安装还可以针对特定的硬件进行优化，以获得更好的性能表现。
@@ -75,28 +75,28 @@ smtp-server: 530 Error: A secure connection is requiered(such as ssl).</descript
     
     <item>
       <title>Linux服务启动介绍</title>
-      <link>https://gofunbox.github.io/linux-boot/</link>
+      <link>https://ifunbox.top/linux-boot/</link>
       <pubDate>Wed, 26 Jul 2017 07:13:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux-boot/</guid>
+      <guid>https://ifunbox.top/linux-boot/</guid>
       <description>启动流程  读取 MBR (主引导记录Master Boot Record)的信息，启动 Boot Manager 加载系统内核，启动 init进程 init进程 读取 /etc/inittab 文件中的信息，并进入预设的运行级别，按顺序运行该运行级别对应文件夹下的脚本。脚本通常以 start选项启动，并指向一个系统中的程序。 根据 /etc/rcS.d/文件夹中对应的脚本启动 Xwindow 服务器 xorg 启动登录管理器，等待用户登录  Windows 使用 NTLDR 作为 Boot Manager，如果您的系统中安装多个版本的 Windows，您就需要在 NTLDR 中选择您要进入的系统。 Linux 通常使用功能强大，配置灵活的 GRUB 作为 Boot Manager。 init进程 是 Linux 的根进程，所有的系统进程都是它的子进程。 通常情况下， /etc/rcS.d/ 目录下的启动脚本首先被执行，然后是 /etc/rcN.d/ 目录。例如您设定的运行级别为 3,那么它对应的启动目录为 /etc/rc3.d/ 。 Xwindow 为 Linux 下的图形用户界面系统。 大多 Linux 系统默认使用 GDM 作为登录管理器，您在登录管理器界面中输入用户名和密码后，便可以登录系统。（您可以在 /etc/rc3.d/ 文件夹中找到一个名为 S13gdm 的链接）   更改运行级别 在 /etc/inittab 文件中找到如下内容：</description>
     </item>
     
     <item>
       <title>Linux配置文件说明</title>
-      <link>https://gofunbox.github.io/linux-etc/</link>
+      <link>https://ifunbox.top/linux-etc/</link>
       <pubDate>Wed, 26 Jul 2017 07:11:41 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux-etc/</guid>
+      <guid>https://ifunbox.top/linux-etc/</guid>
       <description>组   文件路径   说明     系统初始化   /etc/inittab   运行级别、控制台数量       /etc/timezone   时区       /etc/inetd.conf   超级进程     文件系统   /etc/fstab   开机时挂载的文件系统       /etc/mtab   当前挂载的文件系统     用户系统   /etc/passwd   用户信息       /etc/shadow   用户密码       /etc/group   群组信息       /etc/gshadow   群组密码       /etc/sudoers   Sudoer 列表     Shell   /etc/shell   可用 Shell 列表       /etc/inputrc   ReadLine 控件设定       /etc/profile   用户首选项       /etc/bash.</description>
     </item>
     
     <item>
       <title>Linux操作系统目录简介</title>
-      <link>https://gofunbox.github.io/linux_directory/</link>
+      <link>https://ifunbox.top/linux_directory/</link>
       <pubDate>Wed, 26 Jul 2017 00:41:31 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux_directory/</guid>
+      <guid>https://ifunbox.top/linux_directory/</guid>
       <description>Linux 系统中的目录    目录   说明     /   根目录，万物起源。     /bin   包含系统启动和运行所必须的二进制程序。     /boot   包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和 启动加载程序。有趣的文件：
  /boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。
 /boot/vmlinuz，Linux 内核。    /dev   这是一个包含设备结点的特殊目录。“一切都是文件”，也适用于设备。 在这个目录里，内核维护着所有设备的列表。     /etc   这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本， 在系统启动时，这些脚本会开启每个系统服务。这个目录中的任何文件应该是可读的文本文件。
@@ -105,10 +105,10 @@ smtp-server: 530 Error: A secure connection is requiered(such as ssl).</descript
     
     <item>
       <title>CentOS下Jenkins安装及使用</title>
-      <link>https://gofunbox.github.io/centos-jenkins-install-config/</link>
+      <link>https://ifunbox.top/centos-jenkins-install-config/</link>
       <pubDate>Thu, 17 Nov 2016 09:33:09 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/centos-jenkins-install-config/</guid>
+      <guid>https://ifunbox.top/centos-jenkins-install-config/</guid>
       <description>安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
 2.系统会创建一个用户“jenkins”来执行这个服务
@@ -132,10 +132,10 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</description>
     
     <item>
       <title>Linux free命令查看内存情况学习小记</title>
-      <link>https://gofunbox.github.io/linux_command_free/</link>
+      <link>https://ifunbox.top/linux_command_free/</link>
       <pubDate>Tue, 14 Jun 2016 01:53:04 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/linux_command_free/</guid>
+      <guid>https://ifunbox.top/linux_command_free/</guid>
       <description>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
 1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。
 total:总计物理内存的大小。

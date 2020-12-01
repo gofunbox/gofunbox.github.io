@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/javascript/</link>
+    <link>https://ifunbox.top/tags/javascript/</link>
     <description>Recent content in JavaScript on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 14 Oct 2015 02:15:30 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>利用GifShot JavaScript库创建GIF动画</title>
-      <link>https://gofunbox.github.io/gifshot_javascript_create_animated_gifs/</link>
+      <link>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</link>
       <pubDate>Wed, 14 Oct 2015 02:15:30 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/gifshot_javascript_create_animated_gifs/</guid>
+      <guid>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</guid>
       <description>之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。
 GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。
 GifShot优点多多啊~

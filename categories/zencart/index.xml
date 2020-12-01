@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ZenCart on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/zencart/</link>
+    <link>https://ifunbox.top/categories/zencart/</link>
     <description>Recent content in ZenCart on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 02 Sep 2012 13:20:04 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/zencart/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/zencart/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Zen Cart 138 在PHP5.3环境下出现的Fatal error: Cannot redeclare date_diff()</title>
-      <link>https://gofunbox.github.io/398.html</link>
+      <link>https://ifunbox.top/398.html</link>
       <pubDate>Sun, 02 Sep 2012 13:20:04 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/398.html</guid>
+      <guid>https://ifunbox.top/398.html</guid>
       <description>Zen Cart 138 在PHP5.3环境下出现的Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line 1481错误的解决方法
 Zen Cart是一个比较流行的商城，尤其适合做外贸朋友，但当我们把PHP环境升级到PHP5.3的时候，Zen Cart就无法运行，并出现以下错误了：
 Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line 1481
@@ -26,10 +26,10 @@ if(function_exists(&#39;date_diff&#39;) &amp;&amp; phpversion() &amp;gt;= 5.3){ 
     
     <item>
       <title>ZenCart新手基础问题</title>
-      <link>https://gofunbox.github.io/340.html</link>
+      <link>https://ifunbox.top/340.html</link>
       <pubDate>Tue, 29 May 2012 01:20:14 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/340.html</guid>
+      <guid>https://ifunbox.top/340.html</guid>
       <description>1.忘记zencart后台密码：
 打开zencart数据库，再打开 admin数据表，直接修改管理员密码，admin_name设置为 admin，admin_pass设置为 351683ea4e19efe34874b501fdbf9792:9b，然后用 admin / admin 登录
 2.修改后台地址
@@ -44,10 +44,10 @@ User-agent: * Disallow: /docs/ Disallow: /extras/ Disallow: /login.html Disa
     
     <item>
       <title>如何解决zencart后台中文乱码？</title>
-      <link>https://gofunbox.github.io/332.html</link>
+      <link>https://ifunbox.top/332.html</link>
       <pubDate>Tue, 08 May 2012 07:09:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/332.html</guid>
+      <guid>https://ifunbox.top/332.html</guid>
       <description>解决zencart后台中文乱码方法
 在确定数据库显示无乱码的情况下，打开admin（默认）/includes/configure.php 任意地方加入 define(&amp;#8216;DB_CHARSET&amp;#8217;, &amp;#8216;utf8&amp;#8217;);
 zencart后台中文乱码的问题就此解决！！</description>
@@ -55,10 +55,10 @@ zencart后台中文乱码的问题就此解决！！</description>
     
     <item>
       <title>解决fast_and_easy_checkout与seo_urls冲突导致页面打不开的方法</title>
-      <link>https://gofunbox.github.io/194.html</link>
+      <link>https://ifunbox.top/194.html</link>
       <pubDate>Sat, 19 Nov 2011 10:37:27 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/194.html</guid>
+      <guid>https://ifunbox.top/194.html</guid>
       <description>fast_and_easy_checkout与seo_urls冲突导致页面打不开的根本原因是zencart静态化全开后，系统把index.php?main_page=checkout&amp;amp;fecaction=null优化成checkout.html。
 解决fast_and_easy_checkout与seo_urls冲突的问题其实很简单，找到includes/functions/html_output.php内20行附近
 if((SEO_URLS_ONLY_IN!=&amp;#8221;&amp;#8221;) &amp;amp;&amp;amp; !in_array($page,$sefu)) {
@@ -70,10 +70,10 @@ if(((SEO_URLS_ONLY_IN!=&amp;#8221;&amp;#8221;) &amp;amp;&amp;amp; !in_array($pag
     
     <item>
       <title>zencart robots.txt的阻止收录写法</title>
-      <link>https://gofunbox.github.io/93.html</link>
+      <link>https://ifunbox.top/93.html</link>
       <pubDate>Fri, 28 Oct 2011 16:01:01 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/93.html</guid>
+      <guid>https://ifunbox.top/93.html</guid>
       <description>首先开启ZENCART URL 静态化，然后将下列代码复制到robots.txt中，放于根目录
 这样就可以达到阻止一些不必要收录分权网页的效果
 specials.html、products_all.html、products_new.html、featured_products.html根据自己喜好决定是否阻止收录。
@@ -82,10 +82,10 @@ User-agent: * Disallow: /cache/ Disallow: /contrib/ Disallow: /min/ Disallow: /d
     
     <item>
       <title>ZEN CART 如何添加自定义页面</title>
-      <link>https://gofunbox.github.io/87.html</link>
+      <link>https://ifunbox.top/87.html</link>
       <pubDate>Fri, 28 Oct 2011 06:45:38 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/87.html</guid>
+      <guid>https://ifunbox.top/87.html</guid>
       <description>以about us页面为例, 默认模板
 \includes\templates\template_default\templates\tpl_about_us_default.php
 \includes\languages\english\about_us.php
@@ -108,10 +108,10 @@ define(‘HEADING_TITLE’, ‘About Us’);  define(‘TEXT_INFORMATION’, ‘
     
     <item>
       <title>zencart安装时出现”PHP中没有编译CURL”</title>
-      <link>https://gofunbox.github.io/81.html</link>
+      <link>https://ifunbox.top/81.html</link>
       <pubDate>Thu, 27 Oct 2011 14:37:15 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/81.html</guid>
+      <guid>https://ifunbox.top/81.html</guid>
       <description>1.寻找PHP.ini并打开
 2.按Ctrl-F键查找如下关键字：extension=php_curl.dll 把前面的那个&amp;#8221;;&amp;#8221;去掉。保存退出。重新启动Apache2服务
 版本：php5.05
@@ -127,10 +127,10 @@ libeay32.dll, ssleay32.dll, php5ts.dll, php_curl.dll
     
     <item>
       <title>zencart修改模板结构常用代码</title>
-      <link>https://gofunbox.github.io/34.html</link>
+      <link>https://ifunbox.top/34.html</link>
       <pubDate>Tue, 25 Oct 2011 12:45:17 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/34.html</guid>
+      <guid>https://ifunbox.top/34.html</guid>
       <description>自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~
 zencart修改模板结构常用代码
 改币种
@@ -144,10 +144,10 @@ get_template_dir(&amp;#8216;tpl_header_languages.php&amp;#8217;,DIR_WS_TEMPLATE,
     
     <item>
       <title>如何在zencart产品页下方增加随机产品列表</title>
-      <link>https://gofunbox.github.io/17.html</link>
+      <link>https://ifunbox.top/17.html</link>
       <pubDate>Tue, 25 Oct 2011 09:56:29 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/17.html</guid>
+      <guid>https://ifunbox.top/17.html</guid>
       <description>1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php
 找到代码&amp;lt;!&amp;#8211;eof also purchased products module&amp;#8211;&amp;gt;在下方加入
 &amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;&amp;lt;?php &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;require($template-&amp;gt;get_template_dir(&amp;lsquo;tpl_modules_whats_new.php&amp;rsquo;,DIR_WS_TEMPLATE, $current_page_base,&amp;lsquo;templates&amp;rsquo;). &amp;lsquo;/tpl_modules_whats_new.php&amp;rsquo;);&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;ldquo;font-size: medium;&amp;ldquo;&amp;gt;?&amp;gt;&amp;lt;/span&amp;gt;

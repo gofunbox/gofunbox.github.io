@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hack on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/categories/hack/</link>
+    <link>https://ifunbox.top/categories/hack/</link>
     <description>Recent content in Hack on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 16 Aug 2017 03:15:35 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/categories/hack/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/categories/hack/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HTTPS原理以及HTTPS中间人攻击</title>
-      <link>https://gofunbox.github.io/security-https-and-mitm/</link>
+      <link>https://ifunbox.top/security-https-and-mitm/</link>
       <pubDate>Wed, 16 Aug 2017 03:15:35 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/security-https-and-mitm/</guid>
+      <guid>https://ifunbox.top/security-https-and-mitm/</guid>
       <description>https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
 https就是用于解决这样的安全问题的,它的全称为Hypertext Transfer Protocol Secure,它在http的基础上添加了SSL(安全套接字层)层来保证传输数据的安全问题.
@@ -29,10 +29,10 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
     
     <item>
       <title>Content Security Policy教程</title>
-      <link>https://gofunbox.github.io/content-security-policy/</link>
+      <link>https://ifunbox.top/content-security-policy/</link>
       <pubDate>Wed, 26 Jul 2017 06:05:08 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/content-security-policy/</guid>
+      <guid>https://ifunbox.top/content-security-policy/</guid>
       <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
 这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
@@ -51,10 +51,10 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     
     <item>
       <title>owasp php filters介绍以及使用–过滤非法输入PHP函数库</title>
-      <link>https://gofunbox.github.io/owasp_php_filters/</link>
+      <link>https://ifunbox.top/owasp_php_filters/</link>
       <pubDate>Fri, 28 Mar 2014 08:14:37 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/owasp_php_filters/</guid>
+      <guid>https://ifunbox.top/owasp_php_filters/</guid>
       <description>最近在研究关于php安全的问题，无意中看到使用 PHP 构建的 Web 应用如何避免 XSS 攻击，很受启发，尤其是字符集编码、动态内容为JavaScript事件处理函数的参数、动态内容位于 JavaScript 代码段中时的xss攻击，建议大家都看看，今天要介绍的owasp php filters也是从这篇文章中看到的。
 首先先介绍下owasp，开放Web应用程序安全性项目(OWASP)501&amp;copy;(3)全球非营利慈善组织专注于改进的安全软件。进他们的项目主页，项目好多，关于php也有不少，不过有几个很好的安全项目还没有提供相关类库的下载，想杀人的冲动。。。。
 owasp php filters的主页是https://www.owasp.org/index.php/OWASP_PHP_Filters，里面有关于一些安全过滤函数的介绍，
@@ -69,10 +69,10 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
     
     <item>
       <title>Tamper Data使用–WEB服务器调试/XSS攻击/sql注入利器</title>
-      <link>https://gofunbox.github.io/tamper_data_xss_sql_injection/</link>
+      <link>https://ifunbox.top/tamper_data_xss_sql_injection/</link>
       <pubDate>Thu, 27 Mar 2014 03:37:11 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/tamper_data_xss_sql_injection/</guid>
+      <guid>https://ifunbox.top/tamper_data_xss_sql_injection/</guid>
       <description>一. 简介 作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。
 安装地址：https://addons.mozilla.org/en-us/firefox/addon/tamper-data/
 二. 使用 点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗口，如下图所示：
@@ -87,10 +87,10 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
     
     <item>
       <title>什么是HttpOnly</title>
-      <link>https://gofunbox.github.io/what_is_httponly/</link>
+      <link>https://ifunbox.top/what_is_httponly/</link>
       <pubDate>Sat, 26 Oct 2013 14:39:37 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/what_is_httponly/</guid>
+      <guid>https://ifunbox.top/what_is_httponly/</guid>
       <description>1.什么是HttpOnly?
 
 如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
@@ -115,10 +115,10 @@ javaEE
     
     <item>
       <title>避开eval关键字，打造免杀一句话木马</title>
-      <link>https://gofunbox.github.io/php_anti-antivirus-/</link>
+      <link>https://ifunbox.top/php_anti-antivirus-/</link>
       <pubDate>Tue, 08 Oct 2013 01:33:42 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/php_anti-antivirus-/</guid>
+      <guid>https://ifunbox.top/php_anti-antivirus-/</guid>
       <description>首先我想到的是将eval从字符串类型赋给一个变量。
 如：$func = ‘phpinfo’;
 $func();

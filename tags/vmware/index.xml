@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VMware on Funbox的技术记事本</title>
-    <link>https://gofunbox.github.io/tags/vmware/</link>
+    <link>https://ifunbox.top/tags/vmware/</link>
     <description>Recent content in VMware on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 13 Nov 2011 13:22:39 +0000</lastBuildDate>
     
-	<atom:link href="https://gofunbox.github.io/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ifunbox.top/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Windows 7中虚拟机VMware无线网络图文配置教程</title>
-      <link>https://gofunbox.github.io/181.html</link>
+      <link>https://ifunbox.top/181.html</link>
       <pubDate>Sun, 13 Nov 2011 13:22:39 +0000</pubDate>
       
-      <guid>https://gofunbox.github.io/181.html</guid>
+      <guid>https://ifunbox.top/181.html</guid>
       <description>看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
 先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
  成功用虚拟机VMware网络配置的前提条件：
