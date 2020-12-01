@@ -21,7 +21,7 @@
 Zen Cart是一个比较流行的商城，尤其适合做外贸朋友，但当我们把PHP环境升级到PHP5.3的时候，Zen Cart就无法运行，并出现以下错误了：
 Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line 1481
 原因是在这个文件中已存在函数：date_diff()了，此时，我们需要做到与旧版本的PHP兼容，将Zen Cart中的date_diff()函数进行修改，解决方法如下：
-if(function_exists(&#39;date_diff&#39;) &amp;&amp; phpversion() &amp;gt;= 5.3){ date_diff(date_create($date1), date_create($date2)); }else{ function date_diff($date1, $date2) { //$date1 today, or any other day //$date2 date to check against $d1 = explode(&#34;-&#34;, $date1); $y1 = $d1[0]; $m1 = $d1[1]; $d1 = $d1[2]; $d2 = explode(&#34;-&#34;, $date2); $y2 = $d2[0]; $m2 = $d2[1]; $d2 = $d2[2]; $date1_set = mktime(0,0,0, $m1, $d1, $y1); $date2_set = mktime(0,0,0, $m2, $d2, $y2); return(round(($date2_set-$date1_set)/(60*60*24))); } }  在 上面，我们对date_diff()函数是否存在进行判断，并判断PHP版本号，另外，也可以看到我们使用了PHP新版本的函 数：date_create()，根据给出的日期时间参数返回 Unix 时间戳，详细资料可以参看：http://www.</description>
+if(function_exists(&#39;date_diff&#39;) &amp;amp;&amp;amp; phpversion() &amp;amp;gt;= 5.3){ date_diff(date_create($date1), date_create($date2)); }else{ function date_diff($date1, $date2) { //$date1 today, or any other day //$date2 date to check against $d1 = explode(&amp;quot;-&amp;quot;, $date1); $y1 = $d1[0]; $m1 = $d1[1]; $d1 = $d1[2]; $d2 = explode(&amp;quot;-&amp;quot;, $date2); $y2 = $d2[0]; $m2 = $d2[1]; $d2 = $d2[2]; $date1_set = mktime(0,0,0, $m1, $d1, $y1); $date2_set = mktime(0,0,0, $m2, $d2, $y2); return(round(($date2_set-$date1_set)/(60*60*24))); } }  在 上面，我们对date_diff()函数是否存在进行判断，并判断PHP版本号，另外，也可以看到我们使用了PHP新版本的函 数：date_create()，根据给出的日期时间参数返回 Unix 时间戳，详细资料可以参看：http://www.</description>
     </item>
     
     <item>
@@ -34,12 +34,12 @@ if(function_exists(&#39;date_diff&#39;) &amp;&amp; phpversion() &amp;gt;= 5.3){ 
 打开zencart数据库，再打开 admin数据表，直接修改管理员密码，admin_name设置为 admin，admin_pass设置为 351683ea4e19efe34874b501fdbf9792:9b，然后用 admin / admin 登录
 2.修改后台地址
 打开文件 admin/includes/configure.php，将所有出现 /admin/ 的地方改成自己定义的名字，需要修改的地方有3处:
-define(&#39;DIR_WS_ADMIN&#39;, &#39;/xxx.com/admin/&#39;); define(&#39;DIR_WS_HTTPS_ADMIN&#39;, &#39;/xxx.com/admin/&#39;); define(&#39;DIR_FS_ADMIN&#39;, &#39;D:/Program Files/VertrigoServ/www/xxx.com/admin/&#39;); 然后，找到Zen Cart的目录/admin/ 。将该目录名按照 admin/includes/configure.php 中的定义作相应修改。
+define(&#39;DIR_WS_ADMIN&#39;, &#39;/xxx.com/admin/&#39;); define(&#39;DIR_WS_HTTPS_ADMIN&#39;, &#39;/xxx.com/admin/&#39;); define(&#39;DIR_FS_ADMIN&#39;, &#39;D:/Program Files/VertrigoServ/www/xxx.com/admin/&#39;);  然后，找到Zen Cart的目录/admin/ 。将该目录名按照 admin/includes/configure.php 中的定义作相应修改。
 3.网站301转向
 在htaccess文件文件中增加
-RewriteCond %{HTTP_HOST} ^fanhefan.com [NC] RewriteRule ^(.*)$ http://www.fanhefan.com/$1 [L,R=301] 4.zencart robots.txt写法
+RewriteCond %{HTTP_HOST} ^fanhefan.com [NC] RewriteRule ^(.*)$ http://www.fanhefan.com/$1 [L,R=301]  4.zencart robots.txt写法
 自家的瓜最甜，我认为最好的写法
-User-agent: * Disallow: /docs/ Disallow: /extras/ Disallow: /login.html Disallow: /logoff.html Disallow: /shopping_cart.html Disallow: /popup_image_additional.html Disallow: /product_reviews_write.html Disallow: /tell_a_friend.html Disallow: /pages-popup_image.html? Disallow: /popup_image_additional.html? Disallow: /index.php?main_page Disallow: /*?language=en Disallow: /discount_coupon.html Disallow: /shippinginfo.html Disallow: /privacy.</description>
+User-agent: * Disallow: /docs/ Disallow: /extras/ Disallow: /login.html Disallow: /logoff.html Disallow: /shopping_cart.html Disallow: /popup_image_additional.html Disallow: /product_reviews_write.html Disallow: /tell_a_friend.html Disallow: /pages-popup_image.html? Disallow: /popup_image_additional.html? Disallow: /index.php?main_page Disallow: /*?language=en Disallow: /discount_coupon.html Disallow: /shippinginfo.</description>
     </item>
     
     <item>
@@ -137,9 +137,7 @@ zencart修改模板结构常用代码
 Currencies: get_template_dir(&#39;tpl_header_currencies.php&#39;,DIR_WS_TEMPLATE, $current_page_base,&#39;templates&#39;). &#39;/tpl_header_currencies.php&#39;); echo $content; ?  改语言
 &amp;lt;
 get_template_dir(&amp;#8216;tpl_header_languages.php&amp;#8217;,DIR_WS_TEMPLATE, $current_page_base,&amp;#8217;templates&amp;#8217;). &amp;#8216;/tpl_header_languages.php&amp;#8217;); echo $content; ?   购物车
-   //tpl_shopping_cart_header.php里面改价格，几种商品的显示格式 get_template_dir(&#39;tpl_shopping_cart_header.php&#39;,DIR_WS_TEMPLATE, $current_page_base,&#39;templates&#39;).&#39;/tpl_shopping_cart_header.php&#39;); echo $content; ?  count_contents() != 0) { ?  &amp;nbsp;|   &#34;      &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;搜索条&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;pre&amp;gt;   &amp;lt;?php require($template-&amp;gt;get_template_dir(&amp;lsquo;tpl_search_header.php&amp;rsquo;,DIR_WS_TEMPLATE, $current_page_base,&amp;lsquo;templates&amp;rsquo;). &amp;lsquo;/tpl_search_header.php&amp;rsquo;);?&amp;gt;
- &amp;lt;?php echo HEADER_ADVANCED_SEARCH; ?&amp;gt;   
- &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;登录&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;pre&amp;gt;   &amp;lt;?</description>
+   //tpl_shopping_cart_header.php里面改价格，几种商品的显示格式 get_template_dir(&#39;tpl_shopping_cart_header.php&#39;,DIR_WS_TEMPLATE, $current_page_base,&#39;templates&#39;).&#39;/tpl_shopping_cart_header.php&#39;); echo $content; ?  count_contents() != 0) { ?  &amp;nbsp;|   &#34;    ```  搜索条 ```  get_template_dir(&#39;tpl_search_header.php&#39;,DIR_WS_TEMPLATE, $current_page_base,&#39;templates&#39;). &#39;/tpl_search_header.php&#39;);?       &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;登录&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; ```   &amp;lt;?php if ($_SESSION[&amp;lsquo;customer_id&amp;rsquo;]) { ?</description>
     </item>
     
     <item>

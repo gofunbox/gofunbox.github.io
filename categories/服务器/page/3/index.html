@@ -137,8 +137,8 @@
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff
- ## 隐藏Nginx版本信息: &lt;span style=&quot;font-size: …</p>
+ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
+server_tokens …</p>
           <a href="https://ifunbox.top/hide_nginx_apache_php_version/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -313,11 +313,7 @@ svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak
         <div>
           <p class="pale">1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
-case &ldquo;$1&rdquo; in
-start)
-echo &ldquo;starting svnserve&hellip;&rdquo;
-svnserve -d -r /xxx/xxx/xxx …</p>
+#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &quot;$1&quot; in start) echo &quot;starting svnserve...&quot; svnserve -d -r /xxx/xxx/xxx …</p>
           <a href="https://ifunbox.top/linux_svn_autostart/" class="excerpt_more button">Read More</a>
         </div>
       </div>

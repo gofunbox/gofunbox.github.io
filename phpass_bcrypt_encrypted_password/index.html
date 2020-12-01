@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta name="description" content="在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&lt;?php // Include …">
+&amp;lt;?php // …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="基于bcrypt算法-开源phpass库来保护密码" />
@@ -25,7 +25,7 @@
 <meta property="og:title" content="基于bcrypt算法-开源phpass库来保护密码" />
 <meta property="og:description" content="在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&lt;?php // Include …" />
+&amp;lt;?php // …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -158,26 +158,25 @@
 
 <p><span style="font-size: medium;">对密码进行哈希最安全的方法是使用bcrypt算法。开源的<a href="http://www.openwall.com/phpass/" target="_blank">phpass库</a>以一个易于使用的类来提供该功能。</span></p>
 
-<p><pre><code class="php">
-&lt;?php
+<pre><code>&amp;lt;?php
 // Include the phpass library
-require_once(&lsquo;phpass-03/PasswordHash.php&rsquo;)</p>
+require_once('phpass-03/PasswordHash.php')
 
-<p>// Initialize the hasher without portable hashes (this is more secure)
-$hasher = new PasswordHash(8, false);</p>
+// Initialize the hasher without portable hashes (this is more secure)
+$hasher = new PasswordHash(8, false);
 
-<p>// Hash the password. $hashedPassword will be a 60-character string.
-$hashedPassword = $hasher-&gt;HashPassword(&lsquo;my super cool password&rsquo;);</p>
+// Hash the password. $hashedPassword will be a 60-character string.
+$hashedPassword = $hasher-&amp;gt;HashPassword('my super cool password');
 
-<p>// You can now safely store the contents of $hashedPassword in your database!</p>
+// You can now safely store the contents of $hashedPassword in your database!
 
-<p>// Check if a user has provided the correct password by comparing what they
+// Check if a user has provided the correct password by comparing what they
 // typed with our hash
-$hasher-&gt;CheckPassword(&lsquo;the wrong password&rsquo;, $hashedPassword);  // false</p>
+$hasher-&amp;gt;CheckPassword('the wrong password', $hashedPassword);  // false
 
-<p>$hasher-&gt;CheckPassword(&lsquo;my super cool password&rsquo;, $hashedPassword);  // true
-?&gt;
-```</p>
+$hasher-&amp;gt;CheckPassword('my super cool password', $hashedPassword);  // true
+?&amp;gt;
+</code></pre>
 
 <p><span style="font-size: medium;">需要注意的是phpass在HashPassword()函数中已经对你的密码“加盐”了，这意味着你不需要自己“加盐”。</span></p>
 

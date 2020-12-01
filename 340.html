@@ -162,9 +162,10 @@
 
 <p><span style="font-size: medium;">打开文件 admin/includes/configure.php，将所有出现 /admin/ 的地方改成自己定义的名字，需要修改的地方有3处:</span></p>
 
-<pre>define('DIR_WS_ADMIN', '/xxx.com/admin/');
+<pre><code>define('DIR_WS_ADMIN', '/xxx.com/admin/');
 define('DIR_WS_HTTPS_ADMIN', '/xxx.com/admin/');
-define('DIR_FS_ADMIN', 'D:/Program Files/VertrigoServ/www/xxx.com/admin/');</pre>
+define('DIR_FS_ADMIN', 'D:/Program Files/VertrigoServ/www/xxx.com/admin/');
+</code></pre>
 
 <p><span style="font-size: medium;">然后，找到Zen Cart的目录/admin/ 。将该目录名按照 admin/includes/configure.php 中的定义作相应修改。</span></p>
 
@@ -172,14 +173,15 @@ define('DIR_FS_ADMIN', 'D:/Program Files/VertrigoServ/www/xxx.com/admin/');</pre
 
 <p><span style="font-size: medium;">在htaccess文件文件中增加</span></p>
 
-<pre>RewriteCond %{HTTP_HOST} ^fanhefan.com [NC] 
-RewriteRule ^(.*)$ http://www.fanhefan.com/$1 [L,R=301]</pre>
+<pre><code>RewriteCond %{HTTP_HOST} ^fanhefan.com [NC] 
+RewriteRule ^(.*)$ http://www.fanhefan.com/$1 [L,R=301]
+</code></pre>
 
 <p><span style="font-size: medium;"> <strong>4.zencart robots.txt写法</strong></span></p>
 
 <p><span style="font-size: medium;">自家的瓜最甜，我认为最好的写法</span></p>
 
-<pre>User-agent: * 
+<pre><code>User-agent: * 
 Disallow: /docs/ 
 Disallow: /extras/ 
 Disallow: /login.html 
@@ -202,7 +204,8 @@ Disallow: /?currency 
 Disallow: /language/ 
 Disallow: /checkout_shipping.html 
 Disallow: /checkout_payment.html 
-Disallow: /checkout_confirmation.html </pre>
+Disallow: /checkout_confirmation.html 
+</code></pre>
 
     
       <div id="SOHUCS" sid="/340.html" ></div>

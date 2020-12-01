@@ -154,23 +154,24 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
     
     <p><span style="font-size: medium;">云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下</span></p>
 
-<pre>function other_login_verify(){
+<pre><code>function other_login_verify(){
         $sign = $_GET['sign'];
         unset($_GET['passport-other_login_verify_html']);
         unset($_GET['passport-1-other_login_verify_html']);
         unset($_GET['sign']);
-        $make_sign = $this-&gt;get_ce_sign($_GET,$this-&system-&gt;getConf('certificate.token'));
+        $make_sign = $this-&amp;gt;get_ce_sign($_GET,$this-&amp;system-&amp;gt;getConf('certificate.token'));
 
         if($make_sign!=$sign){
-            echo "sign is error";
+            echo &quot;sign is error&quot;;
             exit;
         }
 
-        $account = $this-&system-&gt;loadModel('member/account');
+        $account = $this-&amp;system-&amp;gt;loadModel('member/account');
         //查询sdb_trust_login是否之前登录过，首次登录会插入会员信息，不是首次就读取
-        $result_m = $account-&gt;createotherlogin($_GET);
+        $result_m = $account-&amp;gt;createotherlogin($_GET);
         if($result_m['redirect_url']){
-            echo "";             exit;         }else{             echo "";         }     }</pre>
+            echo &quot;&quot;;             exit;         }else{             echo &quot;&quot;;         }     }
+</code></pre>
 
 <p><span style="font-size: medium;">程序流程是先检查sdb_trust_login表，如果没有用户信息说明是第一次登录，系统就会读取系统后台设置默认的会员信息，比如等级、默认货币单位等等，然后结合信任登录返回会员信息（如昵称、邮箱信息等等）一起在sdb_members表里生成新的一条会员记录</span><span style="font-size: medium;">。如果有用户信息说明不是第一次登录，系统会读取之前导入的会员记录。</span></p>
 

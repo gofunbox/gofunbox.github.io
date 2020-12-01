@@ -193,8 +193,10 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
       <div class="excerpt_footer">
         <div>
           <p class="pale">直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
-&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&lt;/span&gt;
- &lt;span style=&quot;font-size: 12pt;&quot;&gt;也保证下写入文件夹的权限，还是不行&lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt;直接运行，就正常运行&lt;/span&gt; …</p>
+&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&gt;  也保证下写入文件夹的权限，还是不行
+直接运行，就正常运行
+&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&gt;  
+最后网络上找说是有可 …</p>
           <a href="https://ifunbox.top/linux_crontab_error/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -250,8 +252,13 @@ yum install libpcap-devel 即可解决</p>
         <div>
           <p class="pale">1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
- &lt;span style=&quot;font-size: 12pt;&quot;&gt;前提要安装过svn&lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt; &lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt;然后下载nginx 我下的是1.6版 …</p>
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
+
+然后下载nginx 我下的是1.6版的
+解压切换至解压目录
+./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+打开需要配置网站的nginx vhost配置文件加入
+location /resource/ { …</p>
           <a href="https://ifunbox.top/nginx_concat_module_combine_http/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -277,7 +284,8 @@ svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_m
         <div>
           <p class="pale">记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb -tv # 列出所有USB设备 lsmod # 列出加载的内核模块 env # 查看环境变量 /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt; # free -m # 查看内存使用量和 …</p>
+# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设备 # lsusb -tv # 列出所有USB设备 # lsmod # 列出加载的内核模块 # env # 查看环境变量 # /sbin/sysctl -p	# 编辑/etc/sysctl.conf不需要重启更新	 资源
+# free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # …</p>
           <a href="https://ifunbox.top/useful_linux_command/" class="excerpt_more button">Read More</a>
         </div>
       </div>

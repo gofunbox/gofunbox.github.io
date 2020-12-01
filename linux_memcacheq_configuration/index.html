@@ -181,7 +181,7 @@
     <span style="font-size: 12pt;">安装Libevent</span>
   </p>
   
-  <pre><code class="bash">
+ ```
 &lt;span style="font-size: 12pt;">tar zvxf libevent-2.0.21-stable.tar.gz
 cd libevent-2.0.21-stable
 ./configure --prefix=/usr/local/libevent
@@ -202,7 +202,7 @@ ldconfig&lt;/span>
     <span style="font-size: 12pt;">MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。</span>
   </p>
   
-  <pre><code class="bash">
+ ```
 &lt;span style="font-size: 12pt;">tar zxvf db-6.0.30.tar.gz
 cd db-6.0.30/build_unix
 ../dist/configure --prefix=/usr/local/berkeleydb
@@ -216,7 +216,7 @@ ldconfig&lt;/span>
     <span style="font-size: 12pt;">安装MemcacheQ</span>
   </p>
   
-  <pre><code class="bash">
+ ```
 &lt;span style="font-size: 12pt;">tar zxvf memcacheq-0.2.0.tar.gz
 cd memcacheq-0.2.0
 ./configure --prefix=/usr/local/memcacheq --with-bdb=/usr/local/berkeleydb --with-libevent=/usr/local/libevent --enable-threads
@@ -227,7 +227,7 @@ make && make install&lt;/span>
     <span style="font-size: 12pt;">启动MemcacheQ</span>
   </p>
   
-  <pre><code class="bash">
+ ```
 &lt;span style="font-size: 12pt;">/usr/local/memcacheq/bin/memcacheq -d -uroot -r -l 127.0.0.1 -p11210 -H /usr/local/mcq -N -R -v -L 1024 -B 1024 &gt; /usr/local/mcq/logs/mcq_error.log 2&gt;&1&lt;/span>
 ```
   
@@ -239,7 +239,7 @@ make && make install&lt;/span>
     <span style="font-size: 12pt;">记得将该命令加入开机启动项</span>
   </p>
   
-  <pre><code class="php">
+ ```
 &lt;span style="font-size: 12pt;">vi /etc/rc.local&lt;/span>
 ```
   
@@ -251,7 +251,7 @@ make && make install&lt;/span>
 <div>
   <span style="font-size: 12pt;">附：MemcacheQ参数</span></p> 
   
-  <pre><code class="bash">
+ ```
 &lt;span style="font-size: 12pt;">-p  TCP监听端口(default: 22201)
 -U  UDP监听端口(default: 0, off)
 -s  unix socket路径(不支持网络)
@@ -272,7 +272,7 @@ make && make install&lt;/span>
     <span style="font-size: 12pt;">用PHP测试一下</span>
   </p>
   
-  <pre><code class="php">
+ ```
 &lt;span style="font-size: 12pt;">&lt;?php
 $mcq = memcache_connect('127.0.0.1', 11210) or die ('Connect Error!');
 var_dump($mcq);

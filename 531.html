@@ -179,14 +179,15 @@
 
 <h3 id="简单的例子">简单的例子</h3>
 
-<pre> &lt;?
+<pre><code>&lt;php?
 include 'phpQuery.php';
 phpQuery::newDocumentFile('http://job.blueidea.com');
-$companies = pq('#hotcoms .coms')-&gt;find('div');
+$companies = pq('#hotcoms .coms')-&amp;gt;find('div');
 foreach($companies as $company)
 {
-echo pq($company)-&gt;find('h3 a')-&gt;text()."&lt;br&gt;";
-}</pre>
+echo pq($company)-&amp;gt;find('h3 a')-&amp;gt;text().&quot;&amp;lt;br&amp;gt;&quot;;
+}
+</code></pre>
 
 <h3 id="小结">小结</h3>
 

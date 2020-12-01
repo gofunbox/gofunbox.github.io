@@ -157,39 +157,38 @@
     <p><span style="font-size: medium;">1 在/etc/rc.d/init.d/下建立svnserved文档</span><br />
 <span style="font-size: medium;">2 copy到svnserved文档下</span></p>
 
-<p><pre><code class="bash">
-#!/bin/bash
+<pre><code>#!/bin/bash
 #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误
 #description:svn //此行必写,描述服务
-svnserve -d -r /xxx/xxx/xxx<br />
-case &ldquo;$1&rdquo; in<br />
-start)<br />
-echo &ldquo;starting svnserve&hellip;&rdquo;<br />
-svnserve -d -r /xxx/xxx/xxx &ndash;listen-host xxx.xxx.xxx.xxx<br />
-echo &ldquo;finished&rdquo;</p>
+svnserve -d -r /xxx/xxx/xxx  
+case &quot;$1&quot; in  
+start)  
+echo &quot;starting svnserve...&quot;  
+svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx  
+echo &quot;finished&quot;  
 
-<p>;;</p>
+;;  
 
-<p>stop)<br />
-echo &ldquo;stoping svnserve&rdquo;<br />
-killall svnserve<br />
-echo &ldquo;finished&rdquo;</p>
+stop)  
+echo &quot;stoping svnserve&quot;  
+killall svnserve  
+echo &quot;finished&quot;  
 
-<p>;;</p>
+;;  
 
-<p>restart)</p>
+restart)  
 
-<p>$0 stop<br />
-$0 start</p>
+$0 stop  
+$0 start  
 
-<p>;;</p>
+;;  
 
-<p>*)</p>
+*)  
 
-<p>exit</p>
+exit  
 
-<p>esac
-```</p>
+esac
+</code></pre>
 
 <p><span style="font-size: medium;">3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved</span><br />
 <span style="font-size: medium;">4 将svnserved脚本设置为系统服务，chkconfig &#8211;add svnserved， 重启系统，ok！</span></p>

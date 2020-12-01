@@ -16,16 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
- &lt;span …">
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Mysql慢查询和慢查询日志分析利器–mysqlsla" />
 <meta property="og:url" content="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" />
 <meta property="og:title" content="Mysql慢查询和慢查询日志分析利器–mysqlsla" />
 <meta property="og:description" content="1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
- &lt;span …" />
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -156,21 +154,19 @@ wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.ta
     
     <p><span style="font-size: medium;">1.安装mysqlsla</span></p>
 
-<p><pre><code class="bash">
-wget <a href="http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz">http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz</a>
+<pre><code>wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz
 tar zvxf mysqlsla-2.03.tar.gz
 cd mysqlsla-2.03
 perl Makefile.PL
 make
-make install</p>
+make install
+</code></pre>
 
-<pre><code>
-&lt;span style=&quot;font-size: medium;&quot;&gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&lt;/span&gt;
+<p><span style="font-size: medium;">perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西</span></p>
 
-&lt;span style=&quot;font-size: medium;&quot;&gt;2.使用mysqlsla语法&lt;/span&gt;
+<p><span style="font-size: medium;">2.使用mysqlsla语法</span></p>
 
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
- Slow log: mysqlsla -lt slow slow.log
+<pre><code> Slow log: mysqlsla -lt slow slow.log
  General log: mysqlsla -lt general general.log
  Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -
 </code></pre>
@@ -187,8 +183,7 @@ make install</p>
 
 <p><span style="font-size: medium;">5) db：要处理哪个库的日志：<br /> <span style="font-size: medium; color: #990000;"> 例如，只取backup库的select语句、按c_sum_p排序的前2条记录<br /> </span><span style="font-size: medium;">mysqlsla -lt slow -sort c_sum_p  -sf  &#8220;+select&#8221; -db backup -top 2  /tmp/127_slow.log </span><br /> <span style="font-size: medium; color: #006600;">分析后的效果</span></span></p>
 
-<p><pre><code class="bash">
-______________________________________________________________________ 001 ___
+<pre><code>______________________________________________________________________ 001 ___
 Count : 18 (75.00%)
 Time : 15 s total, 833.333 ms avg, 0 to 8 s max (93.75%)
 95% of Time : 7 s total, 411.765 ms avg, 0 to 4 s max
@@ -198,15 +193,15 @@ Rows sent : 0 avg, 0 to 0 max (0.00%)
 Rows examined : 116.51k avg, 8 to 1.05M max (99.99%)
 Database :
 Users :
-root@localhost : 100.00% (18) of query, 100.00% (24) of all users</p>
+root@localhost : 100.00% (18) of query, 100.00% (24) of all users
 
-<p>Query abstract:
-INSERT INTO t2 SELECT * FROM t2;</p>
+Query abstract:
+INSERT INTO t2 SELECT * FROM t2;
 
-<p>Query sample:
+Query sample:
 insert into t2 select * from t2;
-&hellip;&hellip;..
-```</p>
+........
+</code></pre>
 
 <p><span style="font-size: medium; color: #006600;">选项说明：</span></p>
 

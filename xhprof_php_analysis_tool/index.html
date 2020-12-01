@@ -164,19 +164,17 @@
   <span style="font-size: medium;">xhprof扩展的安装：</span>
 </p>
 
-<p><pre><code class="bash">
-% wget <a href="http://pecl.php.net/get/xhprof-0.9.4.tgz">http://pecl.php.net/get/xhprof-0.9.4.tgz</a>
+<pre><code>% wget http://pecl.php.net/get/xhprof-0.9.4.tgz
 % tar zxf xhprof-0.9.4.tgz
-% cd &lt;xhprof_source_directory&gt;/extension/
+% cd &amp;lt;xhprof_source_directory&amp;gt;/extension/
 % phpize
-% ./configure &ndash;with-php-config=&lt;path to php-config&gt;
-% make &amp;&amp; make install</p>
+% ./configure --with-php-config=&amp;lt;path to php-config&amp;gt;
+% make &amp;&amp; make install
+</code></pre>
 
-<pre><code>
-&lt;span style=&quot;font-size: medium;&quot;&gt;修改php.ini最后面加入&lt;/span&gt;
+<p><span style="font-size: medium;">修改php.ini最后面加入</span></p>
 
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-[xhprof]
+<pre><code>[xhprof]
 extension=xhprof.so
 ;
 ; directory used by default implementation of the iXHProfRuns
@@ -191,26 +189,24 @@ xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路�
   <span style="font-size: medium;">Graphviz安装（这个主要是画图需要的库）</span>
 </p>
 
-<p><pre><code class="bash">
-% wget <a href="http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz">http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz</a>
+<pre><code>% wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz
 % tar zxf graphviz-2.24.0.tar.gz
 % cd graphviz-2.24.0
 % ./configure
-% make &amp;&amp; make install</p>
+% make &amp;&amp; make install
+</code></pre>
 
-<pre><code>
-## 使用分析
+<h2 id="使用分析">使用分析</h2>
 
-&lt;p style=&quot;padding-left: 30px;&quot;&gt;
-  &lt;span style=&quot;font-size: medium;&quot;&gt;复制安装包下的xhprof_html、xhprof_lib文件夹到网站根目录内&lt;/span&gt;
-&lt;/p&gt;
+<p style="padding-left: 30px;">
+  <span style="font-size: medium;">复制安装包下的xhprof_html、xhprof_lib文件夹到网站根目录内</span>
+</p>
 
-&lt;p style=&quot;padding-left: 30px;&quot;&gt;
-  &lt;span style=&quot;font-size: medium;&quot;&gt;然后在系统入口文件中加入&lt;/span&gt;
-&lt;/p&gt;
+<p style="padding-left: 30px;">
+  <span style="font-size: medium;">然后在系统入口文件中加入</span>
+</p>
 
-&lt;pre&gt;&lt;code class=&quot;php&quot;&gt;
-if(function_exists('xhprof_enable')){
+<pre><code>if(function_exists('xhprof_enable')){
 	//if (mt_rand(1, 1000) == 1) { 生产环境中开启
 	$xhprof_on = true;
 	xhprof_enable(XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY);

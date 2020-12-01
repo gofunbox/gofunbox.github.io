@@ -160,19 +160,19 @@ Zen Cart是一个比较流行的商城， …" />
 
 <p><span style="font-size: medium;">原因是在这个文件中已存在函数：date_diff()了，此时，我们需要做到与旧版本的PHP兼容，将Zen Cart中的date_diff()函数进行修改，解决方法如下：</span></p>
 
-<pre>if(function_exists('date_diff') && phpversion() &gt;= 5.3){
+<pre><code>if(function_exists('date_diff') &amp;&amp; phpversion() &amp;gt;= 5.3){
 date_diff(date_create($date1), date_create($date2));
 }else{
 function date_diff($date1, $date2) {
 //$date1 today, or any other day
 //$date2 date to check against
 
-$d1 = explode("-", $date1);
+$d1 = explode(&quot;-&quot;, $date1);
 $y1 = $d1[0];
 $m1 = $d1[1];
 $d1 = $d1[2];
 
-$d2 = explode("-", $date2);
+$d2 = explode(&quot;-&quot;, $date2);
 $y2 = $d2[0];
 $m2 = $d2[1];
 $d2 = $d2[2];
@@ -183,7 +183,7 @@ $date2_set = mktime(0,0,0, $m2, $d2, $y2);
 return(round(($date2_set-$date1_set)/(60*60*24)));
 }
 }
-</pre>
+</code></pre>
 
 <p><span style="font-size: medium;">在 上面，我们对date_diff()函数是否存在进行判断，并判断PHP版本号，另外，也可以看到我们使用了PHP新版本的函 数：date_create()，根据给出的日期时间参数返回 Unix 时间戳，详细资料可以参看：<a href="http://www.php.net/manual/en/function.date-create.php。">http://www.php.net/manual/en/function.date-create.php。</a></span><br />
 <span style="font-size: medium;">另外，PHP5.3中的date_diff()详细情况也可以查看：<a href="http://www.php.net/manual/en/function.date-diff.php">http://www.php.net/manual/en/function.date-diff.php</a></span></p>

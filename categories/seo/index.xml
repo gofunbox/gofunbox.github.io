@@ -50,10 +50,10 @@ INDEX 指令告诉搜索机器人抓取该页面；
 FOLLOW 指令表示搜索机器人可以沿着该页面上的链接继续抓取下去； 
 Robots Meta标签的缺省值是INDEX和FOLLOW，只有inktomi除外，对于它，缺省值是INDEX,NOFOLLOW。 
 这样，一共有四种组合：
- 以下是引用片段： ＜META NAME=”ROBOTS” CONTENT=”INDEX,FOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,FOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”INDEX,NOFOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,NOFOLLOW”＞     其中
- 以下是引用片段： ＜META NAME=”ROBOTS” CONTENT=”INDEX,FOLLOW”＞ 可以写成 ＜META NAME=”ROBOTS” CONTENT=”ALL”＞； ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,NOFOLLOW”＞ 可以写成 ＜META NAME=”ROBOTS” CONTENT=”NONE”＞     目前看来，绝大多数的搜索引擎机器人都遵守robots.txt的规则，而对于Robots META标签，目前支持的并不多，但是正在逐渐增加，如著名搜索引擎GOOGLE就完全支持，而且GOOGLE还增加了一个指令“archive”，可以限制GOOGLE是否保留网页快照。例如：
+ ``` 以下是引用片段： ＜META NAME=”ROBOTS” CONTENT=”INDEX,FOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,FOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”INDEX,NOFOLLOW”＞ ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,NOFOLLOW”＞ ```    其中
+ ```以下是引用片段： ＜META NAME=”ROBOTS” CONTENT=”INDEX,FOLLOW”＞ 可以写成 ＜META NAME=”ROBOTS” CONTENT=”ALL”＞； ＜META NAME=”ROBOTS” CONTENT=”NOINDEX,NOFOLLOW”＞ 可以写成 ＜META NAME=”ROBOTS” CONTENT=”NONE”＞ ```    目前看来，绝大多数的搜索引擎机器人都遵守robots.txt的规则，而对于Robots META标签，目前支持的并不多，但是正在逐渐增加，如著名搜索引擎GOOGLE就完全支持，而且GOOGLE还增加了一个指令“archive”，可以限制GOOGLE是否保留网页快照。例如：
  以下是引用片段：
-＜META NAME=”googlebot” CONTENT=”index,follow,noarchive”＞    </description>
+``` ＜META NAME=”googlebot” CONTENT=”index,follow,noarchive”＞ ```    </description>
     </item>
     
     <item>

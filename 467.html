@@ -177,7 +177,8 @@ replace into表示插入替换数据，需求表中有PrimaryKey，或者unique�
     <span style="font-size: medium;">要注意的是：插入数据的表必须有主键或者是唯一索引！否则的话，<strong>replace into</strong> 会直接插入数据，这将导致表中出现重复的数据。<br /> </span><span style="font-size: medium;"><br /> 下面通过代码说明之间的区别，如下：</span>
   </p>
   
-  <pre>create table testtb(
+ ```
+create table testtb(
 id int not null primary key,
 name varchar(50),
 age int
@@ -187,7 +188,8 @@ select * from testtb;
 insert ignore into testtb(id,name,age)values(1,"aa",13);
 select * from testtb;//仍是1，“bb”,13，因为id是主键，出现主键重复但使用了ignore则错误被忽略
 replace into testtb(id,name,age)values(1,"aa",12);
-select * from testtb; //数据变为1,"aa",12</pre>
+select * from testtb; //数据变为1,"aa",12
+```
 </div>
 
     

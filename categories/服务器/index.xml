@@ -282,7 +282,7 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
 我在最近的一个项目中也应用了MemcacheQ，下面我将分享一下MemcacheQ在Linux中的编译和安装过程。
 首先，MemcacheQ依赖于BerkeleyDB和Libevent，如果服务器中曾经安装过Memcached，那么Libevent应该已经存在了，否则就需要先下载安装Libevent。
 下载链接如下：
-  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装MemcacheQ &amp;lt;span style=&#34;</description>
+  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent ``` &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 ``` &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装MemcacheQ ``` &amp;lt;span style=&#34;</description>
     </item>
     
     <item>
@@ -324,10 +324,9 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 这个模块貌似只能动态加载
 官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html
 看了这些基本知识，开始尝试安装吧
-&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;./configure &amp;ndash;with&amp;ndash;http_trim_filter_module=shared make make dso_install&amp;lt;/span&amp;gt;
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;nginx.conf中events上方加入&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;apache&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt;  网站配置内加入
-&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;trim on; trim_jscss on;&amp;lt;/span&amp;gt; ```
-官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;./configure --with--http_trim_filter_module=shared make make dso_install&amp;amp;lt;/span&amp;gt;  nginx.conf中events上方加入
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt;  网站配置内加入
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;trim on; trim_jscss on;&amp;amp;lt;/span&amp;gt;  官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
 至此安装成功，看下效果首页减少2K，嘿嘿~
 还有一点：trim_jscss开启不一定适合全部网站哦，开启可能会影响js</description>
     </item>
@@ -374,8 +373,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
 由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。
 也就是模块认不到js文件了。。。
-[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;ldquo;application/x-javascript&amp;rdquo;), ```
-因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
+[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;quot;application/x-javascript&amp;quot;),  因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
     </item>
     
     <item>
@@ -386,11 +384,13 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <guid>https://ifunbox.top/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
+
+然后下载nginx 我下的是1.6版的
+解压切换至解压目录
+./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
-重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -416,8 +416,7 @@ https://developers.google.com/speed/pagespeed/module/configuration
 这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
 还有一个问题压缩合并js，css都有缓存，看了文档貌似没有提缓存时间的问题
 如果需要刷新缓存，我是用重启nginx的方法
-pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;ldquo;.pagespeed.([a-z].)?[a-z]{2}.[^.]{10}.[^.]+&amp;rdquo; { add_header &amp;ldquo;&amp;rdquo; &amp;ldquo;&amp;rdquo;; } location ~ &amp;ldquo;^/pagespeed_static/&amp;rdquo; { } location ~ &amp;ldquo;^/ngx_pagespeed_beacon$&amp;rdquo; { } ```
-关于阻挡blocking的介绍
+pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;quot;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&amp;quot; { add_header &amp;quot;&amp;quot; &amp;quot;&amp;quot;; } location ~ &amp;quot;^/pagespeed_static/&amp;quot; { } location ~ &amp;quot;^/ngx_pagespeed_beacon$&amp;quot; { }  关于阻挡blocking的介绍
 http://www.zhihu.com/question/24506110
 http://ywwd.net/read-346</description>
     </item>
@@ -432,10 +431,10 @@ http://ywwd.net/read-346</description>
 这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
 下面分享下如何去除屏蔽nginx/apache/php版本信息
 隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff
- ## 隐藏Nginx版本信息: &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;打开 nginx.conf，在http { }里加上：&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;改为： &amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
+ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
+server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
+fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;  改为： 
+fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
 expose_php = Off ```
 完成以上设定后，重新启动 Apache/Nginx 即可。</description>
     </item>
@@ -607,26 +606,7 @@ svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
       <guid>https://ifunbox.top/linux_svn_autostart/</guid>
       <description>1 在/etc/rc.d/init.d/下建立svnserved文档
 2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx
-case &amp;ldquo;$1&amp;rdquo; in
-start)
-echo &amp;ldquo;starting svnserve&amp;hellip;&amp;rdquo;
-svnserve -d -r /xxx/xxx/xxx &amp;ndash;listen-host xxx.xxx.xxx.xxx
-echo &amp;ldquo;finished&amp;rdquo;
-;;
-stop)
-echo &amp;ldquo;stoping svnserve&amp;rdquo;
-killall svnserve
-echo &amp;ldquo;finished&amp;rdquo;
-;;
-restart)
-$0 stop
-$0 start
-;;
-*)
-exit
-esac ```
-3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
+#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &amp;quot;$1&amp;quot; in start) echo &amp;quot;starting svnserve...&amp;quot; svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx echo &amp;quot;finished&amp;quot; ;; stop) echo &amp;quot;stoping svnserve&amp;quot; killall svnserve echo &amp;quot;finished&amp;quot; ;; restart) $0 stop $0 start ;; *) exit esac  3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
 4 将svnserved脚本设置为系统服务，chkconfig &amp;#8211;add svnserved， 重启系统，ok！</description>
     </item>
     

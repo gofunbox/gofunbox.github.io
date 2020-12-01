@@ -152,7 +152,7 @@
     
     <p><span style="font-size: medium;">3DES（或称为Triple DES）是三重数据加密算法（TDEA，Triple Data Encryption Algorithm）块密码的通称。它相当于是对每个数据块应用三次DES加密算法。由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解；3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。</span></p>
 
-<pre><?php
+<pre><code>&lt;?php
 /**
 *
 * PHP版3DES加解密类
@@ -163,24 +163,24 @@
 */
 class Crypt3Des
 {   
-    public $key    = "01234567890123456789012345678912";
-    public $iv    = "23456789"; //like java: private static byte[] myIV = { 50, 51, 52, 53, 54, 55, 56, 57 };
+    public $key    = &quot;01234567890123456789012345678912&quot;;
+    public $iv    = &quot;23456789&quot;; //like java: private static byte[] myIV = { 50, 51, 52, 53, 54, 55, 56, 57 };
    
     //加密
     public function encrypt($input)
     {
-        $input = $this->padding( $input );
-        $key = base64_decode($this->key);
+        $input = $this-&gt;padding( $input );
+        $key = base64_decode($this-&gt;key);
         $td = mcrypt_module_open( MCRYPT_3DES, '', MCRYPT_MODE_CBC, '');
         //使用MCRYPT_3DES算法,cbc模式
-        mcrypt_generic_init($td, $key, $this->iv);
+        mcrypt_generic_init($td, $key, $this-&gt;iv);
         //初始处理
         $data = mcrypt_generic($td, $input);
         //加密
         mcrypt_generic_deinit($td);
         //结束
         mcrypt_module_close($td);
-        $data = $this->removeBR(base64_encode($data));
+        $data = $this-&gt;removeBR(base64_encode($data));
         return $data;
     }
    
@@ -188,17 +188,17 @@ class Crypt3Des
     public function decrypt($encrypted)
     {
         $encrypted = base64_decode($encrypted);
-        $key = base64_decode($this->key);
+        $key = base64_decode($this-&gt;key);
         $td = mcrypt_module_open( MCRYPT_3DES,'',MCRYPT_MODE_CBC,'');
         //使用MCRYPT_3DES算法,cbc模式
-        mcrypt_generic_init($td, $key, $this->iv);
+        mcrypt_generic_init($td, $key, $this-&gt;iv);
         //初始处理
         $decrypted = mdecrypt_generic($td, $encrypted);
         //解密
         mcrypt_generic_deinit($td);
         //结束
         mcrypt_module_close($td);
-        $decrypted = $this->removePadding($decrypted);
+        $decrypted = $this-&gt;removePadding($decrypted);
         return $decrypted;
     }
    
@@ -206,7 +206,7 @@ class Crypt3Des
     public function padding( $str )
     {
         $len = 8 - strlen( $str ) % 8;
-        for ( $i = 0; $i &lt; $len; $i++ )
+        for ( $i = 0; $i &amp;lt; $len; $i++ )
         {
             $str .= chr( 0 );
         }
@@ -217,9 +217,9 @@ class Crypt3Des
     public function removePadding( $str )
     {
         $len = strlen( $str );
-        $newstr = "";
+        $newstr = &quot;&quot;;
         $str = str_split($str);
-        for ($i = 0; $i &lt; $len; $i++ )
+        for ($i = 0; $i &amp;lt; $len; $i++ )
         {
             if ($str[$i] != chr( 0 ))
             {
@@ -233,9 +233,9 @@ class Crypt3Des
     public function removeBR( $str )
     {
         $len = strlen( $str );
-        $newstr = "";
+        $newstr = &quot;&quot;;
         $str = str_split($str);
-        for ($i = 0; $i &lt; $len; $i++ )
+        for ($i = 0; $i &amp;lt; $len; $i++ )
         {
             if ($str[$i] != '\n' and $str[$i] != '\r')
             {
@@ -250,16 +250,16 @@ class Crypt3Des
 
 //test
 
-$input = "ctl=member/member&#038;act=index&#038;id=1212";
-echo "plainText:" . $input."
+$input = &quot;ctl=member/member&amp;#038;act=index&amp;#038;id=1212&quot;;
+echo &quot;plainText:&quot; . $input.&quot;
 
-<br />";
+&lt;br /&gt;&quot;;
 $crypt = new Crypt3Des();
-echo "Encode:".$crypt->encrypt($input)."<br />";
-echo "Decode:".$crypt->decrypt($crypt->encrypt($input));
+echo &quot;Encode:&quot;.$crypt-&gt;encrypt($input).&quot;&lt;br /&gt;&quot;;
+echo &quot;Decode:&quot;.$crypt-&gt;decrypt($crypt-&gt;encrypt($input));
 
-?>
-</pre>
+?&gt;
+</code></pre>
 
     
       <div id="SOHUCS" sid="/543.html" ></div>

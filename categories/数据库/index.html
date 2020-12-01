@@ -306,8 +306,8 @@ thinkphp实现的代码，距离单位都是km
 涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
 utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
 首先先查看下mysql当前版本所支持的字符集
-show charset;
- &lt;span style=&quot;font-size: medium;&quot;&gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上 …</p>
+show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
+1.修改database,table,column字符 …</p>
           <a href="https://ifunbox.top/mysql_utf8mb4_emoji/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -332,8 +332,9 @@ show charset;
       <div class="excerpt_footer">
         <div>
           <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
- &lt;span style=&quot;font-size: medium;&quot;&gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&lt;/span&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;2.使 …</p>
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
+2.使用mysqlsla语法
+ Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
           <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>

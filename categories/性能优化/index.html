@@ -323,8 +323,13 @@ yum install libpcap-devel 即可解决</p>
         <div>
           <p class="pale">1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
- &lt;span style=&quot;font-size: 12pt;&quot;&gt;前提要安装过svn&lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt; &lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt;然后下载nginx 我下的是1.6版 …</p>
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
+
+然后下载nginx 我下的是1.6版的
+解压切换至解压目录
+./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+打开需要配置网站的nginx vhost配置文件加入
+location /resource/ { …</p>
           <a href="https://ifunbox.top/nginx_concat_module_combine_http/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -379,8 +384,9 @@ svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_m
       <div class="excerpt_footer">
         <div>
           <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
- &lt;span style=&quot;font-size: medium;&quot;&gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&lt;/span&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;2.使 …</p>
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
+2.使用mysqlsla语法
+ Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
           <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>

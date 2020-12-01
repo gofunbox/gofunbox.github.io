@@ -162,11 +162,13 @@
 
 <p><span style="font-size: medium;">core\shop\controller\ctl.passport.php找到约554行</span></p>
 
-<pre>if ((is_array($uinfo)&&intval($uinfo[0])>0)||$info = $memberObj->verifyLogin($_POST['login'],$_POST['passwd'],$message)){</pre>
+<pre><code>if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;0)||$info = $memberObj-&gt;verifyLogin($_POST['login'],$_POST['passwd'],$message)){
+</code></pre>
 
 <p><span style="font-size: medium;">替换成</span></p>
 
-<pre>if ((is_array($uinfo)&&intval($uinfo[0])>2&&$uinfo[0]&lt;5)||$info = $memberObj->verifyLogin($_POST['login'],$_POST['passwd'],$message)){</pre>
+<pre><code>if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;2&amp;&amp;$uinfo[0]&amp;lt;5)||$info = $memberObj-&gt;verifyLogin($_POST['login'],$_POST['passwd'],$message)){
+</code></pre>
 
 <p><span style="font-size: medium;">intval($uinfo[0])&gt;2&amp;&amp;$uinfo[0]<5) 的意思是 UID>2且<5才能登录系统</span></p>
 

@@ -19,7 +19,7 @@
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
 PHP的AES加密算法：
-&lt;?php class …">
+&amp;lt;?php …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="PHP android ios相互兼容的AES加密算法" />
@@ -29,7 +29,7 @@ PHP的AES加密算法：
 PHP的免费版phpAES项目，手机端解码各种不对。
 好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
 PHP的AES加密算法：
-&lt;?php class …" />
+&amp;lt;?php …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -166,34 +166,33 @@ PHP的AES加密算法：
 
 <p><span style="font-size: 14pt;"><span style="font-size: 12pt;">PHP的AES加密算法：</span></p></p>
 
-<p><pre><code class="php">
-&lt;?php
+<pre><code>&amp;lt;?php
 class MCrypt {
-    private $hex_iv = &lsquo;00000000000000000000000000000000&rsquo;; # converted JAVA byte code in to HEX and placed it here<br />
-    private $key = &lsquo;U1MjU1M0FDOUZ.Qz&rsquo;; #Same as in JAVA
+    private $hex_iv = '00000000000000000000000000000000'; # converted JAVA byte code in to HEX and placed it here           
+    private $key = 'U1MjU1M0FDOUZ.Qz'; #Same as in JAVA
     function __construct() {
-        $this-&gt;key = hash(&lsquo;sha256&rsquo;, $this-&gt;key, true);
-        //echo $this-&gt;key.&rsquo;&lt;br/&gt;&rsquo;;
+        $this-&amp;gt;key = hash('sha256', $this-&amp;gt;key, true);
+        //echo $this-&amp;gt;key.'&amp;lt;br/&amp;gt;';
     }
-    function encrypt($str) {<br />
-        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &ldquo;, MCRYPT_MODE_CBC, &ldquo;);
-        mcrypt_generic_init($td, $this-&gt;key, $this-&gt;hexToStr($this-&gt;hex_iv));
+    function encrypt($str) {   
+        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+        mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv));
         $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
         $pad = $block - (strlen($str) % $block);
         $str .= str_repeat(chr($pad), $pad);
         $encrypted = mcrypt_generic($td, $str);
         mcrypt_generic_deinit($td);
-        mcrypt_module_close($td);<br />
+        mcrypt_module_close($td);    
         return base64_encode($encrypted);
     }
-    function decrypt($code) {<br />
-        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, &ldquo;, MCRYPT_MODE_CBC, &ldquo;);
-        mcrypt_generic_init($td, $this-&gt;key, $this-&gt;hexToStr($this-&gt;hex_iv));
+    function decrypt($code) {    
+        $td = mcrypt_module_open(MCRYPT_RIJNDAEL_128, '', MCRYPT_MODE_CBC, '');
+        mcrypt_generic_init($td, $this-&amp;gt;key, $this-&amp;gt;hexToStr($this-&amp;gt;hex_iv));
         $str = mdecrypt_generic($td, base64_decode($code));
         $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
         mcrypt_generic_deinit($td);
-        mcrypt_module_close($td);<br />
-        return $this-&gt;strippadding($str);<br />
+        mcrypt_module_close($td);    
+        return $this-&amp;gt;strippadding($str);           
     }
     /*
       For PKCS7 padding
@@ -208,7 +207,7 @@ class MCrypt {
         $slast = ord(substr($string, -1));
         $slastc = chr($slast);
         $pcheck = substr($string, -$slast);
-        if (preg_match(&ldquo;/$slastc{&rdquo; . $slast . &ldquo;}/&rdquo;, $string)) {
+        if (preg_match(&quot;/$slastc{&quot; . $slast . &quot;}/&quot;, $string)) {
             $string = substr($string, 0, strlen($string) - $slast);
             return $string;
         } else {
@@ -217,8 +216,8 @@ class MCrypt {
     }
 function hexToStr($hex)
 {
-    $string=&ldquo;;
-    for ($i=0; $i &lt; strlen($hex)-1; $i+=2)
+    $string='';
+    for ($i=0; $i &amp;lt; strlen($hex)-1; $i+=2)
     {
         $string .= chr(hexdec($hex[$i].$hex[$i+1]));
     }
@@ -226,18 +225,17 @@ function hexToStr($hex)
 }
 }
 $encryption = new MCrypt();
-echo $encryption-&gt;encrypt(&lsquo;123456&rsquo;) . &ldquo;&lt;br/&gt;&rdquo;;
-echo $encryption-&gt;decrypt(&lsquo;tpyxISJ83dqEs3uw8bN/+w==&rsquo;);</p>
+echo $encryption-&amp;gt;encrypt('123456') . &quot;&amp;lt;br/&amp;gt;&quot;;
+echo $encryption-&amp;gt;decrypt('tpyxISJ83dqEs3uw8bN/+w==');
 
-<p>?&gt;</p>
+?&amp;gt;
+</code></pre>
 
-<pre><code>
-&lt;p&gt;
-  &lt;span style=&quot;font-size: 12pt;&quot;&gt;java的AES加密算法：&lt;/span&gt;
-&lt;/p&gt;
+<p>
+  <span style="font-size: 12pt;">java的AES加密算法：</span>
+</p>
 
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-import javax.crypto.Cipher;
+<pre><code>import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import android.util.Base64;

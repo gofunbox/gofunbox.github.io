@@ -128,8 +128,9 @@ $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($r
 涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
 utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
 首先先查看下mysql当前版本所支持的字符集
-show charset;
- &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;1.修改database,table,column字符集mysql语句如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;sql&amp;quot;&amp;gt; # For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
+show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
+1.修改database,table,column字符集mysql语句如下
+# For each database: ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci; # For each table: ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # For each column: ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; # (Don’t blindly copy-paste this! The exact statement depends on the column type, maximum length, and other properties.</description>
     </item>
     
     <item>
@@ -139,8 +140,9 @@ show charset;
       
       <guid>https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/</guid>
       <description>1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install
- &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;2.使用mysqlsla语法&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
+2.使用mysqlsla语法
+ Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: mysqlbinlog bin.log | mysqlsla -lt binary -  常用参数说明：
 1) -log-type (-lt) type logs:
 通过这个参数来制定log的类型，主要有slow, general, binary, msl, udl,分析slow log时通过制定为slow.
 2) -sort:
@@ -150,7 +152,9 @@ c_sum:按总次数排序
 c_sum_p: sql语句执行次数占总执行次数的百分比。
 3) -top:
 显示sql的数量，默认是10,表示按规则取排序的前多少条
-4) –statement-filter (-sf) [+-][TYPE]:</description>
+4) –statement-filter (-sf) [+-][TYPE]:
+过滤sql语句的类型，比如select、update、drop.
+[TYPE]有SELECT, CREATE, DROP, UPDATE, INSERT，例如&amp;#8221;+SELECT,INSERT&amp;#8221;，不出现的默认是-，即不包括。</description>
     </item>
     
     <item>
@@ -161,8 +165,11 @@ c_sum_p: sql语句执行次数占总执行次数的百分比。
       <guid>https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/</guid>
       <description>该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
 mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &amp;lsquo;GBK&amp;rsquo; 例：mysql_query(&amp;ldquo;SET CHARACTER SET &amp;lsquo;gbk&amp;rsquo;&amp;rdquo;, $c);
- &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; &amp;amp;lt;?php $c = mysql_connect(&amp;quot;localhost&amp;quot;, &amp;quot;user&amp;quot;, &amp;quot;pass&amp;quot;); mysql_select_db(&amp;quot;database&amp;quot;, $c); // change our character set mysql_query(&amp;quot;SET CHARACTER SET &#39;gbk&#39;&amp;quot;, $c); // create demo table mysql_query(&amp;quot;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &#39;GBK&#39;&amp;quot;, $c); mysql_query(&amp;quot;INSERT INTO users VALUES(&#39;foo&#39;,&#39;bar&#39;), (&#39;baz&#39;,&#39;test&#39;)&amp;quot;, $c); // now the exploit code $_POST[&#39;username&#39;] = chr(0xbf) .</description>
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立连接时使用 SET CHARACTER SET &#39;GBK&#39; 例：mysql_query(&amp;quot;SET CHARACTER SET &#39;gbk&#39;&amp;quot;, $c);  问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞
+&amp;lt;?php
+$c = mysql_connect(&amp;ldquo;localhost&amp;rdquo;, &amp;ldquo;user&amp;rdquo;, &amp;ldquo;pass&amp;rdquo;); mysql_select_db(&amp;ldquo;database&amp;rdquo;, $c);
+// change our character set mysql_query(&amp;ldquo;SET CHARACTER SET &amp;lsquo;gbk&amp;rsquo;&amp;rdquo;, $c);
+// create demo table mysql_query(&amp;ldquo;CREATE TABLE users ( username VARCHAR(32) PRIMARY KEY, password VARCHAR(32) ) CHARACTER SET &amp;lsquo;GBK&amp;rsquo;&amp;ldquo;, $c); mysql_query(&amp;ldquo;INSERT INTO users VALUES(&amp;lsquo;foo&amp;rsquo;,&amp;lsquo;bar&amp;rsquo;), (&amp;lsquo;baz&amp;rsquo;,&amp;lsquo;test&amp;rsquo;)&amp;rdquo;, $c);</description>
     </item>
     
     <item>
@@ -314,7 +321,7 @@ mysql中常用的三种插入数据的语句:
 insert into表示插入数据，数据库会检查主键，如果出现重复会报错；
 replace into表示插入替换数据，需求表中有PrimaryKey，或者unique索引，如果数据库已经存在数据，则用新数据替换，如果没有数据效果则和insert into一样；
 insert ignore表示，如果中已经存在相同的记录，则忽略当前新数据；  &amp;nbsp;  replace into 跟 insert 功能类似，不同点在于：replace into 首先尝试插入数据到表中， 1. 如果发现表中已经有此行数据（根据主键或者唯一索引判断）则先删除此行数据，然后插入新的数据。 2. 否则，直接插入新数据。  &amp;nbsp;  要注意的是：插入数据的表必须有主键或者是唯一索引！否则的话，replace into 会直接插入数据，这将导致表中出现重复的数据。
-下面通过代码说明之间的区别，如下： create table testtb( id int not null primary key, name varchar(50), age int ); insert into testtb(id,name,age)values(1,&#34;bb&#34;,13); select * from testtb; insert ignore into testtb(id,name,age)values(1,&#34;aa&#34;,13); select * from testtb;//仍是1，“bb”,13，因为id是主键，出现主键重复但使用了ignore则错误被忽略 replace into testtb(id,name,age)values(1,&#34;aa&#34;,12); select * from testtb; //数据变为1,&#34;</description>
+下面通过代码说明之间的区别，如下： ``` create table testtb( id int not null primary key, name varchar(50), age int ); insert into testtb(id,name,age)values(1,&#34;bb&#34;,13); select * from testtb; insert ignore into testtb(id,name,age)values(1,&#34;aa&#34;,13); select * from testtb;//仍是1，“bb”,13，因为id是主键，出现主键重复但使用了ignore则错误被忽略 replace into testtb(id,name,age)values(1,&#34;aa&#34;,12); select * from testtb; //数据变为1,&#34;</description>
     </item>
     
   </channel>

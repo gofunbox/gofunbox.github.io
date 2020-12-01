@@ -239,7 +239,7 @@ session.save_path = &#8220;tcp://127.0.0.1:11211&#8221;
 这个模块貌似只能动态加载
 官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html
 看了这些基本知识，开始尝试安装吧
-&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;./configure &ndash;with&ndash;http_trim_filter_module=shared make …</p>
+&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;./configure --with--http_trim_filter_module=shared make make …</p>
           <a href="https://ifunbox.top/tengine_trim_filter/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -366,8 +366,7 @@ google了下有一个超级强大的二维码库PHP QR Code
 找了半天貌似官方库，没有一个二维码中间加logo的功能
 给跪了
 网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。
-$text = &lsquo;http://www.funboxpower.com'; $logo = &ldquo;i/logo.png&rdquo;; //加的logo可以是本地路径也可以是网址
-$errorCorrectionLevel = 3;//容 …</p>
+$text = 'http://www.funboxpower.com'; $logo = &quot;i/logo.png&quot;; //加的logo可以是本地路径也可以是网址 $errorCorrectionLevel = 3;// …</p>
           <a href="https://ifunbox.top/php_generate_qrcode_logo/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -421,8 +420,13 @@ $errorCorrectionLevel = 3;//容 …</p>
         <div>
           <p class="pale">1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
- &lt;span style=&quot;font-size: 12pt;&quot;&gt;前提要安装过svn&lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt; &lt;/span&gt; &lt;span style=&quot;font-size: 12pt;&quot;&gt;然后下载nginx 我下的是1.6版 …</p>
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
+
+然后下载nginx 我下的是1.6版的
+解压切换至解压目录
+./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
+打开需要配置网站的nginx vhost配置文件加入
+location /resource/ { …</p>
           <a href="https://ifunbox.top/nginx_concat_module_combine_http/" class="excerpt_more button">Read More</a>
         </div>
       </div>

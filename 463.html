@@ -204,19 +204,24 @@
 
 <p>例如：</p>
 
-<pre>/**
+<pre><code>/**
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
  *      $Id$
- */</pre>
-:   程序开发中难免留下一些临时代码和调试代码，此类代码必须添加注释，以免日后遗忘。所有临时性、调试性、试验性的代码，必须添加统一的注释标记“//debug”并后跟完整的注释信息，这样可以方便在程序发布和最终调试前批量检查程序中是否还存在有疑问的代码。例如：
+ */
+</code></pre>
 
-<pre>$num = 1;
-$flag = TRUE;   //debug 这里不能确定是否需要对$flag进行赋值
+<dl>
+<dd><p>程序开发中难免留下一些临时代码和调试代码，此类代码必须添加注释，以免日后遗忘。所有临时性、调试性、试验性的代码，必须添加统一的注释标记“//debug”并后跟完整的注释信息，这样可以方便在程序发布和最终调试前批量检查程序中是否还存在有疑问的代码。例如：</p>
+
+<pre><code>$num = 1;
+$flag = TRUE; 	//debug 这里不能确定是否需要对$flag进行赋值
 if(empty($flag)) {
-    //Statements
-}</pre>
+	//Statements
+}
+</code></pre></dd>
+</dl>
 
 <h3 id="书写规则">书写规则</h3>
 
@@ -240,22 +245,23 @@ if(empty($flag)) {
 
 <p>以下是符合上述规范的例子：</p>
 
-<pre>if($condition) {
-    switch($var) {
-        case 1:     echo ‘var is 1’; break;
-        case 2:     echo ‘var is 2’; break;
-        default:    echo ‘var is neither 1 or 2’; break;
-    }
+<pre><code>if($condition) {
+	switch($var) {
+		case 1: 	echo ‘var is 1’; break;
+		case 2: 	echo ‘var is 2’; break;
+		default: 	echo ‘var is neither 1 or 2’; break;
+	}
 } else {
-    switch($str) {
-        case ‘abc’:
-            $result = ‘abc’;
-            break;
-        default:
-            $result = ‘unknown’;
-            break;
-    }
-}</pre>
+	switch($str) {
+		case ‘abc’:
+			$result = ‘abc’;
+			break;
+		default:
+			$result = ‘unknown’;
+			break;
+	}
+}
+</code></pre>
 
 <h4 id="运算符-小括号-空格-关键词和函数">运算符、小括号、空格、关键词和函数</h4>
 
@@ -271,19 +277,20 @@ if(empty($flag)) {
 <li>程序块划分尽量合理，过大或者过小的分割都会影响他人对代码的阅读和理解。一般可以以较大函数定义、逻辑结构、功能结构来进行划分。少于15行的程序块，可不加上下空白行；</li>
 <li>说明或显示部分中，内容如含有中文、数字、英文单词混杂，应当在数字或者英文单词的前后加入空格。</li>
 </ul></dd>
-<dd>根据上述原则，以下举例说明正确的书写格式：</dd>
-</dl>
+<dd><p>根据上述原则，以下举例说明正确的书写格式：</p>
 
-<pre>$result = (($a + 1) * 3 / 2 + $num)).’Test’;
+<pre><code>$result = (($a + 1) * 3 / 2 + $num)).’Test’;
 $condition ? func1($var) : func2($var);
 $condition ? $long_statement : $another_long_statement;
 if($flag) {
 
-    //Statements
-    //More than 15 lines
+	//Statements
+	//More than 15 lines
 
 }
-showmessage(‘请使用 restore.php 工具恢复数据。’);</pre>
+showmessage(‘请使用 restore.php 工具恢复数据。’);
+</code></pre></dd>
+</dl>
 
 <h4 id="函数定义">函数定义</h4>
 

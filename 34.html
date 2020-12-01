@@ -208,32 +208,34 @@ require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLA
         </td> 
         
         <?php }?> </tr> </table>
-        </pre>
+        ```
         
+        
+        <p>
+          <span style="font-size: medium;">搜索条</span>
+        </p>
+        
+        
+ ```
 
-<pre><code>    &lt;p&gt;
-      &lt;span style=&quot;font-size: medium;&quot;&gt;搜索条&lt;/span&gt;
-    &lt;/p&gt;
 
-
-    &lt;pre&gt;
-</code></pre>
-
-<p><div>
-  &lt;?php require($template-&gt;get_template_dir(&lsquo;tpl_search_header.php&rsquo;,DIR_WS_TEMPLATE, $current_page_base,&lsquo;templates&rsquo;). &lsquo;/tpl_search_header.php&rsquo;);?&gt;</p>
-
-<p><div>
-    <a href="index.php?main_page=advanced_search">&lt;?php echo HEADER_ADVANCED_SEARCH; ?&gt;</a>
+<div>
+  <?php require($template->get_template_dir('tpl_search_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_search_header.php');?>
+  
+  
+  <div>
+    <a href="index.php?main_page=advanced_search"><?php echo HEADER_ADVANCED_SEARCH; ?></a>
   </div>
 </div>
-</pre></p>
+</pre>
+        
 
 <pre><code>    &lt;p&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;登录&lt;/span&gt;
     &lt;/p&gt;
 
 
-    &lt;pre&gt;
+  ```
 </code></pre>
 
 <p><div id="login_logout_section">

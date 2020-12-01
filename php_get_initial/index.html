@@ -178,18 +178,18 @@ function get_first_char($string){ …" />
 
 <p>&nbsp;</p>
 
-<pre>function get_first_char($string){
-    $s=iconv('UTF-8','gb2312', $string);
-    if (ord($string)&gt;128) { //汉字开头
-        $asc=ord($s{0})*256+ord($s{1})-65536;
-        if($asc&gt;=-20319 and $asc&lt;=-20284)return "A"; if($asc&gt;=-20283 and $asc&lt;=-19776)return "B"; if($asc&gt;=-19775 and $asc&lt;=-19219)return "C"; if($asc&gt;=-19218 and $asc&lt;=-18711)return "D"; if($asc&gt;=-18710 and $asc&lt;=-18527)return "E"; if($asc&gt;=-18526 and $asc&lt;=-18240)return "F"; if($asc&gt;=-18239 and $asc&lt;=-17923)return "G"; if($asc&gt;=-17922 and $asc&lt;=-17418)return "I"; if($asc&gt;=-17417 and $asc&lt;=-16475)return "J"; if($asc&gt;=-16474 and $asc&lt;=-16213)return "K"; if($asc&gt;=-16212 and $asc&lt;=-15641)return "L"; if($asc&gt;=-15640 and $asc&lt;=-15166)return "M"; if($asc&gt;=-15165 and $asc&lt;=-14923)return "N"; if($asc&gt;=-14922 and $asc&lt;=-14915)return "O"; if($asc&gt;=-14914 and $asc&lt;=-14631)return "P"; if($asc&gt;=-14630 and $asc&lt;=-14150)return "Q"; if($asc&gt;=-14149 and $asc&lt;=-14091)return "R"; if($asc&gt;=-14090 and $asc&lt;=-13319)return "S"; if($asc&gt;=-13318 and $asc&lt;=-12839)return "T"; if($asc&gt;=-12838 and $asc&lt;=-12557)return "W"; if($asc&gt;=-12556 and $asc&lt;=-11848)return "X"; if($asc&gt;=-11847 and $asc&lt;=-11056)return "Y"; if($asc&gt;=-11055 and $asc&lt;=-10247)return "Z"; }else if(ord($s)&gt;=48 and ord($s)&lt;=57){ //数字开头 switch(iconv_substr($s,0,1,'utf-8')) { case 1:return "Y"; case 2:return "E"; case 3:return "S"; case 4:return "S"; case 5:return "W"; case 6:return "L"; case 7:return "Q"; case 8:return "B"; case 9:return "J"; case 0:return "L"; } }else if(ord($s)&gt;=65 and ord($s)&lt;=90){ //大写英文开头 return substr($s,0,1); }else if(ord($s)&gt;=97 and ord($s)&lt;=122){ //小写英文开头
-        return strtoupper(substr($s,0,1));
-    } else {
-        return iconv_substr($s0,0,1,'utf-8');//中英混合的词语，不适合上面的各种情况，因此直接提取首个字符即可
-    }
+<pre><code>function get_first_char($string){
+	$s=iconv('UTF-8','gb2312', $string);
+	if (ord($string)&amp;gt;128) { //汉字开头
+		$asc=ord($s{0})*256+ord($s{1})-65536;
+		if($asc&amp;gt;=-20319 and $asc&amp;lt;=-20284)return &quot;A&quot;; if($asc&amp;gt;=-20283 and $asc&amp;lt;=-19776)return &quot;B&quot;; if($asc&amp;gt;=-19775 and $asc&amp;lt;=-19219)return &quot;C&quot;; if($asc&amp;gt;=-19218 and $asc&amp;lt;=-18711)return &quot;D&quot;; if($asc&amp;gt;=-18710 and $asc&amp;lt;=-18527)return &quot;E&quot;; if($asc&amp;gt;=-18526 and $asc&amp;lt;=-18240)return &quot;F&quot;; if($asc&amp;gt;=-18239 and $asc&amp;lt;=-17923)return &quot;G&quot;; if($asc&amp;gt;=-17922 and $asc&amp;lt;=-17418)return &quot;I&quot;; if($asc&amp;gt;=-17417 and $asc&amp;lt;=-16475)return &quot;J&quot;; if($asc&amp;gt;=-16474 and $asc&amp;lt;=-16213)return &quot;K&quot;; if($asc&amp;gt;=-16212 and $asc&amp;lt;=-15641)return &quot;L&quot;; if($asc&amp;gt;=-15640 and $asc&amp;lt;=-15166)return &quot;M&quot;; if($asc&amp;gt;=-15165 and $asc&amp;lt;=-14923)return &quot;N&quot;; if($asc&amp;gt;=-14922 and $asc&amp;lt;=-14915)return &quot;O&quot;; if($asc&amp;gt;=-14914 and $asc&amp;lt;=-14631)return &quot;P&quot;; if($asc&amp;gt;=-14630 and $asc&amp;lt;=-14150)return &quot;Q&quot;; if($asc&amp;gt;=-14149 and $asc&amp;lt;=-14091)return &quot;R&quot;; if($asc&amp;gt;=-14090 and $asc&amp;lt;=-13319)return &quot;S&quot;; if($asc&amp;gt;=-13318 and $asc&amp;lt;=-12839)return &quot;T&quot;; if($asc&amp;gt;=-12838 and $asc&amp;lt;=-12557)return &quot;W&quot;; if($asc&amp;gt;=-12556 and $asc&amp;lt;=-11848)return &quot;X&quot;; if($asc&amp;gt;=-11847 and $asc&amp;lt;=-11056)return &quot;Y&quot;; if($asc&amp;gt;=-11055 and $asc&amp;lt;=-10247)return &quot;Z&quot;; }else if(ord($s)&amp;gt;=48 and ord($s)&amp;lt;=57){ //数字开头 switch(iconv_substr($s,0,1,'utf-8')) { case 1:return &quot;Y&quot;; case 2:return &quot;E&quot;; case 3:return &quot;S&quot;; case 4:return &quot;S&quot;; case 5:return &quot;W&quot;; case 6:return &quot;L&quot;; case 7:return &quot;Q&quot;; case 8:return &quot;B&quot;; case 9:return &quot;J&quot;; case 0:return &quot;L&quot;; } }else if(ord($s)&amp;gt;=65 and ord($s)&amp;lt;=90){ //大写英文开头 return substr($s,0,1); }else if(ord($s)&amp;gt;=97 and ord($s)&amp;lt;=122){ //小写英文开头
+		return strtoupper(substr($s,0,1));
+	} else {
+		return iconv_substr($s0,0,1,'utf-8');//中英混合的词语，不适合上面的各种情况，因此直接提取首个字符即可
+	}
 
 }
-</pre>
+</code></pre>
 
     
       <div id="SOHUCS" sid="/php_get_initial" ></div>

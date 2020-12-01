@@ -18,7 +18,7 @@
 <meta name="description" content="discuzX 系列的db数据库类写的已经非常好了，从性能、安全性和易用性上都做的非常优秀了。
 了解discuzX 系列的db数据库类，不仅可以使我们能快速上手二次开发，也可以移植到自己的项目中来。
 下面我们来分析讲解一下db数据类：
- &lt;?php class DB { /** * 返回表 …">
+&lt;?php class DB { /** * 返回表名(pre_$table) …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="最全discuz X2 DB数据库类详细说明" />
@@ -27,7 +27,7 @@
 <meta property="og:description" content="discuzX 系列的db数据库类写的已经非常好了，从性能、安全性和易用性上都做的非常优秀了。
 了解discuzX 系列的db数据库类，不仅可以使我们能快速上手二次开发，也可以移植到自己的项目中来。
 下面我们来分析讲解一下db数据类：
- &lt;?php class DB { /** * 返回表 …" />
+&lt;?php class DB { /** * 返回表名(pre_$table) …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -161,7 +161,7 @@
 
 <p><span style="font-size: medium;">下面我们来分析讲解一下db数据类：</span></p>
 
-<pre> &lt;?php
+<pre><code>&lt;?php
 class DB
 {
  /**
@@ -190,7 +190,7 @@ class DB
   } else {
    $where = $condition;
   }
-  $sql = "DELETE FROM ".DB::table($table)." WHERE $where ".($limit ? "LIMIT $limit" : '');
+  $sql = &quot;DELETE FROM &quot;.DB::table($table).&quot; WHERE $where &quot;.($limit ? &quot;LIMIT $limit&quot; : '');
   return DB::query($sql, ($unbuffered ? 'UNBUFFERED' : ''));
  }
  
@@ -198,7 +198,7 @@ class DB
   * 插入一条记录
   *
   * @param string $table 原始表名
-  * @param array $data 数组field-&gt;vlaue 对
+  * @param array $data 数组field-&amp;gt;vlaue 对
   * @param boolen $return_insert_id 返回 InsertID?
   * @param boolen $replace 是否是REPLACE模式
   * @param boolen $silent 静默方式？
@@ -213,7 +213,7 @@ class DB
   $table = DB::table($table);
   $silent = $silent ? 'SILENT' : '';
 
-  $return = DB::query("$cmd $table SET $sql", $silent);
+  $return = DB::query(&quot;$cmd $table SET $sql&quot;, $silent);
 
   return $return_insert_id ? DB::insert_id() : $return;
 
@@ -231,7 +231,7 @@ class DB
   */
  function update($table, $data, $condition, $unbuffered = false, $low_priority = false) {
   $sql = DB::implode_field_value($data);
-  $cmd = "UPDATE ".($low_priority ? 'LOW_PRIORITY' : '');
+  $cmd = &quot;UPDATE &quot;.($low_priority ? 'LOW_PRIORITY' : '');
   $table = DB::table($table);
   $where = '';
   if(empty($condition)) {
@@ -241,21 +241,21 @@ class DB
   } else {
    $where = $condition;
   }
-  $res = DB::query("$cmd $table SET $sql WHERE $where", $unbuffered ? 'UNBUFFERED' : '');
+  $res = DB::query(&quot;$cmd $table SET $sql WHERE $where&quot;, $unbuffered ? 'UNBUFFERED' : '');
   return $res;
  }
  
  /**
   * 格式化field字段和value，并组成一个字符串
   *
-  * @param array $array 格式为 key=&gt;value 数组
+  * @param array $array 格式为 key=&amp;gt;value 数组
   * @param 分割符 $glue
   * @return string
   */
  function implode_field_value($array, $glue = ',') {
   $sql = $comma = '';
-  foreach ($array as $k =&gt; $v) {
-   $sql .= $comma."`$k`='$v'";
+  foreach ($array as $k =&amp;gt; $v) {
+   $sql .= $comma.&quot;`$k`='$v'&quot;;
    $comma = $glue;
   }
   return $sql;
@@ -379,8 +379,8 @@ class DB
   */
  function _execute($cmd , $arg1 = '', $arg2 = '') {
   static $db;
-  if(empty($db)) $db = & DB::object();
-  $res = $db-&gt;$cmd($arg1, $arg2);
+  if(empty($db)) $db = &amp; DB::object();
+  $res = $db-&amp;gt;$cmd($arg1, $arg2);
   return $res;
  }
  
@@ -389,7 +389,7 @@ class DB
   *
   * @return pointer of db object from discuz core
   */
- function &object($dbclass = 'db_mysql') {
+ function &amp;object($dbclass = 'db_mysql') {
   static $db;
   if(empty($db)) $db = new $dbclass();
   return $db;
@@ -407,7 +407,7 @@ class DB
    $cmd = trim(strtoupper(substr($sql, 0, strpos($sql, ' '))));
    if(in_array($cmd, $checkcmd)) {
     $test = DB::_do_query_safe($sql);
-    if($test &lt; 1) DB::_execute('halt', 'security_error', $sql);
+    if($test &amp;lt; 1) DB::_execute('halt', 'security_error', $sql);
    }
   }
   return true;
@@ -424,14 +424,14 @@ class DB
    $_CONFIG = getglobal('config/security/querysafe');
   }
 
-  $sql = str_replace(array('\\\\', '\\\'', '\\"', '\'\''), '', $sql);
+  $sql = str_replace(array('\\\\', '\\\'', '\\&quot;', '\'\''), '', $sql);
   $mark = $clean = '';
-  if(strpos($sql, '/') === false && strpos($sql, '#') === false && strpos($sql, '-- ') === false) {
-   $clean = preg_replace("/'(.+?)'/s", '', $sql);
+  if(strpos($sql, '/') === false &amp;&amp; strpos($sql, '#') === false &amp;&amp; strpos($sql, '-- ') === false) {
+   $clean = preg_replace(&quot;/'(.+?)'/s&quot;, '', $sql);
   } else {
    $len = strlen($sql);
    $mark = $clean = '';
-   for ($i = 0; $i &lt;$len; $i++) {
+   for ($i = 0; $i &amp;lt;$len; $i++) {
     $str = $sql[$i];
     switch ($str) {
      case '\'':
@@ -443,11 +443,11 @@ class DB
       }
       break;
      case '/':
-      if(empty($mark) && $sql[$i+1] == '*') {
+      if(empty($mark) &amp;&amp; $sql[$i+1] == '*') {
        $mark = '/*';
        $clean .= $mark;
        $i++;
-      } elseif($mark == '/*' && $sql[$i -1] == '*') {
+      } elseif($mark == '/*' &amp;&amp; $sql[$i -1] == '*') {
        $mark = '';
        $clean .= '*';
       }
@@ -458,13 +458,13 @@ class DB
        $clean .= $str;
       }
       break;
-     case "\n":
+     case &quot;\n&quot;:
       if($mark == '#' || $mark == '--') {
        $mark = '';
       }
       break;
      case '-':
-      if(empty($mark)&& substr($sql, $i, 3) == '-- ') {
+      if(empty($mark)&amp;&amp; substr($sql, $i, 3) == '-- ') {
        $mark = '-- ';
        $clean .= $mark;
       }
@@ -478,7 +478,7 @@ class DB
    }
   }
 
-  $clean = preg_replace("/[^a-z0-9_\-\(\)#\*\/\"]+/is", "", strtolower($clean));
+  $clean = preg_replace(&quot;/[^a-z0-9_\-\(\)#\*\/\&quot;]+/is&quot;, &quot;&quot;, strtolower($clean));
 
   if($_CONFIG['afullnote']) {
    $clean = str_replace('/**/','',$clean);
@@ -496,7 +496,7 @@ class DB
    }
   }
 
-  if($_CONFIG['dlikehex'] && strpos($clean, 'like0x')) {
+  if($_CONFIG['dlikehex'] &amp;&amp; strpos($clean, 'like0x')) {
    return '-2';
   }
 
@@ -511,7 +511,8 @@ class DB
  }
 
 }
-?&gt;</pre>
+?&gt;
+</code></pre>
 
     
       <div id="SOHUCS" sid="/471.html" ></div>

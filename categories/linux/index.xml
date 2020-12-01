@@ -192,11 +192,12 @@ default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, 
       
       <guid>https://ifunbox.top/linux_crontab_error/</guid>
       <description>直接在crontab里面运行，有日志但是脚本有问题，没有写入文件
-&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;lt;/span&amp;gt;
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;也保证下写入文件夹的权限，还是不行&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;直接运行，就正常运行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; 0 1 * * * /usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  也保证下写入文件夹的权限，还是不行
+直接运行，就正常运行
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;/usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  
 最后网络上找说是有可能是相对路径的问题，就改成
-&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;0 1 * * * sh /home/stock/stock.sh&amp;lt;/span&amp;gt;
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;stock.sh代码如下&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  先cd到执行脚本路径下就可以正常执行了
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;0 1 * * * sh /home/stock/stock.sh&amp;amp;lt;/span&amp;gt;  stock.sh代码如下
+&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;cd /home/stock/ /usr/local/php/bin/php /home/stock/index_cli.php&amp;amp;lt;/span&amp;gt;  先cd到执行脚本路径下就可以正常执行了
 也找到一个帖子解决方法不过貌似不适用我这个情况，不过大家也可以看看
 http://segmentfault.com/a/1190000000768446</description>
     </item>
@@ -224,11 +225,13 @@ yum install libpcap-devel 即可解决</description>
       <guid>https://ifunbox.top/nginx_concat_module_combine_http/</guid>
       <description>1.安装nginx_concat_module
 存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;前提要安装过svn&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;然后下载nginx 我下的是1.6版的&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;解压切换至解压目录&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;html&amp;quot;&amp;gt; ./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
+svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
+
+然后下载nginx 我下的是1.6版的
+解压切换至解压目录
+./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
 打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } ```
-重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
+location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
 http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
 大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
     </item>
@@ -241,7 +244,8 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
       <guid>https://ifunbox.top/useful_linux_command/</guid>
       <description>记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb -tv # 列出所有USB设备 lsmod # 列出加载的内核模块 env # 查看环境变量 /sbin/sysctl -p # 编辑/etc/sysctl.conf不需要重启更新  资源 &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; # free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;amp;lt;目录名&amp;gt; # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;amp;lt;目录名&amp;gt; -type f -name &amp;quot;*.</description>
+# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设备 # lsusb -tv # 列出所有USB设备 # lsmod # 列出加载的内核模块 # env # 查看环境变量 # /sbin/sysctl -p	# 编辑/etc/sysctl.conf不需要重启更新	 资源
+# free -m # 查看内存使用量和交换区使用量 # df -h # 查看各分区使用情况 # du -sh &amp;amp;lt;目录名&amp;gt; # 查看指定目录的大小 # grep MemTotal /proc/meminfo # 查看内存总量 # grep MemFree /proc/meminfo # 查看空闲内存量 # uptime # 查看系统运行时间、用户数、负载 # cat /proc/loadavg # 查看系统负载 # find &amp;amp;lt;目录名&amp;gt; -type f -name &amp;quot;*.</description>
     </item>
     
     <item>
@@ -255,10 +259,14 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 DenyHosts阻止攻击原理 DenyHosts会自动分析/var/log/secure 等安全日志文件，当发现异常的连接请求后，会自动将其IP加入到 /etc/hosts.deny 文件中，从而达到阻止此IP继续暴力破解的可能。同时，Denyhosts还能自动在一定时间后对已经屏蔽的IP地址进行解封，非常智能。
 官方网站 Denyhosts的官方网站为：http://denyhosts.sourceforge.net/（杜绝Putty后门事件，谨记安全软件官网）
 安装方法 1、下载DenyHosts源码并解压（目前最新版为2.6）
-&amp;gt;[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;2、安装部署&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
-[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;4、编辑配置文件denyhosts.cfg&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;bash&amp;quot;&amp;gt; [root@www denyhosts]# vi denyhosts.</description>
+[root@www ~]# wget http://sourceforge.net/projects/denyhosts/files/denyhosts/2.6/DenyHosts-2.6.tar.gz [root@www ~]# tar zxvf DenyHosts-2.6.tar.gz [root@www ~]# cd DenyHosts-2.6  2、安装部署
+[root@www DenyHosts-2.6]# yum install python -y [root@www DenyHosts-2.6]# python setup.py install  3、准备好默认的配置文件
+[root@www DenyHosts-2.6]# cd /usr/share/denyhosts/ [root@www denyhosts]# cp denyhosts.cfg-dist denyhosts.cfg [root@www denyhosts]# cp daemon-control-dist daemon-control  4、编辑配置文件denyhosts.cfg
+[root@www denyhosts]# vi denyhosts.cfg  该配置文件结构比较简单，简要说明主要参数如下：
+ PURGE_DENY：当一个IP被阻止以后，过多长时间被自动解禁。可选如3m（三分钟）、5h（5小时）、2d（两天）、8w（8周）、1y（一年）；
+PURGE_THRESHOLD：定义了某一IP最多被解封多少次。即某一IP由于暴力破解SSH密码被阻止/解封达到了PURGE_THRESHOLD次，则会被永久禁止；
+BLOCK_SERVICE：需要阻止的服务名；
+DENY_THRESHOLD_INVALID：某一无效用户名（不存在的用户）尝试多少次登录后被阻止；</description>
     </item>
     
     <item>

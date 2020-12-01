@@ -283,8 +283,7 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
         <div>
           <p class="pale">在存入数据库之前进行哈希计算成为保护用户密码的标准方式，许多常用的哈希算法如md5,甚至是sha1 对于密码存储都是不安全的，因为骇客能够使用那些算法轻而易举地破解密码。
 对密码进行哈希最安全的方法是使用bcrypt算法。开源的phpass库以一个易于使用的类来提供该功能。
-&lt;?php // Include the phpass library require_once(&lsquo;phpass-03/PasswordHash.php&rsquo;)
-// Initialize the hasher without portable hashes (this is more secure) $hasher = new …</p>
+&amp;lt;?php // Include the phpass library require_once('phpass-03/PasswordHash.php') // Initialize the hasher without portable hashes (this is more secure) $hasher = new …</p>
           <a href="https://ifunbox.top/phpass_bcrypt_encrypted_password/" class="excerpt_more button">Read More</a>
         </div>
       </div>

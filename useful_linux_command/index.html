@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta name="description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb …">
+# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="常用linux命令" />
@@ -25,7 +25,7 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 <meta property="og:title" content="常用linux命令" />
 <meta property="og:description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流
 系统
-uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操作系统版本 cat /proc/cpuinfo # 查看CPU信息 hostname # 查看计算机名 lspci -tv # 列出所有PCI设备 lsusb …" />
+# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -154,37 +154,24 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 </div>
 
     
-    
-
-<p><span style="font-size: 12pt;">记忆力捉急，就写下来吧，还是喜欢复制粘贴流</span></p>
+    <p><span style="font-size: 12pt;">记忆力捉急，就写下来吧，还是喜欢复制粘贴流</span></p>
 
 <p>系统</p>
 
-<p><pre><code class="bash"></p>
+<pre><code># uname -a               # 查看内核/操作系统/CPU信息
+# head -n 1 /etc/issue   # 查看操作系统版本
+# cat /proc/cpuinfo      # 查看CPU信息
+# hostname               # 查看计算机名
+# lspci -tv              # 列出所有PCI设备
+# lsusb -tv              # 列出所有USB设备
+# lsmod                  # 列出加载的内核模块
+# env                    # 查看环境变量
+# /sbin/sysctl -p		 # 编辑/etc/sysctl.conf不需要重启更新	
+</code></pre>
 
-<h1 id="uname-a-查看内核-操作系统-cpu信息">uname -a               # 查看内核/操作系统/CPU信息</h1>
+<p>资源</p>
 
-<h1 id="head-n-1-etc-issue-查看操作系统版本">head -n 1 /etc/issue   # 查看操作系统版本</h1>
-
-<h1 id="cat-proc-cpuinfo-查看cpu信息">cat /proc/cpuinfo      # 查看CPU信息</h1>
-
-<h1 id="hostname-查看计算机名">hostname               # 查看计算机名</h1>
-
-<h1 id="lspci-tv-列出所有pci设备">lspci -tv              # 列出所有PCI设备</h1>
-
-<h1 id="lsusb-tv-列出所有usb设备">lsusb -tv              # 列出所有USB设备</h1>
-
-<h1 id="lsmod-列出加载的内核模块">lsmod                  # 列出加载的内核模块</h1>
-
-<h1 id="env-查看环境变量">env                    # 查看环境变量</h1>
-
-<h1 id="sbin-sysctl-p-编辑-etc-sysctl-conf不需要重启更新">/sbin/sysctl -p        # 编辑/etc/sysctl.conf不需要重启更新</h1>
-
-<pre><code>
-资源
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-# free -m                # 查看内存使用量和交换区使用量
+<pre><code># free -m                # 查看内存使用量和交换区使用量
 # df -h                  # 查看各分区使用情况
 # du -sh &amp;lt;目录名&gt;         # 查看指定目录的大小
 # grep MemTotal /proc/meminfo   # 查看内存总量
@@ -203,23 +190,16 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 
 <p>磁盘和分区</p>
 
-<p><pre><code class="bash"></p>
+<pre><code># mount | column -t      # 查看挂接的分区状态
+# fdisk -l               # 查看所有分区
+# swapon -s              # 查看所有交换分区
+# time dd if=/dev/zero of=/var/test bs=2k count=1000000   # Linux硬盘写入速度
+# time dd if=/var/test of=/dev/null bs=2k		  # Linux硬盘读取速度
+</code></pre>
 
-<h1 id="mount-column-t-查看挂接的分区状态">mount | column -t      # 查看挂接的分区状态</h1>
+<p>网络</p>
 
-<h1 id="fdisk-l-查看所有分区">fdisk -l               # 查看所有分区</h1>
-
-<h1 id="swapon-s-查看所有交换分区">swapon -s              # 查看所有交换分区</h1>
-
-<h1 id="time-dd-if-dev-zero-of-var-test-bs-2k-count-1000000-linux硬盘写入速度">time dd if=/dev/zero of=/var/test bs=2k count=1000000   # Linux硬盘写入速度</h1>
-
-<h1 id="time-dd-if-var-test-of-dev-null-bs-2k-linux硬盘读取速度">time dd if=/var/test of=/dev/null bs=2k         # Linux硬盘读取速度</h1>
-
-<pre><code>
-网络
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-# ifconfig               # 查看所有网络接口的属性
+<pre><code># ifconfig               # 查看所有网络接口的属性
 # iptables -L            # 查看防火墙设置
 # route -n               # 查看路由表
 # netstat -lntp          # 查看所有监听端口
@@ -231,21 +211,15 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 
 <p>进程</p>
 
-<p><pre><code class="bash"></p>
+<pre><code># ps -ef                 # 查看所有进程
+# top                    # 实时显示进程状态
+# ps -ef | grep php |grep -v grep|cut -c 9-15|xargs kill -9  #批量删除有关键字php的进程
+# pmap $(pgrep php-fpm |head -1)    # 查看一个进程内存情况
+</code></pre>
 
-<h1 id="ps-ef-查看所有进程">ps -ef                 # 查看所有进程</h1>
+<p>用户</p>
 
-<h1 id="top-实时显示进程状态">top                    # 实时显示进程状态</h1>
-
-<h1 id="ps-ef-grep-php-grep-v-grep-cut-c-9-15-xargs-kill-9-批量删除有关键字php的进程">ps -ef | grep php |grep -v grep|cut -c 9-15|xargs kill -9  #批量删除有关键字php的进程</h1>
-
-<h1 id="pmap-pgrep-php-fpm-head-1-查看一个进程内存情况">pmap $(pgrep php-fpm |head -1)    # 查看一个进程内存情况</h1>
-
-<pre><code>
-用户
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-# w                      # 查看活动用户
+<pre><code># w                      # 查看活动用户
 # id &amp;lt;用户名&gt;            # 查看指定用户信息
 # last                   # 查看用户登录日志
 # cut -d: -f1 /etc/passwd   # 查看系统所有用户
@@ -255,34 +229,25 @@ uname -a # 查看内核/操作系统/CPU信息 head -n 1 /etc/issue # 查看操�
 
 <p>服务</p>
 
-<p><pre><code class="bash"></p>
+<pre><code># chkconfig --list       # 列出所有系统服务
+# chkconfig --list | grep on    # 列出所有启动的系统服务
+</code></pre>
 
-<h1 id="chkconfig-list-列出所有系统服务">chkconfig &ndash;list       # 列出所有系统服务</h1>
+<p>程序</p>
 
-<h1 id="chkconfig-list-grep-on-列出所有启动的系统服务">chkconfig &ndash;list | grep on    # 列出所有启动的系统服务</h1>
-
-<pre><code>
-程序
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-# rpm -qa                # 查看所有安装的软件包
+<pre><code># rpm -qa                # 查看所有安装的软件包
 </code></pre>
 
 <p>mysql相关</p>
 
-<p><pre><code class="bash"></p>
+<pre><code># grant select,insert,update,delete on redmine1.* to jira@&quot;%&quot; identified by &quot;jira&quot;;   # 授权
+# drop user newuser; 	# 删除用户
+# flush  privileges;   	# 授权后需刷新生效
+</code></pre>
 
-<h1 id="grant-select-insert-update-delete-on-redmine1-to-jira-identified-by-jira-授权">grant select,insert,update,delete on redmine1.* to jira@&ldquo;%&rdquo; identified by &ldquo;jira&rdquo;;   # 授权</h1>
+<p>git相关</p>
 
-<h1 id="drop-user-newuser-删除用户">drop user newuser;    # 删除用户</h1>
-
-<h1 id="flush-privileges-授权后需刷新生效">flush  privileges;    # 授权后需刷新生效</h1>
-
-<pre><code>
-git相关
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-# git diff 7fb06f0 b8e4f73 --name-only | xargs zip update.zip   # 版本差异打包
+<pre><code># git diff 7fb06f0 b8e4f73 --name-only | xargs zip update.zip   # 版本差异打包
 </code></pre>
 
 <p>js压缩混淆工具语法</p>

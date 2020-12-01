@@ -172,34 +172,33 @@ google了下有一个超级强大的二维码库PHP QR Code
 
 <p><span style="font-size: 12pt;">网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。</span></p>
 
-<p><pre><code class="php">
-$text = &lsquo;<a href="http://www.funboxpower.com'">http://www.funboxpower.com'</a>;
-$logo = &ldquo;i/logo.png&rdquo;; //加的logo可以是本地路径也可以是网址</p>
+<pre><code>$text = 'http://www.funboxpower.com';
+$logo = &quot;i/logo.png&quot;; //加的logo可以是本地路径也可以是网址
 
-<p>$errorCorrectionLevel = 3;//容错级别<br />
-$matrixPointSize = 9;//生成图片大小   生成大概400*400的二维码</p>
+$errorCorrectionLevel = 3;//容错级别   
+$matrixPointSize = 9;//生成图片大小   生成大概400*400的二维码
 
-<p>//生成二维码图片
-$QR = &ldquo;i/qrcode.png&rdquo;; //临时保存的文件名i文件夹里面
+//生成二维码图片
+$QR = &quot;i/qrcode.png&quot;; //临时保存的文件名i文件夹里面
 QRcode::png($text, $QR, $errorCorrectionLevel, $matrixPointSize, 2);
 //加logo
 if ($logo !== FALSE) {
-    $QR = imagecreatefromstring(file_get_contents($QR));<br />
-    $logo = imagecreatefromstring(file_get_contents($logo));
-    $QR_width = imagesx($QR);
-    $QR_height = imagesy($QR);
-    $logo_width = imagesx($logo);
-    $logo_height = imagesy($logo);
-    $logo_qr_width = $QR_width / 4;
-    $scale = $logo_width / $logo_qr_width;
-    $logo_qr_height = $logo_height / $scale;
-    $from_width = ($QR_width - $logo_qr_width) / 2;
-    imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height);
+	$QR = imagecreatefromstring(file_get_contents($QR));  
+	$logo = imagecreatefromstring(file_get_contents($logo));
+	$QR_width = imagesx($QR);
+	$QR_height = imagesy($QR);
+	$logo_width = imagesx($logo);
+	$logo_height = imagesy($logo);
+	$logo_qr_width = $QR_width / 4;
+	$scale = $logo_width / $logo_qr_width;
+	$logo_qr_height = $logo_height / $scale;
+	$from_width = ($QR_width - $logo_qr_width) / 2;
+	imagecopyresampled($QR, $logo, $from_width, $from_width, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height);
 }
-header(&ldquo;Content-type: image/png&rdquo;);
-imagepng($QR);<br />
+header(&quot;Content-type: image/png&quot;); 
+imagepng($QR);   
 imagedestroy($QR);
-```</p>
+</code></pre>
 
 <p><span style="font-size: 12pt;">查了涉及到的相关php自带函数，发现是imagecopyresampled的原因，图片合并后的质量会被$OR影响</span></p>
 

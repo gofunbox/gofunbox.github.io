@@ -241,88 +241,88 @@
 
 <p><span style="font-size: medium;">四、以下是demo</span></p>
 
-<pre>include "Snoopy.class.php";
+<pre><code>include &quot;Snoopy.class.php&quot;;
 $snoopy = new Snoopy;
 
-$snoopy->proxy_host = "www.baidu.com";
-$snoopy->proxy_port = "8080″;
+$snoopy-&gt;proxy_host = &quot;www.baidu.com&quot;;
+$snoopy-&gt;proxy_port = &quot;8080″;
 
-$snoopy->agent = "(compatible; MSIE 4.01; MSN 2.5; AOL 4.0; Windows 98)";
-$snoopy->referer = "http://www.baidu.com/";
+$snoopy-&gt;agent = &quot;(compatible; MSIE 4.01; MSN 2.5; AOL 4.0; Windows 98)&quot;;
+$snoopy-&gt;referer = &quot;http://www.baidu.com/&quot;;
 
-$snoopy->cookies["SessionID"] = 238472834723489l;
-$snoopy->cookies["favoriteColor"] = "RED";
+$snoopy-&gt;cookies[&quot;SessionID&quot;] = 238472834723489l;
+$snoopy-&gt;cookies[&quot;favoriteColor&quot;] = &quot;RED&quot;;
 
-$snoopy->rawheaders["Pragma"] = "no-cache";
+$snoopy-&gt;rawheaders[&quot;Pragma&quot;] = &quot;no-cache&quot;;
 
-$snoopy->maxredirs = 2;
-$snoopy->offsiteok = false;
-$snoopy->expandlinks = false;
+$snoopy-&gt;maxredirs = 2;
+$snoopy-&gt;offsiteok = false;
+$snoopy-&gt;expandlinks = false;
 
-$snoopy->user = "joe";
-$snoopy->pass = "bloe";
+$snoopy-&gt;user = &quot;joe&quot;;
+$snoopy-&gt;pass = &quot;bloe&quot;;
 
-if($snoopy->fetchtext("http://www.baidu.com"))
+if($snoopy-&gt;fetchtext(&quot;http://www.baidu.com&quot;))
 {
-    echo "".htmlspecialchars($snoopy->results)."\n";
+	echo &quot;&quot;.htmlspecialchars($snoopy-&gt;results).&quot;\n&quot;;
 
 }else
-    echo "error fetching document: ".$snoopy->error."\n";
+	echo &quot;error fetching document: &quot;.$snoopy-&gt;error.&quot;\n&quot;;
 
 snoopy采集phpchina示例
 submit($submit_url,$submit_vars);
-if ($snoopy->results)
+if ($snoopy-&gt;results)
 {
 //获取连接地址
-$snoopy->fetchlinks("http://www.phpchina.com/bbs");
+$snoopy-&gt;fetchlinks(&quot;http://www.phpchina.com/bbs&quot;);
 $url=array();
-$url=$snoopy->results;
+$url=$snoopy-&gt;results;
 //print_r($url);
-foreach ($url as $key=>$value)
+foreach ($url as $key=&gt;$value)
 {
-    //匹配http://www.phpchina.com/bbs/forumdisplay.php?fid=156&sid=VfcqTR地址即论坛板块地址
-    if (!preg_match("/^(http:\/\/www\.phpchina\.com\/bbs\/forumdisplay\.php\?fid=)[0-9]*&sid=[a-zA-Z]{6}/i",$value))
-    {
-        unset($url[$key]);
-    }
+	//匹配http://www.phpchina.com/bbs/forumdisplay.php?fid=156&amp;sid=VfcqTR地址即论坛板块地址
+	if (!preg_match(&quot;/^(http:\/\/www\.phpchina\.com\/bbs\/forumdisplay\.php\?fid=)[0-9]*&amp;sid=[a-zA-Z]{6}/i&quot;,$value))
+	{
+		unset($url[$key]);
+	}
 }
 //print_r($url);
 //获取到板块数组$url，循环访问，此处获取第一个模块第一页的数据
 $i=0;
-foreach ($url as $key=>$value)
+foreach ($url as $key=&gt;$value)
 {
-if ($i>=1)
+if ($i&gt;=1)
 {
 //测试限制
-    break;
+	break;
 }
 else
 {
 //访问该模块，提取帖子的连接地址，正式访问里需要提取帖子分页的数据，然后根据分页数据提取帖子数据
 $snoopy=new Snoopy();
-$snoopy->fetchlinks($value);
+$snoopy-&gt;fetchlinks($value);
 $tie=array();
-$tie[$i]=$snoopy->results;
+$tie[$i]=$snoopy-&gt;results;
 //print_r($tie);
 //转换数组
-foreach ($tie[$i] as $key=>$value)
+foreach ($tie[$i] as $key=&gt;$value)
 {
-//匹配http://www.phpchina.com/bbs/viewthread.php?tid=68127& extra=page%3D1&page=1&sid=iBLZfK
-if (!preg_match("/^(http:\/\/www\.phpchina\.com\/bbs\/viewthread\.php\?tid=)[0-9]*&extra=page\%3D1&page=[0-9]*&sid=[a-zA-Z]{6}/i",$value))
+//匹配http://www.phpchina.com/bbs/viewthread.php?tid=68127&amp; extra=page%3D1&amp;page=1&amp;sid=iBLZfK
+if (!preg_match(&quot;/^(http:\/\/www\.phpchina\.com\/bbs\/viewthread\.php\?tid=)[0-9]*&amp;extra=page\%3D1&amp;page=[0-9]*&amp;sid=[a-zA-Z]{6}/i&quot;,$value))
 {
-    unset($tie[$i][$key]);
+	unset($tie[$i][$key]);
 }
 }
 //print_r($tie[$i]);
 //归类数组，将同一个帖子不同页面的内容放一个数组里
-$left=";//连接左边公用地址
+$left=&quot;;//连接左边公用地址
 $j=0;
 $page=array();
-foreach ($tie[$i] as $key=>$value)
+foreach ($tie[$i] as $key=&gt;$value)
 {
 $left=substr($value,0,52);
 $m=0;
-foreach ($tie[$i] as $pkey=>$pvalue)
+foreach ($tie[$i] as $pkey=&gt;$pvalue)
 {
 //重组数组
 if (substr($pvalue,0,52)==$left)
@@ -342,18 +342,18 @@ for ($n=1;$n $value)
 //外围循环，针对一个帖子
 if (is_array($value))
 {
-foreach ($value as $k1=>$v1)
+foreach ($value as $k1=&gt;$v1)
 {
 //页内循环，针对一个帖子的N页
 $snoopy=new Snoopy();
-$snoopy->fetch($v1);
-$temp=$snoopy->results;
+$snoopy-&gt;fetch($v1);
+$temp=$snoopy-&gt;results;
 //读取标题
-if (!preg_match_all("/
+if (!preg_match_all(&quot;/
 
-(.*) /i",$temp,$tt))
+(.*) /i&quot;,$temp,$tt))
 {
-echo "no title";
+echo &quot;no title&quot;;
 exit;
 }
 else
@@ -362,16 +362,16 @@ $title[$u]=$tt[1][1];
 }
 unset($tt);
 //读取内容
-if (!preg_match_all("/
-(.*) /i",$temp,$tt))
+if (!preg_match_all(&quot;/
+(.*) /i&quot;,$temp,$tt))
 {
 print_r($tt);
-echo "no content1″;
+echo &quot;no content1″;
 exit;
 }
 else
 {
-foreach ($tt[1] as $c=>$c2)
+foreach ($tt[1] as $c=&gt;$c2)
 {
 $content[$u].=$c2;
 }
@@ -382,14 +382,14 @@ else
 {
 //直接取页内容
 $snoopy=new Snoopy();
-$snoopy->fetch($value);
-$temp=$snoopy->results;
+$snoopy-&gt;fetch($value);
+$temp=$snoopy-&gt;results;
 //读取标题
-if (!preg_match_all("/
+if (!preg_match_all(&quot;/
 
-(.*) /i",$temp,$tt))
+(.*) /i&quot;,$temp,$tt))
 {
-echo "no title";
+echo &quot;no title&quot;;
 exit;
 }
 else
@@ -398,15 +398,15 @@ $title[$u]=$tt[1][1];
 }
 unset($tt);
 //读取内容
-if (!preg_match_all("/
-(.*) /i",$temp,$tt))
+if (!preg_match_all(&quot;/
+(.*) /i&quot;,$temp,$tt))
 {
-echo "no content2″;
+echo &quot;no content2″;
 exit;
 }
 else
 {
-foreach ($tt[1] as $c=>$c2)
+foreach ($tt[1] as $c=&gt;$c2)
 {
 $content[$u].=$c2;
 }
@@ -421,11 +421,11 @@ $i++;
 }
 else
 {
-echo "login failed";
+echo &quot;login failed&quot;;
 exit;
 }
-?>
-</pre>
+?&gt;
+</code></pre>
 
     
       <div id="SOHUCS" sid="/243.html" ></div>

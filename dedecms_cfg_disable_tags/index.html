@@ -168,18 +168,18 @@
 
 <p>如果您还有需要禁用的函数，可以在[系统基本设置]中的“其他选项”进行设置。这样在类似{dede:php}{/dede:php}这样的标签中执行含有以上禁用函数的代码就会出现错误提示。</p>
 
-<pre>{dede:php}
+<pre><code>{dede:php}
 foreach(array(1,2,3,4,5,6) as $v)
 {
-    echo $v;
+	echo $v;
 }
 test();
 function test()
 {
-    fopen();
+	fopen();
 }
 {/dede:php}
-</pre>
+</code></pre>
 
 <p>例如这样一段代码，就会出现提示“Error:function disabled &#8220;fopen&#8221;”，意识着这段代码是无法被执行的。</p>
 

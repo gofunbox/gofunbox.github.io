@@ -191,19 +191,18 @@
 
 <p>如果需要刷新缓存，我是用重启nginx的方法</p>
 
-<p><pre><code class="bash">
-pagespeed on;
+<pre><code>pagespeed on;
 pagespeed RespectVary on;
 pagespeed FileCachePath /var/ngx_pagespeed_cache;
 pagespeed RewriteLevel CoreFilters;
 pagespeed DisableFilters combine_javascript;
 #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript;
-location ~ &ldquo;.pagespeed.([a-z].)?[a-z]{2}.[^.]{10}.[^.]+&rdquo; {
-    add_header &ldquo;&rdquo; &ldquo;&rdquo;;
+location ~ &quot;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&quot; {
+	add_header &quot;&quot; &quot;&quot;;
 }
-location ~ &ldquo;^/pagespeed_static/&rdquo; { }
-location ~ &ldquo;^/ngx_pagespeed_beacon$&rdquo; { }
-```</p>
+location ~ &quot;^/pagespeed_static/&quot; { }
+location ~ &quot;^/ngx_pagespeed_beacon$&quot; { }
+</code></pre>
 
 <p>关于阻挡blocking的介绍</p>
 

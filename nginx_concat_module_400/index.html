@@ -162,10 +162,9 @@
 
 <p><span style="font-size: 12pt;">也就是模块认不到js文件了。。。</span></p>
 
-<p><pre><code class="bash">
-[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c
-    ngx_string(&ldquo;application/x-javascript&rdquo;),
-```</p>
+<pre><code>[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c
+    ngx_string(&quot;application/x-javascript&quot;),
+</code></pre>
 
 <p><span style="font-size: 12pt;">因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</span></p>
 
