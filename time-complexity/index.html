@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page" data-mode="dim">
   <head>
-<title>时间复杂度 | Funbox的技术记事本</title>
+<title>MySQL锁 | Funbox的技术记事本</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.58.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,13 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="">
+<meta name="description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
+mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
-<meta name="twitter:title" content="时间复杂度" />
+<meta name="twitter:title" content="MySQL锁" />
 <meta property="og:url" content="https://ifunbox.top/time-complexity/" />
-<meta property="og:title" content="时间复杂度" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="MySQL锁" />
+<meta property="og:description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
+mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,7 +44,7 @@
 
     
     <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
-    
+    <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
   
@@ -116,23 +118,25 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">时间复杂度</h1><div class="post_meta">
+    <h1 class="post_title">MySQL锁</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
     Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6&url=https%3a%2f%2fifunbox.top%2ftime-complexity%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=MySQL%e9%94%81&url=https%3a%2f%2fifunbox.top%2ftime-complexity%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2ftime-complexity%2f&t=%e6%97%b6%e9%97%b4%e5%a4%8d%e6%9d%82%e5%ba%a6" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2ftime-complexity%2f&t=MySQL%e9%94%81" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -150,9 +154,200 @@
 </div>
 
     
-    <p><img src="https://ifunbox.top/resources/7D68EFBF124DC952C246D66BFCF8B9C4.jpg" alt="IMAGE" /></p>
+    <ol>
+<li><p>表锁
+一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁</p>
 
-<p><img src="https://ifunbox.top/resources/8C9EE8F3520DDD6A86D0A92E1B840A8D.jpg" alt="IMAGE" /></p>
+<pre><code class="language-sql">mysql&gt; lock table products read;
+Query OK, 0 rows affected (0.00 sec)
+ 
+mysql&gt; select * from products where id = 100;
+ 
+mysql&gt; unlock tables;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre></li>
+</ol>
+
+<p>我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！</p>
+
+<p>对于读锁
+* 持有读锁的会话可以读表，但不能写表；
+* 允许多个会话同时持有读锁；
+* 其他会话就算没有给表加读锁，也是可以读表的，但是不能写表；
+* 其他会话申请该表写锁时会阻塞，直到锁释放。</p>
+
+<p>对于写锁
+* 持有写锁的会话既可以读表，也可以写表；
+* 只有持有写锁的会话才可以访问该表，其他会话访问该表会被阻塞，直到锁释放；
+* 其他会话无论申请该表的读锁或写锁，都会阻塞，直到锁释放。</p>
+
+<p>锁的释放规则如下
+* 使用 UNLOCK TABLES 语句可以显示释放表锁；
+* 如果会话在持有表锁的情况下执行 LOCK TABLES 语句，将会释放该会话之前持有的锁；
+* 如果会话在持有表锁的情况下执行 START TRANSACTION 或 BEGIN 开启一个事务，将会释放该会话之前持有的锁；
+* 如果会话连接断开，将会释放该会话所有的锁。</p>
+
+<ol>
+<li>行锁(InnoDb才有)
+常见的增删改（INSERT、DELETE、UPDATE）语句会自动对操作的数据行加写锁，查询的时候也可以明确指定锁的类型，SELECT &hellip; LOCK IN SHARE MODE 语句加的是读锁，SELECT &hellip; FOR UPDATE 语句加的是写锁。</li>
+</ol>
+
+<p>行锁这个名字听起来像是这个锁加在某个数据行上，实际上这里要指出的是：在 MySQL 中，行锁是加在索引上的。</p>
+
+<ol>
+<li><p>主键
+主键索引（Primary Index）又被称为聚簇索引（Clustered Index）
+非主键索引（Secondary Index，又称为二级索引、辅助索引）被称为 非聚簇索引
+如果没有主键，InnoDB 会试着使用一个非空的唯一索引（Unique nonnullable index）代替；如果没有这种索引，会定义一个隐藏的主键。所以 InnoDb 的表一定会有主键索引</p></li>
+
+<li><p>二叉查找树
+<img src="resources/19E6EC7B753F22CCEBB73DF984ED95B8.jpg =464x334" alt="IMAGE" /></p></li>
+
+<li><p>B树
+<img src="resources/E52A2BE0D00F1AA72D5A8918E8C11769.jpg =497x160" alt="IMAGE" /></p></li>
+
+<li><p>B+树
+在 B+ 树里，内节点（非叶子节点）中不再保存数据，而只保存用于查找的 key，并且所有的叶子节点按顺序使用链表进行连接，这样可以大大的方便范围查询，只要先查到起始位置，然后按链表顺序查找，一直查到结束位置即可。
+<img src="resources/0DC6DB5CE1F77235C6D12919B840BDFB.jpg =578x442" alt="IMAGE" /></p></li>
+
+<li><p>加锁</p>
+
+<pre><code class="language-sql">mysql&gt; update students set score = 100 where id = 49;
+</code></pre>
+
+<p>InnoDb 存储引擎会在 id = 49 这个主键索引上加一把 X 锁。</p>
+
+<pre><code class="language-sql">mysql&gt; update students set score = 100 where name = 'Tom';
+</code></pre></li>
+</ol>
+
+<p>InnoDb 存储引擎会在 name = &lsquo;Tom&rsquo; 这个索引上加一把 X 锁，同时会通过 name = &lsquo;Tom&rsquo; 这个二级索引定位到 id = 49 这个主键索引，并在 id = 49 这个主键索引上加一把 X 锁。
+<img src="resources/B4DFCF4BE94930576620C0CDAB6A055D.jpg =675x547" alt="IMAGE" /></p>
+
+<pre><code class="language-sql">mysql&gt; update students set level = 3 where score &gt;= 60;
+</code></pre>
+
+<p><img src="resources/D928AA4601C2C5A14A31865435AABD4F.jpg =653x493" alt="IMAGE" /></p>
+
+<ol>
+<li>行锁种类</li>
+<li>LOCK_ORDINARY：也称为 Next-Key Lock，锁一条记录及其之前的间隙，这是 RR 隔离级别用的最多的锁，从名字也能看出来；</li>
+<li>LOCK_GAP：间隙锁，锁两个记录之间的 GAP，防止记录插入；</li>
+<li>LOCK_REC_NOT_GAP：只锁记录；</li>
+<li>LOCK_INSERT_INTENSION：插入意向 GAP 锁，插入记录时使用，是 LOCK_GAP 的一种特例。</li>
+</ol>
+
+<p>使用间隙锁可以防止其他事务在这个范围内插入或修改记录，保证两次读取这个范围内的记录不会变，从而不会出现幻读现象。
+Next-key 锁 是记录锁和间隙锁的组合，它指的是加在某条记录以及这条记录前面间隙上的锁。</p>
+
+<ol>
+<li>行锁的模式</li>
+<li>LOCK_IS：读意向锁；</li>
+<li>LOCK_IX：写意向锁；</li>
+<li>LOCK_S：读锁；</li>
+<li>LOCK_X：写锁；</li>
+<li>LOCK_AUTO_INC：自增锁；</li>
+</ol>
+
+<p>9.1 读写锁
+读锁，又称共享锁（Share locks，简称 S 锁），加了读锁的记录，所有的事务都可以读取，但是不能修改，并且可同时有多个事务对记录加读锁。</p>
+
+<p>写锁，又称排他锁（Exclusive locks，简称 X 锁），或独占锁，对记录加了排他锁之后，只有拥有该锁的事务可以读取和修改，其他事务都不可以读取和修改，并且同一时间只能有一个事务加写锁。（注意：这里说的读都是当前读，快照读是无需加锁的，记录上无论有没有锁，都可以快照读）</p>
+
+<p>9.2 读写意向锁
+意向锁为表级锁，也可分为读意向锁（IS 锁）和写意向锁（IX 锁）。当事务试图读或写某一条记录时，会先在表上加上意向锁，然后才在要操作的记录上加上读锁或写锁。这样判断表中是否有记录加锁就很简单了，只要看下表上是否有意向锁就行了。意向锁之间是不会产生冲突的，也不和 AUTO_INC 表锁冲突，它只会阻塞表级读锁或表级写锁，另外，意向锁也不会和行锁冲突，行锁只会和行锁冲突。</p>
+
+<p>下面是各个表锁之间的兼容矩阵：
+<img src="resources/741FDA4D9D53851A63F7FD2471ABB7AB.jpg =758x242" alt="IMAGE" />
+总结
+* 意向锁之间互不冲突；
+* S 锁只和 S/IS 锁兼容，和其他锁都冲突；
+* X 锁和其他所有锁都冲突；
+* AI 锁只和意向锁兼容；</p>
+
+<p>为啥存在？用处~~
+表锁锁定了整张表，而行锁是锁定表中的某条记录，它们俩锁定的范围有交集，因此表锁和行锁之间是有冲突的。譬如某个表有 10000 条记录，其中有一条记录加了 X 锁，如果这个时候系统需要对该表加表锁，为了判断是否能加这个表锁，系统需要遍历表中的所有 10000 条记录，看看是不是某条记录被加锁，如果有锁，则不允许加表锁，显然这是很低效的一种方法，为了方便检测表锁和行锁的冲突，从而引入了意向锁。</p>
+
+<p>9.3 AUTO_INC 锁
+AUTO_INC 锁又叫自增锁（一般简写成 AI 锁），它是一种特殊类型的表锁，当插入的表中有自增列（AUTO_INCREMENT）的时候可能会遇到。</p>
+
+<p>innodb_autoinc_lock_mode = 0 使用AUTO_INC 锁,并发性比较差,自增值可能会出现中断;
+mysql默认innodb_autoinc_lock_mode = 1,既平衡了并发性，又能保证同一条 INSERT 语句分配的自增值是连续的。
+innodb_autoinc_lock_mode = 2,并发性能最高，按顺序依次分配自增值，不会预分配,同一条 INSERT 语句内获得的自增值可能不连续，主从数据集会出现数据不一致。</p>
+
+<p>参考<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html">https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html</a></p>
+
+<ol>
+<li><p>在 MySQL 中观察行锁</p>
+
+<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
+</code></pre>
+
+<p>10.1 记录锁
+记录锁和记录锁或 Next-key 锁冲突，所以想观察到记录锁，可以让两个事务都对同一条记录加记录锁，或者一个事务加记录锁另一个事务加 Next-key 锁。
+事务 A 执行：</p>
+
+<pre><code class="language-sql">mysql&gt; begin;
+mysql&gt; select * from accounts where id = 5 for update;
++----+----------+-------+
+| id |     name | level |
++----+----------+-------+
+|  5 | zhangsan |     7 |
++----+----------+-------+
+1 row in set (0.00 sec)
+</code></pre></li>
+</ol>
+
+<p>事务 B 执行：</p>
+
+<pre><code class="language-sql">mysql&gt; begin;
+mysql&gt; select * from accounts where id = 5 lock in share mode;
+</code></pre>
+
+<p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
+
+<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+| lock_id     | lock_trx_id | lock_mode | lock_type | lock_table | lock_index | lock_space | lock_page | lock_rec | lock_data |
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+| 3108:53:3:4 | 3108        | S         | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 5         |
+| 3107:53:3:4 | 3107        | X         | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 5         |
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+2 rows in set, 1 warning (0.00 sec)
+
+</code></pre>
+
+<p>10.2 间隙锁
+间隙锁只和插入意向锁冲突，而且是先加间隙锁，然后加插入意向锁时才会冲突。
+事务 A 执行（id 为主键，且 id = 3 这条记录不存在）：</p>
+
+<pre><code class="language-sql">mysql&gt; begin;
+mysql&gt; select * from accounts where id = 3 lock in share mode;
+Empty set (0.00 sec)
+</code></pre>
+
+<p>事务 B 执行：</p>
+
+<pre><code class="language-sql">mysql&gt; begin;
+mysql&gt; insert into accounts(id, name, level) value(3, 'lisi', 10);
+</code></pre>
+
+<p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
+
+<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+| lock_id     | lock_trx_id | lock_mode | lock_type | lock_table | lock_index | lock_space | lock_page | lock_rec | lock_data |
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+| 3110:53:3:4 | 3110        | X,GAP     | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 3         |
+| 3109:53:3:4 | 3109        | S,GAP     | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 3         |
++-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+2 rows in set, 1 warning (0.00 sec)
+</code></pre>
+
+<p>10.3 Next-key 锁</p>
+
+<p>参考
+<a href="https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html">https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html</a></p>
 
     
       <div id="SOHUCS" sid="/time-complexity" ></div>
