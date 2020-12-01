@@ -148,6 +148,61 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">innodb_flush_log_at_trx_commit 和 sync_binlog 是 MySQL 的两个配置参数，前者是 InnoDB 引擎特有的。之所以把这两个参数放在一起讨论，是因为在实际应用中，它们的配置对于 MySQL 的性能有很大影响。
+innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参数指定了 InnoDB 在事务提交后的日志写入频率。这么说其实并不严谨，且看其不同取值的意义和表现。
+当 innodb_flush_log_at_trx_commit 取值为 0 的时候，log buffer 会 每秒写入到日志文件并刷 …</p>
+          <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/time-complexity/">MySQL锁</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
+mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = 100; mysql&gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这 …</p>
+          <a href="https://ifunbox.top/time-complexity/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/mysql-show-processlist/">MySQL SHOW PROCESSLIST输出详解</a>
       </h3>
       <div class="post_meta">
@@ -286,14 +341,14 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
           <span class="button_tally">19</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
+          数据库
+          <span class="button_tally">18</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopex/' class="post_tag button button_translucent">
           SHOPEX
           <span class="button_tally">17</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
-          数据库
-          <span class="button_tally">15</span>
         </a>
         
         <a href='https://ifunbox.top/categories/seo/' class="post_tag button button_translucent">
@@ -334,11 +389,6 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
         <a href='https://ifunbox.top/categories/discuz/' class="post_tag button button_translucent">
           DISCUZ
           <span class="button_tally">4</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">3</span>
         </a>
         
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
@@ -382,14 +432,14 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://ifunbox.top/tags/ssl/' class="post_tag button button_translucent">
           SSL
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">

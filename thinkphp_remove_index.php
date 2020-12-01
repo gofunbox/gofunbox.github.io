@@ -245,14 +245,14 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
           <span class="button_tally">19</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
+          数据库
+          <span class="button_tally">18</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopex/' class="post_tag button button_translucent">
           SHOPEX
           <span class="button_tally">17</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
-          数据库
-          <span class="button_tally">15</span>
         </a>
         
         <a href='https://ifunbox.top/categories/seo/' class="post_tag button button_translucent">
@@ -293,11 +293,6 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
         <a href='https://ifunbox.top/categories/discuz/' class="post_tag button button_translucent">
           DISCUZ
           <span class="button_tally">4</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">3</span>
         </a>
         
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
@@ -341,14 +336,14 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://ifunbox.top/tags/ssl/' class="post_tag button button_translucent">
           SSL
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">

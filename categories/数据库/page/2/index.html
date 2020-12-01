@@ -120,6 +120,85 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/">Mysql慢查询和慢查询日志分析利器–mysqlsla</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Jun 15, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">1.安装mysqlsla
+wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
+2.使用mysqlsla语法
+ Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
+          <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/">GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    May 22, 2014</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
+mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
+方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在 …</p>
+          <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/optimize_mysql/">mysql 性能优化方案</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Nov 24, 2013</span>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
+ &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
+ 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
+          <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/php_mysql_distance/">php、mysql两个经纬度之间的距离的方法</a>
       </h3>
       <div class="post_meta">
@@ -388,14 +467,14 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
           <span class="button_tally">19</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
+          数据库
+          <span class="button_tally">18</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopex/' class="post_tag button button_translucent">
           SHOPEX
           <span class="button_tally">17</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
-          数据库
-          <span class="button_tally">15</span>
         </a>
         
         <a href='https://ifunbox.top/categories/seo/' class="post_tag button button_translucent">
@@ -436,11 +515,6 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
         <a href='https://ifunbox.top/categories/discuz/' class="post_tag button button_translucent">
           DISCUZ
           <span class="button_tally">4</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">3</span>
         </a>
         
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
@@ -484,14 +558,14 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://ifunbox.top/tags/ssl/' class="post_tag button button_translucent">
           SSL
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">

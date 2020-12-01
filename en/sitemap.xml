@@ -53,11 +53,6 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/categories/mysql/</loc>
-    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ifunbox.top/mysql-data-recovery/</loc>
     <lastmod>2020-12-01T05:01:59+00:00</lastmod>
   </url>
@@ -88,6 +83,11 @@
   </url>
   
   <url>
+    <loc>https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2020-12-01T05:01:59+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ifunbox.top/tags/hugo/</loc>
     <lastmod>2020-12-01T03:01:59+00:00</lastmod>
   </url>
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/categories/wordpress/</loc>
+    <loc>https://ifunbox.top/tags/wordpress/</loc>
     <lastmod>2020-12-01T03:01:59+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ifunbox.top/tags/wordpress/</loc>
+    <loc>https://ifunbox.top/categories/wordpress/</loc>
     <lastmod>2020-12-01T03:01:59+00:00</lastmod>
   </url>
   
@@ -158,12 +158,12 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/categories/linux/</loc>
+    <loc>https://ifunbox.top/tags/linux/</loc>
     <lastmod>2017-12-06T09:26:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ifunbox.top/tags/linux/</loc>
+    <loc>https://ifunbox.top/categories/linux/</loc>
     <lastmod>2017-12-06T09:26:00+00:00</lastmod>
   </url>
   
@@ -264,11 +264,6 @@
   
   <url>
     <loc>https://ifunbox.top/mysql-show-processlist/</loc>
-    <lastmod>2017-07-25T14:36:39+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-07-25T14:36:39+00:00</lastmod>
   </url>
   

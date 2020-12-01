@@ -120,6 +120,89 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://ifunbox.top/mysql-data-recovery/">Mysql数据误删除的恢复，drop表或库的恢复</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:00:00&quot; --stop-datetime=&quot;2017-11-11 00:00:00&quot; --database=test mysql-bin.000012 &gt; aaa.sql  输出内容大致如下:
+#171008 12:35:19 server id 1 &lt;strong&gt;&lt;span …</p>
+          <a href="https://ifunbox.top/mysql-data-recovery/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/">MySQL参数：innodb_flush_log_at_trx_commit 和 sync_binlog</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">innodb_flush_log_at_trx_commit 和 sync_binlog 是 MySQL 的两个配置参数，前者是 InnoDB 引擎特有的。之所以把这两个参数放在一起讨论，是因为在实际应用中，它们的配置对于 MySQL 的性能有很大影响。
+innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参数指定了 InnoDB 在事务提交后的日志写入频率。这么说其实并不严谨，且看其不同取值的意义和表现。
+当 innodb_flush_log_at_trx_commit 取值为 0 的时候，log buffer 会 每秒写入到日志文件并刷 …</p>
+          <a href="https://ifunbox.top/innodb_flush_log_at_trx_commit-sync_binlog/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="https://ifunbox.top/time-complexity/">MySQL锁</a>
+      </h3>
+      <div class="post_meta">
+  <svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg>
+  <span class="post_date">
+    Dec 1, 2020</span>
+    <a href='https://ifunbox.top/tags/mysql' class="post_tag button button_translucent">Mysql
+    </a>
+</div>
+
+    </div>
+      <div class="excerpt_footer">
+        <div>
+          <p class="pale">表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
+mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = 100; mysql&gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这 …</p>
+          <a href="https://ifunbox.top/time-complexity/" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://ifunbox.top/mysql-show-processlist/">MySQL SHOW PROCESSLIST输出详解</a>
       </h3>
       <div class="post_meta">
@@ -314,85 +397,6 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/">Mysql慢查询和慢查询日志分析利器–mysqlsla</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Jun 15, 2014</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
- Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
-          <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/">GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    May 22, 2014</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
-mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在 …</p>
-          <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://ifunbox.top/optimize_mysql/">mysql 性能优化方案</a>
-      </h3>
-      <div class="post_meta">
-  <svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg>
-  <span class="post_date">
-    Nov 24, 2013</span>
-</div>
-
-    </div>
-      <div class="excerpt_footer">
-        <div>
-          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
- &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
- 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
-          <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
 
 <ul class="pagination">
@@ -494,14 +498,14 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
           <span class="button_tally">19</span>
         </a>
         
+        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
+          数据库
+          <span class="button_tally">18</span>
+        </a>
+        
         <a href='https://ifunbox.top/categories/shopex/' class="post_tag button button_translucent">
           SHOPEX
           <span class="button_tally">17</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/' class="post_tag button button_translucent">
-          数据库
-          <span class="button_tally">15</span>
         </a>
         
         <a href='https://ifunbox.top/categories/seo/' class="post_tag button button_translucent">
@@ -542,11 +546,6 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
         <a href='https://ifunbox.top/categories/discuz/' class="post_tag button button_translucent">
           DISCUZ
           <span class="button_tally">4</span>
-        </a>
-        
-        <a href='https://ifunbox.top/categories/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">3</span>
         </a>
         
         <a href='https://ifunbox.top/categories/shopnc/' class="post_tag button button_translucent">
@@ -590,14 +589,14 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
+          MYSQL
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://ifunbox.top/tags/ssl/' class="post_tag button button_translucent">
           SSL
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://ifunbox.top/tags/mysql/' class="post_tag button button_translucent">
-          MYSQL
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://ifunbox.top/tags/php/' class="post_tag button button_translucent">
