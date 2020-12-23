@@ -178,28 +178,28 @@
 
 <p><span style="font-size: 12pt;">test.html</span></p>
 
-<pre><code>&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=1&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=2&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=3&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=4&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=5&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=6&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=7&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=8&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=9&quot;&amp;gt;
-&amp;lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=10&quot;&amp;gt;&amp;lt;/span&gt;
+<pre><code>&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=1&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=2&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=3&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=4&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=5&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=6&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=7&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=8&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=9&quot;&gt;
+&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=10&quot;&gt;
 </code></pre>
 
 <p><span style="font-size: 12pt;">test.php</span></p>
 
-<pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;&amp;lt;?php
+<pre><code>&lt;?php
 	session_start();
 	$_SESSION['latestRequestTime'] = time();
-	//session_write_close();
+	session_write_close();
 	sleep(2);
 	$twitterId = $_SESSION['latestRequestTime'];
 	echo json_encode($twitterId);
-?&amp;gt;&amp;lt;/span&gt;
+?&gt;
 </code></pre>
 
 <p><span style="font-size: 12pt;">1.我们先在火狐上访问test.html，里面有10个php请求到test.php。</span><br />
