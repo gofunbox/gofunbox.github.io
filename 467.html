@@ -4,7 +4,7 @@
   <head>
 <title>MySQL中insert into、insert ignore into和replace into的使用区别 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="mysql中insert into和replace into以及insert ignore用法区别：
-mysql中常用的三种插入数据的语句:
-insert into表示插入数据，数据库会检查主键，如果出现重复会报错；
-replace into表示插入替换数据，需求表中有PrimaryKey，或者unique索引，如果数 …">
+<meta name="description" content="create table testtb( id int not null primary key, name varchar(50), age int ); insert into testtb(id,name,age)values(1,&quot;bb&quot;,13); select * from testtb; …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="MySQL中insert into、insert ignore into和replace into的使用区别" />
 <meta property="og:url" content="https://ifunbox.top/467.html" />
 <meta property="og:title" content="MySQL中insert into、insert ignore into和replace into的使用区别" />
-<meta property="og:description" content="mysql中insert into和replace into以及insert ignore用法区别：
-mysql中常用的三种插入数据的语句:
-insert into表示插入数据，数据库会检查主键，如果出现重复会报错；
-replace into表示插入替换数据，需求表中有PrimaryKey，或者unique索引，如果数 …" />
+<meta property="og:description" content="create table testtb( id int not null primary key, name varchar(50), age int ); insert into testtb(id,name,age)values(1,&quot;bb&quot;,13); select * from testtb; …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@ replace into表示插入替换数据，需求表中有PrimaryKey，或者unique�
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,41 +160,23 @@ replace into表示插入替换数据，需求表中有PrimaryKey，或者unique�
 </div>
 
     
-    <div id="cnblogs_post_body">
-  <p>
-    <span style="font-size: medium;">mysql中insert into和replace into以及insert ignore用法区别：<br /> mysql中常用的三种插入数据的语句:<br /> insert into表示插入数据，数据库会检查主键，如果出现重复会报错；<br /> replace into表示插入替换数据，需求表中有PrimaryKey，或者unique索引，如果数据库已经存在数据，则用新数据替换，如果没有数据效果则和insert into一样；<br /> insert ignore表示，如果中已经存在相同的记录，则忽略当前新数据；</span>
-  </p>
-  
-  <p>
-    &nbsp;
-  </p>
-  
-  <p>
-    <span style="font-size: medium;"><strong>replace into</strong> 跟 insert 功能类似，不同点在于：<strong>replace into</strong> 首先尝试插入数据到表中， 1. 如果发现表中已经有此行数据（根据主键或者唯一索引判断）则先删除此行数据，然后插入新的数据。 2. 否则，直接插入新数据。</span>
-  </p>
-  
-  <p>
-    &nbsp;
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">要注意的是：插入数据的表必须有主键或者是唯一索引！否则的话，<strong>replace into</strong> 会直接插入数据，这将导致表中出现重复的数据。<br /> </span><span style="font-size: medium;"><br /> 下面通过代码说明之间的区别，如下：</span>
-  </p>
-  
- ```
-create table testtb(
+    <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>create table testtb(
 id int not null primary key,
 name varchar(50),
 age int
 );
-insert into testtb(id,name,age)values(1,"bb",13);
+insert into testtb(id,name,age)values(1,&quot;bb&quot;,13);
 select * from testtb;
-insert ignore into testtb(id,name,age)values(1,"aa",13);
+insert ignore into testtb(id,name,age)values(1,&quot;aa&quot;,13);
 select * from testtb;//仍是1，“bb”,13，因为id是主键，出现主键重复但使用了ignore则错误被忽略
-replace into testtb(id,name,age)values(1,"aa",12);
-select * from testtb; //数据变为1,"aa",12
-```
-</div>
+replace into testtb(id,name,age)values(1,&quot;aa&quot;,12);
+select * from testtb; //数据变为1,&quot;aa&quot;,12
+</code></pre><!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/467.html" ></div>
@@ -483,7 +459,7 @@ select * from testtb; //数据变为1,"aa",12
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -492,6 +468,7 @@ select * from testtb; //数据变为1,"aa",12
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

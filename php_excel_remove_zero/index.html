@@ -4,7 +4,7 @@
   <head>
 <title>解决PHPExcel导出长数字末尾几位数为0的问题 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content=" 在做充值卡号和密码导出Excel的时候遇到了问题，数字的后两位总是0；  经查  在Excel中默认“常规”情况下，单元格中能完全显示的数据只有11位，超过11位，系统自动用科学记数显示。
-当单元格格式设置为“数值”、小数点位数为0时，最多也只能完全显示15位数字，超过15位，从16位开始显示为0。  完整显示输入的 …">
+<meta name="description" content="">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="解决PHPExcel导出长数字末尾几位数为0的问题" />
 <meta property="og:url" content="https://ifunbox.top/php_excel_remove_zero/" />
 <meta property="og:title" content="解决PHPExcel导出长数字末尾几位数为0的问题" />
-<meta property="og:description" content=" 在做充值卡号和密码导出Excel的时候遇到了问题，数字的后两位总是0；  经查  在Excel中默认“常规”情况下，单元格中能完全显示的数据只有11位，超过11位，系统自动用科学记数显示。
-当单元格格式设置为“数值”、小数点位数为0时，最多也只能完全显示15位数字，超过15位，从16位开始显示为0。  完整显示输入的 …" />
+<meta property="og:description" content="" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,63 +160,20 @@
 </div>
 
     
-    <div id="cnblogs_post_body">
-  <p>
-    <span style="font-size: medium;">在做充值卡号和密码导出Excel的时候遇到了问题，数字的后两位总是0；</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">经查</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">在Excel中默认“常规”情况下，单元格中能完全显示的数据只有11位，超过11位，系统自动用科学记数显示。</span><br /> <span style="font-size: medium;"> 当单元格格式设置为“数值”、小数点位数为0时，最多也只能完全显示15位数字，超过15位，从16位开始显示为0。</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">完整显示输入的所有数字，可以采用下述方法之一：</span><br /> <span style="font-size: medium;"> 一是首先输入一英文单引号再输入数字。</span><br /> <span style="font-size: medium;"> 二是把数据区域设置成“文本”格式后再输入数字。</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;"> </span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">在PHPExcel中解决的办法</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">//输出单元格值</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">//之前的部分代码</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">     $objActSheet->setCellValue(&#8216;B&#8217;.$i, $value[&#8220;CARDNO&#8221;]);</span><br /> <span style="font-size: medium;">      $objActSheet->setCellValue(&#8216;C&#8217;.$i, $value[&#8220;CARDPWD&#8221;]);</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">//之后的部分代码</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">     $objActSheet->setCellValue(&#8216;B&#8217;.$i, &#8221; &#8220;.$value[&#8220;CARDNO&#8221;]);</span><br /> <span style="font-size: medium;">      $objActSheet->setCellValue(&#8216;C&#8217;.$i, &#8221; &#8220;.$value[&#8220;CARDPWD&#8221;]);</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;"> </span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">就是这个&#8221; &#8220;，中间有空格哦，带空格的话就能把$value[&#8220;CARDNO&#8221;]由数字型转换为字符型了，在JS中也能用这种技巧</span>
-  </p>
-  
-  <p>
-    <span style="font-size: medium;">此种方法也对1.00小数点后都为0的情况</span>
-  </p>
-</div>
+    <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/php_excel_remove_zero" ></div>
@@ -501,7 +456,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -510,6 +465,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

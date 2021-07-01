@@ -4,7 +4,7 @@
   <head>
 <title>Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -75,10 +75,10 @@
       
         
 
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">主页 </a>
   </div>
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">真香链接 <img src='https://ifunbox.top/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -148,12 +148,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">可使用以下命令查看服务器提供HTTP服务的相关信息 curl &#8211;head http://www.funboxpower.com
-这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
-下面分享下如何去除屏蔽nginx/apache/php版本信息
-隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens …</p>
+          <p class="pale">可使用以下命令查看服务器提供HTTP服务的相关信息 curl –head http://www.funboxpower.com这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14下面分享下如何去除屏蔽nginx/apache/php版本信息隐藏apache版本信息: 开启 httpd.conf，加入以下两行:ServerTokensProductOnly ServerSignatureOff 隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：server_tokens off; 隐藏php-fpm版 …</p>
           <a href="https://ifunbox.top/hide_nginx_apache_php_version/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -177,8 +172,7 @@ server_tokens …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">Denyhosts是一个Linux系统下阻止暴力破解SSH密码的软件，它的原理与DDoS Deflate类似，可以自动拒绝过多次数尝试SSH登录的IP地址，防止互联网上某些机器常年破解密码的行为，也可以防止黑客对SSH密码进行穷举。
-众所周知，暴露在互联网上的计算机是非常危险的。并不要因为网站小，关注的人少或不惹眼就掉以轻心：互联网中的大多数攻击都是没有目的性的，黑客们 通过大范围IP端口扫描探测到可能存在漏洞的主机，然后通过自动扫描工具进行穷举破解。笔者的某台服务器在修改SSH 22号端口之前，平均每天接受近百个来自不同IP的连接尝试。而DenyHosts正是这样一款工具。下文将对该工具的安装与使用方法进行介绍。 …</p>
+          <p class="pale">Denyhosts是一个Linux系统下阻止暴力破解SSH密码的软件，它的原理与DDoS Deflate类似，可以自动拒绝过多次数尝试SSH登录的IP地址，防止互联网上某些机器常年破解密码的行为，也可以防止黑客对SSH密码进行穷举。众所周知，暴露在互联网上的计算机是非常危险的。并不要因为网站小，关注的人少或不惹眼就掉以轻心：互联网中的大多数攻击都是没有目的性的，黑客们 通过大范围IP端口扫描探测到可能存在漏洞的主机，然后通过自动扫描工具进行穷举破解。笔者的某台服务器在修改SSH 22号端口之前，平均每天接受近百个来自不同IP的连接尝试。而DenyHosts正是这样一款工具。下文将对该工具的安装与使用方法进行介绍。DenyHosts阻 …</p>
           <a href="https://ifunbox.top/denyhosts_thwart_ssh_server_attacks/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -202,11 +196,7 @@ server_tokens …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">APP项目用户密码传输一直没有用HTTPS，考虑到用户的隐私暂时先用AES对密码加密，以后也可以用于手机端与服务端加密交互。
-PHP的免费版phpAES项目，手机端解码各种不对。
-好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。
-PHP的AES加密算法：
-&amp;lt;?php class MCrypt { private $hex_iv = '00000000000000000000000000000000'; # converted JAVA byte code in to HEX and placed it here private $key = 'U1MjU1M0FDOUZ.Qz'; …</p>
+          <p class="pale">APP项目用户密码传输一直没有用HTTPS，考虑到用户的隐私暂时先用AES对密码加密，以后也可以用于手机端与服务端加密交互。PHP的免费版phpAES项目，手机端解码各种不对。好不容易找了PHP ANDROID IOS，相互加解密正常的AES加密算法代码。PHP的AES加密算法：&amp;lt;?phpclass MCrypt {private $hex_iv = '00000000000000000000000000000000'; # converted JAVA byte code in to HEX and placed it here private $key = 'U1MjU1M0FDOUZ.Qz'; #Same …</p>
           <a href="https://ifunbox.top/php_android_ios_aes/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -230,13 +220,7 @@ PHP的AES加密算法：
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近参与的app项目中，ios开发人员反映上传ios自带emoji表情字符，api会出现异常。
-上网查询下才发现mysql要用utf8mb4，不能用utf8。
-涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。
-utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。
-首先先查看下mysql当前版本所支持的字符集
-show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。
-1.修改database,table,column字符 …</p>
+          <p class="pale">最近参与的app项目中，ios开发人员反映上传ios自带emoji表情字符，api会出现异常。上网查询下才发现mysql要用utf8mb4，不能用utf8。涉及无线相关的 MySQL 数据库建议都提前采用 utf8mb4 字符集。utf8mb4和utf8到底有什么区别呢？原来以往的mysql的utf8一个字符最多3字节，而utf8mb4则扩展到一个字符最多能有4字节，所以能支持更多的字符集。首先先查看下mysql当前版本所支持的字符集show charset; 阿里云的RDS是支持utf8mb4的，这样就不用升级了，网上说5.5.3以上才支持，自己没有核实过。1.修改database,table,column字符集mysql语句如 …</p>
           <a href="https://ifunbox.top/mysql_utf8mb4_emoji/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -260,10 +244,7 @@ show charset;  阿里云的RDS是支持utf8mb4的，这样就不用升级了，�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
- Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
+          <p class="pale">1.安装mysqlslawget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西2.使用mysqlsla语法 Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
           <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -287,16 +268,7 @@ wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.ta
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近发现博客总是访问很慢，查看服务器负载又不高，觉得很奇怪。
-看了mysql慢查询日志
-select * from wpasBFD_posts limit 0,1000
-自己查了下600多条记录，居然用了10s
-全部卡在Sending data上面了
-查看官方的关于sending data说明：
-Sending data
-The thread is processing rows for a statement and also is sending data to the client.
-意思是正在将查询结果往客户端发送。
-参考了这篇文 …</p>
+          <p class="pale">最近发现博客总是访问很慢，查看服务器负载又不高，觉得很奇怪。看了mysql慢查询日志select * from wpasBFD_posts limit 0,1000自己查了下600多条记录，居然用了10s全部卡在Sending data上面了查看官方的关于sending data说明：Sending dataThe thread is processing rows for a statement and also is sending data to the client.意思是正在将查询结果往客户端发送。参考了这篇文章http://blog.csdn.net/yunhua_lee/article/details/8573621查 …</p>
           <a href="https://ifunbox.top/mysql_sending_data_slow/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -320,10 +292,7 @@ The thread is processing rows for a statement and also is sending data to the cl
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
-查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
-记录post请求参数的日志格式
-log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request&rdquo; &lsquo; &lsquo;&ldquo;$http_referer&rdquo; $status $body_bytes_sent …</p>
+          <p class="pale">之前博客后台一直用Basic HTTP Authentication用户认证再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。记录post请求参数的日志格式</p>
           <a href="https://ifunbox.top/admin_being_attacked/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -347,19 +316,13 @@ log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"><p><span style="font-size: medium;">最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。</span></p>
-
-<p><span style="font-size: medium;">微信官方就给了2个压缩包，一个是<a title="微信支付android sdk" href="http://vdisk.weibo.com/s/yThjZrrykVNUa" target="_blank">android</a>，一个是<a title="微信支付ios sdk" href="http://vdisk.weibo.com/s/yThjZrrykVNUI" target="_blank">ios</a>，</span></p>
-
-<p><span style="font-size: medium;">打开发现里面只有java的服务端sdk，只能自己写php的命了。</span></p>
-
-<p><span style="font-size: medium;">没有专门针对服务端的文档，就打开安卓的文档看看吧。</span></p>
-
-<p><span style="font-size: medium;">接入流程大致如下：</span></p>
-
-<p><span style="font-size: medium;">1.获取access_token，这步有点类似开发平台的oauth2认证请求</span></p>
-
-<p><span style="font-size: medium;">http 请求方式: GET …</span></p></p>
+          <p class="pale"><p><!-- raw HTML omitted -->最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->微信官方就给了2个压缩包，一个是<!-- raw HTML omitted -->android<!-- raw HTML omitted -->，一个是<!-- raw HTML omitted -->ios<!-- raw HTML omitted -->，<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->打开发现里面只有java的服务端sdk，只能自己写php的命了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->没有专门针对服务端的文档，就打开安卓的文档看看吧。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->接入流程大致如下：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.获取access_token，这步有点类似开发平台的oauth2认证请求<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->http 请求方式: GET …</!--></p></p>
           <a href="https://ifunbox.top/php_wechat_payment_sdk/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -383,16 +346,7 @@ log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近博客一直被cc攻击，不堪其扰
-之前博客一直用安全宝的免费DDoS云防护，很可惜现在不免费啦~
-换到加速乐，貌似效果不是很理想，dns解析貌似昨天下午出现问题，ping不通
-索性抱最后一个大腿360
-360网站卫士来抗cc，http://wzb.360.cn/
-360网站安全检测中的漏洞修复插件防止sql注入，http://webscan.360.cn/
-360网站服务监控，http://jk.cloud.360.cn
-360的东东挺不错的尤其是第二个插件真心赞
-拦截规则如下，拦截后平台后台会有记录
-//get拦截规则 $getfilter = …</p>
+          <p class="pale">最近博客一直被cc攻击，不堪其扰之前博客一直用安全宝的免费DDoS云防护，很可惜现在不免费啦~换到加速乐，貌似效果不是很理想，dns解析貌似昨天下午出现问题，ping不通索性抱最后一个大腿360360网站卫士来抗cc，http://wzb.360.cn/360网站安全检测中的漏洞修复插件防止sql注入，http://webscan.360.cn/360网站服务监控，http://jk.cloud.360.cn360的东东挺不错的尤其是第二个插件真心赞拦截规则如下，拦截后平台后台会有记录//get拦截规则 $getfilter = …</p>
           <a href="https://ifunbox.top/blog_being_attacked/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -416,9 +370,7 @@ log_format main &lsquo;$remote_addr - $remote_user [$time_local] &ldquo;$request
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。
-中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。
-ASCII …</p>
+          <p class="pale">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。ASCII 字符集1．名 …</p>
           <a href="https://ifunbox.top/chinese_character_set/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -426,207 +378,46 @@ ASCII …</p>
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/page/6/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/6/">6</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/page/7/">7</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/8/">8</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/6/">6</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/7/">7</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/8/">8</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/page/8/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -897,7 +688,7 @@ ASCII …</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -906,6 +697,7 @@ ASCII …</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

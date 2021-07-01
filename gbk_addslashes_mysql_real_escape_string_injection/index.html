@@ -4,7 +4,7 @@
   <head>
 <title>GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,13 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。 …">
+<meta name="description" content="该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法" />
 <meta property="og:url" content="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/" />
 <meta property="og:title" content="GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法" />
-<meta property="og:description" content="该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。 …" />
+<meta property="og:description" content="该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,10 +160,8 @@
 </div>
 
     
-    <p><span style="font-size: medium;">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。</span></p>
-
-<p><span style="font-size: medium;">mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。</span></p>
-
+    <p><!-- raw HTML omitted -->该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。<!-- raw HTML omitted --></p>
 <pre><code>方法一：
 改变mysql配置文件my.cnf
 [client]
@@ -172,64 +170,8 @@ default-character-set=GBK
 在建立连接时使用
 SET CHARACTER SET 'GBK'
 例：mysql_query(&quot;SET CHARACTER SET 'gbk'&quot;, $c);
-</code></pre>
-
-<p><span style="font-size: medium;">问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞</span></p>
-
-<p><pre><code class="php">
-&lt;?php</p>
-
-<p>$c = mysql_connect(&ldquo;localhost&rdquo;, &ldquo;user&rdquo;, &ldquo;pass&rdquo;);
-mysql_select_db(&ldquo;database&rdquo;, $c);</p>
-
-<p>// change our character set
-mysql_query(&ldquo;SET CHARACTER SET &lsquo;gbk&rsquo;&rdquo;, $c);</p>
-
-<p>// create demo table
-mysql_query(&ldquo;CREATE TABLE users (
-    username VARCHAR(32) PRIMARY KEY,
-    password VARCHAR(32)
-) CHARACTER SET &lsquo;GBK&rsquo;&ldquo;, $c);
-mysql_query(&ldquo;INSERT INTO users VALUES(&lsquo;foo&rsquo;,&lsquo;bar&rsquo;), (&lsquo;baz&rsquo;,&lsquo;test&rsquo;)&rdquo;, $c);</p>
-
-<p>// now the exploit code
-$_POST[&lsquo;username&rsquo;] = chr(0xbf) . chr(0x27) . &lsquo; OR username = username #&rsquo;;
-$_POST[&lsquo;password&rsquo;] = &lsquo;anything&rsquo;;</p>
-
-<p>// Proper escaping, we should be safe, right?
-$user = mysql_real_escape_string($_POST[&lsquo;username&rsquo;], $c);
-$passwd = mysql_real_escape_string($_POST[&lsquo;password&rsquo;], $c);</p>
-
-<p>$sql = &ldquo;SELECT * FROM  users WHERE  username = &lsquo;{$user}&rsquo; AND password = &lsquo;{$passwd}&rsquo;&ldquo;;
-$res = mysql_query($sql, $c);
-echo mysql_num_rows($res); // will print 2, indicating that we were able to fetch all records</p>
-
-<p>?&gt;
-```</p>
-
-<p><span style="font-size: medium;">环境PHP5.2</span><br />
-<span style="font-size: medium;">SQL:SELECT * FROM users WHERE username = &#8216;縗&#8217; OR username = username #&#8217; AND password = &#8216;anything&#8217;   查询结果为2</span></p>
-
-<p><span style="font-size: medium;">环境PHP5.3 5.4<br /> <span style="font-size: medium;">SQL:SELECT * FROM users WHERE username = &#8216;\縗&#8217; OR username = username #&#8217; AND password = &#8216;anything&#8217;   查询结果为0</span></span></p>
-
-<p><span style="font-size: medium;">PHP5.2 很明显被sql注入，但是5.3 5.4版本貌似不会，难道为修复了？</span><br />
-<span style="font-size: medium;">来自<a href="http://ilia.ws/archives/103-mysql_real_escape_string-versus-Prepared-Statements.html" target="_blank"><a href="http://ilia.ws/archives/103-mysql_real_escape_string-versus-Prepared-Statements.html">http://ilia.ws/archives/103-mysql_real_escape_string-versus-Prepared-Statements.html</a></a></span></p>
-
-<p><span style="font-size: medium;">帮助了解Mysql字符集<br /> </span></p>
-
-<p><span style="font-size: medium;"><a href="http://www.laruence.com/2008/01/05/12.html" target="_blank"><a href="http://www.laruence.com/2008/01/05/12.html">http://www.laruence.com/2008/01/05/12.html</a><br /> </a><a href="http://www.laruence.com/2010/04/12/1396.html" target="_blank"><a href="http://www.laruence.com/2010/04/12/1396.html">http://www.laruence.com/2010/04/12/1396.html</a></a></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">解决办法</span></p>
-
-<p><span style="font-size: medium;">1.php5.3.6中，连接dsn增加了一个参数charset用以设置字符集</span><br />
-<span style="font-size: medium;">$dsn = &#8216;mysql:dbname=test;host=localhost;port=3306;charset=gbk&#8217;;</span><br />
-<span style="font-size: medium;">php手册中对pdo设置字符集的描述<a href="http://www.php.net/manual/zh/ref.pdo-mysql.connection.php" target="_blank"><a href="http://www.php.net/manual/zh/ref.pdo-mysql.connection.php">http://www.php.net/manual/zh/ref.pdo-mysql.connection.php</a></a></span><br />
-<span style="font-size: medium;">2.使用query(&#8216;set names gbk,character_set_client=binary&#8217;);</span><br />
-<span style="font-size: medium;">character_set_client=binary以2进制的方式发送字符给mysql,彻底杜绝宽字符攻击</span></p>
-
-<p><span style="font-size: medium;">35互联高级程序员的安全讲座ppt可以帮助各位理解<a href="http://vdisk.weibo.com/s/yThjZrrykVNUx" target="_blank"><a href="http://vdisk.weibo.com/s/yThjZrrykVNUx">http://vdisk.weibo.com/s/yThjZrrykVNUx</a></a>，在这里感谢车爷的指导~</span></p>
+</code></pre><p><!-- raw HTML omitted -->问题是方法二在改变字符集时mysql_real_escape_string() 并不知道而使用默认字符集处理从而造成和 addslashes() 一样的漏洞<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/gbk_addslashes_mysql_real_escape_string_injection" ></div>
@@ -512,7 +454,7 @@ echo mysql_num_rows($res); // will print 2, indicating that we were able to fetc
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -521,6 +463,7 @@ echo mysql_num_rows($res); // will print 2, indicating that we were able to fetc
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

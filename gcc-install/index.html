@@ -4,7 +4,7 @@
   <head>
 <title>标准编译安装 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,20 +164,12 @@
 </div>
 
     
-    
-
-<h2 id="为什么要编译安装">为什么要编译安装</h2>
-
+    <h2 id="为什么要编译安装">为什么要编译安装</h2>
 <p>包管理系统是绝大多数发行版的必备组件，也是一个发行版区别于其它发行版的主要特征。但是有些软件，并不能通过包管理系统安装，这就需要下载源码编译安装。</p>
-
 <p>一个软件可能有许多功能，但是发行版中提供的安装包，通常只具有一些常见的功能。如果提供所有功能，那么无疑会占用更多的资源，而这些功能，大多数用户不会用到；而你会用到的功能，可能安装包中刚好没有。编译安装可以灵活地定制软件，选择自己需要的，取消自己不需要的。</p>
-
 <p>编译安装还可以针对特定的硬件进行优化，以获得更好的性能表现。</p>
-
 <h2 id="编译环境">编译环境</h2>
-
 <p>编译环境包括多个工具，它们环环相扣，称作编译工具链。主要包括以下工具：</p>
-
 <table>
 <thead>
 <tr>
@@ -185,49 +177,39 @@
 <th>简介</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>binutils</td>
 <td>连接器、汇编器和其他用于目标文件和档案的工具</td>
 </tr>
-
 <tr>
 <td>gcc</td>
 <td>编译器，将源代码转换为机器代码</td>
 </tr>
-
 <tr>
 <td>glibc</td>
 <td>C库，提供标准例程(C函数)</td>
 </tr>
-
 <tr>
 <td>还有一些工具，能够调用工具链，实现自动化编译：</td>
 <td></td>
 </tr>
-
 <tr>
 <td>autoconf</td>
 <td>自动生成 Makefile 文件</td>
 </tr>
-
 <tr>
 <td>automake</td>
 <td>自动生成 Makefile 文件</td>
 </tr>
-
 <tr>
 <td>make</td>
 <td>按照 Makefile 文件中的规则编译程序</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="标准编译安装">标准编译安装</h2>
-
 <p>首先，下载源代码，通常是压缩包，如：xxx.tar.gz 或者 xxx.tar.bz2，解包：</p>
-
 <table>
 <thead>
 <tr>
@@ -235,94 +217,65 @@
 <th>命令</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>.tar.gz</td>
 <td>tar zxvf xxx.tgz</td>
 </tr>
-
 <tr>
 <td>.tgz</td>
 <td>tar zxvf xxx.tgz</td>
 </tr>
-
 <tr>
 <td>.tar.bz2</td>
 <td>tar jxvf xxx.tar.bz2</td>
 </tr>
 </tbody>
 </table>
-
 <p>通常解包后会在当前位置得到一个 xxx/ 目录，进入这个目录</p>
-
 <pre><code>cd xxx/
-</code></pre>
-
-<p>使用下列命令编译安装：</p>
-
+</code></pre><p>使用下列命令编译安装：</p>
 <pre><code>./configure --prefix=/opt/xxx
 make
 sudo make install 
 make clean  
-</code></pre>
-
-<ol>
+</code></pre><ol>
 <li>configure 配置软件特性，检查编译环境，生成 Makefile文件</li>
 <li>prefix最常用配置选项:指定软件的安装路径</li>
 <li>make根据 Makefile 编译源代码</li>
 <li>install将编译完成的程序安装到系统中。通常需要 root权限</li>
 <li>clean清除源代码目录中的编译结果</li>
 </ol>
-
 <h2 id="编译过程">编译过程</h2>
-
 <p>将下面代码保存为 Hello.c：</p>
-
 <pre><code>#include &amp;lt;stdio.h&amp;gt;
 int main(void)
 {
 printf(&quot;Hello World!\n&quot;);
 return 0;
 }  
-</code></pre>
-
-<p>执行命令 cc Hello.c，得到一个可执行文件 a.out，执行它 ./a.out</p>
-
+</code></pre><p>执行命令 cc Hello.c，得到一个可执行文件 a.out，执行它 ./a.out</p>
 <p>可以看到，C的源代码(Hello.c)是纯文本，不能够直接执行。可执行代码是计算机的本机语言或机器语言表示的代码，这种语言是由数字代码表示的详细指令组成，不同的计算机具有不同的机器语言。</p>
-
 <p>编译器是一个程序，其工作是将源代码转换为可执行代码。</p>
-
 <ul>
 <li>编译器用来将 C语言 转换成特定的机器语言。</li>
 <li>编译器还从C的库中向最终程序加入代码。</li>
 <li>编译器还检查源代码是否为有效的C语言程序。如果编译器发现错误，将报告错误，而且不生成可执行文件</li>
 </ul>
-
 <p>编译器分三步完成这个工作：</p>
-
 <ol>
 <li>预处理 调用预处理器 cpp 对源代码文件中的文件包含(include)、预编译语句(如宏定义 define 等) 进行分析</li>
 <li>编译 调用编译器 cc 将源代码转换为中间代码</li>
 <li>链接 调用链接器 ld 将中间代码与其它代码结合起来生成可执行文件</li>
 </ol>
-
 <p>这种方法使用程序便于模块化。分别编译各个模块，然后使用链接器将编译过的模块结合起来。这样，如果需要改变一个模块，则不必重新编译所有其它模块。</p>
-
 <p>可执行文件包含目标文件、库例程和启动代码</p>
-
 <p>编译器将源代码转换为机器语言代码(中间代码)，将结果放置在目标文件(*.o)中。虽然目标文件包含机器代码，但该文件还不能运行，它还不是一个完整的程序。</p>
-
 <p>启动代码(start-up code)相当于程序和操作系统之间的接口。</p>
-
 <p>库例程为函数的实现。几乎所有C程序都利用标准C库中所包含的例程，目标代码文件不包含这一函数的代码，它只包含调用函数的指令。实际代码存储在一个称为“库”的文件中。库文件中包含许多函数的目标代码</p>
-
 <p>链接器的作用是将这3个元素(目标代码、系统的标准启动代码和库代码)结合在一起，并将它们存放在可执行文件中。</p>
-
 <h2 id="gcc-编译器">gcc 编译器</h2>
-
 <p>gcc 是 GNU 推出的功能强大、性能优越的多平台编译器，是 GNU 的代表作品之一。它能将C、C++语言源程序、汇编语言源程序和目标程序编译、链接成可执行文件，如果没有给出可执行文件的名字，gcc 将生成一个名为 a.out 的文件。</p>
-
 <table>
 <thead>
 <tr>
@@ -330,67 +283,55 @@ return 0;
 <th>类型</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>.c</td>
 <td>C语言源代码文件</td>
 </tr>
-
 <tr>
 <td>.a</td>
 <td>由目标文件构成的档案库文件</td>
 </tr>
-
 <tr>
 <td>.C</td>
 <td>.cc</td>
 </tr>
-
 <tr>
 <td>.h</td>
 <td>程序所包含的头文件</td>
 </tr>
-
 <tr>
 <td>.i</td>
 <td>预处理过的C源代码文件</td>
 </tr>
-
 <tr>
 <td>.ii</td>
 <td>预处理过的C++源代码文件</td>
 </tr>
-
 <tr>
 <td>.m</td>
 <td>Objective-C源代码文件</td>
 </tr>
-
 <tr>
 <td>.o</td>
 <td>编译后的目标文件</td>
 </tr>
-
 <tr>
 <td>.s</td>
 <td>汇编语言源代码文件</td>
 </tr>
-
 <tr>
 <td>.S</td>
 <td>预编译的汇编语言源代码文件</td>
 </tr>
 </tbody>
 </table>
-
-<p>前面我们已经使用 gcc 编译了一个程序：cc Hello.c<br />
+<p>前面我们已经使用 gcc 编译了一个程序：cc Hello.c<br>
 gcc 还有许多选项：</p>
-
-<p>-c 只编译，不链接成为可执行文件<br />
--o 文件名 设定输出文件名。默认为a.out<br />
--g 加入调试符号(默认)。1<br />
--O 编译、链接时进行优化，耗时比较多，但产生的可执行文件执行效率更高<br />
+<p>-c 只编译，不链接成为可执行文件<br>
+-o 文件名 设定输出文件名。默认为a.out<br>
+-g 加入调试符号(默认)。1<br>
+-O 编译、链接时进行优化，耗时比较多，但产生的可执行文件执行效率更高<br>
 -O2 更高的优化级别，耗时更多</p>
 
     
@@ -674,7 +615,7 @@ gcc 还有许多选项：</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -683,6 +624,7 @@ gcc 还有许多选项：</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

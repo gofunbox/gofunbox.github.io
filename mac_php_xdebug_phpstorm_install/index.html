@@ -4,7 +4,7 @@
   <head>
 <title>PHP调试利器XDebug Mac下在phpstorm中的安装与使用 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -44,12 +44,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,75 +170,43 @@
 </div>
 
     
-    
-
-<p>之前一直用比较原始的调试方法echo、print_r()、var_dump()、printf()，可能小项目比较小吧</p>
-
+    <p>之前一直用比较原始的调试方法echo、print_r()、var_dump()、printf()，可能小项目比较小吧</p>
 <p>最近有时间，就研究了Mac系统下集成phpstorm的xdebug安装配置使用，下面记录一下~</p>
-
 <h4 id="安装篇">安装篇</h4>
-
 <p>1.xdebug的安装</p>
-
-<p>下载地址<a href="https://xdebug.org/">https://xdebug.org/</a></p>
-
+<p>下载地址https://xdebug.org/</p>
 <p>我是直接用神器brew安装（版本号自行替换）</p>
-
 <p>brew install homebrew/php/php56-xdebug</p>
-
 <p>安装完毕后brew info homebrew/php/php56-xdebug 包含了很多信息 包括xdebug的配置文件路径，如何判断安装成功等等</p>
-
-<p><img class="alignnone wp-image-1391 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/11-1024x834.png" alt="" width="720" height="586" srcset="https://ifunbox.top/wp-content/uploads/2016/09/11.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/11-300x244.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>2.配置xdebug</p>
-
 <p>在/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini</p>
-
-<p>[xdebug]<br />
-zend_extension=&#8221;/usr/local/opt/php56-xdebug/xdebug.so&#8221;<br />
-xdebug.remote_enable=1<br />
-xdebug.remote_host=&#8221;127.0.0.1&#8243;<br />
-xdebug.remote_port=9001<br />
-xdebug.profiler_enable=1<br />
-xdebug.profiler_output_dir=&#8221;/Users/www/debug&#8221;<br />
-xdebug.idekey=&#8221;PHPSTORM&#8221;</p>
-
+<p>[xdebug]<br>
+zend_extension=”/usr/local/opt/php56-xdebug/xdebug.so”<br>
+xdebug.remote_enable=1<br>
+xdebug.remote_host=”127.0.0.1″<br>
+xdebug.remote_port=9001<br>
+xdebug.profiler_enable=1<br>
+xdebug.profiler_output_dir=”/Users/www/debug”<br>
+xdebug.idekey=”PHPSTORM”</p>
 <p>3.在phpstorm中配置xdebug</p>
-
-<p><img class="alignnone wp-image-1393 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/21-1024x699.png" alt="" width="720" height="491" srcset="https://ifunbox.top/wp-content/uploads/2016/09/21.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/21-300x205.png 300w" sizes="(max-width: 720px) 100vw, 720px" /><img class="alignnone wp-image-1394 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/31-1024x673.png" alt="" width="720" height="473" srcset="https://ifunbox.top/wp-content/uploads/2016/09/31.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/31-300x197.png 300w" sizes="(max-width: 720px) 100vw, 720px" /><img class="alignnone wp-image-1395 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/41-1024x673.png" alt="" width="720" height="473" srcset="https://ifunbox.top/wp-content/uploads/2016/09/41.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/41-300x197.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
-<p>上面都配置好后要在主菜单中，选择<span class="menupath">Run | Web Server Debug Validation</span>.下图是验证成功的效果，但是没有那么顺利，报错Remote host is configured as “localhost” despite server host is probably not local，在stackoverflow有人说把xdebug.remote_host改成自己项目的域名就可以了，还真是不知道是为何。。。</p>
-
-<p><img class="alignnone wp-image-1396 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/51-907x1024.png" alt="" width="720" height="813" srcset="https://ifunbox.top/wp-content/uploads/2016/09/51.png 907w, https://ifunbox.top/wp-content/uploads/2016/09/51-266x300.png 266w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>上面都配置好后要在主菜单中，选择<!-- raw HTML omitted -->Run | Web Server Debug Validation<!-- raw HTML omitted -->.下图是验证成功的效果，但是没有那么顺利，报错Remote host is configured as “localhost” despite server host is probably not local，在stackoverflow有人说把xdebug.remote_host改成自己项目的域名就可以了，还真是不知道是为何。。。</p>
+<p><!-- raw HTML omitted --></p>
 <p>4.phpstorm配置一个PHP Web Application</p>
-
-<p><img class="alignnone wp-image-1397 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/61-1024x752.png" alt="" width="720" height="529" srcset="https://ifunbox.top/wp-content/uploads/2016/09/61.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/61-300x220.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
-<p>5.打开Chrome下载安装xdebug-helper，地址<a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></p>
-
+<p><!-- raw HTML omitted --></p>
+<p>5.打开Chrome下载安装xdebug-helper，地址https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</p>
 <p>点开选项记得把IDE key配置得跟之前设置的一样</p>
-
-<p><img class="alignnone wp-image-1398 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/71-1024x850.png" alt="" width="720" height="598" srcset="https://ifunbox.top/wp-content/uploads/2016/09/71.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/71-300x249.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <p>到这里安装配置就结束了~~~</p>
-
 <h4 id="使用篇">使用篇</h4>
-
 <p>1.phpstorm 打开监听 Run | Start Listening For PHP Debug Connections</p>
-
 <p>2.打个断点</p>
-
 <p>3.访问项目域名，就可以在phpstorm中看到变量信息，点击红框，可以查看每次执行的代码行，也会看到因为执行代码行所赋值的变量。</p>
-
-<p><img class="alignnone wp-image-1399 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/81-1024x696.png" alt="" width="720" height="489" srcset="https://ifunbox.top/wp-content/uploads/2016/09/81.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/81-300x204.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
-<p>还有一个就是php报错的时候回显示堆栈信息<img class="alignnone wp-image-1400 size-large" src="https://ifunbox.top/wp-content/uploads/2016/09/9-1024x155.png" alt="" width="720" height="109" srcset="https://ifunbox.top/wp-content/uploads/2016/09/9.png 1024w, https://ifunbox.top/wp-content/uploads/2016/09/9-300x45.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
-
+<p><!-- raw HTML omitted --></p>
+<p>还有一个就是php报错的时候回显示堆栈信息<!-- raw HTML omitted --></p>
 <p>参考</p>
-
 <p><a href="https://www.jetbrains.com/help/phpstorm/2016.2/configuring-xdebug.html">https://www.jetbrains.com/help/phpstorm/2016.2/configuring-xdebug.html</a></p>
-
 <p><a href="http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-configured-as-localhost-despite-server-host">http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-configured-as-localhost-despite-server-host</a></p>
 
     
@@ -522,7 +490,7 @@ xdebug.idekey=&#8221;PHPSTORM&#8221;</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -531,6 +499,7 @@ xdebug.idekey=&#8221;PHPSTORM&#8221;</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

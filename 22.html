@@ -4,7 +4,7 @@
   <head>
 <title>怎么使用Appserv配置多站点访问 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,70 +160,34 @@
 </div>
 
     
-    <p><span style="font-size: medium;">　 在之前的Appserv教程中，我介绍了AppServ配置与安装使用教程，Appserv作为PHP集成环境安装包，可以实现多种功能，配置Appserv实现多站点功能可方便PHP开发团队实时调试多个PHP网站，有访友向我提出怎么使用Appserv配置多站点问题，通过实践验证后，我以Appserv教程形式来作下解答。 　　</span></p>
-
-<p><span style="font-size: medium;"><strong>Appserv配置多站点教程第一步：下载Appserv并安装 　　</strong></span></p>
-
-<p><span style="font-size: medium;">    我下载的是Appserv-Win32-2.5.10版本，下载后直接双击并根据提示安装即可。 　　</span></p>
-
-<p><span style="font-size: medium;"><strong>Appserv配置多站点教程第二步：修改Windows系统hosts文件 　　</strong></span></p>
-
-<p><span style="font-size: medium;">    我的Appserv安装环境是WindowsXP，为什么首先要修改hosts文件呢？这是因为一般情况下Appserv的安装调试都是在本机上进行的，当使用Appserv配置多站点时，域名指向都是127.0.0.1，你需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非你有公网IP，并通过DNS进行映射。 　　</span></p>
-
-<p><span style="font-size: medium;">    找到WINDOWS\system32\drivers\etc\hosts文件并打开，找到127.0.0.1 localhost，并添加需要映射的测试站点域名，比如</span></p>
-
-<p><span style="font-size: medium;">127.0.0.1 <a title="www.fanhefan.com" href="http://www.fanhefan.com">www.fanhefan.com</a></span></p>
-
-<p><span style="font-size: medium;">保存hosts文件 　　</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;"><strong><a href="http://www.fanhefan.com/22.html">Appserv配置多站点教程</a>第三步：修改Apache配置文件，启用虚拟主机配置</strong> 　　 </span></p>
-
-<p><span style="font-size: medium;">    在Appserv安装目录中找到Apache2.2\conf目录，打开apache配置文件httpd.conf，找到# Virtual hosts将 #Include conf/extra/httpd-vhosts.conf 中的#去除。 　　</span></p>
-
-<p><span style="font-size: medium;">    由于Appserv配置中Apache配置是以定制方式存在，上述语句代表Apache启用虚拟主机配置。同时Appserv多站点配置功能是以虚拟主机的方式实现，你可以一并将httpd配置文件中的 #LoadModule vhost_alias_module modules/mod_vhost_alias.so #去除（经过我的测试，其实此Apache Module加不加载没太大关系） 　　</span></p>
-
-<p><span style="font-size: medium;"><strong>Appserv配置多站点教程第四步：修改Apache虚拟主机配置 　　</strong></span></p>
-
-<p><span style="font-size: medium;">    打开conf/extra/httpd-vhosts.conf配置文件，文件中本身存在两条虚拟主机配置记录，只要稍作修改即可。 　　</span></p>
-
-<p><span style="font-size: medium;">    将ServerAdmin（邮件地址）、DocumentRoot（网站根目录，我设定的目录为”C:/AppServ/www/fanhefan/”、ServerName(站点域名信息)、ServerAlias（站点域名别名）配置选项设置为你需要设定的信息即可。</span></p>
-
-<p><span style="font-size: medium;">Appserv配置多站点实例如下</span></p>
-
-<pre>&lt;VirtualHost fanhefan.com> 
-ServerAdmin 101123408@qq.com 
-DocumentRoot "C:/AppServ/www/fanhefan/" 
-ServerName fanhefan.com 
-ErrorLog logs/bssn-error_log 
-CustomLog logs/bssn_log common 
-&lt;/VirtualHost> 
-&lt;Directory "C:/AppServ/www/fanhefan/"> 
-AllowOverride All 
-Options All Order allow,deny Allow from all 
-&lt;/Directory>
-</pre>
-
-<p><span class="Apple-style-span" style="font-size: medium;">     Appserv多站点配置提示：如果同时配置多个虚拟主机，务必确保第一条虚拟主机记录不可缺失ServerAlias选项，否则配置不会成功。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">     最后保存conf/extra/httpd-vhosts.conf配置文件。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">     重启Apache时注意请在CMD模式下通过net start apache2.2或net stop apache2.2方式重启Apache。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">     此时通过IE以域名方式即可访问使用Appserv配置的多个站点了。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">     上述方法是以域名方式使用Appserv配置多站点访问功能，如果以IP方式也是可以实现此配置功能，区别在于需要使用不同的端口。除了原有的上述httpd.conf配置外，需要再Listen 80语句后，添加需要侦听的端口，比如 </span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">Listen 8080 </span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">Listen 8081 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">      然后将conf/extra/httpd-vhosts.conf配置文件中的<VirtualHost *:80>修改为<VirtualHost 对应IP:对应侦听端口>即可，其他配置不变。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">      最后删除hosts文件中之前设定的配置，重启Apache服务即可。 　　</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">      至此，怎么使用Appserv以域名或IP地址方式实现配置多站点访问教程就介绍完了。</span></p>
+    <p><!-- raw HTML omitted -->　 在之前的Appserv教程中，我介绍了AppServ配置与安装使用教程，Appserv作为PHP集成环境安装包，可以实现多种功能，配置Appserv实现多站点功能可方便PHP开发团队实时调试多个PHP网站，有访友向我提出怎么使用Appserv配置多站点问题，通过实践验证后，我以Appserv教程形式来作下解答。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Appserv配置多站点教程第一步：下载Appserv并安装 　　<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    我下载的是Appserv-Win32-2.5.10版本，下载后直接双击并根据提示安装即可。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Appserv配置多站点教程第二步：修改Windows系统hosts文件 　　<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    我的Appserv安装环境是WindowsXP，为什么首先要修改hosts文件呢？这是因为一般情况下Appserv的安装调试都是在本机上进行的，当使用Appserv配置多站点时，域名指向都是127.0.0.1，你需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非你有公网IP，并通过DNS进行映射。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    找到WINDOWS\system32\drivers\etc\hosts文件并打开，找到127.0.0.1 localhost，并添加需要映射的测试站点域名，比如<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->127.0.0.1 <!-- raw HTML omitted --><a href="http://www.fanhefan.com">www.fanhefan.com</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->保存hosts文件 　　<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Appserv配置多站点教程<!-- raw HTML omitted -->第三步：修改Apache配置文件，启用虚拟主机配置<!-- raw HTML omitted --> 　　 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    在Appserv安装目录中找到Apache2.2\conf目录，打开apache配置文件httpd.conf，找到# Virtual hosts将 #Include conf/extra/httpd-vhosts.conf 中的#去除。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    由于Appserv配置中Apache配置是以定制方式存在，上述语句代表Apache启用虚拟主机配置。同时Appserv多站点配置功能是以虚拟主机的方式实现，你可以一并将httpd配置文件中的 #LoadModule vhost_alias_module modules/mod_vhost_alias.so #去除（经过我的测试，其实此Apache Module加不加载没太大关系） 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Appserv配置多站点教程第四步：修改Apache虚拟主机配置 　　<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    打开conf/extra/httpd-vhosts.conf配置文件，文件中本身存在两条虚拟主机配置记录，只要稍作修改即可。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    将ServerAdmin（邮件地址）、DocumentRoot（网站根目录，我设定的目录为”C:/AppServ/www/fanhefan/”、ServerName(站点域名信息)、ServerAlias（站点域名别名）配置选项设置为你需要设定的信息即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Appserv配置多站点实例如下<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->     Appserv多站点配置提示：如果同时配置多个虚拟主机，务必确保第一条虚拟主机记录不可缺失ServerAlias选项，否则配置不会成功。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     最后保存conf/extra/httpd-vhosts.conf配置文件。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     重启Apache时注意请在CMD模式下通过net start apache2.2或net stop apache2.2方式重启Apache。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     此时通过IE以域名方式即可访问使用Appserv配置的多个站点了。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     上述方法是以域名方式使用Appserv配置多站点访问功能，如果以IP方式也是可以实现此配置功能，区别在于需要使用不同的端口。除了原有的上述httpd.conf配置外，需要再Listen 80语句后，添加需要侦听的端口，比如 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Listen 8080 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Listen 8081 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->      然后将conf/extra/httpd-vhosts.conf配置文件中的&lt;VirtualHost *:80&gt;修改为&lt;VirtualHost 对应IP:对应侦听端口&gt;即可，其他配置不变。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->      最后删除hosts文件中之前设定的配置，重启Apache服务即可。 　　<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->      至此，怎么使用Appserv以域名或IP地址方式实现配置多站点访问教程就介绍完了。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/22.html" ></div>
@@ -506,7 +470,7 @@ Options All Order allow,deny Allow from all
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -515,6 +479,7 @@ Options All Order allow,deny Allow from all
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JavaScript on Funbox的技术记事本</title>
@@ -6,31 +6,14 @@
     <description>Recent content in JavaScript on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 14 Oct 2015 02:15:30 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 14 Oct 2015 02:15:30 +0000</lastBuildDate><atom:link href="https://ifunbox.top/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用GifShot JavaScript库创建GIF动画</title>
       <link>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</link>
       <pubDate>Wed, 14 Oct 2015 02:15:30 +0000</pubDate>
       
       <guid>https://ifunbox.top/gifshot_javascript_create_animated_gifs/</guid>
-      <description>之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。
-GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。
-GifShot优点多多啊~
-易于集成
-JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(有点像动画gif本身)。
-非常高效
-通过利用web workers的力量,得到快速创建GIF,不会阻止UI。一个图像量化算法还用于减少所需数量的颜色代表形象。
-强大的
-利用前沿浏览器api包括WebRTC、文件系统、视频、帆布、Web Workers,类型化数组和Base 64编码支持20多个选项。
-可定制的
-可以使用自定义构建只包括项目所需的特定功能。
-只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了
-&amp;amp;lt;span style=&amp;quot;font-size: 14pt;&amp;quot;&amp;gt;gifshot.createGIF({ images: [ &#39;http://i.imgur.com/2OO33vX.jpg&#39;, &#39;http://i.imgur.com/qOwVaSN.png&#39;, &#39;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&#39;img&#39;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;amp;lt;/span&amp;gt;  就不上更多代码了，因为官网介绍得非常详细。
-附上官网地址https://yahoo.github.io/gifshot/</description>
+      <description>之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。GifShot优点多多啊~易于集成JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(有点像动画gif本身)。非常高效通过利用web workers的力量,得到快速创建GIF,不会阻止UI。一个图像量化算法还用于减少所需数量的颜色代表形象。强大的利用前沿浏览器api包括WebRTC、文件系统、视频、帆布、Web Workers,类型化数组和Base 64编码支持20多个选项。可定制的可以使用自定义构建只包括项目所需的特定功能。只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了&amp;amp;lt;span style=&amp;quot;font-size: 14pt;&amp;quot;&amp;gt;gifshot.createGIF({ images: [ &#39;http://i.imgur.com/2OO33vX.jpg&#39;, &#39;http://i.imgur.com/qOwVaSN.png&#39;, &#39;http://i.imgur.com/Vo5mFZJ.gif&#39; ] }, function (obj) { if (!obj.error) { var image = obj.image, animatedImage = document.createElement(&#39;img&#39;); animatedImage.src = image; document.body.appendChild(animatedImage); } });&amp;amp;lt;/span&amp;gt; 就不上更多代码了，因为官网介绍得非常详细。附上官网地址https://yahoo.</description>
     </item>
     
   </channel>

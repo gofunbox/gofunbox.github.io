@@ -4,7 +4,7 @@
   <head>
 <title>结合MongoDB开发LBS应用-查看附近的人 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,23 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近负责的APP要上查看附件的人的功能
-之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
-就开始寻找新的解决方案，查找到深入浅出Symfony2 &#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
-首先加一点往MongoDB数据
-
-了解 …">
+<meta name="description" content="最近负责的APP要上查看附件的人的功能之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了就开始寻找新的解决方案，查找到深入浅出Symfony2 – 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现首先加一点往MongoDB数据了解下geoNear的参数使用， …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="结合MongoDB开发LBS应用-查看附近的人" />
 <meta property="og:url" content="https://ifunbox.top/mongodb_lbs_nearby_people/" />
 <meta property="og:title" content="结合MongoDB开发LBS应用-查看附近的人" />
-<meta property="og:description" content="最近负责的APP要上查看附件的人的功能
-之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
-就开始寻找新的解决方案，查找到深入浅出Symfony2 &#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
-首先加一点往MongoDB数据
-
-了解 …" />
+<meta property="og:description" content="最近负责的APP要上查看附件的人的功能之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了就开始寻找新的解决方案，查找到深入浅出Symfony2 – 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现首先加一点往MongoDB数据了解下geoNear的参数使用， …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -46,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,44 +160,15 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">最近负责的APP要上查看附件的人的功能</span></p>
-
-<p><span style="font-size: 12pt;">之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了</span></p>
-
-<p><span style="font-size: 12pt;">就开始寻找新的解决方案，查找到<a href="http://www.infoq.com/cn/articles/depth-study-of-Symfony2" target="_blank">深入浅出Symfony2 &#8211; 结合MongoDB开发LBS应用</a>，里面介绍了4个可选方案，推荐使用MongoDB来实现</span></p>
-
-<p><span style="font-size: 12pt;">首先加一点往MongoDB数据</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/03/img.png"><img class="alignnone size-large wp-image-1106" src="https://ifunbox.top/wp-content/uploads/2015/03/img-600x122.png" alt="img" width="600" height="122" /></a></span></p>
-
-<p><span style="font-size: 12pt;">了解下<a href="http://docs.mongodb.org/manual/reference/command/geoNear/#dbcmd.geoNear" target="_blank">geoNear</a>的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/03/img1.png"><img class="alignnone size-large wp-image-1107" src="https://ifunbox.top/wp-content/uploads/2015/03/img1-600x368.png" alt="img1" width="600" height="368" /></a></span></p>
-
-<p><span style="font-size: 12pt;">thinkphp实现的代码，距离单位都是km</span></p>
-
-<p><pre><code class="php">
-&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;$where[&lsquo;geoNear&rsquo;] = &lsquo;user_coordinate&rsquo;;
-$where[&lsquo;near&rsquo;] = array($longitude,$latitude);
-$where[&lsquo;spherical&rsquo;] = true;
-$where[&lsquo;maxDistance&rsquo;] = $maxDistance/6371;
-$where[&lsquo;distanceMultiplier&rsquo;] = 6371;
-$where[&lsquo;query&rsquo;] = array(&ldquo;status&rdquo;=&gt;1);</p>
-
-<p>$res = $this-&gt;_user_coordinate_mod-&gt;command($where);
-if (!empty($res[&lsquo;results&rsquo;])) {
-    foreach ($res[&lsquo;results&rsquo;] as $key =&gt; $value) {
-        $data[$key] = $value[&lsquo;obj&rsquo;];
-        $data[$key][&lsquo;dis&rsquo;] = $value[&lsquo;dis&rsquo;];
-    }</p>
-
-<p>}
-return $data;&lt;/span&gt;
-```</p>
-
-<p><span style="font-size: 12pt;">就这样搞定了</span></p>
-
-<p><span style="font-size: 12pt;"> </span></p>
+    <p><!-- raw HTML omitted -->最近负责的APP要上查看附件的人的功能<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->就开始寻找新的解决方案，查找到<!-- raw HTML omitted -->深入浅出Symfony2 – 结合MongoDB开发LBS应用<!-- raw HTML omitted -->，里面介绍了4个可选方案，推荐使用MongoDB来实现<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->首先加一点往MongoDB数据<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->了解下<!-- raw HTML omitted -->geoNear<!-- raw HTML omitted -->的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->thinkphp实现的代码，距离单位都是km<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/mongodb_lbs_nearby_people" ></div>
@@ -490,7 +451,7 @@ return $data;&lt;/span&gt;
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -499,6 +460,7 @@ return $data;&lt;/span&gt;
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

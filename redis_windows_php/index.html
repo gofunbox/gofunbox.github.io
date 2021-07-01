@@ -4,7 +4,7 @@
   <head>
 <title>Redis在Windows下安装和PHP中使用 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
-1、redis简介
-redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链 …">
+<meta name="description" content="一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~1、redis简介redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Redis在Windows下安装和PHP中使用" />
 <meta property="og:url" content="https://ifunbox.top/redis_windows_php/" />
 <meta property="og:title" content="Redis在Windows下安装和PHP中使用" />
-<meta property="og:description" content="一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
-1、redis简介
-redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链 …" />
+<meta property="og:description" content="一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~1、redis简介redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@ redis是一个高性能的key-value存储系统。和Memcached类似，它支持
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,61 +160,39 @@ redis是一个高性能的key-value存储系统。和Memcached类似，它支持
 </div>
 
     
-    <p><span style="font-size: 12pt;">一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~</span></p>
-
-<p><span style="font-size: 12pt;">1、redis简介</span><br />
- <span style="font-size: 12pt;">redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set &#8211;有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="http://redis.io/" target="_blank">Redis</a> 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便。</span></p>
-
-<p><span style="font-size: 12pt;">2、Windows下安装redis</span><br />
- <span style="font-size: 12pt;">下载地址<a href="https://github.com/dmajkic/redis/downloads" target="_blank">Windows redis X64</a>。下载到的Redis支持32bit和64bit。根据自己实际情况选择，我选择64bit。把64bit文件内容拷贝到需要安装的目录下,比如：D:\dev\redis-2.4.5。</span></p>
-
-<p><span style="font-size: 12pt;">打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-server.exe redis.conf 。运行以后出现如下界面。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/10/20151016164705.png"><img class="alignnone size-large wp-image-1292" src="https://ifunbox.top/wp-content/uploads/2015/10/20151016164705-600x378.png" alt="20151016164705" width="600" height="378" /></a></span></p>
-
-<p><span style="font-size: 12pt;">这说明Redis服务端已经安装成功。</span></p>
-
-<p><span style="font-size: 12pt;">保持这个cmd窗口，然后新打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-cli.exe -h 127.0.0.1 -p 6379，其中 127.0.0.1是本地ip，6379是redis服务端的默认端口。运行成功如下图所示。</span><br />
- <span style="font-size: 12pt;">这样，Redis windows环境下搭建已经完成，简单得让人惊讶。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/10/QQ截图20151016164857.png"><img class="alignnone size-large wp-image-1293" src="https://ifunbox.top/wp-content/uploads/2015/10/QQ截图20151016164857-600x364.png" alt="QQ截图20151016164857" width="600" height="364" /></a></span></p>
-
-<p><span style="font-size: 12pt;">这样，Redis windows环境下搭建已经完成。</span></p>
-
-<p><span style="font-size: 12pt;">环境已经搭建好，总得测试下吧。比如：存储一个key为test，value为hello word的字符串，然后获取key值。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/10/QQ截图20151016164918.png"><img class="alignnone size-large wp-image-1294" src="https://ifunbox.top/wp-content/uploads/2015/10/QQ截图20151016164918-600x351.png" alt="QQ截图20151016164918" width="600" height="351" /></a></span></p>
-
-<p><span style="font-size: 12pt;">正确输出 hell word，测试成功！</span></p>
-
-<p><span style="font-size: 12pt;">3、PHP中使用&#8211;安装php_redis.dll 扩展</span></p>
-
-<p>linux:<a href="https://pecl.php.net/package/redis/2.2.7/">https://pecl.php.net/package/redis/2.2.7/</a></p>
-
-<p><span style="font-size: 12pt;">windows:<a href="https://pecl.php.net/package/redis/2.2.7/windows">https://pecl.php.net/package/redis/2.2.7/windows</a></span></p>
-
-<p><span style="font-size: 12pt;">首先把php_redis.dll放入PHP的ext文件夹，然后在php.ini配置文件里添加如下代码：</span><br />
- <span style="font-size: 12pt;">extension=php_redis.dll</span></p>
-
-<p><span style="font-size: 12pt;">重启web服务器</span></p>
-
-<p><span style="font-size: 12pt;">4、PHP中使用</span></p>
-
-<p><span style="font-size: 12pt;">代码如下</span></p>
-
-<p><span style="font-size: 12pt;">&lt;?php</span><br />
- <span style="font-size: 12pt;">$redis = new Redis();</span><br />
- <span style="font-size: 12pt;">$redis-&gt;connect(&#8216;127.0.0.1&#8217;,6379);</span><br />
- <span style="font-size: 12pt;">$redis-&gt;set(&#8216;test&#8217;,&#8217;hello redis&#8217;);</span><br />
- <span style="font-size: 12pt;">echo $redis-&gt;get(&#8216;test&#8217;);</span><br />
- <span style="font-size: 12pt;">?&gt;</span></p>
-
-<p><span style="font-size: 12pt;">输出 hello  redis 成功!</span></p>
-
-<p><span style="font-size: 12pt;">另附redis命令参考<a href="http://redisdoc.com/">http://redisdoc.com/</a></span><br />
-<a href="https://ifunbox.top/redis_windows_autorun" target="_blank">windows下自动启动Redis隐藏命令行窗口的方法</a></p>
+    <p><!-- raw HTML omitted -->一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、redis简介<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Redis<!-- raw HTML omitted --> 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、Windows下安装redis<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->下载地址<!-- raw HTML omitted -->Windows redis X64<!-- raw HTML omitted -->。下载到的Redis支持32bit和64bit。根据自己实际情况选择，我选择64bit。把64bit文件内容拷贝到需要安装的目录下,比如：D:\dev\redis-2.4.5。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-server.exe redis.conf 。运行以后出现如下界面。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这说明Redis服务端已经安装成功。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->保持这个cmd窗口，然后新打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-cli.exe -h 127.0.0.1 -p 6379，其中 127.0.0.1是本地ip，6379是redis服务端的默认端口。运行成功如下图所示。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->这样，Redis windows环境下搭建已经完成，简单得让人惊讶。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这样，Redis windows环境下搭建已经完成。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->环境已经搭建好，总得测试下吧。比如：存储一个key为test，value为hello word的字符串，然后获取key值。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->正确输出 hell word，测试成功！<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3、PHP中使用–安装php_redis.dll 扩展<!-- raw HTML omitted --></p>
+<p>linux:https://pecl.php.net/package/redis/2.2.7/</p>
+<p><!-- raw HTML omitted -->windows:https://pecl.php.net/package/redis/2.2.7/windows<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->首先把php_redis.dll放入PHP的ext文件夹，然后在php.ini配置文件里添加如下代码：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->extension=php_redis.dll<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->重启web服务器<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4、PHP中使用<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->代码如下<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$redis = new Redis();<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$redis-&gt;connect(‘127.0.0.1’,6379);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$redis-&gt;set(‘test’,’hello redis’);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->echo $redis-&gt;get(‘test’);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->输出 hello  redis 成功!<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->另附redis命令参考http://redisdoc.com/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->windows下自动启动Redis隐藏命令行窗口的方法<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/redis_windows_php" ></div>
@@ -501,7 +475,7 @@ redis是一个高性能的key-value存储系统。和Memcached类似，它支持
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -510,6 +484,7 @@ redis是一个高性能的key-value存储系统。和Memcached类似，它支持
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

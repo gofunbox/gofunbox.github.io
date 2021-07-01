@@ -4,7 +4,7 @@
   <head>
 <title>Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -75,10 +75,10 @@
       
         
 
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">主页 </a>
   </div>
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">真香链接 <img src='https://ifunbox.top/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -176,7 +176,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">组   文件路径   说明     系统初始化   /etc/inittab   运行级别、控制台数量       /etc/timezone   时区       /etc/inetd.conf   超级进程     文件系统   /etc/fstab   开机时挂载的文件系统       /etc/mtab   当前挂载的文件系统     用户系统   /etc/passwd   用户信息       /etc/shadow   用户密码       /etc/group   群组信息       /etc/gshadow   群组密码       /etc/sudoers   Sudoer 列表     Shell …</p>
+          <p class="pale">&lt;th&gt; 文件路径 &lt;/th&gt; &lt;th&gt; 说明 &lt;/th&gt;  &lt;td&gt; /etc/inittab &lt;/td&gt; &lt;td&gt; 运行级别、控制台数量 &lt;/td&gt;  &lt;td&gt; /etc/timezone &lt;/td&gt; &lt;td&gt; 时区 &lt;/td&gt;  &lt;td&gt; /etc/inetd.conf &lt;/td&gt; &lt;td&gt; 超级进程 &lt;/td&gt;  &lt;td&gt; /etc/fstab &lt;/td&gt; &lt;td&gt; …</p>
           <a href="https://ifunbox.top/linux-etc/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -206,11 +206,11 @@
         <div>
           <p class="pale">简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
-这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+这就是”网页安全政策”（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头 …</p>
+#通过 HTTP 头信息 …</p>
           <a href="https://ifunbox.top/content-security-policy/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -236,9 +236,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">Linux 系统中的目录    目录   说明     /   根目录，万物起源。     /bin   包含系统启动和运行所必须的二进制程序。     /boot   包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和 启动加载程序。有趣的文件：
- /boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。
-/boot/vmlinuz，Linux 内核。    /dev   这是一个包含设备结点的特殊目录。“一切都是文件”，也适用于设备。 在这个目录里，内核维护着所有设备的列表。     /etc   这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本，  …</p>
+          <p class="pale">Linux 系统中的目录 &lt;th&gt; 说明 &lt;/th&gt;  &lt;td&gt; 根目录，万物起源。 &lt;/td&gt;  &lt;td&gt; 包含系统启动和运行所必须的二进制程序。 &lt;/td&gt;  &lt;td&gt; 包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和 启动加载程序。有趣的文件：&lt;/p&gt; &lt;p&gt; /boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。&lt;br /&gt; /boot/vmlinuz，Linux 内核。&lt;/td&gt; &lt;/tr&gt; &lt;tr&gt; …</p>
           <a href="https://ifunbox.top/linux_directory/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -291,8 +289,8 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <div class="excerpt_footer">
         <div>
           <p class="pale">nginx.conf配置开启proxy缓存
-## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
-#fonts.funboxpower.com.conf upstream google { server …</p>
+### Nginx Cache Settings##proxy_temp_file_write_size 128k;proxy_temp_path /var/cache/nginx/temp;proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;Google Fonts反向代理配置vhost
+#fonts.funboxpower.com.confupstream google {server …</p>
           <a href="https://ifunbox.top/nginx-proxy-google-fonts-ajax/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -321,7 +319,7 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <div class="excerpt_footer">
         <div>
           <p class="pale">安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins 1.安装成功后Jenkins会作为守护进程随系统启动
 2.系统会创建一个用户“jenkins”来执行这个服务
 3.启动参数在/etc/sysconfig/jenkins文件中， …</p>
           <a href="https://ifunbox.top/centos-jenkins-install-config/" class="excerpt_more button">Read More</a>
@@ -349,9 +347,9 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">对Let&#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
-Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
-Let&#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交 …</p>
+          <p class="pale">对Let’s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
+Let’s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
+Let’s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它 …</p>
           <a href="https://ifunbox.top/letsencrypt-nginx-https/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -411,8 +409,7 @@ brew install homebrew/php/php56-xdebug
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296  第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使 …</p>
+          <p class="pale">最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/+ buffers/cache: 10321516 14355944 4 Swap: 25151484 224188 24927296 第二行(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使 …</p>
           <a href="https://ifunbox.top/linux_command_free/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -420,201 +417,37 @@ brew install homebrew/php/php56-xdebug
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/4/">4</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/4/">4</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -885,7 +718,7 @@ brew install homebrew/php/php56-xdebug
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -894,6 +727,7 @@ brew install homebrew/php/php56-xdebug
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

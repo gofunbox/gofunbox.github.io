@@ -4,7 +4,7 @@
   <head>
 <title>ThinkPHP实现伪静态如何去掉目录中的index.php | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
-Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
-1。确认httpd.conf配置文件中加载 …">
+<meta name="description" content="ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：1。确认httpd.conf配置文件中加载 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="ThinkPHP实现伪静态如何去掉目录中的index.php" />
 <meta property="og:url" content="https://ifunbox.top/thinkphp_remove_index.php" />
 <meta property="og:title" content="ThinkPHP实现伪静态如何去掉目录中的index.php" />
-<meta property="og:description" content="ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
-Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
-1。确认httpd.conf配置文件中加载 …" />
+<meta property="og:description" content="ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：1。确认httpd.conf配置文件中加载 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,26 +160,19 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
 </div>
 
     
-    <p><span style="font-size: medium;">ThinkPHP中默认的URL地址是形如这样的：<a href="http://localhost/Myapp/index.php/Index/index/">http://localhost/Myapp/index.php/Index/index/</a></span></p>
-
-<p><span style="font-size: medium;">Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：</span></p>
-
-<p><span style="font-size: medium;">1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号</span></p>
-
-<p><span style="font-size: medium;">2。讲httpd.conf中的Allowoverride  None 将None改为All</span></p>
-
-<p><span style="font-size: medium;">3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一行，‘URL_MODEL’=&gt;2</span></p>
-
-<p><span style="font-size: medium;">4。在项目的根目录下面建立一个.htaccess文件，里面写入下面的内容：</span></p>
-
-<p><span style="font-size: medium;"><IfModule rewrite_module></span><br />
- <span style="font-size: medium;">RewriteEngine on</span><br />
- <span style="font-size: medium;">RewriteCond %{REQUEST_FILENAME} !-d</span><br />
- <span style="font-size: medium;">RewriteCond %{REQUEST_FILENAME} !-f</span><br />
- <span style="font-size: medium;">RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</span><br />
- <span style="font-size: medium;"></IfModule></span></p>
-
-<p><span style="font-size: medium;">如果你的服务器支持rewrite，现在就可以通过<a href="http://localhost/Myapp/Index/index/访问Index模块下面的index操作。">http://localhost/Myapp/Index/index/访问Index模块下面的index操作。</a></span></p>
+    <p><!-- raw HTML omitted -->ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2。讲httpd.conf中的Allowoverride  None 将None改为All<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一行，‘URL_MODEL’=&gt;2<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4。在项目的根目录下面建立一个.htaccess文件，里面写入下面的内容：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->RewriteEngine on<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->RewriteCond %{REQUEST_FILENAME} !-d<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->RewriteCond %{REQUEST_FILENAME} !-f<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你的服务器支持rewrite，现在就可以通过http://localhost/Myapp/Index/index/访问Index模块下面的index操作。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/thinkphp_remove_index.php" ></div>
@@ -466,7 +455,7 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -475,6 +464,7 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

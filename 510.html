@@ -4,7 +4,7 @@
   <head>
 <title>Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。
-Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237
-里面的教 …">
+<meta name="description" content="平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237里面的教程非 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名" />
 <meta property="og:url" content="https://ifunbox.top/510.html" />
 <meta property="og:title" content="Window2003 iis&#43;mysql&#43;php&#43;zend环境配置&#43;绑定域名" />
-<meta property="og:description" content="平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。
-Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237
-里面的教 …" />
+<meta property="og:description" content="平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237里面的教程非 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@ Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manu
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,19 +160,13 @@ Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manu
 </div>
 
     
-    <p><span style="font-size: medium;">平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。</span></p>
-
-<p><span style="font-size: medium;">Window2003 iis+mysql+php+zend环境配置<a title="Window2003 iis+mysql+php+zend环境配置" href="http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&helpId=1237" target="_blank"><a href="http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237">http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237</a></a></span></p>
-
-<p><span style="font-size: medium;">里面的教程非常详细有图有真相，还有视频呢</span></p>
-
-<p><span style="font-size: medium;">就是缺了一个绑定域名的教程，现在补齐<a href="http://zhidao.zgsj.com/article/4/2011422142105.shtml" target="_blank"><a href="http://zhidao.zgsj.com/article/4/2011422142105.shtml">http://zhidao.zgsj.com/article/4/2011422142105.shtml</a></a></span></p>
-
-<p><span style="font-size: medium;">配置只是刚刚开始，服务器的安全也很重要，这个也是之后要学习的啦~~</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">IIS服务的命令行方式重启命令  </span><span style="font-size: medium;">iisreset /RESTART 停止后启动  </span></p>
+    <p><!-- raw HTML omitted -->平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Window2003 iis+mysql+php+zend环境配置<!-- raw HTML omitted --><a href="http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237">http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;helpId=1237</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->里面的教程非常详细有图有真相，还有视频呢<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->就是缺了一个绑定域名的教程，现在补齐<!-- raw HTML omitted --><a href="http://zhidao.zgsj.com/article/4/2011422142105.shtml">http://zhidao.zgsj.com/article/4/2011422142105.shtml</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->配置只是刚刚开始，服务器的安全也很重要，这个也是之后要学习的啦~~<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted -->IIS服务的命令行方式重启命令  <!-- raw HTML omitted --><!-- raw HTML omitted -->iisreset /RESTART 停止后启动  <!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/510.html" ></div>
@@ -459,7 +449,7 @@ Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manu
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -468,6 +458,7 @@ Window2003 iis&#43;mysql&#43;php&#43;zend环境配置http://help.aliyun.com/manu
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

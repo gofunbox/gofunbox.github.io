@@ -4,7 +4,7 @@
   <head>
 <title>Linux free命令查看内存情况学习小记 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …">
+<meta name="description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux free命令查看内存情况学习小记" />
 <meta property="og:url" content="https://ifunbox.top/linux_command_free/" />
 <meta property="og:title" content="Linux free命令查看内存情况学习小记" />
-<meta property="og:description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下
-1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …" />
+<meta property="og:description" content="最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下1 total used free shared buffers cached 2 Mem: 24677460 23276064 1401396 0 870540 12084008 3 -/&#43; …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,90 +162,64 @@
 </div>
 
     
-    <p>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下<del></del></p>
-
-<pre><code class="language-1">1              total       used       free     shared    buffers     cached
+    <p>最近项目碰到php-fpm占用太多内存的情况，为了深入了解其原因，开始学习os相关的内存知识，记录备忘下<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code class="language-1" data-lang="1">1              total       used       free     shared    buffers     cached
 2 Mem:      24677460   23276064    1401396          0     870540   12084008
 3 -/+ buffers/cache:   10321516   14355944
 4 Swap:     25151484     224188   24927296
-</code></pre>
-
-<p><em><strong>第二行</strong></em>(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。</p>
-
+</code></pre><p><em><strong>第二行</strong></em>(mem)，从OS的角度来看，因为对于OS，buffers/cached 都是属于被使用，所以他的可用内存是1401396KB,已用内存是24677460KB,其中包括，内核（OS）使用+Application(X,oracle,etc)使用的+buffers+cached。</p>
 <p>total:总计物理内存的大小。</p>
-
 <p>used:已使用多大。</p>
-
 <p>free:可用有多少。</p>
-
 <p>Shared:多个进程共享的内存总额，现在已经deprecated，其值总是0（当然在一些系统上也可能不是0，主要取决于free命令是怎么实现的）。</p>
-
 <p>Buffers/cached:磁盘缓存的大小，FO[2][5]表示被OS buffer住的内存。FO[2][6]表示被OS cache的内存。在有些时候buffer和cache这两个词经常混用。不过在一些比较低层的软件里是要区分这两个词的，看老外的洋文:</p>
-
 <ul>
-<li>_A buffer is something that has yet to be &#8220;written&#8221; to disk.<br />
+<li>_A buffer is something that has yet to be “written” to disk.<br>
 _</li>
-<li><em>A cache is something that has been &#8220;read&#8221; from the disk and stored for later use.</em></li>
+<li><em>A cache is something that has been “read” from the disk and stored for later use.</em></li>
 </ul>
-
 <p>也就是说buffer是用于存放要输出到disk（块设备）的数据的，而cache是存放从disk上读出的数据。这二者是为了提高IO性能的，并由OS管理。</p>
-
 <p><em><strong>第三行</strong></em>(-/+ buffers/cached)，从应用程序角度来看，对于应用程序来说，buffers/cached 是等于可用的，因为buffer/cached是为了提高文件读取的性能，当应用程序需在用到内存的时候，buffer/cached会很快地被回收。</p>
-
 <p>used:表示一个应用程序认为系统被用掉多少内存。</p>
-
 <p>free:表示一个应用程序认为系统还有多少内存。</p>
-
 <p>因为被系统cache和buffer占用的内存可以被快速回收，所以通常FO[3][3]比FO[2][3]会大很多。</p>
-
 <p>这里还用两个等式：</p>
-
 <ul>
-<li>FO[3][2] = FO[2][2] &#8211; FO[2][5] &#8211; FO[2][6]</li>
+<li>FO[3][2] = FO[2][2] – FO[2][5] – FO[2][6]</li>
 <li>FO[3][3] = FO[2][3] + FO[2][5] + FO[2][6]</li>
 </ul>
-
 <p><em><strong>第四行，</strong></em><code>Swap</code>当系统的物理内存不够用的时候，就需要将物理内存中的一部分空间释放出来，以供当前运行的程序使用。那些被释放的空间可能来自一些很长时间没有什么操作的程序，这些被释放的空间被临时保存到Swap空间中，等到那些程序要运行时，再从Swap中恢复保存的数据到内存中。这样，系统总是在物理内存不够时，才进行Swap交换。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  如何看额定值（RHEL4.0）：
+&lt;/p&gt;
 
-<div class="Blog_wz1">
-  <div class="bct fc05 fc11 nbw-blog ztag js-fs2">
-    <p>
-      当可用内存少于额定值的时候，就会开会进行交换.
-    </p>
-    
-    <p>
-      如何看额定值（RHEL4.0）：
-    </p>
-    
-    <p>
-      #cat /proc/meminfo
-    </p>
-    
-    <p>
-      交换将通过三个途径来减少系统中使用的物理页面的个数：
-    </p>
-    
-    <p>
-      1.减少缓冲与页面cache的大小，
-    </p>
-    
-    <p>
-      2.将系统V类型的内存页面交换出去，
-    </p>
-    
-    <p>
-      3.换出或者丢弃页面。(Application 占用的内存页，也就是物理内存不足）。
-    </p>
-    
-    <p>
-      事实上，少量地使用swap是不会影响到系统性能的。
-    </p>
-  </div>
-</div>
+&lt;p&gt;
+  #cat /proc/meminfo
+&lt;/p&gt;
 
-<div>
-</div>
+&lt;p&gt;
+  交换将通过三个途径来减少系统中使用的物理页面的个数：
+&lt;/p&gt;
 
+&lt;p&gt;
+  1.减少缓冲与页面cache的大小，
+&lt;/p&gt;
+
+&lt;p&gt;
+  2.将系统V类型的内存页面交换出去，
+&lt;/p&gt;
+
+&lt;p&gt;
+  3.换出或者丢弃页面。(Application 占用的内存页，也就是物理内存不足）。
+&lt;/p&gt;
+
+&lt;p&gt;
+  事实上，少量地使用swap是不会影响到系统性能的。
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>还有free命令的所有输出值都是从/proc/meminfo中读出的。</p>
 
     
@@ -531,7 +503,7 @@ _</li>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -540,6 +512,7 @@ _</li>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

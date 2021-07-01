@@ -4,7 +4,7 @@
   <head>
 <title>Nginx | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -148,7 +148,7 @@
       <div class="excerpt_footer">
         <div>
           <p class="pale">这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
-#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
+#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; } 需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
 yum install -y openssl openssl …</p>
           <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="excerpt_more button">Read More</a>
         </div>
@@ -208,11 +208,11 @@ yum install -y openssl openssl …</p>
         <div>
           <p class="pale">简介 跨域脚本攻击 XSS 是最常见、危害最大的网页安全漏洞。
 为了防止它们，要采取很多编程措施，非常麻烦。很多人提出，能不能根本上解决问题，浏览器自动禁止外部注入恶意脚本？
-这就是&#8221;网页安全政策&#8221;（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
+这就是”网页安全政策”（Content Security Policy，缩写 CSP）的来历。本文详细介绍如何使用 CSP 防止 XSS 攻击。
 CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。
 CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
 开启方式
-#通过 HTTP 头 …</p>
+#通过 HTTP 头信息 …</p>
           <a href="https://ifunbox.top/content-security-policy/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -239,8 +239,8 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
       <div class="excerpt_footer">
         <div>
           <p class="pale">nginx.conf配置开启proxy缓存
-## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
-#fonts.funboxpower.com.conf upstream google { server …</p>
+### Nginx Cache Settings##proxy_temp_file_write_size 128k;proxy_temp_path /var/cache/nginx/temp;proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;Google Fonts反向代理配置vhost
+#fonts.funboxpower.com.confupstream google {server …</p>
           <a href="https://ifunbox.top/nginx-proxy-google-fonts-ajax/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -268,12 +268,8 @@ CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
-而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
-首先php的版本必须大于等于php5.3.3。
-方法1 在nginx 配置 fastcgi_param参数
-在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。 …</p>
+          <p class="pale">apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。而nginx + php-fpm fastcgi的方式，就需要多费费心啦~首先php的版本必须大于等于php5.3.3。方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;; 意思是设置fastcgi 参数 PHP_VALUE  …</p>
           <a href="https://ifunbox.top/nginx_php-fpm_cross-site/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -301,15 +297,7 @@ fastcgi_param PHP_VALUE &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;  �
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
-用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
-1.几乎对原有项目代码分离
-2.性能佳
-3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
-4.可以统计与query-times、request-time、status-code、speed相关的数据
-因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块
-github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码
-使用方法就是 …</p>
+          <p class="pale">最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。1.几乎对原有项目代码分离2.性能佳3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计4.可以统计与query-times、request-time、status-code、speed相关的数据因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码使用方法就是在nginx.conf …</p>
           <a href="https://ifunbox.top/ngx-lua-stats/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -618,7 +606,7 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -627,6 +615,7 @@ wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-b
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

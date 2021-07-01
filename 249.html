@@ -4,7 +4,7 @@
   <head>
 <title>基于mootools的SHOPEX图片延迟加载挂件 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
-在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src， …">
+<meta name="description" content="有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="基于mootools的SHOPEX图片延迟加载挂件" />
 <meta property="og:url" content="https://ifunbox.top/249.html" />
 <meta property="og:title" content="基于mootools的SHOPEX图片延迟加载挂件" />
-<meta property="og:description" content="有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
-在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src， …" />
+<meta property="og:description" content="有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,65 +160,29 @@
 </div>
 
     
-    <p><span style="font-size: medium;">有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。</span></p>
-
-<p><span style="font-size: medium;">在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。</span></p>
-
-<p><span style="font-size: medium;">网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件&#8212;<a href="http://davidwalsh.name/js/lazyload" target="_blank">lazyload</a>,感动得都快哭了。<br /> </span></p>
-
-<p><span style="font-size: medium;">应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。</span></p>
-
-<p><span style="font-size: medium;">下面我就具体说说如何操作吧。</span></p>
-
-<p><span style="font-size: medium;">首先在head中引入<a href="http://davidwalsh.name/js/lazyload" target="_blank">lazyload</a>这个插件，具体方法看<a href="http://davidwalsh.name/js/lazyload" target="_blank">lazyload</a>介绍页，很简单的。</span></p>
-
-<p><span class="Apple-style-span" style="font-size: medium;">这里需要说明下下载的MooTools Javascript Class中有个elements的值需要改变自己shopex中的值，这个值如何取是根据的是<span class="Apple-style-span" style="line-height: 19px;">shopex需要延迟加载图片div的class或者id值，就是选择器要选择正确就是了。留意红体字。</span></span></p>
-
-<div>
-  <span style="font-size: medium;">SHOPEX中需要延迟加载图片附近代码：</span>
-</div>
-
-<div>
-  ```
-  <div class="goodsImg" style="overflow:hidden;text-align:center;vertical-align: middle;width:185px;height:185px;">
-  <a title="竹纤维洗碗布（硬）" target="_blank" href="product-135.html">
-  <img width="185" height="185" title="竹纤维洗碗布（硬）" src="images/goods/20120109/1a1b7031b81f8e6b.jpg" />
-  </a>
-  
-</div>
-```
-  
-  <div>
-    <span style="font-size: medium;">lazyload代码片段:</span>
-  </div>
-  
-
-<pre><code>  options: {
-    range: 200,
-    elements: &quot;.goodsImg img&quot;,
-    container: window,
-    mode: &quot;vertical&quot;,
-    realSrcAttribute: &quot;data-src&quot;,
-    useFade: true
-  },
-</code></pre>
-
-<p><p>
-    <span style="font-size: medium;"> 然后就是修改&lt;<strong>img</strong> width=&#8221;185&#8243; height=&#8221;185&#8243; title=&#8221;竹纤维洗碗布（硬）&#8221; src=&#8221;images/goods/20120109/1a1b7031b81f8e6b.jpg&#8221;&gt;<span class="Apple-style-span">为<strong>img</strong> width=&#8221;185&#8243; height=&#8221;185&#8243; title=&#8221;竹纤维洗碗布（硬）&#8221; data-src=&#8221;images/goods/20120109/1a1b7031b81f8e6b.jpg&#8221;&gt;</span></span>
-  </p></p>
-
-<p><p>
-    &nbsp;
-  </p></p>
-
-<p><p>
-    <span style="font-size: medium;">到了这里基于mootools的SHOPEX图片延迟加载挂件就安装结束了，shopex系统浏览速度就有了很大的提高了。</span>
-  </p></p>
-
-<p><p>
-    &nbsp;
-  </p>
-</div></p>
+    <p><!-- raw HTML omitted -->有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件—<!-- raw HTML omitted -->lazyload<!-- raw HTML omitted -->,感动得都快哭了。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->下面我就具体说说如何操作吧。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->首先在head中引入<!-- raw HTML omitted -->lazyload<!-- raw HTML omitted -->这个插件，具体方法看<!-- raw HTML omitted -->lazyload<!-- raw HTML omitted -->介绍页，很简单的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这里需要说明下下载的MooTools Javascript Class中有个elements的值需要改变自己shopex中的值，这个值如何取是根据的是<!-- raw HTML omitted -->shopex需要延迟加载图片div的class或者id值，就是选择器要选择正确就是了。留意红体字。<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>options: {
+  range: 200,
+  elements: &quot;.goodsImg img&quot;,
+  container: window,
+  mode: &quot;vertical&quot;,
+  realSrcAttribute: &quot;data-src&quot;,
+  useFade: true
+},
+</code></pre><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/249.html" ></div>
@@ -503,7 +465,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -512,6 +474,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

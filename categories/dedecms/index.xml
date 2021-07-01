@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DedeCms on Funbox的技术记事本</title>
@@ -6,11 +6,7 @@
     <description>Recent content in DedeCms on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 17 Aug 2013 08:29:09 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/categories/dedecms/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 17 Aug 2013 08:29:09 +0000</lastBuildDate><atom:link href="https://ifunbox.top/categories/dedecms/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DedeCMS模板标签系统选项cfg_disable_tags,cfg_disable_funs</title>
       <link>https://ifunbox.top/dedecms_cfg_disable_tags/</link>
@@ -24,7 +20,7 @@
 cfg_disable_funs，模板标签中禁用函数
 主要是针对标签中出现执行php代码，通过禁用危险的函数可以实现模板标签的安全配置，默认禁用的函数 有：phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents,fsockopen,fopen,fwrite
 如果您还有需要禁用的函数，可以在[系统基本设置]中的“其他选项”进行设置。这样在类似{dede:php}{/dede:php}这样的标签中执行含有以上禁用函数的代码就会出现错误提示。
-{dede:php} foreach(array(1,2,3,4,5,6) as $v) { echo $v; } test(); function test() { fopen(); } {/dede:php}  例如这样一段代码，就会出现提示“Error:function disabled &amp;#8220;fopen&amp;#8221;”，意识着这段代码是无法被执行的。
+{dede:php} foreach(array(1,2,3,4,5,6) as $v) { echo $v; } test(); function test() { fopen(); } {/dede:php} 例如这样一段代码，就会出现提示“Error:function disabled “fopen””，意识着这段代码是无法被执行的。
 以上两个配置主要考虑到模板标签的安全性，同时希望站长能够查看相关系统服务器安全配置文档来进行综合设定。</description>
     </item>
     

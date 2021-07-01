@@ -4,7 +4,7 @@
   <head>
 <title>Linux服务启动介绍 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,698 +162,422 @@
 </div>
 
     
-    
-
-<h3 id="启动流程">启动流程</h3>
-
+    <h3 id="启动流程">启动流程</h3>
 <ol>
 <li>读取 MBR (主引导记录Master Boot Record)的信息，启动 Boot Manager</li>
 <li>加载系统内核，启动 init进程</li>
 <li>init进程 读取 /etc/inittab 文件中的信息，并进入预设的运行级别，按顺序运行该运行级别对应文件夹下的脚本。脚本通常以 start选项启动，并指向一个系统中的程序。</li>
 <li>根据 /etc/rcS.d/文件夹中对应的脚本启动 Xwindow 服务器 xorg</li>
 <li>启动登录管理器，等待用户登录
-
 <ol>
 <li>Windows 使用 NTLDR 作为 Boot Manager，如果您的系统中安装多个版本的 Windows，您就需要在 NTLDR 中选择您要进入的系统。 Linux 通常使用功能强大，配置灵活的 GRUB 作为 Boot Manager。</li>
 <li>init进程 是 Linux 的根进程，所有的系统进程都是它的子进程。</li>
 <li>通常情况下， /etc/rcS.d/ 目录下的启动脚本首先被执行，然后是 /etc/rcN.d/ 目录。例如您设定的运行级别为 3,那么它对应的启动目录为 /etc/rc3.d/ 。</li>
 <li>Xwindow 为 Linux 下的图形用户界面系统。</li>
 <li>大多 Linux 系统默认使用 GDM 作为登录管理器，您在登录管理器界面中输入用户名和密码后，便可以登录系统。（您可以在 /etc/rc3.d/ 文件夹中找到一个名为 S13gdm 的链接）</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <h3 id="更改运行级别">更改运行级别</h3>
-
 <p>在 /etc/inittab 文件中找到如下内容：</p>
-
-<pre><code class="language-#">id:2:initdefault:    
-</code></pre>
-
-<p>2为系统的运行级别，默认的运行级别涵义如下：<br />
-0 关机<br />
-1 单用户维护模式<br />
-2~5 多用户模式<br />
+<pre><code class="language-#" data-lang="#">id:2:initdefault:    
+</code></pre><p>2为系统的运行级别，默认的运行级别涵义如下：<br>
+0 关机<br>
+1 单用户维护模式<br>
+2~5 多用户模式<br>
 6 重启</p>
-
 <h3 id="更改启动服务">更改启动服务</h3>
-
 <p>在运行级别对应的文件夹中，您可以看到许多文件名以 S## 和 K## 起始的启动脚本链接。例如：</p>
-
-<pre><code class="language-/etc/rcS.d/S35mountall.sh">/etc/rcS.d/S40networking    启用网络支持
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-/etc/rcS.d/S35mountall.sh" data-lang="/etc/rcS.d/S35mountall.sh">/etc/rcS.d/S40networking    启用网络支持
 /etc/rc2.d/S13gdm           启动登录管理器
 /etc/rc2.d/S20makedev       创建设备文件
 /etc/rc2.d/S23xinetd        启动超级进程
 /etc/rc2.d/K20powernowd     针对某种硬件的电源管理支持
-</code></pre>
-
-<ol>
+</code></pre></div><ol>
 <li>init进程将以 start 为选项，按文件名顺序执行所有以 S## 起始的脚本。脚本名称中的数字越小，它将被越早执行。例如在 /etc/rc2.d/ 文件夹中， S13gdm 文件名中的数字小于 S23xinetd , S13gdm 将比 S23xinetd 先执行。</li>
 <li>如果一个脚本链接，以 K## 起始，表示它将以 stop 选项被执行。如果相应服务没有启动，则不执行该脚本。</li>
 </ol>
-
 <p>如果您想禁止某一服务在启动时自动运行，您可以将相应运行级别中的脚本由 S##xxx 重命名为 K##xxx 。</p>
-
 <h3 id="手动控制服务">手动控制服务</h3>
-
 <p>您也可以手动运行带有以下选项的启动脚本，来控制系统服务。 start 启动 stop 停止 restart 重启</p>
-
-<pre><code class="language-/etc/rc2.d/K20powernowd"></code></pre>
-
-<p>有时您并不清楚某一运行级别有什么启动脚本；而且此类脚本的前三位字符并不固定，不便于记忆。这时，可以直接使用 /etc/init.d/ 文件夹中的启动脚本（ /etc/rcX.d/ 中的启动脚本链接到 /etc/init.d/ 文件夹下相应脚本），这也是推荐的方式。</p>
-
-<pre><code class="language-/etc/init.d/powernowd"></code></pre>
-
-<h3 id="常见系统服务">常见系统服务</h3>
-
-<table>
-  <tr>
-    <th>
-      服务名称
-    </th>
-    
-    <th>
-      说明
-    </th>
-  </tr>
-  
-  <tr>
-    <td>
-      acpi-support
-    </td>
-    
-    <td>
-      高级电源管理支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      acpid
-    </td>
-    
-    <td>
-      acpi 守护程序.这两个用于电源管理，非常重要
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      apmd
-    </td>
-    
-    <td>
-      acpi 的扩展
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      alsa
-    </td>
-    
-    <td>
-      声音子系统
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      alsa-utils
-    </td>
-    
-    <td>
-      声音子系统实用工具
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      cron
-    </td>
-    
-    <td>
-      任务调度系统，建议开启
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      anacron
-    </td>
-    
-    <td>
-      cron 的子系统，将系统关闭期间的计划任务，在下一次系统运行时执行
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      atd
-    </td>
-    
-    <td>
-      类似于 cron 的任务调度系统。建议关闭
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      binfmt-support
-    </td>
-    
-    <td>
-      核心支持其他二进制的文件格式
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      bluez-utiles
-    </td>
-    
-    <td>
-      蓝牙设备支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      bootlogd
-    </td>
-    
-    <td>
-      启动日志。开启它
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      syslog-ng
-    </td>
-    
-    <td>
-      系统日志，建议开启
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      klogd
-    </td>
-    
-    <td>
-      同上，使用一种就可以了
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sysklogd
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      cupsys
-    </td>
-    
-    <td>
-      打印机子系统
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      dbus
-    </td>
-    
-    <td>
-      消息总线系统(message bus system)。非常重要
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      dns-clean
-    </td>
-    
-    <td>
-      使用拨号连接时，清除 dns信息
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      evms
-    </td>
-    
-    <td>
-      企业卷管理系统
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      fetchmail
-    </td>
-    
-    <td>
-      邮件用户代理守护进程，用于收取邮件
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      gdm
-    </td>
-    
-    <td>
-      gnome 登录管理器
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      gpm
-    </td>
-    
-    <td>
-      终端中的鼠标支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      halt
-    </td>
-    
-    <td>
-      别动它
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hdparm
-    </td>
-    
-    <td>
-      调整硬盘的脚本，配置文件为 /etc/hdparm.conf
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hibernate
-    </td>
-    
-    <td>
-      系统休眠
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hotkey-setup
-    </td>
-    
-    <td>
-      笔记本功能键支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hotplug and hotplug-net
-    </td>
-    
-    <td>
-      即插即用支持，比较复杂，建议不要动它
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      ifrename
-    </td>
-    
-    <td>
-      网络接口重命名脚本。如果您有十块网卡，您应该开启它
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      inetd
-    </td>
-    
-    <td>
-      配置文件为 /etc/inetd.conf
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      linux-restricted-modules-common
-    </td>
-    
-    <td>
-      受限模块支持。1
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      lvm
-    </td>
-    
-    <td>
-      逻辑卷管理系统支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      makedev
-    </td>
-    
-    <td>
-      创建设备文件，非常重要
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      mdamd
-    </td>
-    
-    <td>
-      磁盘阵列
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      module-init-tools
-    </td>
-    
-    <td>
-      从/etc/modules加载扩展模块，建议开启
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      networking
-    </td>
-    
-    <td>
-      网络支持。按 /etc/network/interfaces 文件预设激活网络，非常重要
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      ntpdate
-    </td>
-    
-    <td>
-      时间同步服务，建议关闭
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      pcmcia
-    </td>
-    
-    <td>
-      pcmcia 设备支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      powernowd
-    </td>
-    
-    <td>
-      移动 CPU 节能支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      ppp
-    </td>
-    
-    <td>
-      拨号连接
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      ppp-dns
-    </td>
-    
-    <td>
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      readahead
-    </td>
-    
-    <td>
-      预加载库文件
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      reboot
-    </td>
-    
-    <td>
-      别动它
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      resolvconf
-    </td>
-    
-    <td>
-      自动配置 DNS
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      rmnologin
-    </td>
-    
-    <td>
-      清除 nologin
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      rsync
-    </td>
-    
-    <td>
-      rsync 守护程序
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sendsigs
-    </td>
-    
-    <td>
-      在重启和关机期间发送信号
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      single
-    </td>
-    
-    <td>
-      激活单用户模式
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sshd
-    </td>
-    
-    <td>
-      ssh服务器
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      sudo
-    </td>
-    
-    <td>
-      检查 sudo 状态
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      udev
-    </td>
-    
-    <td>
-      用户空间 dev文件系统（userspace dev filesystem）。重要
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      umountfs
-    </td>
-    
-    <td>
-      卸载文件系统
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      urandom
-    </td>
-    
-    <td>
-      随机数生成器
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      usplash
-    </td>
-    
-    <td>
-      开机画面支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      vbesave
-    </td>
-    
-    <td>
-      显卡 BIOS 配置工具。保存显卡的状态
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      xorg-common
-    </td>
-    
-    <td>
-      设置 X 服务 ICE socket
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      adjtimex
-    </td>
-    
-    <td>
-      调整核心时钟的工具
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      dirmngr
-    </td>
-    
-    <td>
-      证书列表管理工具
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      hwtools
-    </td>
-    
-    <td>
-      irqs 优化工具
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      libpam-devperm
-    </td>
-    
-    <td>
-      系统崩溃之后，用于修理设备文件许可的守护程序
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      lm-sensors
-    </td>
-    
-    <td>
-      板载传感器支持
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      mdadm-raid
-    </td>
-    
-    <td>
-      磁盘陈列管理器
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      screen-cleanup
-    </td>
-    
-    <td>
-      清除开机屏幕的脚本
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      xinetd
-    </td>
-    
-    <td>
-      管理其他守护进程的一个 inetd 超级守护程序
-    </td>
-  </tr>
-</table>
+<pre><code class="language-/etc/rc2.d/K20powernowd" data-lang="/etc/rc2.d/K20powernowd"></code></pre><p>有时您并不清楚某一运行级别有什么启动脚本；而且此类脚本的前三位字符并不固定，不便于记忆。这时，可以直接使用 /etc/init.d/ 文件夹中的启动脚本（ /etc/rcX.d/ 中的启动脚本链接到 /etc/init.d/ 文件夹下相应脚本），这也是推荐的方式。</p>
+<pre><code class="language-/etc/init.d/powernowd" data-lang="/etc/init.d/powernowd"></code></pre><h3 id="常见系统服务">常见系统服务</h3>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  说明
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  高级电源管理支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  acpi 守护程序.这两个用于电源管理，非常重要
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  acpi 的扩展
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  声音子系统
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  声音子系统实用工具
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  任务调度系统，建议开启
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  cron 的子系统，将系统关闭期间的计划任务，在下一次系统运行时执行
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  类似于 cron 的任务调度系统。建议关闭
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  核心支持其他二进制的文件格式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  蓝牙设备支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  启动日志。开启它
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  系统日志，建议开启
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  同上，使用一种就可以了
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  打印机子系统
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  消息总线系统(message bus system)。非常重要
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  使用拨号连接时，清除 dns信息
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  企业卷管理系统
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  邮件用户代理守护进程，用于收取邮件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  gnome 登录管理器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  终端中的鼠标支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  别动它
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  调整硬盘的脚本，配置文件为 /etc/hdparm.conf
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  系统休眠
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  笔记本功能键支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  即插即用支持，比较复杂，建议不要动它
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  网络接口重命名脚本。如果您有十块网卡，您应该开启它
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  配置文件为 /etc/inetd.conf
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  受限模块支持。1
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  逻辑卷管理系统支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  创建设备文件，非常重要
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  磁盘阵列
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  从/etc/modules加载扩展模块，建议开启
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  网络支持。按 /etc/network/interfaces 文件预设激活网络，非常重要
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  时间同步服务，建议关闭
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  pcmcia 设备支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  移动 CPU 节能支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  拨号连接
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  预加载库文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  别动它
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  自动配置 DNS
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  清除 nologin
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  rsync 守护程序
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  在重启和关机期间发送信号
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活单用户模式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  ssh服务器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查 sudo 状态
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  用户空间 dev文件系统（userspace dev filesystem）。重要
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  卸载文件系统
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  随机数生成器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  开机画面支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显卡 BIOS 配置工具。保存显卡的状态
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置 X 服务 ICE socket
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  调整核心时钟的工具
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  证书列表管理工具
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  irqs 优化工具
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  系统崩溃之后，用于修理设备文件许可的守护程序
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  板载传感器支持
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  磁盘陈列管理器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  清除开机屏幕的脚本
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  管理其他守护进程的一个 inetd 超级守护程序
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/linux-boot" ></div>
@@ -1136,7 +860,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -1145,6 +869,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

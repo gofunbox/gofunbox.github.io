@@ -4,7 +4,7 @@
   <head>
 <title>PHP开源Apache日志分析工具收集与比较 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="我们知道已经有很多像Awtstat这样的使用perl、c或者c&#43;&#43;开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
-1、LogAnalyzer
-LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运 …">
+<meta name="description" content="我们知道已经有很多像Awtstat这样的使用perl、c或者c&#43;&#43;开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。1、LogAnalyzerLogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="PHP开源Apache日志分析工具收集与比较" />
 <meta property="og:url" content="https://ifunbox.top/apache_log_analysis/" />
 <meta property="og:title" content="PHP开源Apache日志分析工具收集与比较" />
-<meta property="og:description" content="我们知道已经有很多像Awtstat这样的使用perl、c或者c&#43;&#43;开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
-1、LogAnalyzer
-LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运 …" />
+<meta property="og:description" content="我们知道已经有很多像Awtstat这样的使用perl、c或者c&#43;&#43;开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。1、LogAnalyzerLogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@ LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,67 +160,38 @@ LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows
 </div>
 
     
-    <p><span style="font-size: medium;">我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。</span></p>
-
-<p><span style="font-size: medium;">1、LogAnalyzer</span></p>
-
-<p><span style="font-size: medium;">LogAnalyzer是 <a href="http://www.monitorware.com/" target="_blank">Adiscon的监控软件产品线</a>中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。</span></p>
-
-<p><span style="font-size: medium;">LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且<a href="http://loganalyzer.adiscon.com/news" target="_blank">正式改名为LogAnalyzer</a>。</span></p>
-
-<p><span style="font-size: medium;">程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用<a href="http://www.monitorware.com/" target="_blank">MonitorWare Agent</a>、<a href="http://www.winsyslog.com/" target="_blank">WinSysLog</a>、<a href="http://www.eventreporter.com/" target="_blank">EventReport</a>。在Linux环境下可以使用<a href="http://www.rsyslog.com/" target="_blank">rsyslog</a>。现在Yum的源中包含了rsyslog这款软件，源中的版本是3.22.1，官方的最高版本是4.6.4的稳定版以及6.1.0的开发版。</span></p>
-
-<p><span style="font-size: medium;">由于不能使用原生的数据进行分析，我觉得算是他的一个缺点。</span></p>
-
-<p><span style="font-size: medium;">2、Jawstats</span></p>
-
-<p><span style="font-size: medium;">这是一款基于Awstat的PHP开源程序，提供了非常漂亮的分析统计结果的展示界面，支持中文。他的作者是 <a href="http://joncom.be/" target="_blank">Jon Come</a>。</span></p>
-
-<p><span style="font-size: medium;">JAWStats可以减轻AWStats的计算压力，同时安装非常简单，只要稍微修改一下配置文件就可以运行。配置项也可以非常简单。</span></p>
-
-<p><span style="font-size: medium;">JAWStats的使用界面也非常人性化，因为作者原来是一个UI工程师。在系统中，我们可以非常容易的在不同月份之间切换，还可以在不同站点的日志之间进行切换。也可以通过Web界面来进行分析数据的更新，正好切合我们的需求，只在需要看的时候出报表就好了。</span></p>
-
-<p><span style="font-size: medium;">JAWStats支持主题，可以进行主题的设计和切换。</span></p>
-
-<p><span style="font-size: medium;">总的来说，看完了JAWStats的介绍，觉得是比较推荐的一款产品。</span></p>
-
-<p><span style="font-size: medium;">3、Web Analytics. Open Source</span></p>
-
-<p><span style="font-size: medium;">一款GPL协议下的开源软件，界面和数据获取方式都是模仿GA的，对于小型站点的分析应该不错。有对于Wordpress和Mediawiki的统计支持。</span></p>
-
-<p><span style="font-size: medium;">4、Log Miner</span></p>
-
-<p><span style="font-size: medium;">LogMiner 是一个分析Apache或者IIS日志，或者其他支持 combined 或者 W3C扩展日志格式的服务器。能够提取并展示包括访问量、点击、流量、请求数、访问路径、浏览器和操作系统在内的诸多指标。数据存储采用的是 PostgreSQL，存储比较精简。</span></p>
-
-<p><span style="font-size: medium;">Log Miner开发的灵感源自于流行的 Webalizer ，但是有一些主要的不同：</span></p>
-
+    <p><!-- raw HTML omitted -->我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、LogAnalyzer<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->LogAnalyzer是 <!-- raw HTML omitted -->Adiscon的监控软件产品线<!-- raw HTML omitted -->中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且<!-- raw HTML omitted -->正式改名为LogAnalyzer<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用<!-- raw HTML omitted -->MonitorWare Agent<!-- raw HTML omitted -->、<!-- raw HTML omitted -->WinSysLog<!-- raw HTML omitted -->、<!-- raw HTML omitted -->EventReport<!-- raw HTML omitted -->。在Linux环境下可以使用<!-- raw HTML omitted -->rsyslog<!-- raw HTML omitted -->。现在Yum的源中包含了rsyslog这款软件，源中的版本是3.22.1，官方的最高版本是4.6.4的稳定版以及6.1.0的开发版。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->由于不能使用原生的数据进行分析，我觉得算是他的一个缺点。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、Jawstats<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是一款基于Awstat的PHP开源程序，提供了非常漂亮的分析统计结果的展示界面，支持中文。他的作者是 <!-- raw HTML omitted -->Jon Come<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->JAWStats可以减轻AWStats的计算压力，同时安装非常简单，只要稍微修改一下配置文件就可以运行。配置项也可以非常简单。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->JAWStats的使用界面也非常人性化，因为作者原来是一个UI工程师。在系统中，我们可以非常容易的在不同月份之间切换，还可以在不同站点的日志之间进行切换。也可以通过Web界面来进行分析数据的更新，正好切合我们的需求，只在需要看的时候出报表就好了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->JAWStats支持主题，可以进行主题的设计和切换。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->总的来说，看完了JAWStats的介绍，觉得是比较推荐的一款产品。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3、Web Analytics. Open Source<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一款GPL协议下的开源软件，界面和数据获取方式都是模仿GA的，对于小型站点的分析应该不错。有对于Wordpress和Mediawiki的统计支持。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4、Log Miner<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->LogMiner 是一个分析Apache或者IIS日志，或者其他支持 combined 或者 W3C扩展日志格式的服务器。能够提取并展示包括访问量、点击、流量、请求数、访问路径、浏览器和操作系统在内的诸多指标。数据存储采用的是 PostgreSQL，存储比较精简。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Log Miner开发的灵感源自于流行的 Webalizer ，但是有一些主要的不同：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">使用关系型数据库作为后端数据存储，实时生成报表。而 Webalizer 则是生成 html 文件。基于DBMS数据库的方式能够随时提供不同形式的数据，但是日志文件的解析速度上不如 Webalizer。</span></p>
-
-<p><span style="font-size: medium;">Webalizer只保存最近12个月的数据，之前的数据则无法再查看。</span></p>
-
-<p><span style="font-size: medium;">Webalizer的报告结果是硬编码的，而Logminer则是每个报告对应一个PHP类，我们可以灵活的进行定义。</span></p>
-
-<p><span style="font-size: medium;">LogMiner提供了比Webalizer更多的报表，比如操作系统和访问路径。</span></p>
+<p><!-- raw HTML omitted -->使用关系型数据库作为后端数据存储，实时生成报表。而 Webalizer 则是生成 html 文件。基于DBMS数据库的方式能够随时提供不同形式的数据，但是日志文件的解析速度上不如 Webalizer。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Webalizer只保存最近12个月的数据，之前的数据则无法再查看。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Webalizer的报告结果是硬编码的，而Logminer则是每个报告对应一个PHP类，我们可以灵活的进行定义。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->LogMiner提供了比Webalizer更多的报表，比如操作系统和访问路径。<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">5、Webalizer</span></p>
-
-<p><span style="font-size: medium;">Webalizer虽然不是PHP的，但是上面LogMiner总是拿这个作比较，就顺便说一下。用C写成，日志分析能力非常出众，采用HTML的报表展示形式，是一个非常流行的日志分析工具。</span></p>
-
-<p><span style="font-size: medium;">6、TraceWatch</span></p>
-
-<p><span style="font-size: medium;">一个PHP+Mysql的日志分析工具，界面不太喜欢，好像就是路径分析比较有特点，其他的感觉还有点慢，就没什么了。</span></p>
-
-<p><span style="font-size: medium;">其他还有一些不太知名的工具，就没有一一细看：</span></p>
-
-<p><span style="font-size: medium;"><a href="http://adubus.free.fr/audistat/" target="_blank">AudiStat</a>、<a href="http://slimstat.net/" target="_blank">SlimStat</a>、<a href="http://www.oschina.net/p/piwik" target="_blank">Piwik</a></span></p>
-
-<p><span style="font-size: medium;">结合看到的这些工具，针对我们单位的实际需求，感觉 Awstat + JAWStats 组合更为好一点。因为日志会收集到单独的日志服务器上，所以性能上的消耗也就不会在意了。接下来看看实际的效果吧。</span></p>
-
-<p><span style="font-size: medium;">PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能够更加的一目了然。</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2013/06/img583.jpg"><img class="alignnone wp-image-1153 size-full" src="https://ifunbox.top/wp-content/uploads/2013/06/img583.jpg" alt="img583" width="767" height="2085" /></a></p>
+<p><!-- raw HTML omitted -->5、Webalizer<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Webalizer虽然不是PHP的，但是上面LogMiner总是拿这个作比较，就顺便说一下。用C写成，日志分析能力非常出众，采用HTML的报表展示形式，是一个非常流行的日志分析工具。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->6、TraceWatch<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一个PHP+Mysql的日志分析工具，界面不太喜欢，好像就是路径分析比较有特点，其他的感觉还有点慢，就没什么了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其他还有一些不太知名的工具，就没有一一细看：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->AudiStat<!-- raw HTML omitted -->、<!-- raw HTML omitted -->SlimStat<!-- raw HTML omitted -->、<!-- raw HTML omitted -->Piwik<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->结合看到的这些工具，针对我们单位的实际需求，感觉 Awstat + JAWStats 组合更为好一点。因为日志会收集到单独的日志服务器上，所以性能上的消耗也就不会在意了。接下来看看实际的效果吧。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能够更加的一目了然。<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2013/06/img583.jpg"><!-- raw HTML omitted --></a></p>
 
     
       <div id="SOHUCS" sid="/apache_log_analysis" ></div>
@@ -507,7 +474,7 @@ LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -516,6 +483,7 @@ LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

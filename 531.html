@@ -4,7 +4,7 @@
   <head>
 <title>phpQuery—基于jQuery的PHP实现 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content=" Query的选择器之强大是有目共睹的，phpQuery 让php也拥有了这样的能力，它就相当于服务端的jQuery。
-存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题， …">
+<meta name="description" content="Query的选择器之强大是有目共睹的，phpQuery让php也拥有了这样的能力，它就相当于服务端的jQuery。
+存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="phpQuery—基于jQuery的PHP实现" />
 <meta property="og:url" content="https://ifunbox.top/531.html" />
 <meta property="og:title" content="phpQuery—基于jQuery的PHP实现" />
-<meta property="og:description" content=" Query的选择器之强大是有目共睹的，phpQuery 让php也拥有了这样的能力，它就相当于服务端的jQuery。
-存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题， …" />
+<meta property="og:description" content="Query的选择器之强大是有目共睹的，phpQuery让php也拥有了这样的能力，它就相当于服务端的jQuery。
+存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,33 +162,20 @@
 </div>
 
     
-    
-
-<p>Query的选择器之强大是有目共睹的，<a href="http://code.google.com/p/phpquery/" target="_blank">phpQuery</a> 让php也拥有了这样的能力，它就相当于服务端的jQuery。</p>
-
+    <p>Query的选择器之强大是有目共睹的，<!-- raw HTML omitted -->phpQuery<!-- raw HTML omitted --> 让php也拥有了这样的能力，它就相当于服务端的jQuery。</p>
 <h3 id="存在的意义">存在的意义</h3>
-
-<p>我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然可以使用Google，但<a href="http://stackoverflow.com/" target="_blank">stackoverflow</a> 作为一个专业的编程问答社区，会提供给你更多，更靠谱的答案。</p>
-
+<p>我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然可以使用Google，但<!-- raw HTML omitted -->stackoverflow<!-- raw HTML omitted --> 作为一个专业的编程问答社区，会提供给你更多，更靠谱的答案。</p>
 <p>对于html页面，不应该使用正则的原因主要有3个</p>
-
-<p><strong>1、编写条件表达式比较麻烦</strong><br />
+<p><strong>1、编写条件表达式比较麻烦</strong><br>
 尤其对于新手，看到一堆”不知所云”的字符评凑在一起，有种脑袋都要炸了的感觉。如果要分离的对象没有太明显的特征，正则写起来更是麻烦。</p>
-
-<p><strong>2、效率不高</strong><br />
+<p><strong>2、效率不高</strong><br>
 对于php来说，正则应该是没有办法的办法，能通过字符串函数解决的，就不要劳烦正则了。用正则去处理一个30多k的文件，效率不敢保证。</p>
-
-<p><strong>3、有phpQuery</strong><br />
+<p><strong>3、有phpQuery</strong><br>
 如果你使用过jQuery，想获取某个特定元素应该是轻而易举的事情，phpQuery让这成为了可能。</p>
-
-<p>&nbsp;</p>
-
+<p> </p>
 <h3 id="浅析phpquery">浅析phpQuery</h3>
-
-<p>phpQuery是基于php5新添加的DOMDocument。而DOMDocument则是专门用来处理html/xml。它提供了强大xpath选 择器及其他很多html/xml操作函数，使得处理html/xml起来非常方便。那为什么不直接使用呢？这个，去看一下<a href="http://www.php.net/manual/en/class.domdocument.php" target="_blank">官网的函数列表</a> 就知道了，如果对自己的记忆力很有信心， 不妨一试。</p>
-
+<p>phpQuery是基于php5新添加的DOMDocument。而DOMDocument则是专门用来处理html/xml。它提供了强大xpath选 择器及其他很多html/xml操作函数，使得处理html/xml起来非常方便。那为什么不直接使用呢？这个，去看一下<!-- raw HTML omitted -->官网的函数列表<!-- raw HTML omitted --> 就知道了，如果对自己的记忆力很有信心， 不妨一试。</p>
 <h3 id="简单的例子">简单的例子</h3>
-
 <pre><code>&lt;php?
 include 'phpQuery.php';
 phpQuery::newDocumentFile('http://job.blueidea.com');
@@ -197,15 +184,12 @@ foreach($companies as $company)
 {
 echo pq($company)-&amp;gt;find('h3 a')-&amp;gt;text().&quot;&amp;lt;br&amp;gt;&quot;;
 }
-</code></pre>
-
-<h3 id="小结">小结</h3>
-
+</code></pre><h3 id="小结">小结</h3>
 <ul>
 <li><strong>pq()就像jQuery里的$()</strong></li>
-<li><strong>基本上jQuery的选择器都可以用在phpQuery上，只要把’.&#8217;变成’-&gt;’</strong></li>
+<li><strong>基本上jQuery的选择器都可以用在phpQuery上，只要把’.’变成’-&gt;’</strong></li>
 <li>phpQuery提供了好几种载入文件的方法，有的使用字符串，有的使用文件(包括url)，选 择的时候要注意</li>
-<li>基本上<a href="http://code.google.com/p/phpquery/wiki/Basics" target="_blank">这一页</a> 就很能说明问题了</li>
+<li>基本上<!-- raw HTML omitted -->这一页<!-- raw HTML omitted --> 就很能说明问题了</li>
 </ul>
 
     
@@ -489,7 +473,7 @@ echo pq($company)-&amp;gt;find('h3 a')-&amp;gt;text().&quot;&amp;lt;br&amp;gt;&q
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -498,6 +482,7 @@ echo pq($company)-&amp;gt;find('h3 a')-&amp;gt;text().&quot;&amp;lt;br&amp;gt;&q
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

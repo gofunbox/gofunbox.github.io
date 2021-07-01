@@ -4,7 +4,7 @@
   <head>
 <title>Posts | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,12 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">未经修改的shopex在捆绑销售页以及产品页中的捆绑销售产品不显示规格，这个问题显得很不人性化。
-首先下载mdl.package.php，然后覆盖掉core\model_v5\trading下的同名文件
-PS:这个附件我已经改过了，破解了原本加密的代码，然后在getPackageItems方法下多输出了g.pdt_desc显示规格的参数。
-然后打开core\shop\view\package\index.html在代码&lt;{$items.name}&gt;后加入 
-&lt;{if $items.pdt_desc!=&#8221;}&gt;(&lt;{$items.pdt_desc}&gt;)&lt;{/if}&gt;
-PS:显示 …</p>
+          <p class="pale">未经修改的shopex在捆绑销售页以及产品页中的捆绑销售产品不显示规格，这个问题显得很不人性化。首先下载mdl.package.php，然后覆盖掉core\model_v5\trading下的同名文件PS:这个附件我已经改过了，破解了原本加密的代码，然后在getPackageItems方法下多输出了g.pdt_desc显示规格的参数。然后打开core\shop\view\package\index.html在代码&lt;{$items.name}&gt;后加入 &lt;{if $items.</p>
           <a href="https://ifunbox.top/274.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -173,12 +168,8 @@ PS:显示 …</p>
       <div class="excerpt_footer">
         <div>
           <p class="pale">今天无意中发现shopex产品页面捆绑销售重复显示的问题
-
 觉得很神奇，回想自己明明只添加了一个捆绑销售信息（如图），怎么会显示出两条信息。
-
-经过分析，才发现shopex产品页面捆绑销售重复显示可能是shopex 4.8.5之前都存在的小BUG，原因是把不同货品添加到了同一个捆绑销售里面，如上图所示的菜板，黑色大、绿色小不同规格。知道问题的原因，就开始寻找解决方法了。
-打开core\shop\controller\ctl.product.php文件找到
-$this-&gt;pagedata[&#8216;package&#8217;] = $aPkgList; …</p>
+经过分析，才发现shopex产品页面捆绑销售重复显示可能是shopex 4.8.5之前都存在的小BUG，原因是把不同货品添加到了同一个捆绑销售里面，如上图所示的菜板，黑色大、绿色小不同规格。知道问题的原因，就开始寻找解决方法了。打开core\shop\controller\ctl.product.php文件找到$this-&gt;pagedata[‘package’] = $aPkgList;这段代码替换为$this-&gt;pagedata[‘package’] = …</p>
           <a href="https://ifunbox.top/269.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -202,9 +193,7 @@ $this-&gt;pagedata[&#8216;package&#8217;] = $aPkgList; …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">你的电脑联网了么？你喜欢使用摄像头么？不管你使用摄像头做什么用途。现在提醒你，可要小心了。 
-近来，网上流传着一些用google搜索到的网络摄像头地址。网友们可以通过在google里面输入一段代码而捕捉到安装于世界各地的网络摄像头。并且可以调整摄像头的摄像角度和变焦来对某个物体或地方进行监视或偷窥。摄像头使用者们原本以为只有自己才能够看到的内容，在不知不觉中已经失去了安全保护，赤裸裸的暴露在互联网上。
-通过google 搜索到带有网页的网络摄像头无疑使我们担忧再次加重了。被一个人偷窥已经是很糟糕的事情了，想想如果连到互联网上&#8230; &#8230;，你的心情会如何？当你在商场试衣间里换衣服的时候是否会突然想到有没有摄像头在窥视 …</p>
+          <p class="pale">你的电脑联网了么？你喜欢使用摄像头么？不管你使用摄像头做什么用途。现在提醒你，可要小心了。 近来，网上流传着一些用google搜索到的网络摄像头地址。网友们可以通过在google里面输入一段代码而捕捉到安装于世界各地的网络摄像头。并且可以调整摄像头的摄像角度和变焦来对某个物体或地方进行监视或偷窥。摄像头使用者们原本以为只有自己才能够看到的内容，在不知不觉中已经失去了安全保护，赤裸裸的暴露在互联网上。通过google 搜索到带有网页的网络摄像头无疑使我们担忧再次加重了。被一个人偷窥已经是很糟糕的事情了，想想如果连到互联网上… …，你的心情会如何？当你在商场试衣间里换衣服的时候是否会突然想到有没有摄像头在窥视自己。当你在合租的房子里洗澡 …</p>
           <a href="https://ifunbox.top/259.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -228,12 +217,7 @@ $this-&gt;pagedata[&#8216;package&#8217;] = $aPkgList; …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。
-在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。
-网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件&#8212;lazyload,感动得都快哭了。
-
-应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。
-下面我就具体说说如何操作 …</p>
+          <p class="pale">有很多SHOPEX朋友发过图片延迟加载的挂件，基本都是基于jquery写的，但是SHOPEX是基于mootools开发UI的，所以在shopex下使用基于jquery写的挂件就会出现不兼容mootools、重复加载js代码这些令人烦恼的问题。在这里也简单说一下延迟加载的原理。就是把图片src属性改成data-src，在滚动到当前区域时通过Js改变src值为data-src值。从而达到图片延迟请求，滚到哪请求到哪的效果。网络上一搜发现外国牛人已经写好了基于mootools延迟加载挂件—lazyload,感动得都快哭了。应用在shopex只需要小小的改动下需要延迟加载产品图片的img即可。下面我就具体说说如何操作吧。首先在head中引 …</p>
           <a href="https://ifunbox.top/249.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -257,8 +241,7 @@ $this-&gt;pagedata[&#8216;package&#8217;] = $aPkgList; …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">ShopEx4.8.5系统用了很多客户端JS特效，特别是后台的管理界面，为了给用户更好的软件体验，更是大量加入了Javascript脚本实现界面和Ajax操作。
-ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属于比较轻巧的Js库，是做前端开发必不可少的脚本库，两者功能相近，开源协议也一样都可以使用 MIT license，Jquery的插件库更丰富一点，在国内使用Jquery的网站也多于mootools，要找些现成的JS脚本制作ShopEx插件应该是更容易，那为什么ShopEx的设计者当初选用了Mootools作为前端脚本库而不是Jquery。ShopEx系统研究认为这可能是设计者的技术偏 …</p>
+          <p class="pale">ShopEx4.8.5系统用了很多客户端JS特效，特别是后台的管理界面，为了给用户更好的软件体验，更是大量加入了Javascript脚本实现界面和Ajax操作。ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属于比较轻巧的Js库，是做前端开发必不可少的脚本库，两者功能相近，开源协议也一样都可以使用 MIT license，Jquery的插件库更丰富一点，在国内使用Jquery的网站也多于mootools，要找些现成的JS脚本制作ShopEx插件应该是更容易，那为什么ShopEx的设计者当初选用了Mootools作为前端脚本库而不是Jquery。ShopEx系统研究认为这可能是设计者的技术偏 …</p>
           <a href="https://ifunbox.top/247.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -282,15 +265,7 @@ ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
-一、Snoopy的一些特点:
-1.抓取网页的内容 fetch
-2.抓取网页的文本内容 (去除HTML标签) fetchtext
-3.抓取网页的链接，表单 fetchlinks fetchform
-4.支持代理主机
-5.支持基本的用户名/密码验证
-6.支持设置user_agent, referer(来路), cookies和header content(头文件)
-7.支持浏览器重定向， …</p>
+          <p class="pale">Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。一、Snoopy的一些特点:1.抓取网页的内容 fetch2.抓取网页的文本内容 (去除HTML标签) fetchtext3.抓取网页的链接，表单 fetchlinks fetchform4.支持代理主机5.支持基本的用户名/密码验证6.支持设置user_agent, referer(来路), cookies和header content(头文件)7.支持浏览器重定向，并能控制重定向深 …</p>
           <a href="https://ifunbox.top/243.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -314,11 +289,7 @@ ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近自己负责维护运营的shopex购物站，做迎新大促销，只要用户登录这个shopex网站就会得到一张优惠券，随之问题就来了，很多客户反复的询问优惠券的如何使用这个问题，让人不堪其扰。
-其实导致这个问题出现的原因就是在shopex下使用优惠券太麻烦了，流程太繁琐。未经修改的shopex优惠券使用流程是，先进入我的优惠券，查看优惠券信息，然后复制优惠券号码，进入shopex购物车，粘帖优惠券号码到相应位置。
-显然查看复制优惠券号码是多余的一步，然后我们要简化他，让shopex系统自己查询列出来。
- 
-详情点击</p>
+          <p class="pale">最近自己负责维护运营的shopex购物站，做迎新大促销，只要用户登录这个shopex网站就会得到一张优惠券，随之问题就来了，很多客户反复的询问优惠券的如何使用这个问题，让人不堪其扰。其实导致这个问题出现的原因就是在shopex下使用优惠券太麻烦了，流程太繁琐。未经修改的shopex优惠券使用流程是，先进入我的优惠券，查看优惠券信息，然后复制优惠券号码，进入shopex购物车，粘帖优惠券号码到相应位置。显然查看复制优惠券号码是多余的一步，然后我们要简化他，让shopex系统自己查询列出来。</p>
           <a href="https://ifunbox.top/239.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -342,12 +313,8 @@ ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近打开shopex的捆绑促销页面越看越不爽，没有产品图用户体验太差了，后决心修改下，研究才发现那么的简单。希望能帮助到被shopex捆绑促销不显示出产品图片的朋友们。
-打开core\shop\view\package\index.html，下面捆绑促销显示页面代码中加粗的地方就是显示捆绑促销产品图片的代码。可以自己加入该页面的任何页面，自己喜欢就好！另附CSS。
-先上效果图：
-
-捆绑促销页面代码:
-&amp;lt;{foreach from=$package item=&quot;itemlist&quot;}&amp;gt; &amp;lt;{$itemlist.name}&amp;gt; &amp;lt;{if …</p>
+          <p class="pale">最近打开shopex的捆绑促销页面越看越不爽，没有产品图用户体验太差了，后决心修改下，研究才发现那么的简单。希望能帮助到被shopex捆绑促销不显示出产品图片的朋友们。打开core\shop\view\package\index.html，下面捆绑促销显示页面代码中加粗的地方就是显示捆绑促销产品图片的代码。可以自己加入该页面的任何页面，自己喜欢就好！另附CSS。先上效果图：
+捆绑促销页面代码:&amp;lt;{foreach from=$package item=&quot;itemlist&quot;}&amp;gt;&amp;lt;{$itemlist.name}&amp;gt;&amp;lt;{if …</p>
           <a href="https://ifunbox.top/235.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -372,11 +339,7 @@ ShopEx的Js脚本都扩展于Mootools脚本库，mootools和jquery一样是属�
       <div class="excerpt_footer">
         <div>
           <p class="pale">Zend Studio 9.0.0 正式版官方下载地址(未包含IBM i edition下载)
-windows版：http://downloads.zend…ZendStudio-9.0.0.msi
-linux版(32位)：http://downloads.zend…/ZendStudio-9.0.0-x86.tar.gz
-linux版(64位)：http://downloads.zend…ZendStudio-9.0.0-x86_64.tar.gz
-适用于Mac_OS_X的DMG安装格式：http://downloads.zend…ZendStudio-9.0.0.dmg
-zend studio 8 注册码(适用于7.0以上所有版 …</p>
+windows版：http://downloads.zend…ZendStudio-9.0.0.msilinux版(32位)：http://downloads.zend…/ZendStudio-9.0.0-x86.tar.gzlinux版(64位)：http://downloads.zend…ZendStudio-9.0.0-x86_64.tar.gz适用于Mac_OS_X的DMG安装格式：http://downloads.zend…ZendStudio-9.0.0.dmgzend studio 8 注册码(适用于7.0以上所有版本) …</p>
           <a href="https://ifunbox.top/225.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -400,20 +363,7 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">ShopEx中的widget挂件可以灵活展示网店内的商品、分类、文章等数据，但widget挂件只能用在ShopEx自身系统中，如果想在站外引用就没那么简单了，比如在博客中引用一个ShopEx的挂件展示一下网店内的商品，解决方法如下利用ShopEx自定义模板页面结合Iframe方式显示网店内挂件内容的方法：
-1、在页面管理/模板列表/编辑模板，创建一个新的“站点栏目单独页”模板页面，编辑这个模板页面的源码，用以下代码替换原有的模板页面代码，然后保存。
-
-
-
-
-
-
-
-
-&lt;{main}&gt;
-
-
-2、在站点栏目中添加一个顶级栏目，类型选“单独页面”，模板选刚才我们新建的这个，保存后在可视编辑这个页面的界面上，添加我们所需要展示的挂 …</p>
+          <p class="pale">ShopEx中的widget挂件可以灵活展示网店内的商品、分类、文章等数据，但widget挂件只能用在ShopEx自身系统中，如果想在站外引用就没那么简单了，比如在博客中引用一个ShopEx的挂件展示一下网店内的商品，解决方法如下利用ShopEx自定义模板页面结合Iframe方式显示网店内挂件内容的方法：1、在页面管理/模板列表/编辑模板，创建一个新的“站点栏目单独页”模板页面，编辑这个模板页面的源码，用以下代码替换原有的模板页面代码，然后保存。&lt;{main}&gt;2、在站点栏目中添加一个顶级栏目，类型选“单独页面”，模板选刚才我们新建的这个，保存后在可视编辑这个页面的界面上，添加我们所需要展示的挂件版块到页面。保存后在站点 …</p>
           <a href="https://ifunbox.top/204.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -421,207 +371,46 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/14/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/14/">14</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/posts/page/15/">15</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/16/">16</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/14/">14</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/15/">15</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/16/">16</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/16/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -892,7 +681,7 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -901,6 +690,7 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

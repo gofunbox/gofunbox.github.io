@@ -4,7 +4,7 @@
   <head>
 <title>centos搭建Git服务器 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
-假设你已经有sudo权限的用户账号，下面，正式开始安装。
-第一步，安装git：
-&amp;lt;span …">
+<meta name="description" content="GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。假设你已经有sudo权限的用户账号，下面，正式开始安装。第一步，安装git：&amp;lt;span …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="centos搭建Git服务器" />
 <meta property="og:url" content="https://ifunbox.top/centos_git_configuration/" />
 <meta property="og:title" content="centos搭建Git服务器" />
-<meta property="og:description" content="GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。
-假设你已经有sudo权限的用户账号，下面，正式开始安装。
-第一步，安装git：
-&amp;lt;span …" />
+<meta property="og:description" content="GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。假设你已经有sudo权限的用户账号，下面，正式开始安装。第一步，安装git：&amp;lt;span …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,105 +160,27 @@
 </div>
 
     
-    
-
-<p><span style="font-size: 12pt;">GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。</span></p>
-
-<p><span style="font-size: 12pt;">假设你已经有<code>sudo</code>权限的用户账号，下面，正式开始安装。</span></p>
-
-<p><span style="font-size: 12pt;">第一步，安装<code>git</code>：</span></p>
-
+    <p><!-- raw HTML omitted -->GitHub就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给GitHub交保护费，那就只能自己搭建一台Git服务器作为私有仓库使用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设你已经有<!-- raw HTML omitted -->sudo<!-- raw HTML omitted -->权限的用户账号，下面，正式开始安装。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->第一步，安装<!-- raw HTML omitted -->git<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;yum install -y git&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">第二步，创建一个<code>git</code>用户，用来运行<code>git</code>服务：</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->第二步，创建一个<!-- raw HTML omitted -->git<!-- raw HTML omitted -->用户，用来运行<!-- raw HTML omitted -->git<!-- raw HTML omitted -->服务：<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;adduser git -d /home/git/ -s /usr/bin/git-shell&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">第三步，创建证书登录：</span></p>
-
-<p><span style="font-size: 12pt;">收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->第三步，创建证书登录：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->收集所有需要登录的用户的公钥，就是他们自己的<!-- raw HTML omitted -->id_rsa.pub<!-- raw HTML omitted -->文件，把所有公钥导入到<!-- raw HTML omitted -->/home/git/.ssh/authorized_keys<!-- raw HTML omitted -->文件里，一行一个。<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;[ssh-keygen -t rsa -C &quot;name@baidu.com&quot;]&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">第四步，初始化Git仓库：</span></p>
-
-<p><span style="font-size: 12pt;">先选定一个目录作为Git仓库，假定是<code>/home/git/sample.git</code>，在<code>/home/git</code>目录下输入命令：</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->第四步，初始化Git仓库：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->先选定一个目录作为Git仓库，假定是<!-- raw HTML omitted -->/home/git/sample.git<!-- raw HTML omitted -->，在<!-- raw HTML omitted -->/home/git<!-- raw HTML omitted -->目录下输入命令：<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;sudo git init --bare sample.git&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<code>.git</code>结尾。然后，把owner改为<code>git</code>：Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<code>.git</code>结尾。然后，把owner改为<code>git</code>：</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<!-- raw HTML omitted -->.git<!-- raw HTML omitted -->结尾。然后，把owner改为<!-- raw HTML omitted -->git<!-- raw HTML omitted -->：Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<!-- raw HTML omitted -->.git<!-- raw HTML omitted -->结尾。然后，把owner改为<!-- raw HTML omitted -->git<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 12pt;&quot;&gt;sudo chown -R git:git sample.git&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">第五步，禁用shell登录：</span></p>
-
-<p><span style="font-size: 12pt;">出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑<code>/etc/passwd</code>文件完成。找到类似下面的一行：</span></p>
-
-<pre><span style="font-size: 12pt;"><code class="ruby">&lt;span class="symbol">git:&lt;/span>&lt;span class="symbol">x:&lt;/span>&lt;span class="number">1001&lt;/span>&lt;span class="symbol">:&lt;/span>&lt;span class="number">1001&lt;/span>&lt;span class="symbol">:&lt;/span>,,,&lt;span class="symbol">:/home/git&lt;/span>&lt;span class="symbol">:/bin/bash&lt;/span>
-改成
-&lt;span class="symbol">git:&lt;/span>&lt;span class="symbol">x:&lt;/span>&lt;span class="number">1001&lt;/span>&lt;span class="symbol">:&lt;/span>&lt;span class="number">1001&lt;/span>&lt;span class="symbol">:&lt;/span>,,,&lt;span class="symbol">:/home/git&lt;/span>&lt;span class="symbol">:/usr/bin/git-shell
-&lt;/span></code>
-这样，<code>git</code>用户可以正常通过ssh使用git，但无法登录shell，因为我们为<code>git</code>用户指定的<code>git-shell</code>每次一登录就自动退出。</span></pre>
-
-<p><span style="font-size: 12pt;">第六步，克隆远程仓库：</span></p>
-
-<p><span style="font-size: 12pt;">现在，可以通过<code>git clone</code>命令克隆远程仓库了，在各自的电脑上运行：</span></p>
-
-<p><pre><code class="bash">
-&lt;span style=&ldquo;font-size: 12pt;&ldquo;&gt;$ git clone git@server:/home/git/sample.git
-Cloning into &lsquo;sample&rsquo;&hellip;
-warning: You appear to have cloned an empty repository.&lt;/span&gt;</p>
-
-<pre><code>
-剩下的推送就简单了。
-
-服务端测试
-
-&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;
-touch 1.txt
-git add .
-git commit -m&quot;first&quot;
-git push origin master 
-git push
-</code></pre>
-
-<p><span style="font-size: 12pt;">迁移：公钥先注释掉 让开发不能提交 再同步到新的服务器 注意路径要一致</span></p>
-
-<p><span style="font-size: 12pt;">类似SVN的 relocate</span><br />
-<span style="font-size: 12pt;">git remote set-url origin git@1.1.1.1:/home/wwwroot/git/Customer</span></p>
-
-<p>&nbsp;</p>
-
-<h3 id="管理公钥">管理公钥</h3>
-
-<p><span style="font-size: 12pt;">如果团队很小，把每个人的公钥收集起来放到服务器的<code>/home/git/.ssh/authorized_keys</code>文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用<a href="https://github.com/res0nat0r/gitosis" target="_blank">Gitosis</a>来管理公钥。</span></p>
-
-<p><span style="font-size: 12pt;">这里我们不介绍怎么玩<a href="https://github.com/res0nat0r/gitosis" target="_blank">Gitosis</a>了，几百号人的团队基本都在500强了，相信找个高水平的Linux管理员问题不大。</span></p>
-
-<p><span style="font-size: 12pt;"> </span></p>
-
-<h3 id="-"><span style="font-size: 12pt;">管理权限</span></h3>
-
-<p><span style="font-size: 12pt;">有很多不但视源代码如生命，而且视员工为窃贼的公司，会在版本控制系统里设置一套完善的权限控制，每个人是否有读写权限会精确到每个分支甚至每个目录下。因为Git是为Linux源代码托管而开发的，所以Git也继承了开源社区的精神，不支持权限控制。不过，因为Git支持钩子（hook），所以，可以在服务器端编写一系列脚本来控制提交等操作，达到权限控制的目的。<a href="https://github.com/sitaramc/gitolite" target="_blank">Gitolite</a>就是这个工具。</span></p>
-
-<p><span style="font-size: 12pt;">这里我们也不介绍<a href="https://github.com/sitaramc/gitolite" target="_blank">Gitolite</a>了，不要把有限的生命浪费到权限斗争中。</span></p>
-
-<h3 id="span-style-font-size-12pt-span"><span style="font-size: 12pt;"> </span></h3>
-
-<h3 id="--1"><span style="font-size: 12pt;">小结</span></h3>
-
-<ul>
-<li><span style="font-size: 12pt;">搭建Git服务器非常简单，通常10分钟即可完成；</span></li>
-<li><span style="font-size: 12pt;">要方便管理公钥，用<a href="https://github.com/sitaramc/gitolite" target="_blank">Gitosis</a>；</span></li>
-<li><span style="font-size: 12pt;">要像SVN那样变态地控制权限，用<a href="https://github.com/sitaramc/gitolite" target="_blank">Gitolite</a>。</span></li>
-</ul>
-
-<p><span style="font-size: 12pt;">  参考:<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a> </span></p>
+</code></pre><p><!-- raw HTML omitted -->第五步，禁用shell登录：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑<!-- raw HTML omitted -->/etc/passwd<!-- raw HTML omitted -->文件完成。找到类似下面的一行：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->第六步，克隆远程仓库：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->现在，可以通过<!-- raw HTML omitted -->git clone<!-- raw HTML omitted -->命令克隆远程仓库了，在各自的电脑上运行：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/centos_git_configuration" ></div>
@@ -547,7 +463,7 @@ git push
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -556,6 +472,7 @@ git push
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

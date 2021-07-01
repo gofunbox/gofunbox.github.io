@@ -4,7 +4,7 @@
   <head>
 <title>Linux MySQL5.6 主从复制配置 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="环境说明：
-两台安装在CentOS6.5的MySQL5.6.21服务器：master 和 slave Master服务器： IP：192.168.80.51 Port：3316 Slave 服务器： IP：192.168.80.52 Port：3316 配置步骤：
-1、 修改master的my.cnf配置文件，开启记录 …">
+<meta name="description" content="环境说明：配置步骤：1、 修改master的my.cnf配置文件，开启记录日志并设置server-id。2、 修改slave的my.cnf配置文件，开启读取二进制日志并设置server-id。3、 在slave上启动slave与master的连接。4、 检查是否配置成功与排错。1、 修改 master 的my.cnf配 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux MySQL5.6 主从复制配置" />
 <meta property="og:url" content="https://ifunbox.top/linux_mysql56_replication/" />
 <meta property="og:title" content="Linux MySQL5.6 主从复制配置" />
-<meta property="og:description" content="环境说明：
-两台安装在CentOS6.5的MySQL5.6.21服务器：master 和 slave Master服务器： IP：192.168.80.51 Port：3316 Slave 服务器： IP：192.168.80.52 Port：3316 配置步骤：
-1、 修改master的my.cnf配置文件，开启记录 …" />
+<meta property="og:description" content="环境说明：配置步骤：1、 修改master的my.cnf配置文件，开启记录日志并设置server-id。2、 修改slave的my.cnf配置文件，开启读取二进制日志并设置server-id。3、 在slave上启动slave与master的连接。4、 检查是否配置成功与排错。1、 修改 master 的my.cnf配 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,121 +162,56 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">环境说明：</span></p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">两台安装在CentOS6.5的MySQL5.6.21服务器：master 和 slave</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">Master服务器：</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">IP：192.168.80.51</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">Port：3316</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">Slave 服务器：</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">IP：192.168.80.52</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: 12pt;">Port：3316</span>
-</p>
-
-<p><span style="font-size: 12pt;">配置步骤：</span></p>
-
-<p><span style="font-size: 12pt;">1、  修改master的my.cnf配置文件，开启记录日志并设置server-id。</span></p>
-
-<p><span style="font-size: 12pt;">2、  修改slave的my.cnf配置文件，开启读取二进制日志并设置server-id。</span></p>
-
-<p><span style="font-size: 12pt;">3、  在slave上启动slave与master的连接。</span></p>
-
-<p><span style="font-size: 12pt;">4、  检查是否配置成功与排错。</span></p>
-
-<p><span style="font-size: 12pt;">1、  修改 master 的my.cnf配置文件，在[mysqld]下添加如下配置：</span></p>
-
-<p><span style="font-size: 12pt;">[mysqld]</span></p>
-
-<p><span style="font-size: 12pt;">log-bin=/usr/local/mysql56/binlog/master-bin</span></p>
-
-<p><span style="font-size: 12pt;">log-bin-index=/usr/local/mysql56/binlog/master-bin.index</span></p>
-
-<p><span style="font-size: 12pt;">server-id=1</span></p>
-
-<p><span style="font-size: 12pt;">说明：</span></p>
-
-<p><span style="font-size: 12pt;">log-bin 配置的是开启二进制日志，并将日志写在配置的路径上。记录的日志将以master-bin.000001 的方式进行记录。</span></p>
-
-<p><span style="font-size: 12pt;">log-bin-index 配置的是二进制日志记录文件的目录。该文件中每一行都是二进制日志文件的路径。</span></p>
-
-<p><span style="font-size: 12pt;">server-id是该MySQL服务器的服务ID，用于区分在主从配置中的其他服务器。</span></p>
-
-<p><span style="font-size: 12pt;">配置成功后，重启mysqld服务。</span></p>
-
-<p><span style="font-size: 12pt;">注意：如果不定义log-bin的文件名，则会以hostname主机名命名，一旦主机名修改，则会因为找不见二进制文件报错。所以最好还是显示指定文件名。</span></p>
-
-<p><span style="font-size: 12pt;">2、  修改 slave 的my.cnf配置文件，在[mysqld]下添加如下配置：</span></p>
-
-<p><span style="font-size: 12pt;">server-id=11</span></p>
-
-<p><span style="font-size: 12pt;">relay-log=/usr/local/mysql56/binlog/slave-relay-bin</span></p>
-
-<p><span style="font-size: 12pt;">relay-log-index=/usr/local/mysql56/binlog/slave-relay-bin.index</span></p>
-
-<p><span style="font-size: 12pt;">server-id和master意义一样，用于区分不同的mysql服务器。</span></p>
-
-<p><span style="font-size: 12pt;">relay-log用以记录收到的中继二进制日志。relay-log-index用以保存收到的日志路径索引。如果不显示指定文件名，则以hostname值命名。</span></p>
-
-<p><span style="font-size: 12pt;">保存后可以重启mysqld服务。</span></p>
-
-<p><span style="font-size: 12pt;">3、  在slave上启动slave与master的连接。</span></p>
-
-<p><span style="font-size: 12pt;">在slave上登录到mysql，在mysql&gt;：下进行操作。</span></p>
-
-<p><span style="font-size: 12pt;">3.1、mysql&gt;stop slave; //停止slave。</span></p>
-
-<p><span style="font-size: 12pt;">3.2、mysql&gt;change master to master_host = &#8216;192.168.80.51&#8217;,master_user=&#8217;root&#8217;,master_password=&#8217;root&#8217;,master_log_file=&#8217;master-bin.000001&#8242;,master_log_pos=1;           </span></p>
-
-<p><span style="font-size: 12pt;">3.3、mysql&gt;start slave;</span></p>
-
-<p><span style="font-size: 12pt;">4、检查是否配置成功与排错</span></p>
-
-<p><span style="font-size: 12pt;">         mysql&gt;show slave status \G;</span></p>
-
-<p><span style="font-size: 12pt;">         在打印出来的状态下，查看以下两个参数的值：</span></p>
-
-<p><span style="font-size: 12pt;">         Slave_IO_Running: Yes</span></p>
-
-<p><span style="font-size: 12pt;">         Slave_SQL_Running: Yes</span></p>
-
-<p><span style="font-size: 12pt;">         如果这两个参数的值都是yes，则运行正常，可以在master数据库上添加一个数据库或者添加一张表，检查slave数据库上是否存在。</span></p>
-
-<p><span style="font-size: 12pt;">         如果 这两个参数有任何一个不是 Yes，则说明存在问题。可以查看slave上的数据库错误日志文件查看错误原因。</span></p>
-
-<p style="padding-left: 30px;">
-  因为binlog也记录了mysql库的日志，导致同步总是报错，在[mysqld]中配资binlog-ignore-db=mysql
-</p>
-
-<p><span style="font-size: 12pt;">  常见的错误原因：</span></p>
-
-<p><span style="font-size: 12pt;">1、  server-id 一致。</span></p>
-
-<p><span style="font-size: 12pt;">2、  用户权限不够。需要的权限包括：</span></p>
-
-<p><span style="font-size: 12pt;">GRANT REPLICATION SLAVE,RELOAD,CREATE USER,SUPER ON <em>.</em> TO {USER}@&#8221;{IP_ADDR}&#8221; IDENTIFIED BY &#8220;{PASSWORD}&#8221; WITH GRANT OPTION;</span></p>
-
-<p><span style="font-size: 12pt;">3、  数据库UUID一致，如果mysql安装时是通过批量复制安装的，则有可能数据库的UUID一致，进入数据库的datadir目录，修改auto.cnf。随意修改下uuid中的值，重启mysqld服务即可。</span></p>
-
-<p><span style="font-size: 12pt;">4、  Master数据库端口被防火墙阻挡。</span></p>
+    <p><!-- raw HTML omitted -->环境说明：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->配置步骤：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、  修改master的my.cnf配置文件，开启记录日志并设置server-id。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、  修改slave的my.cnf配置文件，开启读取二进制日志并设置server-id。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3、  在slave上启动slave与master的连接。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4、  检查是否配置成功与排错。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、  修改 master 的my.cnf配置文件，在[mysqld]下添加如下配置：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[mysqld]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->log-bin=/usr/local/mysql56/binlog/master-bin<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->log-bin-index=/usr/local/mysql56/binlog/master-bin.index<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->server-id=1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->说明：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->log-bin 配置的是开启二进制日志，并将日志写在配置的路径上。记录的日志将以master-bin.000001 的方式进行记录。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->log-bin-index 配置的是二进制日志记录文件的目录。该文件中每一行都是二进制日志文件的路径。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->server-id是该MySQL服务器的服务ID，用于区分在主从配置中的其他服务器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->配置成功后，重启mysqld服务。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->注意：如果不定义log-bin的文件名，则会以hostname主机名命名，一旦主机名修改，则会因为找不见二进制文件报错。所以最好还是显示指定文件名。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、  修改 slave 的my.cnf配置文件，在[mysqld]下添加如下配置：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->server-id=11<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->relay-log=/usr/local/mysql56/binlog/slave-relay-bin<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->relay-log-index=/usr/local/mysql56/binlog/slave-relay-bin.index<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->server-id和master意义一样，用于区分不同的mysql服务器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->relay-log用以记录收到的中继二进制日志。relay-log-index用以保存收到的日志路径索引。如果不显示指定文件名，则以hostname值命名。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->保存后可以重启mysqld服务。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3、  在slave上启动slave与master的连接。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在slave上登录到mysql，在mysql&gt;：下进行操作。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.1、mysql&gt;stop slave; //停止slave。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.2、mysql&gt;change master to master_host = ‘192.168.80.51’,master_user=’root’,master_password=’root’,master_log_file=’master-bin.000001′,master_log_pos=1;           <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.3、mysql&gt;start slave;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4、检查是否配置成功与排错<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         mysql&gt;show slave status \G;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         在打印出来的状态下，查看以下两个参数的值：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         Slave_IO_Running: Yes<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         Slave_SQL_Running: Yes<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         如果这两个参数的值都是yes，则运行正常，可以在master数据库上添加一个数据库或者添加一张表，检查slave数据库上是否存在。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->         如果 这两个参数有任何一个不是 Yes，则说明存在问题。可以查看slave上的数据库错误日志文件查看错误原因。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->  常见的错误原因：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、  server-id 一致。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、  用户权限不够。需要的权限包括：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GRANT REPLICATION SLAVE,RELOAD,CREATE USER,SUPER ON <!-- raw HTML omitted -->.<!-- raw HTML omitted --> TO {USER}@”{IP_ADDR}” IDENTIFIED BY “{PASSWORD}” WITH GRANT OPTION;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3、  数据库UUID一致，如果mysql安装时是通过批量复制安装的，则有可能数据库的UUID一致，进入数据库的datadir目录，修改auto.cnf。随意修改下uuid中的值，重启mysqld服务即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4、  Master数据库端口被防火墙阻挡。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/linux_mysql56_replication" ></div>
@@ -563,7 +494,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -572,6 +503,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

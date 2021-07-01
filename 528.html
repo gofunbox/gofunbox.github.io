@@ -4,7 +4,7 @@
   <head>
 <title>QQ互联curl发起https请求无返回 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,27 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="给一个客户安装QQ互联是发现请求https无返回
-以为是openssl没开，开了也还是如此。
-解决方法如下：
-设定为不验证证书和host。
-在执行curl_exec()之前。设置option
-$ch = curl_init();
-&#8230;&#8230;
-curl_setopt($ch, …">
+<meta name="description" content="给一个客户安装QQ互联是发现请求https无返回以为是openssl没开，开了也还是如此。解决方法如下：设定为不验证证书和host。在执行curl_exec()之前。设置option$ch = curl_init();……curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="QQ互联curl发起https请求无返回" />
 <meta property="og:url" content="https://ifunbox.top/528.html" />
 <meta property="og:title" content="QQ互联curl发起https请求无返回" />
-<meta property="og:description" content="给一个客户安装QQ互联是发现请求https无返回
-以为是openssl没开，开了也还是如此。
-解决方法如下：
-设定为不验证证书和host。
-在执行curl_exec()之前。设置option
-$ch = curl_init();
-&#8230;&#8230;
-curl_setopt($ch, …" />
+<meta property="og:description" content="给一个客户安装QQ互联是发现请求https无返回以为是openssl没开，开了也还是如此。解决方法如下：设定为不验证证书和host。在执行curl_exec()之前。设置option$ch = curl_init();……curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -50,12 +36,12 @@ curl_setopt($ch, …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -174,24 +160,16 @@ curl_setopt($ch, …" />
 </div>
 
     
-    <p><span style="font-size: medium;">给一个客户安装QQ互联是发现请求https无返回</span></p>
-
-<p><span style="font-size: medium;">以为是openssl没开，开了也还是如此。</span></p>
-
-<p><span style="font-size: medium;">解决方法如下：</span></p>
-
-<p><span style="font-size: medium;">设定为不验证证书和host。</span></p>
-
-<p><span style="font-size: medium;">在执行curl_exec()之前。设置option</span></p>
-
-<p><span style="font-size: medium;">$ch = curl_init();</span></p>
-
-<p><span style="font-size: medium;">&#8230;&#8230;</span></p>
-
-<p><span style="font-size: medium;">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);</span><br />
-<span style="font-size: medium;">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</span></p>
-
-<p><span style="font-size: medium;"> </span></p>
+    <p><!-- raw HTML omitted -->给一个客户安装QQ互联是发现请求https无返回<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->以为是openssl没开，开了也还是如此。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->解决方法如下：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->设定为不验证证书和host。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在执行curl_exec()之前。设置option<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->$ch = curl_init();<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->……<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/528.html" ></div>
@@ -474,7 +452,7 @@ curl_setopt($ch, …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -483,6 +461,7 @@ curl_setopt($ch, …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

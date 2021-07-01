@@ -4,7 +4,7 @@
   <head>
 <title>Linux 添加开机启动项的三种方法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -16,16 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="linux 添加开机启动项的三种方法。
- 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
-#!/bin/sh # # This script will be executed *after* all the other init scripts. # …">
+ 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：  ``` #!/bin/sh   This script will be executed after all the other init scripts. You …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux 添加开机启动项的三种方法" />
 <meta property="og:url" content="https://ifunbox.top/linux-autostart-method/" />
 <meta property="og:title" content="Linux 添加开机启动项的三种方法" />
 <meta property="og:description" content="linux 添加开机启动项的三种方法。
- 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
-#!/bin/sh # # This script will be executed *after* all the other init scripts. # …" />
+ 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：  ``` #!/bin/sh   This script will be executed after all the other init scripts. You …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -167,44 +165,39 @@
 
     
     <p>linux 添加开机启动项的三种方法。</p>
-
 <ol>
-<li><p>编辑文件 /etc/rc.local
-输入命令：vim /etc/rc.local 将出现类似如下的文本片段：</p>
-
-<pre><code>#!/bin/sh
-#
-# This script will be executed *after* all the other init scripts.
-# You can put your own initialization stuff in here if you don't
-# want to do the full Sys V style init stuff.
-
-touch /var/lock/subsys/local
+<li>编辑文件 /etc/rc.local
+输入命令：vim /etc/rc.local 将出现类似如下的文本片段：</li>
+</ol>
+<pre><code>```
+#!/bin/sh
+</code></pre>
+<h1 id="heading"></h1>
+<h1 id="this-script-will-be-executed-after-all-the-other-init-scripts">This script will be executed <em>after</em> all the other init scripts.</h1>
+<h1 id="you-can-put-your-own-initialization-stuff-in-here-if-you-dont">You can put your own initialization stuff in here if you don&rsquo;t</h1>
+<h1 id="want-to-do-the-full-sys-v-style-init-stuff">want to do the full Sys V style init stuff.</h1>
+<p>touch /var/lock/subsys/local
 /etc/init.d/mysqld start #mysql开机启动
 /etc/init.d/nginx start #nginx开机启动
 /etc/init.d/php-fpm start #php-fpm开机启动
-/etc/init.d/memcached start #memcache开机启动
+/etc/init.d/memcached start #memcache开机启动</p>
+<p>#在文件末尾（exit 0之前）加上你开机需要启动的程序或执行的命令即可（执行的程序需要写绝对路径，添加到系统环境变量的除外），如：</p>
+<p>/usr/local/thttpd/sbin/thttpd  -C /usr/local/thttpd/etc/thttpd.conf</p>
+<pre><code>
+  2. 自己写一个shell脚本 
+    将写好的脚本（.sh文件）放到目录 /etc/profile.d/ 下，系统启动后就会自动执行该目录下的所有shell脚本。
 
-#在文件末尾（exit 0之前）加上你开机需要启动的程序或执行的命令即可（执行的程序需要写绝对路径，添加到系统环境变量的除外），如：
-
-/usr/local/thttpd/sbin/thttpd  -C /usr/local/thttpd/etc/thttpd.conf
-</code></pre></li>
-
-<li><p>自己写一个shell脚本
-将写好的脚本（.sh文件）放到目录 /etc/profile.d/ 下，系统启动后就会自动执行该目录下的所有shell脚本。</p></li>
-
-<li><p>通过chkconfig命令设置</p>
-
-<p>将启动文件cp到 /etc/init.d/或者/etc/rc.d/init.d/（前者是后者的软连接）下</p>
-
-<p>vim 启动文件，文件前面务必添加如下三行代码，否侧会提示chkconfig不支持</p>
-
-<pre><code>#!/bin/sh 告诉系统使用的shell,所以的shell脚本都是这样
+  3. 通过chkconfig命令设置
+    
+    将启动文件cp到 /etc/init.d/或者/etc/rc.d/init.d/（前者是后者的软连接）下
+    
+    vim 启动文件，文件前面务必添加如下三行代码，否侧会提示chkconfig不支持
+    
+</code></pre><p>#!/bin/sh 告诉系统使用的shell,所以的shell脚本都是这样
 #chkconfig: 35 20 80 分别代表运行级别，启动优先权，关闭优先权，此行代码必须
-#description: http server（自己随便发挥）//两行都注释掉！！！，此行代码必须
-
-chkconfig --add 脚本文件名 操作后就已经添加了
-</code></pre></li>
-</ol>
+#description: http server（自己随便发挥）//两行都注释掉！！！，此行代码必须</p>
+<p>chkconfig &ndash;add 脚本文件名 操作后就已经添加了
+```</p>
 
     
       <div id="SOHUCS" sid="/linux-autostart-method" ></div>
@@ -487,7 +480,7 @@ chkconfig --add 脚本文件名 操作后就已经添加了
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -496,6 +489,7 @@ chkconfig --add 脚本文件名 操作后就已经添加了
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

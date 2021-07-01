@@ -4,7 +4,7 @@
   <head>
 <title>中文字符集与字符编码(gb2312,big5)的基础知识 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,136 +160,72 @@
 </div>
 
     
-    <p><span style="font-size: medium;">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</span></p>
-
-<p><span style="font-size: medium;">中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。</span></p>
-
-<p><span style="font-size: medium;">ASCII 字符集</span></p>
-
-<p><span style="font-size: medium;">1．名称的由来</span></p>
-
-<p><span style="font-size: medium;">ASCII（American Standard Code for Information Interchange，美国信息互换标准代码）是基于罗马字母表的一套电脑编码系统。</span></p>
-
-<p><span style="font-size: medium;">2．特点</span></p>
-
-<p><span style="font-size: medium;">它主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO 646。</span></p>
-
-<p><span style="font-size: medium;">3．包含内容</span></p>
-
-<p><span style="font-size: medium;">控制字符：回车键、退格、换行键等。</span></p>
-
-<p><span style="font-size: medium;">可显示字符：英文大小写字符、阿拉伯数字和西文符号</span></p>
-
-<p><span style="font-size: medium;">4．技术特征</span></p>
-
-<p><span style="font-size: medium;">7位（bits）表示一个字符，共128字符</span></p>
-
-<p><span style="font-size: medium;">5．ASCII扩展字符集</span></p>
-
-<p><span style="font-size: medium;">7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。</span></p>
-
-<p><span style="font-size: medium;">ASCII扩展字符集比ASCII字符集扩充出来的符号包括表格符号、计算符号、希腊字母和特殊的拉丁符号。</span></p>
-
-<p><span style="font-size: medium;">GB2312 字符集</span></p>
-
-<p><span style="font-size: medium;">1．名称的由来</span></p>
-
-<p><span style="font-size: medium;">GB2312又称为GB2312-80字符集，全称为《信息交换用汉字编码字符集·基本集》，由原中国国家标准总局发布，1981年5月1日实施。</span></p>
-
-<p><span style="font-size: medium;">2．特点</span></p>
-
-<p><span style="font-size: medium;">GB2312是中国国家标准的简体中文字符集。它所收录的汉字已经覆盖99.75%的使用频率，基本满足了汉字的计算机处理需要。在中国大陆和新加坡获广泛使用。</span></p>
-
-<p><span style="font-size: medium;">3．包含内容</span></p>
-
-<p><span style="font-size: medium;">GB2312收录简化汉字及一般符号、序号、数字、拉丁字母、日文假名、希腊字母、俄文字母、汉语拼音符号、汉语注音字母，共 7445 个图形字符。其中包括6763个汉字，其中一级汉字3755个，二级汉字3008个；包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在 内的682个全角字符。</span></p>
-
-<p><span style="font-size: medium;">4．技术特征</span></p>
-
-<p><span style="font-size: medium;">（1）分区表示：</span></p>
-
-<p><span style="font-size: medium;">GB2312中对所收汉字进行了“分区”处理，每区含有94个汉字/符号。这种表示方式也称为区位码。</span></p>
-
-<p><span style="font-size: medium;">各区包含的字符如下：01-09区为特殊符号；16-55区为一级汉字，按拼音排序；56-87区为二级汉字，按部首/笔画排序；10-15区及88-94区则未有编码。</span></p>
-
-<p><span style="font-size: medium;">（2）双字节表示</span></p>
-
-<p><span style="font-size: medium;">两个字节中前面的字节为第一字节，后面的字节为第二字节。习惯上称第一字节为“高字节” ，而称第二字节为“低字节”。</span></p>
-
-<p><span style="font-size: medium;">“高位字节”使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“低位字节”使用了0xA1-0xFE(把01-94加上0xA0)。</span></p>
-
-<p><span style="font-size: medium;">5．编码举例</span></p>
-
-<p><span style="font-size: medium;">以GB2312字符集的第一个汉字“啊”字为例，它的区号16，位号01，则区位码是1601，在大多数计算机程序中，高字节和低字节分别加0xA0得到程序的汉字处理编码0xB0A1。计算公式是：0xB0=0xA0+16, 0xA1=0xA0+1。</span></p>
-
-<p><span style="font-size: medium;">BIG5 字符集</span></p>
-
-<p><span style="font-size: medium;">1．名称的由来</span></p>
-
-<p><span style="font-size: medium;">又称大五码或五大码，1984年由台湾财团法人信息工业策进会和五间软件公司宏碁 (Acer)、神通 (MiTAC)、佳佳、零壹 (Zero One)、大众 (FIC)创立，故称大五码。</span></p>
-
-<p><span style="font-size: medium;">Big5码的产生，是因为当时台湾不同厂商各自推出不同的编码，如倚天码、IBM PS55、王安码等，彼此不能兼容；另一方面，台湾政府当时尚未推出官方的汉字编码，而中国大陆的GB2312编码亦未有收录繁体中文字。</span></p>
-
-<p><span style="font-size: medium;">2．特点</span></p>
-
-<p><span style="font-size: medium;">Big5字符集共收录13,053个中文字，该字符集在中国台湾使用。耐人寻味的是该字符集重复地收录了两个相同的字：“兀”(0xA461及0xC94A)、“嗀”(0xDCD1及0xDDFC)。</span></p>
-
-<p><span style="font-size: medium;">3．字符编码方法</span></p>
-
-<p><span style="font-size: medium;">Big5码使用了双字节储存方法，以两个字节来编码一个字。第一个字节称为“高位字节”，第二个字节称为“低位字节”。高位字节的编码范围0xA1-0xF9，低位字节的编码范围0x40-0x7E及0xA1-0xFE。</span></p>
-
-<p><span style="font-size: medium;">各编码范围对应的字符类型如下：0xA140-0xA3BF为标点符号、希腊字母及特殊符号，另外于0xA259-0xA261，存放了双音节度量 衡单位用字：兙兛兞兝兡兣嗧瓩糎；0xA440-0xC67E为常用汉字，先按笔划再按部首排序；0xC940-0xF9D5为次常用汉字，亦是先按笔划 再按部首排序。</span></p>
-
-<p><span style="font-size: medium;">4．Big5 的局限性</span></p>
-
-<p><span style="font-size: medium;">尽管Big5码内包含一万多个字符，但是没有考虑社会上流通的人名、地名用字、方言用字、化学及生物科等用字，没有包含日文平假名及片假名字母。</span></p>
-
-<p><span style="font-size: medium;">例如台湾视“着”为“著”的异体字，故没有收录“着”字。康熙字典中的一些部首用字(如“亠”、“疒”、“辵”、“癶”等)、常见的人名用字(如“堃”、“煊”、“栢”、“喆”等) 也没有收录到Big5之中。</span></p>
-
-<p><span style="font-size: medium;">GB18030 字符集</span></p>
-
-<p><span style="font-size: medium;">1．名称的由来</span></p>
-
-<p><span style="font-size: medium;">GB 18030的全称是GB18030-2000《信息交换用汉字编码字符集基本集的扩充》，是我国政府于2000年3月17日发布的新的汉字编码国家标准，2001年8月31日后在中国市场上发布的软件必须符合本标准</span></p>
-
-<p><span style="font-size: medium;">2．特点</span></p>
-
-<p><span style="font-size: medium;">GB 18030字符集标准的出台经过广泛参与和论证，来自国内外知名信息技术行业的公司，信息产业部和原国家质量技术监督局联合实施。</span></p>
-
-<p><span style="font-size: medium;">GB 18030字符集标准解决汉字、日文假名、朝鲜语和中国少数民族文字组成的大字符集计算机编码问题。该标准的字符总编码空间超过150万个编码位，收录了 27484个汉字，覆盖中文、日文、朝鲜语和中国少数民族文字。满足中国大陆、香港、台湾、日本和韩国等东亚地区信息交换多文种、大字量、多用途、统一编 码格式的要求。并且与Unicode 3.0版本兼容，填补Unicode扩展字符字汇“统一汉字扩展A”的内容。并且与以前的国家字符编码标准（GB2312，GB13000.1）兼容。</span></p>
-
-<p><span style="font-size: medium;">3．编码方法</span></p>
-
-<p><span style="font-size: medium;">GB 18030标准采用单字节、双字节和四字节三种方式对字符编码。单字节部分使用0×00至0×7F码(对应于ASCII码的相应码)。双字节部分，首字节 码从0×81至0×FE，尾字节码位分别是0×40至0×7E和0×80至0×FE。四字节部分采用GB/T 11383未采用的0×30到0×39作为对双字节编码扩充的后缀，这样扩充的四字节编码，其范围为0×81308130到0×FE39FE39。其中第 一、三个字节编码码位均为0×81至0×FE，第二、四个字节编码码位均为0×30至0×39。</span></p>
-
-<p><span style="font-size: medium;">4．包含的内容</span></p>
-
-<p><span style="font-size: medium;">双字节部分收录内容主要包括GB13000.1全部CJK汉字20902个、有关标点符号、表意文字描述符13个、增补的汉字和部首/构件80个、 双字节编码的欧元符号等。　　四字节部分收录了上述双字节字符之外的，包括CJK统一汉字扩充A在内的GB 13000.1中的全部字符。</span></p>
-
-<p><span style="font-size: medium;">Unicode字符集</span></p>
-
-<p><span style="font-size: medium;">1．名称的由来</span></p>
-
-<p><span style="font-size: medium;">Unicode字符集编码是Universal Multiple-Octet Coded Character Set 通用多八位编码字符集的简称，是由一个名为 Unicode 学术学会(Unicode Consortium)的机构制订的字符编码系统，支持现今世界各种不同语言的书面文本的交换、处理及显示。该编码于1990年开始研发，1994年正式 公布，最新版本是2005年3月31日的Unicode 4.1.0。</span></p>
-
-<p><span style="font-size: medium;">2．特征</span></p>
-
-<p><span style="font-size: medium;">Unicode是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。</span></p>
-
-<p><span style="font-size: medium;">3．编码方法</span></p>
-
-<p><span style="font-size: medium;">Unicode 标准始终使用十六进制数字，而且在书写时在前面加上前缀“U+”，例如字母“A”的编码为 004116 和字符“�”的编码为 20AC16。所以“A”的编码书写为“U+0041”。</span></p>
-
-<p><span style="font-size: medium;">4．UTF-8 编码</span></p>
-
-<p><span style="font-size: medium;">UTF-8是Unicode的其中一个使用方式。 UTF是 Unicode Translation Format，即把Unicode转做某种格式的意思。</span></p>
-
-<p><span style="font-size: medium;">UTF-8便于不同的计算机之间使用网络传输不同语言和编码的文字，使得双字节的Unicode能够在现存的处理单字节的系统上正确传输。</span></p>
-
-<p><span style="font-size: medium;">UTF-8使用可变长度字节来储存 Unicode字符，例如ASCII字母继续使用1字节储存，重音文字、希腊字母或西里尔字母等使用2字节来储存，而常用的汉字就要使用3字节。辅助平面字符则使用4字节。</span></p>
-
-<p><span style="font-size: medium;">5．UTF-16 和 UTF-32 编码</span><br />
-<span style="font-size: medium;">UTF-32、UTF-16 和 UTF-8 是 Unicode 标准的编码字符集的字符编码方案，UTF-16 使用一个或两个未分配的 16 位代码单元的序列对 Unicode 代码点进行编码；UTF-32 即将每一个 Unicode 代码点表示为相同值的 32 位整数。</span></p>
+    <p><!-- raw HTML omitted -->字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ASCII 字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1．名称的由来<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ASCII（American Standard Code for Information Interchange，美国信息互换标准代码）是基于罗马字母表的一套电脑编码系统。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2．特点<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO 646。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3．包含内容<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->控制字符：回车键、退格、换行键等。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->可显示字符：英文大小写字符、阿拉伯数字和西文符号<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4．技术特征<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->7位（bits）表示一个字符，共128字符<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5．ASCII扩展字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ASCII扩展字符集比ASCII字符集扩充出来的符号包括表格符号、计算符号、希腊字母和特殊的拉丁符号。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB2312 字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1．名称的由来<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB2312又称为GB2312-80字符集，全称为《信息交换用汉字编码字符集·基本集》，由原中国国家标准总局发布，1981年5月1日实施。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2．特点<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB2312是中国国家标准的简体中文字符集。它所收录的汉字已经覆盖99.75%的使用频率，基本满足了汉字的计算机处理需要。在中国大陆和新加坡获广泛使用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3．包含内容<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB2312收录简化汉字及一般符号、序号、数字、拉丁字母、日文假名、希腊字母、俄文字母、汉语拼音符号、汉语注音字母，共 7445 个图形字符。其中包括6763个汉字，其中一级汉字3755个，二级汉字3008个；包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在 内的682个全角字符。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4．技术特征<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->（1）分区表示：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB2312中对所收汉字进行了“分区”处理，每区含有94个汉字/符号。这种表示方式也称为区位码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->各区包含的字符如下：01-09区为特殊符号；16-55区为一级汉字，按拼音排序；56-87区为二级汉字，按部首/笔画排序；10-15区及88-94区则未有编码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->（2）双字节表示<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->两个字节中前面的字节为第一字节，后面的字节为第二字节。习惯上称第一字节为“高字节” ，而称第二字节为“低字节”。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->“高位字节”使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“低位字节”使用了0xA1-0xFE(把01-94加上0xA0)。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5．编码举例<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->以GB2312字符集的第一个汉字“啊”字为例，它的区号16，位号01，则区位码是1601，在大多数计算机程序中，高字节和低字节分别加0xA0得到程序的汉字处理编码0xB0A1。计算公式是：0xB0=0xA0+16, 0xA1=0xA0+1。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->BIG5 字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1．名称的由来<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->又称大五码或五大码，1984年由台湾财团法人信息工业策进会和五间软件公司宏碁 (Acer)、神通 (MiTAC)、佳佳、零壹 (Zero One)、大众 (FIC)创立，故称大五码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Big5码的产生，是因为当时台湾不同厂商各自推出不同的编码，如倚天码、IBM PS55、王安码等，彼此不能兼容；另一方面，台湾政府当时尚未推出官方的汉字编码，而中国大陆的GB2312编码亦未有收录繁体中文字。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2．特点<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Big5字符集共收录13,053个中文字，该字符集在中国台湾使用。耐人寻味的是该字符集重复地收录了两个相同的字：“兀”(0xA461及0xC94A)、“嗀”(0xDCD1及0xDDFC)。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3．字符编码方法<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Big5码使用了双字节储存方法，以两个字节来编码一个字。第一个字节称为“高位字节”，第二个字节称为“低位字节”。高位字节的编码范围0xA1-0xF9，低位字节的编码范围0x40-0x7E及0xA1-0xFE。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->各编码范围对应的字符类型如下：0xA140-0xA3BF为标点符号、希腊字母及特殊符号，另外于0xA259-0xA261，存放了双音节度量 衡单位用字：兙兛兞兝兡兣嗧瓩糎；0xA440-0xC67E为常用汉字，先按笔划再按部首排序；0xC940-0xF9D5为次常用汉字，亦是先按笔划 再按部首排序。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4．Big5 的局限性<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->尽管Big5码内包含一万多个字符，但是没有考虑社会上流通的人名、地名用字、方言用字、化学及生物科等用字，没有包含日文平假名及片假名字母。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例如台湾视“着”为“著”的异体字，故没有收录“着”字。康熙字典中的一些部首用字(如“亠”、“疒”、“辵”、“癶”等)、常见的人名用字(如“堃”、“煊”、“栢”、“喆”等) 也没有收录到Big5之中。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB18030 字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1．名称的由来<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB 18030的全称是GB18030-2000《信息交换用汉字编码字符集基本集的扩充》，是我国政府于2000年3月17日发布的新的汉字编码国家标准，2001年8月31日后在中国市场上发布的软件必须符合本标准<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2．特点<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB 18030字符集标准的出台经过广泛参与和论证，来自国内外知名信息技术行业的公司，信息产业部和原国家质量技术监督局联合实施。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB 18030字符集标准解决汉字、日文假名、朝鲜语和中国少数民族文字组成的大字符集计算机编码问题。该标准的字符总编码空间超过150万个编码位，收录了 27484个汉字，覆盖中文、日文、朝鲜语和中国少数民族文字。满足中国大陆、香港、台湾、日本和韩国等东亚地区信息交换多文种、大字量、多用途、统一编 码格式的要求。并且与Unicode 3.0版本兼容，填补Unicode扩展字符字汇“统一汉字扩展A”的内容。并且与以前的国家字符编码标准（GB2312，GB13000.1）兼容。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3．编码方法<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GB 18030标准采用单字节、双字节和四字节三种方式对字符编码。单字节部分使用0×00至0×7F码(对应于ASCII码的相应码)。双字节部分，首字节 码从0×81至0×FE，尾字节码位分别是0×40至0×7E和0×80至0×FE。四字节部分采用GB/T 11383未采用的0×30到0×39作为对双字节编码扩充的后缀，这样扩充的四字节编码，其范围为0×81308130到0×FE39FE39。其中第 一、三个字节编码码位均为0×81至0×FE，第二、四个字节编码码位均为0×30至0×39。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4．包含的内容<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->双字节部分收录内容主要包括GB13000.1全部CJK汉字20902个、有关标点符号、表意文字描述符13个、增补的汉字和部首/构件80个、 双字节编码的欧元符号等。　　四字节部分收录了上述双字节字符之外的，包括CJK统一汉字扩充A在内的GB 13000.1中的全部字符。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Unicode字符集<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1．名称的由来<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Unicode字符集编码是Universal Multiple-Octet Coded Character Set 通用多八位编码字符集的简称，是由一个名为 Unicode 学术学会(Unicode Consortium)的机构制订的字符编码系统，支持现今世界各种不同语言的书面文本的交换、处理及显示。该编码于1990年开始研发，1994年正式 公布，最新版本是2005年3月31日的Unicode 4.1.0。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2．特征<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Unicode是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3．编码方法<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Unicode 标准始终使用十六进制数字，而且在书写时在前面加上前缀“U+”，例如字母“A”的编码为 004116 和字符“�”的编码为 20AC16。所以“A”的编码书写为“U+0041”。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4．UTF-8 编码<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->UTF-8是Unicode的其中一个使用方式。 UTF是 Unicode Translation Format，即把Unicode转做某种格式的意思。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->UTF-8便于不同的计算机之间使用网络传输不同语言和编码的文字，使得双字节的Unicode能够在现存的处理单字节的系统上正确传输。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->UTF-8使用可变长度字节来储存 Unicode字符，例如ASCII字母继续使用1字节储存，重音文字、希腊字母或西里尔字母等使用2字节来储存，而常用的汉字就要使用3字节。辅助平面字符则使用4字节。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5．UTF-16 和 UTF-32 编码<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->UTF-32、UTF-16 和 UTF-8 是 Unicode 标准的编码字符集的字符编码方案，UTF-16 使用一个或两个未分配的 16 位代码单元的序列对 Unicode 代码点进行编码；UTF-32 即将每一个 Unicode 代码点表示为相同值的 32 位整数。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/chinese_character_set" ></div>
@@ -572,7 +508,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -581,6 +517,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

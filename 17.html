@@ -4,7 +4,7 @@
   <head>
 <title>如何在zencart产品页下方增加随机产品列表 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php
-找到代码&lt;!&#8211;eof also purchased products module&#8211;&gt;在下方加入
-&lt;span …">
+<meta name="description" content="1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php找到代码&lt;!–eof also purchased products module–&gt;在下方加入">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="如何在zencart产品页下方增加随机产品列表" />
 <meta property="og:url" content="https://ifunbox.top/17.html" />
 <meta property="og:title" content="如何在zencart产品页下方增加随机产品列表" />
-<meta property="og:description" content="1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php
-找到代码&lt;!&#8211;eof also purchased products module&#8211;&gt;在下方加入
-&lt;span …" />
+<meta property="og:description" content="1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php找到代码&lt;!–eof also purchased products module–&gt;在下方加入" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,44 +160,9 @@
 </div>
 
     
-    <p><span style="font-size: medium;">1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php</span></p>
-
-<p><span style="font-size: medium;">找到代码&lt;!&#8211;eof also purchased products module&#8211;&gt;在下方加入</span></p>
-
-<p><pre><code class="php">
-&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;&lt;?php &lt;/span&gt;
-&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;require($template-&gt;get_template_dir(&lsquo;tpl_modules_whats_new.php&rsquo;,DIR_WS_TEMPLATE, $current_page_base,&lsquo;templates&rsquo;). &lsquo;/tpl_modules_whats_new.php&rsquo;);&lt;/span&gt;
-&lt;span style=&ldquo;font-size: medium;&ldquo;&gt;?&gt;&lt;/span&gt;</p>
-
-<pre><code>
-&lt;span style=&quot;font-size: medium;&quot;&gt;这里我们调用的是新产品的函数，所以&lt;strong&gt;zencart中产品页下方显示的是随机产品&lt;/strong&gt;。&lt;/span&gt;
-
-&lt;span style=&quot;font-size: medium;&quot;&gt;2.然后找到includes/templates/模板名/common/tpl_columnar_display.php用下面的代码覆盖这个文件下的代码&lt;/span&gt;
-
-&lt;pre&gt;&lt;code class=&quot;php&quot;&gt; 
-&lt;!--?php /** * Common Template - tpl_columnar_display.php * * This file is used for generating tabular output where needed, based on the supplied array of table-cell contents. * * @package templateSystem * @copyright Copyright 2003-2006 Zen Cart Development Team * @copyright Portions Copyright 2003 osCommerce * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0 * @version $Id: tpl_columnar_display.php 3157 2006-03-10 23:24:22Z drbyte $ */ ?--&gt;
-&gt; 0 ) {
-        $params = &quot;&quot;;
-        for($col=0;$col&amp;lt;3;$col++) {  //这边的3是显示zencart产品页下方随机产品数，默认是一行，所以就是一行三列的显示模式如果改成4就是一行4列，不过没有测试过。
-          $r_params = &quot;&quot;;
-          if (isset($list_box_contents[0][$col]['params'])) $r_params .= ' ' . (string)$list_box_contents[0][$col]['params'];
-            if (isset($list_box_contents[0][$col]['text'])) {
-                echo '' . $list_box_contents[0][$col]['text'] .  '' . &quot;\n&quot;; 
-            }
-        }
-    ?&amp;gt;
-    
-
-     0 ) {
-         for($row=0;$row' . $list_box_contents[$row][$col]['text'] .  '' . &quot;\n&quot;; 
-                 }
-            }
-?&amp;gt;
-&amp;lt;div' .=&quot;&quot; $r_params=&quot;&quot; '=&quot;&quot;&amp;gt;&amp;lt;sizeof($list_box_contents);$row++) {=&quot;&quot; $params=&quot;&quot; ;=&quot;&quot; if=&quot;&quot; (isset($list_box_contents[$row]['params']))=&quot;&quot; .=&quot; &quot; $list_box_contents[$row]['params'];=&quot;&quot; for($col=&quot;0;$col&amp;lt;sizeof($list_box_contents[$row]);$col++)&quot; $r_params=&quot;&quot; (isset($list_box_contents[$row][$col]['params']))=&quot;&quot; (string)$list_box_contents[$row][$col]['params'];=&quot;&quot; (isset($list_box_contents[$row][$col]['text']))=&quot;&quot; echo=&quot;&quot; '&amp;lt;div'=&quot;&quot; '=&quot;&quot;&amp;gt;
- 
-
-&lt;!--?php } } } ?--&gt;
-</code></pre>
+    <p><!-- raw HTML omitted -->1.首先找到文件includes/templates/模板名/templates/tpl_product_info_display.php<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->找到代码&lt;!–eof also purchased products module–&gt;在下方加入<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/17.html" ></div>
@@ -484,7 +445,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -493,6 +454,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

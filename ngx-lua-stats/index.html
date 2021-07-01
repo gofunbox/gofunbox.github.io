@@ -4,7 +4,7 @@
   <head>
 <title>通过ngx-lua来统计nginx上的虚拟主机性能数据 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,23 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
-用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
-1.几乎对原有项目代码分离
-2.性能佳
-3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
-4.可以统计 …">
+<meta name="description" content="最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。1.几乎对原有项目代码分离2.性能佳3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计4.可以统计 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="通过ngx-lua来统计nginx上的虚拟主机性能数据" />
 <meta property="og:url" content="https://ifunbox.top/ngx-lua-stats/" />
 <meta property="og:title" content="通过ngx-lua来统计nginx上的虚拟主机性能数据" />
-<meta property="og:description" content="最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
-用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
-1.几乎对原有项目代码分离
-2.性能佳
-3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
-4.可以统计 …" />
+<meta property="og:description" content="最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。1.几乎对原有项目代码分离2.性能佳3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计4.可以统计 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -46,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -174,22 +164,18 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。</span><br />
- <span style="font-size: 12pt;">用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。</span><br />
- <span style="font-size: 12pt;">1.几乎对原有项目代码分离</span><br />
- <span style="font-size: 12pt;">2.性能佳</span><br />
- <span style="font-size: 12pt;">3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计</span><br />
- <span style="font-size: 12pt;">4.可以统计与query-times、request-time、status-code、speed相关的数据</span><br />
- <span style="font-size: 12pt;">因为基于ngx-lua所以需要先安装环境，请移步<a href="https://ifunbox.top/nginx_install_lua-nginx-module" target="_blank" rel="noopener">Nginx安装lua-nginx-module模块</a></span><br />
- <span style="font-size: 12pt;">github这个项目<a href="https://github.com/initial5/ngx-lua-stats前辈们已给代码">https://github.com/initial5/ngx-lua-stats前辈们已给代码</a></span><br />
- <span style="font-size: 12pt;">使用方法就是在nginx.conf的http中配置加入</span></p>
-
+    <p><!-- raw HTML omitted -->最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1.几乎对原有项目代码分离<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2.性能佳<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->4.可以统计与query-times、request-time、status-code、speed相关的数据<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->因为基于ngx-lua所以需要先安装环境，请移步<!-- raw HTML omitted -->Nginx安装lua-nginx-module模块<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->使用方法就是在nginx.conf的http中配置加入<!-- raw HTML omitted --></p>
 <pre><code>lua_shared_dict log_dict 5M;
 lua_shared_dict result_dict 5M;
-</code></pre>
-
-<p><span style="font-size: 12pt;">然后在入口nginx上配置</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->然后在入口nginx上配置<!-- raw HTML omitted --></p>
 <pre><code>server {
 listen 80;
 server_name funboxpower.com;
@@ -201,11 +187,8 @@ proxy_pass http://funboxpower.com_backend;
 log_by_lua_file ./site-enable/record.lua;
 }
 }
-</code></pre>
-
-<p><span style="font-size: 12pt;">记得配upstream，否则之后用到的统计有关于upstream的值是出不来的，这个我还要进一步确认下</span><br />
- <span style="font-size: 12pt;">然后可以再配一个server</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->记得配upstream，否则之后用到的统计有关于upstream的值是出不来的，这个我还要进一步确认下<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->然后可以再配一个server<!-- raw HTML omitted --></p>
 <pre><code>server {
 listen 8080 default;
 server_name _;
@@ -219,20 +202,11 @@ location /empty_dict {
 content_by_lua_file ./site-enable/empty_dict.lua;
 }
 }
-</code></pre>
-
-<p><span style="font-size: 12pt;">配置好后，就可以通过如下命令获取</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->配置好后，就可以通过如下命令获取<!-- raw HTML omitted --></p>
 <pre><code>curl ip_addr:8080/status
-</code></pre>
-
-<p><span style="font-size: 12pt;">运行一段时间之后, 字典会变大. 可以通过如下接口清理</span></p>
-
-<pre><code class="language-curl"></code></pre>
-
-<p><span style="font-size: 12pt;">数据返回如下格式</span></p>
-
-<pre><code class="language---------------------------">key: funboxpower.com__upstream_time_10.0.3.32:8250_counter
+</code></pre><p><!-- raw HTML omitted -->运行一段时间之后, 字典会变大. 可以通过如下接口清理<!-- raw HTML omitted --></p>
+<pre><code class="language-curl" data-lang="curl"></code></pre><p><!-- raw HTML omitted -->数据返回如下格式<!-- raw HTML omitted --></p>
+<pre><code class="language---------------------------" data-lang="--------------------------">key: funboxpower.com__upstream_time_10.0.3.32:8250_counter
 0.375
 key: funboxpower.com__upstream_time_10.0.3.32:8250_nb_counter
 124
@@ -256,19 +230,16 @@ key: funboxpower.com__upstream_time_10.20.12.59:8250_nb_counter
 126
 key: funboxpower.com__bytes_sent_counter
 81500
-</code></pre>
-
-<p><span style="font-size: 12pt;">其中__用来分割虚拟主机(包含prefix)与后面的数据项，便于数据处理.</span><br />
- <span style="font-size: 12pt;">counter表示此值一直在累加</span><br />
- <span style="font-size: 12pt;">nb_counter表示次数</span><br />
- <span style="font-size: 12pt;">可以得到的数据包括: query次数 request_time bytes_sent upstream_time</span><br />
- <span style="font-size: 12pt;">其中</span><br />
- <span style="font-size: 12pt;">upstream_time_10.20.12.49:8250_counter 表示到某个特定后端的upstream_time耗时累加</span><br />
- <span style="font-size: 12pt;">upstream_time_10.20.12.49:8250_nb_counter 表示到到某个特定后端的upstream_time次数累加</span></p>
-
-<p><span style="font-size: 12pt;">数据处理，delta不明白啥意思，先记录</span><br />
-<span style="font-size: 12pt;">delta(bytes_sent_counter)/delta(query_counter) 得到就是这段时间的http传输速度</span><br />
- <span style="font-size: 12pt;">delta(upstream_time_10.20.12.49:8250_counter)/delta(upstream_time_10.20.12.49:8250_nb_counter) 得到的就是这个后端upstream_time的平均值</span></p>
+</code></pre><p><!-- raw HTML omitted -->其中__用来分割虚拟主机(包含prefix)与后面的数据项，便于数据处理.<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->counter表示此值一直在累加<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->nb_counter表示次数<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以得到的数据包括: query次数 request_time bytes_sent upstream_time<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->其中<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->upstream_time_10.20.12.49:8250_counter 表示到某个特定后端的upstream_time耗时累加<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->upstream_time_10.20.12.49:8250_nb_counter 表示到到某个特定后端的upstream_time次数累加<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->数据处理，delta不明白啥意思，先记录<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delta(bytes_sent_counter)/delta(query_counter) 得到就是这段时间的http传输速度<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delta(upstream_time_10.20.12.49:8250_counter)/delta(upstream_time_10.20.12.49:8250_nb_counter) 得到的就是这个后端upstream_time的平均值<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/ngx-lua-stats" ></div>
@@ -551,7 +522,7 @@ key: funboxpower.com__bytes_sent_counter
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -560,6 +531,7 @@ key: funboxpower.com__bytes_sent_counter
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

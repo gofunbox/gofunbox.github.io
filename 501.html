@@ -4,7 +4,7 @@
   <head>
 <title>在xp、apache环境中安装PHP Mcrypt.so加密扩展库教程 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。
-其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。
-更重要的是ShopEX更新需 …">
+<meta name="description" content="PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。更重要的是ShopEX更新需要Mcrypt …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="在xp、apache环境中安装PHP Mcrypt.so加密扩展库教程" />
 <meta property="og:url" content="https://ifunbox.top/501.html" />
 <meta property="og:title" content="在xp、apache环境中安装PHP Mcrypt.so加密扩展库教程" />
-<meta property="og:description" content="PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。
-其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。
-更重要的是ShopEX更新需 …" />
+<meta property="og:description" content="PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。更重要的是ShopEX更新需要Mcrypt …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,23 +160,15 @@
 </div>
 
     
-    <p><span style="font-size: medium;">PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。</span></p>
-
-<p><span style="font-size: medium;">其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。</span></p>
-
-<p><span style="font-size: medium;">更重要的是ShopEX更新需要Mcrypt加密扩展库的支持~~</span></p>
-
-<p><span style="font-size: medium;">在标准的PHP安装过程中并没有把Mrcypt安装上，但PHP的主目录下包含了libmcrypt.dll和libmhash.dll文件。</span></p>
-
-<p><span style="font-size: medium;">1.将libmcrypt.dll复制到system32目录下</span></p>
-
-<p><span style="font-size: medium;">2.将libmcrypt.dll复制到apache安装目录的bin目录下 </span></p>
-
-<p><span style="font-size: medium;">3.在 PHP.ini文件中按Ctrl+F快捷键跳出查找框，并找到;extension=php-mcrypt.dll和; extension=php_mhash.dll这两个语句，接着将前面的“;”去掉；</span></p>
-
-<p><span style="font-size: medium;">4.最后，保存并重启Apache服务器即可生效。</span></p>
-
-<p><span style="font-size: medium;">linux上安装比较复杂，与xp安装不同，在win7上用此种方法安装貌似会失效，原因不详~~</span></p>
+    <p><!-- raw HTML omitted -->PHP程序员们在编写代码程序时，除了要保证代码的高性能之外，还有一点是非常重要的，那就是程序的安全性保障。PHP除了自带的几种加密函数外，还有功能更全面的PHP加密扩展库Mcrypt和Mhash。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其中，Mcrypt扩展库可以实现加密解密功能，就是既能将明文加密，也可以密文还原。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->更重要的是ShopEX更新需要Mcrypt加密扩展库的支持~~<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在标准的PHP安装过程中并没有把Mrcypt安装上，但PHP的主目录下包含了libmcrypt.dll和libmhash.dll文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.将libmcrypt.dll复制到system32目录下<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2.将libmcrypt.dll复制到apache安装目录的bin目录下 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.在 PHP.ini文件中按Ctrl+F快捷键跳出查找框，并找到;extension=php-mcrypt.dll和; extension=php_mhash.dll这两个语句，接着将前面的“;”去掉；<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4.最后，保存并重启Apache服务器即可生效。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->linux上安装比较复杂，与xp安装不同，在win7上用此种方法安装貌似会失效，原因不详~~<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/501.html" ></div>
@@ -463,7 +451,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -472,6 +460,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

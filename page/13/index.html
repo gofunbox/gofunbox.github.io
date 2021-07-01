@@ -4,7 +4,7 @@
   <head>
 <title>Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -75,10 +75,10 @@
       
         
 
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">主页 </a>
   </div>
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">真香链接 <img src='https://ifunbox.top/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -148,7 +148,9 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">前言  本规范由编程原则组成，融合并提炼了开发人员长时间积累下来的成熟经验，意在帮助形成良好一致的编程风格。  适用范围  如无特殊说明，以下规则要求完全适用于Discuz!项目，同时也可大部分适用于COMSENZ旗下其他PHP项目。  标准化的重要性和好处  当一个软件项目尝试着遵守公共一致的标准时，可以使参与项目的开发人员更容易了解项目中的代码、弄清程序的状况。使新的参与者可以很快的适应环境，防止部分参与者出于节省时间的需要，自创一套风格并养成终生的习惯，导致其它人在阅读时浪费过多的时间和精力。而且在一致的环境下，也可以减少编码出错的机会。缺陷是由于每个人的标准不同，所以需要一段时间来适应和改变自己的编码风格，暂时性的降底了工作 …</p>
+          <p class="pale">前言 : 本规范由编程原则组成，融合并提炼了开发人员长时间积累下来的成熟经验，意在帮助形成良好一致的编程风格。
+适用范围 : 如无特殊说明，以下规则要求完全适用于Discuz!项目，同时也可大部分适用于COMSENZ旗下其他PHP项目。
+标准化的重要性和好处 : 当一个软件项目尝试着遵守公共一致的标准时，可以使参与项目的开发人员更容易了解项目中的代码、弄清程序的状况。使新的参与者可以很快的适应环境，防止部分参与者出于节省时间的需要，自创一套风格并养成终生的习惯，导致其它人在阅读时浪费过多的时间和精力。而且在一致的环境下，也可以减少编码出错的机会。缺陷是由于每个人的标准不同，所以需要一段时间来适应和改变自己的编码风格，暂时性的降底了工 …</p>
           <a href="https://ifunbox.top/463.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -172,12 +174,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">01、SVN Checkout(SVN取出)
-点击SVN Checkout，弹出检出提示框，在URL of repository输入框中输入服务器仓库地址，在Checkout directory输入框中输入本地工作拷贝的路径，点击确定，即可检出服务器上的配置库。
-02、SVN Update(SVN更新)
-如果配置库在本地已有工作拷贝，则取得最新版本只是执行SVN Update即可，点击SVN Update，系统弹出更新提示框，点击确定，则把服务器是最新版本更新下来
-03、Import（导入）
-选择要提交到服务器的目录，右键选择TortoiseSVN&#8212;-Import，系统弹出导入提示框，在URL of repository …</p>
+          <p class="pale">01、SVN Checkout(SVN取出)点击SVN Checkout，弹出检出提示框，在URL of repository输入框中输入服务器仓库地址，在Checkout directory输入框中输入本地工作拷贝的路径，点击确定，即可检出服务器上的配置库。02、SVN Update(SVN更新)如果配置库在本地已有工作拷贝，则取得最新版本只是执行SVN Update即可，点击SVN Update，系统弹出更新提示框，点击确定，则把服务器是最新版本更新下来03、Import（导入）选择要提交到服务器的目录，右键选择TortoiseSVN—-Import，系统弹出导入提示框，在URL of repository输入框中输入服务器仓库 …</p>
           <a href="https://ifunbox.top/459.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -201,7 +198,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">Shopex是一个比较成熟、优秀的网店销售平台。由于该系统在国内使用的普遍性，也成为黑客攻击的目标，也由于该系统的特殊性，网站数据安全就显非常重要，网站一旦被黑，不仅会影响正常的营业时间，而且还会危及到客户数据、交易数据的安全。 关于Shopex网店系统的安全设置使用的教程还非常少，官方网站上也没有专门的针对shopex网站安全使用设置有一个明确的教程， 那怎么设置shopex才能最大限度的保障网站安全呢？ 本人特为各位老板提点小小的建议。 1、 密码保护。不要为了方便登录，而使用简单密码。请设置字母加数字加特殊符号为组合的复杂密码，这样就大大增加了黑客的破解MD5密码的难度。 2、 如果你的网站出现问题或者功能开发的要求，需要维 …</p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/451.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -225,12 +222,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多
-ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中
-ab是专门用于HTTP Server的benchmark testing，可以同时模拟多个并发请求
-ab的设计意图是描绘当前所安装的Apache的执行性能,主要是显示所安装的Apache每秒可以处理多少个请求
-ab不像LR那么强大,但它足够轻便,若只是在开发过程中想检查一下某个模块的响应情况，或者做一些场景比较简单的测试，ab是个不错的选择
-至少不用花 …</p>
+          <p class="pale">ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中ab是专门用于HTTP Server的benchmark testing，可以同时模拟多个并发请求ab的设计意图是描绘当前所安装的Apache的执行性能,主要是显示所安装的Apache每秒可以处理多少个请求ab不像LR那么强大,但它足够轻便,若只是在开发过程中想检查一下某个模块的响应情况，或者做一些场景比较简单的测试，ab是个不错的选择至少不用花费很多时间 …</p>
           <a href="https://ifunbox.top/windows-apache-ab/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -254,8 +246,7 @@ ab不像LR那么强大,但它足够轻便,若只是在开发过程中想检查�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下
-function other_login_verify(){ $sign = $_GET['sign']; unset($_GET['passport-other_login_verify_html']); unset($_GET['passport-1-other_login_verify_html']); unset($_GET['sign']); $make_sign = …</p>
+          <p class="pale">云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下function other_login_verify(){ $sign = $_GET['sign']; unset($_GET['passport-other_login_verify_html']); unset($_GET['passport-1-other_login_verify_html']); unset($_GET['sign']); $make_sign = …</p>
           <a href="https://ifunbox.top/432.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -279,13 +270,7 @@ function other_login_verify(){ $sign = $_GET['sign']; unset($_GET['passport-othe
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。
-咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。
-1.备份shopex数据库，文件。这个是必须的啦。
-2.进入数据库删除数据表sdb_settings下的s_name字段值为enterprise的记录
-3.上传最新的core，然后上传最新的shopex短信通安装包。
-4.重新安装shopex短信通功能，如果您的后台改了地址，需要改成shopadmin。
-5.在配置文件中禁掉二次开发的目录，然后登陆后台，系统会提示输入shopexid以及密码重新安装shopex短信通功能。安装 …</p>
+          <p class="pale">最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。1.备份shopex数据库，文件。这个是必须的啦。2.进入数据库删除数据表sdb_settings下的s_name字段值为enterprise的记录3.上传最新的core，然后上传最新的shopex短信通安装包。4.重新安装shopex短信通功能，如果您的后台改了地址，需要改成shopadmin。5.在配置文件中禁掉二次开发的目录，然后登陆后台，系统会提示输入shopexid以及密码重新安装shopex短信通功能。安装成功后，一 …</p>
           <a href="https://ifunbox.top/421.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -334,12 +319,7 @@ function other_login_verify(){ $sign = $_GET['sign']; unset($_GET['passport-othe
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">以wordpress数据库表为例。
-1、先登入你的phpmyadmin中，选中你的wordpress数据库,选择sql出现如下图，然后输入sql命令
-Select CONCAT(&#8216;ALTER TABLE &#8216;, table_name, &#8216; RENAME TO &#8216;, table_name,&#8217;;&#8217; ) FROM information_schema.tables Where tablename LIKE &#8216;wp%&#8217;; 
-得到结果：
-ALTER TABLE wp_xyz RENAME TO wp_xyz;
-ALTER TABLE wp_opq …</p>
+          <p class="pale">以wordpress数据库表为例。1、先登入你的phpmyadmin中，选中你的wordpress数据库,选择sql出现如下图，然后输入sql命令Select CONCAT(‘ALTER TABLE ‘, table_name, ‘ RENAME TO ‘, table_name,’;’ ) FROM information_schema.tables Where table_name LIKE ‘wp_%’; 得到结果：ALTER TABLE wp_xyz RENAME TO wp_xyz;ALTER TABLE wp_opq RENAME TO wp_opq; (假设数据里有两个表： wp_xyz 、 wp_opq，前缀都是wp …</p>
           <a href="https://ifunbox.top/404.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -364,8 +344,7 @@ ALTER TABLE wp_opq …</p>
       <div class="excerpt_footer">
         <div>
           <p class="pale">Zen Cart 138 在PHP5.3环境下出现的Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line 1481错误的解决方法
-Zen Cart是一个比较流行的商城，尤其适合做外贸朋友，但当我们把PHP环境升级到PHP5.3的时候，Zen Cart就无法运行，并出现以下错误了：
-Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line …</p>
+Zen Cart是一个比较流行的商城，尤其适合做外贸朋友，但当我们把PHP环境升级到PHP5.3的时候，Zen Cart就无法运行，并出现以下错误了：Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functions_general.php on line …</p>
           <a href="https://ifunbox.top/398.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -389,12 +368,7 @@ Fatal error: Cannot redeclare date_diff() in /zencart/includes/functions/functio
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">总结一下最近使用phpexcel类导出excel 文件时遇到的问题，主要包括三大类：
-1.导出时提示找不到文件怎么办？
-2.导出excel时中文出现乱码的问题。
-3.导出数据量大时，提示内存超过最大值或者运行时间超时的问题。
-先看下phpexcel常用的方法总结（摘录自zeal_blog:http://www.zeali.net/entry/556）
-getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balliauw") -setTitle("Office 2007 XLSX Test Document") …</p>
+          <p class="pale">总结一下最近使用phpexcel类导出excel 文件时遇到的问题，主要包括三大类：1.导出时提示找不到文件怎么办？2.导出excel时中文出现乱码的问题。3.导出数据量大时，提示内存超过最大值或者运行时间超时的问题。先看下phpexcel常用的方法总结（摘录自zeal_blog:http://www.zeali.net/entry/556）使用时常见的问题总结：1.关于提示找不到文件的问题：原因可能有：缓冲区没有打开或者mb_overlod_func函数没有关闭，解决这个问题的最好办法是把php.ini中display_errors打开，下载文件，打开后会提示相应错误信息。若是后者，则需要打开php.ini文件，找 …</p>
           <a href="https://ifunbox.top/389.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -402,207 +376,46 @@ getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balli
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/page/12/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/12/">12</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/page/13/">13</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/14/">14</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/12/">12</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/13/">13</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/14/">14</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/page/14/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -873,7 +686,7 @@ getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balli
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -882,6 +695,7 @@ getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balli
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

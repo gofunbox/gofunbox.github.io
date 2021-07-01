@@ -4,7 +4,7 @@
   <head>
 <title>Nginx安装lua-nginx-module模块 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -40,12 +40,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -168,55 +168,35 @@
 </div>
 
     
-    <p>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，<a href="http://openresty.org/cn/installation.html">http://openresty.org/cn/installation.html</a></p>
-
+    <p>如果是还没有安装nginx的小伙伴可以直接下载openresty安装简单快捷，http://openresty.org/cn/installation.html</p>
 <p>安装了nginx的小伙伴就继续往下看咯~</p>
-
-<p>1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）<br />
+<p>1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）<br>
 <a href="http://luajit.org/download.html">http://luajit.org/download.html</a></p>
-
 <pre><code>wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz
 tar zxf LuaJIT-2.1.0-beta2.tar.gz
 cd LuaJIT-2.1.0-beta2
 make PREFIX=/usr/local/luajit
 make install PREFIX=/usr/local/luajit
-</code></pre>
-
-<p>2.下载最新的ngx_devel_kit（NDK）模块<br />
-<a href="https://github.com/simpl/ngx_devel_kit/tags">https://github.com/simpl/ngx_devel_kit/tags</a></p>
-
+</code></pre><p>2.下载最新的ngx_devel_kit（NDK）模块<br>
+<a href="https://github.com/simpl/ngx">https://github.com/simpl/ngx</a>_devel_kit/tags</p>
 <pre><code>wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
 tar -xzvf v0.2.19.tar.gz
-</code></pre>
-
-<p>3.下载最新的lua-nginx-module 模块<br />
+</code></pre><p>3.下载最新的lua-nginx-module 模块<br>
 <a href="https://github.com/openresty/lua-nginx-module/tags">https://github.com/openresty/lua-nginx-module/tags</a></p>
-
-<pre><code class="language-wget">tar -xzvf v0.10.2.tar.gz
-</code></pre>
-
-<p>nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦</p>
-
-<pre><code class="language-#">export LUAJIT_LIB=/usr/local/luajit/lib
+<pre><code class="language-wget" data-lang="wget">tar -xzvf v0.10.2.tar.gz
+</code></pre><p>nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦</p>
+<pre><code class="language-#" data-lang="#">export LUAJIT_LIB=/usr/local/luajit/lib
 export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1
-</code></pre>
-
-<p>nginx -V看下之前的安装都带了哪些参数</p>
-
-<pre><code class="language-./configure">--add-module后参数路径根据解压路径为准
+</code></pre><p>nginx -V看下之前的安装都带了哪些参数</p>
+<pre><code class="language-./configure" data-lang="./configure">--add-module后参数路径根据解压路径为准
 make -j2
 make install
-</code></pre>
-
-<p>4.验证lua-nginx-module安装是否成功<br />
+</code></pre><p>4.验证lua-nginx-module安装是否成功<br>
 在nginx下配置</p>
-
-<pre><code class="language-location">      default_type 'text/plain'; 
+<pre><code class="language-location" data-lang="location">      default_type 'text/plain'; 
       content_by_lua 'ngx.say(&quot;hello, lua&quot;)'; 
 }
-</code></pre>
-
-<p>访问显示hello, lua说明lua-nginx-module安装成功了~~~</p>
+</code></pre><p>访问显示hello, lua说明lua-nginx-module安装成功了~~~</p>
 
     
       <div id="SOHUCS" sid="/nginx_install_lua-nginx-module" ></div>
@@ -499,7 +479,7 @@ make install
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -508,6 +488,7 @@ make install
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

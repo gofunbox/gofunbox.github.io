@@ -4,7 +4,7 @@
   <head>
 <title>PHP基于PHP QR Code生成带不失真logo二维码 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,23 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近项目要搞一个生成带logo二维码的接口
-google了下有一个超级强大的二维码库PHP QR Code
-这里有供快速上手的例子，个人认为不太容易懂http://phpqrcode.sourceforge.net/examples/index.php
-找了半天貌似官方库，没有一个二维码中间加logo的功能
-给跪了
-网 …">
+<meta name="description" content="最近项目要搞一个生成带logo二维码的接口google了下有一个超级强大的二维码库PHP QR Code这里有供快速上手的例子，个人认为不太容易懂http://phpqrcode.sourceforge.net/examples/index.php找了半天貌似官方库，没有一个二维码中间加logo的功能给跪了网上再次搜索 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="PHP基于PHP QR Code生成带不失真logo二维码" />
 <meta property="og:url" content="https://ifunbox.top/php_generate_qrcode_logo/" />
 <meta property="og:title" content="PHP基于PHP QR Code生成带不失真logo二维码" />
-<meta property="og:description" content="最近项目要搞一个生成带logo二维码的接口
-google了下有一个超级强大的二维码库PHP QR Code
-这里有供快速上手的例子，个人认为不太容易懂http://phpqrcode.sourceforge.net/examples/index.php
-找了半天貌似官方库，没有一个二维码中间加logo的功能
-给跪了
-网 …" />
+<meta property="og:description" content="最近项目要搞一个生成带logo二维码的接口google了下有一个超级强大的二维码库PHP QR Code这里有供快速上手的例子，个人认为不太容易懂http://phpqrcode.sourceforge.net/examples/index.php找了半天貌似官方库，没有一个二维码中间加logo的功能给跪了网上再次搜索 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -46,12 +36,12 @@ google了下有一个超级强大的二维码库PHP QR Code
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,18 +160,12 @@ google了下有一个超级强大的二维码库PHP QR Code
 </div>
 
     
-    <p><span style="font-size: 12pt;">最近项目要搞一个生成带logo二维码的接口</span></p>
-
-<p><span style="font-size: 12pt;">google了下有一个超级强大的二维码库<a href="http://phpqrcode.sourceforge.net/" target="_blank">PHP QR Code</a></span></p>
-
-<p><span style="font-size: 12pt;">这里有供快速上手的例子，个人认为不太容易懂<a href="http://phpqrcode.sourceforge.net/examples/index.php" target="_blank"><a href="http://phpqrcode.sourceforge.net/examples/index.php">http://phpqrcode.sourceforge.net/examples/index.php</a></a></span></p>
-
-<p><span style="font-size: 12pt;">找了半天貌似官方库，没有一个二维码中间加logo的功能</span></p>
-
-<p><span style="font-size: 12pt;">给跪了</span></p>
-
-<p><span style="font-size: 12pt;">网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。</span></p>
-
+    <p><!-- raw HTML omitted -->最近项目要搞一个生成带logo二维码的接口<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->google了下有一个超级强大的二维码库<!-- raw HTML omitted -->PHP QR Code<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这里有供快速上手的例子，个人认为不太容易懂<!-- raw HTML omitted --><a href="http://phpqrcode.sourceforge.net/examples/index.php">http://phpqrcode.sourceforge.net/examples/index.php</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->找了半天貌似官方库，没有一个二维码中间加logo的功能<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->给跪了<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->网上再次搜索了下大部分都是这类代码，用了一下logo都失真了。<!-- raw HTML omitted --></p>
 <pre><code>$text = 'http://www.funboxpower.com';
 $logo = &quot;i/logo.png&quot;; //加的logo可以是本地路径也可以是网址
 
@@ -208,13 +192,9 @@ if ($logo !== FALSE) {
 header(&quot;Content-type: image/png&quot;); 
 imagepng($QR);   
 imagedestroy($QR);
-</code></pre>
-
-<p><span style="font-size: 12pt;">查了涉及到的相关php自带函数，发现是imagecopyresampled的原因，图片合并后的质量会被$OR影响</span></p>
-
-<p><span style="font-size: 12pt;">那就查看生成二维码的代码，果然QRimage类下的方法image下由两处地方生成图片都用<span class="refname">imagecreate，将其改为<span class="refname">imagecreatetruecolor</span>，这样就会生成不失真logo的二维码图片咯。</span></span></p>
-
-<p><span style="font-size: 12pt;"> 代码有些不足就是总是要存一次没有加logo的二维码，然后在读出来，下次再研究吧，phpqrcode应该可以输出图片流吧。。。。<br /> </span></p>
+</code></pre><p><!-- raw HTML omitted -->查了涉及到的相关php自带函数，发现是imagecopyresampled的原因，图片合并后的质量会被$OR影响<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->那就查看生成二维码的代码，果然QRimage类下的方法image下由两处地方生成图片都用<!-- raw HTML omitted -->imagecreate，将其改为<!-- raw HTML omitted -->imagecreatetruecolor<!-- raw HTML omitted -->，这样就会生成不失真logo的二维码图片咯。<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> 代码有些不足就是总是要存一次没有加logo的二维码，然后在读出来，下次再研究吧，phpqrcode应该可以输出图片流吧。。。。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/php_generate_qrcode_logo" ></div>
@@ -497,7 +477,7 @@ imagedestroy($QR);
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -506,6 +486,7 @@ imagedestroy($QR);
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

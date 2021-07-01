@@ -4,7 +4,7 @@
   <head>
 <title>ShopNC | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,15 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">今天在阿里云+RDS环境下安装shopnc B2B2C
-确保已经创建了数据库，以及授权操作用户的情况下
-还报错了OPERATION need to be executed set by ADMIN的错误
-解决方法如下
-找到/shop/install/index.php
-将126行的$install_error = mysql_error();return ; 注释掉就可以顺利跑过了
-还有一个问题安装输入的数据库主机地址被限制20个字符，用firebug手动修改下maxlength即可。
-&nbsp;
-&nbsp;</p>
+          <p class="pale">今天在阿里云+RDS环境下安装shopnc B2B2C确保已经创建了数据库，以及授权操作用户的情况下还报错了OPERATION need to be executed set by ADMIN的错误解决方法如下找到/shop/install/index.php将126行的$install_error = mysql_error();return ; 注释掉就可以顺利跑过了还有一个问题安装输入的数据库主机地址被限制20个字符，用firebug手动修改下maxlength即可。  </p>
           <a href="https://ifunbox.top/shopnc_b2b2c_operation_need_to_be_executed_set_by_admin/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -175,13 +167,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">验证码若出现问题可尝试以下办法：
-1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉
-2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存
-3. 查看cache目录是否有写权限（升级后有时会出现目录权限被更改的情况）
-4. 删除 cache/setting.php 文件 ，然后再运行(多发生于升级的情况)
-5. 打开数据库表setting，找到name为 subdomain_suffix的行，查看对应的value，
-如果为空，则无误，如果不为空，查看是否正确(假设域名 …</p>
+          <p class="pale">验证码若出现问题可尝试以下办法：1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存3. 查看cache目录是否有写权限（升级后有时会出现目录权限被更改的情况）4. 删除 cache/setting.php 文件 ，然后再运行(多发生于升级的情况)5. 打开数据库表setting，找到name为 subdomain_suffix的行，查看对应的value，如果为空，则无误，如果不为空，查看是否正确(假设域名 …</p>
           <a href="https://ifunbox.top/shopnc_captcha_error/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -205,17 +191,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">api\payment下每一个文件夹都对应一个支付接口，如alipay是支付宝
-api\payment\payment.inc.php里面配置当前在使用的支付接口，新建一个支付接口也需要配置
-以alipay为例，简单的介绍一下shopnc的支付接口
-logo.gif支付方式图标
-alipay.php接口类
-info.php接口配置信息
-notify_url.php异步返回
-return_url.php同步通知
-alipay.php接口类中的方法get_payurl()是构造以get的方式传值支付链接(注有是用POST传值可以参考网银在线接口)
-处理返回的数据：
-通过notify_url.php调用了控制类payment.php …</p>
+          <p class="pale">api\payment下每一个文件夹都对应一个支付接口，如alipay是支付宝api\payment\payment.inc.php里面配置当前在使用的支付接口，新建一个支付接口也需要配置以alipay为例，简单的介绍一下shopnc的支付接口logo.gif支付方式图标alipay.php接口类info.php接口配置信息notify_url.php异步返回return_url.php同步通知alipay.php接口类中的方法get_payurl()是构造以get的方式传值支付链接(注有是用POST传值可以参考网银在线接口)处理返回的数据：通过notify_url.php调用了控制类payment.php的notify()方法，该 …</p>
           <a href="https://ifunbox.top/485.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -492,7 +468,7 @@ alipay.php接口类中的方法get_payurl()是构造以get的方式传值支付�
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -501,6 +477,7 @@ alipay.php接口类中的方法get_payurl()是构造以get的方式传值支付�
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

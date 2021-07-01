@@ -4,7 +4,7 @@
   <head>
 <title>PHP性能分析工具-xhprof扩展的安装以及使用 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,13 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集 …">
+<meta name="description" content="简述 安装 % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="PHP性能分析工具-xhprof扩展的安装以及使用" />
 <meta property="og:url" content="https://ifunbox.top/xhprof_php_analysis_tool/" />
 <meta property="og:title" content="PHP性能分析工具-xhprof扩展的安装以及使用" />
-<meta property="og:description" content="简述 XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集 …" />
+<meta property="og:description" content="简述 安装 % wget http://pecl.php.net/get/xhprof-0.9.4.tgz % tar zxf xhprof-0.9.4.tgz % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/ % phpize % ./configure …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,30 +160,17 @@
 </div>
 
     
-    
-
-<h2 id="简述">简述</h2>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">XHProf是一个分层PHP性能分析工具。它报告函数级别的请求次数和各种指标，包括阻塞时间，CPU时间和内存使用情况。一个函数的开销，可细分成调用者和被调用者的开销，XHProf数据收集阶段，它记录调用次数的追踪和包容性的指标弧在动态callgraph的一个程序。它独有的数 据计算的报告/后处理阶段。在数据收集时，XHProf通过检测循环来处理递归的函数调用，并通过给递归调用中每个深度的调用一个有用的命名来避开死循 环。XHProf分析报告有助于理解被执行的代码的结构，它有一个简单的HTML的用户界面（ PHP写成的）。基于浏览器的性能分析用户界面能更容易查看，或是与同行们分享成果。也能绘制调用关系图。</span>
-</p>
-
+    <h2 id="简述">简述</h2>
+<!-- raw HTML omitted -->
 <h2 id="安装">安装</h2>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">xhprof扩展的安装：</span>
-</p>
-
+<!-- raw HTML omitted -->
 <pre><code>% wget http://pecl.php.net/get/xhprof-0.9.4.tgz
 % tar zxf xhprof-0.9.4.tgz
 % cd &amp;lt;xhprof_source_directory&amp;gt;/extension/
 % phpize
 % ./configure --with-php-config=&amp;lt;path to php-config&amp;gt;
 % make &amp;&amp; make install
-</code></pre>
-
-<p><span style="font-size: medium;">修改php.ini最后面加入</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->修改php.ini最后面加入<!-- raw HTML omitted --></p>
 <pre><code>[xhprof]
 extension=xhprof.so
 ;
@@ -193,29 +180,15 @@ extension=xhprof.so
 ;
 xhprof.output_dir=&amp;lt;directory_for_storing_xhprof_runs&amp;gt; //日志路径需要修改 记得给写权限
 % php-fpm reload //重启一下fpm
-</code></pre>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">Graphviz安装（这个主要是画图需要的库）</span>
-</p>
-
+</code></pre><!-- raw HTML omitted -->
 <pre><code>% wget http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz
 % tar zxf graphviz-2.24.0.tar.gz
 % cd graphviz-2.24.0
 % ./configure
 % make &amp;&amp; make install
-</code></pre>
-
-<h2 id="使用分析">使用分析</h2>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">复制安装包下的xhprof_html、xhprof_lib文件夹到网站根目录内</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">然后在系统入口文件中加入</span>
-</p>
-
+</code></pre><h2 id="使用分析">使用分析</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>if(function_exists('xhprof_enable')){
 	//if (mt_rand(1, 1000) == 1) { 生产环境中开启
 	$xhprof_on = true;
@@ -234,36 +207,32 @@ if ($xhprof_on) {
 	// save the run under a namespace &quot;xhprof_foo&quot;
 	$run_id = $xhprof_runs-&amp;gt;save_run($xhprof_data, &quot;xhprof_foo&quot;);
 }
-</code></pre>
-
-<p><span style="font-size: medium;">访问域名，然后访问域名/xhprof_html/就可以看到屌爆了的报表了！</span></p>
-
-<p><span style="font-size: medium;">【相关解释】</span><br />
- <span style="font-size: medium;">Inclusive Time (或子树时间)：包括子函数所有执行时间。</span><br />
- <span style="font-size: medium;">Exclusive Time/Self Time：函数执行本身花费的时间，不包括子树执行时间。</span><br />
- <span style="font-size: medium;">Wall时间：花去了的时间或挂钟时间。</span><br />
- <span style="font-size: medium;">CPU时间：用户耗的时间+内核耗的时间</span></p>
-
-<p><span style="font-size: medium;">Function Name 函数名</span><br />
- <span style="font-size: medium;">Calls 调用次数</span><br />
- <span style="font-size: medium;">Calls% 调用百分比</span><br />
- <span style="font-size: medium;">Incl. Wall Time (microsec) 调用的包括子函数所有花费时间 以微秒算(一百万分之一秒)</span><br />
- <span style="font-size: medium;">IWall% 调用的包括子函数所有花费时间的百分比</span><br />
- <span style="font-size: medium;">Excl. Wall Time (microsec) 函数执行本身花费的时间，不包括子树执行时间,以微秒算(一百万分之一秒)</span><br />
- <span style="font-size: medium;">EWall% 函数执行本身花费的时间的百分比，不包括子树执行时间</span><br />
- <span style="font-size: medium;">Incl. CPU(microsecs) 调用的包括子函数所有花费的cpu时间。减Incl. Wall Time即为等待cpu的时间</span><br />
- <span style="font-size: medium;">减Excl. Wall Time即为等待cpu的时间</span><br />
- <span style="font-size: medium;">ICpu% Incl. CPU(microsecs)的百分比</span><br />
- <span style="font-size: medium;">Excl. CPU(microsec) 函数执行本身花费的cpu时间，不包括子树执行时间,以微秒算(一百万分之一秒)。</span><br />
- <span style="font-size: medium;">ECPU% Excl. CPU(microsec)的百分比</span><br />
- <span style="font-size: medium;">Incl.MemUse(bytes) 包括子函数执行使用的内存。</span><br />
- <span style="font-size: medium;">IMemUse% Incl.MemUse(bytes)的百分比</span><br />
- <span style="font-size: medium;">Excl.MemUse(bytes) 函数执行本身内存,以字节算</span><br />
- <span style="font-size: medium;">EMemUse% Excl.MemUse(bytes)的百分比</span><br />
- <span style="font-size: medium;">Incl.PeakMemUse(bytes) Incl.MemUse的峰值</span><br />
- <span style="font-size: medium;">IPeakMemUse% Incl.PeakMemUse(bytes) 的峰值百分比</span><br />
- <span style="font-size: medium;">Excl.PeakMemUse(bytes) Excl.MemUse的峰值</span><br />
- <span style="font-size: medium;">EPeakMemUse% EMemUse% 峰值百分比</span></p>
+</code></pre><p><!-- raw HTML omitted -->访问域名，然后访问域名/xhprof_html/就可以看到屌爆了的报表了！<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->【相关解释】<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Inclusive Time (或子树时间)：包括子函数所有执行时间。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Exclusive Time/Self Time：函数执行本身花费的时间，不包括子树执行时间。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Wall时间：花去了的时间或挂钟时间。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->CPU时间：用户耗的时间+内核耗的时间<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Function Name 函数名<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Calls 调用次数<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Calls% 调用百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Incl. Wall Time (microsec) 调用的包括子函数所有花费时间 以微秒算(一百万分之一秒)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->IWall% 调用的包括子函数所有花费时间的百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Excl. Wall Time (microsec) 函数执行本身花费的时间，不包括子树执行时间,以微秒算(一百万分之一秒)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EWall% 函数执行本身花费的时间的百分比，不包括子树执行时间<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Incl. CPU(microsecs) 调用的包括子函数所有花费的cpu时间。减Incl. Wall Time即为等待cpu的时间<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->减Excl. Wall Time即为等待cpu的时间<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ICpu% Incl. CPU(microsecs)的百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Excl. CPU(microsec) 函数执行本身花费的cpu时间，不包括子树执行时间,以微秒算(一百万分之一秒)。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ECPU% Excl. CPU(microsec)的百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Incl.MemUse(bytes) 包括子函数执行使用的内存。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->IMemUse% Incl.MemUse(bytes)的百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Excl.MemUse(bytes) 函数执行本身内存,以字节算<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMemUse% Excl.MemUse(bytes)的百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Incl.PeakMemUse(bytes) Incl.MemUse的峰值<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->IPeakMemUse% Incl.PeakMemUse(bytes) 的峰值百分比<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Excl.PeakMemUse(bytes) Excl.MemUse的峰值<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EPeakMemUse% EMemUse% 峰值百分比<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/xhprof_php_analysis_tool" ></div>
@@ -546,7 +515,7 @@ if ($xhprof_on) {
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -555,6 +524,7 @@ if ($xhprof_on) {
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

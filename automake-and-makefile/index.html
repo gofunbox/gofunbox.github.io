@@ -4,7 +4,7 @@
   <head>
 <title>自动化编译 如何生成configure和Makefile | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -40,12 +40,12 @@ autoconf autoconf用 …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,50 +164,31 @@ autoconf autoconf用 …" />
 </div>
 
     
-    
-
-<p>在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件</p>
-
+    <p>在前面的标准编译安装中，第一步是./configure，它会根据Makefile.in生成Makefile文件，然后make根据Makefile自动编译软件</p>
 <p>通常在一个源码包中，已经包含了configure脚本和Makefile文件，作为课外知识，我们大致了解一下怎么生成这两个文件</p>
-
 <h2 id="autoconf">autoconf</h2>
-
 <p>autoconf用来生成configure脚本，它可以检查系统特性、编译环境、环境变量、软件参数、依赖关系等</p>
-
 <p>autoconf需要用到 m4</p>
-
 <ol>
 <li>用autoscan描源代码目录生成configure.scan文件</li>
 <li>将configure.scan改名为configure.in</li>
 <li>用aclocal根据configure.in文件的内容，自动生成aclocal.m4文件</li>
 <li>使用autoconf，根据configure.in和aclocal.m4来产生configure文件</li>
 </ol>
-
 <h2 id="automake">automake</h2>
-
 <p>automake可以从Makefile.am文件自动生成Makefile.in，它主要用来配置源代码</p>
-
 <p>automake需用到perl</p>
-
 <ul>
 <li>手工写Makefile.am</li>
 <li>使用automake，根据configure.in和Makefile.am来产生Makefile.in</li>
 </ul>
-
 <h2 id="makefile">Makefile</h2>
-
 <p>使用configure脚本，配合Makefile.in可以生成Makefile文件，然后用make自动化的编译软件</p>
-
 <p>这里有一张生成Makefile的流程图：</p>
-
-<p><img src="https://ifunbox.top/wp-content/uploads/2017/08/da5c76070184f242c205ff866d62f138.png" alt="" /></p>
-
+<p><img src="https://ifunbox.top/wp-content/uploads/2017/08/da5c76070184f242c205ff866d62f138.png" alt=""></p>
 <p>Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的工作，只要最后输出一个文件，都可以用make来完成</p>
-
 <h2 id="使用-make">使用 make</h2>
-
 <p>利用 configure所产生的Makefile文件有几个预先设定的目标可供使用：</p>
-
 <table>
 <thead>
 <tr>
@@ -215,43 +196,36 @@ autoconf autoconf用 …" />
 <th>用途</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>make all</td>
 <td>产生预设的目标，只敲入make也可以</td>
 </tr>
-
 <tr>
 <td>make clean</td>
 <td>清除编译结果</td>
 </tr>
-
 <tr>
 <td>make distclean</td>
 <td>除了清除编译结果，也把configure所产生的 Makefile 清除掉</td>
 </tr>
-
 <tr>
 <td>make install</td>
 <td>将程序安装到系统中</td>
 </tr>
-
 <tr>
 <td>make dist</td>
 <td>将程序和相关的文档打包为一个压缩文档以供发布</td>
 </tr>
-
 <tr>
 <td>make distcheck</td>
 <td>打包并检验</td>
 </tr>
 </tbody>
 </table>
-
-<p>详细参考<br />
-<a href="https://i.linuxtoy.org/docs/guide/ch18s05.html">https://i.linuxtoy.org/docs/guide/ch18s05.html</a><br />
-emerge | USE标记<br />
+<p>详细参考<br>
+<a href="https://i.linuxtoy.org/docs/guide/ch18s05.html">https://i.linuxtoy.org/docs/guide/ch18s05.html</a><br>
+emerge | USE标记<br>
 <a href="https://i.linuxtoy.org/docs/guide/ch18s07.html">https://i.linuxtoy.org/docs/guide/ch18s07.html</a></p>
 
     
@@ -535,7 +509,7 @@ emerge | USE标记<br />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -544,6 +518,7 @@ emerge | USE标记<br />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>Apache&#43;PHP&#43;MySQL在Windows XP下的安装与配置 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝
-操作系统：Windows XP SP2
-Apache版本：2.2.8 下载 (安装在C:/Program Files/Apache Software Foundation/Apache2.2)
-PHP版本：5.2.5 下载 (安装在C:/php) …">
+<meta name="description" content="＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝操作系统：Windows XP SP2Apache版本：2.2.8 下载(安装在C:/Program Files/Apache Software Foundation/Apache2.2)PHP版本：5.2.5 下载(安装在C:/php)MySQL …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Apache&#43;PHP&#43;MySQL在Windows XP下的安装与配置" />
 <meta property="og:url" content="https://ifunbox.top/175.html" />
 <meta property="og:title" content="Apache&#43;PHP&#43;MySQL在Windows XP下的安装与配置" />
-<meta property="og:description" content="＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝
-操作系统：Windows XP SP2
-Apache版本：2.2.8 下载 (安装在C:/Program Files/Apache Software Foundation/Apache2.2)
-PHP版本：5.2.5 下载 (安装在C:/php) …" />
+<meta property="og:description" content="＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝操作系统：Windows XP SP2Apache版本：2.2.8 下载(安装在C:/Program Files/Apache Software Foundation/Apache2.2)PHP版本：5.2.5 下载(安装在C:/php)MySQL …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@ PHP版本：5.2.5 下载 (安装在C:/php) …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,71 +160,32 @@ PHP版本：5.2.5 下载 (安装在C:/php) …" />
 </div>
 
     
-    <p><span style="font-size: small;">＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝</span><br />
-<span style="font-size: small;">操作系统：Windows XP SP2</span><br />
-<span style="font-size: small;">Apache版本：2.2.8    <a href="http://apache.mirror.phpchina.com/httpd/binaries/win32/apache_2.2.8-win32-x86-openssl-0.9.8g.msi" target="_blank">下载</a> (安装在C:/Program Files/Apache Software Foundation/Apache2.2)</span><br />
-<span style="font-size: small;">PHP版本：5.2.5    <a href="http://cn.php.net/distributions/php-5.2.5-Win32.zip" target="_blank">下载</a> (安装在C:/php)</span><br />
-<span style="font-size: small;">MySQL版本：5.0.51a<a href="http://mysql.mirror.kangaroot.net/Downloads/MySQL-5.0/mysql-5.0.51a-win32.zip" target="_blank">下载</a> (安装在C:/Program Files/MySQL/MySQL Server 5.0)</span><br />
-<span style="font-size: small;">＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝</span></p>
-
-<p><span style="font-size: small;">软件的安装很简单，按提示一步一步操作，一般不会出什么问题，这里略过，主要讲一下如何配置。Apache安装成功后，在浏览器地址栏中输入<a href="http://localhost测试，如果看到“It">http://localhost测试，如果看到“It</a> works!”的字样，说明Apache安装是成功的。<strong>你应该根据你的安装路径做相应的修改。<br /> </strong></span><br />
-<span style="font-size: small;"><strong>(1)httpd.conf配置</strong></span><br />
-<span style="font-size: small;">打开httpd.conf，找到#LoadModule vhost_alias_module modules/mod_vhost_alias.so，在它的后面添加以下内容：</span><br />
-<span style="font-size: small;"><strong>LoadModule php5_module &#8220;C:/php/php5apache2_2.dll&#8221;<br /> AddType application/x-httpd-php .php<br /> AddType application/x-httpd-php-source .phps<br /> PHPIniDir &#8220;C:/php&#8221;</strong></span></p>
-
-<p><span style="font-size: small;">找到DocumentRoot &#8220;C:/Program Files/Apache Software Foundation/Apache2.2/htdocs&#8221;，修改成Web文件的存放路径，如我的Web文件存放在F:/WebRoot目录下，就修改成：</span><br />
-<span style="font-size: small;"><strong>DocumentRoot &#8220;F:/WebRoot&#8221;</strong></span></p>
-
-<p><span style="font-size: small;">找到<Directory &#8220;C:/Program Files/Apache Software Foundation/Apache2.2/htdocs&#8221;>，修改成Web文件的存放路径，跟上面的路径相同，修改成：</span><br />
-<span style="font-size: small;"><strong><Directory &#8220;F:/WebRoot&#8221;></p></p>
-
-<p>
-  </strong>找到DirectoryIndex index.html，添加index.php：</span><br /> <span style="font-size: small;"><strong>DirectoryIndex index.html index.php</strong></span>
-</p>
-
-<p>
-  <span style="font-size: small;"><strong>(2)php.ini配置</strong></span><br /> <span style="font-size: small;">在PHP的安装目录下有php.ini-dist(默认配置)和php.ini-recommended(推荐配置)两个预置的配置文件，它们之间的区别是：推荐配置在安全性方面有所加强。根据需要选择，初始配置时最好选择php.ini-dist(因为它是默认的*^_^*)，复制并将其重命名为php.ini，就放在PHP的安装目录。(注意：php.ini-recommended中的short_open_tag是关闭的，这意味着标签<? ?>中的内容是不能被解析的，这种情况下查看PHP网页的源文件，看到的内容会跟你的源代码是一样的，正确的方法是使用<?php ?>，也推荐大家使用此标签。)</span>
-</p>
-
-<p>
-  <span style="font-size: small;">打开php.ini，找到extension_dir = &#8220;./&#8221;，修改成：</span><br /> <span style="font-size: small;"><strong>extension_dir = &#8220;C:/php/ext&#8221;</p> 
-  
-
-<p><p>
-    </strong>找到;extension=php_mysql.dll，把;去掉：</span><br /> <span style="font-size: small;"><strong>extension=php_mysql.dll</strong></span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;"><strong>(3)libmysql.dll<br /> </strong>将PHP目录下的libmysql.dll复制到%SystemRoot%/System32/目录中。用MySQL的bin目录中的libmysql.dll也行。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;"><strong>注意：<br /> </strong>1.由于我安装的Apache版本是2.2.8，所以LoadModule语句应选择php5apache2_2.dll，否则会出现错误“The request operation has failed!”。网上很多相关文章中的Apache版本都2.0.XX的，他们选用的模块都是php5apache2.dll，不能够照搬，应该根据实际使用的Apache版本来选择该使用哪个dll文件。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">2.PHPIniDir非常重要，其实PHPIniDir就是设置“php.ini”配置文件的路径，在httpd.conf中配置PHPIniDir，或者在注册表中设置，或者设置PHPRC环境变量，或者直接复制php.ini到%SystemRoot%目录中都是可行的。php.ini是按“httpd.conf中PHPIniDir指定的路径－＞HKEY_LOCAL_MACHINE/SOFTWARE/PHP/IniFilePath(Windows注册表位置)－＞PHPRC环境变量－＞当前工作目录(对于CLI)－＞%SystemRoot%目录”的顺序来搜索的。一个好的办法是用phpinfo()来检查php.ini文件的路径是否配置正确，看“Configuration File (php.ini) Path”和“Loaded Configuration File ”。如果配置不正确或没有配置“Loaded Configuration File”将显示“none” ，如果没有配置PHPIniDir，则按默认的设置加载。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">3.有些文章中说配置中牵涉到路径时该用“/”或“/”的问题，我测试好象并无问题，正反斜杠都没问题，不知道在低版本或Linux中是否也一样。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">4.不要忘了配置php.ini文件中的extension_dir和去掉;extension=php_mysql.dll前面的分号。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">5.错误“Fatal error: Call to undefined function mysql_connect() in XX on line YY”的大概意思是“致命错误：在XX文件YY行调用了未定义的函数mysql_connect()”，很显然是没有加载libmysql.dll引起的，跟php.ini文件的配置密切相关的，如果找不到libmysql.dll也会导致此错误(换句话说，就是libmysql.dll放的位置有问题。看(3)中说明)。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">6.以上仅是个人之见，要想获得更多的信息，请访问他们的官方网站。</span>
-  </p></p>
-
-<p><p>
-    <span style="font-size: small;">附：</span><br /> <span style="font-size: small;">Apache官网：<a href="http://www.apache.org/">http://www.apache.org/</a></span><br /> <span style="font-size: small;">     PHP官网：<a href="http://www.php.net/">http://www.php.net/</a></span><br /> <span style="font-size: small;">MySQL官网：<a href="http://www.mysql.com/">http://www.mysql.com/</a> </span>
-  </p></p>
+    <p><!-- raw HTML omitted -->＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝相关信息＝＝＝＝＝＝＝＝＝＝＝＝＝<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->操作系统：Windows XP SP2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Apache版本：2.2.8    <!-- raw HTML omitted -->下载<!-- raw HTML omitted --> (安装在C:/Program Files/Apache Software Foundation/Apache2.2)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->PHP版本：5.2.5    <!-- raw HTML omitted -->下载<!-- raw HTML omitted --> (安装在C:/php)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->MySQL版本：5.0.51a<!-- raw HTML omitted -->下载<!-- raw HTML omitted --> (安装在C:/Program Files/MySQL/MySQL Server 5.0)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->软件的安装很简单，按提示一步一步操作，一般不会出什么问题，这里略过，主要讲一下如何配置。Apache安装成功后，在浏览器地址栏中输入http://localhost测试，如果看到“It works!”的字样，说明Apache安装是成功的。<!-- raw HTML omitted -->你应该根据你的安装路径做相应的修改。<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->(1)httpd.conf配置<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->打开httpd.conf，找到#LoadModule vhost_alias_module modules/mod_vhost_alias.so，在它的后面添加以下内容：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->LoadModule php5_module “C:/php/php5apache2_2.dll”<!-- raw HTML omitted --> AddType application/x-httpd-php .php<!-- raw HTML omitted --> AddType application/x-httpd-php-source .phps<!-- raw HTML omitted --> PHPIniDir “C:/php”<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->找到DocumentRoot “C:/Program Files/Apache Software Foundation/Apache2.2/htdocs”，修改成Web文件的存放路径，如我的Web文件存放在F:/WebRoot目录下，就修改成：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->DocumentRoot “F:/WebRoot”<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->找到&lt;Directory “C:/Program Files/Apache Software Foundation/Apache2.2/htdocs”&gt;，修改成Web文件的存放路径，跟上面的路径相同，修改成：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;Directory “F:/WebRoot”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/175.html" ></div>
@@ -513,7 +468,7 @@ PHP版本：5.2.5 下载 (安装在C:/php) …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -522,6 +477,7 @@ PHP版本：5.2.5 下载 (安装在C:/php) …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

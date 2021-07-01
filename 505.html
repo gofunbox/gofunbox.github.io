@@ -4,7 +4,7 @@
   <head>
 <title>MySql中启用InnoDB数据引擎的方法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="1、存储引擎是什么?
-Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引 …">
+<meta name="description" content="1、存储引擎是什么?Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="MySql中启用InnoDB数据引擎的方法" />
 <meta property="og:url" content="https://ifunbox.top/505.html" />
 <meta property="og:title" content="MySql中启用InnoDB数据引擎的方法" />
-<meta property="og:description" content="1、存储引擎是什么?
-Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引 …" />
+<meta property="og:description" content="1、存储引擎是什么?Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@ Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这�
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,58 +160,37 @@ Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这�
 </div>
 
     
-    <p><span style="font-size: medium;"><strong>1、存储引擎是什么?</strong></span></p>
-
-<p><span style="font-size: medium;">　　Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引擎(也称作表类型)。MySql默认配置了许多不同的存储引擎， 可以预先设置或者在MySql服务器中启用。</span></p>
-
-<p><span style="font-size: medium;"><strong>2、MYSQL支持的数据引擎</strong></span></p>
-
-<p><span style="font-size: medium;">　　MyISAM：默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。</span></p>
-
-<p><span style="font-size: medium;">　　InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务支持。</span></p>
-
-<p><span style="font-size: medium;">　　BDB：可替代InnoDB的事务引擎，支持COMMIT、ROLLBACK和其他事务特性。</span></p>
-
-<p><span style="font-size: medium;">　　Memory：将所有数据保存在RAM中，在需要快速查找引用和其他类似数据的环境下，可提供极快的访问。</span></p>
-
-<p><span style="font-size: medium;">　　Merge：允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。</span></p>
-
-<p><span style="font-size: medium;">　　Archive：为大量很少引用的历史、归档、或安全审计信息的存储和检索提供了完美的解决方案。</span></p>
-
-<p><span style="font-size: medium;">　　Federated：能够将多个分离的MySQL服务器链接起来，从多个物理服务器创建一个逻辑数据库。十分适合于分布式环境或数据集市环境。</span></p>
-
-<p><span style="font-size: medium;">　　Cluster/NDB：MySQL的簇式数据库引擎，尤其适合于具有高性能查找要求的应用程序，这类查找需求还要求具有最高的正常工作时间和可用性。</span></p>
-
-<p><span style="font-size: medium;">　　Other：其他存储引擎包括CSV(引用由逗号隔开的用作数据库表的文件)，Blackhole(用于临时禁止对数据库的应用程序输入)，以及Example引擎(可为快速创建定制的插件式存储引擎提供帮助)。</span></p>
-
-<p><span style="font-size: medium;"><strong>3、启动InnoDB引擎的方法</strong></span></p>
-
-<p><span style="font-size: medium;">　 　Mysql中默认的是MyISAM数据引擎，可惜此引擎不支持事务处理，我们需要将默认的数据引擎改为InnoDB。其中InnoDB和 BerkeleyDB支持事务处理，只是默认的情况下都是被disable的。所有的引擎里面，InnoDB性能最强大，算是商业级的。<strong>启动InnoDB引擎的方法如下</strong>：</span></p>
-
-<p><span style="font-size: medium;">　　1)关闭mysql的服务</span></p>
-
-<p><span style="font-size: medium;">　　2)修改my.ini</span></p>
-
-<p><span style="font-size: medium;">　　将default-storage-engine=INNODB前的注释(#)去掉</span></p>
-
-<p><span style="font-size: medium;">　　将skip-innodb这行注释(加上#)</span></p>
-
-<p><span style="font-size: medium;">　　3)保存后重启mysql服务</span></p>
-
-<p><span style="font-size: medium;"><strong>4、MyISAM引擎和InnoDB引擎的基本差别</strong></span></p>
-
+    <p><!-- raw HTML omitted --><!-- raw HTML omitted -->1、存储引擎是什么?<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引擎(也称作表类型)。MySql默认配置了许多不同的存储引擎， 可以预先设置或者在MySql服务器中启用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->2、MYSQL支持的数据引擎<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　MyISAM：默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务支持。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　BDB：可替代InnoDB的事务引擎，支持COMMIT、ROLLBACK和其他事务特性。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Memory：将所有数据保存在RAM中，在需要快速查找引用和其他类似数据的环境下，可提供极快的访问。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Merge：允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Archive：为大量很少引用的历史、归档、或安全审计信息的存储和检索提供了完美的解决方案。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Federated：能够将多个分离的MySQL服务器链接起来，从多个物理服务器创建一个逻辑数据库。十分适合于分布式环境或数据集市环境。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Cluster/NDB：MySQL的簇式数据库引擎，尤其适合于具有高性能查找要求的应用程序，这类查找需求还要求具有最高的正常工作时间和可用性。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　Other：其他存储引擎包括CSV(引用由逗号隔开的用作数据库表的文件)，Blackhole(用于临时禁止对数据库的应用程序输入)，以及Example引擎(可为快速创建定制的插件式存储引擎提供帮助)。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->3、启动InnoDB引擎的方法<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　 　Mysql中默认的是MyISAM数据引擎，可惜此引擎不支持事务处理，我们需要将默认的数据引擎改为InnoDB。其中InnoDB和 BerkeleyDB支持事务处理，只是默认的情况下都是被disable的。所有的引擎里面，InnoDB性能最强大，算是商业级的。<!-- raw HTML omitted -->启动InnoDB引擎的方法如下<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　1)关闭mysql的服务<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　2)修改my.ini<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　将default-storage-engine=INNODB前的注释(#)去掉<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　将skip-innodb这行注释(加上#)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　3)保存后重启mysql服务<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->4、MyISAM引擎和InnoDB引擎的基本差别<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <ul>
-<li><span style="font-size: medium;">MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。</span></li>
-<li><span style="font-size: medium;">MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</span></li>
-<li><span style="font-size: medium;">MyIASM是IASM表的新版本，有如下扩展：二进制层次的可移植性、NULL列索引、对变长行比ISAM表有更少的碎片、支持大文件、更好的索引压缩等</span></li>
-<li><span style="font-size: medium;">InnoDB不支持FULLTEXT类型的索引</span></li>
-<li><span style="font-size: medium;">InnoDB 中不保存表的具体行数</span></li>
-<li><span style="font-size: medium;">对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引</span></li>
-<li><span style="font-size: medium;">DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除</span></li>
-<li><span style="font-size: medium;">…………</span></li>
+<li><!-- raw HTML omitted -->MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->MyIASM是IASM表的新版本，有如下扩展：二进制层次的可移植性、NULL列索引、对变长行比ISAM表有更少的碎片、支持大文件、更好的索引压缩等<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->InnoDB不支持FULLTEXT类型的索引<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->InnoDB 中不保存表的具体行数<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->…………<!-- raw HTML omitted --></li>
 </ul>
-
-<p><span style="font-size: medium;">　　这些区别能够影响应用程序的性能和功能，因此你必须针对业务类型来选择合适的引擎，才能最大的发挥MySQL的性能优势。</span></p>
+<p><!-- raw HTML omitted -->　　这些区别能够影响应用程序的性能和功能，因此你必须针对业务类型来选择合适的引擎，才能最大的发挥MySQL的性能优势。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/505.html" ></div>
@@ -496,7 +473,7 @@ Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这�
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -505,6 +482,7 @@ Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这�
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

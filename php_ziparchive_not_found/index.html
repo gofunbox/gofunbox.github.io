@@ -4,7 +4,7 @@
   <head>
 <title>php报错Fatal error: Class ‘ZipArchive’ not found解决办法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近在使用 PHPPowerPoint类的时候出现Fatal error: Class &#8216;ZipArchive&#8217; not found这个问题，网上搜索了下，解决方法如下
-出现这个错误说明是程序在调用&#8217;ZipArchive&#8217; 这个类的时候没有成功，原因是由于在安装php的时 …">
+<meta name="description" content="最近在使用 PHPPowerPoint类的时候出现Fatal error: Class ‘ZipArchive’ not found这个问题，网上搜索了下，解决方法如下出现这个错误说明是程序在调用’ZipArchive’ 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="php报错Fatal error: Class ‘ZipArchive’ not found解决办法" />
-<meta property="og:url" content="https://ifunbox.top/php_ziparchive_not_found/" />
+<meta property="og:url" content="https://ifunbox.top/php_ZipArchive_not_found/" />
 <meta property="og:title" content="php报错Fatal error: Class ‘ZipArchive’ not found解决办法" />
-<meta property="og:description" content="最近在使用 PHPPowerPoint类的时候出现Fatal error: Class &#8216;ZipArchive&#8217; not found这个问题，网上搜索了下，解决方法如下
-出现这个错误说明是程序在调用&#8217;ZipArchive&#8217; 这个类的时候没有成功，原因是由于在安装php的时 …" />
+<meta property="og:description" content="最近在使用 PHPPowerPoint类的时候出现Fatal error: Class ‘ZipArchive’ not found这个问题，网上搜索了下，解决方法如下出现这个错误说明是程序在调用’ZipArchive’ 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -32,18 +30,18 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://ifunbox.top/php_ziparchive_not_found/">
+<link rel="canonical" href="https://ifunbox.top/php_ZipArchive_not_found/">
 
     
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -139,12 +137,12 @@
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=php%e6%8a%a5%e9%94%99Fatal%20error%3a%20Class%20%e2%80%98ZipArchive%e2%80%99%20not%20found%e8%a7%a3%e5%86%b3%e5%8a%9e%e6%b3%95&url=https%3a%2f%2fifunbox.top%2fphp_ziparchive_not_found%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=php%e6%8a%a5%e9%94%99Fatal%20error%3a%20Class%20%e2%80%98ZipArchive%e2%80%99%20not%20found%e8%a7%a3%e5%86%b3%e5%8a%9e%e6%b3%95&url=https%3a%2f%2fifunbox.top%2fphp_ZipArchive_not_found%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2fphp_ziparchive_not_found%2f&t=php%e6%8a%a5%e9%94%99Fatal%20error%3a%20Class%20%e2%80%98ZipArchive%e2%80%99%20not%20found%e8%a7%a3%e5%86%b3%e5%8a%9e%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2fphp_ZipArchive_not_found%2f&t=php%e6%8a%a5%e9%94%99Fatal%20error%3a%20Class%20%e2%80%98ZipArchive%e2%80%99%20not%20found%e8%a7%a3%e5%86%b3%e5%8a%9e%e6%b3%95" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -154,7 +152,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://ifunbox.top/php_ziparchive_not_found/" title="Copy Link" class="link link_yank">
+  <a href="https://ifunbox.top/php_ZipArchive_not_found/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -162,36 +160,25 @@
 </div>
 
     
-    <p><span style="font-size: medium;">最近在使用 PHPPowerPoint类的时候出现Fatal error: Class &#8216;ZipArchive&#8217; not found这个问题，网上搜索了下，解决方法如下</span></p>
-
-<p><span style="font-size: medium;">出现这个错误说明是程序在调用&#8217;ZipArchive&#8217; 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。</span></p>
-
-<p><span style="font-size: medium;"><strong>在Windows下的解决办法是</strong>：</span></p>
-
-<p><span style="font-size: medium;">1、在php.ini文件中，将extension=php_zip.dll前面的分号“;”去除；</span></p>
-
-<p><span style="font-size: medium;">(如果没有，请添加extension=php_zip.dll此行并确保php_zip.dll文件存在相应的目录)</span></p>
-
-<p><span style="font-size: medium;">然后同样在php.ini文件中，将 zlib.output_compression = Off 改为 zlib.output_compression = On ；</span></p>
-
-<p><span style="font-size: medium;">2、重启Apache服务器。</span></p>
-
-<p><span style="font-size: medium;"><strong>在Unix/Linux下的解决办法</strong>：</span></p>
-
-<p><span style="font-size: medium;">1、在Linux下没有php_zip.dll这个文件（有也不会起作用的），所以需要重新编译一下php的zip模块。具体安装方法如下：</span></p>
-
-<p><span style="font-size: medium;">cd /usr/src</span><br />
- <span style="font-size: medium;">wget <a href="http://pecl.php.net/get/zip">http://pecl.php.net/get/zip</a></span><br />
- <span style="font-size: medium;">tar -zxvf zip</span><br />
- <span style="font-size: medium;">cd zip-1.x.x</span><br />
- <span style="font-size: medium;">phpize</span><br />
- <span style="font-size: medium;">./configure</span><br />
- <span style="font-size: medium;">make</span><br />
- <span style="font-size: medium;">sudo make instal</span></p>
-
-<p><span style="font-size: medium;">其中， 在最后使用make install命令的时候，可能需要用到root的权限，所以建议使用sudo来运行。安装完之后，屏幕上会提示zip.so的位置。然后将其记录下来，如：/usr/local/lib/php/extensions/zip.so。</span></p>
-
-<p><span style="font-size: medium;">2、使用root权限修改php.ini（通常可能会在/usr/local/lib/文件夹下，不过视当初安装php而定，可以通过phpinfo()来查看）：</span></p>
+    <p><!-- raw HTML omitted -->最近在使用 PHPPowerPoint类的时候出现Fatal error: Class ‘ZipArchive’ not found这个问题，网上搜索了下，解决方法如下<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->出现这个错误说明是程序在调用’ZipArchive’ 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->在Windows下的解决办法是<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、在php.ini文件中，将extension=php_zip.dll前面的分号“;”去除；<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->(如果没有，请添加extension=php_zip.dll此行并确保php_zip.dll文件存在相应的目录)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->然后同样在php.ini文件中，将 zlib.output_compression = Off 改为 zlib.output_compression = On ；<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、重启Apache服务器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->在Unix/Linux下的解决办法<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1、在Linux下没有php_zip.dll这个文件（有也不会起作用的），所以需要重新编译一下php的zip模块。具体安装方法如下：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->cd /usr/src<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->wget <a href="http://pecl.php.net/get/zip">http://pecl.php.net/get/zip</a><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tar -zxvf zip<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cd zip-1.x.x<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->phpize<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->./configure<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->sudo make instal<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其中， 在最后使用make install命令的时候，可能需要用到root的权限，所以建议使用sudo来运行。安装完之后，屏幕上会提示zip.so的位置。然后将其记录下来，如：/usr/local/lib/php/extensions/zip.so。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2、使用root权限修改php.ini（通常可能会在/usr/local/lib/文件夹下，不过视当初安装php而定，可以通过phpinfo()来查看）：<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/php_ZipArchive_not_found" ></div>
@@ -474,7 +461,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -483,6 +470,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

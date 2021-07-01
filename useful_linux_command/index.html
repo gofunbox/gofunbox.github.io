@@ -4,7 +4,7 @@
   <head>
 <title>常用linux命令 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,17 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流
-系统
-# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设 …">
+<meta name="description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流系统
+# uname -a # 查看内核/操作系统/CPU信息# head -n 1 /etc/issue # 查看操作系统版本# cat /proc/cpuinfo # 查看CPU信息# hostname # 查看计算机名# lspci -tv # 列出所有PCI …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="常用linux命令" />
 <meta property="og:url" content="https://ifunbox.top/useful_linux_command/" />
 <meta property="og:title" content="常用linux命令" />
-<meta property="og:description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流
-系统
-# uname -a # 查看内核/操作系统/CPU信息 # head -n 1 /etc/issue # 查看操作系统版本 # cat /proc/cpuinfo # 查看CPU信息 # hostname # 查看计算机名 # lspci -tv # 列出所有PCI设 …" />
+<meta property="og:description" content="记忆力捉急，就写下来吧，还是喜欢复制粘贴流系统
+# uname -a # 查看内核/操作系统/CPU信息# head -n 1 /etc/issue # 查看操作系统版本# cat /proc/cpuinfo # 查看CPU信息# hostname # 查看计算机名# lspci -tv # 列出所有PCI …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -40,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,10 +162,8 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">记忆力捉急，就写下来吧，还是喜欢复制粘贴流</span></p>
-
+    <p><!-- raw HTML omitted -->记忆力捉急，就写下来吧，还是喜欢复制粘贴流<!-- raw HTML omitted --></p>
 <p>系统</p>
-
 <pre><code># uname -a               # 查看内核/操作系统/CPU信息
 # head -n 1 /etc/issue   # 查看操作系统版本
 # cat /proc/cpuinfo      # 查看CPU信息
@@ -177,10 +173,7 @@
 # lsmod                  # 列出加载的内核模块
 # env                    # 查看环境变量
 # /sbin/sysctl -p		 # 编辑/etc/sysctl.conf不需要重启更新	
-</code></pre>
-
-<p>资源</p>
-
+</code></pre><p>资源</p>
 <pre><code># free -m                # 查看内存使用量和交换区使用量
 # df -h                  # 查看各分区使用情况
 # du -sh &amp;lt;目录名&gt;         # 查看指定目录的大小
@@ -196,19 +189,13 @@
 # tar -jcvf /tmp/etc.tar.bz2 /etc      		# 打包后，以 bzip2 压缩
 # tar zxvf /tmp/etc.tar.gz -C etc/passwd	# 解包
 # vmstat 1 5
-</code></pre>
-
-<p>磁盘和分区</p>
-
+</code></pre><p>磁盘和分区</p>
 <pre><code># mount | column -t      # 查看挂接的分区状态
 # fdisk -l               # 查看所有分区
 # swapon -s              # 查看所有交换分区
 # time dd if=/dev/zero of=/var/test bs=2k count=1000000   # Linux硬盘写入速度
 # time dd if=/var/test of=/dev/null bs=2k		  # Linux硬盘读取速度
-</code></pre>
-
-<p>网络</p>
-
+</code></pre><p>网络</p>
 <pre><code># ifconfig               # 查看所有网络接口的属性
 # iptables -L            # 查看防火墙设置
 # route -n               # 查看路由表
@@ -217,54 +204,31 @@
 # netstat -s             # 查看网络统计信息
 # ss -ant | awk 'NR&gt;1 {++s[$1]} END {for(k in s) print k,s[k]}'  # 查看并发连接数
 # ps -aux | grep tomcat  # 发现并没有8080端口的Tomcat进程
-</code></pre>
-
-<p>进程</p>
-
+</code></pre><p>进程</p>
 <pre><code># ps -ef                 # 查看所有进程
 # top                    # 实时显示进程状态
 # ps -ef | grep php |grep -v grep|cut -c 9-15|xargs kill -9  #批量删除有关键字php的进程
 # pmap $(pgrep php-fpm |head -1)    # 查看一个进程内存情况
-</code></pre>
-
-<p>用户</p>
-
+</code></pre><p>用户</p>
 <pre><code># w                      # 查看活动用户
 # id &amp;lt;用户名&gt;            # 查看指定用户信息
 # last                   # 查看用户登录日志
 # cut -d: -f1 /etc/passwd   # 查看系统所有用户
 # cut -d: -f1 /etc/group    # 查看系统所有组
 # crontab -l             # 查看当前用户的计划任务
-</code></pre>
-
-<p>服务</p>
-
+</code></pre><p>服务</p>
 <pre><code># chkconfig --list       # 列出所有系统服务
 # chkconfig --list | grep on    # 列出所有启动的系统服务
-</code></pre>
-
-<p>程序</p>
-
+</code></pre><p>程序</p>
 <pre><code># rpm -qa                # 查看所有安装的软件包
-</code></pre>
-
-<p>mysql相关</p>
-
+</code></pre><p>mysql相关</p>
 <pre><code># grant select,insert,update,delete on redmine1.* to jira@&quot;%&quot; identified by &quot;jira&quot;;   # 授权
 # drop user newuser; 	# 删除用户
 # flush  privileges;   	# 授权后需刷新生效
-</code></pre>
-
-<p>git相关</p>
-
+</code></pre><p>git相关</p>
 <pre><code># git diff 7fb06f0 b8e4f73 --name-only | xargs zip update.zip   # 版本差异打包
-</code></pre>
-
-<p>js压缩混淆工具语法</p>
-
-<p><pre><code class="bash">
-java -jar compiler.jar &ndash;js hello.js &ndash;js_output_file hello-compiled.js
-```</p>
+</code></pre><p>js压缩混淆工具语法</p>
+<!-- raw HTML omitted -->
 
     
       <div id="SOHUCS" sid="/useful_linux_command" ></div>
@@ -547,7 +511,7 @@ java -jar compiler.jar &ndash;js hello.js &ndash;js_output_file hello-compiled.j
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -556,6 +520,7 @@ java -jar compiler.jar &ndash;js hello.js &ndash;js_output_file hello-compiled.j
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

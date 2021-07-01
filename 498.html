@@ -4,7 +4,7 @@
   <head>
 <title>利用百度地图api通过城市地址等信息取经纬度 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -16,14 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="Geocoding API有哪些功能？ Geocoding API包括地址解析和逆地址解析功能。
- 地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果 …">
+  地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="利用百度地图api通过城市地址等信息取经纬度" />
 <meta property="og:url" content="https://ifunbox.top/498.html" />
 <meta property="og:title" content="利用百度地图api通过城市地址等信息取经纬度" />
 <meta property="og:description" content="Geocoding API有哪些功能？ Geocoding API包括地址解析和逆地址解析功能。
- 地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果 …" />
+  地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,255 +162,191 @@
 </div>
 
     
-    
-
-<h2 id="Geocoding_API.E6.9C.89.E5.93.AA.E4.BA.9B.E5.8A.9F.E8.83.BD.EF.BC.9F">Geocoding API有哪些功能？</h2>
-
+    <h2 id="Geocoding_API" class="E6 9C 89 E5 93 AA E4 BA 9B E5 8A 9F E8 83 BD EF BC 9F">Geocoding API有哪些功能？</h2>
 <p>Geocoding API包括地址解析和逆地址解析功能。</p>
-
 <ul>
-<li>地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果是“lng:116.31985,lat:39.959836”，“百度大厦”地址解析的结果是“lng:116.30815,lat:40.056885”</li>
-
-<li><p>逆地址解析是指，由百度经纬度信息得到结构化地址信息。例如：“lat:31.325152,lng:120.558957”逆地址解析的结果是“江苏省苏州市虎丘区塔园路318号”。注意：
+<li>
+<p>地址解析是指，由详细到街道的结构化地址得到百度经纬度信息，且支持名胜古迹、标志性建筑名称直接解析返回百度经纬度。例如：“北京市海淀区中关村南大街27号”地址解析的结果是“lng:116.31985,lat:39.959836”，“百度大厦”地址解析的结果是“lng:116.30815,lat:40.056885”</p>
+</li>
+<li>
+<p>逆地址解析是指，由百度经纬度信息得到结构化地址信息。例如：“lat:31.325152,lng:120.558957”逆地址解析的结果是“江苏省苏州市虎丘区塔园路318号”。注意：
 1.因为Geocoding和反Geocoding使用的门址数据以及算法都不是一样的，所以会出现不能一一对应的现象。</p>
-
 <p>2.解析过程中可能会出现一对坐标值对应多个地址门牌信息，本接口将返回距离坐标点最近的一个地址门牌信息。</p>
-
-<h2 id=".E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6">使用限制</h2>
-
+<h2 id="" class="E4 BD BF E7 94 A8 E9 99 90 E5 88 B6">使用限制</h2>
 <p>目前无任何使用限制。请申请key，然后使用该接口。</p>
-
-<h2 id=".E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8">如何使用</h2>
-
-<p>第一步，申请key，点击这里<a href="http://developer.baidu.com/map/apply-key.htm">获取密钥</a>，申请key需要注册百度账号；</p>
-
+<h2 id="" class="E5 A6 82 E4 BD 95 E4 BD BF E7 94 A8">如何使用</h2>
+<p>第一步，申请key，点击这里[获取密钥][1]，申请key需要注册百度账号；</p>
 <p>第二步，拼写发送http请求的url，注意需使用第一步申请的key；</p>
-
 <p>第三步，接收http请求返回的数据（支持json和xml格式）。</p>
-
-<h2 id=".E6.9C.8D.E5.8A.A1.E5.9C.B0.E5.9D.80">服务地址</h2>
-
+<h2 id="" class="E6 9C 8D E5 8A A1 E5 9C B0 E5 9D 80">服务地址</h2>
 <ul>
-<li>地址解析：根据地址获取坐标
-<br /></li>
+<li>地址解析：根据地址获取坐标</li>
 </ul>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E5%9C%B0%E5%9D%80&output=%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E7%B1%BB%E5%9E%8B&key=%E7%94%A8%E6%88%B7%E5%AF%86%E9%92%A5&city=%E5%9F%8E%E5%B8%82%E5%90%8D" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=地址&amp;output=输出格式类型&amp;key=用户密钥&amp;city=城市名">http://api.map.baidu.com/geocoder?address=地址&amp;output=输出格式类型&amp;key=用户密钥&amp;city=城市名</a></a></p>
-
+<p><!-- raw HTML omitted --><a href="http://api.map.baidu.com/geocoder?address=">http://api.map.baidu.com/geocoder?address=</a>地址&amp;output=输出格式类型&amp;key=用户密钥&amp;city=城市名<!-- raw HTML omitted --></p>
 <ul>
-<li>逆地址解析：根据坐标获取地址
-<br /></li>
+<li>逆地址解析：根据坐标获取地址</li>
 </ul>
-
-<p><a href="http://api.map.baidu.com/geocoder?location=%E7%BA%AC%E5%BA%A6,%E7%BB%8F%E5%BA%A6&output=%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E7%B1%BB%E5%9E%8B&key=%E7%94%A8%E6%88%B7%E5%AF%86%E9%92%A5" target="_blank"><a href="http://api.map.baidu.com/geocoder?location=纬度,经度&amp;output=输出格式类型&amp;key=用户密钥">http://api.map.baidu.com/geocoder?location=纬度,经度&amp;output=输出格式类型&amp;key=用户密钥</a></a></p>
-
+<p><!-- raw HTML omitted --><a href="http://api.map.baidu.com/geocoder?location=">http://api.map.baidu.com/geocoder?location=</a>纬度,经度&amp;output=输出格式类型&amp;key=用户密钥<!-- raw HTML omitted --></p>
 <p>备注：</p>
-
 <ol>
-<li><p>city属于可选参数，通常情况可以不使用，若解析无结果，请尝试增加此字段。</p></li>
-
-<li><p>支持名胜古迹、标志性建筑物名称解析返回百度经纬度坐标，如address=“百度大厦”。</p></li>
-
-<li><p>支持使用“*路与*路交叉口”方式解析返回百度经纬度坐标，若地址库中存在该地址描述，返回百度经纬度坐标。</p></li>
-
-<li><p>若解析status字段为OK，若结果内容为空，原因分析及可尝试方法：</p>
-
+<li>
+<p>city属于可选参数，通常情况可以不使用，若解析无结果，请尝试增加此字段。</p>
+</li>
+<li>
+<p>支持名胜古迹、标志性建筑物名称解析返回百度经纬度坐标，如address=“百度大厦”。</p>
+</li>
+<li>
+<p>支持使用“*路与*路交叉口”方式解析返回百度经纬度坐标，若地址库中存在该地址描述，返回百度经纬度坐标。</p>
+</li>
+<li>
+<p>若解析status字段为OK，若结果内容为空，原因分析及可尝试方法：</p>
+</li>
+</ol>
 <ul>
 <li>地址库里无此数据，本次结果为空。</li>
 <li>加入city字段重新解析；</li>
-<li>将过于详细或简单的地址更改至省市区县街道重新解析；
-<br /></li>
-</ul></li>
-
-<li><p>特别提醒：逆地址解析location参数传入的参数格式是(纬度lat，经度lng)。</p></li>
+<li>将过于详细或简单的地址更改至省市区县街道重新解析；</li>
+</ul>
+<ol start="5">
+<li>特别提醒：逆地址解析location参数传入的参数格式是(纬度lat，经度lng)。</li>
 </ol>
-
-<h2 id=".E6.8E.A5.E5.8F.A3.E5.8F.82.E6.95.B0">接口参数</h2>
-
-<table>
-  <tr>
-    <th width="96px">
-      参数
-    </th>
-        
-    <th width="70px">
-      是否必须
-    </th>
-        
-    <th width="60px">
-      默认值
-    </th>
-        
-    <th width="220px">
-      格式举例
-    </th>
-        
-    <th width="255px">
-      含义
-    </th>
-  </tr>
-      
-  <tr>
-    <td>
-      output
-    </td>
-        
-    <td>
-      否
-    </td>
-        
-    <td>
-      json
-    </td>
-        
-    <td>
-      json或xml
-    </td>
-        
-    <td>
-      输出格式为json或者xml
-    </td>
-  </tr>
-      
-  <tr>
-    <td>
-      address
-    </td>
-        
-    <td>
-      是
-    </td>
-        
-    <td>
-      无
-    </td>
-        
-    <td>
-      北京市海淀区上地十街10号
-    </td>
-        
-    <td>
-      根据指定地址进行坐标的反定向解析
-    </td>
-  </tr>
-      
-  <tr>
-    <td>
-      location
-    </td>
-        
-    <td>
-      是
-    </td>
-        
-    <td>
-      无
-    </td>
-        
-    <td>
-      38.76623,116.43213<br /> lat<纬度>,lng<经度>
-    </td>
-        
-    <td>
-      根据指定坐标来进行地址的解析
-    </td>
-  </tr>
-      
-  <tr>
-    <td>
-      city
-    </td>
-        
-    <td>
-      否
-    </td>
-        
-    <td>
-      “北京市”
-    </td>
-        
-    <td>
-      “广州市”
-    </td>
-        
-    <td>
-      地址所在的城市名
-    </td>
-  </tr>
-      
-  <tr>
-    <td>
-      key
-    </td>
-        
-    <td>
-      是
-    </td>
-        
-    <td>
-      无
-    </td>
-        
-    <td>
-      8cb976834235d8cbcde2dce4835ae191
-    </td>
-        
-    <td>
-      用户申请注册的key
-    </td>
-  </tr>
-</table>
+<h2 id="" class="E6 8E A5 E5 8F A3 E5 8F 82 E6 95 B0">接口参数</h2>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th width=&quot;70px&quot;&gt;
+  是否必须
+&lt;/th&gt;
     
-
+&lt;th width=&quot;60px&quot;&gt;
+  默认值
+&lt;/th&gt;
+    
+&lt;th width=&quot;220px&quot;&gt;
+  格式举例
+&lt;/th&gt;
+    
+&lt;th width=&quot;255px&quot;&gt;
+  含义
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  否
+&lt;/td&gt;
+    
+&lt;td&gt;
+  json
+&lt;/td&gt;
+    
+&lt;td&gt;
+  json或xml
+&lt;/td&gt;
+    
+&lt;td&gt;
+  输出格式为json或者xml
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  是
+&lt;/td&gt;
+    
+&lt;td&gt;
+  无
+&lt;/td&gt;
+    
+&lt;td&gt;
+  北京市海淀区上地十街10号
+&lt;/td&gt;
+    
+&lt;td&gt;
+  根据指定地址进行坐标的反定向解析
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  是
+&lt;/td&gt;
+    
+&lt;td&gt;
+  无
+&lt;/td&gt;
+    
+&lt;td&gt;
+  38.76623,116.43213&lt;br /&gt; lat&lt;纬度&gt;,lng&lt;经度&gt;
+&lt;/td&gt;
+    
+&lt;td&gt;
+  根据指定坐标来进行地址的解析
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  否
+&lt;/td&gt;
+    
+&lt;td&gt;
+  “北京市”
+&lt;/td&gt;
+    
+&lt;td&gt;
+  “广州市”
+&lt;/td&gt;
+    
+&lt;td&gt;
+  地址所在的城市名
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  是
+&lt;/td&gt;
+    
+&lt;td&gt;
+  无
+&lt;/td&gt;
+    
+&lt;td&gt;
+  8cb976834235d8cbcde2dce4835ae191
+&lt;/td&gt;
+    
+&lt;td&gt;
+  用户申请注册的key
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
 <p>上表中address和location两个字段如果同时出现，则优先选择address执行地理编码功能。对于address字段可能会出现中文或其它一些特殊字符（如：空格），所以对于类似的字符都要进行编码处理，编码成 UTF-8 字符的二字符十六进制值，凡是不在下表中的字符都要进行编码。</p>
-
-<table>
-  <tr>
-    <th width="74px">
-      字符集合
-    </th>
-        
-    <th width="500px;">
-      字符
-    </th>
-  </tr>
-      
-  <tr>
-    <td>
-      URL非保留字
-    </td>
-        
-    <td>
-      a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 &#8211; _ . ~
-    </td>
-  </tr>
-      
-  <tr>
-    <td>
-      URL保留字
-    </td>
-        
-    <td>
-      ! * &#8216; ( ) ; : @ & = + $ , / ? % # [ ]
-    </td>
-  </tr>
-</table>
-    
-
+<!-- raw HTML omitted -->
+<pre><code>&lt;th width=&quot;500px;&quot;&gt;
+  字符
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 &amp;#8211; _ . ~
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  ! * &amp;#8216; ( ) ; : @ &amp; = + $ , / ? % # [ ]
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
 <p>附注：</p>
-
 <p>(1) javascript中一般采用encodeURIComponent函数对特殊字符进行编码。</p>
-
 <p>(2) Java中可以使用函数URLEncoder.encode对特殊字符进行编码。</p>
-
 <p>(3) C#中可以使用函数HttpUtility.UrlEncode对特殊字符进行编码。</p>
-
 <p>(4) php中可以使用函数urlencode对特殊字符进行编码。</p>
-
-<h2 id=".E8.BF.94.E5.9B.9E.E6.95.B0.E6.8D.AE.E8.AF.B4.E6.98.8E">返回数据说明</h2>
-
+<h2 id="" class="E8 BF 94 E5 9B 9E E6 95 B0 E6 8D AE E8 AF B4 E6 98 8E">返回数据说明</h2>
 <p>返回结果（地址解析的结果）</p>
-
+</li>
+</ul>
 <pre><code>{status: '字符串状态常量', 取值如下：
 //OK 成功
 INVILID_KEY 非法密钥 
@@ -425,80 +361,79 @@ confidence: 可信度,
 level:'级别'
 },
 }
+</code></pre><pre><code>返回结果（反地址解析的结果）
+
+```
+{status: '字符串状态常量', 取值如下：
 </code></pre>
-
-<p>返回结果（反地址解析的结果）</p>
-
-<pre><code>{status: '字符串状态常量', 取值如下：
-//OK 成功
-INVILID_KEY 非法密钥   
+<p>//OK 成功
+INVILID_KEY 非法密钥<br>
 INVALID_PARAMETERS 非法参数，参数错误时候给出。
-result: {    
+result: { <br>
 location: {
 lat: 纬度：数值，
 lng: 经度：数值
 },
 formatted_address: ‘详细地址描述’,
-business: '周围商圈',
+business: &lsquo;周围商圈&rsquo;,
 addressComponent:{
 city:’城市名称’,
 district: ‘区县名称’,
-province:’省份名称’, 
+province:’省份名称’,
 street: ‘街道名称’,
-streetNumber: '门牌号码' 
+streetNumber: &lsquo;门牌号码&rsquo;
 },
-cityCode: '城市代码'
+cityCode: &lsquo;城市代码&rsquo;
 }
-}
-</code></pre>
+}</p>
+<pre><code>   
+   ## 接口示例 {#.E6.8E.A5.E5.8F.A3.E7.A4.BA.E4.BE.8B}
+   
+   根据详细地址获取坐标
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //根据“上地十街十号”返回坐标“lng:116.307175, lat:40.057098”，以xml格式输出  
+   在指定城市内检索详细地址的坐标
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82&lt;/a&gt;
+   
+   // 在北京市内根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82&lt;/a&gt;
+   
+   // 在北京市内根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出  
+   根据特定建筑物获取它的坐标
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;  //根据“百度大厦”名称返回坐标“lng:116.307175, lat:40.057098”，以json格式输入
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;  //根据“百度大厦”名称返回坐标“lng:116.307175, lat:40.057098”，以xml格式输入  
+   根据“\*路与\*路交叉路口”类型地址描述获得它的坐标
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //根据“北一环路和阜阳路的交叉路口”名称返回坐标“lng:117.294364, lat:31.885558”，以json格式输入
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //根据“北一环路和阜阳路的交叉路口”名称返回坐标“lng:117.294364, lat:31.885558”，以xml格式输入  
+   根据坐标获取它的地址
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?output=json&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?output=json&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //解析“lat:39.983424, lng:116.322987”坐标返回“北京市海淀区中关村大街27号1101-08室”，以json格式输出
+   
+   &lt;a href=&quot;http://api.map.baidu.com/geocoder?output=xml&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;http://api.map.baidu.com/geocoder?output=xml&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676&lt;/a&gt;
+   
+   //解析“lat:39.983424, lng:116.322987”坐标返回“北京市海淀区中关村大街27号1101-08室”，以xml格式输出&lt;/li&gt; &lt;/ul&gt; 
+   
+   &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;strong&gt;百度地址&lt;a href=&quot;http://developer.baidu.com/map/geocoding-api.htm&quot; target=&quot;_blank&quot;&gt;http://developer.baidu.com/map/geocoding-api.htm&lt;/a&gt;&lt;/strong&gt;&lt;/span&gt;
 
-<h2 id=".E6.8E.A5.E5.8F.A3.E7.A4.BA.E4.BE.8B">接口示例</h2>
-
-<p>根据详细地址获取坐标</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&output=json&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&output=xml&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//根据“上地十街十号”返回坐标“lng:116.307175, lat:40.057098”，以xml格式输出<br />
-在指定城市内检索详细地址的坐标</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&output=json&key=37492c0ee6f924cb5e934fa08c6b1676&city=%E5%8C%97%E4%BA%AC%E5%B8%82" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82">http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82</a></a></p>
-
-<p>// 在北京市内根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&output=xml&key=37492c0ee6f924cb5e934fa08c6b1676&city=%E5%8C%97%E4%BA%AC%E5%B8%82" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82">http://api.map.baidu.com/geocoder?address=%E4%B8%8A%E5%9C%B0%E5%8D%81%E8%A1%9710%E5%8F%B7&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676&amp;city=%E5%8C%97%E4%BA%AC%E5%B8%82</a></a></p>
-
-<p>// 在北京市内根据“上地十街10号”返回坐标“lng:116.307175, lat:40.057098”，以json格式输出<br />
-根据特定建筑物获取它的坐标</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=json&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a>  //根据“百度大厦”名称返回坐标“lng:116.307175, lat:40.057098”，以json格式输入</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=xml&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a>  //根据“百度大厦”名称返回坐标“lng:116.307175, lat:40.057098”，以xml格式输入<br />
-根据“*路与*路交叉路口”类型地址描述获得它的坐标</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&output=json&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=json&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//根据“北一环路和阜阳路的交叉路口”名称返回坐标“lng:117.294364, lat:31.885558”，以json格式输入</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&output=xml&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?address=%E5%8C%97%E4%B8%80%E7%8E%AF%E8%B7%AF%E5%92%8C%E9%98%9C%E9%98%B3%E8%B7%AF%E7%9A%84%E4%BA%A4%E5%8F%89%E8%B7%AF%E5%8F%A3&amp;output=xml&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//根据“北一环路和阜阳路的交叉路口”名称返回坐标“lng:117.294364, lat:31.885558”，以xml格式输入<br />
-根据坐标获取它的地址</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?output=json&location=39.983424,%20116.322987&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?output=json&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?output=json&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//解析“lat:39.983424, lng:116.322987”坐标返回“北京市海淀区中关村大街27号1101-08室”，以json格式输出</p>
-
-<p><a href="http://api.map.baidu.com/geocoder?output=xml&location=39.983424,%20116.322987&key=37492c0ee6f924cb5e934fa08c6b1676" rel="nofollow" target="_blank"><a href="http://api.map.baidu.com/geocoder?output=xml&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676">http://api.map.baidu.com/geocoder?output=xml&amp;location=39.983424,%20116.322987&amp;key=37492c0ee6f924cb5e934fa08c6b1676</a></a></p>
-
-<p>//解析“lat:39.983424, lng:116.322987”坐标返回“北京市海淀区中关村大街27号1101-08室”，以xml格式输出</li> </ul></p>
-
-<p><span style="font-size: medium;"><strong>百度地址<a href="http://developer.baidu.com/map/geocoding-api.htm" target="_blank"><a href="http://developer.baidu.com/map/geocoding-api.htm">http://developer.baidu.com/map/geocoding-api.htm</a></a></strong></span></p></li>
-</ul>
-
+[1]: http://developer.baidu.com/map/apply-key.htm</code></pre>
     
       <div id="SOHUCS" sid="/498.html" ></div>
 <script type="text/javascript">
@@ -780,7 +715,7 @@ cityCode: '城市代码'
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -789,6 +724,7 @@ cityCode: '城市代码'
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

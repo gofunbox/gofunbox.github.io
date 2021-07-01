@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Funbox的技术记事本</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Tags on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 06:01:59 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Dec 2020 06:01:59 +0000</lastBuildDate><atom:link href="https://ifunbox.top/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo</title>
       <link>https://ifunbox.top/tags/hugo/</link>

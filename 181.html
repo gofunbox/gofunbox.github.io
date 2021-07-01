@@ -4,7 +4,7 @@
   <head>
 <title>Windows 7中虚拟机VMware无线网络图文配置教程 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
-先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
- 成功用虚拟机VMware网络配置的前提条件：
-首先，设备管理器里面要有VMware Virtual Ethernet …">
+<meta name="description" content="看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。我的网络适配器如下成功用虚拟机VMware网络配置的前提条件：首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Windows 7中虚拟机VMware无线网络图文配置教程" />
 <meta property="og:url" content="https://ifunbox.top/181.html" />
 <meta property="og:title" content="Windows 7中虚拟机VMware无线网络图文配置教程" />
-<meta property="og:description" content="看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
-先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
- 成功用虚拟机VMware网络配置的前提条件：
-首先，设备管理器里面要有VMware Virtual Ethernet …" />
+<meta property="og:description" content="看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。我的网络适配器如下成功用虚拟机VMware网络配置的前提条件：首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -168,151 +162,68 @@
 </div>
 
     
-    <p><span class="Apple-style-span" style="font-size: medium;">　  看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。</span></p>
-
-<p style="padding-left: 30px;">
-  <span class="Apple-style-span" style="font-size: medium;">先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0</span>
-</p>
-
-<p><span style="font-size: medium;">　　我的网络适配器如下</span></p>
-
-<p style="padding-left: 30px;">
-  <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_1.jpg"><img class="alignnone size-full wp-image-1184" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_1.jpg" alt="img181_1" width="328" height="63" /></a>
-</p>
-
-<p><span style="font-size: medium;">　　成功用<a title="虚拟机VMware网络配置" href="http://www.fanhefan.com/181.htm"><strong>虚拟机VMware网络配置</strong></a>的前提条件<strong>：</strong></span></p>
-
-<p><span style="font-size: medium;">　　首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：</span></p>
-
-<p style="padding-left: 30px;">
-  <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_2.jpg"><img class="alignnone size-full wp-image-1185" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_2.jpg" alt="img181_2" width="429" height="116" /></a>
-</p>
-
-<p><span style="font-size: medium;">　　其次，控制面板\网络和共享中心-&gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge Protocol协议打钩(这边要注意是你的物理网卡，而不是虚拟网卡的属性，虚拟网卡可以不打勾)</span></p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">　　<a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_3.jpg"><img class="alignnone size-large wp-image-1186" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_3-600x435.jpg" alt="img181_3" width="600" height="435" /></a></span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">另外，系统服务中没有更改默认VMware所续启动的三个必要服务。</span>
-</p>
-
-<p><span style="font-size: medium;">　　如果上述必要设置有问题，只要重新安装下VMware，或者选择修复安装，一般问题都会解决。</span></p>
-
-<p><span style="font-size: medium;">　　虚拟机VMware网络配置的详细步骤：(以下设置最好是都用管理员身份运行)</span></p>
-
-<p><span style="font-size: medium;">　　1、打开VMware Workstation菜单栏编辑-&gt;虚拟网络编辑器（Virtual Network Editor）</span></p>
-
-<p><span style="font-size: medium;">　　2、选中VMnet8，类型NAT,记下下面的Gateway IP Address，比如说我的就是192.168.32.0;然后打开NAT设置，记下里面的网关:192.168.32.2</span></p>
-
-<p style="padding-left: 30px;">
-  <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_4.jpg"><img class="alignnone size-large wp-image-1187" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_4-600x500.jpg" alt="img181_4" width="600" height="500" /></a>
-</p>
-
-<p><span style="font-size: medium;">　　3、打开DHCP标签页，记下Start IP Address和End IP Address，比如说我的就是192.168.32.128和192.168.32.254</span></p>
-
-<p><span style="font-size: medium;">　　4、关闭VMware，Virtual Network Editor，运行VMware Workstation，在菜单栏中，选择虚拟机-&gt;设置下的网络适配器运行方式为第二种(NAT:Used to share the host&#8217;s IP address</span></p>
-
-<p><span style="font-size: medium;">　　5、启动虚拟机，比如说我的是Centos6.0，并打开网络设置</span></p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">　   <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_5.jpg"><img class="alignnone size-large wp-image-1188" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_5-600x330.jpg" alt="img181_5" width="600" height="330" /></a></span>
-</p>
-
-<p><span style="font-size: medium;">　   6、更改本地连接属性里面的TCP/IP属性，选择使用下面的IP地址，其中，IP Address填刚才DHCP页面里面记下的两个IP地址中的随便一个IP，也就是说从192.168.32.128到192.168.32.254，随便选一个，我选的是192.168.32.202。子网掩码（Netmask）是自动填的255.255.255.0，默认网关（Gateway）和下面的DNS是填刚才NAT页面记下的IP，比如我的是192.168.32.2。</span></p>
-
-<p style="padding-left: 30px;">
-  <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_6.jpg"><img class="alignnone size-large wp-image-1189" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_6-600x329.jpg" alt="img181_6" width="600" height="329" /></a>
-</p>
-
-<p><span style="font-size: medium;">　　7、打开浏览器，输入 <a title="饭盒饭的博客" href="http://www.fanhefan.com/"><a href="http://www.fanhefan.com/">http://www.fanhefan.com/</a></a> ,能上网了。</span></p>
-
-<p style="padding-left: 30px;">
-  <a href="https://ifunbox.top/wp-content/uploads/2011/11/img181_7.jpg"><img class="alignnone size-large wp-image-1190" src="https://ifunbox.top/wp-content/uploads/2011/11/img181_7-600x471.jpg" alt="img181_7" width="600" height="471" /></a>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">虚拟机VMware网络配置到此结束。　　</span>
-</p>
-
-<p style="padding-left: 30px;">
-  <span style="font-size: medium;">而我的情况还比较特殊，有两台虚拟机，并且无限上网使用了代理 proxy.xxxx.com</span>
-</p>
-
-<p><span style="font-size: medium;">　　一台:192.168.32.202 数据库服务器</span></p>
-
-<p><span style="font-size: medium;">　　一台:192.168.32.203 应用程序和前端服务器</span></p>
-
-<p><span style="font-size: medium;">　　203与202不同的地方时</span></p>
-
-<p><span style="font-size: medium;">　　203 的多配置一个DNS,ip位202的</span></p>
-
-<p><span style="font-size: medium;">　　这样以后，</span></p>
-
-<p><span style="font-size: medium;">　　IE连接使用了代理就能外网，但是不能连接数据库，否则能连接数据库，不能上外网，</span></p>
-
-<p><span style="font-size: medium;">　　解决方案：点击代理后面的 高级&#8211;&gt;例外情况中输入你的数据库服务器的Ip地址是不OK得，输入数据库服务器的名称，OK</span></p>
-
-<p><span style="font-size: medium;">　　于是你的203能够连接数据库又能够上外网了。</span></p>
-
-<p><span style="font-size: medium;">　　希望能够给大家带来帮助。</span></p>
-
-<p><span style="font-size: medium;"><strong>　　以下就是本文给出的VMware虚拟机网络设置：</strong></span></p>
-
-<p><span style="font-size: medium;"><strong>　　VMware虚拟机网络设置之1.bridge :</strong></span></p>
-
-<p><span style="font-size: medium;">　　默认使用vmnet0</span></p>
-
-<p><span style="font-size: medium;">　　将虚拟机的ip设置与主机同网段未使用ip,其余与主机相同:</span></p>
-
-<p><span style="font-size: medium;">　　例如主机ip是10.70.54.31,设置虚拟机ip为10.70.54.22。netmask,broadcast,gateway,dns都与主机相同即可实现虚拟机&lt;&#8212;&gt;主机 虚拟机&lt;&#8212;-&gt;互联网 通信。</span></p>
-
-<p><span style="font-size: medium;"><strong>　　VMware虚拟机网络设置之2.nat :</strong></span></p>
-
-<p><span style="font-size: medium;">　　默认使用vmnet8</span></p>
-
-<p><span style="font-size: medium;">　　将虚拟机设置成使用dhcp方式上网,windows下选择&#8221;自动获取ip&#8221;,linux下开启dhcp服务即可</span></p>
-
-<p><span style="font-size: medium;">　　也可以手动设置:</span></p>
-
-<p><span style="font-size: medium;">　　ip设置与vmnet8同网段,gateway设置成vmnet8的gateway(/etc/VMware/vmnet8/nat/nat.conf)中可以查到vmnet8的gateway,通常是xxx.xxx.xxx.2。</span></p>
-
-<p><span style="font-size: medium;">　　netmask,broadcast设置与vmnet8相同,dns设置与主机相同。</span></p>
-
-<p><span style="font-size: medium;">　　例如 vmnet8 ip:172.16.249.1 gw :172.16.249.2</span></p>
-
-<p><span style="font-size: medium;">　　虚拟机设置: ip :172.16.249.100 gw: 172.16.249.2</span></p>
-
-<p><span style="font-size: medium;">　　VMware虚拟机网络设置之3.host-only :</span></p>
-
-<p><span style="font-size: medium;">　　默认使用vmnet1</span></p>
-
-<p><span style="font-size: medium;">　　将虚拟机ip设置与vmnet1同网段,gateway设置成vmnet1的ip,其余设置与vmnet1相同,dns设置与主机相同</span></p>
-
-<p><span style="font-size: medium;">　　例如 vmnet1 ip :172.16.245.1</span></p>
-
-<p><span style="font-size: medium;">　　VMware虚拟机网络设置: ip :172.16.245.100 gateway :172.16.245.1</span></p>
-
-<p><span style="font-size: medium;">　　这样就实现了虚拟机&lt;&#8212;&gt;主机 通信,但是 虚拟机&lt;&#8212;&gt;互联网 仍无法通信</span></p>
-
-<p><span style="font-size: medium;"><strong>　　虚拟机与互联网通信：</strong></span></p>
-
-<p><span style="font-size: medium;">　　1.开启主机路由功能</span></p>
-
-<p><span style="font-size: medium;">　　2.设定iptables，使主机成为一台nat server</span></p>
-
-<p><span style="font-size: medium;">　　1. echo 1 &gt;/proc/sys/net/ipv4/ip_forward 这样就主机就具有了路由功能</span></p>
-
-<p><span style="font-size: medium;">　　2. iptables -t nat -A POSTROUTING -o eth0 -s 172.16.245.0/24 -j MASQUERADE</span></p>
-
-<p><span style="font-size: medium;">　　这条VMware虚拟机网络设置规则意思是将来自172.16.245.0/24封包的来源ip伪装成eth0的ip，实现虚拟机与互联网通信</span></p>
-
-<p><span style="font-size: medium;">　　如果网络接口是ppp+或pppoe则需要修改成-o pppoe</span></p>
-
-<p><span style="font-size: medium;">　　当然-s 172.16.245.0/24 也要根据实际情况修改</span></p>
-
-<p><span style="font-size: medium;">　　以上就是VMware虚拟机网络设置的三种具体方法。</span></p>
+    <p><!-- raw HTML omitted -->　  看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　我的网络适配器如下<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　成功用<!-- raw HTML omitted --><!-- raw HTML omitted -->虚拟机VMware网络配置<!-- raw HTML omitted --><!-- raw HTML omitted -->的前提条件<!-- raw HTML omitted -->：<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　其次，控制面板\网络和共享中心-&gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge Protocol协议打钩(这边要注意是你的物理网卡，而不是虚拟网卡的属性，虚拟网卡可以不打勾)<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　如果上述必要设置有问题，只要重新安装下VMware，或者选择修复安装，一般问题都会解决。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　虚拟机VMware网络配置的详细步骤：(以下设置最好是都用管理员身份运行)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　1、打开VMware Workstation菜单栏编辑-&gt;虚拟网络编辑器（Virtual Network Editor）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　2、选中VMnet8，类型NAT,记下下面的Gateway IP Address，比如说我的就是192.168.32.0;然后打开NAT设置，记下里面的网关:192.168.32.2<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　3、打开DHCP标签页，记下Start IP Address和End IP Address，比如说我的就是192.168.32.128和192.168.32.254<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　4、关闭VMware，Virtual Network Editor，运行VMware Workstation，在菜单栏中，选择虚拟机-&gt;设置下的网络适配器运行方式为第二种(NAT:Used to share the host’s IP address<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　5、启动虚拟机，比如说我的是Centos6.0，并打开网络设置<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　   6、更改本地连接属性里面的TCP/IP属性，选择使用下面的IP地址，其中，IP Address填刚才DHCP页面里面记下的两个IP地址中的随便一个IP，也就是说从192.168.32.128到192.168.32.254，随便选一个，我选的是192.168.32.202。子网掩码（Netmask）是自动填的255.255.255.0，默认网关（Gateway）和下面的DNS是填刚才NAT页面记下的IP，比如我的是192.168.32.2。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　7、打开浏览器，输入 <!-- raw HTML omitted --><a href="http://www.fanhefan.com/">http://www.fanhefan.com/</a><!-- raw HTML omitted --> ,能上网了。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->　　一台:192.168.32.202 数据库服务器<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　一台:192.168.32.203 应用程序和前端服务器<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　203与202不同的地方时<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　203 的多配置一个DNS,ip位202的<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　这样以后，<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　IE连接使用了代理就能外网，但是不能连接数据库，否则能连接数据库，不能上外网，<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　解决方案：点击代理后面的 高级–&gt;例外情况中输入你的数据库服务器的Ip地址是不OK得，输入数据库服务器的名称，OK<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　于是你的203能够连接数据库又能够上外网了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　希望能够给大家带来帮助。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　以下就是本文给出的VMware虚拟机网络设置：<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　VMware虚拟机网络设置之1.bridge :<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　默认使用vmnet0<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　将虚拟机的ip设置与主机同网段未使用ip,其余与主机相同:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　例如主机ip是10.70.54.31,设置虚拟机ip为10.70.54.22。netmask,broadcast,gateway,dns都与主机相同即可实现虚拟机&lt;—&gt;主机 虚拟机&lt;—-&gt;互联网 通信。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　VMware虚拟机网络设置之2.nat :<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　默认使用vmnet8<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　将虚拟机设置成使用dhcp方式上网,windows下选择”自动获取ip”,linux下开启dhcp服务即可<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　也可以手动设置:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　ip设置与vmnet8同网段,gateway设置成vmnet8的gateway(/etc/VMware/vmnet8/nat/nat.conf)中可以查到vmnet8的gateway,通常是xxx.xxx.xxx.2。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　netmask,broadcast设置与vmnet8相同,dns设置与主机相同。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　例如 vmnet8 ip:172.16.249.1 gw :172.16.249.2<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　虚拟机设置: ip :172.16.249.100 gw: 172.16.249.2<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　VMware虚拟机网络设置之3.host-only :<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　默认使用vmnet1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　将虚拟机ip设置与vmnet1同网段,gateway设置成vmnet1的ip,其余设置与vmnet1相同,dns设置与主机相同<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　例如 vmnet1 ip :172.16.245.1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　VMware虚拟机网络设置: ip :172.16.245.100 gateway :172.16.245.1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　这样就实现了虚拟机&lt;—&gt;主机 通信,但是 虚拟机&lt;—&gt;互联网 仍无法通信<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　虚拟机与互联网通信：<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　1.开启主机路由功能<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　2.设定iptables，使主机成为一台nat server<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　1. echo 1 &gt;/proc/sys/net/ipv4/ip_forward 这样就主机就具有了路由功能<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　2. iptables -t nat -A POSTROUTING -o eth0 -s 172.16.245.0/24 -j MASQUERADE<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　这条VMware虚拟机网络设置规则意思是将来自172.16.245.0/24封包的来源ip伪装成eth0的ip，实现虚拟机与互联网通信<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　如果网络接口是ppp+或pppoe则需要修改成-o pppoe<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　当然-s 172.16.245.0/24 也要根据实际情况修改<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->　　以上就是VMware虚拟机网络设置的三种具体方法。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/181.html" ></div>
@@ -595,7 +506,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -604,6 +515,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>服务器 on Funbox的技术记事本</title>
@@ -6,11 +6,7 @@
     <description>Recent content in 服务器 on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 15 Dec 2017 07:08:59 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 15 Dec 2017 07:08:59 +0000</lastBuildDate><atom:link href="https://ifunbox.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx配置禁止IP直接HTTP/HTTPS访问</title>
       <link>https://ifunbox.top/nginx-ban-ip-access-for-http-https/</link>
@@ -18,8 +14,8 @@
       
       <guid>https://ifunbox.top/nginx-ban-ip-access-for-http-https/</guid>
       <description>这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
-#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
-yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key openssl req -new -key ssl.key -out ssl.csr …… 一路回车 …… openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.</description>
+#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; } 需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
+yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 2048 openssl rsa -passin pass:x -in ssl.pass.key -out ssl.key openssl req -new -key ssl.key -out ssl.csr …… 一路回车 …… openssl x509 -req -days 3650 -in ssl.csr -signkey ssl.key -out ssl.</description>
     </item>
     
     <item>
@@ -29,11 +25,12 @@ yum install -y openssl openssl genrsa -des3 -passout pass:x -out ssl.pass.key 20
       
       <guid>https://ifunbox.top/nginx-ssl-performance-optimization/</guid>
       <description>禁用 SSLv3 协议 Google 的一个员工发现了 SSLv3 协议中一个名叫 Poodle 的漏洞，被证实为可以窃取加密的部分信息。这是一个协议层的漏洞，因此无法打补丁。
-# nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ... }  添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
+# nginx.conf http { ... ssl_prefer_server_ciphers on; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;; ... } 添加 HSTS 响应头 Header HSTS 的 Header 告诉浏览器在指定的时间内，必须使用严格的 HTTPS 访问网站，即使是用户手动输入的 http:// 地址，也会被强制定向。
 你也可以配置用 301 重定向 http 流量到 https，但是这个非加密的跳转过程随时可能被劫持。因此，HSTS 则告诉了浏览器在本地直接重定向 https。
 在所需网站的 server { } 块儿里，添加这个头：
-server { ... add_header Strict-Transport-Security &amp;quot;max-age=31536000;includeSubDomains&amp;quot;; ... }  如果你不需要所有的字域名也强启 HSTS，可以去掉 ;includeSubDomains 。
-如果你想将自己的域名加入 HSTS Preload 名单直接内置于众多浏览器中，实现从第一次到最后一次都是 https 加密连接，可以到这里申请。</description>
+server { ... add_header Strict-Transport-Security &amp;quot;max-age=31536000;includeSubDomains&amp;quot;; ... } 如果你不需要所有的字域名也强启 HSTS，可以去掉 ;includeSubDomains 。
+如果你想将自己的域名加入 HSTS Preload 名单直接内置于众多浏览器中，实现从第一次到最后一次都是 https 加密连接，可以到这里申请。
+更多优化配置 为了缩短建立 SSL 连接的过程时间，可以在 server { } 块儿里添加如下配置：</description>
     </item>
     
     <item>
@@ -57,18 +54,15 @@ Makefile的用途不只是编译软件，还可以利用它完成一些琐碎的
     
     <item>
       <title>HTTPS原理以及HTTPS中间人攻击</title>
-      <link>https://ifunbox.top/security-https-and-mitm/</link>
+      <link>https://ifunbox.top/security-https-and-MITM/</link>
       <pubDate>Wed, 16 Aug 2017 03:15:35 +0000</pubDate>
       
-      <guid>https://ifunbox.top/security-https-and-mitm/</guid>
+      <guid>https://ifunbox.top/security-https-and-MITM/</guid>
       <description>https简介 http(Hyper Text Transfer Protocol)超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议,它是TCP/IP的上层协议,同时它也是万维网(万维网不等同于互联网,它只是基于互联网的一个服务)的数据通信的基础.
 http协议是客户端浏览器与其他程序或Web服务器之间交互的应用层通讯协议.但它也有一个致命的缺点:http协议是明文传输协议,在传输信息的过程中并没有进行任何加密,通信的双方也没有任何的认证,这是非常不安全的,如果在通信过程中被中间人进行劫持、监听、篡改,会造成个人隐私泄露等严重的安全问题.
 https就是用于解决这样的安全问题的,它的全称为Hypertext Transfer Protocol Secure,它在http的基础上添加了SSL(安全套接字层)层来保证传输数据的安全问题.
 https提供了端对端的加密,而且不仅对数据进行了加密,还对数据完整性提供了保护.不过在讲解https的加密方式之前,我们需要先了解一下加密算法.
- 对称加密 对称加密的基本思想是: 通信双方使用同一个密钥(或者是两个可以简单地互相推算的密钥)来对明文进行加密与解密.
-常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6.
-  对称加密看起来很美好,但是密钥要怎么发送过去呢?如果直接发送过去,被中间人截获了密钥岂不是白费工夫.&amp;lt;/li&amp;gt; * 非对称加密 非对称加密也叫公开密钥加密,它使用了两个密钥,一个为公钥,一个为私钥,当一个用作于加密的时候,另一个则用作解密. 这两个密钥就算被其他人知道了其中一个也不能凭借它计算出另一个密钥,所以可以公开其中一个密钥(也就是公钥),不公开的密钥为私钥.   如果服务器想发送消息给客户端,只需要用客户端的公钥加密,然后客户端用它自己的私钥进行解密. 常见的非对称加密算法有RSA、DSA、ECDSA、 DH、ECDHE. 我们以DH算法为例,了解一下非对称加密的魅力.  
-对称加密与非对称加密结合使用的方法虽然能够保证了通信过程的安全,但也引发了如下问题: * 客户端要如何获取到服务器的公钥? * 如果公钥在发送过程被中间人拦截,然后中间人发送自己的公钥给客户端,客户端该如何确认? 解决方法依是通过一个权威的CA(Certificate Authority)证书中心, * * * ## CA (Certificate Authority证书颁发机构) 它来负责颁发证书（声明这个公钥确实是服务端的）,这个证书包含了如下等内容: * 证书的发布机构. * 证书的有效期 * 公钥 * 证书所有人 * 数字签名 数字签名是用来验证数据完整性的，首先将公钥与个人信息用一个Hash算法生成一个消息摘要，Hash算法是不可逆的，且只要内容发生变化，那生成的消息摘要将会截然不同。然后CA再用它的私钥对消息摘要加密，最终形成数字签名。还把原始信息和数据签名合并，形成一个全新的东西，叫做“数字证书”  当客户端接收到证书时,只需要用同样的Hash算法再次生成一个消息摘要,然后用CA的公钥对证书进行解密,之后再对比两个消息摘要就能知道数据有没有被篡改过了.  那么CA的公钥又要从哪里来呢？这似乎陷入了一个鸡生蛋,蛋生鸡的悖论，其实CA也有证书来证明自己，而且CA证书的信用体系就像一棵树的结构，上层节点是信用高的CA同时它也会对底层的CA做信用背书，操作系统／浏览器中会内置一些顶层的CA的证书，相当于你自动信任了他们。这样通过各级实体证书的验证，逐渐上溯到链的终止点，即可信任的根CA，如果到达终点在自己的信任列表内未发现可信任的CA则认为此证书不可信。  验证证书链的时候，用上一级的公钥对证书里的签名进行解密，还原对应的摘要值，再使用证书信息计算证书的摘要值，最后通过对比两个摘要值是否相等，如果不相等则认为该证书不可信，如果相等则认为该级证书链正确，以此类推对整个证书链进行校验，引用高性能网络中的证书链校验图。 * * * ## Https的交互过程   1.</description>
+ 对称加密 对称加密的基本思想是: 通信双方使用同一个密钥(或者是两个可以简单地互相推算的密钥)来对明文进行加密与解密.  常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6.  对称加密看起来很美好,但是密钥要怎么发送过去呢?如果直接发送过去,被中间人截获了密钥岂不是白费工夫.&amp;lt;/li&amp;gt; * 非对称加密 非对称加密也叫公开密钥加密,它使用了两个密钥,一个为公钥,一个为私钥,当一个用作于加密的时候,另一个则用作解密. 这两个密钥就算被其他人知道了其中一个也不能凭借它计算出另一个密钥,所以可以公开其中一个密钥(也就是公钥),不公开的密钥为私钥.   如果服务器想发送消息给客户端,只需要用客户端的公钥加密,然后客户端用它自己的私钥进行解密. 常见的非对称加密算法有RSA、DSA、ECDSA、 DH、ECDHE. 我们以DH算法为例,了解一下非对称加密的魅力.  对称加密与非对称加密结合使用的方法虽然能够保证了通信过程的安全,但也引发了如下问题: * 客户端要如何获取到服务器的公钥? * 如果公钥在发送过程被中间人拦截,然后中间人发送自己的公钥给客户端,客户端该如何确认? 解决方法依是通过一个权威的CA(Certificate Authority)证书中心, * * * ## CA (Certificate Authority证书颁发机构) 它来负责颁发证书（声明这个公钥确实是服务端的）,这个证书包含了如下等内容: * 证书的发布机构. * 证书的有效期 * 公钥 * 证书所有人 * 数字签名 数字签名是用来验证数据完整性的，首先将公钥与个人信息用一个Hash算法生成一个消息摘要，Hash算法是不可逆的，且只要内容发生变化，那生成的消息摘要将会截然不同。然后CA再用它的私钥对消息摘要加密，最终形成数字签名。还把原始信息和数据签名合并，形成一个全新的东西，叫做“数字证书”  当客户端接收到证书时,只需要用同样的Hash算法再次生成一个消息摘要,然后用CA的公钥对证书进行解密,之后再对比两个消息摘要就能知道数据有没有被篡改过了.  那么CA的公钥又要从哪里来呢？这似乎陷入了一个鸡生蛋,蛋生鸡的悖论，其实CA也有证书来证明自己，而且CA证书的信用体系就像一棵树的结构，上层节点是信用高的CA同时它也会对底层的CA做信用背书，操作系统／浏览器中会内置一些顶层的CA的证书，相当于你自动信任了他们。这样通过各级实体证书的验证，逐渐上溯到链的终止点，即可信任的根CA，如果到达终点在自己的信任列表内未发现可信任的CA则认为此证书不可信。  验证证书链的时候，用上一级的公钥对证书里的签名进行解密，还原对应的摘要值，再使用证书信息计算证书的摘要值，最后通过对比两个摘要值是否相等，如果不相等则认为该证书不可信，如果相等则认为该级证书链正确，以此类推对整个证书链进行校验，引用高性能网络中的证书链校验图。 * * * ## Https的交互过程   1. 浏览器对服务器发送了一次请求，包含协议版本号、一个客户端生成的随机数（Client random），以及客户端支持的加密方法。 2.</description>
     </item>
     
     <item>
@@ -78,11 +72,11 @@ https提供了端对端的加密,而且不仅对数据进行了加密,还对数�
       
       <guid>https://ifunbox.top/centos-cli-mailx/</guid>
       <description>mailx安装，很简单！貌似我的系统自带的。
-yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接  我先介绍下系统的版本和mailx的版本
-12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m  mailx的配置文件在/etc/mail.rc
+yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2 tar jxvf mailx-12.4.tar.bz2 #解压 cd mailx-12.4 #进入目录 make #编译 make install UCBINSTALL=/usr/bin/install #安装 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接 我先介绍下系统的版本和mailx的版本
+12.4 7/29/08 [root@localhost ~]# cat /etc/issue CentOS release 6.8 (Final) Kernel \r on an \m mailx的配置文件在/etc/mail.rc
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）
-set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login  直接报错了(没有使用ssl的节奏)
-smtp-server: 530 Error: A secure connection is requiered(such as ssl).</description>
+set smtp=smtp.qq.com set smtp-auth-user=111******53@qq.com set smtp-auth-password=euia********chb #授权码 set smtp-auth=login 直接报错了(没有使用ssl的节奏)
+smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.</description>
     </item>
     
     <item>
@@ -103,7 +97,7 @@ CA证书解决的问题 当终端实体使用证书时，必须在终端实体�
 为PKI建立的准则和程序定义了信任。这包括终端实体证书用于某些目的并阻止用于其他目的的能力。这些准则和程序以多种方式实施。例如，PKI的信任和安全可以通过两种方式建立：
  为确保承载CA的服务器的物理安全性而采取的步骤。 委派CA的管理角色的方式。  但是，针对组织需求的CA证书的适当配置是组织必须实施适当PKI安全性的最强大的工具之一。CA证书包含用于规范其颁发的CA的特殊配置数据。
 这些配置选项可以：
- 定义组织命名空间，由其发布和信任下属CA颁发的证书。 指定由下属CA颁发的证书的可接受使用。 定义必须遵循的发布准则，以便下属CA颁发的证书被视为有效。 在单独的认证层次之间创建一个托管信任。  参考
+ 定义组织命名空间，由其发布和信任下属CA颁发的证书。 指定由下属CA颁发的证书的可接受使用。 定义必须遵循的发布准则，以便下属CA颁发的证书被视为有效。 在单独的认证层次之间创建一个托管信任。   参考
 https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
     </item>
     
@@ -114,8 +108,8 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
       
       <guid>https://ifunbox.top/nginx-proxy-google-fonts-ajax/</guid>
       <description>nginx.conf配置开启proxy缓存
-## # Nginx Cache Settings ## proxy_temp_file_write_size 128k; proxy_temp_path /var/cache/nginx/temp; proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;  Google Fonts反向代理配置vhost
-#fonts.funboxpower.com.conf upstream google { server fonts.googleapis.com:443; } upstream gstatic { server fonts.gstatic.com:443; } server { listen 443 ssl; server_name fonts.funboxpower.com; #控制来源refer valid_referers server_name *.funboxpower.com funboxpower.com *.chengyinet.com chengyinet.com fonts.funboxpower.com; if ($invalid_referer) { return 404; } #配置https ssl_certificate /your_path/fullchain.pem; ssl_certificate_key /your_path/privkey.pem; location /css { #将获取的信息fonts.gstatic.com转化成fonts.funboxpower.com sub_filter &#39;fonts.gstatic.com&#39; &#39;fonts.funboxpower.com&#39;; sub_filter_once off; sub_filter_types text/css; proxy_pass_header Server; proxy_set_header Host fonts.</description>
+### Nginx Cache Settings##proxy_temp_file_write_size 128k;proxy_temp_path /var/cache/nginx/temp;proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cache_one:50m inactive=7d max_size=5g;Google Fonts反向代理配置vhost
+#fonts.funboxpower.com.confupstream google {server fonts.googleapis.com:443;}upstream gstatic {server fonts.gstatic.com:443;}server {listen 443 ssl;server_name fonts.funboxpower.com;#控制来源refervalid_referers server_name *.funboxpower.com funboxpower.com *.chengyinet.com chengyinet.com fonts.funboxpower.com;if ($invalid_referer) {return 404;}#配置httpsssl_certificate /your_path/fullchain.pem;ssl_certificate_key /your_path/privkey.pem;location /css {#将获取的信息fonts.gstatic.com转化成fonts.funboxpower.comsub_filter &#39;fonts.gstatic.com&#39; &#39;fonts.funboxpower.com&#39;;sub_filter_once off;sub_filter_types text/css;proxy_pass_header Server;proxy_set_header Host fonts.</description>
     </item>
     
     <item>
@@ -125,17 +119,17 @@ https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</description>
       
       <guid>https://ifunbox.top/centos-jenkins-install-config/</guid>
       <description>安装 添加Jenkins库到yum库，Jenkins将从这里下载安装。
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins  1.安装成功后Jenkins会作为守护进程随系统启动
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key sudo yum install jenkins 1.安装成功后Jenkins会作为守护进程随系统启动
 2.系统会创建一个用户“jenkins”来执行这个服务
 3.启动参数在/etc/sysconfig/jenkins文件中，修改默认端口也在此改
 4.Jenkins运行在8080端口，浏览器访问http://ip:8080
 5.Jenkins的RPM仓库配置被加到/etc/yum.repos.d/jenkins.repo
 6.启动/停止
-sudo service jenkins start/stop/restart sudo chkconfig jenkins on  在浏览器中访问 首次进入会要求输入初始密码，初始密码在：/var/lib/jenkins/secrets/initialAdminPassword
+sudo service jenkins start/stop/restart sudo chkconfig jenkins on 在浏览器中访问 首次进入会要求输入初始密码，初始密码在：/var/lib/jenkins/secrets/initialAdminPassword
 输入密码，选择要安装的插件，等待插件安装结束然后创建管理者账号就好了。
 一些常见的问题： 1.修改默认端口
 /etc/sysconfig/jenkins
-JENKINS_PORT=&amp;#8221;8080&amp;#8243;
+JENKINS_PORT=”8080″
 2.插件下载国内镜像
 插件管理-&amp;gt;高级-&amp;gt;升级站点
 http://mirror.bit.edu.cn/jenkins/updates/update-center.json
@@ -151,13 +145,13 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jenkins/</description>
       <pubDate>Wed, 19 Oct 2016 13:02:06 +0000</pubDate>
       
       <guid>https://ifunbox.top/letsencrypt-nginx-https/</guid>
-      <description>对Let&amp;#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
-Let&amp;#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
-Let&amp;#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let&amp;#8217;s Encrypt安装简单，未来大规模采用可能性非常大。
+      <description>对Let’s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
+Let’s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。
+Let’s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let’s Encrypt安装简单，未来大规模采用可能性非常大。
 旧版的安装方式，新版往下拉~
 获取证书，非常的简单，但由于国内网络的原因，会比较慢一些
-git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt #每个-d参数后面跟一个域名，需要申请几个域名的证书就跟几个，需要确认这些域名都解析到当前vps的ip上 ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com  完成后会有如下提示：
-Congratulations! Your certificate and chain have been saved at /etc/letsencrypt/live/example.com/fullchain.pem. Your cert will expire on xxxx-xx-xx. To obtain a new version of the certificate in the future, simply run Let&#39;s Encrypt again.  但过程并非那么顺利，报错了，跟我的屌丝配置内存512M有关~~~
+git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt #每个-d参数后面跟一个域名，需要申请几个域名的证书就跟几个，需要确认这些域名都解析到当前vps的ip上 ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com 完成后会有如下提示：
+Congratulations! Your certificate and chain have been saved at /etc/letsencrypt/live/example.com/fullchain.pem. Your cert will expire on xxxx-xx-xx. To obtain a new version of the certificate in the future, simply run Let&#39;s Encrypt again. 但过程并非那么顺利，报错了，跟我的屌丝配置内存512M有关~~~
 Error: open CFI at the end of file; missing .</description>
     </item>
     
@@ -167,24 +161,10 @@ Error: open CFI at the end of file; missing .</description>
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
       <guid>https://ifunbox.top/nginx_php-fpm_cross-site/</guid>
-      <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
-而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
-首先php的版本必须大于等于php5.3.3。
-方法1 在nginx 配置 fastcgi_param参数
-在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
-$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
-/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
-/proc/ 可以让php查看系统负载信息。
-本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。
-本方法，非常推荐使用，本人就是用这个方法！！
-方法2 在php.ini 中配置
-在php.ini的末尾加入：
-[HOST=www.funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ [PATH=/home/funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/  本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。
-方法3 网站根目录下增加 .user.ini 文件。
-在网站根目录下创建.user.ini 加入：
-open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。
-关于.user.ini文件的详细说明：http://php.net/manual/zh/configuration.file.per-user.php</description>
+      <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。而nginx + php-fpm fastcgi的方式，就需要多费费心啦~首先php的版本必须大于等于php5.3.3。方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;; 意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。/proc/ 可以让php查看系统负载信息。本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。本方法，非常推荐使用，本人就是用这个方法！！方法2 在php.ini 中配置
+在php.ini的末尾加入：[HOST=www.funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ [PATH=/home/funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ 本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。方法3 网站根目录下增加 .user.ini 文件。
+在网站根目录下创建.user.ini 加入：open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/ 这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.</description>
     </item>
     
     <item>
@@ -193,19 +173,7 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
       <pubDate>Wed, 30 Mar 2016 02:30:09 +0000</pubDate>
       
       <guid>https://ifunbox.top/ngx-lua-stats/</guid>
-      <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。
-用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。
-1.几乎对原有项目代码分离
-2.性能佳
-3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计
-4.可以统计与query-times、request-time、status-code、speed相关的数据
-因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块
-github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码
-使用方法就是在nginx.conf的http中配置加入
-lua_shared_dict log_dict 5M; lua_shared_dict result_dict 5M;  然后在入口nginx上配置
-server { listen 80; server_name funboxpower.com; access_log /home/logs/funboxpower.com.log main; location / { proxy_set_header Host $host; proxy_set_header X-Forwarded-For $remote_addr; proxy_pass http://funboxpower.com_backend; log_by_lua_file ./site-enable/record.lua; } }  记得配upstream，否则之后用到的统计有关于upstream的值是出不来的，这个我还要进一步确认下
-然后可以再配一个server
-server { listen 8080 default; server_name _; location / { return 404; } location /status { content_by_lua_file ./site-enable/output.lua; } location /empty_dict { content_by_lua_file ./site-enable/empty_dict.lua; } }  配置好后，就可以通过如下命令获取</description>
+      <description>最近研究公司项目，发现是用ngx-lua来统计api的日均请求量、峰值、响应时间、状态码等等。用ngx-lua来做性能统计、甚至一些运营数据统计，都是非常好的选择。1.几乎对原有项目代码分离2.性能佳3.支持分不同虚拟主机统计, 同一个虚拟主机下可以分不同的location统计4.可以统计与query-times、request-time、status-code、speed相关的数据因为基于ngx-lua所以需要先安装环境，请移步Nginx安装lua-nginx-module模块github这个项目https://github.com/initial5/ngx-lua-stats前辈们已给代码使用方法就是在nginx.conf的http中配置加入lua_shared_dict log_dict 5M; lua_shared_dict result_dict 5M; 然后在入口nginx上配置server { listen 80; server_name funboxpower.com; access_log /home/logs/funboxpower.com.log main; location / { proxy_set_header Host $host; proxy_set_header X-Forwarded-For $remote_addr; proxy_pass http://funboxpower.com_backend; log_by_lua_file ./site-enable/record.lua; } } 记得配upstream，否则之后用到的统计有关于upstream的值是出不来的，这个我还要进一步确认下然后可以再配一个serverserver { listen 8080 default; server_name _; location / { return 404; } location /status { content_by_lua_file ./site-enable/output.lua; } location /empty_dict { content_by_lua_file ./site-enable/empty_dict.lua; } } 配置好后，就可以通过如下命令获取curl ip_addr:8080/status 运行一段时间之后, 字典会变大. 可以通过如下接口清理数据返回如下格式key: funboxpower.com__upstream_time_10.0.3.32:8250_counter 0.375 key: funboxpower.com__upstream_time_10.0.3.32:8250_nb_counter 124 key: funboxpower.com__upstream_time_10.0.4.93:8250_counter 0.131 key: funboxpower.</description>
     </item>
     
     <item>
@@ -218,15 +186,15 @@ server { listen 8080 default; server_name _; location / { return 404; } location
 安装了nginx的小伙伴就继续往下看咯~
 1.下载安装LuaJIT 2.1（2.0或者2.1都是支持的，官方推荐2.1）
 http://luajit.org/download.html
-wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-beta2.tar.gz cd LuaJIT-2.1.0-beta2 make PREFIX=/usr/local/luajit make install PREFIX=/usr/local/luajit  2.下载最新的ngx_devel_kit（NDK）模块
+wget http://luajit.org/download/LuaJIT-2.1.0-beta2.tar.gz tar zxf LuaJIT-2.1.0-beta2.tar.gz cd LuaJIT-2.1.0-beta2 make PREFIX=/usr/local/luajit make install PREFIX=/usr/local/luajit 2.下载最新的ngx_devel_kit（NDK）模块
 https://github.com/simpl/ngx_devel_kit/tags
-wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz  3.下载最新的lua-nginx-module 模块
+wget https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz tar -xzvf v0.2.19.tar.gz 3.下载最新的lua-nginx-module 模块
 https://github.com/openresty/lua-nginx-module/tags
-tar -xzvf v0.10.2.tar.gz  nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
-export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1  nginx -V看下之前的安装都带了哪些参数
---add-module后参数路径根据解压路径为准 make -j2 make install  4.验证lua-nginx-module安装是否成功
+tar -xzvf v0.10.2.tar.gz nginx -v看下nginx版本下载相同的版本源码，如果有了就进入源码目录不是安装目录哦
+export LUAJIT_LIB=/usr/local/luajit/lib export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1 nginx -V看下之前的安装都带了哪些参数
+--add-module后参数路径根据解压路径为准 make -j2 make install 4.验证lua-nginx-module安装是否成功
 在nginx下配置
-default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; }  访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
+default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, lua&amp;quot;)&#39;; } 访问显示hello, lua说明lua-nginx-module安装成功了~~~</description>
     </item>
     
     <item>
@@ -235,39 +203,8 @@ default_type &#39;text/plain&#39;; content_by_lua &#39;ngx.say(&amp;quot;hello, 
       <pubDate>Fri, 16 Oct 2015 09:09:21 +0000</pubDate>
       
       <guid>https://ifunbox.top/redis_windows_php/</guid>
-      <description>一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~
-1、redis简介
-redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;#8211;有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
-Redis 是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便。
-2、Windows下安装redis
-下载地址Windows redis X64。下载到的Redis支持32bit和64bit。根据自己实际情况选择，我选择64bit。把64bit文件内容拷贝到需要安装的目录下,比如：D:\dev\redis-2.4.5。
-打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-server.exe redis.conf 。运行以后出现如下界面。
-
-这说明Redis服务端已经安装成功。
-保持这个cmd窗口，然后新打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-cli.exe -h 127.0.0.1 -p 6379，其中 127.0.0.1是本地ip，6379是redis服务端的默认端口。运行成功如下图所示。
-这样，Redis windows环境下搭建已经完成，简单得让人惊讶。
-
-这样，Redis windows环境下搭建已经完成。
-环境已经搭建好，总得测试下吧。比如：存储一个key为test，value为hello word的字符串，然后获取key值。
-
-正确输出 hell word，测试成功！
-3、PHP中使用&amp;#8211;安装php_redis.dll 扩展
-linux:https://pecl.php.net/package/redis/2.2.7/
-windows:https://pecl.php.net/package/redis/2.2.7/windows
-首先把php_redis.dll放入PHP的ext文件夹，然后在php.ini配置文件里添加如下代码：
-extension=php_redis.dll
-重启web服务器
-4、PHP中使用
-代码如下
-&amp;lt;?php
-$redis = new Redis();
-$redis-&amp;gt;connect(&amp;#8216;127.0.0.1&amp;#8217;,6379);
-$redis-&amp;gt;set(&amp;#8216;test&amp;#8217;,&amp;#8217;hello redis&amp;#8217;);
-echo $redis-&amp;gt;get(&amp;#8216;test&amp;#8217;);
-?&amp;gt;
-输出 hello redis 成功!
-另附redis命令参考http://redisdoc.com/
-windows下自动启动Redis隐藏命令行窗口的方法</description>
+      <description>一直没有用redis的机会，这次新项目终于可以在统计这块用上，因为开发环境是Windows，先附上Windows安装使用教程，备忘~~1、redis简介redis是一个高性能的key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hashs（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都 是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期 性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。Redis是一个高性能的key-value数据库。 redis的出现，很大程度补偿了memcached这类key/value存储的不足，在部分场合可以对关系数据库起到很好的补充作用。它提供了Python，Ruby，Erlang，PHP客户端，使用很方便。2、Windows下安装redis下载地址Windows redis X64。下载到的Redis支持32bit和64bit。根据自己实际情况选择，我选择64bit。把64bit文件内容拷贝到需要安装的目录下,比如：D:\dev\redis-2.4.5。打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-server.exe redis.conf 。运行以后出现如下界面。这说明Redis服务端已经安装成功。保持这个cmd窗口，然后新打开一个cmd窗口，使用cd命令切换到指定目录（D:\dev\redis-2.4.5）运行 redis-cli.exe -h 127.0.0.1 -p 6379，其中 127.0.0.1是本地ip，6379是redis服务端的默认端口。运行成功如下图所示。这样，Redis windows环境下搭建已经完成，简单得让人惊讶。这样，Redis windows环境下搭建已经完成。环境已经搭建好，总得测试下吧。比如：存储一个key为test，value为hello word的字符串，然后获取key值。正确输出 hell word，测试成功！3、PHP中使用–安装php_redis.dll 扩展linux:https://pecl.php.net/package/redis/2.2.7/
+windows:https://pecl.php.net/package/redis/2.2.7/windows首先把php_redis.dll放入PHP的ext文件夹，然后在php.ini配置文件里添加如下代码：extension=php_redis.dll重启web服务器4、PHP中使用代码如下&amp;lt;?php$redis = new Redis();$redis-&amp;gt;connect(‘127.0.0.1’,6379);$redis-&amp;gt;set(‘test’,’hello redis’);echo $redis-&amp;gt;get(‘test’);?&amp;gt;输出 hello redis 成功!</description>
     </item>
     
     <item>
@@ -276,13 +213,7 @@ windows下自动启动Redis隐藏命令行窗口的方法</description>
       <pubDate>Sat, 05 Sep 2015 06:58:44 +0000</pubDate>
       
       <guid>https://ifunbox.top/linux_memcacheq_configuration/</guid>
-      <description>队列（Queue）是一种常用的数据结构。在队列这种数据结构中，最先插入的元素将会最先被取出；反之最后插入的元素将会最后被取出，因此队列又称为“先进先出”（FIFO：First In First Out）的线性表。
-加入元素的一端叫“队尾”，取出元素的一端叫“队头”。利用消息队列可以很好地异步处理数据的传送和存储，当遇到频繁且密集地向后端数据库中插入数据时，就可采用消息队列来异步处理这些数据写入。
-MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于其遵循了Memcache协议，因此开发成本很低，不需要学习额外的知识便可轻松掌握。
-我在最近的一个项目中也应用了MemcacheQ，下面我将分享一下MemcacheQ在Linux中的编译和安装过程。
-首先，MemcacheQ依赖于BerkeleyDB和Libevent，如果服务器中曾经安装过Memcached，那么Libevent应该已经存在了，否则就需要先下载安装Libevent。
-下载链接如下：
-  Libevent： https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz  Berkeley DB： http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz  MemcacheQ： https://github.com/stvchu/memcacheq  安装Libevent ``` &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;&amp; make install echo &#34;/usr/local/libevent/lib&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装BerkeleyDB  BerkeleyDB简介：BerkeleyDB是一个开源的文件数据库，介于关系数据库与内存数据库之间，使用方式与内存数据库类似，它提供的是一系列直接访问数据库的函数，而不是像关系数据库那样需要网络通讯、SQL解析等步骤。  MemcacheQ依赖BerkleyDB用于队列数据的持久化存储，以免在MemcacheQ意外崩溃或中断时，队列数据不会丢失。 ``` &amp;lt;span style=&#34;font-size: 12pt;&#34;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;&amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &#34;/usr/local/berkeleydb/lib/&#34; &amp;gt;&amp;gt; /etc/ld.so.conf ldconfig&amp;lt;/span ```  安装MemcacheQ ``` &amp;lt;span style=&#34;</description>
+      <description>队列（Queue）是一种常用的数据结构。在队列这种数据结构中，最先插入的元素将会最先被取出；反之最后插入的元素将会最后被取出，因此队列又称为“先进先出”（FIFO：First In First Out）的线性表。加入元素的一端叫“队尾”，取出元素的一端叫“队头”。利用消息队列可以很好地异步处理数据的传送和存储，当遇到频繁且密集地向后端数据库中插入数据时，就可采用消息队列来异步处理这些数据写入。MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于其遵循了Memcache协议，因此开发成本很低，不需要学习额外的知识便可轻松掌握。我在最近的一个项目中也应用了MemcacheQ，下面我将分享一下MemcacheQ在Linux中的编译和安装过程。首先，MemcacheQ依赖于BerkeleyDB和Libevent，如果服务器中曾经安装过Memcached，那么Libevent应该已经存在了，否则就需要先下载安装Libevent。下载链接如下：&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;tar zvxf libevent-2.0.21-stable.tar.gz cd libevent-2.0.21-stable ./configure --prefix=/usr/local/libevent make &amp;amp;&amp;amp; make install echo &amp;quot;/usr/local/libevent/lib&amp;quot; &amp;amp;gt;&amp;amp;gt; /etc/ld.so.conf ldconfig&amp;amp;lt;/span&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;tar zxvf db-6.0.30.tar.gz cd db-6.0.30/build_unix ../dist/configure --prefix=/usr/local/berkeleydb make &amp;amp;&amp;amp; make install ln -s /usr/local/berkeleydb/lib/libdb-6.0.so /usr/lib/ echo &amp;quot;/usr/local/berkeleydb/lib/&amp;quot; &amp;amp;gt;&amp;amp;gt; /etc/ld.so.conf ldconfig&amp;amp;lt;/span&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;tar zxvf memcacheq-0.2.0.tar.gz cd memcacheq-0.2.0 ./configure --prefix=/usr/local/memcacheq --with-bdb=/usr/local/berkeleydb --with-libevent=/usr/local/libevent --enable-threads make &amp;amp;&amp;amp; make install&amp;amp;lt;/span&amp;gt; &amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;/usr/local/memcacheq/bin/memcacheq -d -uroot -r -l 127.0.0.1 -p11210 -H /usr/local/mcq -N -R -v -L 1024 -B 1024 &amp;amp;gt; /usr/local/mcq/logs/mcq_error.</description>
     </item>
     
     <item>
@@ -291,25 +222,7 @@ MemcacheQ是一款基于Memcache协议的开源消息队列服务软件，由于
       <pubDate>Wed, 26 Aug 2015 10:35:09 +0000</pubDate>
       
       <guid>https://ifunbox.top/memcached_cas/</guid>
-      <description>最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
-1. 什么是CAS协议
-很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。
-2. CAS协议原文
-http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
-3. CAS的基本原理
-基本原理非常简单，一言以蔽之，就是“版本号”。每个存储的数据对象，多有一个版本号。我们可以从下面的例子来理解：
-如果不采用CAS，则有如下的情景：
-第一步，A取出数据对象X；
-第二步，B取出数据对象X；
-第三步，B修改数据对象X，并将其放入缓存；
-第四步，A修改数据对象X，并将其放入缓存。
-我们可以发现，第四步中会产生数据写入冲突。
-如果采用CAS协议，则是如下的情景。
-第一步，A取出数据对象X，并获取到CAS-ID1；
-第二步，B取出数据对象X，并获取到CAS-ID2；
-第三步，B修改数据对象X，在写入缓存前，检查CAS-ID与缓存空间中该数据的CAS-ID是否一致。结果是“一致”，就将修改后的带有CAS-ID2的X写入到缓存。
-第四步，A修改数据对象Y，在写入缓存前，检查CAS-ID与缓存空间中该数据的CAS-ID是否一致。结果是“不一致”，则拒绝写入，返回存储失败。
-这样CAS协议就用了“版本号”的思想，解决了冲突问题。</description>
+      <description>最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~1. 什么是CAS协议很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。2. CAS协议原文http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt3. CAS的基本原理基本原理非常简单，一言以蔽之，就是“版本号”。每个存储的数据对象，多有一个版本号。我们可以从下面的例子来理解：如果不采用CAS，则有如下的情景：第一步，A取出数据对象X；第二步，B取出数据对象X；第三步，B修改数据对象X，并将其放入缓存；第四步，A修改数据对象X，并将其放入缓存。我们可以发现，第四步中会产生数据写入冲突。如果采用CAS协议，则是如下的情景。第一步，A取出数据对象X，并获取到CAS-ID1；第二步，B取出数据对象X，并获取到CAS-ID2；第三步，B修改数据对象X，在写入缓存前，检查CAS-ID与缓存空间中该数据的CAS-ID是否一致。结果是“一致”，就将修改后的带有CAS-ID2的X写入到缓存。第四步，A修改数据对象Y，在写入缓存前，检查CAS-ID与缓存空间中该数据的CAS-ID是否一致。结果是“不一致”，则拒绝写入，返回存储失败。这样CAS协议就用了“版本号”的思想，解决了冲突问题。</description>
     </item>
     
     <item>
@@ -318,17 +231,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <pubDate>Sat, 07 Feb 2015 13:41:19 +0000</pubDate>
       
       <guid>https://ifunbox.top/tengine_trim_filter/</guid>
-      <description>最近闲来无事想用用淘宝tengine的trim filter模块
-官方介绍配置链接http://tengine.taobao.org/document_cn/http_trim_filter_cn.html
-但是没有安装的方法指南
-这个模块貌似只能动态加载
-官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html
-看了这些基本知识，开始尝试安装吧
-&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;./configure --with--http_trim_filter_module=shared make make dso_install&amp;amp;lt;/span&amp;gt;  nginx.conf中events上方加入
-&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt;  网站配置内加入
-&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;trim on; trim_jscss on;&amp;amp;lt;/span&amp;gt;  官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~
-至此安装成功，看下效果首页减少2K，嘿嘿~
-还有一点：trim_jscss开启不一定适合全部网站哦，开启可能会影响js</description>
+      <description>最近闲来无事想用用淘宝tengine的trim filter模块官方介绍配置链接http://tengine.taobao.org/document_cn/http_trim_filter_cn.html但是没有安装的方法指南这个模块貌似只能动态加载官方动态加载指南http://tengine.taobao.org/document_cn/dso_cn.html看了这些基本知识，开始尝试安装吧&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;./configure --with--http_trim_filter_module=shared make make dso_install&amp;amp;lt;/span&amp;gt; nginx.conf中events上方加入&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;dso { load ngx_http_trim_filter_module.so; }&amp;amp;lt;/span&amp;gt; 网站配置内加入&amp;amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;trim on; trim_jscss on;&amp;amp;lt;/span&amp;gt; 官方配置是trim_js trim_css 我配置这样会报错，估计很久没有更新文档咯~至此安装成功，看下效果首页减少2K，嘿嘿~还有一点：trim_jscss开启不一定适合全部网站哦，开启可能会影响js</description>
     </item>
     
     <item>
@@ -337,30 +240,13 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <pubDate>Sun, 04 Jan 2015 11:34:01 +0000</pubDate>
       
       <guid>https://ifunbox.top/optimize_linux_time_wait/</guid>
-      <description>&lt;div id=&#34;cnblogs_post_body&#34;&gt;
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;最近参与的项目每日大概有300w的请求量，8核的服务器负载竟然最高可以跑到20，给跪了&lt;/span&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;查看TCP状态：netstat -n | awk &amp;#8216;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&amp;#8217;&lt;/span&gt;&lt;br /&gt; &lt;span style=&#34;font-size: 12pt;&#34;&gt; TIME_WAIT 有5000，ESTABLISHED有500左右&lt;/span&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;摸不着头脑，随意百度了下TIME_WAIT过多&lt;/span&gt;&lt;br /&gt; &lt;span style=&#34;font-size: 12pt;&#34;&gt; 发现TIME_WAIT状态的socket一般需要等到2msl时间后，socket才会被回收，TIME_WAIT过多会影响服务器性能&lt;/span&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;解决TIME_WAIT过多的方法&lt;br /&gt; 修改(添加)系统内核参数:/etc/sysctl.conf&lt;/span&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;#改系統默认的TIMEOUT时间&lt;/span&gt;&lt;br /&gt; &lt;span style=&#34;font-size: 12pt;&#34;&gt; net.ipv4.tcp_fin_timeout=30&lt;br /&gt; #启重用,允许将TIME-WAIT sockets重新用于新的TCP连接 默认为0表示关闭&lt;/span&gt;&lt;br /&gt; &lt;span style=&#34;font-size: 12pt;&#34;&gt; net.ipv4.tcp_tw_reuse=1&lt;br /&gt; #开启TCP连接中TIME-WAIT sockets的快速回收 默认为0 表示关闭&lt;/span&gt;&lt;br /&gt; &lt;span style=&#34;font-size: 12pt;&#34;&gt; net.ipv4.tcp_tw_recycle=1&lt;/span&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &lt;span style=&#34;font-size: 12pt;&#34;&gt;使新增参数生效：sysctl -p&lt;/span&gt;
-  &lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -369,11 +255,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <pubDate>Mon, 01 Dec 2014 03:48:50 +0000</pubDate>
       
       <guid>https://ifunbox.top/nginx_concat_module_400/</guid>
-      <description>第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。
-瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。
-由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。
-也就是模块认不到js文件了。。。
-[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;quot;application/x-javascript&amp;quot;),  因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.c，将application/x-javascript更改为application/javascript，然后再编译安装即可！</description>
+      <description>第一次安装都很顺利，第二次安装就出现访问合并链接出现400错误。瞬间就跪了，果断google之，居然有前人也碰到这样的问题，有救了。由于Nginx在新版本中，使用了标准的 MIME-Type：application/javascript。而在nginx_concat_module模块目前版本的代码中，写的是 application/x-javascript 的类型。也就是模块认不到js文件了。。。[root@tools-ops01-jz src]# grep javascript nginx_concat_module/ngx_http_concat_module.c ngx_string(&amp;quot;application/x-javascript&amp;quot;), 因此，我们最好在向nginx添加该模块之前，修改nginx_concat_module的源代码文件ngx_http_concat_module.</description>
     </item>
     
     <item>
@@ -382,17 +264,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
       <pubDate>Mon, 01 Dec 2014 02:41:04 +0000</pubDate>
       
       <guid>https://ifunbox.top/nginx_concat_module_combine_http/</guid>
-      <description>1.安装nginx_concat_module
-存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install  2.配置nginx_concat_module
-打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; }  重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了
-http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jquery.ui.js
-大家也可以试试https://github.com/lanrenwo/icombo功能更强大些，不过不知道是否稳定哦~</description>
+      <description>1.安装nginx_concat_module存放模块的路径下svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module 前提要安装过svn然后下载nginx 我下的是1.6版的解压切换至解压目录./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;amp;&amp;amp; make install 2.配置nginx_concat_module打开需要配置网站的nginx vhost配置文件加入location /resource/ { concat on; concat_max_files 10; concat_unique on; concat_types text/html,application/x-javascript,text/css; } 重启nginx，大功告成，没有压缩有点遗憾，毕竟很久没有维护了http://shopncdemo2.</description>
     </item>
     
     <item>
@@ -403,22 +275,16 @@ http://shopncdemo2.fanhefan.com/resource/js/??jquery.js,common.js,jquery-ui/jque
       <guid>https://ifunbox.top/google_pagespeed_website_optimizer/</guid>
       <description>最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
 用火狐查看，大部分js，css大部分时间耗在阻挡上面。
-查了相关资料，这样解释阻挡(Blocking)：每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
+查了相关资料，这样解释**阻挡(Blocking)：**每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
 也就是多js，css太多了，那着手合并一下。
-先是找了淘宝的combo，其实就可以满足现在我的需求，但是无意间发现了pagespeed
-被其强大的功能所震惊了，而且是代码层面不需要任何修改
-功能介绍页http://ngxpagespeed.com/ngx_pagespeed_example/
-功能点
+先是找了淘宝的combo，其实就可以满足现在我的需求，但是无意间发现了pagespeed被其强大的功能所震惊了，而且是代码层面不需要任何修改
+功能介绍页http://ngxpagespeed.com/ngx_pagespeed_example/功能点
  图像优化：剥离元数据、动态调整，重新压缩 CSS 和 JavaScript 压缩、级联、内联 小资源内联 延迟图像和 JavaScript 加载 HTML 重写 缓存周期延长  ng下安装pagespeed
-https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
-ng下配置pagespeed
-https://developers.google.com/speed/pagespeed/module/configuration
-这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
+https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_sourceng下配置pagespeed
+https://developers.google.com/speed/pagespeed/module/configuration这是我的配置，开启combine_javascript貌似会影响网站js暂时先禁用了，估计是beta的原因
 还有一个问题压缩合并js，css都有缓存，看了文档貌似没有提缓存时间的问题
 如果需要刷新缓存，我是用重启nginx的方法
-pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;quot;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&amp;quot; { add_header &amp;quot;&amp;quot; &amp;quot;&amp;quot;; } location ~ &amp;quot;^/pagespeed_static/&amp;quot; { } location ~ &amp;quot;^/ngx_pagespeed_beacon$&amp;quot; { }  关于阻挡blocking的介绍
-http://www.zhihu.com/question/24506110
-http://ywwd.net/read-346</description>
+pagespeed on; pagespeed RespectVary on; pagespeed FileCachePath /var/ngx_pagespeed_cache; pagespeed RewriteLevel CoreFilters; pagespeed DisableFilters combine_javascript; #pagespeed EnableFilters combine_css,sprite_images,combine_heads,collapse_whitespace,extend_cache,combine_javascript; location ~ &amp;quot;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&amp;quot; { add_header &amp;quot;&amp;quot; &amp;quot;&amp;quot;; } location ~ &amp;quot;^/pagespeed_static/&amp;quot; { } location ~ &amp;quot;^/ngx_pagespeed_beacon$&amp;quot; { } 关于阻挡blocking的介绍</description>
     </item>
     
     <item>
@@ -427,16 +293,7 @@ http://ywwd.net/read-346</description>
       <pubDate>Thu, 21 Aug 2014 09:12:31 +0000</pubDate>
       
       <guid>https://ifunbox.top/hide_nginx_apache_php_version/</guid>
-      <description>可使用以下命令查看服务器提供HTTP服务的相关信息 curl &amp;#8211;head http://www.funboxpower.com
-这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
-下面分享下如何去除屏蔽nginx/apache/php版本信息
-隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens off;  隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：
-fastcgi_param SERVER_SOFTWARE nginx/$nginx_version;  改为： 
-fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容)  隐藏PHP版本信息： 开启php.ini，加入:
-expose_php = Off ```
-完成以上设定后，重新启动 Apache/Nginx 即可。</description>
+      <description>可使用以下命令查看服务器提供HTTP服务的相关信息 curl –head http://www.funboxpower.com这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14下面分享下如何去除屏蔽nginx/apache/php版本信息隐藏apache版本信息: 开启 httpd.conf，加入以下两行:ServerTokensProductOnly ServerSignatureOff 隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：server_tokens off; 隐藏php-fpm版本信息： 开启php-fpm配置文件,找到：fastcgi_param SERVER_SOFTWARE nginx/$nginx_version; 改为： fastcgi_param SERVER_SOFTWARE nginx0.0.0;#(这个nginx0.0.0就是显示的内容) 隐藏PHP版本信息： 开启php.</description>
     </item>
     
     <item>
@@ -445,49 +302,7 @@ expose_php = Off ```
       <pubDate>Fri, 23 May 2014 03:10:06 +0000</pubDate>
       
       <guid>https://ifunbox.top/chinese_character_set/</guid>
-      <description>字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。
-中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。
-ASCII 字符集
-1．名称的由来
-ASCII（American Standard Code for Information Interchange，美国信息互换标准代码）是基于罗马字母表的一套电脑编码系统。
-2．特点
-它主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO 646。
-3．包含内容
-控制字符：回车键、退格、换行键等。
-可显示字符：英文大小写字符、阿拉伯数字和西文符号
-4．技术特征
-7位（bits）表示一个字符，共128字符
-5．ASCII扩展字符集
-7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。
-ASCII扩展字符集比ASCII字符集扩充出来的符号包括表格符号、计算符号、希腊字母和特殊的拉丁符号。
-GB2312 字符集
-1．名称的由来
-GB2312又称为GB2312-80字符集，全称为《信息交换用汉字编码字符集·基本集》，由原中国国家标准总局发布，1981年5月1日实施。
-2．特点
-GB2312是中国国家标准的简体中文字符集。它所收录的汉字已经覆盖99.75%的使用频率，基本满足了汉字的计算机处理需要。在中国大陆和新加坡获广泛使用。
-3．包含内容
-GB2312收录简化汉字及一般符号、序号、数字、拉丁字母、日文假名、希腊字母、俄文字母、汉语拼音符号、汉语注音字母，共 7445 个图形字符。其中包括6763个汉字，其中一级汉字3755个，二级汉字3008个；包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在 内的682个全角字符。
-4．技术特征
-（1）分区表示：
-GB2312中对所收汉字进行了“分区”处理，每区含有94个汉字/符号。这种表示方式也称为区位码。
-各区包含的字符如下：01-09区为特殊符号；16-55区为一级汉字，按拼音排序；56-87区为二级汉字，按部首/笔画排序；10-15区及88-94区则未有编码。
-（2）双字节表示
-两个字节中前面的字节为第一字节，后面的字节为第二字节。习惯上称第一字节为“高字节” ，而称第二字节为“低字节”。
-“高位字节”使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“低位字节”使用了0xA1-0xFE(把01-94加上0xA0)。
-5．编码举例
-以GB2312字符集的第一个汉字“啊”字为例，它的区号16，位号01，则区位码是1601，在大多数计算机程序中，高字节和低字节分别加0xA0得到程序的汉字处理编码0xB0A1。计算公式是：0xB0=0xA0+16, 0xA1=0xA0+1。
-BIG5 字符集
-1．名称的由来
-又称大五码或五大码，1984年由台湾财团法人信息工业策进会和五间软件公司宏碁 (Acer)、神通 (MiTAC)、佳佳、零壹 (Zero One)、大众 (FIC)创立，故称大五码。
-Big5码的产生，是因为当时台湾不同厂商各自推出不同的编码，如倚天码、IBM PS55、王安码等，彼此不能兼容；另一方面，台湾政府当时尚未推出官方的汉字编码，而中国大陆的GB2312编码亦未有收录繁体中文字。
-2．特点
-Big5字符集共收录13,053个中文字，该字符集在中国台湾使用。耐人寻味的是该字符集重复地收录了两个相同的字：“兀”(0xA461及0xC94A)、“嗀”(0xDCD1及0xDDFC)。
-3．字符编码方法
-Big5码使用了双字节储存方法，以两个字节来编码一个字。第一个字节称为“高位字节”，第二个字节称为“低位字节”。高位字节的编码范围0xA1-0xF9，低位字节的编码范围0x40-0x7E及0xA1-0xFE。
-各编码范围对应的字符类型如下：0xA140-0xA3BF为标点符号、希腊字母及特殊符号，另外于0xA259-0xA261，存放了双音节度量 衡单位用字：兙兛兞兝兡兣嗧瓩糎；0xA440-0xC67E为常用汉字，先按笔划再按部首排序；0xC940-0xF9D5为次常用汉字，亦是先按笔划 再按部首排序。
-4．Big5 的局限性
-尽管Big5码内包含一万多个字符，但是没有考虑社会上流通的人名、地名用字、方言用字、化学及生物科等用字，没有包含日文平假名及片假名字母。
-例如台湾视“着”为“著”的异体字，故没有收录“着”字。康熙字典中的一些部首用字(如“亠”、“疒”、“辵”、“癶”等)、常见的人名用字(如“堃”、“煊”、“栢”、“喆”等) 也没有收录到Big5之中。</description>
+      <description>字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。ASCII 字符集1．名称的由来ASCII（American Standard Code for Information Interchange，美国信息互换标准代码）是基于罗马字母表的一套电脑编码系统。2．特点它主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO 646。3．包含内容控制字符：回车键、退格、换行键等。可显示字符：英文大小写字符、阿拉伯数字和西文符号4．技术特征7位（bits）表示一个字符，共128字符5．ASCII扩展字符集7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。ASCII扩展字符集比ASCII字符集扩充出来的符号包括表格符号、计算符号、希腊字母和特殊的拉丁符号。GB2312 字符集1．名称的由来GB2312又称为GB2312-80字符集，全称为《信息交换用汉字编码字符集·基本集》，由原中国国家标准总局发布，1981年5月1日实施。2．特点GB2312是中国国家标准的简体中文字符集。它所收录的汉字已经覆盖99.75%的使用频率，基本满足了汉字的计算机处理需要。在中国大陆和新加坡获广泛使用。3．包含内容GB2312收录简化汉字及一般符号、序号、数字、拉丁字母、日文假名、希腊字母、俄文字母、汉语拼音符号、汉语注音字母，共 7445 个图形字符。其中包括6763个汉字，其中一级汉字3755个，二级汉字3008个；包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在 内的682个全角字符。4．技术特征（1）分区表示：GB2312中对所收汉字进行了“分区”处理，每区含有94个汉字/符号。这种表示方式也称为区位码。各区包含的字符如下：01-09区为特殊符号；16-55区为一级汉字，按拼音排序；56-87区为二级汉字，按部首/笔画排序；10-15区及88-94区则未有编码。（2）双字节表示两个字节中前面的字节为第一字节，后面的字节为第二字节。习惯上称第一字节为“高字节” ，而称第二字节为“低字节”。“高位字节”使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“低位字节”使用了0xA1-0xFE(把01-94加上0xA0)。5．编码举例以GB2312字符集的第一个汉字“啊”字为例，它的区号16，位号01，则区位码是1601，在大多数计算机程序中，高字节和低字节分别加0xA0得到程序的汉字处理编码0xB0A1。计算公式是：0xB0=0xA0+16, 0xA1=0xA0+1。BIG5 字符集1．名称的由来又称大五码或五大码，1984年由台湾财团法人信息工业策进会和五间软件公司宏碁 (Acer)、神通 (MiTAC)、佳佳、零壹 (Zero One)、大众 (FIC)创立，故称大五码。Big5码的产生，是因为当时台湾不同厂商各自推出不同的编码，如倚天码、IBM PS55、王安码等，彼此不能兼容；另一方面，台湾政府当时尚未推出官方的汉字编码，而中国大陆的GB2312编码亦未有收录繁体中文字。2．特点Big5字符集共收录13,053个中文字，该字符集在中国台湾使用。耐人寻味的是该字符集重复地收录了两个相同的字：“兀”(0xA461及0xC94A)、“嗀”(0xDCD1及0xDDFC)。3．字符编码方法Big5码使用了双字节储存方法，以两个字节来编码一个字。第一个字节称为“高位字节”，第二个字节称为“低位字节”。高位字节的编码范围0xA1-0xF9，低位字节的编码范围0x40-0x7E及0xA1-0xFE。各编码范围对应的字符类型如下：0xA140-0xA3BF为标点符号、希腊字母及特殊符号，另外于0xA259-0xA261，存放了双音节度量 衡单位用字：兙兛兞兝兡兣嗧瓩糎；0xA440-0xC67E为常用汉字，先按笔划再按部首排序；0xC940-0xF9D5为次常用汉字，亦是先按笔划 再按部首排序。4．Big5 的局限性尽管Big5码内包含一万多个字符，但是没有考虑社会上流通的人名、地名用字、方言用字、化学及生物科等用字，没有包含日文平假名及片假名字母。例如台湾视“着”为“著”的异体字，故没有收录“着”字。康熙字典中的一些部首用字(如“亠”、“疒”、“辵”、“癶”等)、常见的人名用字(如“堃”、“煊”、“栢”、“喆”等) 也没有收录到Big5之中。GB18030 字符集1．名称的由来GB 18030的全称是GB18030-2000《信息交换用汉字编码字符集基本集的扩充》，是我国政府于2000年3月17日发布的新的汉字编码国家标准，2001年8月31日后在中国市场上发布的软件必须符合本标准2．特点GB 18030字符集标准的出台经过广泛参与和论证，来自国内外知名信息技术行业的公司，信息产业部和原国家质量技术监督局联合实施。GB 18030字符集标准解决汉字、日文假名、朝鲜语和中国少数民族文字组成的大字符集计算机编码问题。该标准的字符总编码空间超过150万个编码位，收录了 27484个汉字，覆盖中文、日文、朝鲜语和中国少数民族文字。满足中国大陆、香港、台湾、日本和韩国等东亚地区信息交换多文种、大字量、多用途、统一编 码格式的要求。并且与Unicode 3.0版本兼容，填补Unicode扩展字符字汇“统一汉字扩展A”的内容。并且与以前的国家字符编码标准（GB2312，GB13000.1）兼容。3．编码方法GB 18030标准采用单字节、双字节和四字节三种方式对字符编码。单字节部分使用0×00至0×7F码(对应于ASCII码的相应码)。双字节部分，首字节 码从0×81至0×FE，尾字节码位分别是0×40至0×7E和0×80至0×FE。四字节部分采用GB/T 11383未采用的0×30到0×39作为对双字节编码扩充的后缀，这样扩充的四字节编码，其范围为0×81308130到0×FE39FE39。其中第 一、三个字节编码码位均为0×81至0×FE，第二、四个字节编码码位均为0×30至0×39。4．包含的内容双字节部分收录内容主要包括GB13000.1全部CJK汉字20902个、有关标点符号、表意文字描述符13个、增补的汉字和部首/构件80个、 双字节编码的欧元符号等。　四字节部分收录了上述双字节字符之外的，包括CJK统一汉字扩充A在内的GB 13000.1中的全部字符。Unicode字符集1．名称的由来Unicode字符集编码是Universal Multiple-Octet Coded Character Set 通用多八位编码字符集的简称，是由一个名为 Unicode 学术学会(Unicode Consortium)的机构制订的字符编码系统，支持现今世界各种不同语言的书面文本的交换、处理及显示。该编码于1990年开始研发，1994年正式 公布，最新版本是2005年3月31日的Unicode 4.1.0。2．特征Unicode是一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。3．编码方法Unicode 标准始终使用十六进制数字，而且在书写时在前面加上前缀“U+”，例如字母“A”的编码为 004116 和字符“�”的编码为 20AC16。所以“A”的编码书写为“U+0041”。4．UTF-8 编码UTF-8是Unicode的其中一个使用方式。 UTF是 Unicode Translation Format，即把Unicode转做某种格式的意思。UTF-8便于不同的计算机之间使用网络传输不同语言和编码的文字，使得双字节的Unicode能够在现存的处理单字节的系统上正确传输。UTF-8使用可变长度字节来储存 Unicode字符，例如ASCII字母继续使用1字节储存，重音文字、希腊字母或西里尔字母等使用2字节来储存，而常用的汉字就要使用3字节。辅助平面字符则使用4字节。5．UTF-16 和 UTF-32 编码UTF-32、UTF-16 和 UTF-8 是 Unicode 标准的编码字符集的字符编码方案，UTF-16 使用一个或两个未分配的 16 位代码单元的序列对 Unicode 代码点进行编码；UTF-32 即将每一个 Unicode 代码点表示为相同值的 32 位整数。</description>
     </item>
     
     <item>
@@ -496,26 +311,7 @@ Big5码使用了双字节储存方法，以两个字节来编码一个字。第�
       <pubDate>Mon, 17 Mar 2014 06:21:35 +0000</pubDate>
       
       <guid>https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error</guid>
-      <description>今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
-第一个错误
-Internal error: Killed (program cc1plus)
-make[2]:  [sphinx.o] error
-make[2]:Leaving directory &amp;#8216;/root/coreseek-3.2.14/csft-3.2.14/src&amp;#8217;
-make[1]:  [all] error 2
-make[1]:Leaving directory &amp;#8216;/root/coreseek-3.2.14/csft-3.2.14/src&amp;#8217;
-make: *** [all-recursive] error 1
-上网查了下是内存不足导致的，尴尬，关闭了ng、mysql，顺利跑过了
-第二个错误
-/usr/bin/ld: cannot find -lexpat
-collect2: ld returned 1 exit status
-make[2]: *** [indexer] Error 1
-make[2]: Leaving directory /root/coreseek-3.2.14/csft-3.2.14/src&amp;amp;#8217;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;make[1]: *** [all] Error 2&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;make[1]: Leaving directory/root/coreseek-3.2.14/csft-3.2.14/src&amp;#8217;
-make: *** [all-recursive] Error 1
-解决
-一开始以为libiconv的问题，又重装了几次还是一样，最后终于找着办法了
-编辑：
-./src/MakeFile文件
-将</description>
+      <description>今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下第一个错误Internal error: Killed (program cc1plus)make[2]: *** [sphinx.o] errormake[2]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’make[1]: *** [all] error 2make[1]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’make: *** [all-recursive] error 1上网查了下是内存不足导致的，尴尬，关闭了ng、mysql，顺利跑过了第二个错误/usr/bin/ld: cannot find -lexpatcollect2: ld returned 1 exit statusmake[2]: *** [indexer] Error 1make[2]: Leaving directory /root/coreseek-3.2.14/csft-3.2.14/src&amp;amp;#8217;&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;make[1]: *** [all] Error 2&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;make[1]: Leaving directory /root/coreseek-3.2.14/csft-3.2.14/src’make: *** [all-recursive] Error 1解决一开始以为libiconv的问题，又重装了几次还是一样，最后终于找着办法了编辑：./src/MakeFile文件将LIBS = -lm -lexpat -L/usr/local/lib改成LIBS = -lm -lexpat -liconv -L/usr/local/lib </description>
     </item>
     
     <item>
@@ -524,24 +320,7 @@ make: *** [all-recursive] Error 1
       <pubDate>Sun, 16 Feb 2014 14:55:21 +0000</pubDate>
       
       <guid>https://ifunbox.top/apache_nginx_basic_http_authentication/</guid>
-      <description>由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
-今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
-1.apache下的实现方法
-AuthType Basic
-AuthName &amp;#8220;My Protected Area&amp;#8221;
-AuthUserFile /path/to/.htpasswd
-Require valid-user
-参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示语，AuthUserFile密码文件存储路径
-网上有个自动生成验证.htaccess的网站，点击这里
-密码文件.htpasswd自动生成地址，点击这里
-2.nginx下的实现方法
-在nginx.conf中的虚拟主机配置：
-location ^~ /phpmyadmin/{
-auth_basic &amp;#8220;phpmyadmin admin&amp;#8221;;
-auth_basic_user_file /var/www/.htpasswd;
-}
-参数的含义：auth_basic访问被保护文件后的提示语，auth_basic_user_file密码文件存储路径（这里密码文件都可以用apache生成的密码文件），具有参数介绍，点击这里
-配置完毕后都需要重启服务</description>
+      <description>由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。1.apache下的实现方法AuthType BasicAuthName “My Protected Area”AuthUserFile /path/to/.htpasswdRequire valid-user参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示语，AuthUserFile密码文件存储路径网上有个自动生成验证.htaccess的网站，点击这里密码文件.htpasswd自动生成地址，点击这里2.nginx下的实现方法在nginx.conf中的虚拟主机配置：location ^~ /phpmyadmin/{auth_basic “phpmyadmin admin”;auth_basic_user_file /var/www/.</description>
     </item>
     
     <item>
@@ -551,23 +330,12 @@ auth_basic_user_file /var/www/.htpasswd;
       
       <guid>https://ifunbox.top/php_run_mode/</guid>
       <description>CGI:
-CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。
-CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等
-CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。
-每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成效能低下。
-Isapi:
-ISAPI即Internet Server Application Program Interface，是微软提供的一套面向Internet服务的API接口一个ISAPI的DLL，可以在被用户请求激活后长驻内存，等待用户的另一个请求，还可以在一个DLL里设置多个用户请求处理函数，此外，ISAPI的DLL应用程序和WWW服务器处于同一个进程中，效率要显著高于CGI。（由于微软的排他性，只能运行于windows环境)
-fast-cgi:
-FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。
-FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。
-cli:
-cli是php的命令行运行模式，大家经常会使用它，但是可能并没有注意到（例如：我们在linux下经常使用 &amp;#8220;php -m&amp;#8221;查找PHP安装了那些扩展就是PHP命令行运行模式。
-可以输入php -h去深入研究该运行模式。
-apache:
+CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成效能低下。Isapi:
+ISAPI即Internet Server Application Program Interface，是微软提供的一套面向Internet服务的API接口一个ISAPI的DLL，可以在被用户请求激活后长驻内存，等待用户的另一个请求，还可以在一个DLL里设置多个用户请求处理函数，此外，ISAPI的DLL应用程序和WWW服务器处于同一个进程中，效率要显著高于CGI。（由于微软的排他性，只能运行于windows环境)fast-cgi:
+FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。cli:
+cli是php的命令行运行模式，大家经常会使用它，但是可能并没有注意到（例如：我们在linux下经常使用 “php -m”查找PHP安装了那些扩展就是PHP命令行运行模式。可以输入php -h去深入研究该运行模式。apache:
 APACHE2HANDLER
-PHP作为Apache模块，Apache服务器在系统启动后，预先生成多个进程副本驻留在内存中，一旦有请求出 现，就立即使用这些空余的子进程进行处理，这样就不存在生成子进程造成的延迟了。这些服务器副本在处理完一次HTTP请求之后并不立即退出，而是停留在计 算机中等待下次请求。对于客户浏览器的请求反应更快，性能较高。
-apache模块的DLL:
-该运行模式是我们以前在windows环境下使用apache服务器经常使用的，而在模块化(DLL)中，PHP是与Web服务器一起启动并运行的。（是apache在CGI的基础上进行的一种扩展，加快PHP的运行效率）</description>
+PHP作为Apache模块，Apache服务器在系统启动后，预先生成多个进程副本驻留在内存中，一旦有请求出 现，就立即使用这些空余的子进程进行处理，这样就不存在生成子进程造成的延迟了。这些服务器副本在处理完一次HTTP请求之后并不立即退出，而是停留在计 算机中等待下次请求。对于客户浏览器的请求反应更快，性能较高。apache模块的DLL:</description>
     </item>
     
     <item>
@@ -576,26 +344,7 @@ apache模块的DLL:
       <pubDate>Sat, 01 Feb 2014 15:17:14 +0000</pubDate>
       
       <guid>https://ifunbox.top/linux_svn_move/</guid>
-      <description>1.源服务器:A
-使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库
-将/data/svndata/fanhefan库备份成svn_bak 文件,操作如下:
-svnadmin dump /data/svndata/fanhefan&amp;gt; /root/svn_bak
-配置文件放在/data/svndata目录下conf 里面有passwd authz 
-并将fanhefan/conf中的svnserve.conf一并复制打包.
-备份之后可以将其压缩并传到B服务器上tar czf svn_bak.tar.gz svn_bak
-———————————
-2.目标服务器: B
-目标服务器上请先安装:linux下安装配置svn服务器:
-将A服务器传过来的/root/svn_bak.tar.gz 解压/root/svn_bak 文件
-同样的,将版本库创建在 /data/new/svndata/fanhefan,使用指令如下:
-svnadmin create /data/new/svndata/fanhefan
-并将原来服务器上的配置COPY过来.
-还原svn版本库如下:
-svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
-请一个记住:svnadmin load 版本库的时侯,库一定要干净的,即(svnadmin create /data/new/svndata/fanhefan) 之后新的.
-导入成功即还原完成.
-迁移完成
-最后发现路径都变更了，郁闷啊，最后用客户端的浏览功能copy到之前路径解决了~</description>
+      <description>1.源服务器:A使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库将/data/svndata/fanhefan库备份成svn_bak 文件,操作如下:svnadmin dump /data/svndata/fanhefan&amp;gt; /root/svn_bak配置文件放在/data/svndata目录下conf 里面有passwd authz 并将fanhefan/conf中的svnserve.conf一并复制打包.备份之后可以将其压缩并传到B服务器上tar czf svn_bak.tar.gz svn_bak———————————2.目标服务器: B目标服务器上请先安装:linux下安装配置svn服务器:将A服务器传过来的/root/svn_bak.tar.gz 解压/root/svn_bak 文件同样的,将版本库创建在 /data/new/svndata/fanhefan,使用指令如下:svnadmin create /data/new/svndata/fanhefan并将原来服务器上的配置COPY过来.还原svn版本库如下:svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak请一个记住:svnadmin load 版本库的时侯,库一定要干净的,即(svnadmin create /data/new/svndata/fanhefan) 之后新的.</description>
     </item>
     
     <item>
@@ -604,10 +353,7 @@ svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
       <pubDate>Thu, 25 Jul 2013 06:11:55 +0000</pubDate>
       
       <guid>https://ifunbox.top/linux_svn_autostart/</guid>
-      <description>1 在/etc/rc.d/init.d/下建立svnserved文档
-2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &amp;quot;$1&amp;quot; in start) echo &amp;quot;starting svnserve...&amp;quot; svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx echo &amp;quot;finished&amp;quot; ;; stop) echo &amp;quot;stoping svnserve&amp;quot; killall svnserve echo &amp;quot;finished&amp;quot; ;; restart) $0 stop $0 start ;; *) exit esac  3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved
-4 将svnserved脚本设置为系统服务，chkconfig &amp;#8211;add svnserved， 重启系统，ok！</description>
+      <description>1 在/etc/rc.d/init.d/下建立svnserved文档2 copy到svnserved文档下#!/bin/bash#chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误#description:svn //此行必写,描述服务svnserve -d -r /xxx/xxx/xxx case &amp;quot;$1&amp;quot; in start) echo &amp;quot;starting svnserve...&amp;quot; svnserve -d -r /xxx/xxx/xxx --listen-host xxx.xxx.xxx.xxx echo &amp;quot;finished&amp;quot; ;; stop) echo &amp;quot;stoping svnserve&amp;quot; killall svnserve echo &amp;quot;finished&amp;quot; ;; restart) $0 stop $0 start ;; *) exit esac3 更改脚本为可执行属性，chmod 557 /etc/rc.d/init.d/svnserved4 将svnserved脚本设置为系统服务，chkconfig –add svnserved， 重启系统，ok！</description>
     </item>
     
     <item>
@@ -616,12 +362,7 @@ svnadmin load /data/new/svndata/fanhefan&amp;lt; /root/svn_bak
       <pubDate>Tue, 23 Jul 2013 09:36:20 +0000</pubDate>
       
       <guid>https://ifunbox.top/ie_download_apk/</guid>
-      <description>有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；
-简单修改：
-1，进入 /usr/local/nginx/conf
-2，编辑mime.types文件，在其中加入以下两句，分别是对apk和ipa的支持；
-application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事儿重启；
-/etc/init.d/nginx restart ok，记录完成。</description>
+      <description>有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；简单修改：1，进入 /usr/local/nginx/conf2，编辑mime.</description>
     </item>
     
     <item>
@@ -630,35 +371,7 @@ application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事�
       <pubDate>Fri, 28 Jun 2013 02:39:53 +0000</pubDate>
       
       <guid>https://ifunbox.top/apache_log_analysis/</guid>
-      <description>我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
-1、LogAnalyzer
-LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。
-LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且正式改名为LogAnalyzer。
-程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用MonitorWare Agent、WinSysLog、EventReport。在Linux环境下可以使用rsyslog。现在Yum的源中包含了rsyslog这款软件，源中的版本是3.22.1，官方的最高版本是4.6.4的稳定版以及6.1.0的开发版。
-由于不能使用原生的数据进行分析，我觉得算是他的一个缺点。
-2、Jawstats
-这是一款基于Awstat的PHP开源程序，提供了非常漂亮的分析统计结果的展示界面，支持中文。他的作者是 Jon Come。
-JAWStats可以减轻AWStats的计算压力，同时安装非常简单，只要稍微修改一下配置文件就可以运行。配置项也可以非常简单。
-JAWStats的使用界面也非常人性化，因为作者原来是一个UI工程师。在系统中，我们可以非常容易的在不同月份之间切换，还可以在不同站点的日志之间进行切换。也可以通过Web界面来进行分析数据的更新，正好切合我们的需求，只在需要看的时候出报表就好了。
-JAWStats支持主题，可以进行主题的设计和切换。
-总的来说，看完了JAWStats的介绍，觉得是比较推荐的一款产品。
-3、Web Analytics. Open Source
-一款GPL协议下的开源软件，界面和数据获取方式都是模仿GA的，对于小型站点的分析应该不错。有对于Wordpress和Mediawiki的统计支持。
-4、Log Miner
-LogMiner 是一个分析Apache或者IIS日志，或者其他支持 combined 或者 W3C扩展日志格式的服务器。能够提取并展示包括访问量、点击、流量、请求数、访问路径、浏览器和操作系统在内的诸多指标。数据存储采用的是 PostgreSQL，存储比较精简。
-Log Miner开发的灵感源自于流行的 Webalizer ，但是有一些主要的不同：
- 使用关系型数据库作为后端数据存储，实时生成报表。而 Webalizer 则是生成 html 文件。基于DBMS数据库的方式能够随时提供不同形式的数据，但是日志文件的解析速度上不如 Webalizer。
-Webalizer只保存最近12个月的数据，之前的数据则无法再查看。
-Webalizer的报告结果是硬编码的，而Logminer则是每个报告对应一个PHP类，我们可以灵活的进行定义。
-LogMiner提供了比Webalizer更多的报表，比如操作系统和访问路径。
- 5、Webalizer
-Webalizer虽然不是PHP的，但是上面LogMiner总是拿这个作比较，就顺便说一下。用C写成，日志分析能力非常出众，采用HTML的报表展示形式，是一个非常流行的日志分析工具。
-6、TraceWatch
-一个PHP+Mysql的日志分析工具，界面不太喜欢，好像就是路径分析比较有特点，其他的感觉还有点慢，就没什么了。
-其他还有一些不太知名的工具，就没有一一细看：
-AudiStat、SlimStat、Piwik
-结合看到的这些工具，针对我们单位的实际需求，感觉 Awstat + JAWStats 组合更为好一点。因为日志会收集到单独的日志服务器上，所以性能上的消耗也就不会在意了。接下来看看实际的效果吧。
-PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能够更加的一目了然。</description>
+      <description>我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。1、LogAnalyzerLogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且正式改名为LogAnalyzer。程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用MonitorWare Agent、WinSysLog、EventReport。在Linux环境下可以使用rsyslog。现在Yum的源中包含了rsyslog这款软件，源中的版本是3.22.1，官方的最高版本是4.6.4的稳定版以及6.1.0的开发版。由于不能使用原生的数据进行分析，我觉得算是他的一个缺点。2、Jawstats这是一款基于Awstat的PHP开源程序，提供了非常漂亮的分析统计结果的展示界面，支持中文。他的作者是 Jon Come。JAWStats可以减轻AWStats的计算压力，同时安装非常简单，只要稍微修改一下配置文件就可以运行。配置项也可以非常简单。JAWStats的使用界面也非常人性化，因为作者原来是一个UI工程师。在系统中，我们可以非常容易的在不同月份之间切换，还可以在不同站点的日志之间进行切换。也可以通过Web界面来进行分析数据的更新，正好切合我们的需求，只在需要看的时候出报表就好了。JAWStats支持主题，可以进行主题的设计和切换。总的来说，看完了JAWStats的介绍，觉得是比较推荐的一款产品。3、Web Analytics. Open Source一款GPL协议下的开源软件，界面和数据获取方式都是模仿GA的，对于小型站点的分析应该不错。有对于Wordpress和Mediawiki的统计支持。4、Log MinerLogMiner 是一个分析Apache或者IIS日志，或者其他支持 combined 或者 W3C扩展日志格式的服务器。能够提取并展示包括访问量、点击、流量、请求数、访问路径、浏览器和操作系统在内的诸多指标。数据存储采用的是 PostgreSQL，存储比较精简。Log Miner开发的灵感源自于流行的 Webalizer ，但是有一些主要的不同： 使用关系型数据库作为后端数据存储，实时生成报表。而 Webalizer 则是生成 html 文件。基于DBMS数据库的方式能够随时提供不同形式的数据，但是日志文件的解析速度上不如 Webalizer。Webalizer只保存最近12个月的数据，之前的数据则无法再查看。Webalizer的报告结果是硬编码的，而Logminer则是每个报告对应一个PHP类，我们可以灵活的进行定义。LogMiner提供了比Webalizer更多的报表，比如操作系统和访问路径。 5、WebalizerWebalizer虽然不是PHP的，但是上面LogMiner总是拿这个作比较，就顺便说一下。用C写成，日志分析能力非常出众，采用HTML的报表展示形式，是一个非常流行的日志分析工具。6、TraceWatch一个PHP+Mysql的日志分析工具，界面不太喜欢，好像就是路径分析比较有特点，其他的感觉还有点慢，就没什么了。其他还有一些不太知名的工具，就没有一一细看：AudiStat、SlimStat、Piwik结合看到的这些工具，针对我们单位的实际需求，感觉 Awstat + JAWStats 组合更为好一点。因为日志会收集到单独的日志服务器上，所以性能上的消耗也就不会在意了。接下来看看实际的效果吧。PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能够更加的一目了然。</description>
     </item>
     
     <item>
@@ -667,12 +380,7 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
       <pubDate>Thu, 20 Jun 2013 02:10:35 +0000</pubDate>
       
       <guid>https://ifunbox.top/sudu_icp_background/</guid>
-      <description>今天收到华夏名网快递的ICP备案拍照幕布背景图
-各种麻烦还邮寄
-为方便各位站友及时提交备案照片特将背景图拍下来供没有收到图的站友们及时使用
-如果PS的不合格为了效率也可以找喷绘打印一张然后再拍照
-希望对各位站友有所帮助
-下载链接http://url.cn/HvVICI</description>
+      <description>今天收到华夏名网快递的ICP备案拍照幕布背景图各种麻烦还邮寄为方便各位站友及时提交备案照片特将背景图拍下来供没有收到图的站友们及时使用如果PS的不合格为了效率也可以找喷绘打印一张然后再拍照希望对各位站友有所帮助下载链接http://url.cn/HvVICI</description>
     </item>
     
     <item>
@@ -681,13 +389,7 @@ PS：刚才看AWS的文档，看到一个对比，可能对于特性的了解能
       <pubDate>Wed, 06 Mar 2013 13:39:22 +0000</pubDate>
       
       <guid>https://ifunbox.top/510.html</guid>
-      <description>平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。
-Window2003 iis+mysql+php+zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;amp;helpId=1237
-里面的教程非常详细有图有真相，还有视频呢
-就是缺了一个绑定域名的教程，现在补齐http://zhidao.zgsj.com/article/4/2011422142105.shtml
-配置只是刚刚开始，服务器的安全也很重要，这个也是之后要学习的啦~~
-&amp;nbsp;
-IIS服务的命令行方式重启命令 iisreset /RESTART 停止后启动</description>
+      <description>平时穷买不起服务器，一直没有在服务器上小试身手，阿里云服务器可以试用让人很是感动，还有里面的配置着实帮了小白一把。Window2003 iis+mysql+php+zend环境配置http://help.aliyun.com/manual?spm=0.0.0.0.E4IlSi&amp;amp;helpId=1237里面的教程非常详细有图有真相，还有视频呢就是缺了一个绑定域名的教程，现在补齐http://zhidao.zgsj.com/article/4/2011422142105.shtml配置只是刚刚开始，服务器的安全也很重要，这个也是之后要学习的啦~~ IIS服务的命令行方式重启命令 iisreset /RESTART 停止后启动 </description>
     </item>
     
     <item>
@@ -696,36 +398,7 @@ IIS服务的命令行方式重启命令 iisreset /RESTART 停止后启动</desc
       <pubDate>Wed, 30 Jan 2013 08:48:26 +0000</pubDate>
       
       <guid>https://ifunbox.top/windows-apache-ab/</guid>
-      <description>ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多
-ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中
-ab是专门用于HTTP Server的benchmark testing，可以同时模拟多个并发请求
-ab的设计意图是描绘当前所安装的Apache的执行性能,主要是显示所安装的Apache每秒可以处理多少个请求
-ab不像LR那么强大,但它足够轻便,若只是在开发过程中想检查一下某个模块的响应情况，或者做一些场景比较简单的测试，ab是个不错的选择
-至少不用花费很多时间去学习LR中的那些复杂的功能,就更别说那License的价格了
-参数文档：
-http://httpd.apache.org/docs/2.2/programs/ab.html
-通过对服务器压力测试可以大概了解一个服务器的负载能力，下面是Windows下的Apache服务器测试方法。
-在Apache服务器自带了一个测试程序Ab.exe可以很方便的使用 。。
-命令是 ab -c 一次产生的请求个数（并发数） -n 在测试会话中所执行的请求个数 网址（建议输入目标网页）。。
-线程数不宜过大 按照你电脑的承受能力 。。。
-请求数有限制 防止有人乱Ddos别人 。。
-例：ab -n 10 -c 10 http://192.168.1.3/index.html
-结果如下 。。
-D:\Apache\bin&amp;gt;ab -n 10 -c 10 http://192.168.1.3/index.html
-（以上是输入的命令）
-Benchmarking 192.168.1.3 (be patient)&amp;#8230;..done
-Server Software: Apache/2.0.63
-（目标服务器Apache版本号）
-Server Hostname: 192.168.1.3
-（目标服务器主机头名称）
-Server Port: 80
-（目标服务器Apache端口）
-Document Path: /index.html
-（目标网页相对地址）
-Document Length: 292 bytes
-（目标网页大小）
-Concurrency Level: 10
-（并发线程数）</description>
+      <description>ab是Apache自带的HTTP压力测试工具，全称是ApacheBench，同微软的WAST、惠普的LoadRunner、QALoad等比起来，它要方便易用得多ab是Apache的一个安装组件,所以需要下载Apache安装后才能使用，该命令位于Apache安装目录下的bin文件夹中ab是专门用于HTTP Server的benchmark testing，可以同时模拟多个并发请求ab的设计意图是描绘当前所安装的Apache的执行性能,主要是显示所安装的Apache每秒可以处理多少个请求ab不像LR那么强大,但它足够轻便,若只是在开发过程中想检查一下某个模块的响应情况，或者做一些场景比较简单的测试，ab是个不错的选择至少不用花费很多时间去学习LR中的那些复杂的功能,就更别说那License的价格了参数文档：http://httpd.apache.org/docs/2.2/programs/ab.html通过对服务器压力测试可以大概了解一个服务器的负载能力，下面是Windows下的Apache服务器测试方法。在Apache服务器自带了一个测试程序Ab.exe可以很方便的使用 。。命令是 ab -c 一次产生的请求个数（并发数） -n 在测试会话中所执行的请求个数 网址（建议输入目标网页）。。线程数不宜过大 按照你电脑的承受能力 。。。请求数有限制 防止有人乱Ddos别人 。。例：ab -n 10 -c 10 http://192.168.1.3/index.html结果如下 。。D:\Apache\bin&amp;gt;ab -n 10 -c 10 http://192.168.1.3/index.html（以上是输入的命令）Benchmarking 192.168.1.3 (be patient)…..doneServer Software: Apache/2.0.63（目标服务器Apache版本号）Server Hostname: 192.168.1.3（目标服务器主机头名称）Server Port: 80（目标服务器Apache端口）Document Path: /index.html（目标网页相对地址）Document Length: 292 bytes（目标网页大小）Concurrency Level: 10（并发线程数）Time taken for tests: 0.140625 seconds（使用时间）Complete requests: 10（成功的请求数量）Failed requests: 0（失败的请求数量）Write errors: 0（发生错误数量）Total transferred: 5750 bytes（全部使用的流量）HTML transferred: 2920 bytes（Html文件使用的流量）Requests per second: 71.11 [#/sec] (mean)（指标一 平均每秒请求数）Time per request: 140.625 [ms] (mean)（指标二 平均事务响应时间）Time per request: 14.</description>
     </item>
     
     <item>
@@ -734,11 +407,7 @@ Concurrency Level: 10
       <pubDate>Fri, 23 Mar 2012 05:05:22 +0000</pubDate>
       
       <guid>https://ifunbox.top/279.html</guid>
-      <description>最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程
-感觉不错，希望能帮助到大家！
-IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWebhosting视频教程之免费赠送域名开通方法之实例演示 IXWebhosting视频教程之控制面板功能之详解 IXWebhosting视频教程之虚拟主机FTP的相关操作 IXWebhosting视频教程之虚拟主机PHPMyadmin的使用 IXWebhosting视频教程之虚拟主机MySQL独立数据库的建立 IXWebhosting视频教程之虚拟主机在线文件管理功能之实例演示 IXWebhosting视频教程之域名解析操作之实例演示 IXWebhosting视频教程之虚拟主机建立一个网站的完整步骤 IXWebhosting视频教程之虚拟主机搭建ShopEx网店 IXWebhosting视频教程之域名转出操作之实例演示 IXWebhosting视频教程之虚拟主机产品的续费 &amp;nbsp;
-&amp;nbsp;
-&amp;nbsp;</description>
+      <description>最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程感觉不错，希望能帮助到大家！IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWebhosting视频教程之免费赠送域名开通方法之实例演示 IXWebhosting视频教程之控制面板功能之详解 IXWebhosting视频教程之虚拟主机FTP的相关操作 IXWebhosting视频教程之虚拟主机PHPMyadmin的使用 IXWebhosting视频教程之虚拟主机MySQL独立数据库的建立 IXWebhosting视频教程之虚拟主机在线文件管理功能之实例演示 IXWebhosting视频教程之域名解析操作之实例演示 IXWebhosting视频教程之虚拟主机建立一个网站的完整步骤 IXWebhosting视频教程之虚拟主机搭建ShopEx网店 IXWebhosting视频教程之域名转出操作之实例演示 IXWebhosting视频教程之虚拟主机产品的续费    </description>
     </item>
     
   </channel>

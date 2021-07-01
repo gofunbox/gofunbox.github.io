@@ -4,7 +4,7 @@
   <head>
 <title>Linux下SVN安装配置以及使用 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,23 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="第一章 安装
-1. 采用源文件编译安装。源文件共两个，为：
-subversion-1.6.21.tar.gz （subversion 源文件）
-subversion-deps-1.6.21.tar.gz （subversion依赖文件）
-注意文件版本必须一致,否则很容易产生各种奇怪的问题.
-2. 上传以上两个文件到服务 …">
+<meta name="description" content="第一章 安装1. 采用源文件编译安装。源文件共两个，为：subversion-1.6.21.tar.gz （subversion 源文件）subversion-deps-1.6.21.tar.gz （subversion依赖文件）注意文件版本必须一致,否则很容易产生各种奇怪的问题.2. 上传以上两个文件到服务器上，解 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux下SVN安装配置以及使用" />
 <meta property="og:url" content="https://ifunbox.top/linux_svn_configuration/" />
 <meta property="og:title" content="Linux下SVN安装配置以及使用" />
-<meta property="og:description" content="第一章 安装
-1. 采用源文件编译安装。源文件共两个，为：
-subversion-1.6.21.tar.gz （subversion 源文件）
-subversion-deps-1.6.21.tar.gz （subversion依赖文件）
-注意文件版本必须一致,否则很容易产生各种奇怪的问题.
-2. 上传以上两个文件到服务 …" />
+<meta property="og:description" content="第一章 安装1. 采用源文件编译安装。源文件共两个，为：subversion-1.6.21.tar.gz （subversion 源文件）subversion-deps-1.6.21.tar.gz （subversion依赖文件）注意文件版本必须一致,否则很容易产生各种奇怪的问题.2. 上传以上两个文件到服务器上，解 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -46,12 +36,12 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,29 +160,14 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
 </div>
 
     
-    <p><span style="font-size: medium;"><strong>第一章 安装</strong></span></p>
-
-<p><span style="font-size: medium;">1. 采用源文件编译安装。源文件共两个，为：</span><br />
- <span style="font-size: medium;"><a href="http://subversion.tigris.org/downloads/subversion-1.6.21.tar.gz" target="_blank">subversion-1.6.21.tar.gz </a>（subversion 源文件）</span><br />
- <span style="font-size: medium;"><a href="http://subversion.tigris.org/downloads/subversion-deps-1.6.21.tar.gz" target="_blank">subversion-deps-1.6.21.tar.gz </a>（subversion依赖文件）</span><br />
- <span style="font-size: medium;">注意文件版本必须一致,否则很容易产生各种奇怪的问题.</span></p>
-
-<p><span style="font-size: medium;">2. 上传以上两个文件到服务器上，解压。解压命令为：</span></p>
-
-<div id="highlighter_854817">
-  <div>
-    <span style="font-size: medium;"> </span>
-  </div>
-  
-
-<p><div>
-    <div>
-      <table>
-        <tr>
-          <td>
-            <span style="font-size: medium;"><code> </code></span>
-          </td></p>
-
+    <p><!-- raw HTML omitted --><!-- raw HTML omitted -->第一章 安装<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1. 采用源文件编译安装。源文件共两个，为：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->subversion-1.6.21.tar.gz <!-- raw HTML omitted -->（subversion 源文件）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->subversion-deps-1.6.21.tar.gz <!-- raw HTML omitted -->（subversion依赖文件）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->注意文件版本必须一致,否则很容易产生各种奇怪的问题.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2. 上传以上两个文件到服务器上，解压。解压命令为：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>      &lt;td&gt;
         &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz &lt;/code&gt;&lt;/span&gt;
       &lt;/td&gt;
@@ -205,7 +180,7 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
     &lt;tr&gt;
       &lt;td&gt;
       &lt;/td&gt;
-
+      
       &lt;td&gt;
         &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz subversion-deps-1.6.21.&lt;/code&gt;&lt;code&gt;tar&lt;/code&gt;&lt;code&gt;.gz&lt;/code&gt;&lt;/span&gt;
       &lt;/td&gt;
@@ -213,461 +188,256 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
   &lt;/table&gt;
 &lt;/div&gt;
 </code></pre>
-
-<p></div>
-</div></p>
-
-<p><span style="font-size: medium;">指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。</span><br />
- <span style="font-size: medium;"> </span><br />
- <span style="font-size: medium;">3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。</span></p>
-
-<p><span style="font-size: medium;">4. 进入解压子目录：</span></p>
-
-<div id="highlighter_267287">
-  <div>
-    <div>
-      <table>
-        <tr>
-          <td>
-          </td>
-          
-          <td>
-            <span style="font-size: medium;"><code>cd</code> <code>subversion-1.6.21</code></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">5. 执行 ./configure –prefix=/opt/subversion 进行配置设定并指明安装目录. 注意prefix前是两个减号. 默认不带BDB包, 所以默认使用的是FSFS模式. 若想使用BDB模式需另外下载BDB包.建议使用FSFS模式.两种模式比较参考以下链接:</span></p>
-
-<p><span style="font-size: medium;"><a href="http://doc.iusesvn.com/show-21-1.html">http://doc.iusesvn.com/show-21-1.html</a></span></p>
-
-<p><span style="font-size: medium;">指令简介：configure命令用于检查安装平台和目标特征，prefix用于指定路径。</span></p>
-
-<p><span style="font-size: medium;">6. 执行 make 编译.</span></p>
-
-<p><span style="font-size: medium;">7. 执行 make install 安装.</span></p>
-
-<p><span style="font-size: medium;">8. 添加环境变量:</span></p>
-
-<div id="highlighter_609078">
-  <table>
-    <tr>
-      <td>
-        <span style="font-size: medium;"><code> </code></span>
-      </td>
-      
-      <td>
-        <span style="font-size: medium;"><code>vi</code> <code>/etc/profile</code></span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<p><span style="font-size: medium;">在文件最后加入:</span><br />
-<span style="font-size: medium;">export PATH=$PATH:/usr/local/svn/bin<br /> </span></p>
-
-<p><span style="font-size: medium;">9. 测试SVN是否安装成功,执行:</span></p>
-
-<div id="highlighter_29006">
-  <div>
-    <div>
-      <table>
-        <tr>
-          <td>
-          </td>
-          
-          <td>
-            <span style="font-size: medium;"><code>svnserve --version</code></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">如果显示版本信息, 则安装成功.</span></p>
-
-<p><span style="font-size: medium;"><strong>第二章 配置</strong></span></p>
-
-<p><span style="font-size: medium;">本系统采用为每个项目单独建一版本库的策略。配置文件，密码文件，访问控制文件等都放在版本库的conf目录下。所以每次开始一个新项目都必须新建一个版本库，并重新配置各配置文件。还有很重要的一条，要求各组员重新配置客户端，包括服务器版本库路径，本地路径等信息。</span></p>
-
-<p><span style="font-size: medium;">1. 建立版本库目录(可建立多个，新建库后以下各项都需重新配置。注意区别安装目录与版本库目录,以下讲的都是版本库目录)</span></p>
-
-<div id="highlighter_361468">
-  <div>
-    <div>
-      <table>
-        <tr>
-          <td>
-          </td>
-          
-          <td>
-            <span style="font-size: medium;"><code>mkdir</code> <code>–p /opt/svndata/repos</code></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">2. 建立svn版本库(与上面目录对应)</span></p>
-
-<div id="highlighter_817847">
-  <table>
-    <tr>
-      <td>
-        <span style="font-size: medium;"><code> </code></span>
-      </td>
-      
-      <td>
-        <span style="font-size: medium;"><code>svnadmin create /opt/svndata/repos</code></span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<p><span style="font-size: medium;">执行此命令后svn自动在repos目录下添加必须的配置文件.</span><br />
- <span style="font-size: medium;">注意:版本库不同于一般的文件夹, 直接在操作系统上新建文件无法被SVN识别, 必须使用import等命令将文件导入版本库.</span><br />
- <span style="font-size: medium;">此为svn内部指令，create用于新建版本库。请使用svn help查看详细说明。</span></p>
-
-<p><span style="font-size: medium;">3. 修改版本库配置文件</span></p>
-
-<div id="highlighter_297281">
-  <table>
-    <tr>
-      <td>
-        <span style="font-size: medium;"><code> </code></span>
-      </td>
-      
-      <td>
-        <span style="font-size: medium;"><code>vi</code> <code>/opt/svndata/repos/conf/svnserve.conf</code></span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<p><span style="font-size: medium;">各参数功能在配置文件的注释中有说明, 此处配置如下:</span><br />
- <span style="font-size: medium;">[general]</span><br />
- <span style="font-size: medium;">anon-access = none # 使非授权用户无法访问</span><br />
- <span style="font-size: medium;">auth-access = write # 使授权用户有写权限</span><br />
- <span style="font-size: medium;">password-db = /opt/svndata/conf/pwd.conf # 指明密码文件路径</span><br />
- <span style="font-size: medium;">authz-db = /opt/svndata/conf/authz.conf # 访问控制文件</span><br />
- <span style="font-size: medium;">realm = /repos # 认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字。</span><br />
- <span style="font-size: medium;">其它采用默认配置. 各语句都必须顶格写, 左侧不能留空格, 否则会出错.(这个参数跟之后访问的地址有关)</span><br />
- <span style="font-size: medium;">其中pwd.conf 与 authz.conf 在新建版本库时系统不会自动创建，需要自己创建。</span><br />
- <span style="font-size: medium;">指令简介：这是svn配置文件的格式，请按照以上格式书写。</span></p>
-
-<p><span style="font-size: medium;">4. 配置用户</span></p>
-
-<div id="highlighter_692825">
-  <div>
-    <div>
-      <table>
-        <tr>
-          <td>
-            <span style="font-size: medium;"><code>1</code></span>
-          </td>
-          
-          <td>
-            <span style="font-size: medium;"><code>vi</code> <code>/opt/svndata/repos/conf/</code><code>pwd</code><code>.conf</code></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">输入以下内容：</span><br />
- <span style="font-size: medium;">[users]</span><br />
- <span style="font-size: medium;">username1 = password1</span><br />
- <span style="font-size: medium;">username2 = password2</span><br />
- <span style="font-size: medium;">可以添加多个，此为用户名密码对。</span></p>
-
-<p><span style="font-size: medium;">5. 配置权限</span><br />
- <span style="font-size: medium;">vi /opt/svndata/repos/conf/authz.conf</span><br />
- <span style="font-size: medium;">指令简介：此配置文件采用“基于路径的授权”策略，中括号里指定路径，以下列出对各用户的授权。包括只读r，读写rw。没有列出的用户，则不允许访问。还可以对用户分组，具体请参考svn手册，以下是简单例子：</span><br />
- <span style="font-size: medium;">[/]</span><br />
- <span style="font-size: medium;">user1 = rw</span><br />
- <span style="font-size: medium;">user2 = r</span></p>
-
-<p><span style="font-size: medium;">注意：</span></p>
-
-<p><span style="font-size: medium;">* 权限配置文件中出现的用户名必须已在用户配置文件中定义。</span></p>
-
-<p><span style="font-size: medium;">* 对权限配置文件的修改立即生效，不必重启svn。</span></p>
-
-<p><span style="font-size: medium;"><strong>权限:注意配置文件格式,</strong><strong>前面不能有空格</strong></span></p>
-
-<p><span style="font-size: medium;">用户组格式：</span></p>
-
-<p><span style="font-size: medium;">[groups]</span></p>
-
-<p><span style="font-size: medium;">&lt;用户组名&gt; = &lt;用户1&gt;,&lt;用户2&gt;</span></p>
-
-<p><span style="font-size: medium;">————————</span></p>
-
-<p><span style="font-size: medium;">[groups]</span></p>
-
-<p><span style="font-size: medium;">Svnadmin = shengchao,yingzi</span></p>
-
-<p><span style="font-size: medium;">g_chengxu= test1,test2,test2</span></p>
-
-<p><span style="font-size: medium;">————————</span></p>
-
-<p><span style="font-size: medium;">其中，1个用户组可以包含1个或多个用户，用户间以逗号分隔。</span></p>
-
-<p><span style="font-size: medium;">版本库目录格式：</span></p>
-
-<p><span style="font-size: medium;">[&lt;版本库&gt;:/项目/目录]</span></p>
-
-<p><span style="font-size: medium;">@&lt;用户组名&gt; = &lt;权限&gt;</span></p>
-
-<p><span style="font-size: medium;">&lt;用户名&gt; = &lt;权限&gt;</span></p>
-
-<p><span style="font-size: medium;">其中，方框号内部分可以有多种写法:</span></p>
-
-<p><span style="font-size: medium;">/,表示根目录及以下。根目录是svnserve启动时指定的，我们指定为/www/svndata。这样，/就是表示对全部版本库设置权限。</span></p>
-
-<p><span style="font-size: medium;">repos1:/,表示对版本库1设置权限</span></p>
-
-<p><span style="font-size: medium;">repos2:/abc, ,表示对版本库2中的abc项目设置权限</span></p>
-
-<p><span style="font-size: medium;">repos2:/abc/aaa, ,表示对版本库2中的abc项目的aaa目录设置权限</span></p>
-
-<p><span style="font-size: medium;">权限主体可以是用户组、用户或*，用户组在前面加@，*表示全部用户。权限可以是w、r、wr和空，空表示没有任何权限。</span></p>
-
-<p><span style="font-size: medium;">示例：</span></p>
-
-<p><span style="font-size: medium;">[groups]</span></p>
-
-<p><span style="font-size: medium;">admin = shengchao</span></p>
-
-<p><span style="font-size: medium;">[/]</span></p>
-
-<p><span style="font-size: medium;">@admin = rw</span></p>
-
-<p><span style="font-size: medium;">[repos1:/abc/aaa]</span></p>
-
-<p><span style="font-size: medium;">yingzi = rw</span></p>
-
-<p><span style="font-size: medium;">[repos2:/pass]</span></p>
-
-<p><span style="font-size: medium;">yingzi =</span></p>
-
-<p><span style="font-size: medium;">6. 使用import导入文件</span><br />
- <span style="font-size: medium;">新建好的版本库是空的，需要导入工作目录。</span></p>
-
-<div id="highlighter_217936">
-  <div>
-    <table>
-      <tr>
-        <td>
-        </td>
-        
-        <td>
-          <span style="font-size: medium;"><code>$ svnadmin create /usr/</code><code>local</code><code>/svn/newrepos </code></span>
-        </td>
-      </tr>
-    </table>
-  </div>
-  
-
-<p><div>
-    <table>
-      <tr>
-        <td>
-          <span style="font-size: medium;"><code> </code></span>
-        </td></p>
-
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->指令简介：tar 为解压命令，xfvz为tar命令的参数，用于解压tar.gz格式压缩的文件。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --> <!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3. 解压后生成 subversion-1.6.21 子目录，两个压缩包解压后都会自动放到此目录下，不用手动更改。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4. 进入解压子目录：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;cd&lt;/code&gt; &lt;code&gt;subversion-1.6.21&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->5. 执行 ./configure –prefix=/opt/subversion 进行配置设定并指明安装目录. 注意prefix前是两个减号. 默认不带BDB包, 所以默认使用的是FSFS模式. 若想使用BDB模式需另外下载BDB包.建议使用FSFS模式.两种模式比较参考以下链接:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://doc.iusesvn.com/show-21-1.html">http://doc.iusesvn.com/show-21-1.html</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->指令简介：configure命令用于检查安装平台和目标特征，prefix用于指定路径。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->6. 执行 make 编译.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->7. 执行 make install 安装.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->8. 添加环境变量:<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;vi&lt;/code&gt; &lt;code&gt;/etc/profile&lt;/code&gt;&lt;/span&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在文件最后加入:<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->export PATH=$PATH:/usr/local/svn/bin<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->9. 测试SVN是否安装成功,执行:<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;svnserve --version&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果显示版本信息, 则安装成功.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->第二章 配置<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本系统采用为每个项目单独建一版本库的策略。配置文件，密码文件，访问控制文件等都放在版本库的conf目录下。所以每次开始一个新项目都必须新建一个版本库，并重新配置各配置文件。还有很重要的一条，要求各组员重新配置客户端，包括服务器版本库路径，本地路径等信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1. 建立版本库目录(可建立多个，新建库后以下各项都需重新配置。注意区别安装目录与版本库目录,以下讲的都是版本库目录)<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;mkdir&lt;/code&gt; &lt;code&gt;–p /opt/svndata/repos&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->2. 建立svn版本库(与上面目录对应)<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;svnadmin create /opt/svndata/repos&lt;/code&gt;&lt;/span&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->执行此命令后svn自动在repos目录下添加必须的配置文件.<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->注意:版本库不同于一般的文件夹, 直接在操作系统上新建文件无法被SVN识别, 必须使用import等命令将文件导入版本库.<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->此为svn内部指令，create用于新建版本库。请使用svn help查看详细说明。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3. 修改版本库配置文件<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;vi&lt;/code&gt; &lt;code&gt;/opt/svndata/repos/conf/svnserve.conf&lt;/code&gt;&lt;/span&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->各参数功能在配置文件的注释中有说明, 此处配置如下:<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[general]<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->anon-access = none # 使非授权用户无法访问<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->auth-access = write # 使授权用户有写权限<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->password-db = /opt/svndata/conf/pwd.conf # 指明密码文件路径<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->authz-db = /opt/svndata/conf/authz.conf # 访问控制文件<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->realm = /repos # 认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->其它采用默认配置. 各语句都必须顶格写, 左侧不能留空格, 否则会出错.(这个参数跟之后访问的地址有关)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->其中pwd.conf 与 authz.conf 在新建版本库时系统不会自动创建，需要自己创建。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->指令简介：这是svn配置文件的格式，请按照以上格式书写。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4. 配置用户<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;vi&lt;/code&gt; &lt;code&gt;/opt/svndata/repos/conf/&lt;/code&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;code&gt;.conf&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->输入以下内容：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[users]<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->username1 = password1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->username2 = password2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以添加多个，此为用户名密码对。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5. 配置权限<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->vi /opt/svndata/repos/conf/authz.conf<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->指令简介：此配置文件采用“基于路径的授权”策略，中括号里指定路径，以下列出对各用户的授权。包括只读r，读写rw。没有列出的用户，则不允许访问。还可以对用户分组，具体请参考svn手册，以下是简单例子：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[/]<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->user1 = rw<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->user2 = r<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->注意：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->* 权限配置文件中出现的用户名必须已在用户配置文件中定义。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->* 对权限配置文件的修改立即生效，不必重启svn。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->权限:注意配置文件格式,<!-- raw HTML omitted --><!-- raw HTML omitted -->前面不能有空格<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->用户组格式：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[groups]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->&lt;用户组名&gt; = &lt;用户1&gt;,&lt;用户2&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->————————<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[groups]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Svnadmin = shengchao,yingzi<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->g_chengxu= test1,test2,test2<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->————————<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其中，1个用户组可以包含1个或多个用户，用户间以逗号分隔。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->版本库目录格式：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[&lt;版本库&gt;:/项目/目录]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->@&lt;用户组名&gt; = &lt;权限&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->&lt;用户名&gt; = &lt;权限&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其中，方框号内部分可以有多种写法:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->/,表示根目录及以下。根目录是svnserve启动时指定的，我们指定为/www/svndata。这样，/就是表示对全部版本库设置权限。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->repos1:/,表示对版本库1设置权限<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->repos2:/abc, ,表示对版本库2中的abc项目设置权限<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->repos2:/abc/aaa, ,表示对版本库2中的abc项目的aaa目录设置权限<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->权限主体可以是用户组、用户或*，用户组在前面加@，*表示全部用户。权限可以是w、r、wr和空，空表示没有任何权限。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->示例：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[groups]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->admin = shengchao<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[/]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->@admin = rw<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[repos1:/abc/aaa]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->yingzi = rw<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[repos2:/pass]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->yingzi =<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->6. 使用import导入文件<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->新建好的版本库是空的，需要导入工作目录。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td&gt;
+      &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;$ svnadmin create /usr/&lt;/code&gt;&lt;code&gt;local&lt;/code&gt;&lt;code&gt;/svn/newrepos &lt;/code&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>    &lt;td&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;$ svnimport mytree &lt;/code&gt;&lt;code&gt;file&lt;/code&gt;&lt;code&gt;:///usr/&lt;/code&gt;&lt;code&gt;local&lt;/code&gt;&lt;code&gt;/svn/newrepos/some/project&lt;/code&gt;&lt;/span&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 </code></pre>
-
-<p></div>
-</div></p>
-
-<p><span style="font-size: medium;">但是在导入后,用来的目录树并没有转换成工作拷贝，为了开始工作，还是需要运行svn checkout导出一个工作拷贝。因为导入后，文件在版本库中是以特殊的形式存在db文件夹中的，不能以明文的方式查看。必须使用svn checkout导出工作副本（workcopy）才能以正常方式查看。</span></p>
-
-<div id="highlighter_24081">
-  <div>
-    <div>
-      <table>
-        <tr>
-          <td>
-          </td>
-          
-          <td>
-            <span style="font-size: medium;"><code>svn checkout </code><code>file</code><code>:///usr/</code><code>local</code><code>/svn/newrepos/some/project workcopy</code></span>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">7. 启动服务</span><br />
- <span style="font-size: medium;">执行svnserve –d –r /opt/svndata/ 启动服务, 以deamon方式运行。</span><br />
- <span style="font-size: medium;">本系统采用svnserve方式, 这是小团队项目的推荐方法. 这种方法维护最少, 配置最简单.</span><br />
- <span style="font-size: medium;">指令简介：此指令用于启动svn服务，-d指明以守护模式运行，svn自动在3690端口监听。3690是默认端口，可以使用“–listen-port=”或者“–listen-host=”来指定其它端口。-r选项用来指定svn服务的根目录，这样用户就可以使用相对路径访问，而不用提供完整路径。</span><br />
- <span style="font-size: medium;">使用以下命令检出：(svnserver方式)</span></p>
-
-<div id="highlighter_558454">
-  <table>
-    <tr>
-      <td>
-        <span style="font-size: medium;"><code> </code></span>
-      </td>
-      
-      <td>
-        <span style="font-size: medium;"><code>svn checkout svn://127.0.0.1/</code><code>dir</code></span>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<p><span style="font-size: medium;">以上为示例。IP需要根据具体情况调整，dir为版本库路径，若在启动时已指定则可省略。</span><br />
- <span style="font-size: medium;">版本库信息在版本库文件夹里，所以要删除版本库只需要删除版本库所在的文件夹即可。</span><br />
- <span style="font-size: medium;">另外工作副本只是自己维护的文件夹，可以用Windows直接删掉，对别人没有影响。千万不要使用版本库的删除命令，否则版本库里的内容也会被删除。</span></p>
-
-<p><span style="font-size: medium;"> &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</span></p>
-
-<p><span style="font-size: medium;">配置两个资源库：svn默认端口是3690</span></p>
-
-<p><span style="font-size: medium;"> 1.启动命令： svnserve -d -r 版本库路径 &#8211;listen-host 192.168.1.178  </span></p>
-
-<p><span style="font-size: medium;">如：svnserve -d -r /opt/svndata &#8211;listen-host 192.168.1.178</span></p>
-
-<p><span style="font-size: medium;">启动时遇到的问题: </span></p>
-
-<p><span style="font-size: medium;">启动svnserve时出现cannot bind server socket:address already in use </span></p>
-
-<p><span style="font-size: medium;">解决方法: </span><br />
- <span style="font-size: medium;">方法一:找出svnserve id 杀死掉进程 </span></p>
-
-<p><span style="font-size: medium;">netstat -ntlp </span></p>
-
-<p><span style="font-size: medium;">kill -9 id </span></p>
-
-<p><span style="font-size: medium;">方法二:重新指定一个端口号(默认端口3690) </span></p>
-
-<p><span style="font-size: medium;">svnserve -d &#8211;listen-port 3691 -r /opt/svndata/repos</span></p>
-
-<p><span style="font-size: medium;">2.检查是否启动成功:（查看是否存在svnserve 进程）</span></p>
-
-<p><span style="font-size: medium;">ps -ef|grep svnserve</span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;">貌似更简单的安装方法：好尴尬</span></p>
-
-<p><span style="font-size: medium;">一：安装</span><br />
-<span style="font-size: medium;">1、下载安装包，这里下载1.7.13版本</span></p>
-
-<div>
-  <div id="highlighter_533027" class="syntaxhighlighter bash">
-    <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="gutter">
-          <div class="line number1 index0 alt2">
-            1
-          </div>
-        </td>
-        
-        <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
-              <code class="bash plain">wget </code><code class="bash plain">http://archive.apache.org/dist/subversion/subversion-1.7.13.tar.gz</code>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">2、编译 &#8211;without-berkeley-db取消使用berkeley-db，采</span></p>
-
-<div>
-  <div id="highlighter_807238" class="syntaxhighlighter bash">
-    <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="gutter">
-          <div class="line number1 index0 alt2">
-            1
-          </div>
-        </td>
-        
-        <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
-              <code class="bash plain">.</code><code class="bash plain">/configure</code> <code class="bash plain">--prefix=</code><code class="bash plain">/usr/local/subversion</code> <code class="bash plain">--without-berkeley-db</code>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">出现了错误</span></p>
-
-<div>
-  <div id="highlighter_612633" class="syntaxhighlighter bash">
-    <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="gutter">
-          <div class="line number1 index0 alt2">
-            1
-          </div>
-        </td>
-        
-        <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
-              <code class="bash plain">configure: error: no suitable apr found</code>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">在网上找了一下，是因为缺少必要的依赖文件，</span><br />
-<span style="font-size: medium;">运行./get-deps.sh下载一下文件</span></p>
-
-<div>
-  <div id="highlighter_792971" class="syntaxhighlighter bash">
-    <table border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td class="gutter">
-          <div class="line number1 index0 alt2">
-            1
-          </div>
-        </td>
-        
-        <td class="code">
-          <div class="container">
-            <div class="line number1 index0 alt2">
-              <code class="bash plain">.</code><code class="bash plain">/get-deps</code><code class="bash plain">.sh</code>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<p><span style="font-size: medium;">之后再./configure &#8211;pre&#8230;一下</span><br />
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->但是在导入后,用来的目录树并没有转换成工作拷贝，为了开始工作，还是需要运行svn checkout导出一个工作拷贝。因为导入后，文件在版本库中是以特殊的形式存在db文件夹中的，不能以明文的方式查看。必须使用svn checkout导出工作副本（workcopy）才能以正常方式查看。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;td&gt;
+        &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;svn checkout &lt;/code&gt;&lt;code&gt;file&lt;/code&gt;&lt;code&gt;:///usr/&lt;/code&gt;&lt;code&gt;local&lt;/code&gt;&lt;code&gt;/svn/newrepos/some/project workcopy&lt;/code&gt;&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->7. 启动服务<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->执行svnserve –d –r /opt/svndata/ 启动服务, 以deamon方式运行。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->本系统采用svnserve方式, 这是小团队项目的推荐方法. 这种方法维护最少, 配置最简单.<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->指令简介：此指令用于启动svn服务，-d指明以守护模式运行，svn自动在3690端口监听。3690是默认端口，可以使用“–listen-port=”或者“–listen-host=”来指定其它端口。-r选项用来指定svn服务的根目录，这样用户就可以使用相对路径访问，而不用提供完整路径。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->使用以下命令检出：(svnserver方式)<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;svn checkout svn://127.0.0.1/&lt;/code&gt;&lt;code&gt;dir&lt;/code&gt;&lt;/span&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->以上为示例。IP需要根据具体情况调整，dir为版本库路径，若在启动时已指定则可省略。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->版本库信息在版本库文件夹里，所以要删除版本库只需要删除版本库所在的文件夹即可。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->另外工作副本只是自己维护的文件夹，可以用Windows直接删掉，对别人没有影响。千万不要使用版本库的删除命令，否则版本库里的内容也会被删除。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> ——————————————————————————————<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->配置两个资源库：svn默认端口是3690<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> 1.启动命令： svnserve -d -r 版本库路径 –listen-host 192.168.1.178  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如：svnserve -d -r /opt/svndata –listen-host 192.168.1.178<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->启动时遇到的问题: <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->启动svnserve时出现cannot bind server socket:address already in use <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->解决方法: <!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->方法一:找出svnserve id 杀死掉进程 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->netstat -ntlp <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->kill -9 id <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->方法二:重新指定一个端口号(默认端口3690) <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->svnserve -d –listen-port 3691 -r /opt/svndata/repos<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2.检查是否启动成功:（查看是否存在svnserve 进程）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ps -ef|grep svnserve<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->貌似更简单的安装方法：好尴尬<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一：安装<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1、下载安装包，这里下载1.7.13版本<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;bash plain&quot;&gt;wget &lt;/code&gt;&lt;code class=&quot;bash plain&quot;&gt;http://archive.apache.org/dist/subversion/subversion-1.7.13.tar.gz&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->2、编译 –without-berkeley-db取消使用berkeley-db，采<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;bash plain&quot;&gt;.&lt;/code&gt;&lt;code class=&quot;bash plain&quot;&gt;/configure&lt;/code&gt; &lt;code class=&quot;bash plain&quot;&gt;--prefix=&lt;/code&gt;&lt;code class=&quot;bash plain&quot;&gt;/usr/local/subversion&lt;/code&gt; &lt;code class=&quot;bash plain&quot;&gt;--without-berkeley-db&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->出现了错误<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;bash plain&quot;&gt;configure: error: no suitable apr found&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在网上找了一下，是因为缺少必要的依赖文件，<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->运行./get-deps.sh下载一下文件<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;bash plain&quot;&gt;.&lt;/code&gt;&lt;code class=&quot;bash plain&quot;&gt;/get-deps&lt;/code&gt;&lt;code class=&quot;bash plain&quot;&gt;.sh&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->之后再./configure –pre…一下<!-- raw HTML omitted --><br>
 make &amp;&amp; make install</p>
-
-<p>&nbsp;</p>
+<p> </p>
 
     
       <div id="SOHUCS" sid="/linux_svn_configuration" ></div>
@@ -950,7 +720,7 @@ make &amp;&amp; make install</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -959,6 +729,7 @@ make &amp;&amp; make install</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

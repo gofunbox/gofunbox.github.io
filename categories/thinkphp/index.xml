@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ThinkPHP on Funbox的技术记事本</title>
@@ -6,29 +6,14 @@
     <description>Recent content in ThinkPHP on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 26 Mar 2015 09:22:12 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 26 Mar 2015 09:22:12 +0000</lastBuildDate><atom:link href="https://ifunbox.top/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>结合MongoDB开发LBS应用-查看附近的人</title>
       <link>https://ifunbox.top/mongodb_lbs_nearby_people/</link>
       <pubDate>Thu, 26 Mar 2015 09:22:12 +0000</pubDate>
       
       <guid>https://ifunbox.top/mongodb_lbs_nearby_people/</guid>
-      <description>最近负责的APP要上查看附件的人的功能
-之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了
-就开始寻找新的解决方案，查找到深入浅出Symfony2 &amp;#8211; 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现
-首先加一点往MongoDB数据
-
-了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。
-
-thinkphp实现的代码，距离单位都是km
-&amp;lt;span style=&amp;ldquo;font-size: 12pt;&amp;ldquo;&amp;gt;$where[&amp;lsquo;geoNear&amp;rsquo;] = &amp;lsquo;user_coordinate&amp;rsquo;; $where[&amp;lsquo;near&amp;rsquo;] = array($longitude,$latitude); $where[&amp;lsquo;spherical&amp;rsquo;] = true; $where[&amp;lsquo;maxDistance&amp;rsquo;] = $maxDistance/6371; $where[&amp;lsquo;distanceMultiplier&amp;rsquo;] = 6371; $where[&amp;lsquo;query&amp;rsquo;] = array(&amp;ldquo;status&amp;rdquo;=&amp;gt;1);
-$res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($res[&amp;lsquo;results&amp;rsquo;])) { foreach ($res[&amp;lsquo;results&amp;rsquo;] as $key =&amp;gt; $value) { $data[$key] = $value[&amp;lsquo;obj&amp;rsquo;]; $data[$key][&amp;lsquo;dis&amp;rsquo;] = $value[&amp;lsquo;dis&amp;rsquo;]; }
-} return $data;&amp;lt;/span&amp;gt; ```
-就这样搞定了</description>
+      <description>最近负责的APP要上查看附件的人的功能之前用coreseek做过类似附近的人的功能，觉得搭建索引整个下来太麻烦了就开始寻找新的解决方案，查找到深入浅出Symfony2 – 结合MongoDB开发LBS应用，里面介绍了4个可选方案，推荐使用MongoDB来实现首先加一点往MongoDB数据了解下geoNear的参数使用，如下的查询语句可以查询为某经纬度为中心附近的用户（从近到远），也计算去距离了。thinkphp实现的代码，距离单位都是km</description>
     </item>
     
     <item>
@@ -37,16 +22,7 @@ $res = $this-&amp;gt;_user_coordinate_mod-&amp;gt;command($where); if (!empty($r
       <pubDate>Wed, 07 Jan 2015 08:51:42 +0000</pubDate>
       
       <guid>https://ifunbox.top/thinkphp_mongodb_model/</guid>
-      <description>先上官方使用Mongo模型开发文档
-感觉写的不是很全，也许我不熟悉tp吧 😳
-目前这个项目默认是连接MYSQL数据库
-最近开发消息中心，涉及到在程序期间要连接Mongo数据库
-最开始用了下面这个方式创建模式
-define(&amp;lsquo;MONGO_DB_HOST&amp;rsquo;, &amp;lsquo;192.168.1.172&amp;rsquo;); define(&amp;lsquo;MONGO_DB_PORT&amp;rsquo;, 30000); define(&amp;lsquo;MONGO_DB_NAME&amp;rsquo;, &amp;lsquo;funbox_test&amp;rsquo;); define(&amp;lsquo;MONGO_DSN&amp;rsquo;, &amp;lsquo;mongo://&amp;lsquo;.MONGO_DB_HOST.&amp;rsquo;:&amp;lsquo;.MONGO_DB_PORT.&amp;lsquo;/&amp;rsquo;.MONGO_DB_NAME);
-M(&amp;lsquo;MongoModel:msg_log&amp;rsquo;,&amp;ldquo;,MONGO_DSN);
- &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;死活连不上funbox_test这个库，连上的是funbox，十分费解&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;最好耐下性子看了源码&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;MongoModel类中有$this-&amp;gt;dbName这个参数没有任何赋值的地方，如果没有赋值，就会显示默认配置MYSQL的库名，MYSQL库我配置的是funbox，原来如此。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;继续看父类Model，在Model类中的__construct发现了线索，第79行&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;php&amp;quot;&amp;gt; $this-&amp;amp;gt;_initialize(); // 获取模型名称 if(!empty($name)) { if(strpos($name,&#39;.&#39;)) { // 支持 数据库名.模型名的 定义 &amp;amp;lt;strong&amp;gt;list($this-&amp;amp;gt;dbName,$this-&amp;amp;gt;name) = explode(&#39;.&#39;,$name);&amp;amp;lt;/strong&amp;gt; }else{ $this-&amp;amp;gt;name = $name; } }elseif(empty($this-&amp;amp;gt;name)){ $this-&amp;amp;gt;name = $this-&amp;amp;gt;getModelName(); }  可以通过下面的写法来解决选择数据库的问题
-M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;,&amp;#8221;,MONGO_DSN);
-研究了一个下午，希望能为大家排排雷。</description>
+      <description>先上官方使用Mongo模型开发文档感觉写的不是很全，也许我不熟悉tp吧 😳目前这个项目默认是连接MYSQL数据库最近开发消息中心，涉及到在程序期间要连接Mongo数据库最开始用了下面这个方式创建模式</description>
     </item>
     
     <item>
@@ -55,19 +31,7 @@ M(&amp;#8216;MongoModel:&amp;#8217;.MONGO_DB_NAME.&amp;#8217;.msg_log&amp;#8217;
       <pubDate>Fri, 06 Sep 2013 09:35:38 +0000</pubDate>
       
       <guid>https://ifunbox.top/thinkphp_remove_index.php</guid>
-      <description>ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
-Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
-1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号
-2。讲httpd.conf中的Allowoverride None 将None改为All
-3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一行，‘URL_MODEL’=&amp;gt;2
-4。在项目的根目录下面建立一个.htaccess文件，里面写入下面的内容：
-
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
-
-如果你的服务器支持rewrite，现在就可以通过http://localhost/Myapp/Index/index/访问Index模块下面的index操作。</description>
+      <description>ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号2。讲httpd.conf中的Allowoverride None 将None改为All3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一行，‘URL_MODEL’=&amp;gt;24。在项目的根目录下面建立一个.htaccess文件，里面写入下面的内容：RewriteEngine onRewriteCond %{REQUEST_FILENAME} !-dRewriteCond %{REQUEST_FILENAME} !-fRewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]如果你的服务器支持rewrite，现在就可以通过http://localhost/Myapp/Index/index/访问Index模块下面的index操作。</description>
     </item>
     
   </channel>

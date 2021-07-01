@@ -4,7 +4,7 @@
   <head>
 <title>coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,21 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
-第一个错误
-Internal error: Killed (program cc1plus)
-make[2]:  [sphinx.o] error
-make[2]:Leaving directory …">
+<meta name="description" content="今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下第一个错误Internal error: Killed (program cc1plus)make[2]: *** [sphinx.o] errormake[2]:Leaving directory …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error" />
 <meta property="og:url" content="https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error" />
 <meta property="og:title" content="coreseek/sphinx 安装错误[indexer][all][all-recursive][sphinx.o]Error" />
-<meta property="og:description" content="今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
-第一个错误
-Internal error: Killed (program cc1plus)
-make[2]:  [sphinx.o] error
-make[2]:Leaving directory …" />
+<meta property="og:description" content="今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下第一个错误Internal error: Killed (program cc1plus)make[2]: *** [sphinx.o] errormake[2]:Leaving directory …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -44,12 +36,12 @@ make[2]:Leaving directory …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -168,37 +160,29 @@ make[2]:Leaving directory …" />
 </div>
 
     
-    <p><span style="font-size: medium;">今天参照<a href="http://www.coreseek.cn/products-install/install_on_bsd_linux/#srcdesc">官方安装教程</a>安装coreseek出现两个错误，这里记录备忘下</span></p>
-
-<p><span style="font-size: medium;"> 第一个错误</span></p>
-
-<p><span style="font-size: medium;">Internal error: Killed (program cc1plus)</span><br />
-<span style="font-size: medium;">make[2]: <strong><em> [sphinx.o] error</span><br />
-<span style="font-size: medium;">make[2]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;</span><br />
-<span style="font-size: medium;">make[1]: </em></strong> [all] error 2</span><br />
-<span style="font-size: medium;">make[1]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;</span><br />
-<span style="font-size: medium;">make: *** [all-recursive] error 1</span></p>
-
-<p><span style="font-size: medium;">上网查了下是内存不足导致的，尴尬，关闭了ng、mysql，顺利跑过了</span></p>
-
-<p><span style="font-size: medium;">第二个错误</span></p>
-
-<p><span style="font-size: medium;">/usr/bin/ld: cannot find -lexpat</span><br />
-<span style="font-size: medium;">collect2: ld returned 1 exit status</span><br />
-<span style="font-size: medium;">make[2]: *** [indexer] Error 1</span><br />
-<span style="font-size: medium;">make[2]: Leaving directory <code>/root/coreseek-3.2.14/csft-3.2.14/src&amp;#8217;&lt;/span&gt;  
-&lt;span style=&quot;font-size: medium;&quot;&gt;make[1]: *** [all] Error 2&lt;/span&gt;  
-&lt;span style=&quot;font-size: medium;&quot;&gt;make[1]: Leaving directory</code>/root/coreseek-3.2.14/csft-3.2.14/src&#8217;</span><br />
-<span style="font-size: medium;">make: *** [all-recursive] Error 1</span></p>
-
-<p><span style="font-size: medium;">解决</span><br />
- <span style="font-size: medium;">一开始以为libiconv的问题，又重装了几次还是一样，最后终于找着办法了</span><br />
- <span style="font-size: medium;">编辑：</span><br />
-<span style="font-size: medium;">./src/MakeFile文件</span><br />
- <span style="font-size: medium;">将</span><br />
-<span style="font-size: medium;">LIBS = -lm -lexpat -L/usr/local/lib</span><br />
-<span style="font-size: medium;">改成</span><br />
-<span style="font-size: medium;">LIBS = -lm -lexpat -liconv -L/usr/local/lib </span></p>
+    <p><!-- raw HTML omitted -->今天参照<!-- raw HTML omitted -->官方安装教程<!-- raw HTML omitted -->安装coreseek出现两个错误，这里记录备忘下<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> 第一个错误<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Internal error: Killed (program cc1plus)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[2]: *** [sphinx.o] error<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[2]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[1]: *** [all] error 2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[1]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make: *** [all-recursive] error 1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->上网查了下是内存不足导致的，尴尬，关闭了ng、mysql，顺利跑过了<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->第二个错误<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->/usr/bin/ld: cannot find -lexpat<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->collect2: ld returned 1 exit status<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[2]: *** [indexer] Error 1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make[2]: Leaving directory <code>/root/coreseek-3.2.14/csft-3.2.14/src&amp;#8217;&lt;/span&gt;   &lt;span style=&quot;font-size: medium;&quot;&gt;make[1]: *** [all] Error 2&lt;/span&gt;   &lt;span style=&quot;font-size: medium;&quot;&gt;make[1]: Leaving directory </code>/root/coreseek-3.2.14/csft-3.2.14/src’<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->make: *** [all-recursive] Error 1<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->解决<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->一开始以为libiconv的问题，又重装了几次还是一样，最后终于找着办法了<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->编辑：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->./src/MakeFile文件<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->将<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->LIBS = -lm -lexpat -L/usr/local/lib<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->改成<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->LIBS = -lm -lexpat -liconv -L/usr/local/lib <!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/coreseek_sphinx_all-recursive_sphinx.o_error" ></div>
@@ -481,7 +465,7 @@ make[2]:Leaving directory …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -490,6 +474,7 @@ make[2]:Leaving directory …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

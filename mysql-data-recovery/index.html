@@ -4,7 +4,7 @@
   <head>
 <title>Mysql数据误删除的恢复，drop表或库的恢复 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -16,14 +16,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
-mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:00:00&quot; …">
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&#34;2017-11-01 00:00:00&#34; …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Mysql数据误删除的恢复，drop表或库的恢复" />
 <meta property="og:url" content="https://ifunbox.top/mysql-data-recovery/" />
 <meta property="og:title" content="Mysql数据误删除的恢复，drop表或库的恢复" />
 <meta property="og:description" content="误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
-mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:00:00&quot; …" />
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&#34;2017-11-01 00:00:00&#34; …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +38,12 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,70 +164,35 @@ mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:
 </div>
 
     
-    
-
-<h2 id="误删除几条数据-执行delete的恢复方法">误删除几条数据 执行delete的恢复方法</h2>
-
+    <h2 id="误删除几条数据-执行delete的恢复方法">误删除几条数据 执行delete的恢复方法</h2>
 <p>用mysql自身自带的工具，提取出binlog日志进行分析</p>
-
-<pre><code class="language-bash">mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:00:00&quot; --stop-datetime=&quot;2017-11-11 00:00:00&quot; --database=test mysql-bin.000012 &gt; aaa.sql
-</code></pre>
-
-<p>输出内容大致如下:</p>
-
-<pre><code class="language-bash">#171008 12:35:19 server id 1  &lt;strong&gt;&lt;span style=&quot;color:#ff0000;&quot;&gt;end_log_pos 69295&lt;/span&gt;&lt;/strong&gt; CRC32 0x015beaa8        Query   thread_id=1     exec_time=0     error_code=0
-SET TIMESTAMP=1507437319/*!*/;
-COMMIT                         ## end_log_pos 为标识点，需要注意
-</code></pre>
-
-<p>然后，根据实际情况，找到自己误操作的起始点和结束点，  就是两个end_log_pos的值。然后导出为sql文件，需要将sql文件反写，也就是insert变成delete等，可以参考使用binlog2sql工具。</p>
-
-<pre><code class="language-bash">mysqlbinlog --start-position=123212(起始点) --stop-position=3333333(结束点) --database=test mysql-bin.000012 &gt; restore.sql   ## 起始点结束点则是操作的 end_log_pos值
-</code></pre>
-
-<p>ps： 另外，&ndash;start-position 指定的end_log_pos是不会被提取的，会从指定的这个end_log_pos的下一条日志开始。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqlbinlog --base64-output<span style="color:#f92672">=</span>decode-rows -v --start-datetime<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2017-11-01 00:00:00&#34;</span> --stop-datetime<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2017-11-11 00:00:00&#34;</span> --database<span style="color:#f92672">=</span>test mysql-bin.000012 &gt; aaa.sql
+</code></pre></div><p>输出内容大致如下:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#171008 12:35:19 server id 1  &lt;strong&gt;&lt;span style=&#34;color:#ff0000;&#34;&gt;end_log_pos 69295&lt;/span&gt;&lt;/strong&gt; CRC32 0x015beaa8        Query   thread_id=1     exec_time=0     error_code=0</span>
+SET TIMESTAMP<span style="color:#f92672">=</span>1507437319/*!*/;
+COMMIT                         <span style="color:#75715e">## end_log_pos 为标识点，需要注意</span>
+</code></pre></div><p>然后，根据实际情况，找到自己误操作的起始点和结束点，  就是两个end_log_pos的值。然后导出为sql文件，需要将sql文件反写，也就是insert变成delete等，可以参考使用binlog2sql工具。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqlbinlog --start-position<span style="color:#f92672">=</span>123212<span style="color:#f92672">(</span>起始点<span style="color:#f92672">)</span> --stop-position<span style="color:#f92672">=</span>3333333<span style="color:#f92672">(</span>结束点<span style="color:#f92672">)</span> --database<span style="color:#f92672">=</span>test mysql-bin.000012 &gt; restore.sql   <span style="color:#75715e">## 起始点结束点则是操作的 end_log_pos值</span>
+</code></pre></div><p>ps： 另外，&ndash;start-position 指定的end_log_pos是不会被提取的，会从指定的这个end_log_pos的下一条日志开始。
 但 &ndash;stop-position 指定的end_log_pos是会被提取出来的。大家提取指定节点之间的操作日志时需要注意。</p>
-
 <p>然后执行：</p>
-
-<pre><code class="language-bash">mysql [-f] -u root -p &lt; restore_fanxie.sql     ## 执行导出的sql文件的反写sql，怎么反写可以自己手动也可以用工具：binlog2sql
-</code></pre>
-
-<p>-f : 这个为忽略错误，继续执行的参数，可以根据情况确定是否使用。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql <span style="color:#f92672">[</span>-f<span style="color:#f92672">]</span> -u root -p &lt; restore_fanxie.sql     <span style="color:#75715e">## 执行导出的sql文件的反写sql，怎么反写可以自己手动也可以用工具：binlog2sql</span>
+</code></pre></div><p>-f : 这个为忽略错误，继续执行的参数，可以根据情况确定是否使用。</p>
 <h2 id="drop表或者库恢复方法">drop表或者库恢复方法</h2>
-
 <p>在binlog日志里是不会记录删除的数据的，所以没办法通过这样来恢复数据。这种时候就要找一个起始点，以删除操作之前的点为结束点，将数据binlog重新执行一遍，相当于重新重复所有的操作，来恢复数据。以最近的备份数据的备份时间来作为起始点，drop操作的前一个操作为结束点。</p>
-
 <p>mysqlbinlog &ndash;start-position=123212(起始点) &ndash;stop-position=3333333(结束点) &ndash;database=test mysql-bin.000012 &gt; restore.sql</p>
-
 <p>中间，需要先将备份数据覆盖原数据： 先删除掉原数据库，新建一个同名数据库，然后将备份数据导入：</p>
-
-<pre><code class="language-bash">mysql -u root -p test &lt; test_bakup.sql
-</code></pre>
-
-<p>然后执行</p>
-
-<pre><code class="language-bash">mysql [-f] -u root -p &lt; restore.sql
-</code></pre>
-
-<h2 id="无备份恢复方法">无备份恢复方法</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u root -p test &lt; test_bakup.sql
+</code></pre></div><p>然后执行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql <span style="color:#f92672">[</span>-f<span style="color:#f92672">]</span> -u root -p &lt; restore.sql
+</code></pre></div><h2 id="无备份恢复方法">无备份恢复方法</h2>
 <p>如果没做备份怎么办，没有每天的全量备份数据。那怎么办，一些drop了表或数据库怎么办，怎么恢复呢？！  还是可以恢复的，但，前提是，你的binlog日志文件齐全。</p>
-
 <p>怎么做呢，很简单，一样的想法，从头执行所有操作，也就是从你的binlog日志文件里，将相关数据库的所有日志数据全部导出为sql文件，然后依次全部重新执行，也就是从执行如下命令：</p>
-
-<pre><code class="language-bash">mysqlbinlog --database=test mysql-bin.000001（这里依次将所有binlog日志里相关库的日志都提出来） &gt; restore01.sql   ## 依次从01一直到你现在最新的binlog文件
-</code></pre>
-
-<p>ps：最新的binlog日志时，需要设定结束点，结束点为你drop表或库的上一个操作的end_log_pos。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqlbinlog --database<span style="color:#f92672">=</span>test mysql-bin.000001（这里依次将所有binlog日志里相关库的日志都提出来） &gt; restore01.sql   <span style="color:#75715e">## 依次从01一直到你现在最新的binlog文件</span>
+</code></pre></div><p>ps：最新的binlog日志时，需要设定结束点，结束点为你drop表或库的上一个操作的end_log_pos。</p>
 <p>然后，依次执行:</p>
-
-<pre><code class="language-bash">mysql [-f] -u root -p &lt; restore01.sql(从01一直到最新的)  ## 依次执行，就相当于从新重复从你mysql服务第一次启动开始，到你删除库之前的所有对于test数据库的操作。
-</code></pre>
-
-<p>这样，就能恢复数据库了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql <span style="color:#f92672">[</span>-f<span style="color:#f92672">]</span> -u root -p &lt; restore01.sql<span style="color:#f92672">(</span>从01一直到最新的<span style="color:#f92672">)</span>  <span style="color:#75715e">## 依次执行，就相当于从新重复从你mysql服务第一次启动开始，到你删除库之前的所有对于test数据库的操作。</span>
+</code></pre></div><p>这样，就能恢复数据库了。</p>
 
     
       <div id="SOHUCS" sid="/mysql-data-recovery" ></div>
@@ -510,7 +475,7 @@ COMMIT                         ## end_log_pos 为标识点，需要注意
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -519,6 +484,7 @@ COMMIT                         ## end_log_pos 为标识点，需要注意
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>服务器 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,12 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">可使用以下命令查看服务器提供HTTP服务的相关信息 curl &#8211;head http://www.funboxpower.com
-这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14
-下面分享下如何去除屏蔽nginx/apache/php版本信息
-隐藏apache版本信息: 开启 httpd.conf，加入以下两行:
-ServerTokensProductOnly ServerSignatureOff  隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：
-server_tokens …</p>
+          <p class="pale">可使用以下命令查看服务器提供HTTP服务的相关信息 curl –head http://www.funboxpower.com这里会显示你的HTTP是什么程序，哪个版本如 Server: nginx/0.8.36，还有PHP的相关信息 X-Powered-By: PHP/5.2.14下面分享下如何去除屏蔽nginx/apache/php版本信息隐藏apache版本信息: 开启 httpd.conf，加入以下两行:ServerTokensProductOnly ServerSignatureOff 隐藏Nginx版本信息: 打开 nginx.conf，在http { }里加上：server_tokens off; 隐藏php-fpm版 …</p>
           <a href="https://ifunbox.top/hide_nginx_apache_php_version/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -172,9 +167,7 @@ server_tokens …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。
-中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。
-ASCII …</p>
+          <p class="pale">字符是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不 同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB 18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文 信息交流的技术基础。本文将按照字符集的时间顺序讨论几种典型的字符集，选取几种代表性的中文字符集，研究历史由来、特点、技术特征。ASCII 字符集1．名 …</p>
           <a href="https://ifunbox.top/chinese_character_set/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -198,14 +191,7 @@ ASCII …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下
-第一个错误
-Internal error: Killed (program cc1plus)
-make[2]:  [sphinx.o] error
-make[2]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;
-make[1]:  [all] error 2
-make[1]:Leaving directory &#8216;/root/coreseek-3.2.14/csft-3.2.14/src&#8217;
-make: *** [all-recursive] error …</p>
+          <p class="pale">今天参照官方安装教程安装coreseek出现两个错误，这里记录备忘下第一个错误Internal error: Killed (program cc1plus)make[2]: *** [sphinx.o] errormake[2]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’make[1]: *** [all] error 2make[1]:Leaving directory ‘/root/coreseek-3.2.14/csft-3.2.14/src’make: *** [all-recursive] error 1上网查了下是内存不足导致的，尴尬，关闭 …</p>
           <a href="https://ifunbox.top/coreseek_sphinx_all-recursive_sphinx.o_error" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -229,14 +215,7 @@ make: *** [all-recursive] error …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~
-今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。
-1.apache下的实现方法
-AuthType Basic
-AuthName &#8220;My Protected Area&#8221;
-AuthUserFile /path/to/.htpasswd
-Require valid-user
-参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示 …</p>
+          <p class="pale">由于wordpress的特殊性，后台地址一致不好修改，导致后台不是很安全，通过 Basic HTTP Authentication用户认证给后台在加一层密码验证，这样wp就更安全一些了~~今天研究了下基于Basic HTTP Authentication对一个或多个目录下的文件提供密码保护。1.apache下的实现方法AuthType BasicAuthName “My Protected Area”AuthUserFile /path/to/.htpasswdRequire valid-user参数的含义：AuthType认证类型，AuthName访问被保护文件后的提示语，AuthUserFile密码文件存储路径网上有个自动生成验 …</p>
           <a href="https://ifunbox.top/apache_nginx_basic_http_authentication/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -261,10 +240,7 @@ Require valid-user
       <div class="excerpt_footer">
         <div>
           <p class="pale">CGI:
-CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。
-CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等
-CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。
-每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成 …</p>
+CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成效能低 …</p>
           <a href="https://ifunbox.top/php_run_mode/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -288,16 +264,7 @@ CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.源服务器:A
-使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库
-将/data/svndata/fanhefan库备份成svn_bak 文件,操作如下:
-svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak
-配置文件放在/data/svndata目录下conf 里面有passwd authz 
-并将fanhefan/conf中的svnserve.conf一并复制打包.
-备份之后可以将其压缩并传到B服务器上tar czf svn_bak.tar.gz svn_bak
-———————————
-2.目标服务器: B
-目标服务器上请先安 …</p>
+          <p class="pale">1.源服务器:A使用svnadmin dump指令将源服务器上的svn库备份成一个文件fanhefan是版本库将/data/svndata/fanhefan库备份成svn_bak 文件,操作如下:svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak配置文件放在/data/svndata目录下conf 里面有passwd authz 并将fanhefan/conf中的svnserve.conf一并复制打包.备份之后可以将其压缩并传到B服务器上tar czf svn_bak.tar.gz svn_bak———————————2.目标服务器: B目标服务器上请先安装:linux下安装 …</p>
           <a href="https://ifunbox.top/linux_svn_move/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -321,9 +288,7 @@ svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1 在/etc/rc.d/init.d/下建立svnserved文档
-2 copy到svnserved文档下
-#!/bin/bash #chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误 #description:svn //此行必写,描述服务 svnserve -d -r /xxx/xxx/xxx case &quot;$1&quot; in start) echo &quot;starting svnserve...&quot; svnserve -d -r /xxx/xxx/xxx …</p>
+          <p class="pale">1 在/etc/rc.d/init.d/下建立svnserved文档2 copy到svnserved文档下#!/bin/bash#chkconfig:345 61 61 //此行的345参数表示,在哪些运行级别启动,启动序号(S61);关闭序号(K61)；不加入会出现服务不支持chkconfig的错误#description:svn //此行必写,描述服务svnserve -d -r /xxx/xxx/xxx case &quot;$1&quot; in start) echo &quot;starting svnserve...&quot; svnserve -d -r /xxx/xxx/xxx --listen-host …</p>
           <a href="https://ifunbox.top/linux_svn_autostart/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -347,12 +312,7 @@ svnadmin dump /data/svndata/fanhefan&gt; /root/svn_bak
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；
-简单修改：
-1，进入 /usr/local/nginx/conf
-2，编辑mime.types文件，在其中加入以下两句，分别是对apk和ipa的支持；
-application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事儿重启；
-/etc/init.d/nginx restart ok，记录完成。</p>
+          <p class="pale">有时候会在服务器上放一些安卓的app，均以.apk结尾，因一直不用IE，所以也便没有注意到，在IE下会有这样的问题，下载.apk文件时，IE下自动将apk包变为zip压缩包；其他浏览器下木有问题，是因为服务器的mime类型中没有支持apk。修改即可；简单修改：1，进入 /usr/local/nginx/conf2，编辑mime.</p>
           <a href="https://ifunbox.top/ie_download_apk/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -376,11 +336,7 @@ application/vnd.android.package-archive apk; application/iphone pxl ipa; 完事�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。
-1、LogAnalyzer
-LogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。
-LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且正式改名为LogAnalyzer。
-程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用MonitorWare …</p>
+          <p class="pale">我们知道已经有很多像Awtstat这样的使用perl、c或者c++开发的强大的日志分析工具，但是同样也有很多使用PHP开发并且开源的日志分析软件，今天我就收集了一些与大家分享。1、LogAnalyzerLogAnalyzer是 Adiscon的监控软件产品线中的一部分。可以再Windows以及Unix环境下运行。LogAnalyzer本是是免费的，GPL许可的产品。LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳定版，并且正式改名为LogAnalyzer。程序运行必须有他们制定的数据支持，在Windows环境下， 可以使用MonitorWare …</p>
           <a href="https://ifunbox.top/apache_log_analysis/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -404,12 +360,7 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">今天收到华夏名网快递的ICP备案拍照幕布背景图
-各种麻烦还邮寄
-为方便各位站友及时提交备案照片特将背景图拍下来供没有收到图的站友们及时使用
-如果PS的不合格为了效率也可以找喷绘打印一张然后再拍照
-希望对各位站友有所帮助
-下载链接http://url.cn/HvVICI</p>
+          <p class="pale">今天收到华夏名网快递的ICP备案拍照幕布背景图各种麻烦还邮寄为方便各位站友及时提交备案照片特将背景图拍下来供没有收到图的站友们及时使用如果PS的不合格为了效率也可以找喷绘打印一张然后再拍照希望对各位站友有所帮助下载链接http://url.cn/HvVICI</p>
           <a href="https://ifunbox.top/sudu_icp_background/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -417,71 +368,31 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/4/">4</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/2/">2</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/3/">3</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/4/">4</a>
+  </li>
+  <li class="page-item">
     <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -752,7 +663,7 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -761,6 +672,7 @@ LogAnalyzer的原名为phpLogCon，他在2010年的3月29日发布了3.0的稳�
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

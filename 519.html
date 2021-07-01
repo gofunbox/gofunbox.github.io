@@ -4,7 +4,7 @@
   <head>
 <title>Linux SSH常用命令 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,27 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="目录操作：
-rm -rf mydir /删除mydir目录/
-mkdir dirname /创建名为dirname的目录/
-cd mydir /进入mydir目录/
-cd &#8211; /回上一级目录/
-cd .. /回父目录，中间有空格/
-cd ~ /回根目录/
-mv tools tool /*把tools目录改名 …">
+<meta name="description" content="目录操作：rm -rf mydir /删除mydir目录/mkdir dirname /创建名为dirname的目录/cd mydir /进入mydir目录/cd – /回上一级目录/cd .. /回父目录，中间有空格/cd ~ /回根目录/mv tools tool /*把tools目录改名为tool */ln -s …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Linux SSH常用命令" />
 <meta property="og:url" content="https://ifunbox.top/519.html" />
 <meta property="og:title" content="Linux SSH常用命令" />
-<meta property="og:description" content="目录操作：
-rm -rf mydir /删除mydir目录/
-mkdir dirname /创建名为dirname的目录/
-cd mydir /进入mydir目录/
-cd &#8211; /回上一级目录/
-cd .. /回父目录，中间有空格/
-cd ~ /回根目录/
-mv tools tool /*把tools目录改名 …" />
+<meta property="og:description" content="目录操作：rm -rf mydir /删除mydir目录/mkdir dirname /创建名为dirname的目录/cd mydir /进入mydir目录/cd – /回上一级目录/cd .. /回父目录，中间有空格/cd ~ /回根目录/mv tools tool /*把tools目录改名为tool */ln -s …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -50,12 +36,12 @@ mv tools tool /*把tools目录改名 …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -174,106 +160,90 @@ mv tools tool /*把tools目录改名 …" />
 </div>
 
     
-    <p><span style="font-size: medium;"><strong>目录操作：</strong></span><br />
-<span style="font-size: medium;">rm -rf mydir /<em>删除mydir目录</em>/</span><br />
-<span style="font-size: medium;">mkdir dirname /<em>创建名为dirname的目录</em>/</span><br />
-<span style="font-size: medium;">cd mydir /<em>进入mydir目录</em>/</span><br />
-<span style="font-size: medium;">cd &#8211; /<em>回上一级目录</em>/</span><br />
-<span style="font-size: medium;">cd .. /<em>回父目录，中间有空格</em>/</span><br />
-<span style="font-size: medium;">cd ~ /<em>回根目录</em>/</span><br />
-<span style="font-size: medium;">mv tools tool /*把tools目录改名为tool */</span><br />
-<span style="font-size: medium;">ln -s tool bac /<em>给tool目录创建名为bac的符号链接,最熟悉的应该就是FTP中www链接到public_html目录了</em>/</span><br />
-<span style="font-size: medium;">cp -a tool /home/vpser/www /*把tool目录下所有文件复制到www目录下 */</span></p>
-
-<p><span style="font-size: medium;"><strong>文件操作：</strong></span><br />
-<span style="font-size: medium;">rm go.tar /* 删除go.tar文件 <em>/</span><br />
-<span style="font-size: medium;">find mt.cgi /</em> 查找文件名为mt.cgi的文件 <em>/</span><br />
-<span style="font-size: medium;">df –h /</em> 查看磁盘剩余空间,好像没这个必要，除非你太那个了 */</span></p>
-
-<p><span style="font-size: medium;"><strong>解压缩：</strong></span><br />
-<span style="font-size: medium;">tar xvf wordpress.tar /* 解压tar格式的文件 <em>/</span><br />
-<span style="font-size: medium;">tar -tvf myfile.tar /</em> 查看tar文件中包含的文件 */</span></p>
-
-<p><span style="font-size: medium;">tar cf toole.tar tool /* 把tool目录打包为toole.tar文件 <em>/</span><br />
-<span style="font-size: medium;">tar cfz vpser.tar.gz tool /</em> 把tool目录打包且压缩为vpser.tar.gz文件，因为.tar文件几乎是没有压缩过的，MT的.tar.gz文件解压成.tar文件后差不多是10MB */</span></p>
-
-<p><span style="font-size: medium;">tar jcvf /var/bak/www.tar.bz2 /var/www/ /<em>创建.tar.bz2文件，压缩率高</em>/</span><br />
-<span style="font-size: medium;">tar xjf www.tar.bz2 /<em>解压tar.bz2格式</em>/</span></p>
-
-<p><span style="font-size: medium;">gzip -d ge.tar.gz /* 解压.tar.gz文件为.tar文件 <em>/</span><br />
-<span style="font-size: medium;">unzip phpbb.zip /</em> 解压zip文件，windows下要压缩出一个.tar.gz格式的文件还是有点麻烦的 */</span></p>
-
-<p><span style="font-size: medium;"><strong>下载：</strong></span><br />
-<span style="font-size: medium;">wget <a href="http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz">http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz</a></span><br />
-<span style="font-size: medium;">/*下载远程服务器上的文件到自己的服务器，连上传都省了，服务器不是100M就是1000M的带宽，下载一个2-3兆的MT还不是几十秒的事 <em>/</span><br />
-<span style="font-size: medium;">wget -c <a href="http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz">http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz</a></span><br />
-<span style="font-size: medium;">/</em> 继续下载上次未下载完的文件 */</span></p>
-
-<p><span style="font-size: medium;"><strong>进程管理：</strong></span><br />
-<span style="font-size: medium;">ps -aux /<em>ps 进程状态查询命令</em>/</span></p>
-
-<p><span style="font-size: medium;">ps命令输出字段的含义：</span><br />
-<span style="font-size: medium;">[list]</span><br />
-<span style="font-size: medium;">[<em>]USER，进程所有者的用户名。</span><br />
-<span style="font-size: medium;">[</em>]PID，进程号，可以唯一标识该进程。</span><br />
-<span style="font-size: medium;">[<em>]%CPU，进程自最近一次刷新以来所占用的CPU时间和总时间的百分比。</span><br />
-<span style="font-size: medium;">[</em>]%MEM，进程使用内存的百分比。</span><br />
-<span style="font-size: medium;">[<em>]VSZ，进程使用的虚拟内存大小，以K为单位。</span><br />
-<span style="font-size: medium;">[</em>]RSS，进程占用的物理内存的总数量，以K为单位。</span><br />
-<span style="font-size: medium;">[<em>]TTY，进程相关的终端名。</span><br />
-<span style="font-size: medium;">[</em>]STAT，进程状态，用(R&#8211;运行或准备运行；S&#8211;睡眠状态；I&#8211;空闲；Z&#8211;冻结；D&#8211;不间断睡眠；W-进程没有驻留页；T停止或跟踪。)这些字母来表示。</span><br />
-<span style="font-size: medium;">[<em>]START，进程开始运行时间。</span><br />
-<span style="font-size: medium;">[</em>]TIME，进程使用的总CPU时间。</span><br />
-<span style="font-size: medium;">[*]COMMAND，被执行的命令行。</span><br />
-<span style="font-size: medium;">[/list]</span></p>
-
-<p><span style="font-size: medium;">ps -aux | grep nginx /<em>在所有进程中，查找nginx的进程</em>/</span><br />
-<span style="font-size: medium;">kill 1234 /<em>1234为进程ID，即ps -aux 中的PID</em>/</span><br />
-<span style="font-size: medium;">killall nginx /<em>killall 通过程序的名字，直接杀死所有进程，nginx为进程名</em>/</span></p>
-
-<p><span style="font-size: medium;"><strong>Vim操作：</strong></span></p>
-
-<p><span style="font-size: medium;">移动类的：</span><br />
-<span style="font-size: medium;">h/j/k/l: 左/下/上/右　移一格</span><br />
-<span style="font-size: medium;">w : 向后词移动　（前面加数字移动多少个词）</span><br />
-<span style="font-size: medium;">b : 向前词移动　（前面加数字移动多少个词）</span><br />
-<span style="font-size: medium;">e : 向后移到词末</span><br />
-<span style="font-size: medium;">ge : 向前移到词末</span><br />
-<span style="font-size: medium;">$ <End> : 行末</span><br />
-<span style="font-size: medium;">0 <Home> : 行首</span><br />
-<span style="font-size: medium;">tx : 向右查找本行的x并移到那儿（大写时向左）</span><br />
-<span style="font-size: medium;">33G : 移到文件的第33行</span><br />
-<span style="font-size: medium;">gg : 文件首行</span><br />
-<span style="font-size: medium;">G : 文件尾行</span><br />
-<span style="font-size: medium;">33% : 文件的33%处</span><br />
-<span style="font-size: medium;">H/M/L : 屏幕的首/中/尾行</span><br />
-<span style="font-size: medium;">zt/zz/zb : 当前行移到屏幕的首/中/底部</span></p>
-
-<p><span style="font-size: medium;">跳转：</span><br />
-<span style="font-size: medium;">&#8221; : 回到跳转来的地方</span><br />
-<span style="font-size: medium;">CTRL-O : 跳到一个 “较老” 的地方</span><br />
-<span style="font-size: medium;">CTRL-I <Tab> : 则跳到一个 “较新” 的地方</span></p>
-
-<p><span style="font-size: medium;">查找：</span><br />
-<span style="font-size: medium;">/ : 向下查找（后加关键字）</span><br />
-<span style="font-size: medium;">? : 向上查找（后加关键字）</span><br />
-<span style="font-size: medium;">n : 下一条符合的记录</span></p>
-
-<p><span style="font-size: medium;">编辑：</span><br />
-<span style="font-size: medium;">i : 转换到插入模式</span><br />
-<span style="font-size: medium;">x : 删除当前字符</span><br />
-<span style="font-size: medium;">. : 重复最后一次的修改操作(同PS里ctrl+f执行滤镜)</span><br />
-<span style="font-size: medium;">u : 撤销操作</span><br />
-<span style="font-size: medium;">CTRL-R : 重做</span><br />
-<span style="font-size: medium;">p : 将删除的字符插入到当前位置(put)</span></p>
-
-<p><span style="font-size: medium;">退出保存：</span><br />
-<span style="font-size: medium;">:q : 退出</span><br />
-<span style="font-size: medium;">:q! : 不保存退出</span><br />
-<span style="font-size: medium;">ZZ : 保存后退出</span><br />
-<span style="font-size: medium;">:e! : 放弃修改重新编辑</span></p>
-
-<p><span style="font-size: medium;">掌握这些基本命令，Linux下的基本使用已经掌握，只要多加练习，多遇到问题，解决问题，能力就会不断的提升。</span></p>
+    <p><!-- raw HTML omitted --><!-- raw HTML omitted -->目录操作：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->rm -rf mydir /<em>删除mydir目录</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->mkdir dirname /<em>创建名为dirname的目录</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cd mydir /<em>进入mydir目录</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cd – /<em>回上一级目录</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cd .. /<em>回父目录，中间有空格</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cd ~ /<em>回根目录</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->mv tools tool /*把tools目录改名为tool */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ln -s tool bac /<em>给tool目录创建名为bac的符号链接,最熟悉的应该就是FTP中www链接到public_html目录了</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->cp -a tool /home/vpser/www /*把tool目录下所有文件复制到www目录下 */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->文件操作：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->rm go.tar /* 删除go.tar文件 */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->find mt.cgi /* 查找文件名为mt.cgi的文件 */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->df –h /* 查看磁盘剩余空间,好像没这个必要，除非你太那个了 */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->解压缩：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tar xvf wordpress.tar /* 解压tar格式的文件 */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tar -tvf myfile.tar /* 查看tar文件中包含的文件 */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->tar cf toole.tar tool /* 把tool目录打包为toole.tar文件 */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tar cfz vpser.tar.gz tool /* 把tool目录打包且压缩为vpser.tar.gz文件，因为.tar文件几乎是没有压缩过的，MT的.tar.gz文件解压成.tar文件后差不多是10MB */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->tar jcvf /var/bak/www.tar.bz2 /var/www/ /<em>创建.tar.bz2文件，压缩率高</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tar xjf <a href="http://www.tar.bz">www.tar.bz</a>2 /<em>解压tar.bz2格式</em>/<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->gzip -d ge.tar.gz /* 解压.tar.gz文件为.tar文件 */<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->unzip phpbb.zip /* 解压zip文件，windows下要压缩出一个.tar.gz格式的文件还是有点麻烦的 */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->下载：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->wget <a href="http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz">http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz</a><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->/*下载远程服务器上的文件到自己的服务器，连上传都省了，服务器不是100M就是1000M的带宽，下载一个2-3兆的MT还不是几十秒的事 <em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->wget -c <a href="http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz">http://soft.vpser.net/web/nginx/nginx-0.8.0.tar.gz</a><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->/</em> 继续下载上次未下载完的文件 */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->进程管理：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ps -aux /<em>ps 进程状态查询命令</em>/<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ps命令输出字段的含义：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[list]<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[<em>]USER，进程所有者的用户名。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[</em>]PID，进程号，可以唯一标识该进程。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[<em>]%CPU，进程自最近一次刷新以来所占用的CPU时间和总时间的百分比。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[</em>]%MEM，进程使用内存的百分比。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[<em>]VSZ，进程使用的虚拟内存大小，以K为单位。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[</em>]RSS，进程占用的物理内存的总数量，以K为单位。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[<em>]TTY，进程相关的终端名。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[</em>]STAT，进程状态，用(R–运行或准备运行；S–睡眠状态；I–空闲；Z–冻结；D–不间断睡眠；W-进程没有驻留页；T停止或跟踪。)这些字母来表示。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[<em>]START，进程开始运行时间。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[</em>]TIME，进程使用的总CPU时间。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[*]COMMAND，被执行的命令行。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->[/list]<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ps -aux | grep nginx /<em>在所有进程中，查找nginx的进程</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->kill 1234 /<em>1234为进程ID，即ps -aux 中的PID</em>/<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->killall nginx /<em>killall 通过程序的名字，直接杀死所有进程，nginx为进程名</em>/<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Vim操作：<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->移动类的：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->h/j/k/l: 左/下/上/右　移一格<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->w : 向后词移动　（前面加数字移动多少个词）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->b : 向前词移动　（前面加数字移动多少个词）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e : 向后移到词末<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ge : 向前移到词末<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$ <!-- raw HTML omitted --> : 行末<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->0 <!-- raw HTML omitted --> : 行首<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->tx : 向右查找本行的x并移到那儿（大写时向左）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->33G : 移到文件的第33行<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->gg : 文件首行<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->G : 文件尾行<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->33% : 文件的33%处<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->H/M/L : 屏幕的首/中/尾行<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->zt/zz/zb : 当前行移到屏幕的首/中/底部<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->跳转：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->” : 回到跳转来的地方<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->CTRL-O : 跳到一个 “较老” 的地方<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->CTRL-I <!-- raw HTML omitted --> : 则跳到一个 “较新” 的地方<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->查找：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->/ : 向下查找（后加关键字）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->? : 向上查找（后加关键字）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->n : 下一条符合的记录<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->编辑：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->i : 转换到插入模式<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->x : 删除当前字符<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->. : 重复最后一次的修改操作(同PS里ctrl+f执行滤镜)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->u : 撤销操作<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->CTRL-R : 重做<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->p : 将删除的字符插入到当前位置(put)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->退出保存：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->:q : 退出<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->:q! : 不保存退出<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->ZZ : 保存后退出<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->:e! : 放弃修改重新编辑<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->掌握这些基本命令，Linux下的基本使用已经掌握，只要多加练习，多遇到问题，解决问题，能力就会不断的提升。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/519.html" ></div>
@@ -556,7 +526,7 @@ mv tools tool /*把tools目录改名 …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -565,6 +535,7 @@ mv tools tool /*把tools目录改名 …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

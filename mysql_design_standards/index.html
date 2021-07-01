@@ -4,7 +4,7 @@
   <head>
 <title>MYSQL数据库命名及设计规范 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,13 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀  基础规范  使用INNODB存储引擎 表字 …">
+<meta name="description" content="命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀   基础规范  使用INNODB存储引擎 表 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="MYSQL数据库命名及设计规范" />
 <meta property="og:url" content="https://ifunbox.top/mysql_design_standards/" />
 <meta property="og:title" content="MYSQL数据库命名及设计规范" />
-<meta property="og:description" content="命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀  基础规范  使用INNODB存储引擎 表字 …" />
+<meta property="og:description" content="命名规范  库名、表名、字段名必须使用小写字母，并采用下划线分割 库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词 库名、表名、字段名禁止使用MySQL保留字 临时库、表名必须以tmp为前缀，并以日期为后缀 备份库、表必须以bak为前缀，并以日期为后缀   基础规范  使用INNODB存储引擎 表 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,16 +162,15 @@
     
     <ol>
 <li>命名规范
-
 <ul>
 <li>库名、表名、字段名必须使用小写字母，并采用下划线分割</li>
 <li>库名、表名、字段名禁止超过32个字符，须见名之意，建议使用名词不是动词</li>
 <li>库名、表名、字段名禁止使用MySQL保留字</li>
 <li>临时库、表名必须以tmp为前缀，并以日期为后缀</li>
 <li>备份库、表必须以bak为前缀，并以日期为后缀</li>
-</ul></li>
+</ul>
+</li>
 <li>基础规范
-
 <ul>
 <li>使用INNODB存储引擎</li>
 <li>表字符集使用UTF8</li>
@@ -194,9 +193,9 @@
 <li>存储日期使用DATE类型。</li>
 <li>存储时间（精确到秒）建议使用TIMESTAMP类型，因为TIMESTAMP使用4字节，DATETIME使用8个字节。</li>
 <li>建议字段定义为NOT NULL</li>
-</ul></li>
+</ul>
+</li>
 <li>索引规范
-
 <ul>
 <li>非唯一索引必须按照“idx_字段名称_字段名称[_字段名]”进行命名</li>
 <li>唯一索引必须按照“uniq_字段名称_字段名称[_字段名]”进行命名</li>
@@ -210,7 +209,7 @@
 <li>不使用更新频繁的列</li>
 <li>尽量不选择字符串列</li>
 <li>不使用UUID MD5 HASH</li>
-<li>重要的SQL必须被索引,<br />
+<li>重要的SQL必须被索引,<br>
 UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,多表JOIN的字段</li>
 <li>区分度最大的字段放在前面</li>
 <li>核心SQL优先考虑覆盖索引</li>
@@ -220,9 +219,9 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
 <li>尽量不使用外键</li>
 <li>不使用%前导的查询，如like “%ab”</li>
 <li>不使用负向查询，如not in/like(考虑用sphinx)</li>
-</ul></li>
+</ul>
+</li>
 <li>SQL设计
-
 <ul>
 <li>使用prepared statement，可以提供性能并且避免SQL注入</li>
 <li>SQL语句中IN包含的值不超过500</li>
@@ -243,18 +242,18 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
 <li>用union all而不是union</li>
 <li>程序应有捕获SQL异常的处理机制</li>
 <li>禁止单条SQL语句同时更新多个表</li>
-</ul></li>
+</ul>
+</li>
 <li>散表
-
 <ul>
 <li>每张表数据量建议控制在5000w以下</li>
 <li>可以结合使用hash、range、lookup table进行散表</li>
 <li>Hash散表，表名后缀使用16进制，比如user_ff</li>
 <li>使用时间散表，表名后缀必须使用特定格式，比如按日散表user_20110209、按月散表user_201102。</li>
 <li>采用合适的分库分表策略。例如千库十表、十库百表等</li>
-</ul></li>
+</ul>
+</li>
 <li>行为规范
-
 <ul>
 <li>批量导入、导出数据必须提前通知DBA协助观察</li>
 <li>禁止在线上从库执行后台管理和统计类查询</li>
@@ -268,98 +267,116 @@ UPDATE、DELETE语句的WHERE条件列,ORDER BY、GROUP BY、DISTINCT的字段,�
 <li>对特别重要的库表，提前与DBA沟通确定维护和备份优先级</li>
 <li>不在业务高峰期批量更新、查询数据库</li>
 <li>提交线上建表改表需求，必须详细注明所有相关SQL语句</li>
-</ul></li>
-
-<li><p>FAQ</p>
-
+</ul>
+</li>
+<li>FAQ
 <ol>
-<li><p>如何使用INT UNSIGNED存储ip？<br />
-使用INT UNSIGNED而不是char(15)来存储ipv4地址，通过MySQL函数inet_ntoa和inet_aton来进行转化。<br />
-Ipv6地址目前没有转化函数，需要使用DECIMAL或者两个bigINT来存储。<br />
-例如：<br />
-SELECT INET_ATON(&#8216;209.207.224.40&#8217;);<br />
-3520061480<br />
-SELECT INET_NTOA(3520061480);<br />
-209.207.224.40<br />
-PHP函数ip2long long2ip</p></li>
-
-<li><p>INT[M]，M值代表什么含义？<br />
-注意数值类型括号后面的数字只是表示宽度而跟存储范围没有关系，比如INT(3)默认显示3位，空格补齐，超出时正常显示，python、java客户端等不具备这个功能。</p></li>
-
-<li><p>为什么建议使用TIMESTAMP来存储时间而不是DATETIME？<br />
-DATETIME和TIMESTAMP都是精确到秒，优先选择TIMESTAMP，因为TIMESTAMP只有4个字节，而DATETIME8个字节。同时TIMESTAMP具有自动赋值以及自动更新的特性。</p></li>
-
-<li><p>如何使用TIMESTAMP的自动赋值属性？<br />
-a) 将当前时间作为ts的默认值：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP。<br />
-b) 当行更新时，更新ts的值：ts TIMESTAMP DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP。<br />
-c) 可以将1和2结合起来：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP。</p></li>
-
-<li><p>如何对长度大于50的VARCHAR字段建立索引？<br />
-下面的表增加一列url_crc32，然后对url_crc32建立索引，减少索引字段的长度，提高效率。<br />
-CREATE TABLE url(<br />
-……<br />
-url VARCHAR(255) NOT NULL DEFAULT 0,<br />
-url_crc32 INT UNSIGNED NOT NULL DEFAULT 0,<br />
-……<br />
-index idx_url(url_crc32)<br />
-)</p></li>
-
-<li><p>为什么需要避免MySQL进行隐式类型转化？<br />
-因为MySQL进行隐式类型转化之后，可能会将索引字段类型转化成=号右边值的类型，导致使用不到索引，原因和避免在索引字段中使用函数是类似的。</p></li>
-
-<li><p>为什么避免使用复杂的SQL？<br />
-拒绝使用复杂的SQL，将大的SQL拆分成多条简单SQL分步执行。<br />
-原因：简单的SQL容易使用到MySQL的query cache；减少锁表时间特别是MyISAM；可以使用多核cpu。</p></li>
-
-<li><p>为什么不建议使用SELECT *?<br />
-增加很多不必要的消耗（cpu、io、内存、网络带宽）；<br />
-增加了使用覆盖索引的可能性；<br />
-当表结构发生改变时，前段也需要更新。</p></li>
-
-<li><p>nnoDB存储引擎为什么避免使用COUNT(<em>)?<br />
-InnoDB表避免使用COUNT(</em>)操作，计数统计实时要求较强可以使用memcache或者redis，非实时统计可以使用单独统计表，定时更新。</p></li>
-
-<li><p>MySQL中如何进行分页？<br />
-假如有类似下面分页语句：<br />
-SELECT * FROM table ORDER BY TIME DESC LIMIT 10000,10;<br />
-这种分页方式会导致大量的io，因为MySQL使用的是提前读取策略。<br />
-推荐分页方式：<br />
-SELECT * FROM table WHERE TIME&lt;last_TIME ORDER BY TIME DESC LIMIT 10.<br />
-SELECT * FROM table inner JOIN(SELECT id FROM table ORDER BY TIME LIMIT 10000,10) as t USING(id)</p></li>
-
-<li><p>为什么不能使用ORDER BY rand()？<br />
-因为ORDER BY rand()会将数据从磁盘中读取，进行排序，会消耗大量的IO和CPU，可以在程序中获取一个rand值，然后通过在从数据库中获取对应的值。</p></li>
-
-<li><p>如何减少与数据库的交互次数？<br />
-使用下面的语句来减少和db的交互次数：<br />
-INSERT &#8230; ON DUPLICATE KEY UPDATE<br />
-REPLACE<br />
-INSERT IGNORE<br />
-INSERT INTO values(),()如何结合使用多个纬度进行散表散库？<br />
-例如微博message，先按照crc32(message_id)%16将message散到16个库中，然后针对每个库中的表，一天生成一张新表。</p></li>
-
-<li><p>VARCHAR中会产生额外存储吗？<br />
-VARCHAR(M)，如果M<256时会使用一个字节来存储长度，如果M>=256则使用两个字节来存储长度。</p></li>
-
-<li><p>为什么MySQL的性能依赖于索引？<br />
-MySQL的查询速度依赖良好的索引设计，因此索引对于高性能至关重要。<br />
-合理的索引会加快查询速度（包括UPDATE和DELETE的速度，MySQL会将包含该行的page加载到内存中，然后进行UPDATE或者DELETE操作），不合理的索引会降低速度。<br />
-MySQL索引查找类似于新华字典的拼音和部首查找，当拼音和部首索引不存在时，只能通过一页一页的翻页来查找。<br />
-当MySQL查询不能使用索引时，MySQL会进行全表扫描，会消耗大量的IO。</p></li>
-
-<li><p>为什么一张表中不能存在过多的索引？<br />
-InnoDB的secondary index使用b+tree来存储，因此在UPDATE、DELETE、INSERT的时候需要对b+tree进行调整，过多的索引会减慢更新的速度。</p></li>
-
-<li><p>什么是覆盖索引？<br />
-InnoDB存储引擎中，secondary index（非主键索引）中没有直接存储行地址，存储主键值。如果用户需要查询secondary index中所不包含的数据列时，需要先通过secondary index查找到主键值，然后再通过主键查询到其他数据列，因此需要查询两次。<br />
-覆盖索引的概念就是查询可以通过在一个索引中完成，覆盖索引效率会比较高，主键查询是天然的覆盖索引。<br />
-合理的创建索引以及合理的使用查询语句，当使用到覆盖索引时可以获得性能提升。<br />
-比如SELECT email,uid FROM user_email WHERE uid=xx，如果uid不是主键，适当时候可以将索引添加为index(uid,email)，以获得性能提升。</p></li>
-
-<li><p>EXPLAIN语句<br />
-EXPLAIN语句（在MySQL客户端中执行）可以获得MySQL如何执行SELECT语句的信息。<br />
-通过对SELECT语句执行EXPLAIN，可以知晓MySQL执行该SELECT语句时是否使用了索引、全表扫描、临时表、排序等信息。尽量避免MySQL进行全表扫描、使用临时表、排序等。详见官方文档。</p></li>
-</ol></li>
+<li>
+<p>如何使用INT UNSIGNED存储ip？<br>
+使用INT UNSIGNED而不是char(15)来存储ipv4地址，通过MySQL函数inet_ntoa和inet_aton来进行转化。<br>
+Ipv6地址目前没有转化函数，需要使用DECIMAL或者两个bigINT来存储。<br>
+例如：<br>
+SELECT INET_ATON(‘209.207.224.40’);<br>
+3520061480<br>
+SELECT INET_NTOA(3520061480);<br>
+209.207.224.40<br>
+PHP函数ip2long long2ip</p>
+</li>
+<li>
+<p>INT[M]，M值代表什么含义？<br>
+注意数值类型括号后面的数字只是表示宽度而跟存储范围没有关系，比如INT(3)默认显示3位，空格补齐，超出时正常显示，python、java客户端等不具备这个功能。</p>
+</li>
+<li>
+<p>为什么建议使用TIMESTAMP来存储时间而不是DATETIME？<br>
+DATETIME和TIMESTAMP都是精确到秒，优先选择TIMESTAMP，因为TIMESTAMP只有4个字节，而DATETIME8个字节。同时TIMESTAMP具有自动赋值以及自动更新的特性。</p>
+</li>
+<li>
+<p>如何使用TIMESTAMP的自动赋值属性？<br>
+a) 将当前时间作为ts的默认值：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP。<br>
+b) 当行更新时，更新ts的值：ts TIMESTAMP DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP。<br>
+c) 可以将1和2结合起来：ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP。</p>
+</li>
+<li>
+<p>如何对长度大于50的VARCHAR字段建立索引？<br>
+下面的表增加一列url_crc32，然后对url_crc32建立索引，减少索引字段的长度，提高效率。<br>
+CREATE TABLE url(<br>
+……<br>
+url VARCHAR(255) NOT NULL DEFAULT 0,<br>
+url_crc32 INT UNSIGNED NOT NULL DEFAULT 0,<br>
+……<br>
+index idx_url(url_crc32)<br>
+)</p>
+</li>
+<li>
+<p>为什么需要避免MySQL进行隐式类型转化？<br>
+因为MySQL进行隐式类型转化之后，可能会将索引字段类型转化成=号右边值的类型，导致使用不到索引，原因和避免在索引字段中使用函数是类似的。</p>
+</li>
+<li>
+<p>为什么避免使用复杂的SQL？<br>
+拒绝使用复杂的SQL，将大的SQL拆分成多条简单SQL分步执行。<br>
+原因：简单的SQL容易使用到MySQL的query cache；减少锁表时间特别是MyISAM；可以使用多核cpu。</p>
+</li>
+<li>
+<p>为什么不建议使用SELECT *?<br>
+增加很多不必要的消耗（cpu、io、内存、网络带宽）；<br>
+增加了使用覆盖索引的可能性；<br>
+当表结构发生改变时，前段也需要更新。</p>
+</li>
+<li>
+<p>nnoDB存储引擎为什么避免使用COUNT(<em>)?<br>
+InnoDB表避免使用COUNT(</em>)操作，计数统计实时要求较强可以使用memcache或者redis，非实时统计可以使用单独统计表，定时更新。</p>
+</li>
+<li>
+<p>MySQL中如何进行分页？<br>
+假如有类似下面分页语句：<br>
+SELECT * FROM table ORDER BY TIME DESC LIMIT 10000,10;<br>
+这种分页方式会导致大量的io，因为MySQL使用的是提前读取策略。<br>
+推荐分页方式：<br>
+SELECT * FROM table WHERE TIME&lt;last_TIME ORDER BY TIME DESC LIMIT 10.<br>
+SELECT * FROM table inner JOIN(SELECT id FROM table ORDER BY TIME LIMIT 10000,10) as t USING(id)</p>
+</li>
+<li>
+<p>为什么不能使用ORDER BY rand()？<br>
+因为ORDER BY rand()会将数据从磁盘中读取，进行排序，会消耗大量的IO和CPU，可以在程序中获取一个rand值，然后通过在从数据库中获取对应的值。</p>
+</li>
+<li>
+<p>如何减少与数据库的交互次数？<br>
+使用下面的语句来减少和db的交互次数：<br>
+INSERT … ON DUPLICATE KEY UPDATE<br>
+REPLACE<br>
+INSERT IGNORE<br>
+INSERT INTO values(),()如何结合使用多个纬度进行散表散库？<br>
+例如微博message，先按照crc32(message_id)%16将message散到16个库中，然后针对每个库中的表，一天生成一张新表。</p>
+</li>
+<li>
+<p>VARCHAR中会产生额外存储吗？<br>
+VARCHAR(M)，如果M&lt;256时会使用一个字节来存储长度，如果M&gt;=256则使用两个字节来存储长度。</p>
+</li>
+<li>
+<p>为什么MySQL的性能依赖于索引？<br>
+MySQL的查询速度依赖良好的索引设计，因此索引对于高性能至关重要。<br>
+合理的索引会加快查询速度（包括UPDATE和DELETE的速度，MySQL会将包含该行的page加载到内存中，然后进行UPDATE或者DELETE操作），不合理的索引会降低速度。<br>
+MySQL索引查找类似于新华字典的拼音和部首查找，当拼音和部首索引不存在时，只能通过一页一页的翻页来查找。<br>
+当MySQL查询不能使用索引时，MySQL会进行全表扫描，会消耗大量的IO。</p>
+</li>
+<li>
+<p>为什么一张表中不能存在过多的索引？<br>
+InnoDB的secondary index使用b+tree来存储，因此在UPDATE、DELETE、INSERT的时候需要对b+tree进行调整，过多的索引会减慢更新的速度。</p>
+</li>
+<li>
+<p>什么是覆盖索引？<br>
+InnoDB存储引擎中，secondary index（非主键索引）中没有直接存储行地址，存储主键值。如果用户需要查询secondary index中所不包含的数据列时，需要先通过secondary index查找到主键值，然后再通过主键查询到其他数据列，因此需要查询两次。<br>
+覆盖索引的概念就是查询可以通过在一个索引中完成，覆盖索引效率会比较高，主键查询是天然的覆盖索引。<br>
+合理的创建索引以及合理的使用查询语句，当使用到覆盖索引时可以获得性能提升。<br>
+比如SELECT email,uid FROM user_email WHERE uid=xx，如果uid不是主键，适当时候可以将索引添加为index(uid,email)，以获得性能提升。</p>
+</li>
+<li>
+<p>EXPLAIN语句<br>
+EXPLAIN语句（在MySQL客户端中执行）可以获得MySQL如何执行SELECT语句的信息。<br>
+通过对SELECT语句执行EXPLAIN，可以知晓MySQL执行该SELECT语句时是否使用了索引、全表扫描、临时表、排序等信息。尽量避免MySQL进行全表扫描、使用临时表、排序等。详见官方文档。</p>
+</li>
+</ol>
+</li>
 </ol>
 
     
@@ -643,7 +660,7 @@ EXPLAIN语句（在MySQL客户端中执行）可以获得MySQL如何执行SELECT
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -652,6 +669,7 @@ EXPLAIN语句（在MySQL客户端中执行）可以获得MySQL如何执行SELECT
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

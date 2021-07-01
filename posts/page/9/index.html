@@ -4,7 +4,7 @@
   <head>
 <title>Posts | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,9 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
- &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
- 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
+          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。 &lt;span style=&ldquo;font-family: nsimsun;&quot;&gt;mysql&gt; show global status; &lt;/span&gt; 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语句： …</p>
           <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -174,9 +172,7 @@ gannicus——&gt;G
 自由自在——&gt;Z
 2B——&gt;E
 傻X——&gt;S
-&nbsp;
-&nbsp;
-function get_first_char($string){ $s=iconv('UTF-8','gb2312', $string); if (ord($string)&amp;gt;128) { //汉字开头 $asc=ord($s{0})*256+ord($s{1})-65536; if($asc&amp;gt;=-20319 and $asc&amp;lt;=-20284)return …</p>
+  function get_first_char($string){ $s=iconv('UTF-8','gb2312', $string); if (ord($string)&amp;gt;128) { //汉字开头 $asc=ord($s{0})*256+ord($s{1})-65536; if($asc&amp;gt;=-20319 and $asc&amp;lt;=-20284)return &quot;A&quot;; …</p>
           <a href="https://ifunbox.top/php_get_initial/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -200,20 +196,7 @@ function get_first_char($string){ $s=iconv('UTF-8','gb2312', $string); if (ord($
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.什么是HttpOnly?
-
-如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
-具体一点的介绍请google进行搜索
-
-
-2.javaEE的API是否支持?
-
-目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现
-
-3.HttpOnly的设置样例
-
-javaEE
-   Javaee代码      response.setHeader(&#8220;Set-Cookie&#8221;, &#8220;cookiename=value; …</p>
+          <p class="pale">1.什么是HttpOnly?如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击具体一点的介绍请google进行搜索2.javaEE的API是否支持?目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现3.HttpOnly的设置样例javaEE具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取C#VB.NET但是在 .NET 1.</p>
           <a href="https://ifunbox.top/what_is_httponly/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -237,25 +220,7 @@ javaEE
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">php计算两个经纬度之间的距离的方法   /**
-* 函数用途描述 计算经纬度 计算弧度
-* @date: 2013-8-26
-* @author: fanhe
-* @return: 
-*/
-function rad($d)
-{
-return $d * 3.1415926535898 / 180.0;
-}  /**
-* 函数用途描述 计算经纬度距离
-* @date: 2013-8-26
-* @author: fanhe
-* @return:
-*/
-function get_distance($lng1, $lat1, $lng2, $lat2)
-{
-$EARTH_RADIUS = 6378.137;
-$radLat1 = …</p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/php_mysql_distance/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -266,7 +231,7 @@ $radLat1 = …</p>
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
-        <a href="https://ifunbox.top/php_anti-antivirus-/">避开eval关键字，打造免杀一句话木马</a>
+        <a href="https://ifunbox.top/php_anti-antivirus%20/">避开eval关键字，打造免杀一句话木马</a>
       </h3>
       <div class="post_meta">
   <svg class="icon">
@@ -279,14 +244,8 @@ $radLat1 = …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">首先我想到的是将eval从字符串类型赋给一个变量。
-如：$func = ‘phpinfo’;
-$func();
-这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。
-还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？
-没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。
-既然是将字符串作为php代码评估 …</p>
-          <a href="https://ifunbox.top/php_anti-antivirus-/" class="excerpt_more button">Read More</a>
+          <p class="pale">首先我想到的是将eval从字符串类型赋给一个变量。如：$func = ‘phpinfo’;$func();这样的确是可以运行phpinfo()的，但是eval却不能通过这样来执行，我马上又想到了assert函数，他有着类似eval的功能，但效果并不理想，完全没有eval用着爽，而且也是公开了的，所以我也就将他放弃了。还记得《20 Ways to Fuzzing PHP Source Code》里提到的preg_replace代码执行漏洞吗？没错，利用preg_replace的模式修饰符e（PREG_REPLACE_EVAL）就可以将替换后的字符串作为php代码评估运行(eval函数方式)。既然是将字符串作为php代码评估运行，哪么完 …</p>
+          <a href="https://ifunbox.top/php_anti-antivirus%20/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -309,11 +268,7 @@ $func();
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。
-shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
-出现的原因估计是跟数据库字段1,0修改成true,false有关
-现在提供解决方案。
-下载修复补丁地址:http://url.cn/KR4AIa</p>
+          <p class="pale">shopex是一个很好的免费系统，不过最新官方升级越来越含糊，导致升级到最新版，修复了bug漏洞，但是旧功能出现各种各样的问题。shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题出现的原因估计是跟数据库字段1,0修改成true,false有关现在提供解决方案。下载修复补丁地址:http://url.cn/KR4AIa</p>
           <a href="https://ifunbox.top/fix_shopex_quick_edit/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -345,13 +300,13 @@ shopex4.8.5.80797列表无法快速编辑就是最近我发现的问题
 第二步：格式化硬盘 命令： fdisk /dev/sdb
 
 注意：图中箭头标注处续手动键入
-第三步：创建分区  命令： mkfs.ext4 /dev/sdb1
+**第三步：创建分区 ** 命令： mkfs.ext4 /dev/sdb1
 
 第四步：挂载分区 命令： mkdir /data
 mount /dev/sdb1 /data # 将sdb这个硬盘挂载成为/data
 
 **第五步：将信息写入fstab,让系统开启自动挂载。
-** 命令： …</p>
+** …</p>
           <a href="https://ifunbox.top/centos_mount_disk/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -375,11 +330,7 @@ mount /dev/sdb1 /data # 将sdb这个硬盘挂载成为/data
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/
-Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：
-1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号
-2。讲httpd.conf中的Allowoverride None 将None改为All
-3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一 …</p>
+          <p class="pale">ThinkPHP中默认的URL地址是形如这样的：http://localhost/Myapp/index.php/Index/index/Myapp是我的项目文件名，默认的访问地址是上面这样的。为了使URL更加简介友好，现在要去掉中间的index.php，方法如下：1。确认httpd.conf配置文件中加载了mod_rewrite.so 模块，加载的方法是去掉mod_rewrite.so前面的注释#号2。讲httpd.conf中的Allowoverride None 将None改为All3。打开对应的项目配置文件，我的项目配置文件是Myapp/Conf/config.php ,在这个配置文件数组中增加一 …</p>
           <a href="https://ifunbox.top/thinkphp_remove_index.php" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -403,10 +354,7 @@ Myapp是我的项目文件名，默认的访问地址是上面这样的。为了
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"> 在做充值卡号和密码导出Excel的时候遇到了问题，数字的后两位总是0；  经查  在Excel中默认“常规”情况下，单元格中能完全显示的数据只有11位，超过11位，系统自动用科学记数显示。
-当单元格格式设置为“数值”、小数点位数为0时，最多也只能完全显示15位数字，超过15位，从16位开始显示为0。  完整显示输入的所有数字，可以采用下述方法之一：
-一是首先输入一英文单引号再输入数字。
-二是把数据区域设置成“文本”格式后再输入数字。    在PHPExcel中解决的办法  //输出单元格值  //之前的部分代码  $objActSheet-setCellValue(&#8216;B&#8217;.$i, …</p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/php_excel_remove_zero/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -443,207 +391,46 @@ cfg_disable_funs，模板标签中禁用函数
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/8/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/8/">8</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/posts/page/9/">9</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/10/">10</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/8/">8</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/9/">9</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/10/">10</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/10/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -914,7 +701,7 @@ cfg_disable_funs，模板标签中禁用函数
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -923,6 +710,7 @@ cfg_disable_funs，模板标签中禁用函数
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

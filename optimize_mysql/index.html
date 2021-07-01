@@ -4,7 +4,7 @@
   <head>
 <title>mysql 性能优化方案 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,361 +160,271 @@
 </div>
 
     
-    <p><span style="font-size: medium;">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。</span></p>
-
+    <p><!-- raw HTML omitted -->网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;"><code>&lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;</code></span></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;span style=&ldquo;font-family: nsimsun;&quot;&gt;mysql&gt; show global status; &lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语句：</span></p>
-
+<p><!-- raw HTML omitted -->可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语句：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;"><code>&lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show variables; &lt;/span&gt;</code></span></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;span style=&ldquo;font-family: nsimsun;&quot;&gt;mysql&gt; show variables; &lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">一、慢查询</span></p>
-
+<p><!-- raw HTML omitted -->一、慢查询<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;"><code>&lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show variables like ‘%slow%‘;&lt;br /&gt;
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;span style=&ldquo;font-family: nsimsun;&quot;&gt;mysql&gt; show variables like ‘%slow%‘;&lt;br /&gt;
 +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+&lt;br /&gt;
 | variable_name　　　　 | value |&lt;br /&gt;
 +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+&lt;br /&gt;
 | log_slow_queries | on　　　　 |&lt;br /&gt;
 | slow_launch_time | 2　　　　　 |&lt;br /&gt;
-+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+&lt;/span&gt;</code></span></p>
-
-<p><span style="font-family: nsimsun; font-size: medium;">mysql&gt; show global status like ‘%slow%‘;<br /> +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+<br /> | variable_name　　　　　　　 | value |<br /> +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+<br /> | slow_launch_threads | 0　　　　　 |<br /> | slow_queries　　　　　　　　 | 4148 |<br /> +&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+<br /> </span></p>
++&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+&lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘%slow%‘;<!-- raw HTML omitted --> +———————+——-+<!-- raw HTML omitted --> | variable_name　　　　　　　 | value |<!-- raw HTML omitted --> +———————+——-+<!-- raw HTML omitted --> | slow_launch_threads | 0　　　　　 |<!-- raw HTML omitted --> | slow_queries　　　　　　　　 | 4148 |<!-- raw HTML omitted --> +———————+——-+<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">配置中打开了记录慢查询，执行时间超过2秒的即为慢查询，系统显示有4148个慢查询，你可以分析慢查询日志，找出有问题的sql语句，慢查询时间 不宜设置过长，否则意义不大，最好在5秒以内，如果你需要微秒级别的慢查询，可以考虑给mysql打补丁：<a href="http://www.percona.com">http://www.percona.com</a> /docs/wiki/release:start，记得找对应的版本。</span></p>
-
-<p><span style="font-size: medium;">打开慢查询日志可能会对系统性能有一点点影响，如果你的mysql是主－从结构，可以考虑打开其中一台从服务器的慢查询日志，这样既可以监控慢查询，对系统性能影响又小。</span></p>
-
-<p><span style="font-size: medium;">二、连接数</span></p>
-
-<p><span style="font-size: medium;">经常会遇见”mysql: error 1040: too many connections”的情况，一种是访问量确实很高，mysql服务器抗不住，这个时候就要考虑增加从服务器分散读压力，另外一种情况是mysql配 置文件中max_connections值过小：</span></p>
-
+<p><!-- raw HTML omitted -->配置中打开了记录慢查询，执行时间超过2秒的即为慢查询，系统显示有4148个慢查询，你可以分析慢查询日志，找出有问题的sql语句，慢查询时间 不宜设置过长，否则意义不大，最好在5秒以内，如果你需要微秒级别的慢查询，可以考虑给mysql打补丁：http://www.percona.com /docs/wiki/release:start，记得找对应的版本。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->打开慢查询日志可能会对系统性能有一点点影响，如果你的mysql是主－从结构，可以考虑打开其中一台从服务器的慢查询日志，这样既可以监控慢查询，对系统性能影响又小。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->二、连接数<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->经常会遇见”mysql: error 1040: too many connections”的情况，一种是访问量确实很高，mysql服务器抗不住，这个时候就要考虑增加从服务器分散读压力，另外一种情况是mysql配 置文件中max_connections值过小：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘max_connections‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　 | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| max_connections | 256　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘max_connections‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————–+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　 | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————–+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| max_connections | 256　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————–+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">这台mysql服务器最大连接数是256，然后查询一下服务器响应的最大连接数：</span></p>
-
+<p><!-- raw HTML omitted -->这台mysql服务器最大连接数是256，然后查询一下服务器响应的最大连接数：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘max_used_connections‘;</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘max_used_connections‘;<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">mysql服务器过去的最大连接数是245，没有达到服务器连接数上限256，应该没有出现1040错误，比较理想的设置是</span></p>
-
+<p><!-- raw HTML omitted -->mysql服务器过去的最大连接数是245，没有达到服务器连接数上限256，应该没有出现1040错误，比较理想的设置是<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">max_used_connections / max_connections * 100% ≈ 85%</span></p>
+<p><!-- raw HTML omitted -->max_used_connections / max_connections * 100% ≈ 85%<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">最大连接数占上限连接数的85％左右，如果发现比例在10%以下，mysql服务器连接数上限设置的过高了。</span></p>
-
-<p><span style="font-size: medium;">三、key_buffer_size</span></p>
-
-<p><span style="font-size: medium;">key_buffer_size是对myisam表性能影响最大的一个参数，下面一台以myisam为主要存储引擎服务器的配置：</span></p>
-
+<p><!-- raw HTML omitted -->最大连接数占上限连接数的85％左右，如果发现比例在10%以下，mysql服务器连接数上限设置的过高了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->三、key_buffer_size<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->key_buffer_size是对myisam表性能影响最大的一个参数，下面一台以myisam为主要存储引擎服务器的配置：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘key_buffer_size‘;+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| variable_name　　　 | value　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| key_buffer_size | 536870912 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘key_buffer_size‘;+—————–+————+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　 | value　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————–+————+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| key_buffer_size | 536870912 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————–+————+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">分配了512mb内存给key_buffer_size，我们再看一下key_buffer_size的使用情况：</span></p>
-
+<p><!-- raw HTML omitted -->分配了512mb内存给key_buffer_size，我们再看一下key_buffer_size的使用情况：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘key_read%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　　 | value　　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| key_read_requests　　　　　　 | 27813678764 |</span><br />
- <span style="font-size: medium;">| key_reads　　　　　　　　　　　　　　 | 6798830　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘key_read%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　　 | value　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| key_read_requests　　　　　　 | 27813678764 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| key_reads　　　　　　　　　　　　　　 | 6798830　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">一共有27813678764个索引读取请求，有6798830个请求在内存中没有找到直接从硬盘读取索引，计算索引未命中缓存的概率：</span></p>
-
-<p><span style="font-size: medium;">key_cache_miss_rate ＝ key_reads / key_read_requests * 100%</span></p>
-
-<p><span style="font-size: medium;">比如上面的数据，key_cache_miss_rate为0.0244%，4000个索引读取请求才有一个直接读硬盘，已经很bt 了，key_cache_miss_rate在0.1%以下都很好（每1000个请求有一个直接读硬盘），如果key_cache_miss_rate在 0.01%以下的话，key_buffer_size分配的过多，可以适当减少。</span></p>
-
-<p><span style="font-size: medium;">mysql服务器还提供了key<em>blocks</em>*参数：</span></p>
-
+<p><!-- raw HTML omitted -->一共有27813678764个索引读取请求，有6798830个请求在内存中没有找到直接从硬盘读取索引，计算索引未命中缓存的概率：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->key_cache_miss_rate ＝ key_reads / key_read_requests * 100%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->比如上面的数据，key_cache_miss_rate为0.0244%，4000个索引读取请求才有一个直接读硬盘，已经很bt 了，key_cache_miss_rate在0.1%以下都很好（每1000个请求有一个直接读硬盘），如果key_cache_miss_rate在 0.01%以下的话，key_buffer_size分配的过多，可以适当减少。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->mysql服务器还提供了key_blocks_*参数：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘key_blocks_u%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　　 | value　　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| key_blocks_unused　　　　　　 | 0　　　　　　　　　　　 |</span><br />
- <span style="font-size: medium;">| key_blocks_used　　　　　　　　 | 413543　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘key_blocks_u%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　　 | value　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| key_blocks_unused　　　　　　 | 0　　　　　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| key_blocks_used　　　　　　　　 | 413543　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————+————-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">key_blocks_unused表示未使用的缓存簇(blocks)数，key_blocks_used表示曾经用到的最大的blocks数， 比如这台服务器，所有的缓存都用到了，要么增加key_buffer_size，要么就是过渡索引了，把缓存占满了。比较理想的设置：</span></p>
-
-<p><span style="font-size: medium;">key_blocks_used / (key_blocks_unused + key_blocks_used) * 100% ≈ 80%</span></p>
-
-<p><span style="font-size: medium;">四、临时表</span></p>
-
+<p><!-- raw HTML omitted -->key_blocks_unused表示未使用的缓存簇(blocks)数，key_blocks_used表示曾经用到的最大的blocks数， 比如这台服务器，所有的缓存都用到了，要么增加key_buffer_size，要么就是过渡索引了，把缓存占满了。比较理想的设置：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->key_blocks_used / (key_blocks_unused + key_blocks_used) * 100% ≈ 80%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->四、临时表<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘created_tmp%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　　　 | value　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| created_tmp_disk_tables | 21197　　　 |</span><br />
- <span style="font-size: medium;">| created_tmp_files　　　　　　　 | 58　　　　　　 |</span><br />
- <span style="font-size: medium;">| created_tmp_tables　　　　　　 | 1771587 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘created_tmp%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　　　 | value　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| created_tmp_disk_tables | 21197　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| created_tmp_files　　　　　　　 | 58　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| created_tmp_tables　　　　　　 | 1771587 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">每次创建临时表，created_tmp_tables增加，如果是在磁盘上创建临时表，created_tmp_disk_tables也增加,created_tmp_files表示mysql服务创建的临时文件文件数，比较理想的配置是：</span></p>
-
-<p><span style="font-size: medium;">created_tmp_disk_tables / created_tmp_tables * 100% &lt;= 25%比如上面的服务器created_tmp_disk_tables / created_tmp_tables * 100% ＝ 1.20%，应该相当好了。我们再看一下mysql服务器对临时表的配置：</span></p>
-
+<p><!-- raw HTML omitted -->每次创建临时表，created_tmp_tables增加，如果是在磁盘上创建临时表，created_tmp_disk_tables也增加,created_tmp_files表示mysql服务创建的临时文件文件数，比较理想的配置是：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->created_tmp_disk_tables / created_tmp_tables * 100% &lt;= 25%比如上面的服务器created_tmp_disk_tables / created_tmp_tables * 100% ＝ 1.20%，应该相当好了。我们再看一下mysql服务器对临时表的配置：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables where variable_name in (‘tmp_table_size‘, ‘max_heap_table_size‘);</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　 | value　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| max_heap_table_size | 268435456 |</span><br />
- <span style="font-size: medium;">| tmp_table_size　　　　　　 | 536870912 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables where variable_name in (‘tmp_table_size‘, ‘max_heap_table_size‘);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　 | value　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| max_heap_table_size | 268435456 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| tmp_table_size　　　　　　 | 536870912 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————+———–+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">只有256mb以下的临时表才能全部放内存，超过的就会用到硬盘临时表。</span></p>
-
-<p><span style="font-size: medium;">五、open table情况</span></p>
-
+<p><!-- raw HTML omitted -->只有256mb以下的临时表才能全部放内存，超过的就会用到硬盘临时表。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->五、open table情况<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘open%tables%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| open_tables　　　 | 919　　　 |</span><br />
- <span style="font-size: medium;">| opened_tables | 1951　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘open%tables%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| open_tables　　　 | 919　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| opened_tables | 1951　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">open_tables表示打开表的数量，opened_tables表示打开过的表数量，如果opened_tables数量过大，说明配置中 table_cache(5.1.3之后这个值叫做table_open_cache)值可能太小，我们查询一下服务器table_cache值：</span></p>
-
+<p><!-- raw HTML omitted -->open_tables表示打开表的数量，opened_tables表示打开过的表数量，如果opened_tables数量过大，说明配置中 table_cache(5.1.3之后这个值叫做table_open_cache)值可能太小，我们查询一下服务器table_cache值：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘table_cache‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| table_cache　　　 | 2048　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘table_cache‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| table_cache　　　 | 2048　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">比较合适的值为：</span></p>
-
+<p><!-- raw HTML omitted -->比较合适的值为：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">open_tables / opened_tables * 100% &gt;= 85%</span></p>
-
-<p><span style="font-size: medium;">open_tables / table_cache * 100% &lt;= 95%</span></p>
+<p><!-- raw HTML omitted -->open_tables / opened_tables * 100% &gt;= 85%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->open_tables / table_cache * 100% &lt;= 95%<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">六、进程使用情况</span></p>
-
+<p><!-- raw HTML omitted -->六、进程使用情况<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘thread%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　 | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| threads_cached　　　　 | 46　　　　 |</span><br />
- <span style="font-size: medium;">| threads_connected | 2　　　　　 |</span><br />
- <span style="font-size: medium;">| threads_created　　　 | 570　　　 |</span><br />
- <span style="font-size: medium;">| threads_running　　　 | 1　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘thread%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　 | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| threads_cached　　　　 | 46　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| threads_connected | 2　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| threads_created　　　 | 570　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| threads_running　　　 | 1　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">如果我们在mysql服务器配置文件中设置了thread_cache_size，当客户端断开之后，服务器处理此客户的线程将会缓存起来以响应下 一个客户而不是销毁（前提是缓存数未达上限）。threads_created表示创建过的线程数，如果发现threads_created值过大的话， 表明mysql服务器一直在创建线程，这也是比较耗资源，可以适当增加配置文件中thread_cache_size值，查询服务器 thread_cache_size配置：</span></p>
-
+<p><!-- raw HTML omitted -->如果我们在mysql服务器配置文件中设置了thread_cache_size，当客户端断开之后，服务器处理此客户的线程将会缓存起来以响应下 一个客户而不是销毁（前提是缓存数未达上限）。threads_created表示创建过的线程数，如果发现threads_created值过大的话， 表明mysql服务器一直在创建线程，这也是比较耗资源，可以适当增加配置文件中thread_cache_size值，查询服务器 thread_cache_size配置：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘thread_cache_size‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　 | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| thread_cache_size | 64　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘thread_cache_size‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　 | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| thread_cache_size | 64　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">示例中的服务器还是挺健康的。</span></p>
-
-<p><span style="font-size: medium;">七、查询缓存(query cache)</span></p>
-
+<p><!-- raw HTML omitted -->示例中的服务器还是挺健康的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->七、查询缓存(query cache)<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘qcache%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　　　 | value　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| qcache_free_blocks　　　　　　 | 22756　　　　　 |</span><br />
- <span style="font-size: medium;">| qcache_free_memory　　　　　　 | 76764704　 |</span><br />
- <span style="font-size: medium;">| qcache_hits　　　　　　　　　　　　　 | 213028692 |</span><br />
- <span style="font-size: medium;">| qcache_inserts　　　　　　　　　　 | 208894227 |</span><br />
- <span style="font-size: medium;">| qcache_lowmem_prunes　　　　 | 4010916　　　 |</span><br />
- <span style="font-size: medium;">| qcache_not_cached　　　　　　　 | 13385031　 |</span><br />
- <span style="font-size: medium;">| qcache_queries_in_cache | 43560　　　　　 |</span><br />
- <span style="font-size: medium;">| qcache_total_blocks　　　　　 | 111212　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8211;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘qcache%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　　　 | value　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_free_blocks　　　　　　 | 22756　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_free_memory　　　　　　 | 76764704　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_hits　　　　　　　　　　　　　 | 213028692 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_inserts　　　　　　　　　　 | 208894227 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_lowmem_prunes　　　　 | 4010916　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_not_cached　　　　　　　 | 13385031　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_queries_in_cache | 43560　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| qcache_total_blocks　　　　　 | 111212　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+————————-+———–+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">mysql查询缓存变量解释：</span></p>
-
-<p><span style="font-size: medium;">qcache_free_blocks：缓存中相邻内存块的个数。数目大说明可能有碎片。flush query cache会对缓存中的碎片进行整理，从而得到一个空闲块。</span></p>
-
-<p><span style="font-size: medium;">qcache_free_memory：缓存中的空闲内存。</span></p>
-
-<p><span style="font-size: medium;">qcache_hits：每次查询在缓存中命中时就增大</span></p>
-
-<p><span style="font-size: medium;">qcache_inserts：每次插入一个查询时就增大。命中次数除以插入次数就是不中比率。</span></p>
-
-<p><span style="font-size: medium;">qcache_lowmem_prunes：缓存出现内存不足并且必须要进行清理以便为更多查询提供空间的次数。这个数字最好长时间来看；如果这个 数字在不断增长，就表示可能碎片非常严重，或者内存很少。（上面的 free_blocks和free_memory可以告诉您属于哪种情况）</span></p>
-
-<p><span style="font-size: medium;">qcache_not_cached：不适合进行缓存的查询的数量，通常是由于这些查询不是 select 语句或者用了now()之类的函数。</span></p>
-
-<p><span style="font-size: medium;">qcache_queries_in_cache：当前缓存的查询（和响应）的数量。</span></p>
-
-<p><span style="font-size: medium;">qcache_total_blocks：缓存中块的数量。</span></p>
-
-<p><span style="font-size: medium;">我们再查询一下服务器关于query_cache的配置：</span></p>
-
+<p><!-- raw HTML omitted -->mysql查询缓存变量解释：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_free_blocks：缓存中相邻内存块的个数。数目大说明可能有碎片。flush query cache会对缓存中的碎片进行整理，从而得到一个空闲块。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_free_memory：缓存中的空闲内存。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_hits：每次查询在缓存中命中时就增大<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_inserts：每次插入一个查询时就增大。命中次数除以插入次数就是不中比率。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_lowmem_prunes：缓存出现内存不足并且必须要进行清理以便为更多查询提供空间的次数。这个数字最好长时间来看；如果这个 数字在不断增长，就表示可能碎片非常严重，或者内存很少。（上面的 free_blocks和free_memory可以告诉您属于哪种情况）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_not_cached：不适合进行缓存的查询的数量，通常是由于这些查询不是 select 语句或者用了now()之类的函数。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_queries_in_cache：当前缓存的查询（和响应）的数量。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->qcache_total_blocks：缓存中块的数量。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我们再查询一下服务器关于query_cache的配置：<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘query_cache%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　　　　　　　　 | value　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| query_cache_limit　　　　　　　　　　　　 | 2097152　　　 |</span><br />
- <span style="font-size: medium;">| query_cache_min_res_unit　　　　　 | 4096　　　　　　 |</span><br />
- <span style="font-size: medium;">| query_cache_size　　　　　　　　　　　　　 | 203423744 |</span><br />
- <span style="font-size: medium;">| query_cache_type　　　　　　　　　　　　　 | on　　　　　　　　 |</span><br />
- <span style="font-size: medium;">| query_cache_wlock_invalidate | off　　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘query_cache%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　　　　　　　　 | value　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| query_cache_limit　　　　　　　　　　　　 | 2097152　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| query_cache_min_res_unit　　　　　 | 4096　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| query_cache_size　　　　　　　　　　　　　 | 203423744 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| query_cache_type　　　　　　　　　　　　　 | on　　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| query_cache_wlock_invalidate | off　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————————+———–+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">各字段的解释：</span></p>
-
-<p><span style="font-size: medium;">query_cache_limit：超过此大小的查询将不缓存</span></p>
-
-<p><span style="font-size: medium;">query_cache_min_res_unit：缓存块的最小大小</span></p>
-
-<p><span style="font-size: medium;">query_cache_size：查询缓存大小</span></p>
-
-<p><span style="font-size: medium;">query_cache_type：缓存类型，决定缓存什么样的查询，示例中表示不缓存 select sql_no_cache 查询</span></p>
-
-<p><span style="font-size: medium;">query_cache_wlock_invalidate：当有其他客户端正在对myisam表进行写操作时，如果查询在query cache中，是否返回cache结果还是等写操作完成再读表获取结果。</span></p>
-
-<p><span style="font-size: medium;">query_cache_min_res_unit的配置是一柄”双刃剑”，默认是4kb，设置值大对大数据查询有好处，但如果你的查询都是小数据查询，就容易造成内存碎片和浪费。</span></p>
-
-<p><span style="font-size: medium;">查询缓存碎片率 = qcache_free_blocks / qcache_total_blocks * 100%</span></p>
-
-<p><span style="font-size: medium;">如果查询缓存碎片率超过20%，可以用flush query cache整理缓存碎片，或者试试减小query_cache_min_res_unit，如果你的查询都是小数据量的话。</span></p>
-
-<p><span style="font-size: medium;">查询缓存利用率 = (query_cache_size &#8211; qcache_free_memory) / query_cache_size * 100%</span></p>
-
-<p><span style="font-size: medium;">查询缓存利用率在25%以下的话说明query_cache_size设置的过大，可适当减小；查询缓存利用率在80％以上而且qcache_lowmem_prunes &gt; 50的话说明query_cache_size可能有点小，要不就是碎片太多。</span></p>
-
-<p><span style="font-size: medium;">查询缓存命中率 = (qcache_hits &#8211; qcache_inserts) / qcache_hits * 100%</span></p>
-
-<p><span style="font-size: medium;">示例服务器 查询缓存碎片率 ＝ 20.46％，查询缓存利用率 ＝ 62.26％，查询缓存命中率 ＝ 1.94％，命中率很差，可能写操作比较频繁吧，而且可能有些碎片。</span></p>
-
-<p><span style="font-size: medium;">八、排序使用情况</span></p>
-
+<p><!-- raw HTML omitted -->各字段的解释：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_limit：超过此大小的查询将不缓存<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_min_res_unit：缓存块的最小大小<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_size：查询缓存大小<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_type：缓存类型，决定缓存什么样的查询，示例中表示不缓存 select sql_no_cache 查询<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_wlock_invalidate：当有其他客户端正在对myisam表进行写操作时，如果查询在query cache中，是否返回cache结果还是等写操作完成再读表获取结果。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->query_cache_min_res_unit的配置是一柄”双刃剑”，默认是4kb，设置值大对大数据查询有好处，但如果你的查询都是小数据查询，就容易造成内存碎片和浪费。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->查询缓存碎片率 = qcache_free_blocks / qcache_total_blocks * 100%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果查询缓存碎片率超过20%，可以用flush query cache整理缓存碎片，或者试试减小query_cache_min_res_unit，如果你的查询都是小数据量的话。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->查询缓存利用率 = (query_cache_size – qcache_free_memory) / query_cache_size * 100%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->查询缓存利用率在25%以下的话说明query_cache_size设置的过大，可适当减小；查询缓存利用率在80％以上而且qcache_lowmem_prunes &gt; 50的话说明query_cache_size可能有点小，要不就是碎片太多。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->查询缓存命中率 = (qcache_hits – qcache_inserts) / qcache_hits * 100%<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->示例服务器 查询缓存碎片率 ＝ 20.46％，查询缓存利用率 ＝ 62.26％，查询缓存命中率 ＝ 1.94％，命中率很差，可能写操作比较频繁吧，而且可能有些碎片。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->八、排序使用情况<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘sort%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　 | value　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;+</span><br />
- <span style="font-size: medium;">| sort_merge_passes | 29　　　　　　　　　 |</span><br />
- <span style="font-size: medium;">| sort_range　　　　　　　　 | 37432840　　　 |</span><br />
- <span style="font-size: medium;">| sort_rows　　　　　　　　　 | 9178691532 |</span><br />
- <span style="font-size: medium;">| sort_scan　　　　　　　　　 | 1860569　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-+&#8212;&#8212;&#8212;&#8212;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘sort%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+————+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　 | value　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+————+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| sort_merge_passes | 29　　　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| sort_range　　　　　　　　 | 37432840　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| sort_rows　　　　　　　　　 | 9178691532 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| sort_scan　　　　　　　　　 | 1860569　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————-+————+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">sort_merge_passes 包括两步。mysql 首先会尝试在内存中做排序，使用的内存大小由系统变量 sort_buffer_size 决定，如果它的大小不够把所有的记录都读到内存中，mysql 就会把每次在内存中排序的结果存到临时文件中，等 mysql 找到所有记录之后，再把临时文件中的记录做一次排序。这再次排序就会增加 sort_merge_passes。实际上，mysql 会用另一个临时文件来存再次排序的结果，所以通常会看到 sort_merge_passes 增加的数值是建临时文件数的两倍。因为用到了临时文件，所以速度可能会比较慢，增加 sort_buffer_size 会减少 sort_merge_passes 和 创建临时文件的次数。但盲目的增加 sort_buffer_size 并不一定能提高速度，见 how fast can you sort data with mysql?（引自<a href="http://qroom.blogspot.com/2007/09/mysql-select-sort.html">http://qroom.blogspot.com/2007/09/mysql-select-sort.html</a>，貌似被墙）</span></p>
-
-<p><span style="font-size: medium;">另外，增加read_rnd_buffer_size(3.2.3是record_rnd_buffer_size)的值对排序的操作也有一点的好处，参见：<a href="http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/">http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/</a></span></p>
-
-<p><span style="font-size: medium;">九、文件打开数(open_files)</span></p>
-
+<p><!-- raw HTML omitted -->sort_merge_passes 包括两步。mysql 首先会尝试在内存中做排序，使用的内存大小由系统变量 sort_buffer_size 决定，如果它的大小不够把所有的记录都读到内存中，mysql 就会把每次在内存中排序的结果存到临时文件中，等 mysql 找到所有记录之后，再把临时文件中的记录做一次排序。这再次排序就会增加 sort_merge_passes。实际上，mysql 会用另一个临时文件来存再次排序的结果，所以通常会看到 sort_merge_passes 增加的数值是建临时文件数的两倍。因为用到了临时文件，所以速度可能会比较慢，增加 sort_buffer_size 会减少 sort_merge_passes 和 创建临时文件的次数。但盲目的增加 sort_buffer_size 并不一定能提高速度，见 how fast can you sort data with mysql?（引自<!-- raw HTML omitted --><a href="http://qroom.blogspot.com/2007/09/mysql-select-sort.html">http://qroom.blogspot.com/2007/09/mysql-select-sort.html</a><!-- raw HTML omitted -->，貌似被墙）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->另外，增加read_rnd_buffer_size(3.2.3是record_rnd_buffer_size)的值对排序的操作也有一点的好处，参见：<!-- raw HTML omitted --><a href="http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/">http://www.mysqlperformanceblog.com/2007/07/24/what-exactly-is-read_rnd_buffer_size/</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->九、文件打开数(open_files)<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘open_files‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| open_files　　　　 | 1410　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span></p>
-
-<p><span style="font-size: medium;">mysql&gt; show variables like ‘open_files_limit‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　 | value |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| open_files_limit | 4590　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘open_files‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| open_files　　　　 | 1410　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">比较合适的设置：open_files / open_files_limit * 100% &lt;= 75％</span></p>
-
-<p><span style="font-size: medium;">十、表锁情况</span></p>
-
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘table_locks%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　 | value　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| table_locks_immediate | 490206328 |</span><br />
- <span style="font-size: medium;">| table_locks_waited　　　　 | 2084912　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8211;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show variables like ‘open_files_limit‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　 | value |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————+——-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| open_files_limit | 4590　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+——————+——-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">table_locks_immediate表示立即释放表锁数，table_locks_waited表示需要等待的表锁数，如果 table_locks_immediate / table_locks_waited &gt; 5000，最好采用innodb引擎，因为innodb是行锁而myisam是表锁，对于高并发写入的应用innodb效果会好些。示例中的服务器 table_locks_immediate / table_locks_waited ＝ 235，myisam就足够了。</span></p>
-
-<p><span style="font-size: medium;">十一、表扫描情况</span></p>
-
+<p><!-- raw HTML omitted -->比较合适的设置：open_files / open_files_limit * 100% &lt;= 75％<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->十、表锁情况<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘handler_read%‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| variable_name　　　　　　　　　 | value　　　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+</span><br />
- <span style="font-size: medium;">| handler_read_first　　　　 | 5803750　　　　　 |</span><br />
- <span style="font-size: medium;">| handler_read_key　　　　　　 | 6049319850　 |</span><br />
- <span style="font-size: medium;">| handler_read_next　　　　　 | 94440908210 |</span><br />
- <span style="font-size: medium;">| handler_read_prev　　　　　 | 34822001724 |</span><br />
- <span style="font-size: medium;">| handler_read_rnd　　　　　　 | 405482605　　　 |</span><br />
- <span style="font-size: medium;">| handler_read_rnd_next | 18912877839 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;+&#8212;&#8212;&#8212;&#8212;-+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘table_locks%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　 | value　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| table_locks_immediate | 490206328 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| table_locks_waited　　　　 | 2084912　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+———–+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">各字段解释参见<a href="http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html">http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html</a>，调出服务器完成的查询请求次数：</span></p>
-
+<p><!-- raw HTML omitted -->table_locks_immediate表示立即释放表锁数，table_locks_waited表示需要等待的表锁数，如果 table_locks_immediate / table_locks_waited &gt; 5000，最好采用innodb引擎，因为innodb是行锁而myisam是表锁，对于高并发写入的应用innodb效果会好些。示例中的服务器 table_locks_immediate / table_locks_waited ＝ 235，myisam就足够了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->十一、表扫描情况<!-- raw HTML omitted --></p>
 <blockquote>
-<p><span style="font-size: medium;">mysql&gt; show global status like ‘com_select‘;</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| variable_name | value　　　　　 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span><br />
- <span style="font-size: medium;">| com_select　　　　 | 222693559 |</span><br />
- <span style="font-size: medium;">+&#8212;&#8212;&#8212;&#8212;&#8212;+&#8212;&#8212;&#8212;&#8211;+</span></p>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘handler_read%‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name　　　　　　　　　 | value　　　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+————-+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_first　　　　 | 5803750　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_key　　　　　　 | 6049319850　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_next　　　　　 | 94440908210 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_prev　　　　　 | 34822001724 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_rnd　　　　　　 | 405482605　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| handler_read_rnd_next | 18912877839 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+———————–+————-+<!-- raw HTML omitted --></p>
 </blockquote>
-
-<p><span style="font-size: medium;">计算表扫描率：</span></p>
-
-<p><span style="font-size: medium;">表扫描率 ＝ handler_read_rnd_next / com_select</span></p>
-
-<p><span style="font-size: medium;">如果表扫描率超过4000，说明进行了太多表扫描，很有可能索引没有建好，增加read_buffer_size值会有一些好处，但最好不要超过8mb。</span></p>
-
-<p><span style="font-size: medium;">后记：</span></p>
-
-<p><span style="font-size: medium;">文中提到一些数字都是参考值，了解基本原理就可以，除了mysql提供的各种status值外，操作系统的一些性能指标也很重要，比如常用的top,iostat等，尤其是iostat，现在的系统瓶颈一般都在磁盘io上，关于iostat的使用，可以参考：<a href="http://www.php-oa.com/2009/02/03/iostat.html">http://www.php-oa.com/2009/02/03/iostat.html</a></span></p>
+<p><!-- raw HTML omitted -->各字段解释参见<!-- raw HTML omitted --><a href="http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html">http://hi.baidu.com/thinkinginlamp/blog/item/31690cd7c4bc5cdaa144df9c.html</a><!-- raw HTML omitted -->，调出服务器完成的查询请求次数：<!-- raw HTML omitted --></p>
+<blockquote>
+<p><!-- raw HTML omitted -->mysql&gt; show global status like ‘com_select‘;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| variable_name | value　　　　　 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+———–+<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->| com_select　　　　 | 222693559 |<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->+—————+———–+<!-- raw HTML omitted --></p>
+</blockquote>
+<p><!-- raw HTML omitted -->计算表扫描率：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->表扫描率 ＝ handler_read_rnd_next / com_select<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果表扫描率超过4000，说明进行了太多表扫描，很有可能索引没有建好，增加read_buffer_size值会有一些好处，但最好不要超过8mb。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->后记：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->文中提到一些数字都是参考值，了解基本原理就可以，除了mysql提供的各种status值外，操作系统的一些性能指标也很重要，比如常用的top,iostat等，尤其是iostat，现在的系统瓶颈一般都在磁盘io上，关于iostat的使用，可以参考：<!-- raw HTML omitted --><a href="http://www.php-oa.com/2009/02/03/iostat.html">http://www.php-oa.com/2009/02/03/iostat.html</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/optimize_mysql" ></div>
@@ -797,7 +707,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -806,6 +716,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

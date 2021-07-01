@@ -4,7 +4,7 @@
   <head>
 <title>性能优化 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,10 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">wordpress数据库wp_posts文章表结构中post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered这几个字段的字段类型差点没把我吓死，都是longtext,mediumtext类型，非常占用存储空间不说，还占用传输带宽影响速度。
-首先用下面这条sql语句分析下当前表数据情况，找出每个字段下最长的字符串数
-SELECT MAX(LENGTH(字段名)) from wp_posts
-字段名换成post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered依 …</p>
+          <p class="pale">wordpress数据库wp_posts文章表结构中post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered这几个字段的字段类型差点没把我吓死，都是longtext,mediumtext类型，非常占用存储空间不说，还占用传输带宽影响速度。首先用下面这条sql语句分析下当前表数据情况，找出每个字段下最长的字符串数SELECT MAX(LENGTH(字段名)) from wp_posts字段名换成post_content,post_title,post_excerpt,to_ping,pinged,post_content_filtered依次搜索 …</p>
           <a href="https://ifunbox.top/optimize_wordpress_posts_table/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -170,13 +167,7 @@ SELECT MAX(LENGTH(字段名)) from wp_posts
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~
-1. 什么是CAS协议
-很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。
-2. CAS协议原文
-http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
-3. CAS的基本原理
-基本原理非常简单，一言以蔽之，就是“版本号”。每个存储的数据对象，多有一个版本 …</p>
+          <p class="pale">最近无意中翻阅到大牛讲解微信红包实现的文章，文中提到CAS，这是啥的，能不能不用简称，查了半天终于找到了，下面总结下备忘~1. 什么是CAS协议很多中文的资料都不会告诉大家CAS的全称是什么，不过一定不要把CAS当作中国科学院（China Academy of Sciences）的缩写。Google.com一下，CAS是什么？CAS是Check And Set的缩写。2. CAS协议原文http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt3. CAS的基本原理基本原理非常简单，一言以蔽之，就是“版本号”。每个存储的数据对象，多有一个版本号。我们可以从 …</p>
           <a href="https://ifunbox.top/memcached_cas/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -200,12 +191,7 @@ http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
-问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。
-翻到了这两篇文章
-http://konrness.com/php5/how-to-prevent-blocking-php-requests/
-http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/
-介绍了什么是session lock，怎么工作，为什么需要，如 …</p>
+          <p class="pale">这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。翻到了这两篇文章http://konrness.com/php5/how-to-prevent-blocking-php-requests/http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/介绍了什么是session lock，怎么工作，为什么需要，如何避免阻 …</p>
           <a href="https://ifunbox.top/avoid_session_lock/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -230,16 +216,7 @@ http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-p
       <div class="excerpt_footer">
         <div>
           <p class="pale">最近项目php-fpm-slow.log慢日志中经常出现以下的记录
-
-php自带函数session_start()
-打开php.ini查看了下session.save_handler参数，默认配置的是file，本能反应猜测是否影响读写的问题，索性配置成memcache试试吧。配置改成
-session.save_handler = memcache
-session.save_path = &#8220;tcp://127.0.0.1:11211&#8221;
-然后php-fpm reload下，网站正常运行。
-查看下mc里面出现一大堆以sessionid为key的值
-
-截止目前慢日志不在出现 session_start()了
-阿里云的 …</p>
+php自带函数session_start()打开php.ini查看了下session.save_handler参数，默认配置的是file，本能反应猜测是否影响读写的问题，索性配置成memcache试试吧。配置改成session.save_handler = memcachesession.save_path = “tcp://127.0.0.1:11211”然后php-fpm reload下，网站正常运行。查看下mc里面出现一大堆以sessionid为key的值截止目前慢日志不在出现 session_start()了阿里云的硬盘读写真的是那么水咩，之后再研究分析 …</p>
           <a href="https://ifunbox.top/slow_log_session_start/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -263,13 +240,7 @@ session.save_path = &#8220;tcp://127.0.0.1:11211&#8221;
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">安装tcpcopy的时候很顺利
-在安装intercept的时候
-敲./configure
-报错checking for pcap.h &#8230; not found
-网上貌似说的人不多
-这里记录下
-yum install libpcap-devel 即可解决</p>
+          <p class="pale">安装tcpcopy的时候很顺利在安装intercept的时候敲./configure报错checking for pcap.h … not found网上貌似说的人不多这里记录下yum install libpcap-devel 即可解决</p>
           <a href="https://ifunbox.top/tcpcopy/intercept_configure_checking_for_pcap.h_not_found" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -293,21 +264,13 @@ yum install libpcap-devel 即可解决</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"><div id="cnblogs_post_body">
-  <p>
-    <span style="font-size: 12pt;">最近参与的项目每日大概有300w的请求量，8核的服务器负载竟然最高可以跑到20，给跪了</span>
-  </p>
-  
-  <p>
-    <span style="font-size: 12pt;">查看TCP状态：netstat -n | awk &#8216;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#8217;</span><br /> <span style="font-size: 12pt;"> TIME_WAIT 有5000，ESTABLISHED有500左右</span>
-  </p>
-  
-  <p>
-    <span style="font-size: 12pt;">摸不着头脑，随意百度了下TIME_WAIT过多</span><br /> <span style="font-size: 12pt;"> 发现TIME_WAIT状态的socket一般需要等到2msl时间后，socket才会被回收，TIME_WAIT过多会影响服务器性能</span>
-  </p>
-  
-  <p>
-    <span style="font-size: 12pt;">解决TIME_WAIT过多的 …</span></p></div></p>
+          <p class="pale"><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
           <a href="https://ifunbox.top/optimize_linux_time_wait/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -331,15 +294,7 @@ yum install libpcap-devel 即可解决</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.安装nginx_concat_module
-存放模块的路径下
-svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module  前提要安装过svn
-
-然后下载nginx 我下的是1.6版的
-解压切换至解压目录
-./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install  2.配置nginx_concat_module
-打开需要配置网站的nginx vhost配置文件加入
-location /resource/ { …</p>
+          <p class="pale">1.安装nginx_concat_module存放模块的路径下svn checkout http://code.taobao.org/svn/nginx_concat_module/trunk nginx_concat_module 前提要安装过svn然后下载nginx 我下的是1.6版的解压切换至解压目录./configure --add-module=/刚才存放的路径/nginx_concat_module make &amp;&amp; make install 2.配置nginx_concat_module打开需要配置网站的nginx vhost配置文件加入location /resource/ { concat on; …</p>
           <a href="https://ifunbox.top/nginx_concat_module_combine_http/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -365,11 +320,10 @@ location /resource/ { …</p>
         <div>
           <p class="pale">最近做了一个项目，由于css,js优化不到位，导致首次打开页面特别的慢
 用火狐查看，大部分js，css大部分时间耗在阻挡上面。
-查了相关资料，这样解释阻挡(Blocking)：每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
+查了相关资料，这样解释**阻挡(Blocking)：**每个浏览器有并发连接数量的上限（例如Firefox对每个host限制6个连接），如果当前建立的连接数已经超过上限，那么其余该请求会被阻塞，等待新的可以用的连接。
 也就是多js，css太多了，那着手合并一下。
-先是找了淘宝的combo，其实就可以满足现在我的需求，但是无意间发现了pagespeed
-被其强大的功能所震惊了，而且是代码层面不需要任何修改
-功能介绍页http://ngxpagespeed.com/ngx_pagespeed_example/ …</p>
+先是找了淘宝的combo，其实就可以满足现在我的需求，但是无意间发现了pagespeed被其强大的功能所震惊了，而且是代码层面不需要任何修改
+功能介绍页http://ngxpagespeed.com/ngx_pagespeed_example/功能 …</p>
           <a href="https://ifunbox.top/google_pagespeed_website_optimizer/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -393,10 +347,7 @@ location /resource/ { …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
- Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
+          <p class="pale">1.安装mysqlslawget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西2.使用mysqlsla语法 Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
           <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -673,7 +624,7 @@ wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.ta
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -682,6 +633,7 @@ wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.ta
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>Tamper Data使用–WEB服务器调试/XSS攻击/sql注入利器 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -160,61 +160,36 @@
 </div>
 
     
-    
-
-<h1 id="span-style-font-size-medium-一-简介-span"><span style="font-size: medium;">一. 简介</span></h1>
-
-<p><span style="font-size: medium;">作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。</span></p>
-
-<p><span style="font-size: medium;">安装地址：<a title="tamper data安装主页" href="https://addons.mozilla.org/en-us/firefox/addon/tamper-data/" target="_blank"><a href="https://addons.mozilla.org/en-us/firefox/addon/tamper-data/">https://addons.mozilla.org/en-us/firefox/addon/tamper-data/</a></a></span></p>
-
-<h1 id="span-style-font-size-medium-二-使用-span"><span style="font-size: medium;">二. 使用</span></h1>
-
-<p><span style="font-size: medium;">点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗口，如下图所示：</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_1.png"><img class="alignnone size-large wp-image-1131" src="https://ifunbox.top/wp-content/uploads/2014/03/img758_1-600x427.png" alt="img758_1" width="600" height="427" /></a></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">可以看出，其主窗口主要分成三部分，分别如图中的 1，2，3 所示。当我们打开 Tamper Data 后，我们浏览网页时发出的每一个 HTTP 请求及其对应的响应都会被 Tamper Data 记录下来，上面的区域显示了浏览器的各个通信情况。类似Firefox下著名的抓包扩展Httpfox，这里详细记录了：“网址”、“所耗时间”、“页面大小”、“请求方式”、“状态”、“Content Type”等信息。</span></p>
-
-<p><span style="font-size: medium;">第 1 部分显示每一个 HTTP 请求及其对应的 HTTP 响应的概要信息，其中包括了大量有用的信息，比如页面元素大小，HTTP 请求的方法，HTTP 响应的状态值，等等。最 值得注意的是“Duration”和“Total Duration”这两个字段的值，他们显示出了打开每一个页面元素所花费的时间和打开该页面花费的总时间。根据这些时间值，就可以判断出打开我们页面的 速度如何，是哪些页面元素影响了整个页面打开的速度，从而为我们进一步优化页面提供宝贵的信息。当我们在第 1 部分选中某条概要信息后。</span></p>
-
-<p><span style="font-size: medium;">第 2 部分会显示出对应的 HTTP 请求的头部信息。</span></p>
-
-<p><span style="font-size: medium;">第 3 部分会显示出对应的 HTTP 响应的头部信息。</span></p>
-
-<p><span style="font-size: medium;">如果我们比较喜欢查看图型化的统计信息，那么可以在 Tamper Data 主窗口的第 1 部分单击右键，在弹出的菜单上点击“Graph All”，如下图所示，那么这些每个页面元素及其打开它们所花费的时间，就会以图形的方式，直观地显示出来。具体的图形，就不提供了。</span></p>
-
-<p><span style="font-size: medium;">和<strong>Httpfox</strong>等专业的抓包扩展相比，Tamper Data所展现的信息也仅仅算是合格，表现中规中矩。但是，术业有专攻，正如它的名字一样，它不同于Httpfox的“可远观而不可亵玩焉”，，Tamper Data的真正用途是窜改数据。</span></p>
-
-<p><span style="font-size: medium;">点击“Start Temper”按钮，这时浏览器所发送的任何请求，都会被拦截下来。例如，我们尝试在贴吧发个帖子。当按下“发表”按钮的时候，它会弹出一个对话框：</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_2.png"><img class="alignnone size-full wp-image-1132" src="https://ifunbox.top/wp-content/uploads/2014/03/img758_2.png" alt="img758_2" width="537" height="322" /></a></p>
-
-<p><span style="font-size: medium;">我们可以选择“Tamper”和“Submit”还有“Abort Request”。中间的按钮是让其通过，第三个按钮是终止请求，现在，我们点击第一个按钮“Tamper”。</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_3.png"><img class="alignnone size-full wp-image-1133" src="https://ifunbox.top/wp-content/uploads/2014/03/img758_3.png" alt="img758_3" width="580" height="360" /></a></p>
-
-<p><span style="font-size: medium;">这样，平时在用户角度，完全是黑盒的http header和post等信息展现了出来。左侧是http header信息，右侧我们可以看到即将要提交到贴吧服务器的post信息，比如title（帖子标题）、content（帖子内容）、 anonymous（是否匿名）等。这些属性值，都是可以编辑的。按下“确定”按钮，这些修改后的信息就会提交到目标服务器。</span></p>
-
-<p><span style="font-size: medium;">我们也可以分别在两侧的空白处，右击鼠标，添加header和post信息：</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_4.png"><img class="alignnone size-full wp-image-1134" src="https://ifunbox.top/wp-content/uploads/2014/03/img758_4.png" alt="img758_4" width="580" height="237" /></a></p>
-
-<p><span style="font-size: medium;">另外，Tamper Data也提供了一些日常的测试功能：</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_5.png"><img class="alignnone size-full wp-image-1135" src="https://ifunbox.top/wp-content/uploads/2014/03/img758_5.png" alt="img758_5" width="580" height="327" /></a></p>
-
-<p><span style="font-size: medium;">xss：一些常用的XSS（跨站脚本攻击）。</span><br />
-<span style="font-size: medium;">sql：一些SQL注入的语句。</span><br />
-<span style="font-size: medium;">data：一些特殊（非预期）的数据，扰乱程序正常的逻辑。</span><br />
-<span style="font-size: medium;">典型利用场所：</span><br />
-<span style="font-size: medium;">1.月份数据溢出，直接变0，实现支付绕过：<a href="http://jump.bdimg.com/safecheck/index?url=x+Z5mMbGPAu1LJqUU6N6bPwYE5jYY0erW1epcvOZjMY7GhpCdKJBjUxknEE90cwAbyvp0b8MgpD1R85+VaP8CTaw/1OULWjwvpGnYjYUiPHe1qaJg4yl3hREkK1Ch5PbRalMCSXeq56O5IB47Iv/ynY9qHh6BM0y" target="_blank"><a href="http://www.wooyun.org/bugs/wooyun-2012-05353">http://www.wooyun.org/bugs/wooyun-2012-05353</a></a> </span><br />
-<span style="font-size: medium;">2.逆向支付，给账户充值：<a href="http://jump.bdimg.com/safecheck/index?url=x+Z5mMbGPAu1LJqUU6N6bPwYE5jYY0erW1epcvOZjMY7GhpCdKJBjUxknEE90cwA6TN7lIXE7GwrRfjVeURO2zaw/1OULWjwvpGnYjYUiPHe1qaJg4yl3hREkK1Ch5PbRalMCSXeq56O5IB47Iv/ynY9qHh6BM0y" target="_blank"><a href="http://www.wooyun.org/bugs/wooyun-2012-06589">http://www.wooyun.org/bugs/wooyun-2012-06589</a></a></span><br />
-<span style="font-size: medium;">此外，还有常见的ua什么的。</span></p>
-
-<p><span style="font-size: medium;">一 言蔽之，Tamper Data 就是一个“窜改数据”的扩展。既提供了一些常见的抓包功能，也能窜改自己的Header与Post信息。麻雀虽小五脏俱全，与传统的Fiddler这些代 理服务器抓包程序不同，Tamper Data仅使用浏览器API完成这一切（弱点是对于服务端的某些post检验，Tamper Data往往会无能为力），但对于日常一些简单的Web调试，或许有意想不到的功效。</span></p>
+    <h1 id="span-stylefont-size-medium一-简介span"><!-- raw HTML omitted -->一. 简介<!-- raw HTML omitted --></h1>
+<p><!-- raw HTML omitted -->作为 Firefox 的插件， Tamper Data 简单易用，功能强大，可以用来查看和修改 HTTP/HTTPS 的头部和 POST 参数；可以用来跟踪 HTTP 请求和响应并记时；可以对 WEB 站点进行某些安全测试，从而为调试 WEB 配置带来了极大的便利，是网站维护人员不可多得的实用工具；当然也可以用来篡改请求数据，达到xss攻击、mysql注入的目的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->安装地址：<!-- raw HTML omitted --><a href="https://addons.mozilla.org/en-us/firefox/addon/tamper-data/">https://addons.mozilla.org/en-us/firefox/addon/tamper-data/</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="span-stylefont-size-medium二-使用span"><!-- raw HTML omitted -->二. 使用<!-- raw HTML omitted --></h1>
+<p><!-- raw HTML omitted -->点击 Firefox 菜单栏上“工具”菜单项里面的“Tamper Data”，就会弹出 Tamper Data 的主窗口，如下图所示：<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_1.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<p><!-- raw HTML omitted -->可以看出，其主窗口主要分成三部分，分别如图中的 1，2，3 所示。当我们打开 Tamper Data 后，我们浏览网页时发出的每一个 HTTP 请求及其对应的响应都会被 Tamper Data 记录下来，上面的区域显示了浏览器的各个通信情况。类似Firefox下著名的抓包扩展Httpfox，这里详细记录了：“网址”、“所耗时间”、“页面大小”、“请求方式”、“状态”、“Content Type”等信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->第 1 部分显示每一个 HTTP 请求及其对应的 HTTP 响应的概要信息，其中包括了大量有用的信息，比如页面元素大小，HTTP 请求的方法，HTTP 响应的状态值，等等。最 值得注意的是“Duration”和“Total Duration”这两个字段的值，他们显示出了打开每一个页面元素所花费的时间和打开该页面花费的总时间。根据这些时间值，就可以判断出打开我们页面的 速度如何，是哪些页面元素影响了整个页面打开的速度，从而为我们进一步优化页面提供宝贵的信息。当我们在第 1 部分选中某条概要信息后。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->第 2 部分会显示出对应的 HTTP 请求的头部信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->第 3 部分会显示出对应的 HTTP 响应的头部信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果我们比较喜欢查看图型化的统计信息，那么可以在 Tamper Data 主窗口的第 1 部分单击右键，在弹出的菜单上点击“Graph All”，如下图所示，那么这些每个页面元素及其打开它们所花费的时间，就会以图形的方式，直观地显示出来。具体的图形，就不提供了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->和<!-- raw HTML omitted -->Httpfox<!-- raw HTML omitted -->等专业的抓包扩展相比，Tamper Data所展现的信息也仅仅算是合格，表现中规中矩。但是，术业有专攻，正如它的名字一样，它不同于Httpfox的“可远观而不可亵玩焉”，，Tamper Data的真正用途是窜改数据。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->点击“Start Temper”按钮，这时浏览器所发送的任何请求，都会被拦截下来。例如，我们尝试在贴吧发个帖子。当按下“发表”按钮的时候，它会弹出一个对话框：<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_2.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->我们可以选择“Tamper”和“Submit”还有“Abort Request”。中间的按钮是让其通过，第三个按钮是终止请求，现在，我们点击第一个按钮“Tamper”。<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_3.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->这样，平时在用户角度，完全是黑盒的http header和post等信息展现了出来。左侧是http header信息，右侧我们可以看到即将要提交到贴吧服务器的post信息，比如title（帖子标题）、content（帖子内容）、 anonymous（是否匿名）等。这些属性值，都是可以编辑的。按下“确定”按钮，这些修改后的信息就会提交到目标服务器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我们也可以分别在两侧的空白处，右击鼠标，添加header和post信息：<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_4.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->另外，Tamper Data也提供了一些日常的测试功能：<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2014/03/img758_5.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->xss：一些常用的XSS（跨站脚本攻击）。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->sql：一些SQL注入的语句。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->data：一些特殊（非预期）的数据，扰乱程序正常的逻辑。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->典型利用场所：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1.月份数据溢出，直接变0，实现支付绕过：<!-- raw HTML omitted --><a href="http://www.wooyun.org/bugs/wooyun-2012-05353">http://www.wooyun.org/bugs/wooyun-2012-05353</a><!-- raw HTML omitted --> <!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2.逆向支付，给账户充值：<!-- raw HTML omitted --><a href="http://www.wooyun.org/bugs/wooyun-2012-06589">http://www.wooyun.org/bugs/wooyun-2012-06589</a><!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->此外，还有常见的ua什么的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一 言蔽之，Tamper Data 就是一个“窜改数据”的扩展。既提供了一些常见的抓包功能，也能窜改自己的Header与Post信息。麻雀虽小五脏俱全，与传统的Fiddler这些代 理服务器抓包程序不同，Tamper Data仅使用浏览器API完成这一切（弱点是对于服务端的某些post检验，Tamper Data往往会无能为力），但对于日常一些简单的Web调试，或许有意想不到的功效。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/tamper_data_xss_sql_injection" ></div>
@@ -497,7 +472,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -506,6 +481,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Funbox的技术记事本</title>
@@ -6,11 +6,7 @@
     <description>Recent content in PHP on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/tags/php/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Dec 2020 05:01:59 +0000</lastBuildDate><atom:link href="https://ifunbox.top/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Laravel缓存相关命令</title>
       <link>https://ifunbox.top/laravel-cache-cmd/</link>
@@ -18,20 +14,20 @@
       
       <guid>https://ifunbox.top/laravel-cache-cmd/</guid>
       <description>配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
-php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
-php artisan config:clear  此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
+php artisan config:cache 上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:clear 此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
 注意：配置信息缓存不会随着更新而自动重载，所以，开发时候建议关闭配置信息缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
 路由缓存 路由缓存可以有效的提高路由器的注册效率，在大型应用程序中效果越加明显，可以使用以下命令：
-php artisan route:cache  以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。
+php artisan route:cache 以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。
 可以使用下面命令清除路由缓存：
-php artisan route:clear  此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。
+php artisan route:clear 此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。
 注意：路由缓存不会随着更新而自动重载，所以，开发时候建议关闭路由缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
 类映射加载优化 optimize 命令把常用加载的类合并到一个文件里，通过减少文件的加载，来提高运行效率：
-php artisan optimize --force  会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。
+php artisan optimize --force 会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。
 你可以可以通过修改 config/compile.php 文件来添加要合并的类。
 在 production 环境中，参数 &amp;ndash;force 不需要指定，文件就会自动生成。
 要清除类映射加载优化，请运行以下命令：
-php artisan optimize:clear  注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.</description>
+php artisan optimize:clear 注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.</description>
     </item>
     
     <item>
@@ -50,13 +46,13 @@ brew install homebrew/php/php56-xdebug
 2.配置xdebug
 在/usr/local/etc/php/5.6/conf.d/ext-xdebug.ini
 [xdebug]
-zend_extension=&amp;#8221;/usr/local/opt/php56-xdebug/xdebug.so&amp;#8221;
+zend_extension=”/usr/local/opt/php56-xdebug/xdebug.so”
 xdebug.remote_enable=1
-xdebug.remote_host=&amp;#8221;127.0.0.1&amp;#8243;
+xdebug.remote_host=”127.0.0.1″
 xdebug.remote_port=9001
 xdebug.profiler_enable=1
-xdebug.profiler_output_dir=&amp;#8221;/Users/www/debug&amp;#8221;
-xdebug.idekey=&amp;#8221;PHPSTORM&amp;#8221;
+xdebug.profiler_output_dir=”/Users/www/debug”
+xdebug.idekey=”PHPSTORM”
 3.在phpstorm中配置xdebug
 上面都配置好后要在主菜单中，选择Run | Web Server Debug Validation.下图是验证成功的效果，但是没有那么顺利，报错Remote host is configured as “localhost” despite server host is probably not local，在stackoverflow有人说把xdebug.remote_host改成自己项目的域名就可以了，还真是不知道是为何。。。
 4.phpstorm配置一个PHP Web Application
@@ -77,24 +73,10 @@ http://stackoverflow.com/questions/36001918/phpstorm-xdebug-remote-host-is-confi
       <pubDate>Wed, 13 Apr 2016 07:03:59 +0000</pubDate>
       
       <guid>https://ifunbox.top/nginx_php-fpm_cross-site/</guid>
-      <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
-而nginx + php-fpm fastcgi的方式，就需要多费费心啦~
-首先php的版本必须大于等于php5.3.3。
-方法1 在nginx 配置 fastcgi_param参数
-在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：
-fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;;  意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。
-$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。
-/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。
-/proc/ 可以让php查看系统负载信息。
-本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。
-本方法，非常推荐使用，本人就是用这个方法！！
-方法2 在php.ini 中配置
-在php.ini的末尾加入：
-[HOST=www.funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ [PATH=/home/funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/  本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。
-方法3 网站根目录下增加 .user.ini 文件。
-在网站根目录下创建.user.ini 加入：
-open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。
-关于.user.ini文件的详细说明：http://php.net/manual/zh/configuration.file.per-user.php</description>
+      <description>apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。而nginx + php-fpm fastcgi的方式，就需要多费费心啦~首先php的版本必须大于等于php5.3.3。方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：fastcgi_param PHP_VALUE &amp;quot;open_basedir=$document_root:/tmp/:/proc/&amp;quot;; 意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。/proc/ 可以让php查看系统负载信息。本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。本方法，非常推荐使用，本人就是用这个方法！！方法2 在php.ini 中配置
+在php.ini的末尾加入：[HOST=www.funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ [PATH=/home/funboxpower.com] open_basedir=/home/funboxpower.com:/tmp/:/proc/ 本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。方法3 网站根目录下增加 .user.ini 文件。
+在网站根目录下创建.user.ini 加入：open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/ 这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.</description>
     </item>
     
     <item>
@@ -106,11 +88,9 @@ open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/  这种方式不需要�
       <description>一直是用php5.6在mac开发，公司有个项目用zend guard加密，必须用php5.4的版本
 用brew install homebrew/php/php54，提示冲突必须先brew unlink php56
 偶然发现php-version这个工具可以在mac下任意切换php各个版本
- 然后运行
- 安装完毕之后php-version，显示当前安装的全部php版本列表
-直接运行php-version php版本号，即可完成切换
-php -v 显示php版本已经变了，切换成功
-brew真心强大</description>
+然后运行
+安装完毕之后php-version，显示当前安装的全部php版本列表
+直接运行php-version php版本号，即可完成切换php -v 显示php版本已经变了，切换成功brew真心强大</description>
     </item>
     
   </channel>

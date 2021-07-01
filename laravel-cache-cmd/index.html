@@ -4,7 +4,7 @@
   <head>
 <title>Laravel缓存相关命令 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -16,7 +16,7 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
-php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:cache 上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
 php artisan …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
@@ -24,7 +24,7 @@ php artisan …">
 <meta property="og:url" content="https://ifunbox.top/laravel-cache-cmd/" />
 <meta property="og:title" content="Laravel缓存相关命令" />
 <meta property="og:description" content="配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
-php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:cache 上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
 php artisan …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
@@ -40,12 +40,12 @@ php artisan …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -168,82 +168,42 @@ php artisan …" />
 </div>
 
     
-    
-
-<h2 id="配置信息缓存">配置信息缓存</h2>
-
+    <h2 id="配置信息缓存">配置信息缓存</h2>
 <p>使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：</p>
-
 <pre><code>php artisan config:cache
-</code></pre>
-
-<p>上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：</p>
-
+</code></pre><p>上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：</p>
 <pre><code>php artisan config:clear
-</code></pre>
-
-<p>此命令做的事情就是把 bootstrap/cache/config.php 文件删除。</p>
-
+</code></pre><p>此命令做的事情就是把 bootstrap/cache/config.php 文件删除。</p>
 <p>注意：配置信息缓存不会随着更新而自动重载，所以，开发时候建议关闭配置信息缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。</p>
-
 <h2 id="路由缓存">路由缓存</h2>
-
 <p>路由缓存可以有效的提高路由器的注册效率，在大型应用程序中效果越加明显，可以使用以下命令：</p>
-
 <pre><code>php artisan route:cache
-</code></pre>
-
-<p>以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。</p>
-
+</code></pre><p>以上命令会生成 bootstrap/cache/routes.php 文件，需要注意的是，路由缓存不支持路由匿名函数编写逻辑，详见：文档 - 路由缓存。</p>
 <p>可以使用下面命令清除路由缓存：</p>
-
 <pre><code>php artisan route:clear
-</code></pre>
-
-<p>此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。</p>
-
+</code></pre><p>此命令做的事情就是把 bootstrap/cache/routes.php 文件删除。</p>
 <p>注意：路由缓存不会随着更新而自动重载，所以，开发时候建议关闭路由缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。</p>
-
 <h2 id="类映射加载优化">类映射加载优化</h2>
-
 <p>optimize 命令把常用加载的类合并到一个文件里，通过减少文件的加载，来提高运行效率：</p>
-
 <pre><code>php artisan optimize --force
-</code></pre>
-
-<p>会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。</p>
-
+</code></pre><p>会生成 bootstrap/cache/compiled.php 和 bootstrap/cache/services.json 两个文件。</p>
 <p>你可以可以通过修改 config/compile.php 文件来添加要合并的类。</p>
-
 <p>在 production 环境中，参数 &ndash;force 不需要指定，文件就会自动生成。</p>
-
 <p>要清除类映射加载优化，请运行以下命令：</p>
-
 <pre><code>php artisan optimize:clear
-</code></pre>
-
-<p>注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.php 文件的 providers 数组）来生成文件的。</p>
-
+</code></pre><p>注意：此命令要运行在 php artisan config:cache 后，因为 optimize 命令是根据配置信息（如：config/app.php 文件的 providers 数组）来生成文件的。</p>
 <h2 id="自动加载优化">自动加载优化</h2>
-
 <p>此命令不止针对于 Laravel 程序，适用于所有使用 composer 来构建的程序。此命令会把 PSR-0 和 PSR-4 转换为一个类映射表，来提高类的加载速度。</p>
-
 <pre><code>composer dumpautoload -o
-</code></pre>
-
-<p>注意：php artisan optimize &ndash;force 命令里已经做了这个操作。</p>
-
-<h2 id="php-artisan-optimize-clear">php artisan optimize:clear</h2>
-
+</code></pre><p>注意：php artisan optimize &ndash;force 命令里已经做了这个操作。</p>
+<h2 id="php-artisan-optimizeclear">php artisan optimize:clear</h2>
 <pre><code>=执行
 php artisan view:clear
 php artisan cache:clear
 php artisan route:clear
 php artisan config:clear
 php artisan clear-compiled
-</code></pre>
-
-<p>参考
+</code></pre><p>参考
 <a href="https://learnku.com/articles/2020/ten-laravel-5-program-optimization-techniques">https://learnku.com/articles/2020/ten-laravel-5-program-optimization-techniques</a></p>
 
     
@@ -527,7 +487,7 @@ php artisan clear-compiled
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -536,6 +496,7 @@ php artisan clear-compiled
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

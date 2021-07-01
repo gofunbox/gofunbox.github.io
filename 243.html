@@ -4,7 +4,7 @@
   <head>
 <title>PHP采集利器snoopy应用详解 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
-一、Snoopy的一些特点:
-1.抓取网页的内容 fetch
-2. …">
+<meta name="description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。一、Snoopy的一些特点:1.抓取网页的内容 fetch2.抓取网 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="PHP采集利器snoopy应用详解" />
 <meta property="og:url" content="https://ifunbox.top/243.html" />
 <meta property="og:title" content="PHP采集利器snoopy应用详解" />
-<meta property="og:description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
-一、Snoopy的一些特点:
-1.抓取网页的内容 fetch
-2. …" />
+<meta property="og:description" content="Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。一、Snoopy的一些特点:1.抓取网页的内容 fetch2.抓取网 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,91 +160,70 @@
 </div>
 
     
-    <p><span style="font-size: medium;"><strong>Snoopy</strong>是一个<strong>php类</strong>，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。</span></p>
-
-<p><span style="font-size: medium;">一、Snoopy的一些特点:</span></p>
-
-<p><span style="font-size: medium;">1.抓取网页的内容 fetch</span><br />
- <span style="font-size: medium;">2.抓取网页的文本内容 (去除HTML标签) fetchtext</span><br />
- <span style="font-size: medium;">3.抓取网页的链接，表单 fetchlinks fetchform</span><br />
- <span style="font-size: medium;">4.支持代理主机</span><br />
- <span style="font-size: medium;">5.支持基本的用户名/密码验证</span><br />
- <span style="font-size: medium;">6.支持设置user_agent, referer(来路), cookies和header content(头文件)</span><br />
- <span style="font-size: medium;">7.支持浏览器重定向，并能控制重定向深度</span><br />
- <span style="font-size: medium;">8.能把网页中的链接扩展成高质量的url(默认)</span><br />
- <span style="font-size: medium;">9.提交数据并且获取返回值</span><br />
- <span style="font-size: medium;">10.支持跟踪HTML框架</span><br />
- <span style="font-size: medium;">11.支持重定向的时候传递cookies，要求php4以上就可以了，由于本身是php一个类，无需扩支持，服务器不支持curl时候的最好选择。</span></p>
-
-<p><span style="font-size: medium;">二、类方法:</span></p>
-
-<p><span style="font-size: medium;">fetch($URI)</span><br />
- <span style="font-size: medium;">———–</span></p>
-
-<p><span style="font-size: medium;">这是为了抓取网页的内容而使用的方法。$URI参数是被抓取网页的URL地址。抓取的结果被存储在 $this-&gt;results 中。如果你正在抓取的是一个框架，Snoopy将会将每个框架追踪后存入数组中，然后存入 $this-&gt;results。</span></p>
-
-<p><span style="font-size: medium;">fetchtext($URI)</span><br />
- <span style="font-size: medium;">—————</span></p>
-
-<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中的文字内容。</span></p>
-
-<p><span style="font-size: medium;">fetchform($URI)</span><br />
- <span style="font-size: medium;">—————</span></p>
-
-<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中表单内容(form)。</span></p>
-
-<p><span style="font-size: medium;">fetchlinks($URI)</span><br />
- <span style="font-size: medium;">—————-</span></p>
-
-<p><span style="font-size: medium;">本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。</span><br />
- <span style="font-size: medium;">默认情况下，相对链接将自动补全，转换成完整的URL。</span></p>
-
-<p><span style="font-size: medium;">submit($URI,$formvars)</span><br />
- <span style="font-size: medium;">———————-</span></p>
-
-<p><span style="font-size: medium;">本方法向$URL指定的链接地址发送确认表单。$formvars是一个存储表单参数的数组。</span></p>
-
-<p><span style="font-size: medium;">submittext($URI,$formvars)</span><br />
- <span style="font-size: medium;">————————–</span></p>
-
-<p><span style="font-size: medium;">本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回登陆后网页中的文字内容。</span></p>
-
-<p><span style="font-size: medium;">submitlinks($URI)</span><br />
- <span style="font-size: medium;">—————-</span></p>
-
-<p><span style="font-size: medium;">本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。</span><br />
- <span style="font-size: medium;">默认情况下，相对链接将自动补全，转换成完整的URL。</span></p>
-
-<p><span style="font-size: medium;">三、类属性: (缺省值在括号里)</span></p>
-
-<p><span style="font-size: medium;">$host 连接的主机</span><br />
- <span style="font-size: medium;">$port 连接的端口</span><br />
- <span style="font-size: medium;">$proxy_host 使用的代理主机，如果有的话</span><br />
- <span style="font-size: medium;">$proxy_port 使用的代理主机端口，如果有的话</span><br />
- <span style="font-size: medium;">$agent 用户代理伪装 (Snoopy v0.1)</span><br />
- <span style="font-size: medium;">$referer 来路信息，如果有的话</span><br />
- <span style="font-size: medium;">$cookies cookies， 如果有的话</span><br />
- <span style="font-size: medium;">$rawheaders 其他的头信息, 如果有的话</span><br />
- <span style="font-size: medium;">$maxredirs 最大重定向次数， 0=不允许 (5)</span><br />
- <span style="font-size: medium;">$offsiteok whether or not to allow redirects off-site. (true)</span><br />
- <span style="font-size: medium;">$expandlinks 是否将链接都补全为完整地址 (true)</span><br />
- <span style="font-size: medium;">$user 认证用户名, 如果有的话</span><br />
- <span style="font-size: medium;">$pass 认证用户名, 如果有的话</span><br />
- <span style="font-size: medium;">$accept http 接受类型 (image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, <em>/</em>)</span><br />
- <span style="font-size: medium;">$error 哪里报错, 如果有的话</span><br />
- <span style="font-size: medium;">$response_code 从服务器返回的响应代码</span><br />
- <span style="font-size: medium;">$headers 从服务器返回的头信息</span><br />
- <span style="font-size: medium;">$maxlength 最长返回数据长度</span><br />
- <span style="font-size: medium;">$read_timeout 读取操作超时 (requires PHP 4 Beta 4+)</span><br />
- <span style="font-size: medium;">设置为0为没有超时</span><br />
- <span style="font-size: medium;">$timed_out 如果一次读取操作超时了，本属性返回 true (requires PHP 4 Beta 4+)</span><br />
- <span style="font-size: medium;">$maxframes 允许追踪的框架最大数量</span><br />
- <span style="font-size: medium;">$status 抓取的http的状态</span><br />
- <span style="font-size: medium;">$temp_dir 网页服务器能够写入的临时文件目录 (/tmp)</span><br />
- <span style="font-size: medium;">$curl_path cURL binary 的目录, 如果没有cURL binary就设置为 false</span></p>
-
-<p><span style="font-size: medium;">四、以下是demo</span></p>
-
+    <p><!-- raw HTML omitted --><!-- raw HTML omitted -->Snoopy<!-- raw HTML omitted -->是一个<!-- raw HTML omitted -->php类<!-- raw HTML omitted -->，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一、Snoopy的一些特点:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.抓取网页的内容 fetch<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2.抓取网页的文本内容 (去除HTML标签) fetchtext<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3.抓取网页的链接，表单 fetchlinks fetchform<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->4.支持代理主机<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->5.支持基本的用户名/密码验证<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->6.支持设置user_agent, referer(来路), cookies和header content(头文件)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->7.支持浏览器重定向，并能控制重定向深度<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->8.能把网页中的链接扩展成高质量的url(默认)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->9.提交数据并且获取返回值<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->10.支持跟踪HTML框架<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->11.支持重定向的时候传递cookies，要求php4以上就可以了，由于本身是php一个类，无需扩支持，服务器不支持curl时候的最好选择。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->二、类方法:<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->fetch($URI)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———–<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是为了抓取网页的内容而使用的方法。$URI参数是被抓取网页的URL地址。抓取的结果被存储在 $this-&gt;results 中。如果你正在抓取的是一个框架，Snoopy将会将每个框架追踪后存入数组中，然后存入 $this-&gt;results。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->fetchtext($URI)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中的文字内容。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->fetchform($URI)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中表单内容(form)。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->fetchlinks($URI)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————-<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法类似于fetch()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->默认情况下，相对链接将自动补全，转换成完整的URL。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->submit($URI,$formvars)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———————-<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法向$URL指定的链接地址发送确认表单。$formvars是一个存储表单参数的数组。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->submittext($URI,$formvars)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->————————–<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回登陆后网页中的文字内容。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->submitlinks($URI)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————-<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本方法类似于submit()，唯一不同的就是本方法会去除HTML标签和其他的无关数据，只返回网页中链接(link)。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->默认情况下，相对链接将自动补全，转换成完整的URL。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->三、类属性: (缺省值在括号里)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->$host 连接的主机<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$port 连接的端口<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$proxy_host 使用的代理主机，如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$proxy_port 使用的代理主机端口，如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$agent 用户代理伪装 (Snoopy v0.1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$referer 来路信息，如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$cookies cookies， 如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$rawheaders 其他的头信息, 如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$maxredirs 最大重定向次数， 0=不允许 (5)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$offsiteok whether or not to allow redirects off-site. (true)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$expandlinks 是否将链接都补全为完整地址 (true)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$user 认证用户名, 如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$pass 认证用户名, 如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$accept http 接受类型 (image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, <em>/</em>)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$error 哪里报错, 如果有的话<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$response_code 从服务器返回的响应代码<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$headers 从服务器返回的头信息<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$maxlength 最长返回数据长度<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$read_timeout 读取操作超时 (requires PHP 4 Beta 4+)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->设置为0为没有超时<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$timed_out 如果一次读取操作超时了，本属性返回 true (requires PHP 4 Beta 4+)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$maxframes 允许追踪的框架最大数量<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$status 抓取的http的状态<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$temp_dir 网页服务器能够写入的临时文件目录 (/tmp)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$curl_path cURL binary 的目录, 如果没有cURL binary就设置为 false<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->四、以下是demo<!-- raw HTML omitted --></p>
 <pre><code>include &quot;Snoopy.class.php&quot;;
 $snoopy = new Snoopy;
 
@@ -436,7 +409,6 @@ exit;
 }
 ?&gt;
 </code></pre>
-
     
       <div id="SOHUCS" sid="/243.html" ></div>
 <script type="text/javascript">
@@ -718,7 +690,7 @@ exit;
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -727,6 +699,7 @@ exit;
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>防御PHP木马攻击的技巧 PHP安全第一课 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,271 +162,213 @@
 </div>
 
     
-    <p>PHP本身再老版本有一些问题，比如在 php4.3.10和php5.0.3以前有一些比较严重的bug，所以推荐使用新版。另外，目前闹的轰轰烈烈的SQL Injection也是在PHP上有很多利用方式，所以要保证安全，PHP代码编写是一方面，PHP的配置更是非常关键。<br />
-我们php手手工安装的，php的默认配置文件在 /usr/local/apache2/conf/php.ini，我们最主要就是要配置php.ini中的内容，让我们执行php能够更安全。整个 PHP中的安全设置主要是为了防止phpshell和SQL Injection的攻击，一下我们慢慢探讨。我们先使用任何编辑工具打开/etc/local/apache2/conf/php.ini，如果你 是采用其他方式安装，配置文件可能不在该目录。<br />
+    <p>PHP本身再老版本有一些问题，比如在 php4.3.10和php5.0.3以前有一些比较严重的bug，所以推荐使用新版。另外，目前闹的轰轰烈烈的SQL Injection也是在PHP上有很多利用方式，所以要保证安全，PHP代码编写是一方面，PHP的配置更是非常关键。<br>
+我们php手手工安装的，php的默认配置文件在 /usr/local/apache2/conf/php.ini，我们最主要就是要配置php.ini中的内容，让我们执行php能够更安全。整个 PHP中的安全设置主要是为了防止phpshell和SQL Injection的攻击，一下我们慢慢探讨。我们先使用任何编辑工具打开/etc/local/apache2/conf/php.ini，如果你 是采用其他方式安装，配置文件可能不在该目录。<br>
 <strong>(1) 打开php的安全模式</strong></p>
-
-<p>php的安全模式是个非常重要的内嵌的安全机制，能够控制一些php中的函数，比如system()，<br />
-同时把很多文件操作函数进行了权限控制，也不允许对某些关键文件的文件，比如/etc/passwd，<br />
-但是默认的php.ini是没有打开安全模式的，我们把它打开：<br />
-safe_mode = on<br />
+<p>php的安全模式是个非常重要的内嵌的安全机制，能够控制一些php中的函数，比如system()，<br>
+同时把很多文件操作函数进行了权限控制，也不允许对某些关键文件的文件，比如/etc/passwd，<br>
+但是默认的php.ini是没有打开安全模式的，我们把它打开：<br>
+safe_mode = on<br>
 <strong>(2) 用户组安全</strong></p>
-
-<p>当safe_mode打开时，safe_mode_gid被关闭，那么php脚本能够对文件进行访问，而且相同<br />
-组的用户也能够对文件进行访问。<br />
+<p>当safe_mode打开时，safe_mode_gid被关闭，那么php脚本能够对文件进行访问，而且相同<br>
+组的用户也能够对文件进行访问。<br>
 建议设置为：</p>
-
 <p>safe_mode_gid = off</p>
-
-<p>如果不进行设置，可能我们无法对我们服务器网站目录下的文件进行操作了，比如我们需要<br />
-对文件进行操作的时候。<br />
+<p>如果不进行设置，可能我们无法对我们服务器网站目录下的文件进行操作了，比如我们需要<br>
+对文件进行操作的时候。<br>
 <strong>(3) 安全模式下执行程序主目录</strong></p>
-
 <p>如果安全模式打开了，但是却是要执行某些程序的时候，可以指定要执行程序的主目录：</p>
-
 <p>safe_mode_exec_dir = D:/usr/bin</p>
-
-<p>一般情况下是不需要执行什么程序的，所以推荐不要执行系统程序目录，可以指向一个目录，<br />
+<p>一般情况下是不需要执行什么程序的，所以推荐不要执行系统程序目录，可以指向一个目录，<br>
 然后把需要执行的程序拷贝过去，比如：</p>
-
 <p>safe_mode_exec_dir = D:/tmp/cmd</p>
-
 <p>但是，我更推荐不要执行任何程序，那么就可以指向我们网页目录：</p>
-
-<p>safe_mode_exec_dir = D:/usr/www<br />
+<p>safe_mode_exec_dir = D:/usr/www<br>
 <strong>(4) 安全模式下包含文件</strong></p>
-
 <p>如果要在安全模式下包含某些公共文件，那么就修改一下选项：</p>
-
 <p>safe_mode_include_dir = D:/usr/www/include/</p>
-
-<p>其实一般php脚本中包含文件都是在程序自己已经写好了，这个可以根据具体需要设置。<br />
+<p>其实一般php脚本中包含文件都是在程序自己已经写好了，这个可以根据具体需要设置。<br>
 <strong>(5) 控制php脚本能访问的目录</strong></p>
-
-<p>使用open_basedir选项能够控制PHP脚本只能访问指定的目录，这样能够避免PHP脚本访问<br />
+<p>使用open_basedir选项能够控制PHP脚本只能访问指定的目录，这样能够避免PHP脚本访问<br>
 不应该访问的文件，一定程度上限制了phpshell的危害，我们一般可以设置为只能访问网站目录：</p>
-
-<p>open_basedir = D:/usr/www<br />
+<p>open_basedir = D:/usr/www<br>
 <strong>(6) 关闭危险函数</strong></p>
-
-<p>如果打开了安全模式，那么函数禁止是可以不需要的，但是我们为了安全还是考虑进去。比如，<br />
-我们觉得不希望执行包括system()等在那的能够执行命令的php函数，或者能够查看php信息的<br />
+<p>如果打开了安全模式，那么函数禁止是可以不需要的，但是我们为了安全还是考虑进去。比如，<br>
+我们觉得不希望执行包括system()等在那的能够执行命令的php函数，或者能够查看php信息的<br>
 phpinfo()等函数，那么我们就可以禁止它们：</p>
-
 <p>disable_functions = system,passthru,exec,shell_exec,popen,phpinfo</p>
-
 <p>如果你要禁止任何文件和目录的操作，那么可以关闭很多文件操作</p>
-
 <p>disable_functions = chdir,chroot,dir,getcwd,opendir,readdir,scandir,fopen,unlink,delete,copy,mkdir, 　　rmdir,rename,file,file_get_contents,fputs,fwrite,chgrp,chmod,chown</p>
-
-<p>以上只是列了部分不叫常用的文件处理函数，你也可以把上面执行命令函数和这个函数结合，<br />
-就能够抵制大部分的phpshell了。<br />
+<p>以上只是列了部分不叫常用的文件处理函数，你也可以把上面执行命令函数和这个函数结合，<br>
+就能够抵制大部分的phpshell了。<br>
 <strong>(7) 关闭PHP版本信息在http头中的泄漏</strong></p>
-
 <p>我们为了防止黑客获取服务器中php版本的信息，可以关闭该信息斜路在http头中：</p>
-
 <p>expose_php = Off</p>
-
-<p>比如黑客在 telnet <a href="http://www.12345.com/" target="_blank"><span style="color: #2f5fa1;">www.12345.com</span></a> 80 的时候，那么将无法看到PHP的信息。<br />
+<p>比如黑客在 telnet <!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://www.12345.com">www.12345.com</a><!-- raw HTML omitted --><!-- raw HTML omitted --> 80 的时候，那么将无法看到PHP的信息。<br>
 <strong>(8) 关闭注册全局变量</strong></p>
-
-<p>在PHP中提交的变量，包括使用POST或者GET提交的变量，都将自动注册为全局变量，能够直接访问，<br />
-这是对服务器非常不安全的，所以我们不能让它注册为全局变量，就把注册全局变量选项关闭：<br />
-register_globals = Off<br />
-当然，如果这样设置了，那么获取对应变量的时候就要采用合理方式，比如获取GET提交的变量var，<br />
-那么就要用$_GET[&#8216;var&#8217;]来进行获取，这个php程序员要注意。<br />
+<p>在PHP中提交的变量，包括使用POST或者GET提交的变量，都将自动注册为全局变量，能够直接访问，<br>
+这是对服务器非常不安全的，所以我们不能让它注册为全局变量，就把注册全局变量选项关闭：<br>
+register_globals = Off<br>
+当然，如果这样设置了，那么获取对应变量的时候就要采用合理方式，比如获取GET提交的变量var，<br>
+那么就要用$_GET[‘var’]来进行获取，这个php程序员要注意。<br>
 <strong>(9) 打开magic_quotes_gpc来防止SQL注入</strong></p>
-
 <p>SQL注入是非常危险的问题，小则网站后台被入侵，重则整个服务器沦陷，</p>
-
 <p>所以一定要小心。php.ini中有一个设置：</p>
-
 <p>magic_quotes_gpc = Off</p>
-
-<p>这个默认是关闭的，如果它打开后将自动把用户提交对sql的查询进行转换，<br />
-比如把 &#8216; 转为 &amp;#8217;等，这对防止sql注射有重大作用。所以我们推荐设置为：</p>
-
-<p>magic_quotes_gpc = On<br />
+<p>这个默认是关闭的，如果它打开后将自动把用户提交对sql的查询进行转换，<br>
+比如把 ‘ 转为 &amp;#8217;等，这对防止sql注射有重大作用。所以我们推荐设置为：</p>
+<p>magic_quotes_gpc = On<br>
 <strong>(10) 错误信息控制</strong></p>
-
-<p>一般php在没有连接到数据库或者其他情况下会有提示错误，一般错误信息中会包含php脚本当<br />
+<p>一般php在没有连接到数据库或者其他情况下会有提示错误，一般错误信息中会包含php脚本当<br>
 前的路径信息或者查询的SQL语句等信息，这类信息提供给黑客后，是不安全的，所以一般服务器建议禁止错误提示：</p>
-
 <p>display_errors = Off</p>
-
 <p>如果你却是是要显示错误信息，一定要设置显示错误的级别，比如只显示警告以上的信息：</p>
-
 <p>error_reporting = E_WARNING &amp; E_ERROR</p>
-
-<p>当然，我还是建议关闭错误提示。<br />
+<p>当然，我还是建议关闭错误提示。<br>
 <strong>(11) 错误日志</strong></p>
-
 <p>建议在关闭display_errors后能够把错误信息记录下来，便于查找服务器运行的原因：</p>
-
 <p>log_errors = On</p>
-
 <p>同时也要设置错误日志存放的目录，建议根apache的日志存在一起：</p>
-
 <p>error_log = D:/usr/local/apache2/logs/php_error.log</p>
-
 <p>注意：给文件必须允许apache用户的和组具有写的权限。</p>
-
-<p>MYSQL的降权运行<br />
-新建立一个用户比如mysqlstart<br />
-net user mysqlstart fuckmicrosoft /add<br />
-net localgroup users mysqlstart /del<br />
-不属于任何组<br />
-如果MYSQL装在d:\mysql ，那么，给 mysqlstart 完全控制 的权限<br />
-然后在系统服务中设置，MYSQL的服务属性，在登录属性当中，选择此用户 mysqlstart 然后输入密码，确定。<br />
-重新启动 MYSQL服务，然后MYSQL就运行在低权限下了。<br />
-如果是在windos平台下搭建的apache我们还需要注意一点，apache默认运行是system权限，<br />
-这很恐怖，这让人感觉很不爽.那我们就给apache降降权限吧。<br />
-net user apache fuckmicrosoft /add<br />
-net localgroup users apache /del<br />
-ok.我们建立了一个不属于任何组的用户apche。<br />
-我们打开计算机管理器，选服务，点apache服务的属性，我们选择log on，选择this account，我们填入上面所建立的账户和密码，<br />
-重启apache服务，ok，apache运行在低权限下了。<br />
-实际上我们还可以通过设置各个文件夹的权限，来让apache用户只能执行我们想让它能干的事情，给每一个目录建立一个单独能读写的用户。<br />
+<p>MYSQL的降权运行<br>
+新建立一个用户比如mysqlstart<br>
+net user mysqlstart fuckmicrosoft /add<br>
+net localgroup users mysqlstart /del<br>
+不属于任何组<br>
+如果MYSQL装在d:\mysql ，那么，给 mysqlstart 完全控制 的权限<br>
+然后在系统服务中设置，MYSQL的服务属性，在登录属性当中，选择此用户 mysqlstart 然后输入密码，确定。<br>
+重新启动 MYSQL服务，然后MYSQL就运行在低权限下了。<br>
+如果是在windos平台下搭建的apache我们还需要注意一点，apache默认运行是system权限，<br>
+这很恐怖，这让人感觉很不爽.那我们就给apache降降权限吧。<br>
+net user apache fuckmicrosoft /add<br>
+net localgroup users apache /del<br>
+ok.我们建立了一个不属于任何组的用户apche。<br>
+我们打开计算机管理器，选服务，点apache服务的属性，我们选择log on，选择this account，我们填入上面所建立的账户和密码，<br>
+重启apache服务，ok，apache运行在低权限下了。<br>
+实际上我们还可以通过设置各个文件夹的权限，来让apache用户只能执行我们想让它能干的事情，给每一个目录建立一个单独能读写的用户。<br>
 这也是当前很多虚拟主机提供商的流行配置方法哦，不过这种方法用于防止这里就显的有点大材小用了。</p>
-
 <p>9、MSSQL安全设置</p>
-
 <p>sql2000安全很重要</p>
-
-<p>将有安全问题的SQL过程删除.比较全面.一切为了安全!<br />
-删除了调用shell，注册表，COM组件的破坏权限<br />
-use master<br />
-EXEC sp_dropextendedproc &#8216;xp_cmdshell&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OACreate&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OADestroy&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OAGetErrorInfo&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OAGetProperty&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OAMethod&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OASetProperty&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Sp_OAStop&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regaddmultistring&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regdeletekey&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regdeletevalue&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regenumvalues&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regread&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regremovemultistring&#8217;<br />
-EXEC sp_dropextendedproc &#8216;Xp_regwrite&#8217;<br />
-drop procedure sp_makewebtask<br />
-全部复制到&#8221;SQL查询分析器&#8221;<br />
-点击菜单上的&#8211;&#8220;查询&#8221;&#8211;&#8220;执行&#8221;，就会将有安全问题的SQL过程删除(以上是7i24的正版用户的技术支持)<br />
-更改默认SA空密码.数据库链接不要使用SA帐户.单数据库单独设使用帐户.只给public和db_owner权限.<br />
-数据库不要放在默认的位置.<br />
-SQL不要安装在PROGRAM FILE目录下面.<br />
+<p>将有安全问题的SQL过程删除.比较全面.一切为了安全!<br>
+删除了调用shell，注册表，COM组件的破坏权限<br>
+use master<br>
+EXEC sp_dropextendedproc ‘xp_cmdshell’<br>
+EXEC sp_dropextendedproc ‘Sp_OACreate’<br>
+EXEC sp_dropextendedproc ‘Sp_OADestroy’<br>
+EXEC sp_dropextendedproc ‘Sp_OAGetErrorInfo’<br>
+EXEC sp_dropextendedproc ‘Sp_OAGetProperty’<br>
+EXEC sp_dropextendedproc ‘Sp_OAMethod’<br>
+EXEC sp_dropextendedproc ‘Sp_OASetProperty’<br>
+EXEC sp_dropextendedproc ‘Sp_OAStop’<br>
+EXEC sp_dropextendedproc ‘Xp_regaddmultistring’<br>
+EXEC sp_dropextendedproc ‘Xp_regdeletekey’<br>
+EXEC sp_dropextendedproc ‘Xp_regdeletevalue’<br>
+EXEC sp_dropextendedproc ‘Xp_regenumvalues’<br>
+EXEC sp_dropextendedproc ‘Xp_regread’<br>
+EXEC sp_dropextendedproc ‘Xp_regremovemultistring’<br>
+EXEC sp_dropextendedproc ‘Xp_regwrite’<br>
+drop procedure sp_makewebtask<br>
+全部复制到”SQL查询分析器”<br>
+点击菜单上的–“查询”–“执行”，就会将有安全问题的SQL过程删除(以上是7i24的正版用户的技术支持)<br>
+更改默认SA空密码.数据库链接不要使用SA帐户.单数据库单独设使用帐户.只给public和db_owner权限.<br>
+数据库不要放在默认的位置.<br>
+SQL不要安装在PROGRAM FILE目录下面.<br>
 最近的SQL2000补丁是SP4</p>
-
 <p><strong>10、启用WINDOWS自带的防火墙</strong></p>
-
 <p>启用win防火墙</p>
-
 <p>桌面—&gt;网上邻居—&gt;（右键）属性—&gt;本地连接—&gt;（右键）属性—&gt;高级—&gt;</p>
-
 <p>（选中）Internet 连接防火墙—&gt;设置</p>
-
 <p>把服务器上面要用到的服务端口选中</p>
-
 <p>例如：一台WEB服务器，要提供WEB（80）、FTP（21）服务及远程桌面管理（3389）</p>
-
 <p>在“FTP 服务器”、“WEB服务器（HTTP）”、“远程桌面”、“安全WEB服务器”前面打上对号</p>
-
 <p>如果你要提供服务的端口不在里面，你也可以点击“添加”铵钮来添加，SMTP和POP3根据需要打开</p>
-
 <p>具体参数可以参照系统里面原有的参数。</p>
-
-<p>然后点击确定。注意：如果是远程管理这台服务器，请先确定远程管理的端口是否选中或添加。<br />
+<p>然后点击确定。注意：如果是远程管理这台服务器，请先确定远程管理的端口是否选中或添加。<br>
 一般需要打开的端口有：21、 25、 80、 110、 443、 3389、 等，根据需要开放需要的端口。</p>
-
 <p><strong>11、用户安全设置</strong></p>
-
 <p>用户安全设置</p>
-
-<p>用户安全设置<br />
-1、禁用Guest账号<br />
-在计算机管理的用户里面把Guest账号禁用。为了保险起见，最好给Guest加一个复杂的密码。你可以打开记事本，在里面输入一串包含特殊字符、数字、字母的长字符串，然后把它作为Guest用户的密码拷进去。<br />
-2、限制不必要的用户<br />
-去掉所有的Duplicate User用户、测试用户、共享用户等等。用户组策略设置相应权限，并且经常检查系统的用户，删除已经不再使用的用户。这些用户很多时候都是黑客们入侵系统的突破口。<br />
-3、创建两个管理员账号<br />
-创建一个一般权限用户用来收信以及处理一些日常事物，另一个拥有Administrators 权限的用户只在需要的时候使用。<br />
-4、把系统Administrator账号改名<br />
-大家都知道，Windows 2000 的Administrator用户是不能被停用的，这意味着别人可以一遍又一遍地尝试这个用户的密码。尽量把它伪装成普通用户，比如改成Guesycludx。<br />
-5、创建一个陷阱用户<br />
-什么是陷阱用户?即创建一个名为“Administrator”的本地用户，把它的权限设置成最低，什么事也干不了的那种，并且加上一个超过10位的超级复杂密码。这样可以让那些 Hacker们忙上一段时间，借此发现它们的入侵企图。<br />
-6、把共享文件的权限从Everyone组改成授权用户<br />
-任何时候都不要把共享文件的用户设置成“Everyone”组，包括打印共享，默认的属性就是“Everyone”组的，一定不要忘了改。<br />
-7、开启用户策略<br />
-使用用户策略，分别设置复位用户锁定计数器时间为20分钟，用户锁定时间为20分钟，用户锁定阈值为3次。<br />
-8、不让系统显示上次登录的用户名<br />
-默认情况下，登录对话框中会显示上次登录的用户名。这使得别人可以很容易地得到系统的一些用户名，进而做密码猜测。修改注册表可以不让对话框里显示上次登 录的用户名。方法为：打开注册表编辑器并找到注册表项“HKLMSoftwareMicrosoftWindows TCurrentVersionWinlogonDont-DisplayLastUserName”，把REG_SZ的键值改成1。<br />
-密码安全设置<br />
-1、使用安全密码<br />
-一些公司的管理员创建账号的时候往往用公司名、计算机名做用户名，然后又把这些用户的密码设置得太简单，比如“welcome”等等。因此，要注意密码的复杂性，还要记住经常改密码。<br />
-2、设置屏幕保护密码<br />
-这是一个很简单也很有必要的操作。设置屏幕保护密码也是防止内部人员破坏服务器的一个屏障。<br />
-3、开启密码策略<br />
-注意应用密码策略，如启用密码复杂性要求，设置密码长度最小值为6位 ，设置强制密码历史为5次，时间为42天。<br />
-4、考虑使用智能卡来代替密码<br />
+<p>用户安全设置<br>
+1、禁用Guest账号<br>
+在计算机管理的用户里面把Guest账号禁用。为了保险起见，最好给Guest加一个复杂的密码。你可以打开记事本，在里面输入一串包含特殊字符、数字、字母的长字符串，然后把它作为Guest用户的密码拷进去。<br>
+2、限制不必要的用户<br>
+去掉所有的Duplicate User用户、测试用户、共享用户等等。用户组策略设置相应权限，并且经常检查系统的用户，删除已经不再使用的用户。这些用户很多时候都是黑客们入侵系统的突破口。<br>
+3、创建两个管理员账号<br>
+创建一个一般权限用户用来收信以及处理一些日常事物，另一个拥有Administrators 权限的用户只在需要的时候使用。<br>
+4、把系统Administrator账号改名<br>
+大家都知道，Windows 2000 的Administrator用户是不能被停用的，这意味着别人可以一遍又一遍地尝试这个用户的密码。尽量把它伪装成普通用户，比如改成Guesycludx。<br>
+5、创建一个陷阱用户<br>
+什么是陷阱用户?即创建一个名为“Administrator”的本地用户，把它的权限设置成最低，什么事也干不了的那种，并且加上一个超过10位的超级复杂密码。这样可以让那些 Hacker们忙上一段时间，借此发现它们的入侵企图。<br>
+6、把共享文件的权限从Everyone组改成授权用户<br>
+任何时候都不要把共享文件的用户设置成“Everyone”组，包括打印共享，默认的属性就是“Everyone”组的，一定不要忘了改。<br>
+7、开启用户策略<br>
+使用用户策略，分别设置复位用户锁定计数器时间为20分钟，用户锁定时间为20分钟，用户锁定阈值为3次。<br>
+8、不让系统显示上次登录的用户名<br>
+默认情况下，登录对话框中会显示上次登录的用户名。这使得别人可以很容易地得到系统的一些用户名，进而做密码猜测。修改注册表可以不让对话框里显示上次登 录的用户名。方法为：打开注册表编辑器并找到注册表项“HKLMSoftwareMicrosoftWindows TCurrentVersionWinlogonDont-DisplayLastUserName”，把REG_SZ的键值改成1。<br>
+密码安全设置<br>
+1、使用安全密码<br>
+一些公司的管理员创建账号的时候往往用公司名、计算机名做用户名，然后又把这些用户的密码设置得太简单，比如“welcome”等等。因此，要注意密码的复杂性，还要记住经常改密码。<br>
+2、设置屏幕保护密码<br>
+这是一个很简单也很有必要的操作。设置屏幕保护密码也是防止内部人员破坏服务器的一个屏障。<br>
+3、开启密码策略<br>
+注意应用密码策略，如启用密码复杂性要求，设置密码长度最小值为6位 ，设置强制密码历史为5次，时间为42天。<br>
+4、考虑使用智能卡来代替密码<br>
 对于密码，总是使安全管理员进退两难，密码设置简单容易受到黑客的攻击，密码设置复杂又容易忘记。如果条件允许，用智能卡来代替复杂的密码是一个很好的解决方法。</p>
-
-<p><strong>12、</strong>Windows2003 下安装 WinWebMail 3.6.3.1 完全攻略手册</p>
-
-<p>这段时间论坛上有朋友提及无法在WINDOWS2003+IIS6下面建立WINWEBMAIL邮件,遇到不一些问题,特意将这篇旧文重新发一次给大家<br />
-1)查看硬盘:两块9.1G SCSI 硬盘(实容量8.46<em>2)<br />
-2)分区<br />
-系统分区X盘7.49G<br />
-WEB 分区X盘1.0G<br />
-邮件分区X盘8.46G（带１０００个１００Ｍ的邮箱足够了）<br />
-3)安装WINDOWS SERVER 2003<br />
-4)打基本补丁(防毒)．．．在这之前一定不要接网线！<br />
-5)在线打补丁<br />
-6)卸载或禁用微软的SMTP服务(Simple Mail Transpor Protocol)，否则会发生端口冲突<br />
-7)安装WinWebMail,然后重启服务器使WinWebMail完成安装.并注册.然后恢复WinWebMail数据.<br />
-8)安装Norton 8.0并按WinWebMail帮助内容设定,使Norton与WinWebMail联合起到邮件杀毒作用(将Norton更新到最新的病毒库)<br />
-8.1 启用Norton的实时防护功能<br />
-8.2 必须要设置对于宏病毒和非宏病毒的第1步操作都必须是删除被感染文件，并且必须关闭警告提示！！<br />
-8.3 必须要在查毒设置中排除掉安装目录下的 \mail 及其所有子目录，只针对WinWebMail安装文件夹下的 \temp 文件夹进行实时查毒。注意：如果没有 \temp 文件夹时，先手工创建此 \temp 文件夹，然后再进行此项设置。<br />
-9)将WinWebMail的DNS设置为win2k3中网络设置的DNS，切记，要想发的出去最好设置一个不同的备用DNS地址，对外发信的就全靠这些DNS地址了<br />
-10)给予安装 WinWebMail 的盘符以及父目录以 Internet 来宾帐户 (IUSR_</em>) 允许 [读取\运行\列出文件夹目录] 的权限.<br />
-WinWebMail的安装目录,INTERNET访问帐号完全控制<br />
-给予[超级用户/SYSTEM]在安装盘和目录中[完全控制]权限,重启IIS以保证设定生效.<br />
-11)防止外发垃圾邮件:<br />
-11.1 在服务器上点击右下角图标，然后在弹出菜单的“系统设置”&#8211;&gt;“收发规则”中选中“启用SMTP发信认证功能”项，有效的防范外发垃圾邮件。<br />
-11.2 在“系统设置”&#8211;&gt;“收发规则”中选中“只允许系统内用户对外发信”项。<br />
-11.3 在服务器上点击右下角图标，然后在弹出菜单的“系统设置”&#8211;&gt;“防护”页选中“启用外发垃圾邮件自动过滤功能”项，然后再启用其设置中的“允许自动调整”项。<br />
-11.4 “系统设置”&#8211;&gt;“收发规则”中设置“最大收件人数”&#8212;&#8211;&gt; 10.<br />
-11.5 “系统设置”&#8211;&gt;“防护”页选中“启用连接攻击保护功能”项，然后再设置“启用自动保护功能”.<br />
-11.6 用户级防付垃圾邮件，需登录WebMail，在“选项 | 防垃圾邮件”中进行设置。<br />
-12)打开IIS 6.0, 确认启用支持 asp 功能, 然后在默认站点下建一个虚拟目录(如: mail), 然后指向安装 WinWebMail 目录下的 \Web 子目录, 打开浏览器就可以按下面的地址访问webmail了:<br />
-<a href="http:///mail/" target="_blank">http:///mail/</a>什么? 嫌麻烦不想建? 那可要错过WinWebMail强大的webmail功能了, 3分钟的设置保证物超所值<br />
-13)Web基本设置:<br />
-13.1 确认“系统设置”&#8211;&gt;“资源使用设置”内没有选中“公开申请的是含域名帐号”<br />
-13.2 “系统设置”&#8211;&gt;“收发规则”中设置Helo为您域名的MX记录<br />
-13.3.解决SERVER 2003不能上传大附件的问题:<br />
-13.3.1 在服务里关闭 iis admin service 服务。<br />
-13.3.2 找到 windows\system32\inetsrv\ 下的 metabase.xml 文件。<br />
-13.3.3 用纯文本方式打开，找到 ASPMaxRequestEntityAllowed 把它修改为需要的值（可修改为10M即：10240000），默认为：204800，即：200K。<br />
-13.3.4 存盘，然后重启 iis admin service 服务。<br />
-13.4.解决SERVER 2003无法下载超过4M的附件的问题<br />
-13.4.1 先在服务里关闭 iis admin service 服务。<br />
-13.4.2 找到 windows\system32\inetsrv\ 下的 metabase.xml 文件。<br />
-13.4.3 用纯文本方式打开，找到 AspBufferingLimit 把它修改为需要的值（可修改为20M即：20480000）。<br />
-13.4.4 存盘，然后重启 iis admin service 服务。<br />
-13.5.解决大附件上传容易超时失败的问题.<br />
-在IIS中调大一些脚本超时时间，操作方法是： 在IIS的“站点或（虚拟目录）”的“主目录”下点击“配置”按钮，设置脚本超时间为：300秒（注意：不是Session超时时间）。<br />
-13.6.解决Windows 2003的IIS 6.0中，Web登录时经常出现&#8221;[超时，请重试]&#8221;的提示.<br />
-将WebMail所使用的应用程序池“属性&#8211;&gt;回收”中的“回收工作进程”以及&#8221;属性&#8211;&gt;性能&#8221;中的“在空闲此段时间后关闭工作进程”这两个选项前的勾号去掉，然后重启一下IIS即可解决.<br />
-13.7.解决通过WebMail写信时间较长后，按下发信按钮就会回到系统登录界面的问题.<br />
-适当增加会话时间（Session）为 60分钟。在IIS站点或虚拟目录属性的“主目录”下点击[配置&#8212;选项]，就可以进行设置了(SERVER 2003默认为20分钟).<br />
-13.8.安装后查看WinWebMail的安装目录下有没有 \temp 目录,如没有,手工建立一个.<br />
-14)做邮件收发及10M附件测试(内对外,内对内,外对内).<br />
-15)打开2003自带防火墙,并打开POP3.SMTP.WEB.远程桌面.充许此4项服务, OK, 如果想用IMAP4或SSL的SMTP.POP3.IMAP4也需要打开相应的端口.<br />
-16)再次做邮件收发测试(内对外,内对内,外对内).<br />
-17)改名、加强壮口令，并禁用GUEST帐号。<br />
-18)改名超级用户、建立假administrator、建立第二个超级用户。<br />
-都搞定了！忙了半天, 现在终于可以来享受一把 WinWebMail 的超强 webmail 功能了, let&#8217;s go!</p>
+<p>**12、**Windows2003 下安装 WinWebMail 3.6.3.1 完全攻略手册</p>
+<p>这段时间论坛上有朋友提及无法在WINDOWS2003+IIS6下面建立WINWEBMAIL邮件,遇到不一些问题,特意将这篇旧文重新发一次给大家<br>
+1)查看硬盘:两块9.1G SCSI 硬盘(实容量8.46*2)<br>
+2)分区<br>
+系统分区X盘7.49G<br>
+WEB 分区X盘1.0G<br>
+邮件分区X盘8.46G（带１０００个１００Ｍ的邮箱足够了）<br>
+3)安装WINDOWS SERVER 2003<br>
+4)打基本补丁(防毒)．．．在这之前一定不要接网线！<br>
+5)在线打补丁<br>
+6)卸载或禁用微软的SMTP服务(Simple Mail Transpor Protocol)，否则会发生端口冲突<br>
+7)安装WinWebMail,然后重启服务器使WinWebMail完成安装.并注册.然后恢复WinWebMail数据.<br>
+8)安装Norton 8.0并按WinWebMail帮助内容设定,使Norton与WinWebMail联合起到邮件杀毒作用(将Norton更新到最新的病毒库)<br>
+8.1 启用Norton的实时防护功能<br>
+8.2 必须要设置对于宏病毒和非宏病毒的第1步操作都必须是删除被感染文件，并且必须关闭警告提示！！<br>
+8.3 必须要在查毒设置中排除掉安装目录下的 \mail 及其所有子目录，只针对WinWebMail安装文件夹下的 \temp 文件夹进行实时查毒。注意：如果没有 \temp 文件夹时，先手工创建此 \temp 文件夹，然后再进行此项设置。<br>
+9)将WinWebMail的DNS设置为win2k3中网络设置的DNS，切记，要想发的出去最好设置一个不同的备用DNS地址，对外发信的就全靠这些DNS地址了<br>
+10)给予安装 WinWebMail 的盘符以及父目录以 Internet 来宾帐户 (IUSR_*) 允许 [读取\运行\列出文件夹目录] 的权限.<br>
+WinWebMail的安装目录,INTERNET访问帐号完全控制<br>
+给予[超级用户/SYSTEM]在安装盘和目录中[完全控制]权限,重启IIS以保证设定生效.<br>
+11)防止外发垃圾邮件:<br>
+11.1 在服务器上点击右下角图标，然后在弹出菜单的“系统设置”–&gt;“收发规则”中选中“启用SMTP发信认证功能”项，有效的防范外发垃圾邮件。<br>
+11.2 在“系统设置”–&gt;“收发规则”中选中“只允许系统内用户对外发信”项。<br>
+11.3 在服务器上点击右下角图标，然后在弹出菜单的“系统设置”–&gt;“防护”页选中“启用外发垃圾邮件自动过滤功能”项，然后再启用其设置中的“允许自动调整”项。<br>
+11.4 “系统设置”–&gt;“收发规则”中设置“最大收件人数”—–&gt; 10.<br>
+11.5 “系统设置”–&gt;“防护”页选中“启用连接攻击保护功能”项，然后再设置“启用自动保护功能”.<br>
+11.6 用户级防付垃圾邮件，需登录WebMail，在“选项 | 防垃圾邮件”中进行设置。<br>
+12)打开IIS 6.0, 确认启用支持 asp 功能, 然后在默认站点下建一个虚拟目录(如: mail), 然后指向安装 WinWebMail 目录下的 \Web 子目录, 打开浏览器就可以按下面的地址访问webmail了:<br>
+<!-- raw HTML omitted -->http:///mail/<!-- raw HTML omitted -->什么? 嫌麻烦不想建? 那可要错过WinWebMail强大的webmail功能了, 3分钟的设置保证物超所值<br>
+13)Web基本设置:<br>
+13.1 确认“系统设置”–&gt;“资源使用设置”内没有选中“公开申请的是含域名帐号”<br>
+13.2 “系统设置”–&gt;“收发规则”中设置Helo为您域名的MX记录<br>
+13.3.解决SERVER 2003不能上传大附件的问题:<br>
+13.3.1 在服务里关闭 iis admin service 服务。<br>
+13.3.2 找到 windows\system32\inetsrv\ 下的 metabase.xml 文件。<br>
+13.3.3 用纯文本方式打开，找到 ASPMaxRequestEntityAllowed 把它修改为需要的值（可修改为10M即：10240000），默认为：204800，即：200K。<br>
+13.3.4 存盘，然后重启 iis admin service 服务。<br>
+13.4.解决SERVER 2003无法下载超过4M的附件的问题<br>
+13.4.1 先在服务里关闭 iis admin service 服务。<br>
+13.4.2 找到 windows\system32\inetsrv\ 下的 metabase.xml 文件。<br>
+13.4.3 用纯文本方式打开，找到 AspBufferingLimit 把它修改为需要的值（可修改为20M即：20480000）。<br>
+13.4.4 存盘，然后重启 iis admin service 服务。<br>
+13.5.解决大附件上传容易超时失败的问题.<br>
+在IIS中调大一些脚本超时时间，操作方法是： 在IIS的“站点或（虚拟目录）”的“主目录”下点击“配置”按钮，设置脚本超时间为：300秒（注意：不是Session超时时间）。<br>
+13.6.解决Windows 2003的IIS 6.0中，Web登录时经常出现”[超时，请重试]”的提示.<br>
+将WebMail所使用的应用程序池“属性–&gt;回收”中的“回收工作进程”以及”属性–&gt;性能”中的“在空闲此段时间后关闭工作进程”这两个选项前的勾号去掉，然后重启一下IIS即可解决.<br>
+13.7.解决通过WebMail写信时间较长后，按下发信按钮就会回到系统登录界面的问题.<br>
+适当增加会话时间（Session）为 60分钟。在IIS站点或虚拟目录属性的“主目录”下点击[配置—选项]，就可以进行设置了(SERVER 2003默认为20分钟).<br>
+13.8.安装后查看WinWebMail的安装目录下有没有 \temp 目录,如没有,手工建立一个.<br>
+14)做邮件收发及10M附件测试(内对外,内对内,外对内).<br>
+15)打开2003自带防火墙,并打开POP3.SMTP.WEB.远程桌面.充许此4项服务, OK, 如果想用IMAP4或SSL的SMTP.POP3.IMAP4也需要打开相应的端口.<br>
+16)再次做邮件收发测试(内对外,内对内,外对内).<br>
+17)改名、加强壮口令，并禁用GUEST帐号。<br>
+18)改名超级用户、建立假administrator、建立第二个超级用户。<br>
+都搞定了！忙了半天, 现在终于可以来享受一把 WinWebMail 的超强 webmail 功能了, let’s go!</p>
 
     
       <div id="SOHUCS" sid="/410.html" ></div>
@@ -709,7 +651,7 @@ WinWebMail的安装目录,INTERNET访问帐号完全控制<br />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -718,6 +660,7 @@ WinWebMail的安装目录,INTERNET访问帐号完全控制<br />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

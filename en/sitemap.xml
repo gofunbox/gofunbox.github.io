@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/categories/wordpress/</loc>
+    <loc>https://ifunbox.top/tags/wordpress/</loc>
     <lastmod>2020-12-01T06:01:59+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ifunbox.top/tags/wordpress/</loc>
+    <loc>https://ifunbox.top/categories/wordpress/</loc>
     <lastmod>2020-12-01T06:01:59+00:00</lastmod>
   </url>
   
@@ -203,7 +203,7 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/security-https-and-mitm/</loc>
+    <loc>https://ifunbox.top/security-https-and-MITM/</loc>
     <lastmod>2017-08-16T03:15:35+00:00</lastmod>
   </url>
   
@@ -603,7 +603,7 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/php_anti-antivirus-/</loc>
+    <loc>https://ifunbox.top/php_anti-antivirus%20/</loc>
     <lastmod>2013-10-08T01:33:42+00:00</lastmod>
   </url>
   
@@ -698,7 +698,7 @@
   </url>
   
   <url>
-    <loc>https://ifunbox.top/php_ziparchive_not_found/</loc>
+    <loc>https://ifunbox.top/php_ZipArchive_not_found/</loc>
     <lastmod>2013-05-24T13:27:39+00:00</lastmod>
   </url>
   

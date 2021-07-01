@@ -4,7 +4,7 @@
   <head>
 <title>Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -75,10 +75,10 @@
       
         
 
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">主页 </a>
   </div>
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">真香链接 <img src='https://ifunbox.top/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -182,10 +182,10 @@
       <div class="excerpt_footer">
         <div>
           <p class="pale">配置信息缓存 使用以下 Artisan 自带命令，把 config 文件夹里所有配置信息合并到一个文件里，减少运行时文件的载入数量：
-php artisan config:cache  上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
-php artisan config:clear  此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
+php artisan config:cache 上面命令会生成文件 bootstrap/cache/config.php，可以使用以下命令来取消配置信息缓存：
+php artisan config:clear 此命令做的事情就是把 bootstrap/cache/config.php 文件删除。
 注意：配置信息缓存不会随着更新而自动重载，所以，开发时候建议关闭配置信息缓存，一般在生产环境中使用，可以配合 Envoy 任务运行器 一起使用。
-路由缓存 路由缓存可以有效的提高路由器的注册效率，在大型 …</p>
+路由缓存 路由缓存可以有效的提高路由器的注册效率，在大型应用 …</p>
           <a href="https://ifunbox.top/laravel-cache-cmd/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -212,7 +212,7 @@ php artisan config:clear  此命令做的事情就是把 bootstrap/cache/config.
       <div class="excerpt_footer">
         <div>
           <p class="pale">误删除几条数据 执行delete的恢复方法 用mysql自身自带的工具，提取出binlog日志进行分析
-mysqlbinlog --base64-output=decode-rows -v --start-datetime=&quot;2017-11-01 00:00:00&quot; --stop-datetime=&quot;2017-11-11 00:00:00&quot; --database=test mysql-bin.000012 &gt; aaa.sql  输出内容大致如下:
+mysqlbinlog --base64-output=decode-rows -v --start-datetime=&#34;2017-11-01 00:00:00&#34; --stop-datetime=&#34;2017-11-11 00:00:00&#34; --database=test mysql-bin.000012 &gt; aaa.sql 输出内容大致如下:
 #171008 12:35:19 server id 1 &lt;strong&gt;&lt;span …</p>
           <a href="https://ifunbox.top/mysql-data-recovery/" class="excerpt_more button">Read More</a>
         </div>
@@ -267,8 +267,7 @@ innodb_flush_log_at_trx_commit 简而言之，innodb_flush_log_at_trx_commit 参
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
-mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = 100; mysql&gt; unlock tables; Query OK, 0 rows affected (0.00 sec)   我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这 …</p>
+          <p class="pale">表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁  mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = 100; mysql&gt; unlock tables; Query OK, 0 rows affected (0.00 sec) 我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样 …</p>
           <a href="https://ifunbox.top/mysql-lock/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -348,7 +347,7 @@ Online方式：这是MySQL 5.6以上版本中提供的方式，也是今天我�
       <div class="excerpt_footer">
         <div>
           <p class="pale">这样配置可以禁止IP直接HTTP/HTTPS访问，也使未绑定的域名无法访问。
-#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; }  需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
+#http server { listen 80 default_server; server_name _; return 500; } #https server { listen 443 ssl default_server; server_name _; ssl_certificate /yourpath/ssl.crt; ssl_certificate_key /yourpath/ssl.key; return 500; } 需要配置秘钥 否则会到时全部ssl配置失效 不知道为啥
 yum install -y openssl openssl …</p>
           <a href="https://ifunbox.top/nginx-ban-ip-access-for-http-https/" class="excerpt_more button">Read More</a>
         </div>
@@ -405,8 +404,7 @@ yum install -y openssl openssl …</p>
       <div class="excerpt_footer">
         <div>
           <p class="pale">linux 添加开机启动项的三种方法。
- 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：
-#!/bin/sh # # This script will be executed *after* all the other init scripts. # You can put your own initialization stuff in here if you don't # want to do the full Sys V style init stuff. touch /var/lock/subsys/local /etc/init.d/mysqld start …</p>
+ 编辑文件 /etc/rc.local 输入命令：vim /etc/rc.local 将出现类似如下的文本片段：  ``` #!/bin/sh   This script will be executed after all the other init scripts. You can put your own initialization stuff in here if you don&rsquo;t want to do the full Sys V style init stuff. touch /var/lock/subsys/local /etc/init.d/mysqld …</p>
           <a href="https://ifunbox.top/linux-autostart-method/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -414,199 +412,34 @@ yum install -y openssl openssl …</p>
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item disabled">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
     <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -877,7 +710,7 @@ yum install -y openssl openssl …</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -886,6 +719,7 @@ yum install -y openssl openssl …</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>CentOS CLI命令行mailx发送邮件基本用法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -38,12 +38,12 @@ yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://n
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -165,8 +165,7 @@ yum remove mailx #卸载系统自带的旧版mailx 编译安装mailx： http://n
 
     
     <p>mailx安装，很简单！貌似我的系统自带的。</p>
-
-<pre><code class="language-yum">yum remove mailx #卸载系统自带的旧版mailx
+<pre><code class="language-yum" data-lang="yum">yum remove mailx #卸载系统自带的旧版mailx
 
 编译安装mailx：
 http://nchc.dl.sourceforge.net/project/heirloom/heirloom-mailx/12.4/mailx-12.4.tar.bz2
@@ -176,59 +175,39 @@ make #编译
 make install UCBINSTALL=/usr/bin/install #安装
 ln -s /usr/local/bin/mailx /bin/mail #创建mailx到mail的软连接
 ln -s /etc/nail.rc /etc/mail.rc #创建mailx配置文件软连接
-</code></pre>
-
-<p>我先介绍下系统的版本和mailx的版本</p>
-
-<pre><code class="language-[root@localhost">12.4 7/29/08
+</code></pre><p>我先介绍下系统的版本和mailx的版本</p>
+<pre><code class="language-[root@localhost" data-lang="[root@localhost">12.4 7/29/08
 [root@localhost ~]# cat /etc/issue
 CentOS release 6.8 (Final)
 Kernel \r on an \m
-</code></pre>
-
-<p>mailx的配置文件在/etc/mail.rc<br />
+</code></pre><p>mailx的配置文件在/etc/mail.rc<br>
 在配置文件中添加下面的代码（passwd写开通smtp客户端给的授权码）</p>
-
-<pre><code class="language-set">set smtp=smtp.qq.com
+<pre><code class="language-set" data-lang="set">set smtp=smtp.qq.com
 set smtp-auth-user=111******53@qq.com
 set smtp-auth-password=euia********chb   #授权码
 set smtp-auth=login
-</code></pre>
-
-<p>直接报错了(没有使用ssl的节奏)</p>
-
-<pre><code class="language-530">smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
+</code></pre><p>直接报错了(没有使用ssl的节奏)</p>
+<pre><code class="language-530" data-lang="530">smtp-server: 530 Error: A secure connection is requiered(such as ssl). More information at http://service.mail.qq.com/cgi-bin/help?id=28
 &quot;/root/dead.letter&quot; 19/438
 . . . message not sent
-</code></pre>
-
-<p>改成</p>
-
-<pre><code class="language-set">set smtp=smtp.qq.com
+</code></pre><p>改成</p>
+<pre><code class="language-set" data-lang="set">set smtp=smtp.qq.com
 set smtp-auth-user=111******53@qq.com
 set smtp-auth-password=euia********chb   #授权码
 set smtp-auth=login
 set smtp-use-starttls
 set ssl-verify=ignore
 set nss-config-dir=/root/.certs
-</code></pre>
-
-<p>又报错Error in certificate: Peer&#8217;s certificate issuer is not recognized.</p>
-
+</code></pre><p>又报错Error in certificate: Peer’s certificate issuer is not recognized.</p>
 <p>证书问题，解决方法</p>
-
-<pre><code class="language-mkdir">echo -n | openssl s_client -connect smtp.qq.com:465 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' &amp;gt; ~/.certs/qq.crt
+<pre><code class="language-mkdir" data-lang="mkdir">echo -n | openssl s_client -connect smtp.qq.com:465 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' &amp;gt; ~/.certs/qq.crt
 certutil -A -n &quot;GeoTrust SSL CA&quot; -t &quot;C,,&quot; -d ~/.certs -i ~/.certs/qq.crt
 certutil -A -n &quot;GeoTrust Global CA&quot; -t &quot;C,,&quot; -d ~/.certs -i ~/.certs/qq.crt
 certutil -L -d /root/.certs
 certutil -A -n &quot;GeoTrust SSL CA - G3&quot; -t &quot;Pu,Pu,Pu&quot;  -d ./ -i qq.crt
-</code></pre>
-
-<p>有些邮箱无法通过上述方式获取证书，我们可以在装有火狐浏览器的服务器中把证书拷贝过来</p>
-
+</code></pre><p>有些邮箱无法通过上述方式获取证书，我们可以在装有火狐浏览器的服务器中把证书拷贝过来</p>
 <p>一些常用的命令</p>
-
-<pre><code class="language-#查看到邮件发送队列，里边会列出有几个邮件等待发送">mailq
+<pre><code class="language-#查看到邮件发送队列，里边会列出有几个邮件等待发送" data-lang="#查看到邮件发送队列，里边会列出有几个邮件等待发送">mailq
 
 #邮件队列的文件都保存在 /var/spool/mqueue/ 文件夹内，查看此文件夹时，可以看到邮件队列内的邮件:
 [root@CHINFO3 mqueue]# pwd
@@ -244,9 +223,7 @@ dftB117J4b006323  dftB21TicN013397  qftB111d4Q031164  qftB213omV012806  qftB36Bq
 /var/spool/mqueue is empty
         Total requests: 0
 [root@CHINFO3 mqueue]#
-</code></pre>
-
-<p>参考<br />
+</code></pre><p>参考<br>
 <a href="http://irow10.blog.51cto.com/2425361/1812638">http://irow10.blog.51cto.com/2425361/1812638</a></p>
 
     
@@ -530,7 +507,7 @@ dftB117J4b006323  dftB21TicN013397  qftB111d4Q031164  qftB213omV012806  qftB36Bq
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -539,6 +516,7 @@ dftB117J4b006323  dftB21TicN013397  qftB111d4Q031164  qftB213omV012806  qftB36Bq
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

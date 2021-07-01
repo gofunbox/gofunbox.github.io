@@ -4,7 +4,7 @@
   <head>
 <title>shopex短信无法发送问题解决方案总结 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。
-咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。
-1.备份shopex数据库，文件。这个是必须的啦。
-2.进入数据库删除数据表sdb_settings下 …">
+<meta name="description" content="最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。1.备份shopex数据库，文件。这个是必须的啦。2.进入数据库删除数据表sdb_settings下的s_name …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="shopex短信无法发送问题解决方案总结" />
 <meta property="og:url" content="https://ifunbox.top/421.html" />
 <meta property="og:title" content="shopex短信无法发送问题解决方案总结" />
-<meta property="og:description" content="最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。
-咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。
-1.备份shopex数据库，文件。这个是必须的啦。
-2.进入数据库删除数据表sdb_settings下 …" />
+<meta property="og:description" content="最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。咨询了下shopex短信客服，现在记录下自己解决shopex短信无法发送的终极方案。1.备份shopex数据库，文件。这个是必须的啦。2.进入数据库删除数据表sdb_settings下的s_name …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,21 +160,14 @@
 </div>
 
     
-    <p><span style="font-size: large;">最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。</span></p>
-
-<p><span style="font-size: large;">咨询了下shopex短信客服，现在记录下自己<strong>解决shopex短信无法发送的终极方案</strong>。</span></p>
-
-<p><span style="font-size: large;">1.备份shopex数据库，文件。这个是必须的啦。</span></p>
-
-<p><span style="font-size: large;">2.进入数据库删除数据表sdb_settings下的s_name字段值为enterprise的记录</span></p>
-
-<p><span style="font-size: large;">3.上传最新的core，然后上传最新的shopex短信通安装包。</span></p>
-
-<p><span style="font-size: large;">4.重新安装shopex短信通功能，如果您的后台改了地址，需要改成shopadmin。</span></p>
-
-<p><span style="font-size: large;">5.在配置文件中禁掉二次开发的目录，然后登陆后台，系统会提示输入shopexid以及密码重新安装shopex短信通功能。安装成功后，一般shopex短信无法发送的问题立即解决。</span></p>
-
-<p><span style="font-size: large;">我还发现一个问题，这个操作后，之前系统因为安装shopex短信通功能而导致一直提示证书错误的问题也解决了~</span></p>
+    <p><!-- raw HTML omitted -->最近网站又发现shopex短信无法发送的问题，很苦恼先是重新上传了core文件，又上传短信sms安装包文件覆盖，问题依旧。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->咨询了下shopex短信客服，现在记录下自己<!-- raw HTML omitted -->解决shopex短信无法发送的终极方案<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.备份shopex数据库，文件。这个是必须的啦。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2.进入数据库删除数据表sdb_settings下的s_name字段值为enterprise的记录<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.上传最新的core，然后上传最新的shopex短信通安装包。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4.重新安装shopex短信通功能，如果您的后台改了地址，需要改成shopadmin。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5.在配置文件中禁掉二次开发的目录，然后登陆后台，系统会提示输入shopexid以及密码重新安装shopex短信通功能。安装成功后，一般shopex短信无法发送的问题立即解决。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我还发现一个问题，这个操作后，之前系统因为安装shopex短信通功能而导致一直提示证书错误的问题也解决了~<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/421.html" ></div>
@@ -463,7 +450,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -472,6 +459,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

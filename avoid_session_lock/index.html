@@ -4,7 +4,7 @@
   <head>
 <title>避免SESSION锁阻塞请求 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
-问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。 …">
+<meta name="description" content="这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。翻到了这两篇文 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="避免SESSION锁阻塞请求" />
 <meta property="og:url" content="https://ifunbox.top/avoid_session_lock/" />
 <meta property="og:title" content="避免SESSION锁阻塞请求" />
-<meta property="og:description" content="这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。
-问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。 …" />
+<meta property="og:description" content="这篇文章是对我上一篇文章的深入研究php-fpm-slow.log慢日志频繁出现session_start()，也是对阻挡的效果的体会。问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。翻到了这两篇文 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,22 +160,15 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">这篇文章是对我上一篇文章的深入研究<a title="php-fpm-slow.log慢日志频繁出现session_start()" href="https://ifunbox.top/967.html" target="_blank">php-fpm-slow.log慢日志频繁出现session_start()</a>，也是对<a title="阻挡的深入研究" href="https://ifunbox.top/911.html" target="_blank">阻挡</a>的效果的体会。</span></p>
-
-<p><span style="font-size: 12pt;">问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。</span></p>
-
-<p><span style="font-size: 12pt;">翻到了这两篇文章</span><br />
- <span style="font-size: 12pt;"><a href="http://konrness.com/php5/how-to-prevent-blocking-php-requests/">http://konrness.com/php5/how-to-prevent-blocking-php-requests/</a></span><br />
- <span style="font-size: 12pt;"><a href="http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/">http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/</a></span></p>
-
-<p><span style="font-size: 12pt;">介绍了什么是session lock，怎么工作，为什么需要，如何避免阻塞。</span></p>
-
-<p><span style="font-size: 12pt;">决定自己动手体验下。</span></p>
-
-<p><span style="font-size: 12pt;">准备两段测试代码。</span></p>
-
-<p><span style="font-size: 12pt;">test.html</span></p>
-
+    <p><!-- raw HTML omitted -->这篇文章是对我上一篇文章的深入研究<!-- raw HTML omitted -->php-fpm-slow.log慢日志频繁出现session_start()<!-- raw HTML omitted -->，也是对<!-- raw HTML omitted -->阻挡<!-- raw HTML omitted -->的效果的体会。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->问题的开始是fpm-slow-log出现很多session_start()，单纯的认为是硬盘读写问题是错误的，只怪当时太年轻。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->翻到了这两篇文章<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><a href="http://konrness.com/php5/how-to-prevent-blocking-php-requests/">http://konrness.com/php5/how-to-prevent-blocking-php-requests/</a><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><a href="http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/">http://www.leaseweblabs.com/2014/08/session-locking-non-blocking-read-sessions-php/</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->介绍了什么是session lock，怎么工作，为什么需要，如何避免阻塞。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->决定自己动手体验下。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->准备两段测试代码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->test.html<!-- raw HTML omitted --></p>
 <pre><code>&lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=1&quot;&gt;
 &lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=2&quot;&gt;
 &lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=3&quot;&gt;
@@ -188,10 +179,7 @@
 &lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=8&quot;&gt;
 &lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=9&quot;&gt;
 &lt;img src=&quot;https://ifunbox.top/demo/session_start_test/test.php?v=10&quot;&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">test.php</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->test.php<!-- raw HTML omitted --></p>
 <pre><code>&lt;?php
 	session_start();
 	$_SESSION['latestRequestTime'] = time();
@@ -200,33 +188,20 @@
 	$twitterId = $_SESSION['latestRequestTime'];
 	echo json_encode($twitterId);
 ?&gt;
-</code></pre>
-
-<p><span style="font-size: 12pt;">1.我们先在火狐上访问test.html，里面有10个php请求到test.php。</span><br />
- <span style="font-size: 12pt;">效果如下图，因为火狐默认6个并发连接，所以前6个请求是木有阻隔的，但是由于session lock的原因，每个请求时间都比上一个晚2S，必须等上一个请求释放session lock。第7个请求就被阻隔了2S，因为要等第一个请求被释放嘛，O(∩_∩)O~</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb2.png"><img class="alignnone size-large wp-image-1111" src="https://ifunbox.top/wp-content/uploads/2015/02/psb2-600x274.png" alt="psb2" width="600" height="274" /></a></p>
-
-<p><span style="font-size: 12pt;">2.然后去除test.php中session_write_close();前面的注释</span><br />
- <span style="font-size: 12pt;">再用火狐上访问test.html，效果如下图。发现前面6个请求，不需要等待上一个请求结束，已经并行了，是因为session_write_close()释放了session lock的原因。</span></p>
-
-<p><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb3.png"><img class="alignnone size-large wp-image-1112" src="https://ifunbox.top/wp-content/uploads/2015/02/psb3-600x294.png" alt="psb3" width="600" height="294" /></a></p>
-
-<p><span style="font-size: 12pt;">3.我们下载火狐附加组件Tweak network修改并行连接数为10，</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb4.png"><img class="alignnone size-large wp-image-1113" src="https://ifunbox.top/wp-content/uploads/2015/02/psb4-600x502.png" alt="psb4" width="600" height="502" /></a></span></p>
-
-<p><span style="font-size: 12pt;">然后注释掉之前去除注释的代码访问test.html。效果如下。阻隔条消失，所以网络上有一些浏览器优化配置其实就是调大的并发连接数来加速网页js，php，图片的加载。</span></p>
-
-<p><span style="font-size: 12pt;"><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb1.png"><img class="alignnone size-large wp-image-1110" src="https://ifunbox.top/wp-content/uploads/2015/02/psb1-600x270.png" alt="psb1" width="600" height="270" /></a></span></p>
-
-<p><span style="font-size: 12pt;">到这里对session lock阻塞就大致明白了。</span></p>
-
-<p><span style="font-size: 12pt;">回过头解决问题了，我回想了自己项目的应用场景好多ajax加载界面甚至有ajax定时刷新，难道这个是罪魁祸首！</span></p>
-
-<p><span style="font-size: 12pt;">于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。<br /> </span></p>
-
-<p><span style="font-size: 12pt;">优化了下全部请求下来总时长快了1S，我tm惊呆了~</span></p>
+</code></pre><p><!-- raw HTML omitted -->1.我们先在火狐上访问test.html，里面有10个php请求到test.php。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->效果如下图，因为火狐默认6个并发连接，所以前6个请求是木有阻隔的，但是由于session lock的原因，每个请求时间都比上一个晚2S，必须等上一个请求释放session lock。第7个请求就被阻隔了2S，因为要等第一个请求被释放嘛，O(∩_∩)O~<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb2.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->2.然后去除test.php中session_write_close();前面的注释<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->再用火狐上访问test.html，效果如下图。发现前面6个请求，不需要等待上一个请求结束，已经并行了，是因为session_write_close()释放了session lock的原因。<!-- raw HTML omitted --></p>
+<p><a href="https://ifunbox.top/wp-content/uploads/2015/02/psb3.png"><!-- raw HTML omitted --></a></p>
+<p><!-- raw HTML omitted -->3.我们下载火狐附加组件Tweak network修改并行连接数为10，<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->然后注释掉之前去除注释的代码访问test.html。效果如下。阻隔条消失，所以网络上有一些浏览器优化配置其实就是调大的并发连接数来加速网页js，php，图片的加载。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->到这里对session lock阻塞就大致明白了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->回过头解决问题了，我回想了自己项目的应用场景好多ajax加载界面甚至有ajax定时刷新，难道这个是罪魁祸首！<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->于是乎就把涉及到的ajax接口不需要用session的就不session_start()，不需要写入session的就在session_start()后直接加入session_write_close()，需要写入session的，写入session后加入session_write_close()。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->优化了下全部请求下来总时长快了1S，我tm惊呆了~<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/avoid_session_lock" ></div>
@@ -509,7 +484,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -518,6 +493,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

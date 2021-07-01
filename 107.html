@@ -4,7 +4,7 @@
   <head>
 <title>定时备份远程mysql数据库到本地的方法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,25 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。
-&nbsp;
-前提 ：本地机器上装有mysql服务。
-假设本地机器上mysql服务目录 d:/mysql
-假设远程数据库地址：111.0.0.111
-假设远程数据库名称：testdata
-假设远 …">
+<meta name="description" content="通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。 前提：本地机器上装有mysql服务。假设本地机器上mysql服务目录 d:/mysql假设远程数据库地址：111.0.0.111假设远程数据库名称：testdata假设远程数据库用户 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="定时备份远程mysql数据库到本地的方法" />
 <meta property="og:url" content="https://ifunbox.top/107.html" />
 <meta property="og:title" content="定时备份远程mysql数据库到本地的方法" />
-<meta property="og:description" content="通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。
-&nbsp;
-前提 ：本地机器上装有mysql服务。
-假设本地机器上mysql服务目录 d:/mysql
-假设远程数据库地址：111.0.0.111
-假设远程数据库名称：testdata
-假设远 …" />
+<meta property="og:description" content="通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。 前提：本地机器上装有mysql服务。假设本地机器上mysql服务目录 d:/mysql假设远程数据库地址：111.0.0.111假设远程数据库名称：testdata假设远程数据库用户 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -48,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -172,57 +160,28 @@
 </div>
 
     
-    <p><span style="font-size: medium;">通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;"><strong>前提</strong> ：本地机器上装有mysql服务。</span></p>
-
-<p><span style="font-size: medium;">假设本地机器上mysql服务目录  d:/mysql</span></p>
-
-<p><span style="font-size: medium;">假设远程数据库地址：111.0.0.111</span></p>
-
-<p><span style="font-size: medium;">假设远程数据库名称：testdata</span></p>
-
-<p><span style="font-size: medium;">假设远程数据库用户名：admin</span></p>
-
-<p><span style="font-size: medium;">假设远程数据库密码：123456</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">1、新建一个记事本文件，路径为d:/backup/backup.txt，编辑该文件，内容如下</span></p>
-
-<div>
-  <span style="font-size: medium;">title %1服务器mysql数据库备份 </span><br /> <span style="font-size: medium;">IF NOT EXIST %5 md %5 </span><br /> <span style="font-size: medium;">IF NOT EXIST %5\%1 md %5\%1</span><br /> <span style="font-size: medium;">IF NOT EXIST %5\%1\%4 md %5\%1\%4 </span><br /> <span style="font-size: medium;">@%6/mysqldump -h%1 -u%2 -p%3 &#8211;opt %4 > %5/%1/%4/%4_%date:~0,4%%date:~5,2%%date:~8,2%.sql</span><br /> <span style="font-size: medium;">@echo %1服务器%4数据库备份成功 </span>
-</div>
-
-<div>
-  <span style="font-size: medium;">更改文件名称为backup.bat</span>
-</div>
-
-<div>
-  <span style="font-size: medium;">存放备份数据的路径为d:/backup/数据库服务器地址/数据库名/备份时间.sql</span>
-</div>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">2、运行 ：开始&gt; 程序 &gt; 附件 &gt; 系统工具 &gt; 任务计划，在弹出的窗口中选择 添加计划任务，浏览选择d:/backup/backup.bat文件，然后设置高级属性。</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">3、运行框内容 </span></p>
-
-<div>
-  <span style="font-size: medium;">d:/backup/backup.bat 222.0.0.222 admin 123456 testdata d:/backup  d:/mysql/bin</span>
-</div>
-
-<p><span style="font-size: medium;">其中222.0.0.222表示地址，admin表示用户名，123456表示密码 ，testdata表示数据库名称，d:/backup表示备份存放 目录，d:/mysql/bin表示本地mysql服务器的bin目录</span></p>
-
-<p><span style="font-size: medium;">然后还可以设置每天运行的时间等等。</span></p>
-
-<p><span style="font-size: small;"><a href="https://ifunbox.top/wp-content/uploads/2011/10/img107_1.jpg"><img class="alignnone size-full wp-image-1205" src="https://ifunbox.top/wp-content/uploads/2011/10/img107_1.jpg" alt="img107_1" width="393" height="244" /></a><br /> </span></p>
-
-<p><span style="font-size: medium;">设置完成就OK了。可以右键点击任务图标运行测试下。</span></p>
+    <p><!-- raw HTML omitted -->通常，如果网站是在虚拟服务器上的话，每天都要手动备份数据库那也很麻烦。这里推荐一个方法，利用windows的计划任务来实现。<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->前提<!-- raw HTML omitted --> ：本地机器上装有mysql服务。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设本地机器上mysql服务目录  d:/mysql<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设远程数据库地址：111.0.0.111<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设远程数据库名称：testdata<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设远程数据库用户名：admin<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设远程数据库密码：123456<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted -->1、新建一个记事本文件，路径为d:/backup/backup.txt，编辑该文件，内容如下<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p><!-- raw HTML omitted -->2、运行 ：开始&gt; 程序 &gt; 附件 &gt; 系统工具 &gt; 任务计划，在弹出的窗口中选择 添加计划任务，浏览选择d:/backup/backup.bat文件，然后设置高级属性。<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted -->3、运行框内容 <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->其中222.0.0.222表示地址，admin表示用户名，123456表示密码 ，testdata表示数据库名称，d:/backup表示备份存放 目录，d:/mysql/bin表示本地mysql服务器的bin目录<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->然后还可以设置每天运行的时间等等。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->设置完成就OK了。可以右键点击任务图标运行测试下。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/107.html" ></div>
@@ -505,7 +464,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -514,6 +473,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

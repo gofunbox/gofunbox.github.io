@@ -4,7 +4,7 @@
   <head>
 <title>mysql删除重复记录语句的方法(数据去重) | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,33 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。
-记录下以备以后再用。
-不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。
-例如：
-id name value
-1 a pp
-2 a pp
-3 b iii
-4 b pp
-5 b pp
-6 …">
+<meta name="description" content="最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。记录下以备以后再用。不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。例如：id name value1 a pp2 a pp3 b iii4 b pp5 b pp6 c pp7 c …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="mysql删除重复记录语句的方法(数据去重)" />
 <meta property="og:url" content="https://ifunbox.top/mysql_data_deduplication/" />
 <meta property="og:title" content="mysql删除重复记录语句的方法(数据去重)" />
-<meta property="og:description" content="最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。
-记录下以备以后再用。
-不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。
-例如：
-id name value
-1 a pp
-2 a pp
-3 b iii
-4 b pp
-5 b pp
-6 …" />
+<meta property="og:description" content="最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。记录下以备以后再用。不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。例如：id name value1 a pp2 a pp3 b iii4 b pp5 b pp6 c pp7 c …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -56,12 +36,12 @@ id name value
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -180,209 +160,204 @@ id name value
 </div>
 
     
-    <p><span style="font-size: medium;">最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。</span></p>
-
-<p><span style="font-size: medium;">记录下以备以后再用。</span></p>
-
-<p><span style="font-size: medium;">不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。</span></p>
-
-<p><span style="font-size: medium;">例如：</span><br />
-<span style="font-size: medium;">id     name      value</span><br />
-<span style="font-size: medium;">1          a             pp</span><br />
-<span style="font-size: medium;">2          a             pp</span><br />
-<span style="font-size: medium;">3          b             iii</span><br />
-<span style="font-size: medium;">4          b             pp</span><br />
-<span style="font-size: medium;">5          b             pp</span><br />
-<span style="font-size: medium;">6          c             pp</span><br />
-<span style="font-size: medium;">7          c             pp</span><br />
-<span style="font-size: medium;">8          c             iii</span><br />
-<span style="font-size: medium;">id是主键</span><br />
-<span style="font-size: medium;">要求得到这样的结果</span><br />
-<span style="font-size: medium;">id       name        value</span><br />
-<span style="font-size: medium;">1          a                 pp</span><br />
-<span style="font-size: medium;">3          b                 iii</span><br />
-<span style="font-size: medium;">4          b                 pp</span><br />
-<span style="font-size: medium;">6          c                  pp</span><br />
-<span style="font-size: medium;">8          c                  iii</span><br />
-<span style="font-size: medium;">方法1</span><br />
-<span style="font-size: medium;">delete 表名 where [id] not in ( select max([id]) from 表名 group by (name,value))</span><br />
-<span style="font-size: medium;">方法2</span><br />
-<span style="font-size: medium;">delete a  from 表名 a left  join(select (id) from 表名 group by name,value) b on a.id=b.id where b.id is null</span></p>
-
-<p><strong><span style="font-size: medium;">（一）查询及删除重复记录的SQL语句</span></strong><br />
-<span style="font-size: medium;">1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断</span><br />
-<span style="font-size: medium;">select * from people </span><span style="font-size: medium;">where peopleId in (select peopleId from people group by peopleId having count(peopleId) &gt; 1)</span><br />
-<span style="font-size: medium;">2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录</span><br />
-<span style="font-size: medium;">delete from people </span><span style="font-size: medium;">where peopleId in (select peopleId from people group by peopleId having count(peopleId) &gt; 1) </span><span style="font-size: medium;">and rowid not in (select min(rowid) from people group by peopleId having count(peopleId )&gt;1)</span><br />
-<span style="font-size: medium;">3、查找表中多余的重复记录（多个字段）</span><br />
-<span style="font-size: medium;">select * from vitae a </span><span style="font-size: medium;">where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(<em>) &gt; 1)</span><br />
-<span style="font-size: medium;">4、删除表中多余的重复记录（多个字段），只留有rowid最小的记录</span><br />
-<span style="font-size: medium;">delete from vitae a </span><span style="font-size: medium;">where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(</em>) &gt; 1) </span><span style="font-size: medium;">and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(*)&gt;1)</span><br />
-<span style="font-size: medium;">5、查找表中多余的重复记录（多个字段），不包含rowid最小的记录</span><br />
-<span style="font-size: medium;">select * from vitae a </span><span style="font-size: medium;">where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(<em>) &gt; 1) </span><span style="font-size: medium;">and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(</em>)&gt;1)</span><br />
-<span style="font-size: medium;">(二)</span><br />
-<span style="font-size: medium;">比方说</span><br />
-<span style="font-size: medium;">在A表中存在一个字段“name”，</span><br />
-<span style="font-size: medium;">而且不同记录之间的“name”值有可能会相同，</span><br />
-<span style="font-size: medium;">现在就是需要查询出在该表中的各记录之间，“name”值存在重复的项；</span><br />
-<span style="font-size: medium;">Select Name,Count(<em>) From A Group By Name Having Count(</em>) &gt; 1</span><br />
-<span style="font-size: medium;">如果还查性别也相同大则如下:</span><br />
-<span style="font-size: medium;">Select Name,sex,Count(<em>) From A Group By Name,sex Having Count(</em>) &gt; 1</span><br />
-<span style="font-size: medium;">(三)</span><br />
-<span style="font-size: medium;">方法一</span><br />
-<span style="font-size: medium;">declare @max integer,@id integer</span><br />
-<span style="font-size: medium;">declare cur_rows cursor local for select 主字段,count(<em>) from 表名 group by 主字段 having count(</em>) &gt;1</span><br />
-<span style="font-size: medium;">open cur_rows</span><br />
-<span style="font-size: medium;">fetch cur_rows into @id,@max</span><br />
-<span style="font-size: medium;">while @@fetch_status=0</span><br />
-<span style="font-size: medium;">begin</span><br />
-<span style="font-size: medium;">select @max = @max -1</span><br />
-<span style="font-size: medium;">set rowcount @max</span><br />
-<span style="font-size: medium;">delete from 表名 where 主字段 = @id</span><br />
-<span style="font-size: medium;">fetch cur_rows into @id,@max</span><br />
-<span style="font-size: medium;">end</span><br />
-<span style="font-size: medium;">close cur_rows</span><br />
-<span style="font-size: medium;">set rowcount 0 </span></p>
-
-<p><span style="font-size: medium;">方法二</span><br />
-<span style="font-size: medium;">＂重复记录＂有两个意义上的重复记录，一是完全重复的记录，也即所有字段均重复的记录，二是部分关键字段重复的记录，比如Name字段重复，而其他字段不一定重复或都重复可以忽略。</span><br />
-<span style="font-size: medium;">1、对于第一种重复，比较容易解决，使用</span><span style="font-size: medium;">select distinct * from tableName</span><span style="font-size: medium;">就可以得到无重复记录的结果集。</span><br />
-<span style="font-size: medium;">如果该表需要删除重复的记录（重复记录保留1条），可以按以下方法删除</span><br />
-<span style="font-size: medium;">select distinct * into #Tmp from tableName</span><br />
-<span style="font-size: medium;">drop table tableName</span><br />
-<span style="font-size: medium;">select * into tableName from #Tmp</span><br />
-<span style="font-size: medium;">drop table #Tmp</span><br />
-<span style="font-size: medium;">发生这种重复的原因是表设计不周产生的，增加唯一索引列即可解决。</span><br />
-<span style="font-size: medium;">2、这类重复问题通常要求保留重复记录中的第一条记录，操作方法如下</span><br />
-<span style="font-size: medium;">　　假设有重复的字段为Name,Address，要求得到这两个字段唯一的结果集</span><br />
-<span style="font-size: medium;">select identity(int,1,1) as autoID, * into #Tmp from tableName</span><br />
-<span style="font-size: medium;">select min(autoID) as autoID into #Tmp2 from #Tmp group by Name,autoID</span><br />
-<span style="font-size: medium;">select * from #Tmp where autoID in(select autoID from #tmp2)</span><br />
-<span style="font-size: medium;">最后一个select即得到了Name，Address不重复的结果集（但多了一个autoID字段，实际写时可以写在select子句中省去此列）</span><br />
-<span style="font-size: medium;">(四)</span><br />
-<span style="font-size: medium;">查询重复</span><br />
-<span style="font-size: medium;">select * from tablename where id in (</span><br />
-<span style="font-size: medium;">select id from tablename</span><br />
-<span style="font-size: medium;">group by id</span><br />
-<span style="font-size: medium;">having count(id) &gt; 1</span><br />
-<span style="font-size: medium;">)</span><br />
-<span style="font-size: medium;">学习sql有一段时间了，发现在我建了一个用来测试的表（没有建索引）中出现了许多的重复记录。后来总结了一些删除重复记录的方法，在Oracle中，可以通过唯一rowid实现删除重复记录；还可以建临时表来实现&#8230;这个只提到其中的几种简单实用的方法，希望可以和大家分享（以表employee为例）。</span><br />
-<span style="font-size: medium;">SQL&gt; desc employee</span><br />
-<span style="font-size: medium;">Name Null? Type</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</span><br />
-<span style="font-size: medium;">emp_id NUMBER(10)</span><br />
-<span style="font-size: medium;">emp_name VARCHAR2(20)</span><br />
-<span style="font-size: medium;">salary NUMBER(10,2)</span><br />
-<span style="font-size: medium;">可以通过下面的语句查询重复的记录：</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee;</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">SQL&gt; select distinct * from employee;</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee group by emp_id,emp_name,salary having count (*)&gt;1</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee e1</span><br />
-<span style="font-size: medium;">where rowid in (select max(rowid) from employe e2</span><br />
-<span style="font-size: medium;">where e1.emp_id=e2.emp_id and</span><br />
-<span style="font-size: medium;">e1.emp_name=e2.emp_name and e1.salary=e2.salary);</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">2. 删除的几种方法：</span><br />
-<span style="font-size: medium;">（1）通过建立临时表来实现</span><br />
-<span style="font-size: medium;">SQL&gt;create table temp_emp as (select distinct * from employee)</span><br />
-<span style="font-size: medium;">SQL&gt; truncate table employee; (清空employee表的数据）</span><br />
-<span style="font-size: medium;">SQL&gt; insert into employee select * from temp_emp; (再将临时表里的内容插回来）</span><br />
-<span style="font-size: medium;">( 2）通过唯一rowid实现删除重复记录.在Oracle中，每一条记录都有一个rowid，rowid在整个数据库中是唯一的，rowid确定了每条记录是在Oracle中的哪一个数据文件、块、行上。在重复的记录中，可能所有列的内容都相同，但rowid不会相同，所以只要确定出重复记录中那些具有最大或最小rowid的就可以了，其余全部删除。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee e2 where rowid not in (</span><br />
-<span style="font-size: medium;">select max(e1.rowid) from employee e1 where</span><br />
-<span style="font-size: medium;">e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and e1.salary=e2.salary);&#8211;这里用min(rowid)也可以。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee e2 where rowid &lt;(</span><br />
-<span style="font-size: medium;">select max(e1.rowid) from employee e1 where</span><br />
-<span style="font-size: medium;">e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and</span><br />
-<span style="font-size: medium;">e1.salary=e2.salary);</span><br />
-<span style="font-size: medium;">（3）也是通过rowid，但效率更高。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee where rowid not in (</span><br />
-<span style="font-size: medium;">select max(t1.rowid) from employee t1 group by</span><br />
-<span style="font-size: medium;">t1.emp_id,t1.emp_name,t1.salary);&#8211;这里用min(rowid)也可以。</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">SQL&gt; desc employee</span><br />
-<span style="font-size: medium;">Name Null? Type</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211; &#8212;&#8212;&#8211; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</span><br />
-<span style="font-size: medium;">emp_id NUMBER(10)</span><br />
-<span style="font-size: medium;">emp_name VARCHAR2(20)</span><br />
-<span style="font-size: medium;">salary NUMBER(10,2)</span><br />
-<span style="font-size: medium;">可以通过下面的语句查询重复的记录：</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee;</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">SQL&gt; select distinct * from employee;</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee group by emp_id,emp_name,salary having count (*)&gt;1</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">SQL&gt; select * from employee e1</span><br />
-<span style="font-size: medium;">where rowid in (select max(rowid) from employe e2</span><br />
-<span style="font-size: medium;">where e1.emp_id=e2.emp_id and</span><br />
-<span style="font-size: medium;">e1.emp_name=e2.emp_name and e1.salary=e2.salary);</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span><br />
-<span style="font-size: medium;">2. 删除的几种方法：</span><br />
-<span style="font-size: medium;">（1）通过建立临时表来实现</span><br />
-<span style="font-size: medium;">SQL&gt;create table temp_emp as (select distinct * from employee)</span><br />
-<span style="font-size: medium;">SQL&gt; truncate table employee; (清空employee表的数据）</span><br />
-<span style="font-size: medium;">SQL&gt; insert into employee select * from temp_emp; (再将临时表里的内容插回来）</span><br />
-<span style="font-size: medium;">( 2）通过唯一rowid实现删除重复记录.在Oracle中，每一条记录都有一个rowid，rowid在整个数据库中是唯一的，rowid确定了每条记录是在Oracle中的哪一个数据文件、块、行上。在重复的记录中，可能所有列的内容都相同，但rowid不会相同，所以只要确定出重复记录中那些具有最大或最小rowid的就可以了，其余全部删除。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee e2 where rowid not in (</span><br />
-<span style="font-size: medium;">select max(e1.rowid) from employee e1 where</span><br />
-<span style="font-size: medium;">e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and e1.salary=e2.salary);&#8211;这里用min(rowid)也可以。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee e2 where rowid &lt;(</span><br />
-<span style="font-size: medium;">select max(e1.rowid) from employee e1 where</span><br />
-<span style="font-size: medium;">e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and</span><br />
-<span style="font-size: medium;">e1.salary=e2.salary);</span><br />
-<span style="font-size: medium;">（3）也是通过rowid，但效率更高。</span><br />
-<span style="font-size: medium;">SQL&gt;delete from employee where rowid not in (</span><br />
-<span style="font-size: medium;">select max(t1.rowid) from employee t1 group by</span><br />
-<span style="font-size: medium;">t1.emp_id,t1.emp_name,t1.salary);&#8211;这里用min(rowid)也可以。</span><br />
-<span style="font-size: medium;">EMP_ID EMP_NAME SALARY</span><br />
-<span style="font-size: medium;">&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;- &#8212;&#8212;&#8212;-</span><br />
-<span style="font-size: medium;">1 sunshine 10000</span><br />
-<span style="font-size: medium;">3 xyz 30000</span><br />
-<span style="font-size: medium;">2 semon 20000</span> <!--NEWSZW_HZH_END--></p>
+    <p><!-- raw HTML omitted -->最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->记录下以备以后再用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例如：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->id     name      value<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1          a             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2          a             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3          b             iii<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->4          b             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->5          b             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->6          c             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->7          c             pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->8          c             iii<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->id是主键<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->要求得到这样的结果<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->id       name        value<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1          a                 pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3          b                 iii<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->4          b                 pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->6          c                  pp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->8          c                  iii<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->方法1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delete 表名 where [id] not in ( select max([id]) from 表名 group by (name,value))<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->方法2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delete a  from 表名 a left  join(select (id) from 表名 group by name,value) b on a.id=b.id where b.id is null<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->（一）查询及删除重复记录的SQL语句<!-- raw HTML omitted --></strong><br>
+<!-- raw HTML omitted -->1、查找表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * from people <!-- raw HTML omitted --><!-- raw HTML omitted -->where peopleId in (select peopleId from people group by peopleId having count(peopleId) &gt; 1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2、删除表中多余的重复记录，重复记录是根据单个字段（peopleId）来判断，只留有rowid最小的记录<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delete from people <!-- raw HTML omitted --><!-- raw HTML omitted -->where peopleId in (select peopleId from people group by peopleId having count(peopleId) &gt; 1) <!-- raw HTML omitted --><!-- raw HTML omitted -->and rowid not in (select min(rowid) from people group by peopleId having count(peopleId )&gt;1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3、查找表中多余的重复记录（多个字段）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * from vitae a <!-- raw HTML omitted --><!-- raw HTML omitted -->where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(<em>) &gt; 1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->4、删除表中多余的重复记录（多个字段），只留有rowid最小的记录<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delete from vitae a <!-- raw HTML omitted --><!-- raw HTML omitted -->where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(</em>) &gt; 1) <!-- raw HTML omitted --><!-- raw HTML omitted -->and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(<em>)&gt;1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->5、查找表中多余的重复记录（多个字段），不包含rowid最小的记录<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * from vitae a <!-- raw HTML omitted --><!-- raw HTML omitted -->where (a.peopleId,a.seq) in (select peopleId,seq from vitae group by peopleId,seq having count(</em>) &gt; 1) <!-- raw HTML omitted --><!-- raw HTML omitted -->and rowid not in (select min(rowid) from vitae group by peopleId,seq having count(<em>)&gt;1)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->(二)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->比方说<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->在A表中存在一个字段“name”，<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->而且不同记录之间的“name”值有可能会相同，<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->现在就是需要查询出在该表中的各记录之间，“name”值存在重复的项；<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Select Name,Count(</em>) From A Group By Name Having Count(<em>) &gt; 1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->如果还查性别也相同大则如下:<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Select Name,sex,Count(</em>) From A Group By Name,sex Having Count(<em>) &gt; 1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->(三)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->方法一<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->declare @max integer,@id integer<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->declare cur_rows cursor local for select 主字段,count(</em>) from 表名 group by 主字段 having count(*) &gt;1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->open cur_rows<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->fetch cur_rows into @id,@max<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->while @@fetch_status=0<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->begin<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select @max = @max -1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->set rowcount @max<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->delete from 表名 where 主字段 = @id<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->fetch cur_rows into @id,@max<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->end<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->close cur_rows<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->set rowcount 0 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->方法二<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->＂重复记录＂有两个意义上的重复记录，一是完全重复的记录，也即所有字段均重复的记录，二是部分关键字段重复的记录，比如Name字段重复，而其他字段不一定重复或都重复可以忽略。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1、对于第一种重复，比较容易解决，使用<!-- raw HTML omitted --><!-- raw HTML omitted -->select distinct * from tableName<!-- raw HTML omitted --><!-- raw HTML omitted -->就可以得到无重复记录的结果集。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->如果该表需要删除重复的记录（重复记录保留1条），可以按以下方法删除<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select distinct * into #Tmp from tableName<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->drop table tableName<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * into tableName from #Tmp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->drop table #Tmp<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->发生这种重复的原因是表设计不周产生的，增加唯一索引列即可解决。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2、这类重复问题通常要求保留重复记录中的第一条记录，操作方法如下<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->　　假设有重复的字段为Name,Address，要求得到这两个字段唯一的结果集<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select identity(int,1,1) as autoID, * into #Tmp from tableName<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select min(autoID) as autoID into #Tmp2 from #Tmp group by Name,autoID<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * from #Tmp where autoID in(select autoID from #tmp2)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->最后一个select即得到了Name，Address不重复的结果集（但多了一个autoID字段，实际写时可以写在select子句中省去此列）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->(四)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->查询重复<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select * from tablename where id in (<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select id from tablename<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->group by id<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->having count(id) &gt; 1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->学习sql有一段时间了，发现在我建了一个用来测试的表（没有建索引）中出现了许多的重复记录。后来总结了一些删除重复记录的方法，在Oracle中，可以通过唯一rowid实现删除重复记录；还可以建临时表来实现…这个只提到其中的几种简单实用的方法，希望可以和大家分享（以表employee为例）。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; desc employee<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Name Null? Type<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————————————– ——– ——————<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->emp_id NUMBER(10)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->emp_name VARCHAR2(20)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->salary NUMBER(10,2)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以通过下面的语句查询重复的记录：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select distinct * from employee;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee group by emp_id,emp_name,salary having count (<em>)&gt;1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee e1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->where rowid in (select max(rowid) from employe e2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->where e1.emp_id=e2.emp_id and<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_name=e2.emp_name and e1.salary=e2.salary);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2. 删除的几种方法：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->（1）通过建立临时表来实现<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;create table temp_emp as (select distinct * from employee)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; truncate table employee; (清空employee表的数据）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; insert into employee select * from temp_emp; (再将临时表里的内容插回来）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->( 2）通过唯一rowid实现删除重复记录.在Oracle中，每一条记录都有一个rowid，rowid在整个数据库中是唯一的，rowid确定了每条记录是在Oracle中的哪一个数据文件、块、行上。在重复的记录中，可能所有列的内容都相同，但rowid不会相同，所以只要确定出重复记录中那些具有最大或最小rowid的就可以了，其余全部删除。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee e2 where rowid not in (<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(e1.rowid) from employee e1 where<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and e1.salary=e2.salary);–这里用min(rowid)也可以。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee e2 where rowid &lt;(<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(e1.rowid) from employee e1 where<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.salary=e2.salary);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->（3）也是通过rowid，但效率更高。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee where rowid not in (<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(t1.rowid) from employee t1 group by<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->t1.emp_id,t1.emp_name,t1.salary);–这里用min(rowid)也可以。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; desc employee<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->Name Null? Type<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->—————————————– ——– ——————<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->emp_id NUMBER(10)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->emp_name VARCHAR2(20)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->salary NUMBER(10,2)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以通过下面的语句查询重复的记录：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select distinct * from employee;<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee group by emp_id,emp_name,salary having count (</em>)&gt;1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; select * from employee e1<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->where rowid in (select max(rowid) from employe e2<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->where e1.emp_id=e2.emp_id and<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_name=e2.emp_name and e1.salary=e2.salary);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2. 删除的几种方法：<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->（1）通过建立临时表来实现<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;create table temp_emp as (select distinct * from employee)<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; truncate table employee; (清空employee表的数据）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt; insert into employee select * from temp_emp; (再将临时表里的内容插回来）<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->( 2）通过唯一rowid实现删除重复记录.在Oracle中，每一条记录都有一个rowid，rowid在整个数据库中是唯一的，rowid确定了每条记录是在Oracle中的哪一个数据文件、块、行上。在重复的记录中，可能所有列的内容都相同，但rowid不会相同，所以只要确定出重复记录中那些具有最大或最小rowid的就可以了，其余全部删除。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee e2 where rowid not in (<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(e1.rowid) from employee e1 where<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and e1.salary=e2.salary);–这里用min(rowid)也可以。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee e2 where rowid &lt;(<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(e1.rowid) from employee e1 where<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.emp_id=e2.emp_id and e1.emp_name=e2.emp_name and<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->e1.salary=e2.salary);<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->（3）也是通过rowid，但效率更高。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->SQL&gt;delete from employee where rowid not in (<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->select max(t1.rowid) from employee t1 group by<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->t1.emp_id,t1.emp_name,t1.salary);–这里用min(rowid)也可以。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->EMP_ID EMP_NAME SALARY<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->———- —————————————- ———-<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->1 sunshine 10000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->3 xyz 30000<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->2 semon 20000<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/mysql_data_deduplication" ></div>
@@ -665,7 +640,7 @@ id name value
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -674,6 +649,7 @@ id name value
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

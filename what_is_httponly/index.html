@@ -4,7 +4,7 @@
   <head>
 <title>什么是HttpOnly | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,29 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="1.什么是HttpOnly?
-
-如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
-具体一点的介绍请google进行搜索
-
-
-2.javaEE的API是否支持?
-
-目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们 …">
+<meta name="description" content="1.什么是HttpOnly?如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击具体一点的介绍请google进行搜索2.javaEE的API是否支持?目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="什么是HttpOnly" />
 <meta property="og:url" content="https://ifunbox.top/what_is_httponly/" />
 <meta property="og:title" content="什么是HttpOnly" />
-<meta property="og:description" content="1.什么是HttpOnly?
-
-如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击
-具体一点的介绍请google进行搜索
-
-
-2.javaEE的API是否支持?
-
-目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们 …" />
+<meta property="og:description" content="1.什么是HttpOnly?如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击具体一点的介绍请google进行搜索2.javaEE的API是否支持?目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -52,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -176,265 +160,55 @@
 </div>
 
     
-    <p><span style="font-size: medium;"><strong>1.什么是HttpOnly?</strong></span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;">如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击</span></p>
-
-<p><span style="font-size: medium;">具体一点的介绍请google进行搜索</span></p>
-
-<p><span style="font-size: medium;"><strong><br /> </strong></span></p>
-
-<p><span style="font-size: medium;"><strong>2.javaEE的API是否支持?</strong></span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;">目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现</span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;"><strong>3.HttpOnly的设置样例</strong></span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;"><strong>javaEE</strong></span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Javaee代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">response.setHeader(&#8220;Set-Cookie&#8221;, &#8220;cookiename=value;   </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Path=/;Domain=domainvalue;Max-Age=seconds;HTTPOnly&#8221;);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Javaee代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">response.setHeader(&#8220;Set-Cookie&#8221;, &#8220;cookiename=value;  </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Path=/;Domain=domainvalue;Max-Age=seconds;HTTPOnly&#8221;);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;">具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取</span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">Cookie cookies[]=request.getCookies();  </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">Cookie cookies[]=request.getCookies();  </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;"><strong>C#</strong></span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">C#代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">HttpCookie myCookie = <strong>new</strong> HttpCookie(&#8220;myCookie&#8221;);   </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">myCookie.HttpOnly = true;   </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Response.AppendCookie(myCookie);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">C#代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">HttpCookie myCookie = new HttpCookie(&#8220;myCookie&#8221;);  </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">myCookie.HttpOnly = true;  </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Response.AppendCookie(myCookie);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;"><strong>VB.NET</strong></span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Vb.net代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">Dim myCookie As HttpCookie = new HttpCookie(&#8220;myCookie&#8221;)   </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">myCookie.HttpOnly = True   </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Response.AppendCookie(myCookie)  </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Vb.net代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">Dim myCookie As HttpCookie = new HttpCookie(&#8220;myCookie&#8221;)  </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">myCookie.HttpOnly = True  </span>
-    </li>
-    <li>
-      <span style="font-size: medium;">Response.AppendCookie(myCookie)  </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;">   但是在 <strong>.NET 1.1</strong> ,中您需要手动添加</span></p>
-
-<pre><span style="font-size: medium;">Response.Cookies[cookie].Path += ";HTTPOnly"; </span></pre>
-
-<p><span style="font-size: medium;"><strong>PHP4</strong></span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">header(&#8220;Set-Cookie: hidden=value; httpOnly&#8221;);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">header(&#8220;Set-Cookie: hidden=value; httpOnly&#8221;);  </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;"><strong>PHP5</strong></span></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码 </span>
-    </div>
-  </div>
-  
-
-<p><ol>
-    <li>
-      <span style="font-size: medium;">setcookie(&#8220;abc&#8221;, &#8220;test&#8221;, NULL, NULL, NULL, NULL, TRUE);   </span>
-    </li>
-  </ol>
-</div></p>
-
-<div>
-  <div>
-    <div>
-      <span style="font-size: medium;">Java代码  </span>
-    </div>
-  </div>
-  
-
-<p><ol start="1">
-    <li>
-      <span style="font-size: medium;">setcookie(&#8220;abc&#8221;, &#8220;test&#8221;, NULL, NULL, NULL, NULL, TRUE);   </span>
-    </li>
-  </ol>
-</div></p>
-
-<p><span style="font-size: medium;">    最后一个参数为HttpOnly属性</span></p>
-
-<p><span style="font-size: medium;"> </span></p>
-
-<p><span style="font-size: medium;">参考<a href="https://www.owasp.org/index.php/HTTPOnly" target="_blank"><a href="https://www.owasp.org/index.php/HTTPOnly">https://www.owasp.org/index.php/HTTPOnly</a></a></span></p>
+    <p><!-- raw HTML omitted --><!-- raw HTML omitted -->1.什么是HttpOnly?<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果您在cookie中设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息，这样能有效的防止XSS攻击<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->具体一点的介绍请google进行搜索<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->2.javaEE的API是否支持?<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->目前sun公司还没有公布相关的API，但PHP、C#均有实现。搞javaEE的兄弟们比较郁闷了，别急下文有变通实现<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->3.HttpOnly的设置样例<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->javaEE<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->具体参数的含义再次不做阐述，设置完毕后通过js脚本是读不到该cookie的，但使用如下方式可以读取<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->C#<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->VB.NET<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->   但是在 <!-- raw HTML omitted -->.NET 1.1<!-- raw HTML omitted --> ,中您需要手动添加<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->PHP4<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->PHP5<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->    最后一个参数为HttpOnly属性<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->参考<!-- raw HTML omitted --><a href="https://www.owasp.org/index.php/HTTPOnly">https://www.owasp.org/index.php/HTTPOnly</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/what_is_httponly" ></div>
@@ -717,7 +491,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -726,6 +500,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

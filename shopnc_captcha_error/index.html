@@ -4,7 +4,7 @@
   <head>
 <title>ShopNC商城前后台注册登陆验证码总是错误解决办法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="验证码若出现问题可尝试以下办法：
-1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉
-2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存
-3. 查看cache目录是否有 …">
+<meta name="description" content="验证码若出现问题可尝试以下办法：1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存3. 查看cache目录是否有写权 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="ShopNC商城前后台注册登陆验证码总是错误解决办法" />
 <meta property="og:url" content="https://ifunbox.top/shopnc_captcha_error/" />
 <meta property="og:title" content="ShopNC商城前后台注册登陆验证码总是错误解决办法" />
-<meta property="og:description" content="验证码若出现问题可尝试以下办法：
-1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉
-2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存
-3. 查看cache目录是否有 …" />
+<meta property="og:description" content="验证码若出现问题可尝试以下办法：1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存3. 查看cache目录是否有写权 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,24 +160,16 @@
 </div>
 
     
-    <p><span style="font-size: medium;">验证码若出现问题可尝试以下办法：</span></p>
-
-<p><span style="font-size: medium;">1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉</span></p>
-
-<p><span style="font-size: medium;">2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存</span></p>
-
-<p><span style="font-size: medium;">3. 查看cache目录是否有写权限（升级后有时会出现目录权限被更改的情况）</span></p>
-
-<p><span style="font-size: medium;">4. 删除 cache/setting.php 文件 ，然后再运行(多发生于升级的情况)</span></p>
-
-<p><span style="font-size: medium;">5. 打开数据库表setting，找到name为 subdomain_suffix的行，查看对应的value，</span><br />
-<span style="font-size: medium;">如果为空，则无误，如果不为空，查看是否正确(假设域名为<a href="http://www.shopnc.net/" target="_blank"><a href="http://www.shopnc.net">http://www.shopnc.net</a></a> 此处需要填写&#8221;.shopnc.net&#8221;)，然后删除cache/setting.php文件</span></p>
-
-<p><span style="font-size: medium;">6. 使用editplus或zend studio打开 根目录下 config.ini.php，index.php，global.php，查看是开头的&lt;? 是否有空格或其它字符，如有删除，或用原始安装包对应文件替换</span></p>
-
-<p><span style="font-size: medium;">7. 如果总提示验证码错误，查看一下客户端与服务器时间是否一致</span></p>
-
-<p><span style="font-size: medium;">官方技术人员提的原文链接<a href="http://bbs.shopnc.net/forum.php?mod=viewthread&tid=10210">http://bbs.shopnc.net/forum.php?mod=viewthread&tid=10210</a></span></p>
+    <p><!-- raw HTML omitted -->验证码若出现问题可尝试以下办法：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1. 是否支持GD库，具体访法：查看phpinfo.php，搜索是否有gd关键词或查看php.ini中 extension=php_gd2.dll一行前面分号是否去掉<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2. 清空浏览器所有缓存（包括 cookie），后面的每一步完成后，最后都清除一下缓存<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3. 查看cache目录是否有写权限（升级后有时会出现目录权限被更改的情况）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4. 删除 cache/setting.php 文件 ，然后再运行(多发生于升级的情况)<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5. 打开数据库表setting，找到name为 subdomain_suffix的行，查看对应的value，<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->如果为空，则无误，如果不为空，查看是否正确(假设域名为<!-- raw HTML omitted --><a href="http://www.shopnc.net">http://www.shopnc.net</a><!-- raw HTML omitted --> 此处需要填写”.shopnc.net”)，然后删除cache/setting.php文件<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->6. 使用editplus或zend studio打开 根目录下 config.ini.php，index.php，global.php，查看是开头的&lt;? 是否有空格或其它字符，如有删除，或用原始安装包对应文件替换<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->7. 如果总提示验证码错误，查看一下客户端与服务器时间是否一致<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->官方技术人员提的原文链接<!-- raw HTML omitted --><a href="http://bbs.shopnc.net/forum.php?mod=viewthread&amp;tid=10210">http://bbs.shopnc.net/forum.php?mod=viewthread&amp;tid=10210</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/shopnc_captcha_error" ></div>
@@ -466,7 +452,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -475,6 +461,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

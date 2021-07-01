@@ -4,7 +4,7 @@
   <head>
 <title>Nginx下php-fpm防止跨站跨目录安全设置 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,21 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
-而nginx &#43; php-fpm fastcgi的方式，就需要多费费心啦~
-首先php的版本必须大于等于php5.3.3。
-方法1 在nginx 配置 fastcgi_param参数
-在nginx的 php配置中 或 …">
+<meta name="description" content="apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。而nginx &#43; php-fpm fastcgi的方式，就需要多费费心啦~首先php的版本必须大于等于php5.3.3。方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Nginx下php-fpm防止跨站跨目录安全设置" />
 <meta property="og:url" content="https://ifunbox.top/nginx_php-fpm_cross-site/" />
 <meta property="og:title" content="Nginx下php-fpm防止跨站跨目录安全设置" />
-<meta property="og:description" content="apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。
-而nginx &#43; php-fpm fastcgi的方式，就需要多费费心啦~
-首先php的版本必须大于等于php5.3.3。
-方法1 在nginx 配置 fastcgi_param参数
-在nginx的 php配置中 或 …" />
+<meta property="og:description" content="apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。而nginx &#43; php-fpm fastcgi的方式，就需要多费费心啦~首先php的版本必须大于等于php5.3.3。方法1 在nginx 配置 fastcgi_param参数
+在nginx的 php …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -44,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -172,45 +166,30 @@
 </div>
 
     
-    <p><span style="font-size: 12pt;">apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。</span></p>
-
-<p><span style="font-size: 12pt;">而nginx + php-fpm fastcgi的方式，就需要多费费心啦~</span></p>
-
-<p><span style="font-size: 12pt;">首先php的版本必须大于等于php5.3.3。</span></p>
-
-<p><strong><span style="font-size: 12pt;">方法1 在nginx 配置 fastcgi_param参数</span></strong><br />
-<span style="font-size: 12pt;">在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：</span></p>
-
+    <p><!-- raw HTML omitted -->apache php mod的方式可以很方便的配置open_basedir限制各个站点的目录访问权限。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->而nginx + php-fpm fastcgi的方式，就需要多费费心啦~<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->首先php的版本必须大于等于php5.3.3。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->方法1 在nginx 配置 fastcgi_param参数<!-- raw HTML omitted --></strong><br>
+<!-- raw HTML omitted -->在nginx的 php配置中 或者 在 包含的 include fastcgi.conf 文件中加入：<!-- raw HTML omitted --></p>
 <pre><code>fastcgi_param  PHP_VALUE          &quot;open_basedir=$document_root:/tmp/:/proc/&quot;;
-</code></pre>
-
-<p><span style="font-size: 12pt;">意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。</span><br />
-<span style="font-size: 12pt;">$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。</span><br />
-<span style="font-size: 12pt;">/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。</span><br />
-<span style="font-size: 12pt;">/proc/ 可以让php查看系统负载信息。</span><br />
-<span style="font-size: 12pt;">本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。</span><br />
-<span style="font-size: 12pt;">本方法，非常推荐使用，本人就是用这个方法！！</span></p>
-
-<p><strong><span style="font-size: 12pt;">方法2 在php.ini 中配置</span></strong><br />
-<span style="font-size: 12pt;">在php.ini的末尾加入：</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->意思是设置fastcgi 参数 PHP_VALUE 的open_basedir。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->$document_root php文档根目录，就是 nginx 配置项 root 配置的网站目录。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->/tmp/目录需要有权限，默认放seesion的位置，以及unixsock。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->/proc/ 可以让php查看系统负载信息。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->本方法加的各个vhost 虚拟主机，都可以完美使用。都限制到自己的网站目录下。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->本方法，非常推荐使用，本人就是用这个方法！！<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->方法2 在php.ini 中配置<!-- raw HTML omitted --></strong><br>
+<!-- raw HTML omitted -->在php.ini的末尾加入：<!-- raw HTML omitted --></p>
 <pre><code>[HOST=www.funboxpower.com]
 open_basedir=/home/funboxpower.com:/tmp/:/proc/
 [PATH=/home/funboxpower.com]
 open_basedir=/home/funboxpower.com:/tmp/:/proc/
-</code></pre>
-
-<p><span style="font-size: 12pt;">本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。</span></p>
-
-<p><strong><span style="font-size: 12pt;">方法3 网站根目录下增加 .user.ini 文件。</span></strong><br />
-<span style="font-size: 12pt;">在网站根目录下创建.user.ini 加入：</span></p>
-
+</code></pre><p><!-- raw HTML omitted -->本方法的弊端，如果有泛域名解析，比如 *.funboxpower.com 。这个就不好控制。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->方法3 网站根目录下增加 .user.ini 文件。<!-- raw HTML omitted --></strong><br>
+<!-- raw HTML omitted -->在网站根目录下创建.user.ini 加入：<!-- raw HTML omitted --></p>
 <pre><code>open_basedir=/home/wwwroot/blog.jiunile.com:/tmp/:/proc/
-</code></pre>
-
-<p><span style="font-size: 12pt;">这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。</span></p>
-
-<p><span style="font-size: 12pt;">关于.user.ini文件的详细说明：<a href="http://php.net/manual/zh/configuration.file.per-user.php">http://php.net/manual/zh/configuration.file.per-user.php</a></span></p>
+</code></pre><p><!-- raw HTML omitted -->这种方式不需要重启nginx或php-fpm服务。安全起见应当取消掉.user.ini文件的写权限。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->关于.user.ini文件的详细说明：http://php.net/manual/zh/configuration.file.per-user.php<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/nginx_php-fpm_cross-site" ></div>
@@ -493,7 +472,7 @@ open_basedir=/home/funboxpower.com:/tmp/:/proc/
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -502,6 +481,7 @@ open_basedir=/home/funboxpower.com:/tmp/:/proc/
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

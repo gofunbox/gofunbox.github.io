@@ -4,7 +4,7 @@
   <head>
 <title>zencart修改模板结构常用代码 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,19 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~
-zencart修改模板结构常用代码
-改币种
-Currencies: get_template_dir(&#39;tpl_header_currencies.php&#39;,DIR_WS_TEMPLATE, …">
+<meta name="description" content="自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~zencart修改模板结构常用代码改币种改语言&lt;
+购物车 &lt;p&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;登 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="zencart修改模板结构常用代码" />
 <meta property="og:url" content="https://ifunbox.top/34.html" />
 <meta property="og:title" content="zencart修改模板结构常用代码" />
-<meta property="og:description" content="自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~
-zencart修改模板结构常用代码
-改币种
-Currencies: get_template_dir(&#39;tpl_header_currencies.php&#39;,DIR_WS_TEMPLATE, …" />
+<meta property="og:description" content="自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~zencart修改模板结构常用代码改币种改语言&lt;
+购物车 &lt;p&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;登 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -42,12 +38,12 @@ Currencies: get_template_dir(&#39;tpl_header_currencies.php&#39;,DIR_WS_TEMPLATE
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -166,92 +162,26 @@ Currencies: get_template_dir(&#39;tpl_header_currencies.php&#39;,DIR_WS_TEMPLATE
 </div>
 
     
-    <p><span style="font-size: medium;">     自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~</span></p>
-
-<p><span style="font-size: medium;"><a href="http://www.fanhefan.com/34.html ">zencart修改模板结构常用代码</a></span></p>
-
-<p><span style="font-size: medium;">改币种</span></p>
-
-<pre><label>Currencies:</label> 
-<?php 
-require($template->get_template_dir('tpl_header_currencies.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_header_currencies.php'); 
-echo $content; 
-?>
-</pre>
-
-<p><span class="Apple-style-span" style="font-size: medium;">改语言</span><br />
+    <p><!-- raw HTML omitted -->     自己在1.3.9H版zencart下挖出来的代码都一些界面变动，直接复制黏贴相应的代码到指定位置就可以达到，改变界面的效果啦~<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->zencart修改模板结构常用代码<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->改币种<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->改语言<!-- raw HTML omitted --><br>
 &lt;</p>
-
-<pre><?php 
-require($template->get_template_dir(&#8216;tpl_header_languages.php&#8217;,DIR_WS_TEMPLATE, $current_page_base,&#8217;templates&#8217;). &#8216;/tpl_header_languages.php&#8217;);  
-echo $content; 
-?> 
-
-
-<label><?php echo HEADER_LANGUAGES;?></label> 
-</pre>
-
-<p><span style="font-size: medium;">购物车</span></p>
-
-<pre><table>
-  <tr>
-    <td>
-      //tpl_shopping_cart_header.php里面改价格，几种商品的显示格式 
-      <?php 
-require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates').'/tpl_shopping_cart_header.php'); 
-      echo $content;
-      ?>  
-      
-    </td> 
-    
-    
-    <? php if ($_SESSION['cart']->count_contents() != 0) 
-    { 
-    ?> 
-    
-    <td>
-      &nbsp;|
-      
-      <td>
-        <td>
-          <a href="<?php echo zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL');?>"><?php echo HEADER_TITLE_CHECKOUT; ?></a> 
-        </td> 
-        
-        <?php }?> </tr> </table>
-        ```
-        
-        
-        <p>
-          <span style="font-size: medium;">搜索条</span>
-        </p>
-        
-        
- ```
-
-
-<div>
-  <?php require($template->get_template_dir('tpl_search_header.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_search_header.php');?>
-  
-  
-  <div>
-    <a href="index.php?main_page=advanced_search"><?php echo HEADER_ADVANCED_SEARCH; ?></a>
-  </div>
-</div>
-</pre>
-        
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->购物车<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>    &lt;p&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;登录&lt;/span&gt;
     &lt;/p&gt;
-
-
+    
+    
   ```
 </code></pre>
-
-<p><div id="login_logout_section">
-  <ul>
-    &lt;?php if ($_SESSION[&lsquo;customer_id&rsquo;]) { ?&gt;</p>
-
+<!-- raw HTML omitted -->
 <pre><code>&lt;li&gt;
   &lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;
   &lt;?php echo ($_SESSION['customer_first_name'].' '.$_SESSION['customer_last_name']);?&gt;&lt;/a&gt;
@@ -263,44 +193,33 @@ require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLA
   &lt;?php echo HEADER_TITLE_LOGOFF; ?&gt;&lt;/a&gt;
 &lt;/li&gt;  
 </code></pre>
-
-<p></ul></p>
-
-<p>&lt;?php } else { if (STORE_STATUS == &lsquo;0&rsquo;) { ?&gt;</p>
-
-<p><a href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>&rdquo;&gt;&lt;?php echo HEADER_TITLE_LOGIN; ?&gt;</a></p>
-
-<p>&lt;?php echo HEADER_OR; ?&gt;</p>
-
-<p><a href="<?php echo zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'); ?>&rdquo;&gt;
-  &lt;?php echo HEADER_TITLE_REGISTER; ?&gt;</a></p>
-
-<p>&lt;?php } } ?&gt;</p>
-
-<p>&lt;?php ?&gt;
-</div>
-</pre></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>    &lt;p&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;includes\templates\模板名\common下的&lt;span class=&quot;Apple-style-span&quot;&gt;tpl_box_default_left.php中可以改变标题样式，比如Categories，Specials&lt;/span&gt;&lt;/span&gt;
     &lt;/p&gt;
-
-
+    
+    
     &lt;p&gt;
       &lt;span class=&quot;Apple-style-span&quot; style=&quot;font-size: medium;&quot;&gt;改标题下的分类类型在includes\templates\模板名\sideboxes\&lt;/span&gt;
     &lt;/p&gt;
-
-
+    
+    
     &lt;p&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;更改想要更改categories就改相应的php文件即可&lt;/span&gt;
     &lt;/p&gt;
-
-
+    
+    
     &lt;p&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;主界面中新产品界面改动includes\modules\new_products.php&lt;/span&gt;&lt;br /&gt;
       &lt;span style=&quot;font-size: medium;&quot;&gt;中第71行 $list_box_contents[$row][$col] 参数给予改变&lt;/span&gt;
-    &lt;/p&gt;
-</code></pre>
+    &lt;/p&gt;</code></pre>
 
     
       <div id="SOHUCS" sid="/34.html" ></div>
@@ -583,7 +502,7 @@ require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLA
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -592,6 +511,7 @@ require($template->get_template_dir('tpl_shopping_cart_header.php',DIR_WS_TEMPLA
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

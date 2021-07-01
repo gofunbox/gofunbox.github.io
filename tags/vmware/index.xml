@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VMware on Funbox的技术记事本</title>
@@ -6,37 +6,14 @@
     <description>Recent content in VMware on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 13 Nov 2011 13:22:39 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 13 Nov 2011 13:22:39 +0000</lastBuildDate><atom:link href="https://ifunbox.top/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 7中虚拟机VMware无线网络图文配置教程</title>
       <link>https://ifunbox.top/181.html</link>
       <pubDate>Sun, 13 Nov 2011 13:22:39 +0000</pubDate>
       
       <guid>https://ifunbox.top/181.html</guid>
-      <description>看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。
-先说我的机器配置：Windows7 中文旗舰版，64位系统，Acer笔记本，虚拟机Centos6.0 我的网络适配器如下
- 成功用虚拟机VMware网络配置的前提条件：
-首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：
- 其次，控制面板\网络和共享中心-&amp;gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge Protocol协议打钩(这边要注意是你的物理网卡，而不是虚拟网卡的属性，虚拟网卡可以不打勾)
- 另外，系统服务中没有更改默认VMware所续启动的三个必要服务。 如果上述必要设置有问题，只要重新安装下VMware，或者选择修复安装，一般问题都会解决。
-虚拟机VMware网络配置的详细步骤：(以下设置最好是都用管理员身份运行)
-1、打开VMware Workstation菜单栏编辑-&amp;gt;虚拟网络编辑器（Virtual Network Editor）
-2、选中VMnet8，类型NAT,记下下面的Gateway IP Address，比如说我的就是192.168.32.0;然后打开NAT设置，记下里面的网关:192.168.32.2
- 3、打开DHCP标签页，记下Start IP Address和End IP Address，比如说我的就是192.168.32.128和192.168.32.254
-4、关闭VMware，Virtual Network Editor，运行VMware Workstation，在菜单栏中，选择虚拟机-&amp;gt;设置下的网络适配器运行方式为第二种(NAT:Used to share the host&amp;#8217;s IP address
-5、启动虚拟机，比如说我的是Centos6.0，并打开网络设置
- 6、更改本地连接属性里面的TCP/IP属性，选择使用下面的IP地址，其中，IP Address填刚才DHCP页面里面记下的两个IP地址中的随便一个IP，也就是说从192.168.32.128到192.168.32.254，随便选一个，我选的是192.168.32.202。子网掩码（Netmask）是自动填的255.255.255.0，默认网关（Gateway）和下面的DNS是填刚才NAT页面记下的IP，比如我的是192.168.32.2。
- 7、打开浏览器，输入 http://www.fanhefan.com/ ,能上网了。
- 虚拟机VMware网络配置到此结束。　 而我的情况还比较特殊，有两台虚拟机，并且无限上网使用了代理 proxy.xxxx.com 一台:192.168.32.202 数据库服务器
-一台:192.168.32.203 应用程序和前端服务器
-203与202不同的地方时
-203 的多配置一个DNS,ip位202的
-这样以后，
-IE连接使用了代理就能外网，但是不能连接数据库，否则能连接数据库，不能上外网，</description>
+      <description>看完全文，我想你应该就懂虚拟机VMware网络配置了，保持你的耐心吧。我的网络适配器如下成功用虚拟机VMware网络配置的前提条件：首先，设备管理器里面要有VMware Virtual Ethernet Adapter for VMnet1和VMware Virtual Ethernet Adapter for VMnet8(其实只需要8，不需要1也行)。且显示无问题。如下图所示：其次，控制面板\网络和共享中心-&amp;gt;网络连接里面，你的网卡属性里面(这边我用无线上网所以右键属性打开)，VMware Bridge Protocol协议打钩(这边要注意是你的物理网卡，而不是虚拟网卡的属性，虚拟网卡可以不打勾)如果上述必要设置有问题，只要重新安装下VMware，或者选择修复安装，一般问题都会解决。虚拟机VMware网络配置的详细步骤：(以下设置最好是都用管理员身份运行)1、打开VMware Workstation菜单栏编辑-&amp;gt;虚拟网络编辑器（Virtual Network Editor）2、选中VMnet8，类型NAT,记下下面的Gateway IP Address，比如说我的就是192.168.32.0;然后打开NAT设置，记下里面的网关:192.168.32.23、打开DHCP标签页，记下Start IP Address和End IP Address，比如说我的就是192.168.32.128和192.168.32.2544、关闭VMware，Virtual Network Editor，运行VMware Workstation，在菜单栏中，选择虚拟机-&amp;gt;设置下的网络适配器运行方式为第二种(NAT:Used to share the host’s IP address5、启动虚拟机，比如说我的是Centos6.0，并打开网络设置6、更改本地连接属性里面的TCP/IP属性，选择使用下面的IP地址，其中，IP Address填刚才DHCP页面里面记下的两个IP地址中的随便一个IP，也就是说从192.168.32.128到192.168.32.254，随便选一个，我选的是192.168.32.202。子网掩码（Netmask）是自动填的255.255.255.0，默认网关（Gateway）和下面的DNS是填刚才NAT页面记下的IP，比如我的是192.168.32.2。7、打开浏览器，输入 http://www.fanhefan.com/,能上网了。一台:192.168.32.202 数据库服务器一台:192.168.32.203 应用程序和前端服务器203与202不同的地方时203 的多配置一个DNS,ip位202的这样以后，IE连接使用了代理就能外网，但是不能连接数据库，否则能连接数据库，不能上外网，解决方案：点击代理后面的 高级–&amp;gt;例外情况中输入你的数据库服务器的Ip地址是不OK得，输入数据库服务器的名称，OK于是你的203能够连接数据库又能够上外网了。希望能够给大家带来帮助。以下就是本文给出的VMware虚拟机网络设置：VMware虚拟机网络设置之1.bridge :默认使用vmnet0将虚拟机的ip设置与主机同网段未使用ip,其余与主机相同:例如主机ip是10.70.54.31,设置虚拟机ip为10.70.54.22。netmask,broadcast,gateway,dns都与主机相同即可实现虚拟机&amp;lt;—&amp;gt;主机 虚拟机&amp;lt;—-&amp;gt;互联网 通信。VMware虚拟机网络设置之2.nat :默认使用vmnet8将虚拟机设置成使用dhcp方式上网,windows下选择”自动获取ip”,linux下开启dhcp服务即可也可以手动设置:ip设置与vmnet8同网段,gateway设置成vmnet8的gateway(/etc/VMware/vmnet8/nat/nat.conf)中可以查到vmnet8的gateway,通常是xxx.xxx.xxx.2。netmask,broadcast设置与vmnet8相同,dns设置与主机相同。例如 vmnet8 ip:172.16.249.1 gw :172.16.249.2虚拟机设置: ip :172.16.249.100 gw: 172.16.249.2VMware虚拟机网络设置之3.host-only :默认使用vmnet1将虚拟机ip设置与vmnet1同网段,gateway设置成vmnet1的ip,其余设置与vmnet1相同,dns设置与主机相同例如 vmnet1 ip :172.16.245.1VMware虚拟机网络设置: ip :172.16.245.100 gateway :172.16.245.1这样就实现了虚拟机&amp;lt;—&amp;gt;主机 通信,但是 虚拟机&amp;lt;—&amp;gt;互联网 仍无法通信虚拟机与互联网通信：1.开启主机路由功能2.设定iptables，使主机成为一台nat server1. echo 1 &amp;gt;/proc/sys/net/ipv4/ip_forward 这样就主机就具有了路由功能2. iptables -t nat -A POSTROUTING -o eth0 -s 172.</description>
     </item>
     
   </channel>

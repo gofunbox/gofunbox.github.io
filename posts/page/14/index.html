@@ -4,7 +4,7 @@
   <head>
 <title>Posts | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,11 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.忘记zencart后台密码：
-打开zencart数据库，再打开 admin数据表，直接修改管理员密码，admin_name设置为 admin，admin_pass设置为 351683ea4e19efe34874b501fdbf9792:9b，然后用 admin / admin 登录
-2.修改后台地址
-打开文件 admin/includes/configure.php，将所有出现 /admin/ 的地方改成自己定义的名字，需要修改的地方有3处:
-define('DIR_WS_ADMIN', '/xxx.com/admin/'); define('DIR_WS_HTTPS_ADMIN', '/xxx.com/admin/'); …</p>
+          <p class="pale">1.忘记zencart后台密码：打开zencart数据库，再打开 admin数据表，直接修改管理员密码，admin_name设置为 admin，admin_pass设置为 351683ea4e19efe34874b501fdbf9792:9b，然后用 admin / admin 登录2.修改后台地址打开文件 admin/includes/configure.php，将所有出现 /admin/ 的地方改成自己定义的名字，需要修改的地方有3处:define('DIR_WS_ADMIN', '/xxx.com/admin/'); define('DIR_WS_HTTPS_ADMIN', '/xxx.com/admin/'); …</p>
           <a href="https://ifunbox.top/340.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -171,7 +167,7 @@ define('DIR_WS_ADMIN', '/xxx.com/admin/'); define('DIR_WS_HTTPS_ADMIN', '/xxx.co
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">服务器需开启openssl 和443 端口     支付宝接口出现ERROR: 0 &#8211; php_network_getaddresses: getaddrinfo failed: 错误 就此解决！！   </p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/337.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -197,8 +193,7 @@ define('DIR_WS_ADMIN', '/xxx.com/admin/'); define('DIR_WS_HTTPS_ADMIN', '/xxx.co
         <div>
           <p class="pale">以下为本人收集的zend guard使用和注册方法。
 zend guard 4 有一个特别版，但使用破解补丁以后无法正常完成加密，但加密后的文件是可以正常使用的。以下是下载地址，可以使用迅雷和电驴下载。
-点此下载：Zend.Guard.v4.0.1.CRACKED.rar
-zend guard 4加密过的程序文件已经能被反编译过来，而zend guard 5目前还依然坚挺，可惜没有大侠放出特别版，买不起zend guard商业服务的个人和小公司几乎可以说是望尘莫及，以下是网上找到的一个免去试用版加密的文件有14天过期的限制。
+点此下载：Zend.Guard.v4.0.1.CRACKED.rarzend guard 4加密过的程序文件已经能被反编译过来，而zend guard 5目前还依然坚挺，可惜没有大侠放出特别版，买不起zend guard商业服务的个人和小公司几乎可以说是望尘莫及，以下是网上找到的一个免去试用版加密的文件有14天过期的限制。
 首先下载以下的安装文件，目前最新版本是5.5.0，包含windows和linux两个版本，均为32位。 …</p>
           <a href="https://ifunbox.top/334.html" class="excerpt_more button">Read More</a>
         </div>
@@ -224,7 +219,7 @@ zend guard 4加密过的程序文件已经能被反编译过来，而zend guard 
       <div class="excerpt_footer">
         <div>
           <p class="pale">解决zencart后台中文乱码方法
-在确定数据库显示无乱码的情况下，打开admin（默认）/includes/configure.php 任意地方加入 define(&#8216;DB_CHARSET&#8217;, &#8216;utf8&#8217;);
+在确定数据库显示无乱码的情况下，打开admin（默认）/includes/configure.php 任意地方加入 define(‘DB_CHARSET’, ‘utf8’);
 zencart后台中文乱码的问题就此解决！！</p>
           <a href="https://ifunbox.top/332.html" class="excerpt_more button">Read More</a>
         </div>
@@ -249,11 +244,7 @@ zencart后台中文乱码的问题就此解决！！</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近碰到一个客户，需求是以限制UID限制Ucenter用户登录shopex系统，我也研究了下ShopEx与Discuz论坛（Ucenter）整合，发现确实强大无比。
-我按照官网的ShopEx与Discuz论坛（Ucenter）整合说明整合了两个系统。
-实现以限制UID限制Ucenter用户登录shopex系统方法如下
-core\shop\controller\ctl.passport.php找到约554行
-if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;0)||$info = …</p>
+          <p class="pale">最近碰到一个客户，需求是以限制UID限制Ucenter用户登录shopex系统，我也研究了下ShopEx与Discuz论坛（Ucenter）整合，发现确实强大无比。我按照官网的ShopEx与Discuz论坛（Ucenter）整合说明整合了两个系统。实现以限制UID限制Ucenter用户登录shopex系统方法如下core\shop\controller\ctl.passport.php找到约554行if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;0)||$info = …</p>
           <a href="https://ifunbox.top/327.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -277,15 +268,9 @@ if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;0)||$info = …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">问题：shopex优惠券发放的不足，shopex优惠券发放一般有2种模式，一是通过促销活动系统自动发放，二是下载优惠券，然后把优惠券号码告之用户。
-第二种方式弊端多多，1.加大了后台工作量（比如要发放给谁，发什么优惠券，发到哪里等这些都要详细的记录，优惠券与会员号要一一对应，难免会出现错误，降低网站的威信）；2.不利于客户管理自己的优惠券，如果通过之前的方式二，发放优惠券，优惠券可以通过邮箱或者站内消息发送给客户，但是不会出现在我的优惠栏目下。
-插件展示：
-
-群发按钮下多了一发优惠券按钮，下方画红圈的优惠券栏目是显示当前会员的优惠券信息，这是新加入的模块。
-
+          <p class="pale">问题：shopex优惠券发放的不足，shopex优惠券发放一般有2种模式，一是通过促销活动系统自动发放，二是下载优惠券，然后把优惠券号码告之用户。第二种方式弊端多多，1.加大了后台工作量（比如要发放给谁，发什么优惠券，发到哪里等这些都要详细的记录，优惠券与会员号要一一对应，难免会出现错误，降低网站的威信）；2.不利于客户管理自己的优惠券，如果通过之前的方式二，发放优惠券，优惠券可以通过邮箱或者站内消息发送给客户，但是不会出现在我的优惠栏目下。插件展示：群发按钮下多了一发优惠券按钮，下方画红圈的优惠券栏目是显示当前会员的优惠券信息，这是新加入的模块。
 选中要发放优惠券的会员，然后点击多优惠券效果图如上所示。
-
-优惠券发放成功 …</p>
+优惠券发放成功的效果图，因 …</p>
           <a href="https://ifunbox.top/316.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -311,8 +296,7 @@ if ((is_array($uinfo)&amp;&amp;intval($uinfo[0])&gt;0)||$info = …</p>
         <div>
           <p class="pale">OUT了，今天才发现可以把自己的博客日志同步到新浪博客的插件
 现在分享下 呵呵 希望对大家有帮助
-http://wordpress.org/extend/plugins/wp2sinablog/installation/
-感谢作者的无私奉献啊~</p>
+http://wordpress.org/extend/plugins/wp2sinablog/installation/感谢作者的无私奉献啊~</p>
           <a href="https://ifunbox.top/297.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -336,7 +320,7 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"> 该错误表明PHP不支持openssl，解决方案：  windows下，在php.ini中打开opensll扩展（找到“;extension=php_openssl.dll”，去掉前面的分号，虚拟主机找服务商解决），并将php目录下的libeay32.dll和ssleay32.dll两个库拷贝到system32下；  linux下，重新编译php，编译时加上参数&#8211;enable-ssl（具体参看configure的help）  </p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/291.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -360,17 +344,9 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">随着商城的慢慢壮大，客服也越来越多了。
-由于客服采用轮休制导致如果这个客服休息，其他客服无法跟踪正在休息客服正在跟踪客户的情况。又考虑客服系统培训时间有限，系统不能太复杂。
-为了解决这些问题，我基于shopex系统操作风格开发了一个记录售后服务信息的小模块。
-先展示下效果图吧，该模版完全兼容原先shopex系统模块，不冲突，继承原shopex系统的界面，查询，导出，删除，恢复等功能。
-
-&nbsp;
-&nbsp;
-
-&nbsp;
-shopex4.8.5工作记录,售后服务模块可以记录信息 如下 会员名，联系人姓名，联系方式，售后服务状态(待处理，已处理，处理中)，具体内容，也可以指定标签，添加信息备注，便于查找。
-系统今天刚上线，目前 …</p>
+          <p class="pale">随着商城的慢慢壮大，客服也越来越多了。由于客服采用轮休制导致如果这个客服休息，其他客服无法跟踪正在休息客服正在跟踪客户的情况。又考虑客服系统培训时间有限，系统不能太复杂。为了解决这些问题，我基于shopex系统操作风格开发了一个记录售后服务信息的小模块。先展示下效果图吧，该模版完全兼容原先shopex系统模块，不冲突，继承原shopex系统的界面，查询，导出，删除，恢复等功能。
+  
+ shopex4.8.5工作记录,售后服务模块可以记录信息 如下 会员名，联系人姓名，联系方式，售后服务状态(待处理，已处理，处理中)，具体内容，也可以指定标签，添加信息备注，便于查找。系统今天刚上线，目前使用良好。有了这个系统希望可以减少客服的工作 …</p>
           <a href="https://ifunbox.top/284.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -394,9 +370,7 @@ shopex4.8.5工作记录,售后服务模块可以记录信息 如下 会员名，
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程
-感觉不错，希望能帮助到大家！
-IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWebhosting视频教程之免费赠送域名开通方法之实例演示 IXWebhosting视频教程之控制面板功能之详解 IXWebhosting视频教程之虚拟主机FTP的相关操作 IXWebhosting视频教程之虚拟主机PHPMyadmin的使用 IXWebhosting视频教程之虚拟主机MySQL独立数据库的建立 IXWebhosting视频教程之虚拟主机在线文件管理功能之实例演示 IXWebhosting视频教程之域名解析操作之实例演示 IXWebhosting视 …</p>
+          <p class="pale">最近在网上整理了IXWebhosting美国虚拟主机/空间视频教程感觉不错，希望能帮助到大家！IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWebhosting视频教程之免费赠送域名开通方法之实例演示 IXWebhosting视频教程之控制面板功能之详解 IXWebhosting视频教程之虚拟主机FTP的相关操作 IXWebhosting视频教程之虚拟主机PHPMyadmin的使用 IXWebhosting视频教程之虚拟主机MySQL独立数据库的建立 IXWebhosting视频教程之虚拟主机在线文件管理功能之实例演示 IXWebhosting视频教程之域名解析操作之实例演示 IXWebhosting视频教 …</p>
           <a href="https://ifunbox.top/279.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -404,207 +378,46 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/13/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/13/">13</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/posts/page/14/">14</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/15/">15</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/posts/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/13/">13</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/14/">14</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/15/">15</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/posts/page/15/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -875,7 +688,7 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -884,6 +697,7 @@ IXWebhosting视频教程之控制面板的登录与密码管理使用教程 IXWe
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

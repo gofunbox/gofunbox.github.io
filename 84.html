@@ -4,7 +4,7 @@
   <head>
 <title>如何屏蔽禁止中国ip段 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,29 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="order allow,deny
-# 禁止一个ip地址
-deny from 123.125.125.147
-# 屏蔽一个ip段
-deny from 210.145.95.0/255
-# 或者你需要在这ip段中允许部分ip
-allow from 210.145.95.123
-# 除此之外一切均可以访问
-allow …">
+<meta name="description" content="order allow,deny# 禁止一个ip地址deny from 123.125.125.147# 屏蔽一个ip段deny from 210.145.95.0/255# 或者你需要在这ip段中允许部分ipallow from 210.145.95.123# 除此之外一切均可以访问allow from all这里有 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="如何屏蔽禁止中国ip段" />
 <meta property="og:url" content="https://ifunbox.top/84.html" />
 <meta property="og:title" content="如何屏蔽禁止中国ip段" />
-<meta property="og:description" content="order allow,deny
-# 禁止一个ip地址
-deny from 123.125.125.147
-# 屏蔽一个ip段
-deny from 210.145.95.0/255
-# 或者你需要在这ip段中允许部分ip
-allow from 210.145.95.123
-# 除此之外一切均可以访问
-allow …" />
+<meta property="og:description" content="order allow,deny# 禁止一个ip地址deny from 123.125.125.147# 屏蔽一个ip段deny from 210.145.95.0/255# 或者你需要在这ip段中允许部分ipallow from 210.145.95.123# 除此之外一切均可以访问allow from all这里有 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -52,12 +36,12 @@ allow …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -176,27 +160,22 @@ allow …" />
 </div>
 
     
-    <p><span style="font-size: medium;">order allow,deny</span><br />
- <span style="font-size: medium;"># 禁止一个ip地址</span><br />
- <span style="font-size: medium;">deny from 123.125.125.147</span></p>
-
-<p><span style="font-size: medium;"># 屏蔽一个ip段</span><br />
- <span style="font-size: medium;">deny from 210.145.95.0/255</span></p>
-
-<p><span style="font-size: medium;"># 或者你需要在这ip段中允许部分ip</span><br />
- <span style="font-size: medium;">allow from 210.145.95.123</span></p>
-
-<p><span style="font-size: medium;"># 除此之外一切均可以访问</span><br />
- <span style="font-size: medium;">allow from all</span></p>
-
-<p><span style="font-size: medium;">这里有一份2008年中国IP段资料：</span></p>
-
-<p><span style="font-size: medium;"># This blocklist was last updated on Saturday, 17-May-2008 09:43:34 MDT</span><br />
- <span style="font-size: medium;"># 最新更新时间：2008-05-17</span><br />
- <span style="font-size: medium;">order deny,allow</span><br />
- <span style="font-size: medium;"># Chinese IP addresses follow:</span><br />
- <span style="font-size: medium;"># 中国ip地址</span><br />
- <span style="font-size: medium;">deny from 58.22.0.0/15 58.56.0.0/15 58.58.0.0/16 58.59.0.0/17 58.60.0.0/14 58.82.0.0/15 58.208.0.0/12 58.246.0.0/15 58.248.0.0/13 59.32.0.0/13 59.40.0.0/15 59.42.0.0/16 59.56.0.0/13 60.12.0.0/16 60.28.0.0/15 60.160.0.0/11 60.194.0.0/15 60.208.0.0/13 60.216.0.0/15 61.4.64.0/20 61.48.0.0/13 61.128.0.0/10 61.135.0.0/16 61.145.73.<sup>208</sup>&frasl;<sub>28</sub> 61.179.0.0/16 61.183.0.0/16 61.184.0.0/16 61.185.219.<sup>232</sup>&frasl;<sub>29</sub> 61.188.0.0/16 61.232.0.0/14 61.236.0.0/15 118.132.0.0/14 119.18.192.0/20 121.32.0.0/14 123.4.0.0/14 124.42.64.0/18 124.236.0.0/14 125.40.0.0/13 159.226.0.0/16 202.66.0.0/16 202.96.0.0/12 202.96.128.0/18 202.108.0.0/16 203.69.0.0/16 203.169.160.0/19 210.5.0.0/19 210.14.128.0/19 210.21.0.0/16 210.51.0.0/16 210.192.96.0/19 211.76.96.0/20 211.78.208.0/20 211.90.0.0/15 211.136.0.0/13 211.233.70.0/24 211.144.12.0/22 211.144.160.0/20 211.152.14.0/24 211.154.128.0/19 211.157.32.0/19 211.161.24.<sup>128</sup>&frasl;<sub>26</sub> 218.0.0.0/11 218.56.0.0/13 218.64.0.0/11 218.88.0.0/13 218.96.0.0/14 218.102.0.0/16 218.104.136.<sup>128</sup>&frasl;<sub>25</sub> 218.242.0.0/16 219.128.0.0/11 219.232.0.0/19 220.160.0.0/11 220.181.0.0/16 220.192.0.0/12 220.228.70.0/24 220.248.0.0/14 220.250.0.0/19 220.252.0.0/16 221.10.0.0/16 221.11.0.0/16 221.192.0.0/14 221.208.0.0/14 221.212.0.0/16 221.216.0.0/13 221.224.0.0/13 221.228.0.0/14 221.238.0.0/15 222.32.0.0/11 222.76.0.0/14 222.80.0.0/12 222.136.0.0/13 222.166.0.0/16 222.168.0.0/15 222.172.222.0/24 222.184.0.0/13</span></p>
+    <p><!-- raw HTML omitted -->order allow,deny<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --># 禁止一个ip地址<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->deny from 123.125.125.147<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --># 屏蔽一个ip段<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->deny from 210.145.95.0/255<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --># 或者你需要在这ip段中允许部分ip<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->allow from 210.145.95.123<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --># 除此之外一切均可以访问<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->allow from all<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这里有一份2008年中国IP段资料：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --># This blocklist was last updated on Saturday, 17-May-2008 09:43:34 MDT<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --># 最新更新时间：2008-05-17<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->order deny,allow<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --># Chinese IP addresses follow:<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --># 中国ip地址<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->deny from 58.22.0.0/15 58.56.0.0/15 58.58.0.0/16 58.59.0.0/17 58.60.0.0/14 58.82.0.0/15 58.208.0.0/12 58.246.0.0/15 58.248.0.0/13 59.32.0.0/13 59.40.0.0/15 59.42.0.0/16 59.56.0.0/13 60.12.0.0/16 60.28.0.0/15 60.160.0.0/11 60.194.0.0/15 60.208.0.0/13 60.216.0.0/15 61.4.64.0/20 61.48.0.0/13 61.128.0.0/10 61.135.0.0/16 61.145.73.208/28 61.179.0.0/16 61.183.0.0/16 61.184.0.0/16 61.185.219.232/29 61.188.0.0/16 61.232.0.0/14 61.236.0.0/15 118.132.0.0/14 119.18.192.0/20 121.32.0.0/14 123.4.0.0/14 124.42.64.0/18 124.236.0.0/14 125.40.0.0/13 159.226.0.0/16 202.66.0.0/16 202.96.0.0/12 202.96.128.0/18 202.108.0.0/16 203.69.0.0/16 203.169.160.0/19 210.5.0.0/19 210.14.128.0/19 210.21.0.0/16 210.51.0.0/16 210.192.96.0/19 211.76.96.0/20 211.78.208.0/20 211.90.0.0/15 211.136.0.0/13 211.233.70.0/24 211.144.12.0/22 211.144.160.0/20 211.152.14.0/24 211.154.128.0/19 211.157.32.0/19 211.161.24.128/26 218.0.0.0/11 218.56.0.0/13 218.64.0.0/11 218.88.0.0/13 218.96.0.0/14 218.102.0.0/16 218.104.136.128/25 218.242.0.0/16 219.128.0.0/11 219.232.0.0/19 220.160.0.0/11 220.181.0.0/16 220.192.0.0/12 220.228.70.0/24 220.248.0.0/14 220.250.0.0/19 220.252.0.0/16 221.10.0.0/16 221.11.0.0/16 221.192.0.0/14 221.208.0.0/14 221.212.0.0/16 221.216.0.0/13 221.224.0.0/13 221.228.0.0/14 221.238.0.0/15 222.32.0.0/11 222.76.0.0/14 222.80.0.0/12 222.136.0.0/13 222.166.0.0/16 222.168.0.0/15 222.172.222.0/24 222.184.0.0/13<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/84.html" ></div>
@@ -479,7 +458,7 @@ allow …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -488,6 +467,7 @@ allow …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

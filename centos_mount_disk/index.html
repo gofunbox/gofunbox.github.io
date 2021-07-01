@@ -4,7 +4,7 @@
   <head>
 <title>Centos如何挂载硬盘 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -46,12 +46,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,30 +170,22 @@
 </div>
 
     
-    <p>远程SSH登录上Centos服务器后，进行如下操作<br />
+    <p>远程SSH登录上Centos服务器后，进行如下操作<br>
 提醒：挂载操作会清空数据，请确认挂载盘无数据或者未使用</p>
-
-<p><strong>第一步：列出所有磁盘</strong>   命令：   ll /dev/disk/by-path<br />
-<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_1.jpg"><img class="alignnone size-full wp-image-1138" src="https://ifunbox.top/wp-content/uploads/2013/09/img646_1.jpg" alt="img646_1" width="543" height="115" /></a></p>
-
+<p><strong>第一步：列出所有磁盘</strong>   命令：   ll /dev/disk/by-path<br>
+<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_1.jpg"><!-- raw HTML omitted --></a></p>
 <p>提示：如果无法确认数据盘设备名称，请使用df命令来确认系统盘的名称，从而排除挂错盘的情况。</p>
-
-<p><strong>第二步：格式化硬盘</strong>      命令：   fdisk /dev/sdb<br />
-<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_2.jpg"><img class="alignnone size-large wp-image-1139" src="https://ifunbox.top/wp-content/uploads/2013/09/img646_2-600x588.jpg" alt="img646_2" width="600" height="588" /></a></p>
-
+<p><strong>第二步：格式化硬盘</strong>      命令：   fdisk /dev/sdb<br>
+<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_2.jpg"><!-- raw HTML omitted --></a></p>
 <p>注意：图中箭头标注处续手动键入</p>
-
-<p><strong>第三步：创建分区 </strong>        命令：   mkfs.ext4 /dev/sdb1<br />
-<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_3.jpg"><img class="alignnone size-full wp-image-1140" src="https://ifunbox.top/wp-content/uploads/2013/09/img646_3.jpg" alt="img646_3" width="556" height="365" /></a></p>
-
+<p>**第三步：创建分区 **        命令：   mkfs.ext4 /dev/sdb1<br>
+<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_3.jpg"><!-- raw HTML omitted --></a></p>
 <p><strong>第四步：挂载分区</strong>        命令：   mkdir /data</p>
-
-<p>mount /dev/sdb1 /data    # 将sdb这个硬盘挂载成为/data<br />
-<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_4.jpg"><img class="alignnone size-full wp-image-1141" src="https://ifunbox.top/wp-content/uploads/2013/09/img646_4.jpg" alt="img646_4" width="505" height="153" /></a></p>
-
-<p>**第五步：将信息写入fstab,让系统开启自动挂载。<br />
-**  命令：  echo &#8220;/dev/sdb1               /data                   ext4    defaults        0 0&#8221; &gt;&gt; /etc/fstab<br />
-<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_5.jpg"><img class="alignnone size-large wp-image-1142" src="https://ifunbox.top/wp-content/uploads/2013/09/img646_5-600x206.jpg" alt="img646_5" width="600" height="206" /></a></p>
+<p>mount /dev/sdb1 /data    # 将sdb这个硬盘挂载成为/data<br>
+<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_4.jpg"><!-- raw HTML omitted --></a></p>
+<p>**第五步：将信息写入fstab,让系统开启自动挂载。<br>
+**  命令：  echo “/dev/sdb1               /data                   ext4    defaults        0 0” &raquo; /etc/fstab<br>
+<a href="https://ifunbox.top/wp-content/uploads/2013/09/img646_5.jpg"><!-- raw HTML omitted --></a></p>
 
     
       <div id="SOHUCS" sid="/centos_mount_disk" ></div>
@@ -476,7 +468,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -485,6 +477,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

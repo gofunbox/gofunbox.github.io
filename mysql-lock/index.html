@@ -4,7 +4,7 @@
   <head>
 <title>MySQL锁 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
-mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …">
+<meta name="description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁  mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="MySQL锁" />
 <meta property="og:url" content="https://ifunbox.top/mysql-lock/" />
 <meta property="og:title" content="MySQL锁" />
-<meta property="og:description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁
-mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …" />
+<meta property="og:description" content="表锁 一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁  mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&gt; select * from products where id = …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@ mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&g
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -165,197 +163,163 @@ mysql&gt; lock table products read; Query OK, 0 rows affected (0.00 sec) mysql&g
 
     
     <ol>
-<li><p>表锁
-一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁</p>
-
-<pre><code class="language-sql">mysql&gt; lock table products read;
-Query OK, 0 rows affected (0.00 sec)
- 
-mysql&gt; select * from products where id = 100;
- 
-mysql&gt; unlock tables;
-Query OK, 0 rows affected (0.00 sec)
-</code></pre></li>
+<li>表锁
+一般在执行 DDL 语句时，譬如 ALTER TABLE 就会对整个表进行加锁</li>
 </ol>
-
-<p>我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！</p>
-
-<p>对于读锁
-* 持有读锁的会话可以读表，但不能写表；
-* 允许多个会话同时持有读锁；
-* 其他会话就算没有给表加读锁，也是可以读表的，但是不能写表；
-* 其他会话申请该表写锁时会阻塞，直到锁释放。</p>
-
-<p>对于写锁
-* 持有写锁的会话既可以读表，也可以写表；
-* 只有持有写锁的会话才可以访问该表，其他会话访问该表会被阻塞，直到锁释放；
-* 其他会话无论申请该表的读锁或写锁，都会阻塞，直到锁释放。</p>
-
-<p>锁的释放规则如下
-* 使用 UNLOCK TABLES 语句可以显示释放表锁；
-* 如果会话在持有表锁的情况下执行 LOCK TABLES 语句，将会释放该会话之前持有的锁；
-* 如果会话在持有表锁的情况下执行 START TRANSACTION 或 BEGIN 开启一个事务，将会释放该会话之前持有的锁；
-* 如果会话连接断开，将会释放该会话所有的锁。</p>
-
-<ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">table</span> products <span style="color:#66d9ef">read</span>;
+Query OK, <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">rows</span> affected (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+ 
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> products <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+ 
+mysql<span style="color:#f92672">&gt;</span> unlock tables;
+Query OK, <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">rows</span> affected (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</code></pre></div><p>我们会在会话开始的地方使用 lock 命令将后面所有要用到的表加上锁，在锁释放之前，我们只能访问这些加锁的表，不能访问其他的表，最后通过 unlock tables 释放所有表锁。这样的好处是，不会发生死锁！</p>
+<p>对于读锁</p>
+<ul>
+<li>持有读锁的会话可以读表，但不能写表；</li>
+<li>允许多个会话同时持有读锁；</li>
+<li>其他会话就算没有给表加读锁，也是可以读表的，但是不能写表；</li>
+<li>其他会话申请该表写锁时会阻塞，直到锁释放。</li>
+</ul>
+<p>对于写锁</p>
+<ul>
+<li>持有写锁的会话既可以读表，也可以写表；</li>
+<li>只有持有写锁的会话才可以访问该表，其他会话访问该表会被阻塞，直到锁释放；</li>
+<li>其他会话无论申请该表的读锁或写锁，都会阻塞，直到锁释放。</li>
+</ul>
+<p>锁的释放规则如下</p>
+<ul>
+<li>使用 UNLOCK TABLES 语句可以显示释放表锁；</li>
+<li>如果会话在持有表锁的情况下执行 LOCK TABLES 语句，将会释放该会话之前持有的锁；</li>
+<li>如果会话在持有表锁的情况下执行 START TRANSACTION 或 BEGIN 开启一个事务，将会释放该会话之前持有的锁；</li>
+<li>如果会话连接断开，将会释放该会话所有的锁。</li>
+</ul>
+<ol start="2">
 <li>行锁(InnoDb才有)
 常见的增删改（INSERT、DELETE、UPDATE）语句会自动对操作的数据行加写锁，查询的时候也可以明确指定锁的类型，SELECT &hellip; LOCK IN SHARE MODE 语句加的是读锁，SELECT &hellip; FOR UPDATE 语句加的是写锁。</li>
 </ol>
-
 <p>行锁这个名字听起来像是这个锁加在某个数据行上，实际上这里要指出的是：在 MySQL 中，行锁是加在索引上的。</p>
-
-<ol>
-<li><p>主键
+<ol start="3">
+<li>
+<p>主键
 主键索引（Primary Index）又被称为聚簇索引（Clustered Index）
 非主键索引（Secondary Index，又称为二级索引、辅助索引）被称为 非聚簇索引
-如果没有主键，InnoDB 会试着使用一个非空的唯一索引（Unique nonnullable index）代替；如果没有这种索引，会定义一个隐藏的主键。所以 InnoDb 的表一定会有主键索引</p></li>
-
-<li><p>二叉查找树
-<img src="/resources/19E6EC7B753F22CCEBB73DF984ED95B8.jpg" alt="IMAGE" /></p></li>
-
-<li><p>B树
-<img src="/resources/E52A2BE0D00F1AA72D5A8918E8C11769.jpg" alt="IMAGE" /></p></li>
-
-<li><p>B+树
+如果没有主键，InnoDB 会试着使用一个非空的唯一索引（Unique nonnullable index）代替；如果没有这种索引，会定义一个隐藏的主键。所以 InnoDb 的表一定会有主键索引</p>
+</li>
+<li>
+<p>二叉查找树
+<img src="/resources/19E6EC7B753F22CCEBB73DF984ED95B8.jpg" alt="IMAGE"></p>
+</li>
+<li>
+<p>B树
+<img src="/resources/E52A2BE0D00F1AA72D5A8918E8C11769.jpg" alt="IMAGE"></p>
+</li>
+<li>
+<p>B+树
 在 B+ 树里，内节点（非叶子节点）中不再保存数据，而只保存用于查找的 key，并且所有的叶子节点按顺序使用链表进行连接，这样可以大大的方便范围查询，只要先查到起始位置，然后按链表顺序查找，一直查到结束位置即可。
-<img src="/resources/0DC6DB5CE1F77235C6D12919B840BDFB.jpg" alt="IMAGE" /></p></li>
-
-<li><p>加锁</p>
-
-<pre><code class="language-sql">mysql&gt; update students set score = 100 where id = 49;
-</code></pre>
-
-<p>InnoDb 存储引擎会在 id = 49 这个主键索引上加一把 X 锁。</p>
-
-<pre><code class="language-sql">mysql&gt; update students set score = 100 where name = 'Tom';
-</code></pre></li>
+<img src="/resources/0DC6DB5CE1F77235C6D12919B840BDFB.jpg" alt="IMAGE"></p>
+</li>
+<li>
+<p>加锁</p>
+</li>
 </ol>
-
-<p>InnoDb 存储引擎会在 name = &lsquo;Tom&rsquo; 这个索引上加一把 X 锁，同时会通过 name = &lsquo;Tom&rsquo; 这个二级索引定位到 id = 49 这个主键索引，并在 id = 49 这个主键索引上加一把 X 锁。
-<img src="/resources/B4DFCF4BE94930576620C0CDAB6A055D.jpg" alt="IMAGE" /></p>
-
-<pre><code class="language-sql">mysql&gt; update students set level = 3 where score &gt;= 60;
-</code></pre>
-
-<p><img src="/resources/D928AA4601C2C5A14A31865435AABD4F.jpg" alt="IMAGE" /></p>
-
-<ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">update</span> students <span style="color:#66d9ef">set</span> score <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">49</span>;
+</code></pre></div><p>InnoDb 存储引擎会在 id = 49 这个主键索引上加一把 X 锁。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">update</span> students <span style="color:#66d9ef">set</span> score <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Tom&#39;</span>;
+</code></pre></div><p>InnoDb 存储引擎会在 name = &lsquo;Tom&rsquo; 这个索引上加一把 X 锁，同时会通过 name = &lsquo;Tom&rsquo; 这个二级索引定位到 id = 49 这个主键索引，并在 id = 49 这个主键索引上加一把 X 锁。
+<img src="/resources/B4DFCF4BE94930576620C0CDAB6A055D.jpg" alt="IMAGE"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">update</span> students <span style="color:#66d9ef">set</span> <span style="color:#66d9ef">level</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">where</span> score <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">60</span>;
+</code></pre></div><p><img src="/resources/D928AA4601C2C5A14A31865435AABD4F.jpg" alt="IMAGE"></p>
+<ol start="8">
 <li>行锁种类</li>
+</ol>
+<ul>
 <li>LOCK_ORDINARY：也称为 Next-Key Lock，锁一条记录及其之前的间隙，这是 RR 隔离级别用的最多的锁，从名字也能看出来；</li>
 <li>LOCK_GAP：间隙锁，锁两个记录之间的 GAP，防止记录插入；</li>
 <li>LOCK_REC_NOT_GAP：只锁记录；</li>
 <li>LOCK_INSERT_INTENSION：插入意向 GAP 锁，插入记录时使用，是 LOCK_GAP 的一种特例。</li>
-</ol>
-
+</ul>
 <p>使用间隙锁可以防止其他事务在这个范围内插入或修改记录，保证两次读取这个范围内的记录不会变，从而不会出现幻读现象。
 Next-key 锁 是记录锁和间隙锁的组合，它指的是加在某条记录以及这条记录前面间隙上的锁。</p>
-
-<ol>
+<ol start="9">
 <li>行锁的模式</li>
+</ol>
+<ul>
 <li>LOCK_IS：读意向锁；</li>
 <li>LOCK_IX：写意向锁；</li>
 <li>LOCK_S：读锁；</li>
 <li>LOCK_X：写锁；</li>
 <li>LOCK_AUTO_INC：自增锁；</li>
-</ol>
-
+</ul>
 <p>9.1 读写锁
 读锁，又称共享锁（Share locks，简称 S 锁），加了读锁的记录，所有的事务都可以读取，但是不能修改，并且可同时有多个事务对记录加读锁。</p>
-
 <p>写锁，又称排他锁（Exclusive locks，简称 X 锁），或独占锁，对记录加了排他锁之后，只有拥有该锁的事务可以读取和修改，其他事务都不可以读取和修改，并且同一时间只能有一个事务加写锁。（注意：这里说的读都是当前读，快照读是无需加锁的，记录上无论有没有锁，都可以快照读）</p>
-
 <p>9.2 读写意向锁
 意向锁为表级锁，也可分为读意向锁（IS 锁）和写意向锁（IX 锁）。当事务试图读或写某一条记录时，会先在表上加上意向锁，然后才在要操作的记录上加上读锁或写锁。这样判断表中是否有记录加锁就很简单了，只要看下表上是否有意向锁就行了。意向锁之间是不会产生冲突的，也不和 AUTO_INC 表锁冲突，它只会阻塞表级读锁或表级写锁，另外，意向锁也不会和行锁冲突，行锁只会和行锁冲突。</p>
-
 <p>下面是各个表锁之间的兼容矩阵：
-<img src="/resources/741FDA4D9D53851A63F7FD2471ABB7AB.jpg" alt="IMAGE" />
-总结
-* 意向锁之间互不冲突；
-* S 锁只和 S/IS 锁兼容，和其他锁都冲突；
-* X 锁和其他所有锁都冲突；
-* AI 锁只和意向锁兼容；</p>
-
+<img src="/resources/741FDA4D9D53851A63F7FD2471ABB7AB.jpg" alt="IMAGE">
+总结</p>
+<ul>
+<li>意向锁之间互不冲突；</li>
+<li>S 锁只和 S/IS 锁兼容，和其他锁都冲突；</li>
+<li>X 锁和其他所有锁都冲突；</li>
+<li>AI 锁只和意向锁兼容；</li>
+</ul>
 <p>为啥存在？用处~~
 表锁锁定了整张表，而行锁是锁定表中的某条记录，它们俩锁定的范围有交集，因此表锁和行锁之间是有冲突的。譬如某个表有 10000 条记录，其中有一条记录加了 X 锁，如果这个时候系统需要对该表加表锁，为了判断是否能加这个表锁，系统需要遍历表中的所有 10000 条记录，看看是不是某条记录被加锁，如果有锁，则不允许加表锁，显然这是很低效的一种方法，为了方便检测表锁和行锁的冲突，从而引入了意向锁。</p>
-
 <p>9.3 AUTO_INC 锁
 AUTO_INC 锁又叫自增锁（一般简写成 AI 锁），它是一种特殊类型的表锁，当插入的表中有自增列（AUTO_INCREMENT）的时候可能会遇到。</p>
-
 <p>innodb_autoinc_lock_mode = 0 使用AUTO_INC 锁,并发性比较差,自增值可能会出现中断;
 mysql默认innodb_autoinc_lock_mode = 1,既平衡了并发性，又能保证同一条 INSERT 语句分配的自增值是连续的。
 innodb_autoinc_lock_mode = 2,并发性能最高，按顺序依次分配自增值，不会预分配,同一条 INSERT 语句内获得的自增值可能不连续，主从数据集会出现数据不一致。</p>
-
-<p>参考<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html">https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html</a></p>
-
-<ol>
-<li><p>在 MySQL 中观察行锁</p>
-
-<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
-</code></pre>
-
-<p>10.1 记录锁
+<p>参考https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html</p>
+<ol start="10">
+<li>在 MySQL 中观察行锁</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> information_schema.innodb_locks;
+</code></pre></div><p>10.1 记录锁
 记录锁和记录锁或 Next-key 锁冲突，所以想观察到记录锁，可以让两个事务都对同一条记录加记录锁，或者一个事务加记录锁另一个事务加 Next-key 锁。
 事务 A 执行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">begin</span>;
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> accounts <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">update</span>;
+<span style="color:#f92672">+</span><span style="color:#75715e">----+----------+-------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> id <span style="color:#f92672">|</span>     name <span style="color:#f92672">|</span> <span style="color:#66d9ef">level</span> <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">----+----------+-------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span>  <span style="color:#ae81ff">5</span> <span style="color:#f92672">|</span> zhangsan <span style="color:#f92672">|</span>     <span style="color:#ae81ff">7</span> <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">----+----------+-------+
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">row</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</code></pre></div><p>事务 B 执行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">begin</span>;
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> accounts <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">share</span> <span style="color:#66d9ef">mode</span>;
+</code></pre></div><p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> information_schema.innodb_locks;
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> lock_id     <span style="color:#f92672">|</span> lock_trx_id <span style="color:#f92672">|</span> lock_mode <span style="color:#f92672">|</span> lock_type <span style="color:#f92672">|</span> lock_table <span style="color:#f92672">|</span> lock_index <span style="color:#f92672">|</span> lock_space <span style="color:#f92672">|</span> lock_page <span style="color:#f92672">|</span> lock_rec <span style="color:#f92672">|</span> lock_data <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> <span style="color:#ae81ff">3108</span>:<span style="color:#ae81ff">53</span>:<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3108</span>        <span style="color:#f92672">|</span> S         <span style="color:#f92672">|</span> RECORD    <span style="color:#f92672">|</span> <span style="color:#f92672">`</span>accounts<span style="color:#f92672">`</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">PRIMARY</span>    <span style="color:#f92672">|</span>         <span style="color:#ae81ff">53</span> <span style="color:#f92672">|</span>         <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>        <span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">5</span>         <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> <span style="color:#ae81ff">3107</span>:<span style="color:#ae81ff">53</span>:<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3107</span>        <span style="color:#f92672">|</span> X         <span style="color:#f92672">|</span> RECORD    <span style="color:#f92672">|</span> <span style="color:#f92672">`</span>accounts<span style="color:#f92672">`</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">PRIMARY</span>    <span style="color:#f92672">|</span>         <span style="color:#ae81ff">53</span> <span style="color:#f92672">|</span>         <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>        <span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">5</span>         <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">rows</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span>, <span style="color:#ae81ff">1</span> warning (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
 
-<pre><code class="language-sql">mysql&gt; begin;
-mysql&gt; select * from accounts where id = 5 for update;
-+----+----------+-------+
-| id |     name | level |
-+----+----------+-------+
-|  5 | zhangsan |     7 |
-+----+----------+-------+
-1 row in set (0.00 sec)
-</code></pre></li>
-</ol>
-
-<p>事务 B 执行：</p>
-
-<pre><code class="language-sql">mysql&gt; begin;
-mysql&gt; select * from accounts where id = 5 lock in share mode;
-</code></pre>
-
-<p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
-
-<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-| lock_id     | lock_trx_id | lock_mode | lock_type | lock_table | lock_index | lock_space | lock_page | lock_rec | lock_data |
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-| 3108:53:3:4 | 3108        | S         | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 5         |
-| 3107:53:3:4 | 3107        | X         | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 5         |
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-2 rows in set, 1 warning (0.00 sec)
-
-</code></pre>
-
-<p>10.2 间隙锁
+</code></pre></div><p>10.2 间隙锁
 间隙锁只和插入意向锁冲突，而且是先加间隙锁，然后加插入意向锁时才会冲突。
 事务 A 执行（id 为主键，且 id = 3 这条记录不存在）：</p>
-
-<pre><code class="language-sql">mysql&gt; begin;
-mysql&gt; select * from accounts where id = 3 lock in share mode;
-Empty set (0.00 sec)
-</code></pre>
-
-<p>事务 B 执行：</p>
-
-<pre><code class="language-sql">mysql&gt; begin;
-mysql&gt; insert into accounts(id, name, level) value(3, 'lisi', 10);
-</code></pre>
-
-<p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
-
-<pre><code class="language-sql">mysql&gt; select * from information_schema.innodb_locks;
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-| lock_id     | lock_trx_id | lock_mode | lock_type | lock_table | lock_index | lock_space | lock_page | lock_rec | lock_data |
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-| 3110:53:3:4 | 3110        | X,GAP     | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 3         |
-| 3109:53:3:4 | 3109        | S,GAP     | RECORD    | `accounts` | PRIMARY    |         53 |         3 |        4 | 3         |
-+-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
-2 rows in set, 1 warning (0.00 sec)
-</code></pre>
-
-<p>10.3 Next-key 锁</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">begin</span>;
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> accounts <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">share</span> <span style="color:#66d9ef">mode</span>;
+Empty <span style="color:#66d9ef">set</span> (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</code></pre></div><p>事务 B 执行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">begin</span>;
+mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> accounts(id, name, <span style="color:#66d9ef">level</span>) value(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;lisi&#39;</span>, <span style="color:#ae81ff">10</span>);
+</code></pre></div><p>事务 B 阻塞，出现锁竞争，查看锁状态：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">mysql<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> information_schema.innodb_locks;
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> lock_id     <span style="color:#f92672">|</span> lock_trx_id <span style="color:#f92672">|</span> lock_mode <span style="color:#f92672">|</span> lock_type <span style="color:#f92672">|</span> lock_table <span style="color:#f92672">|</span> lock_index <span style="color:#f92672">|</span> lock_space <span style="color:#f92672">|</span> lock_page <span style="color:#f92672">|</span> lock_rec <span style="color:#f92672">|</span> lock_data <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#f92672">|</span> <span style="color:#ae81ff">3110</span>:<span style="color:#ae81ff">53</span>:<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3110</span>        <span style="color:#f92672">|</span> X,GAP     <span style="color:#f92672">|</span> RECORD    <span style="color:#f92672">|</span> <span style="color:#f92672">`</span>accounts<span style="color:#f92672">`</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">PRIMARY</span>    <span style="color:#f92672">|</span>         <span style="color:#ae81ff">53</span> <span style="color:#f92672">|</span>         <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>        <span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3</span>         <span style="color:#f92672">|</span>
+<span style="color:#f92672">|</span> <span style="color:#ae81ff">3109</span>:<span style="color:#ae81ff">53</span>:<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3109</span>        <span style="color:#f92672">|</span> S,GAP     <span style="color:#f92672">|</span> RECORD    <span style="color:#f92672">|</span> <span style="color:#f92672">`</span>accounts<span style="color:#f92672">`</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">PRIMARY</span>    <span style="color:#f92672">|</span>         <span style="color:#ae81ff">53</span> <span style="color:#f92672">|</span>         <span style="color:#ae81ff">3</span> <span style="color:#f92672">|</span>        <span style="color:#ae81ff">4</span> <span style="color:#f92672">|</span> <span style="color:#ae81ff">3</span>         <span style="color:#f92672">|</span>
+<span style="color:#f92672">+</span><span style="color:#75715e">-------------+-------------+-----------+-----------+------------+------------+------------+-----------+----------+-----------+
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">rows</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">set</span>, <span style="color:#ae81ff">1</span> warning (<span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">00</span> sec)
+</code></pre></div><p>10.3 Next-key 锁</p>
 <p>参考
 <a href="https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html">https://www.aneasystone.com/archives/2017/11/solving-dead-locks-two.html</a></p>
 
@@ -640,7 +604,7 @@ mysql&gt; insert into accounts(id, name, level) value(3, 'lisi', 10);
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -649,6 +613,7 @@ mysql&gt; insert into accounts(id, name, level) value(3, 'lisi', 10);
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

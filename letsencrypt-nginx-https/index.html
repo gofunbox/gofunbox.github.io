@@ -4,7 +4,7 @@
   <head>
 <title>Let’s Encrypt，给自己的博客加https | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,15 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="对Let&#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
-Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证 …">
+<meta name="description" content="对Let’s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
+Let’s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="Let’s Encrypt，给自己的博客加https" />
 <meta property="og:url" content="https://ifunbox.top/letsencrypt-nginx-https/" />
 <meta property="og:title" content="Let’s Encrypt，给自己的博客加https" />
-<meta property="og:description" content="对Let&#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
-Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证 …" />
+<meta property="og:description" content="对Let’s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。
+Let’s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +38,12 @@ Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,52 +164,31 @@ Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会
 </div>
 
     
-    <p>对Let&#8217;s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。</p>
-
-<p>Let&#8217;s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。</p>
-
-<p>Let&#8217;s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let&#8217;s Encrypt安装简单，未来大规模采用可能性非常大。</p>
-
-<p>旧版的安装方式，新版往下拉~<br />
+    <p>对Let’s Encrypt免费项目早有耳闻，今天终于给自己的博客加上https。</p>
+<p>Let’s Encrypt是国外一个公共的免费SSL项目，由 Linux 基金会托管，它的来头不小，由Mozilla、思科、Akamai、IdenTrust和EFF等组织发起，目的就是向网站自动签发和管理免费证书，以便加速互联网由HTTP过渡到HTTPS，目前Facebook等大公司开始加入赞助行列。</p>
+<p>Let’s Encrypt已经得了 IdenTrust 的交叉签名，这意味着其证书现在已经可以被Mozilla、Google、Microsoft和Apple等主流的浏览器所信任，你只需要在Web 服务器证书链中配置交叉签名，浏览器客户端会自动处理好其它的一切，Let’s Encrypt安装简单，未来大规模采用可能性非常大。</p>
+<p>旧版的安装方式，新版往下拉~<br>
 获取证书，非常的简单，但由于国内网络的原因，会比较慢一些</p>
-
 <pre><code>git clone https://github.com/letsencrypt/letsencrypt
 cd letsencrypt
 #每个-d参数后面跟一个域名，需要申请几个域名的证书就跟几个，需要确认这些域名都解析到当前vps的ip上
 ./letsencrypt-auto certonly --standalone -d example.com -d www.example.com
-</code></pre>
-
-<p>完成后会有如下提示：</p>
-
+</code></pre><p>完成后会有如下提示：</p>
 <pre><code>Congratulations! Your certificate and chain have been saved at
 /etc/letsencrypt/live/example.com/fullchain.pem. Your cert will
 expire on xxxx-xx-xx. To obtain a new version of the certificate in
 the future, simply run Let's Encrypt again.
-</code></pre>
-
-<p>但过程并非那么顺利，报错了，跟我的屌丝配置内存512M有关~~~</p>
-
+</code></pre><p>但过程并非那么顺利，报错了，跟我的屌丝配置内存512M有关~~~</p>
 <pre><code>Error: open CFI at the end of file; missing .cfi_endproc directive
-</code></pre>
-
-<p>解决方法</p>
-
+</code></pre><p>解决方法</p>
 <pre><code>swapon -s
 #如果没有任何输出，则继续
 umask 0077 &amp;&amp; dd if=/dev/zero of=/.swap.img bs=1M count=1024 &amp;&amp; mkswap /.swap.img &amp;&amp; swapon /.swap.img
-</code></pre>
-
-<p>这时你的证书就申请好了，去它提示的目录里，fullchain.pem即为证书文件，private.pem即为私钥</p>
-
+</code></pre><p>这时你的证书就申请好了，去它提示的目录里，fullchain.pem即为证书文件，private.pem即为私钥</p>
 <p>注意：申请到的证书有效期3个月，到期后需要用如下命令重新续期，建议加到crontab里面</p>
-
 <pre><code>./letsencrypt-auto renew
-</code></pre>
-
-<hr />
-
+</code></pre><hr>
 <p>然而新版的安装方式更上述有些不同(certbot)</p>
-
 <pre><code>wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
 
@@ -222,10 +201,7 @@ chmod a+x certbot-auto
 
 #3. 多域名多目录生成多个证书：(即一次生成多个域名的多个证书)
 ./certbot-auto certonly --email i@zhukun.net --agree-tos --webroot -w /home/wwwroot/b.com -d www1.b.com -d www2.b.com -w /home/wwwroot/a.com -d www1.a.com -d www2.a.com
-</code></pre>
-
-<p>nginx配置也很简单，包含301跳转</p>
-
+</code></pre><p>nginx配置也很简单，包含301跳转</p>
 <pre><code>server {
 listen 80;
 server_name example.com www.example.com;
@@ -244,15 +220,11 @@ rewrite ^/(.*)$ https://www.example.com/$1 permanent;
 
 ........
 }
-</code></pre>
-
-<p>生成证书后要新增一个子域名debug log里面显示MisconfigurationError: At least one of the required ports is already taken</p>
-
+</code></pre><p>生成证书后要新增一个子域名debug log里面显示MisconfigurationError: At least one of the required ports is already taken</p>
 <p>记得先关闭nginx、apache服务</p>
-
-<p>参考<br />
-<a href="https://www.zhukun.net/archives/8104">https://www.zhukun.net/archives/8104</a><br />
-<a href="https://www.echoteen.com/letsencrypt-nginx-one.html">https://www.echoteen.com/letsencrypt-nginx-one.html</a><br />
+<p>参考<br>
+<a href="https://www.zhukun.net/archives/8104">https://www.zhukun.net/archives/8104</a><br>
+<a href="https://www.echoteen.com/letsencrypt-nginx-one.html">https://www.echoteen.com/letsencrypt-nginx-one.html</a><br>
 <a href="http://stackoverflow.com/questions/25575756/gentoo-gcc-failed-emerge">http://stackoverflow.com/questions/25575756/gentoo-gcc-failed-emerge</a></p>
 
     
@@ -536,7 +508,7 @@ rewrite ^/(.*)$ https://www.example.com/$1 permanent;
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -545,6 +517,7 @@ rewrite ^/(.*)$ https://www.example.com/$1 permanent;
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
   <head>
 <title>数据库 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,10 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.安装mysqlsla
-wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install  perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西
-2.使用mysqlsla语法
- Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
+          <p class="pale">1.安装mysqlslawget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.tar.gz cd mysqlsla-2.03 perl Makefile.PL make make install perl Makefile.PL会报错，根据出错内容百度下都有相关信息，无非yum install一些东西2.使用mysqlsla语法 Slow log: mysqlsla -lt slow slow.log General log: mysqlsla -lt general general.log Binary log: …</p>
           <a href="https://ifunbox.top/mysqlsla_mysql_slow_log_analysis_tools/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -170,9 +167,7 @@ wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz tar zvxf mysqlsla-2.03.ta
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。
-mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。
-方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在 …</p>
+          <p class="pale">该漏洞最早2006年被国外用来讨论数据库字符集设为GBK时，0xbf27本身不是一个有效的GBK字符，但经过 addslashes() 转换后变为0xbf5c27，前面的0xbf5c是个有效的GBK字符，所以0xbf5c27会被当作一个字符0xbf5c和一个单引号来处理，结果漏洞就触发了。mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes() 它考虑到了用什么字符集来处理，因此可以用相应的字符集来处理字符。在MySQL 中有两种改变默认字符集的方法。方法一： 改变mysql配置文件my.cnf [client] default-character-set=GBK 方法二： 在建立 …</p>
           <a href="https://ifunbox.top/gbk_addslashes_mysql_real_escape_string_injection/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -196,9 +191,7 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。
- &lt;span style=&ldquo;font-family: nsimsun;&ldquo;&gt;mysql&gt; show global status; &lt;/span&gt;
- 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语 …</p>
+          <p class="pale">网上有不少mysql 性能优化方案，不过，mysql的优化同sql server相比，更为麻烦与负责，同样的设置，在不同的环境下 ，由于内存，访问量，读写频率，数据差异等等情况，可能会出现不同的结果，因此简单地根据某个给出方案来配置mysql是行不通的，最好能使用 status信息对mysql进行具体的优化，网上找了一篇文章，分页分得乱七八糟的，只能转到博客。 &lt;span style=&ldquo;font-family: nsimsun;&quot;&gt;mysql&gt; show global status; &lt;/span&gt; 可以列出mysql服务器运行各种状态值，另外，查询mysql服务器配置信息语句： …</p>
           <a href="https://ifunbox.top/optimize_mysql/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -222,25 +215,7 @@ mysql_real_escape_string() 也存在相同的问题，只不过相比 addslashes
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">php计算两个经纬度之间的距离的方法   /**
-* 函数用途描述 计算经纬度 计算弧度
-* @date: 2013-8-26
-* @author: fanhe
-* @return: 
-*/
-function rad($d)
-{
-return $d * 3.1415926535898 / 180.0;
-}  /**
-* 函数用途描述 计算经纬度距离
-* @date: 2013-8-26
-* @author: fanhe
-* @return:
-*/
-function get_distance($lng1, $lat1, $lng2, $lat2)
-{
-$EARTH_RADIUS = 6378.137;
-$radLat1 = …</p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/php_mysql_distance/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -264,10 +239,7 @@ $radLat1 = …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">索引是快速搜索的关键。MySQL索引的建立对于MySQL的高效运行是很重要的。下面介绍几种常见的MySQL索引类型。
-在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表：
-CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我们随机向里面插入了10000条记录，其中有一条：5555, admin。
-在查找username=&#8221;admin&#8221;的记录 SELECT * FROM mytable WHERE username=&#8217;admin&#8217;;时，如果在username上 …</p>
+          <p class="pale">索引是快速搜索的关键。MySQL索引的建立对于MySQL的高效运行是很重要的。下面介绍几种常见的MySQL索引类型。在数据库表中，对字段建立索引可以大大提高查询速度。假如我们创建了一个 mytable表：CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我们随机向里面插入了10000条记录，其中有一条：5555, admin。在查找username=”admin”的记录 SELECT * FROM mytable WHERE username=’admin’;时，如果在username上已经建立了索引，MySQL无须任何扫描，即准确可找到该 …</p>
           <a href="https://ifunbox.top/mysql_index_type/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -291,29 +263,7 @@ CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL ); 我�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。
-记录下以备以后再用。
-不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。
-例如：
-id name value
-1 a pp
-2 a pp
-3 b iii
-4 b pp
-5 b pp
-6 c pp
-7 c pp
-8 c iii
-id是主键
-要求得到这样的结果
-id name value
-1 a pp
-3 b iii
-4 b pp
-6 c pp
-8 c iii
-方法1
-delete 表名 where [id] not in ( select max([id]) from 表名 group by …</p>
+          <p class="pale">最近公司采集来的数据存在重复数据的问题，网上找了一些去重的方法，貌似挺精华的。记录下以备以后再用。不过对于数据量比较大的去重，本来想用sphinx，但是sphinx分组貌似只能用一个字段，十分头痛。。。例如：id name value1 a pp2 a pp3 b iii4 b pp5 b pp6 c pp7 c pp8 c iiiid是主键要求得到这样的结果id name value1 a pp3 b iii4 b pp6 c pp8 c iii方法1delete 表名 where [id] not in ( select max([id]) from 表名 group by (name,value))方法2delete a …</p>
           <a href="https://ifunbox.top/mysql_data_deduplication/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -337,11 +287,7 @@ delete 表名 where [id] not in ( select max([id]) from 表名 group by …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1、存储引擎是什么?
-Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引擎(也称作表类型)。MySql默认配置了许多不同的存储引擎， 可以预先设置或者在MySql服务器中启用。
-2、MYSQL支持的数据引擎
-MyISAM：默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。
-InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务支持。 …</p>
+          <p class="pale">1、存储引擎是什么?Mysql中的数据用各种不同的技术存储在文件(或者内存)中。这些技 术中的每一种技术都使用不同的存储机制、索引技巧、锁定水平并且最终提供广泛的不同的功能和能力。通过选择不同的技术，你能够获得额外的速度或者功能，从 而改善你的应用的整体功能。这些不同的技术以及配套的相关功能在MySQL中被称作存储引擎(也称作表类型)。MySql默认配置了许多不同的存储引擎， 可以预先设置或者在MySql服务器中启用。2、MYSQL支持的数据引擎MyISAM：默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务支持。BDB：可 …</p>
           <a href="https://ifunbox.top/505.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -365,11 +311,7 @@ InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务�
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">mysql中insert into和replace into以及insert ignore用法区别：
-mysql中常用的三种插入数据的语句:
-insert into表示插入数据，数据库会检查主键，如果出现重复会报错；
-replace into表示插入替换数据，需求表中有PrimaryKey，或者unique索引，如果数据库已经存在数据，则用新数据替换，如果没有数据效果则和insert into一样；
-insert ignore表示，如果中已经存在相同的记录，则忽略当前新数据；  &nbsp;  replace into 跟 insert 功能类似，不同点在于：replace into 首先尝试插入数据到表中， 1. 如果发现表中已经 …</p>
+          <p class="pale">create table testtb( id int not null primary key, name varchar(50), age int ); insert into testtb(id,name,age)values(1,&quot;bb&quot;,13); select * from testtb; insert ignore into testtb(id,name,age)values(1,&quot;aa&quot;,13); select * from testtb;//仍是1，“bb”,13，因为id是主键，出现主键重复但使用了ignore则错误被忽略 replace into …</p>
           <a href="https://ifunbox.top/467.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -377,49 +319,25 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/page/2/">2</a></li>
-    
-    
-    <li class="page-item disabled">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">1</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
     <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -690,7 +608,7 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -699,6 +617,7 @@ insert ignore表示，如果中已经存在相同的记录，则忽略当前新�
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

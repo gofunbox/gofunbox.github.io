@@ -4,7 +4,7 @@
   <head>
 <title>解决PHP curl https时error 77(Problem with reading the SSL CA cert (path? access rights?)) | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -38,12 +38,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -164,60 +164,40 @@
 </div>
 
     
-    
-
-<h2 id="问题">问题</h2>
-
+    <h2 id="问题">问题</h2>
 <p>服务器环境为CentOS，php-fpm，使用curl一个https站时失败，打开curl_error，捕获错误：Problem with reading the SSL CA cert (path? access rights?)</p>
-
 <h2 id="解决方案">解决方案：</h2>
-
 <ol>
 <li>sudo yum install ca-certificates （无论有没有，安装确认一下）</li>
 <li>重启php-fpm，这步比较重要，更改底层的东西时一定要重启一下</li>
 <li>curl时设置：curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0)</li>
 </ol>
-
 <h2 id="相关知识点">相关知识点</h2>
-
 <h3 id="什么是ca-certificates">什么是CA Certificates？</h3>
-
-<p>Certification authority (CA)<br />
+<p>Certification authority (CA)<br>
 证书颁发机构（Certification authority 简称CA）证书是由CA向其自身或二级CA颁发的证书，用于在两个CA之间创建一个定义的关系。</p>
-
 <p>由CA颁发给自己的证书称为受信任的根证书，因为它旨在为CA层次结构建立最终信任点。</p>
-
 <p>一旦信任的根建立起来，它就可以用来授权下属的CA代表它颁发证书。</p>
-
 <p>虽然CA之间的关系最常见是层次化的，CA证书也可以用于在两个不同的公钥基础设施（Public Key Infrastructure缩写PKI）层次结构中建立CA之间的信任关系。</p>
-
 <p>在所有这些情况下，CA证书对于为PKI中使用的所有终端实体证书定义证书路径和使用限制至关重要。</p>
-
 <h3 id="ca证书解决的问题">CA证书解决的问题</h3>
-
-<p>当终端实体使用证书时，必须在终端实体证书和根CA之间验证信任关系。<br />
+<p>当终端实体使用证书时，必须在终端实体证书和根CA之间验证信任关系。<br>
 根CA和终端实体证书之间的信任关系是通过验证证书链中所有证书的内容直到根CA来验证的。</p>
-
 <p>为PKI建立的准则和程序定义了信任。这包括终端实体证书用于某些目的并阻止用于其他目的的能力。这些准则和程序以多种方式实施。例如，PKI的信任和安全可以通过两种方式建立：</p>
-
 <ul>
 <li>为确保承载CA的服务器的物理安全性而采取的步骤。</li>
 <li>委派CA的管理角色的方式。</li>
 </ul>
-
-<p>但是，针对组织需求的CA证书的适当配置是组织必须实施适当PKI安全性的最强大的工具之一。CA证书包含用于规范其颁发的CA的特殊配置数据。<br />
+<p>但是，针对组织需求的CA证书的适当配置是组织必须实施适当PKI安全性的最强大的工具之一。CA证书包含用于规范其颁发的CA的特殊配置数据。<br>
 这些配置选项可以：</p>
-
 <ul>
 <li>定义组织命名空间，由其发布和信任下属CA颁发的证书。</li>
 <li>指定由下属CA颁发的证书的可接受使用。</li>
 <li>定义必须遵循的发布准则，以便下属CA颁发的证书被视为有效。</li>
 <li>在单独的认证层次之间创建一个托管信任。</li>
 </ul>
-
-<hr />
-
-<p>参考<br />
+<hr>
+<p>参考<br>
 <a href="https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx">https://technet.microsoft.com/en-us/library/cc778623(v=ws.10).aspx</a></p>
 
     
@@ -501,7 +481,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -510,6 +490,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

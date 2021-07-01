@@ -4,7 +4,7 @@
   <head>
 <title>php五大运行模式 CGI FAST-CGI CLI ISAPI APACHE模式 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -38,12 +38,12 @@ CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗�
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,31 +162,20 @@ CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗�
 </div>
 
     
-    <p><strong><span style="font-size: medium;">CGI:</span></strong></p>
-
-<p><span style="font-size: medium;">CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。<br /> </span><span style="font-size: medium;">CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等<br /> </span><span style="font-size: medium;">CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。<br /> </span><span style="font-size: medium;">每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成效能低下。</span></p>
-
-<p><strong><span style="font-size: medium;">Isapi:</span></strong></p>
-
-<p><span style="font-size: medium;">ISAPI即Internet Server Application Program Interface，是微软提供的一套面向Internet服务的API接口</span><span style="font-size: medium;">一个ISAPI的DLL，可以在被用户请求激活后长驻内存，等待用户的另一个请求，还可以在一个DLL里设置多个用户请求处理函数，此外，</span><span style="font-size: medium;">ISAPI的DLL应用程序和WWW服务器处于同一个进程中，效率要显著高于CGI。（由于微软的排他性，只能运行于windows环境)</span></p>
-
-<p><strong><span style="font-size: medium;">fast-cgi:</span></strong></p>
-
-<p><span style="font-size: medium;">FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。<br /> </span><span style="font-size: medium;">FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。</span></p>
-
-<p><strong><span style="font-size: medium;">cli:</span></strong></p>
-
-<p><span style="font-size: medium;">cli是php的命令行运行模式，大家经常会使用它，但是可能并没有注意到（例如：我们在linux下经常使用 &#8220;php -m&#8221;查找PHP安装了那些扩展就是PHP命令行运行模式。</span><br />
-<span style="font-size: medium;">可以输入php -h去深入研究该运行模式。</span></p>
-
-<p><strong><span style="font-size: medium;">apache:</span></strong></p>
-
-<p><strong><span style="font-size: medium;">APACHE2HANDLER</span></strong><br />
- <span style="font-size: medium;">PHP作为Apache模块，Apache服务器在系统启动后，预先生成多个进程副本驻留在内存中，一旦有请求出 现，就立即使用这些空余的子进程进行处理，这样就不存在生成子进程造成的延迟了。这些服务器副本在处理完一次HTTP请求之后并不立即退出，而是停留在计 算机中等待下次请求。对于客户浏览器的请求反应更快，性能较高。</span></p>
-
-<p><strong><span style="font-size: medium;"><strong>apache</strong>模块的DLL:</span></strong></p>
-
-<p><span style="font-size: medium;">该运行模式是我们以前在windows环境下使用apache服务器经常使用的，而在模块化(DLL)中，PHP是与Web服务器一起启动并运行的。（是apache在CGI的基础上进行的一种扩展，加快PHP的运行效率）</span></p>
+    <p><strong><!-- raw HTML omitted -->CGI:<!-- raw HTML omitted --></strong></p>
+<p><!-- raw HTML omitted -->CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗的讲CGI就象是一座桥，把网页和WEB服务器中的执行程序连接起来，它把HTML接收的指令传递给服务器的执行程序，再把服务器执行程序的结果返还给HTML页，也可以简单的理解成HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->CGI 的跨平台性能极佳，几乎可以在任何操作系统上实现。<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->每有一个用户请求，都会激活一个CGI进程，当用户请求数量非常多时，会大量挤占系统的资源如内存，CPU时间等，造成效能低下。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->Isapi:<!-- raw HTML omitted --></strong></p>
+<p><!-- raw HTML omitted -->ISAPI即Internet Server Application Program Interface，是微软提供的一套面向Internet服务的API接口<!-- raw HTML omitted --><!-- raw HTML omitted -->一个ISAPI的DLL，可以在被用户请求激活后长驻内存，等待用户的另一个请求，还可以在一个DLL里设置多个用户请求处理函数，此外，<!-- raw HTML omitted --><!-- raw HTML omitted -->ISAPI的DLL应用程序和WWW服务器处于同一个进程中，效率要显著高于CGI。（由于微软的排他性，只能运行于windows环境)<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->fast-cgi:<!-- raw HTML omitted --></strong></p>
+<p><!-- raw HTML omitted -->FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次(这是CGI最为人诟病的fork-and-execute 模式)。它还支持分布式的运算, 即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->cli:<!-- raw HTML omitted --></strong></p>
+<p><!-- raw HTML omitted -->cli是php的命令行运行模式，大家经常会使用它，但是可能并没有注意到（例如：我们在linux下经常使用 “php -m”查找PHP安装了那些扩展就是PHP命令行运行模式。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以输入php -h去深入研究该运行模式。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted -->apache:<!-- raw HTML omitted --></strong></p>
+<p><strong><!-- raw HTML omitted -->APACHE2HANDLER<!-- raw HTML omitted --></strong><br>
+<!-- raw HTML omitted -->PHP作为Apache模块，Apache服务器在系统启动后，预先生成多个进程副本驻留在内存中，一旦有请求出 现，就立即使用这些空余的子进程进行处理，这样就不存在生成子进程造成的延迟了。这些服务器副本在处理完一次HTTP请求之后并不立即退出，而是停留在计 算机中等待下次请求。对于客户浏览器的请求反应更快，性能较高。<!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted --><!-- raw HTML omitted -->apache<!-- raw HTML omitted -->模块的DLL:<!-- raw HTML omitted --></strong></p>
+<p><!-- raw HTML omitted -->该运行模式是我们以前在windows环境下使用apache服务器经常使用的，而在模块化(DLL)中，PHP是与Web服务器一起启动并运行的。（是apache在CGI的基础上进行的一种扩展，加快PHP的运行效率）<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/php_run_mode" ></div>
@@ -469,7 +458,7 @@ CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗�
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -478,6 +467,7 @@ CGI即通用网关接口(Common Gateway Interface)，它是一段程序, 通俗�
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

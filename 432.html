@@ -4,7 +4,7 @@
   <head>
 <title>解决ShopEx云登录 登录成功后返回无反应错误的方法 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,15 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下
-function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …">
+<meta name="description" content="云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="解决ShopEx云登录 登录成功后返回无反应错误的方法" />
 <meta property="og:url" content="https://ifunbox.top/432.html" />
 <meta property="og:title" content="解决ShopEx云登录 登录成功后返回无反应错误的方法" />
-<meta property="og:description" content="云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下
-function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
+<meta property="og:description" content="云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -38,12 +36,12 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -162,8 +160,7 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
 </div>
 
     
-    <p><span style="font-size: medium;">云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下</span></p>
-
+    <p><!-- raw HTML omitted -->云登录返回时ShopEx系统会调用core\shop\controller\ctl.passport.php下的方法other_login_verify代码如下<!-- raw HTML omitted --></p>
 <pre><code>function other_login_verify(){
         $sign = $_GET['sign'];
         unset($_GET['passport-other_login_verify_html']);
@@ -181,15 +178,10 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
         $result_m = $account-&amp;gt;createotherlogin($_GET);
         if($result_m['redirect_url']){
             echo &quot;&quot;;             exit;         }else{             echo &quot;&quot;;         }     }
-</code></pre>
-
-<p><span style="font-size: medium;">程序流程是先检查sdb_trust_login表，如果没有用户信息说明是第一次登录，系统就会读取系统后台设置默认的会员信息，比如等级、默认货币单位等等，然后结合信任登录返回会员信息（如昵称、邮箱信息等等）一起在sdb_members表里生成新的一条会员记录</span><span style="font-size: medium;">。如果有用户信息说明不是第一次登录，系统会读取之前导入的会员记录。</span></p>
-
-<p><span style="font-size: medium;">问题出在如果你删除了信任登录会员，这里的删除指的是永久删除，由于程序bug，sdb_trust_login表的信息没有被一起删除，如果被删除会员下次又用登录，系统会认为该会员不是第一次登录，直接读取已经被删除不存在的会员信息，就会出现，云登录成功返回后，会员没有登录网站的尴尬。</span></p>
-
-<p><span style="font-size: medium;">解决方法，找到sdb_members表中删除云登录会员的id，然后删除sdb_trust_login表内对应的信息即可。</span></p>
-
-<p><span style="font-size: medium;">不过我建议不要删除云登录，信任登录的会员信息，以免有不必要的麻烦。</span></p>
+</code></pre><p><!-- raw HTML omitted -->程序流程是先检查sdb_trust_login表，如果没有用户信息说明是第一次登录，系统就会读取系统后台设置默认的会员信息，比如等级、默认货币单位等等，然后结合信任登录返回会员信息（如昵称、邮箱信息等等）一起在sdb_members表里生成新的一条会员记录<!-- raw HTML omitted --><!-- raw HTML omitted -->。如果有用户信息说明不是第一次登录，系统会读取之前导入的会员记录。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->问题出在如果你删除了信任登录会员，这里的删除指的是永久删除，由于程序bug，sdb_trust_login表的信息没有被一起删除，如果被删除会员下次又用登录，系统会认为该会员不是第一次登录，直接读取已经被删除不存在的会员信息，就会出现，云登录成功返回后，会员没有登录网站的尴尬。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->解决方法，找到sdb_members表中删除云登录会员的id，然后删除sdb_trust_login表内对应的信息即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不过我建议不要删除云登录，信任登录的会员信息，以免有不必要的麻烦。<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/432.html" ></div>
@@ -472,7 +464,7 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -481,6 +473,7 @@ function other_login_verify(){ $sign = $_GET[&#39;sign&#39;]; …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

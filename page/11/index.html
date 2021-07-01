@@ -4,7 +4,7 @@
   <head>
 <title>Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -39,12 +39,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -75,10 +75,10 @@
       
         
 
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">主页 </a>
   </div>
-  <div class="nav_parent">
+  <div class="nav_parent nav_active">
     <a href="https://ifunbox.top/" class="nav_item">真香链接 <img src='https://ifunbox.top/icons/caret-icon.svg' alt="icon" class="nav_icon"></a>
     <div class="nav_sub">
       <span class="nav_child"></span>
@@ -135,7 +135,7 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
-        <a href="https://ifunbox.top/php_ziparchive_not_found/">php报错Fatal error: Class ‘ZipArchive’ not found解决办法</a>
+        <a href="https://ifunbox.top/php_ZipArchive_not_found/">php报错Fatal error: Class ‘ZipArchive’ not found解决办法</a>
       </h3>
       <div class="post_meta">
   <svg class="icon">
@@ -148,13 +148,8 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近在使用 PHPPowerPoint类的时候出现Fatal error: Class &#8216;ZipArchive&#8217; not found这个问题，网上搜索了下，解决方法如下
-出现这个错误说明是程序在调用&#8217;ZipArchive&#8217; 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。
-在Windows下的解决办法是：
-1、在php.ini文件中，将extension=php_zip.dll前面的分号“;”去除；
-(如果没有，请添加extension=php_zip.dll此行并确保php_zip.dll文件存在相应的目录)
-然后同样在php.ini文件 …</p>
-          <a href="https://ifunbox.top/php_ziparchive_not_found/" class="excerpt_more button">Read More</a>
+          <p class="pale">最近在使用 PHPPowerPoint类的时候出现Fatal error: Class ‘ZipArchive’ not found这个问题，网上搜索了下，解决方法如下出现这个错误说明是程序在调用’ZipArchive’ 这个类的时候没有成功，原因是由于在安装php的时候没有增加php zip的支持（非zlib）。在Windows下的解决办法是：1、在php.ini文件中，将extension=php_zip.dll前面的分号“;”去除；(如果没有，请添加extension=php_zip.dll此行并确保php_zip.dll文件存在相应的目录)然后同样在php.ini文件中，将 zlib.output_compression = …</p>
+          <a href="https://ifunbox.top/php_ZipArchive_not_found/" class="excerpt_more button">Read More</a>
         </div>
       </div>
     </div>
@@ -177,14 +172,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">第一章 安装
-1. 采用源文件编译安装。源文件共两个，为：
-subversion-1.6.21.tar.gz （subversion 源文件）
-subversion-deps-1.6.21.tar.gz （subversion依赖文件）
-注意文件版本必须一致,否则很容易产生各种奇怪的问题.
-2. 上传以上两个文件到服务器上，解压。解压命令为：
-          
- &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz …</p>
+          <p class="pale">第一章 安装1. 采用源文件编译安装。源文件共两个，为：subversion-1.6.21.tar.gz （subversion 源文件）subversion-deps-1.6.21.tar.gz （subversion依赖文件）注意文件版本必须一致,否则很容易产生各种奇怪的问题.2. 上传以上两个文件到服务器上，解压。解压命令为： &lt;td&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;&lt;code&gt;tar&lt;/code&gt; &lt;code&gt;xfvz …</p>
           <a href="https://ifunbox.top/linux_svn_configuration/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -208,9 +196,7 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">最近一些客户反应，个别shopex网站首页商品图片会出现不显示的问题（图挂了），清空或者关闭缓存，图片又显示，但是不定时又会不显示的问题。
-经过我反复研究终于搞定了，现有偿提供修复，有意联系QQ：614944530.
-也可拍下这个宝贝http://item.taobao.com/item.htm?id=20334635319</p>
+          <p class="pale">最近一些客户反应，个别shopex网站首页商品图片会出现不显示的问题（图挂了），清空或者关闭缓存，图片又显示，但是不定时又会不显示的问题。经过我反复研究终于搞定了，现有偿提供修复，有意联系QQ：614944530.也可拍下这个宝贝http://item.taobao.com/item.htm?id=20334635319</p>
           <a href="https://ifunbox.top/548.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -234,8 +220,7 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">3DES（或称为Triple DES）是三重数据加密算法（TDEA，Triple Data Encryption Algorithm）块密码的通称。它相当于是对每个数据块应用三次DES加密算法。由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解；3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。
-&lt;?php /** * * PHP版3DES加解密类 * * 可与java的3DES(DESede)加密方式兼容 * * */ class Crypt3Des { public $key = …</p>
+          <p class="pale">3DES（或称为Triple DES）是三重数据加密算法（TDEA，Triple Data Encryption Algorithm）块密码的通称。它相当于是对每个数据块应用三次DES加密算法。由于计算机运算能力的增强，原版DES密码的密钥长度变得容易被暴力破解；3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。&lt;?php/**** PHP版3DES加解密类** 可与java的3DES(DESede)加密方式兼容***/class Crypt3Des{ public $key = …</p>
           <a href="https://ifunbox.top/543.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -262,8 +247,8 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
           <p class="pale">Shopex作为国内用户量最大的独立网店程序，使用的人多，被发现的漏洞也多。安全性一直困扰着shopex电商站长，正可谓“成也shopex，败也shopex”。因为安全，很多站长都放弃了SHOPEX。
 360最近发布了一个PHP的通用安全代码，用来帮助站长建立网站安全机制。这个代码非常好用，也方便布署。推荐各位站长好好利用一下。
 今天就针对ShopEx网站，做一个说明，如何利用360的防护代码。
-下面是攻略（说来非常简单）： 把360_safe3.php文件上传到网店根目录后，在配置文件中加入 require_once(&#8216;360_safe3.php&#8217;); 即可。
-为了防止360防护代码被人恶意利用，建议你改一 …</p>
+下面是攻略（说来非常简单）： 把360_safe3.php文件上传到网店根目录后，在配置文件中加入 require_once(‘360_safe3.php’); 即可。
+为了防止360防护代码被人恶意利用，建议你改一下这个php的文件名称， …</p>
           <a href="https://ifunbox.top/537.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -287,11 +272,11 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"> Query的选择器之强大是有目共睹的，phpQuery 让php也拥有了这样的能力，它就相当于服务端的jQuery。
-存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然可以使用Google，但stackoverflow 作为一个专业的编程问答社区，会提供给你更多，更靠谱的答案。
+          <p class="pale">Query的选择器之强大是有目共睹的，phpQuery让php也拥有了这样的能力，它就相当于服务端的jQuery。
+存在的意义 我们有时需要抓取一个网页的内容，但只需要特定部分的信息，通常会用正则来解决，这当然没有问题。正则是一个通用解决方案，但特定情况下，往往有更简单快 捷的方法。比如你想查询一个编程方面的问题，当然可以使用Google，但stackoverflow作为一个专业的编程问答社区，会提供给你更多，更靠谱的答案。
 对于html页面，不应该使用正则的原因主要有3个
 1、编写条件表达式比较麻烦
-尤其对于新手，看到一堆”不知所云”的字符评凑在一起，有种脑袋都要炸了的感觉。如果要分离的对象没有太明显的特征，正则写起来更是麻 …</p>
+尤其对于新手，看到一堆”不知所云”的字符评凑在一起，有种脑袋都要炸了的感觉。如果要分离的对象没有太明显的特征，正则写起来更是麻烦。 …</p>
           <a href="https://ifunbox.top/531.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -315,15 +300,7 @@ subversion-deps-1.6.21.tar.gz （subversion依赖文件）
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">给一个客户安装QQ互联是发现请求https无返回
-以为是openssl没开，开了也还是如此。
-解决方法如下：
-设定为不验证证书和host。
-在执行curl_exec()之前。设置option
-$ch = curl_init();
-&#8230;&#8230;
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</p>
+          <p class="pale">给一个客户安装QQ互联是发现请求https无返回以为是openssl没开，开了也还是如此。解决方法如下：设定为不验证证书和host。在执行curl_exec()之前。设置option$ch = curl_init();……curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</p>
           <a href="https://ifunbox.top/528.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -347,13 +324,7 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">当safe_mode设置为 on，PHP 将通过文件函数或其目录检查当前脚本的拥有者是否和将被操作的文件的拥有者相匹配。例如：
--rw-rw-r&#8211; 1 rasmus rasmus 33 Jul 1 19:20 script.php
--rw-r&#8211;r&#8211; 1 root root 1116 May 26 18:01 /etc/passwd 
-运行 script.php&lt;?php
-readfile(&#8216;/etc/passwd&#8217;);
-?&gt; 
-如果安全模式被激活，则将会导致以下错误：Warning: SAFE MODE Restriction in effect. The …</p>
+          <p class="pale">当safe_mode设置为 on，PHP 将通过文件函数或其目录检查当前脚本的拥有者是否和将被操作的文件的拥有者相匹配。例如：-rw-rw-r– 1 rasmus rasmus 33 Jul 1 19:20 script.php-rw-r–r– 1 root root 1116 May 26 18:01 /etc/passwd 运行 script.php&lt;?phpreadfile(‘/etc/passwd’);?&gt; 如果安全模式被激活，则将会导致以下错误：Warning: SAFE MODE Restriction in effect. The script whose uid is 500 is notallowed …</p>
           <a href="https://ifunbox.top/525.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -377,18 +348,7 @@ readfile(&#8216;/etc/passwd&#8217;);
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">目录操作：
-rm -rf mydir /删除mydir目录/
-mkdir dirname /创建名为dirname的目录/
-cd mydir /进入mydir目录/
-cd &#8211; /回上一级目录/
-cd .. /回父目录，中间有空格/
-cd ~ /回根目录/
-mv tools tool /*把tools目录改名为tool */
-ln -s tool bac /给tool目录创建名为bac的符号链接,最熟悉的应该就是FTP中www链接到public_html目录了/
-cp -a tool /home/vpser/www /*把tool目录下所有文件复制到www目录下 */
-文件操作：
-rm go.tar /* 删除go.tar …</p>
+          <p class="pale">目录操作：rm -rf mydir /删除mydir目录/mkdir dirname /创建名为dirname的目录/cd mydir /进入mydir目录/cd – /回上一级目录/cd .. /回父目录，中间有空格/cd ~ /回根目录/mv tools tool /*把tools目录改名为tool */ln -s tool bac /给tool目录创建名为bac的符号链接,最熟悉的应该就是FTP中www链接到public_html目录了/cp -a tool /home/vpser/www /*把tool目录下所有文件复制到www目录下 */文件操作：rm go.tar /* 删除go.tar文件 */find mt.cgi …</p>
           <a href="https://ifunbox.top/519.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -412,11 +372,7 @@ rm go.tar /* 删除go.tar …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">用Navicat for MySQL 这个软件中的批处理任务导入.sql文件，经常会出现错误乱码的现象，所以一般用phpmyadmin导入文件和导出文件不会出现乱码的现象
-但是使用phpmyadmin导入.sql文件时有一个限制，开始是不能大于2M，所以要对php.ini的参数进行更改，以下是更改方法，更改后需要重新启动；
-下面是php.ini的参数设置提高上传大小限制
-1、打开php.ini。找到 upload_max_filesize 、 memory_limit 、 post_max_size 这三个参数！
-(在默认的情况下,phpmyadmin只允许最大的上传数据为2M,也就是2048KB,而极限的最大使用内 …</p>
+          <p class="pale">用Navicat for MySQL 这个软件中的批处理任务导入.sql文件，经常会出现错误乱码的现象，所以一般用phpmyadmin导入文件和导出文件不会出现乱码的现象但是使用phpmyadmin导入.sql文件时有一个限制，开始是不能大于2M，所以要对php.ini的参数进行更改，以下是更改方法，更改后需要重新启动；下面是php.ini的参数设置提高上传大小限制1、打开php.ini。找到 upload_max_filesize 、 memory_limit 、 post_max_size 这三个参数！(在默认的情况下,phpmyadmin只允许最大的上传数据为2M,也就是2048KB,而极限的最大使用内 …</p>
           <a href="https://ifunbox.top/514.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -424,207 +380,46 @@ rm go.tar /* 删除go.tar …</p>
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/page/10/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/10/">10</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/page/11/">11</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/12/">12</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/page/18/">18</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/10/">10</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/11/">11</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/12/">12</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/18/">18</a>
+  </li>
+  <li class="page-item">
     <a href="/page/12/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/page/18/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -895,7 +690,7 @@ rm go.tar /* 删除go.tar …</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -904,6 +699,7 @@ rm go.tar /* 删除go.tar …</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

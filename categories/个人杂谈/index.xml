@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>个人杂谈 on Funbox的技术记事本</title>
@@ -6,22 +6,14 @@
     <description>Recent content in 个人杂谈 on Funbox的技术记事本</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 03 Jun 2014 03:00:59 +0000</lastBuildDate>
-    
-	<atom:link href="https://ifunbox.top/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 03 Jun 2014 03:00:59 +0000</lastBuildDate><atom:link href="https://ifunbox.top/categories/%E4%B8%AA%E4%BA%BA%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客后台被逗比不断尝试暴力破解~</title>
       <link>https://ifunbox.top/admin_being_attacked/</link>
       <pubDate>Tue, 03 Jun 2014 03:00:59 +0000</pubDate>
       
       <guid>https://ifunbox.top/admin_being_attacked/</guid>
-      <description>之前博客后台一直用Basic HTTP Authentication用户认证 再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。
-查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。
-记录post请求参数的日志格式
-log_format main &amp;lsquo;$remote_addr - $remote_user [$time_local] &amp;ldquo;$request&amp;rdquo; &amp;lsquo; &amp;lsquo;&amp;ldquo;$http_referer&amp;rdquo; $status $body_bytes_sent $request_body &amp;lsquo; &amp;lsquo;&amp;ldquo;$http_user_agent&amp;rdquo; &amp;ldquo;$http_x_forwarded_for&amp;rdquo;&amp;lsquo;;
- &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;其实就是增加$request_body字段到log_format里。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;如果为了调试程序可以打开开该字段，不然不推荐记录，以免泄露信息给恶意攻击者。&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;font-size: medium;&amp;quot;&amp;gt;日志现身了&amp;lt;/span&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;nginx&amp;quot;&amp;gt; 61.160.224.137 - - [03/Jun/2014:10:33:32 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=snoopy1 &amp;quot;-&amp;quot; &amp;quot;213.239.201.157&amp;quot; 61.160.224.137 - - [03/Jun/2014:10:33:33 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=pipeline &amp;quot;-&amp;quot; &amp;quot;213.239.201.157&amp;quot; 61.160.224.137 - - [03/Jun/2014:10:33:34 +0800] &amp;quot;POST /wp-login.php HTTP/1.0&amp;quot; &amp;quot;-&amp;quot; 200 4664 log=admin&amp;amp;pwd=pocket &amp;quot;-&amp;quot; &amp;quot;213.</description>
+      <description>之前博客后台一直用Basic HTTP Authentication用户认证再加一次保护，自己大意只加了wp-admin后台，忘记将wp-login也加入，导致可以直接通过wp-login访问后台暴力破解后台密码。查看ng日志，登录是post请求没有更详细的信息，于是乎开启之。记录post请求参数的日志格式</description>
     </item>
     
     <item>
@@ -30,17 +22,7 @@ log_format main &amp;lsquo;$remote_addr - $remote_user [$time_local] &amp;ldquo;
       <pubDate>Mon, 26 May 2014 09:48:32 +0000</pubDate>
       
       <guid>https://ifunbox.top/blog_being_attacked/</guid>
-      <description>最近博客一直被cc攻击，不堪其扰
-之前博客一直用安全宝的免费DDoS云防护，很可惜现在不免费啦~
-换到加速乐，貌似效果不是很理想，dns解析貌似昨天下午出现问题，ping不通
-索性抱最后一个大腿360
-360网站卫士来抗cc，http://wzb.360.cn/
-360网站安全检测中的漏洞修复插件防止sql注入，http://webscan.360.cn/
-360网站服务监控，http://jk.cloud.360.cn
-360的东东挺不错的尤其是第二个插件真心赞
-拦截规则如下，拦截后平台后台会有记录
-//get拦截规则 $getfilter = &amp;quot;\\&amp;amp;lt;.+javascript:window\\[.{1}\\\\x|&amp;amp;lt;.*=(&amp;amp;#\\d+?;?)+?&amp;amp;gt;|&amp;amp;lt;.*(data|src)=data:text\\/html.*&amp;amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;amp;lt;[a-z]+?\\b[^&amp;amp;gt;]*?\\bon([a-z]{4,})\s*?=|^\\+\\/v(8|9)|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;; //post拦截规则 $postfilter = &amp;quot;&amp;amp;lt;.*=(&amp;amp;#\\d+?;?)+?&amp;amp;gt;|&amp;amp;lt;.*data=data:text\\/html.*&amp;amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;amp;lt;[^&amp;amp;gt;]*?\\b(onerror|onmousemove|onload|onclick|onmouseover)\\b|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;; //cookie拦截规则 $cookiefilter = &amp;quot;benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\(|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;;  用goaccess分析日志，发现被攻击了5.5G流量，分类攻击源虽然用了代理，但是还是发现八成来自莆田电信ip，万恶的莆田垃圾制造机啊。
-
+      <description>最近博客一直被cc攻击，不堪其扰之前博客一直用安全宝的免费DDoS云防护，很可惜现在不免费啦~换到加速乐，貌似效果不是很理想，dns解析貌似昨天下午出现问题，ping不通索性抱最后一个大腿360360网站卫士来抗cc，http://wzb.360.cn/360网站安全检测中的漏洞修复插件防止sql注入，http://webscan.360.cn/360网站服务监控，http://jk.cloud.360.cn360的东东挺不错的尤其是第二个插件真心赞拦截规则如下，拦截后平台后台会有记录//get拦截规则 $getfilter = &amp;quot;\\&amp;amp;lt;.+javascript:window\\[.{1}\\\\x|&amp;amp;lt;.*=(&amp;amp;#\\d+?;?)+?&amp;amp;gt;|&amp;amp;lt;.*(data|src)=data:text\\/html.*&amp;amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;amp;lt;[a-z]+?\\b[^&amp;amp;gt;]*?\\bon([a-z]{4,})\s*?=|^\\+\\/v(8|9)|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;; //post拦截规则 $postfilter = &amp;quot;&amp;amp;lt;.*=(&amp;amp;#\\d+?;?)+?&amp;amp;gt;|&amp;amp;lt;.*data=data:text\\/html.*&amp;amp;gt;|\\b(alert\\(|confirm\\(|expression\\(|prompt\\(|benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\()|&amp;amp;lt;[^&amp;amp;gt;]*?\\b(onerror|onmousemove|onload|onclick|onmouseover)\\b|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;; //cookie拦截规则 $cookiefilter = &amp;quot;benchmark\s*?\\(\d+?|sleep\s*?\\([\d\.]+?\\)|load_file\s*?\\(|\\b(and|or)\\b\\s*?([\\(\\)&#39;\&amp;quot;\\d]+?=[\\(\\)&#39;\&amp;quot;\\d]+?|[\\(\\)&#39;\&amp;quot;a-zA-Z]+?=[\\(\\)&#39;\&amp;quot;a-zA-Z]+?|&amp;amp;gt;|&amp;amp;lt;|\s+?[\\w]+?\\s+?\\bin\\b\\s*?\(|\\blike\\b\\s+?[\&amp;quot;&#39;])|\\/\\*.+?\\*\\/|&amp;amp;lt;\\s*script\\b|\\bEXEC\\b|UNION.+?SELECT(\\(.+\\)|\\s+?.+?)|UPDATE(\\(.+\\)|\\s+?.+?)SET|INSERT\\s+INTO.+?VALUES|(SELECT|DELETE)(\\(.+\\)|\\s+?.+?\\s+?)FROM(\\(.+\\)|\\s+?.+?)|(CREATE|ALTER|DROP|TRUNCATE)\\s+(TABLE|DATABASE)&amp;quot;; 用goaccess分析日志，发现被攻击了5.5G流量，分类攻击源虽然用了代理，但是还是发现八成来自莆田电信ip，万恶的莆田垃圾制造机啊。
 
 
 goaccess分析日志生成的界面，非我的博客哦，日志200多M不能一次性分析了，还要分隔文件~~</description>

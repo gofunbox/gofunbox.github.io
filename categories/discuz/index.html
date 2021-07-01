@@ -4,7 +4,7 @@
   <head>
 <title>Discuz! | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,7 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">    1. 取消ip认证  config_global.php 中找到  $_config[&#8216;admincp&#8217;][&#8216;checkip&#8217;] = 0  2.管理员用户组变为普通用户组了 进入不了后台  直接更改数据库 common_member中 找到管理员对应的记录 将groupid 和adminid 都更改为 1  3. 后台设置了ip列表导致访问不了后台  进入数据库 common_setting 表中搜索 skey 为 adminipaccess ，然后删除svalue中的值  4.有其它用户在同时登录 同一个帐号后台也是进入不了后台的 （只要取消ip认证 就能同时多点登录） …</p>
+          <p class="pale">&lt;p&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;config_global.php 中找到&lt;/span&gt; &lt;/p&gt; &lt;p&gt; &lt;span style=&quot;font-size: medium;&quot;&gt;$_config[&amp;#8216;admincp&amp;#8217;][&amp;#8216;checkip&amp;#8217;] = 0&lt;/span&gt; &lt;/p&gt; &lt;p&gt; &lt;span style=&quot;font-size: …</p>
           <a href="https://ifunbox.top/discuz_admin_cannot_login/" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -167,20 +167,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">1.面向对象：
-有一定mysql基础的站长，程序开发者
-2.作用：
-可以明细的列出当前页面的查询可以具体查询出现的文件，和时间。并且有查询的 explain 信息。便于检查哪里出现了慢查询。
-可以查看当前页面内存使用情况
-可以列出当前页面 $_G 变量中的内容
-可以列出当前页面的 cookie 内容
-可以查看当前浏览器的信息，User Agent 等
-
-3.所需文件：
-解压，将 function_debug.php 放到 source/function 目录下。
-
-4.修改配置文件：
-修改 config\config_global.php …</p>
+          <p class="pale">1.面向对象：有一定mysql基础的站长，程序开发者2.作用：可以明细的列出当前页面的查询可以具体查询出现的文件，和时间。并且有查询的 explain 信息。便于检查哪里出现了慢查询。可以查看当前页面内存使用情况可以列出当前页面 $_G 变量中的内容可以列出当前页面的 cookie 内容可以查看当前浏览器的信息，User Agent 等3.所需文件：解压，将 function_debug.php 放到 source/function 目录下。4.修改配置文件：修改 config\config_global.php 在 $_config[‘remote’][‘cron’] = 1; 后加入一行：$_config[‘debug’] = …</p>
           <a href="https://ifunbox.top/489.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -204,10 +191,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">discuzX 系列的db数据库类写的已经非常好了，从性能、安全性和易用性上都做的非常优秀了。
-了解discuzX 系列的db数据库类，不仅可以使我们能快速上手二次开发，也可以移植到自己的项目中来。
-下面我们来分析讲解一下db数据类：
-&lt;?php class DB { /** * 返回表名(pre_$table) * * @param 原始表名 $table * @return 增加pre之后的名字 */ function table($table) { return DB::_execute('table_name', $table); } /** * 删除一条或者多条记录 * * @param string $table  …</p>
+          <p class="pale">discuzX 系列的db数据库类写的已经非常好了，从性能、安全性和易用性上都做的非常优秀了。了解discuzX 系列的db数据库类，不仅可以使我们能快速上手二次开发，也可以移植到自己的项目中来。下面我们来分析讲解一下db数据类：&lt;?phpclass DB{/*** 返回表名(pre_$table)** @param 原始表名 $table* @return 增加pre之后的名字*/function table($table) {return DB::_execute('table_name', $table);}/*** 删除一条或者多条记录** @param string $table 原始表 …</p>
           <a href="https://ifunbox.top/471.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -231,7 +215,9 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">前言  本规范由编程原则组成，融合并提炼了开发人员长时间积累下来的成熟经验，意在帮助形成良好一致的编程风格。  适用范围  如无特殊说明，以下规则要求完全适用于Discuz!项目，同时也可大部分适用于COMSENZ旗下其他PHP项目。  标准化的重要性和好处  当一个软件项目尝试着遵守公共一致的标准时，可以使参与项目的开发人员更容易了解项目中的代码、弄清程序的状况。使新的参与者可以很快的适应环境，防止部分参与者出于节省时间的需要，自创一套风格并养成终生的习惯，导致其它人在阅读时浪费过多的时间和精力。而且在一致的环境下，也可以减少编码出错的机会。缺陷是由于每个人的标准不同，所以需要一段时间来适应和改变自己的编码风格，暂时性的降底了工作 …</p>
+          <p class="pale">前言 : 本规范由编程原则组成，融合并提炼了开发人员长时间积累下来的成熟经验，意在帮助形成良好一致的编程风格。
+适用范围 : 如无特殊说明，以下规则要求完全适用于Discuz!项目，同时也可大部分适用于COMSENZ旗下其他PHP项目。
+标准化的重要性和好处 : 当一个软件项目尝试着遵守公共一致的标准时，可以使参与项目的开发人员更容易了解项目中的代码、弄清程序的状况。使新的参与者可以很快的适应环境，防止部分参与者出于节省时间的需要，自创一套风格并养成终生的习惯，导致其它人在阅读时浪费过多的时间和精力。而且在一致的环境下，也可以减少编码出错的机会。缺陷是由于每个人的标准不同，所以需要一段时间来适应和改变自己的编码风格，暂时性的降底了工 …</p>
           <a href="https://ifunbox.top/463.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -508,7 +494,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -517,6 +503,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

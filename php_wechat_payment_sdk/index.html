@@ -4,7 +4,7 @@
   <head>
 <title>微信APP支付服务端php sdk开发教程 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -16,28 +16,20 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。
-
 微信官方就给了2个压缩包，一个是android，一个是ios，
-
 打开发现里面只有java的服务端sdk，只能自己写php的命了。
-
 没有专门针对服务端的文档，就打开安卓的文档看看吧。
-
- …">
+接入流程 …&lt;/!--&gt;">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="微信APP支付服务端php sdk开发教程" />
 <meta property="og:url" content="https://ifunbox.top/php_wechat_payment_sdk/" />
 <meta property="og:title" content="微信APP支付服务端php sdk开发教程" />
 <meta property="og:description" content="最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。
-
 微信官方就给了2个压缩包，一个是android，一个是ios，
-
 打开发现里面只有java的服务端sdk，只能自己写php的命了。
-
 没有专门针对服务端的文档，就打开安卓的文档看看吧。
-
- …" />
+接入流程 …&lt;/!--&gt;" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -52,12 +44,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -176,82 +168,54 @@
 </div>
 
     
-    <p><span style="font-size: medium;">最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。</span></p>
-
-<p><span style="font-size: medium;">微信官方就给了2个压缩包，一个是<a title="微信支付android sdk" href="http://vdisk.weibo.com/s/yThjZrrykVNUa" target="_blank">android</a>，一个是<a title="微信支付ios sdk" href="http://vdisk.weibo.com/s/yThjZrrykVNUI" target="_blank">ios</a>，</span></p>
-
-<p><span style="font-size: medium;">打开发现里面只有java的服务端sdk，只能自己写php的命了。</span></p>
-
-<p><span style="font-size: medium;">没有专门针对服务端的文档，就打开安卓的文档看看吧。</span></p>
-
-<p><span style="font-size: medium;">接入流程大致如下：</span></p>
-
-<p><span style="font-size: medium;">1.获取access_token，这步有点类似开发平台的oauth2认证请求</span></p>
-
-<p><span style="font-size: medium;">http 请求方式: GET</span><br />
-<span style="font-size: medium;"><a href="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET">https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET</a></span></p>
-
-<p><span style="font-size: medium;">正确返回值</span><br />
-<span style="font-size: medium;">{&#8220;access_token&#8221;:&#8221;ACCESS_TOKEN&#8221;,&#8221;expires_in&#8221;:7200}</span></p>
-
-<p><span style="font-size: medium;">2.生成预支付订单</span></p>
-
-<p><span style="font-size: medium;">这步通过第一步得到的ACCESS_TOKEN以及手机端提交的订单信息，请求微信服务端，得到返回参数，二次签名返回给手机。</span></p>
-
-<p><span style="font-size: medium;">http 请求方式：POST</span><br />
-<span style="font-size: medium;"><a href="https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN</a></span></p>
-
-<p><span style="font-size: medium;">{</span><br />
-<span style="font-size: medium;">&#8220;appid&#8221;:&#8221;wwwwb4f85f3a797777&#8243;,</span><br />
-<span style="font-size: medium;">&#8220;traceid&#8221;:&#8221;crestxu&#8221;,</span><br />
-<span style="font-size: medium;">&#8220;noncestr&#8221;:&#8221;111112222233333&#8243;,</span><br />
-<span style="font-size: medium;">&#8220;package&#8221;:&#8221;bank_type=WX&amp;body=XXX&amp;fee_type=1&amp;input_charset=GBK&amp;notify_url=http%3a%2<br /> f%2f<br /> www.qq.com&amp;out_trade_no=16642817866003386000&amp;partner=1900000109&amp;spbill_create_ip=1<br /> 27.0.0.1&amp;total_fee=1&amp;sign=BEEF37AD19575D92E191C1E4B1474CA9&#8243;,</span><br />
-<span style="font-size: medium;">&#8220;timestamp&#8221;:1381405298,</span><br />
-<span style="font-size: medium;">&#8220;app_signature&#8221;:&#8221;53cca9d47b883bd4a5c85a9300df3da0cb48565c&#8221;,</span><br />
-<span style="font-size: medium;">&#8220;sign_method&#8221;:&#8221;sha1&#8243;</span><br />
-<span style="font-size: medium;">}</span></p>
-
-<p><span style="font-size: medium;">正确返回值</span><br />
-<span style="font-size: medium;">{&#8220;prepayid&#8221;:&#8221;PREPAY_ID&#8221;,&#8221;errcode&#8221;:0,&#8221;errmsg&#8221;:&#8221;Success&#8221;}</span></p>
-
-<p><span style="font-size: medium;"><strong>package 生成方法：</strong></span><br />
-<span style="font-size: medium;">A)对所有传入参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格<br /> 式（即 key1=value1&amp;key2=value2…）拼接成字符串 string1；</span><br />
-<span style="font-size: medium;">B) 在 string1 最后拼接上 key=partnerKey 得到 stringSignTemp 字符串， 并对<br /> stringSignTemp 进行 md5 运算，再将得到的字符串所有字符转换为大写，得到 sign 值<br /> signValue。</span><br />
-<span style="font-size: medium;">C)对 string1 中的所有键值对中的 value 进行 urlencode 转码，按照 a 步骤重新拼接成字符<br /> 串，得到 string2。对于 js 前端程序，一定要使用函数 encodeURIComponent 进行 urlencode<br /> 编码（注意！进行 urlencode 时要将空格转化为%20 而不是+）。</span><br />
-<span style="font-size: medium;">D)将 sign=signValue 拼接到 string1 后面得到最终的 package 字符串。</span></p>
-
-<p><span style="font-size: medium;"><strong>app_signature 生成方法：</strong></span><br />
-<span style="font-size: medium;">A）参与签名的字段包括：appid、appkey、noncestr、package、timestamp 以及 traceid</span><br />
-<span style="font-size: medium;">B）对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的<br /> 格式（即 key1=value1&amp;key2=value2…）拼接成字符串 string1。<br /> 注意：所有参数名均为小写字符</span><br />
-<span style="font-size: medium;">C）对 string1 作签名算法，字段名和字段值都采用原始值，不进行 URL 转义。具体签名算法<br /> 为 SHA1</span></p>
-
-<!--more-->
-
-<p><span style="font-size: medium;">3.手机调起微信支付</span></p>
-
-<p><span style="font-size: medium;">得到服务端返回值后，手机直接带这些值唤起微信支付。（PS：手机端不要太轻松）</span></p>
-
-<p><span style="font-size: medium;">4.异步通知</span></p>
-
-<p><span style="font-size: medium;">支付成功后，微信服务端会通知我们服务端支付成功，需要我们接到通知返回接受成功，手机app才能正常提示成功哦~</span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size: medium;">我自己写的<a title="微信APP支付服务端php SDK" href="http://vdisk.weibo.com/s/yThjZrrykVNU4" target="_blank">微信APP支付服务端php sdk</a></span></p>
-
-<p><span style="font-size: 12pt;">GIT项目 之后更新也在这里</span><a title="微信APP支付PHP服务端SDK" href="https://github.com/fanhefan/wechat_app_pay" target="_blank"><span style="font-size: 12pt;"><a href="https://github.com/fanhefan/wechat_app_pay">https://github.com/fanhefan/wechat_app_pay</a></span></a></p>
-
-<p><span style="font-size: medium;">下面结合上面内容介绍下sdk</span></p>
-
-<p><span style="font-size: medium;">pay.php文件整合了1、2两步，手机app请求这个接口必须传一个充值金额，其他根据自己的业务自己定，返回唤起微信支付的全部参数，手机端只需要接受参数唤起即可。</span></p>
-
-<p><span style="font-size: medium;">wechat_notify.php是用来接受异步通知的</span></p>
-
-<p><span style="font-size: medium;">最后wechatconfig.php要改成自己的配置信息。</span></p>
-
-<p><span style="font-size: medium;">接入愉快~~~</span></p>
-
-<p>&nbsp;</p>
+    <p><!-- raw HTML omitted -->最近公司app要接入微信支付，就去研究了下，发现开发文档介绍得太不具体了，踩了很多坑，为了各位看官，避免重复踩坑，决定写下此文。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->微信官方就给了2个压缩包，一个是<!-- raw HTML omitted -->android<!-- raw HTML omitted -->，一个是<!-- raw HTML omitted -->ios<!-- raw HTML omitted -->，<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->打开发现里面只有java的服务端sdk，只能自己写php的命了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->没有专门针对服务端的文档，就打开安卓的文档看看吧。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->接入流程大致如下：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.获取access_token，这步有点类似开发平台的oauth2认证请求<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->http 请求方式: GET<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><a href="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET">https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->正确返回值<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->{“access_token”:”ACCESS_TOKEN”,”expires_in”:7200}<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2.生成预支付订单<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这步通过第一步得到的ACCESS_TOKEN以及手机端提交的订单信息，请求微信服务端，得到返回参数，二次签名返回给手机。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->http 请求方式：POST<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><a href="https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN">https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->{<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“appid”:”wwwwb4f85f3a797777″,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“traceid”:”crestxu”,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“noncestr”:”111112222233333″,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“package”:”bank_type=WX&amp;body=XXX&amp;fee_type=1&amp;input_charset=GBK&amp;notify_url=http%3a%2<!-- raw HTML omitted --> f%2f<!-- raw HTML omitted --> <a href="http://www.qq.com">www.qq.com</a>&amp;out_trade_no=16642817866003386000&amp;partner=1900000109&amp;spbill_create_ip=1<!-- raw HTML omitted --> 27.0.0.1&amp;total_fee=1&amp;sign=BEEF37AD19575D92E191C1E4B1474CA9″,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“timestamp”:1381405298,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“app_signature”:”53cca9d47b883bd4a5c85a9300df3da0cb48565c”,<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->“sign_method”:”sha1″<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->正确返回值<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->{“prepayid”:”PREPAY_ID”,”errcode”:0,”errmsg”:”Success”}<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->package 生成方法：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->A)对所有传入参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格<!-- raw HTML omitted --> 式（即 key1=value1&amp;key2=value2…）拼接成字符串 string1；<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->B) 在 string1 最后拼接上 key=partnerKey 得到 stringSignTemp 字符串， 并对<!-- raw HTML omitted --> stringSignTemp 进行 md5 运算，再将得到的字符串所有字符转换为大写，得到 sign 值<!-- raw HTML omitted --> signValue。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->C)对 string1 中的所有键值对中的 value 进行 urlencode 转码，按照 a 步骤重新拼接成字符<!-- raw HTML omitted --> 串，得到 string2。对于 js 前端程序，一定要使用函数 encodeURIComponent 进行 urlencode<!-- raw HTML omitted --> 编码（注意！进行 urlencode 时要将空格转化为%20 而不是+）。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->D)将 sign=signValue 拼接到 string1 后面得到最终的 package 字符串。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->app_signature 生成方法：<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->A）参与签名的字段包括：appid、appkey、noncestr、package、timestamp 以及 traceid<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->B）对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的<!-- raw HTML omitted --> 格式（即 key1=value1&amp;key2=value2…）拼接成字符串 string1。<!-- raw HTML omitted --> 注意：所有参数名均为小写字符<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->C）对 string1 作签名算法，字段名和字段值都采用原始值，不进行 URL 转义。具体签名算法<!-- raw HTML omitted --> 为 SHA1<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->3.手机调起微信支付<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->得到服务端返回值后，手机直接带这些值唤起微信支付。（PS：手机端不要太轻松）<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4.异步通知<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->支付成功后，微信服务端会通知我们服务端支付成功，需要我们接到通知返回接受成功，手机app才能正常提示成功哦~<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted -->我自己写的<!-- raw HTML omitted -->微信APP支付服务端php sdk<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GIT项目 之后更新也在这里<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><a href="https://github.com/fanhefan/wechat_app_pay">https://github.com/fanhefan/wechat_app_pay</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->下面结合上面内容介绍下sdk<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->pay.php文件整合了1、2两步，手机app请求这个接口必须传一个充值金额，其他根据自己的业务自己定，返回唤起微信支付的全部参数，手机端只需要接受参数唤起即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->wechat_notify.php是用来接受异步通知的<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->最后wechatconfig.php要改成自己的配置信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->接入愉快~~~<!-- raw HTML omitted --></p>
+<p> </p>
     
       <div id="SOHUCS" sid="/php_wechat_payment_sdk" ></div>
 <script type="text/javascript">
@@ -533,7 +497,7 @@
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -542,6 +506,7 @@
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

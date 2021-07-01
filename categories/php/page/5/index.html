@@ -4,7 +4,7 @@
   <head>
 <title>PHP | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -36,12 +36,12 @@
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -143,10 +143,7 @@
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">新浪通过IP地址获取当前地理位置（ip端、国家、省份、城市、运营商）的php接口很强大呢
-返回的方式多种多样
-默认为html，format参数可以为json、js。
-http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
+          <p class="pale">新浪通过IP地址获取当前地理位置（ip端、国家、省份、城市、运营商）的php接口很强大呢返回的方式多种多样默认为html，format参数可以 …</p>
           <a href="https://ifunbox.top/496.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -195,12 +192,7 @@ http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">以wordpress数据库表为例。
-1、先登入你的phpmyadmin中，选中你的wordpress数据库,选择sql出现如下图，然后输入sql命令
-Select CONCAT(&#8216;ALTER TABLE &#8216;, table_name, &#8216; RENAME TO &#8216;, table_name,&#8217;;&#8217; ) FROM information_schema.tables Where tablename LIKE &#8216;wp%&#8217;; 
-得到结果：
-ALTER TABLE wp_xyz RENAME TO wp_xyz;
-ALTER TABLE wp_opq …</p>
+          <p class="pale">以wordpress数据库表为例。1、先登入你的phpmyadmin中，选中你的wordpress数据库,选择sql出现如下图，然后输入sql命令Select CONCAT(‘ALTER TABLE ‘, table_name, ‘ RENAME TO ‘, table_name,’;’ ) FROM information_schema.tables Where table_name LIKE ‘wp_%’; 得到结果：ALTER TABLE wp_xyz RENAME TO wp_xyz;ALTER TABLE wp_opq RENAME TO wp_opq; (假设数据里有两个表： wp_xyz 、 wp_opq，前缀都是wp …</p>
           <a href="https://ifunbox.top/404.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -224,12 +216,7 @@ ALTER TABLE wp_opq …</p>
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">总结一下最近使用phpexcel类导出excel 文件时遇到的问题，主要包括三大类：
-1.导出时提示找不到文件怎么办？
-2.导出excel时中文出现乱码的问题。
-3.导出数据量大时，提示内存超过最大值或者运行时间超时的问题。
-先看下phpexcel常用的方法总结（摘录自zeal_blog:http://www.zeali.net/entry/556）
-getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balliauw") -setTitle("Office 2007 XLSX Test Document") …</p>
+          <p class="pale">总结一下最近使用phpexcel类导出excel 文件时遇到的问题，主要包括三大类：1.导出时提示找不到文件怎么办？2.导出excel时中文出现乱码的问题。3.导出数据量大时，提示内存超过最大值或者运行时间超时的问题。先看下phpexcel常用的方法总结（摘录自zeal_blog:http://www.zeali.net/entry/556）使用时常见的问题总结：1.关于提示找不到文件的问题：原因可能有：缓冲区没有打开或者mb_overlod_func函数没有关闭，解决这个问题的最好办法是把php.ini中display_errors打开，下载文件，打开后会提示相应错误信息。若是后者，则需要打开php.ini文件，找 …</p>
           <a href="https://ifunbox.top/389.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -253,7 +240,7 @@ getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balli
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">服务器需开启openssl 和443 端口     支付宝接口出现ERROR: 0 &#8211; php_network_getaddresses: getaddrinfo failed: 错误 就此解决！！   </p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/337.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -279,8 +266,7 @@ getProperties()-setCreator("Maarten Balliauw") -setLastModifiedBy("Maarten Balli
         <div>
           <p class="pale">以下为本人收集的zend guard使用和注册方法。
 zend guard 4 有一个特别版，但使用破解补丁以后无法正常完成加密，但加密后的文件是可以正常使用的。以下是下载地址，可以使用迅雷和电驴下载。
-点此下载：Zend.Guard.v4.0.1.CRACKED.rar
-zend guard 4加密过的程序文件已经能被反编译过来，而zend guard 5目前还依然坚挺，可惜没有大侠放出特别版，买不起zend guard商业服务的个人和小公司几乎可以说是望尘莫及，以下是网上找到的一个免去试用版加密的文件有14天过期的限制。
+点此下载：Zend.Guard.v4.0.1.CRACKED.rarzend guard 4加密过的程序文件已经能被反编译过来，而zend guard 5目前还依然坚挺，可惜没有大侠放出特别版，买不起zend guard商业服务的个人和小公司几乎可以说是望尘莫及，以下是网上找到的一个免去试用版加密的文件有14天过期的限制。
 首先下载以下的安装文件，目前最新版本是5.5.0，包含windows和linux两个版本，均为32位。 …</p>
           <a href="https://ifunbox.top/334.html" class="excerpt_more button">Read More</a>
         </div>
@@ -307,8 +293,7 @@ zend guard 4加密过的程序文件已经能被反编译过来，而zend guard 
         <div>
           <p class="pale">OUT了，今天才发现可以把自己的博客日志同步到新浪博客的插件
 现在分享下 呵呵 希望对大家有帮助
-http://wordpress.org/extend/plugins/wp2sinablog/installation/
-感谢作者的无私奉献啊~</p>
+http://wordpress.org/extend/plugins/wp2sinablog/installation/感谢作者的无私奉献啊~</p>
           <a href="https://ifunbox.top/297.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -332,7 +317,7 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale"> 该错误表明PHP不支持openssl，解决方案：  windows下，在php.ini中打开opensll扩展（找到“;extension=php_openssl.dll”，去掉前面的分号，虚拟主机找服务商解决），并将php目录下的libeay32.dll和ssleay32.dll两个库拷贝到system32下；  linux下，重新编译php，编译时加上参数&#8211;enable-ssl（具体参看configure的help）  </p>
+          <p class="pale"></p>
           <a href="https://ifunbox.top/291.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -356,15 +341,7 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
     </div>
       <div class="excerpt_footer">
         <div>
-          <p class="pale">Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。
-一、Snoopy的一些特点:
-1.抓取网页的内容 fetch
-2.抓取网页的文本内容 (去除HTML标签) fetchtext
-3.抓取网页的链接，表单 fetchlinks fetchform
-4.支持代理主机
-5.支持基本的用户名/密码验证
-6.支持设置user_agent, referer(来路), cookies和header content(头文件)
-7.支持浏览器重定向， …</p>
+          <p class="pale">Snoopy是一个php类，用来模拟浏览器的功能，可以获取网页内容，发送表单。Snoopy正确运行需要你的服务器的PHP版本在4以上，并且支持PCRE（Perl Compatible Regular Expressions），基本的LAMP服务都支持。一、Snoopy的一些特点:1.抓取网页的内容 fetch2.抓取网页的文本内容 (去除HTML标签) fetchtext3.抓取网页的链接，表单 fetchlinks fetchform4.支持代理主机5.支持基本的用户名/密码验证6.支持设置user_agent, referer(来路), cookies和header content(头文件)7.支持浏览器重定向，并能控制重定向深 …</p>
           <a href="https://ifunbox.top/243.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -389,11 +366,7 @@ http://wordpress.org/extend/plugins/wp2sinablog/installation/
       <div class="excerpt_footer">
         <div>
           <p class="pale">Zend Studio 9.0.0 正式版官方下载地址(未包含IBM i edition下载)
-windows版：http://downloads.zend…ZendStudio-9.0.0.msi
-linux版(32位)：http://downloads.zend…/ZendStudio-9.0.0-x86.tar.gz
-linux版(64位)：http://downloads.zend…ZendStudio-9.0.0-x86_64.tar.gz
-适用于Mac_OS_X的DMG安装格式：http://downloads.zend…ZendStudio-9.0.0.dmg
-zend studio 8 注册码(适用于7.0以上所有版 …</p>
+windows版：http://downloads.zend…ZendStudio-9.0.0.msilinux版(32位)：http://downloads.zend…/ZendStudio-9.0.0-x86.tar.gzlinux版(64位)：http://downloads.zend…ZendStudio-9.0.0-x86_64.tar.gz适用于Mac_OS_X的DMG安装格式：http://downloads.zend…ZendStudio-9.0.0.dmgzend studio 8 注册码(适用于7.0以上所有版本) …</p>
           <a href="https://ifunbox.top/225.html" class="excerpt_more button">Read More</a>
         </div>
       </div>
@@ -401,93 +374,37 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
   </li>
 
     <li>
-
 <ul class="pagination">
-    
-    <li class="page-item">
-        <a href="/categories/php/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-    </li>
-    
-    <li class="page-item">
+  <li class="page-item">
+    <a href="/categories/php/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
     <a href="/categories/php/page/4/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/php/">1</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/php/page/2/">2</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/php/page/3/">3</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/php/page/4/">4</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item active"><a class="page-link" href="/categories/php/page/5/">5</a></li>
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    <li class="page-item"><a class="page-link" href="/categories/php/page/6/">6</a></li>
-    
-    
-    <li class="page-item">
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/php/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/php/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/php/page/3/">3</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/php/page/4/">4</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/categories/php/page/5/">5</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/categories/php/page/6/">6</a>
+  </li>
+  <li class="page-item">
     <a href="/categories/php/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-    </li>
-    
-    <li class="page-item">
-        <a href="/categories/php/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-    </li>
-    
+  </li>
+  <li class="page-item">
+    <a href="/categories/php/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
 </ul>
 
 
@@ -758,7 +675,7 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -767,6 +684,7 @@ zend studio 8 注册码(适用于7.0以上所有版 …</p>
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>

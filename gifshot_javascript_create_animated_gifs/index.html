@@ -4,7 +4,7 @@
   <head>
 <title>利用GifShot JavaScript库创建GIF动画 | Funbox的技术记事本</title>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.3" />
+<meta name="generator" content="Hugo 0.80.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <div style="display: none;">
@@ -15,21 +15,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。
-GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。
-GifShot优点多多啊~
-易于集成
-JavaScript库的性质使得它非常 …">
+<meta name="description" content="之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。GifShot优点多多啊~易于集成JavaScript库的性质使得它非常便携，易 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="利用GifShot JavaScript库创建GIF动画" />
 <meta property="og:url" content="https://ifunbox.top/gifshot_javascript_create_animated_gifs/" />
 <meta property="og:title" content="利用GifShot JavaScript库创建GIF动画" />
-<meta property="og:description" content="之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。
-GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。
-GifShot优点多多啊~
-易于集成
-JavaScript库的性质使得它非常 …" />
+<meta property="og:description" content="之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。GifShot优点多多啊~易于集成JavaScript库的性质使得它非常便携，易 …" />
 <meta property="og:image" content="https://ifunbox.top/" />
 <link rel="apple-touch-icon" sizes="180x180" href='https://ifunbox.top/icons/apple-touch-icon.png'>
 <link rel="icon" type="image/png" sizes="32x32" href='https://ifunbox.top/icons/favicon-32x32.png'>
@@ -44,12 +36,12 @@ JavaScript库的性质使得它非常 …" />
 
     
     
-    <link rel="preload" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity = "sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity = "sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" as="style" crossorigin="anonymous">
     <link rel="preload" href="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" as="script" integrity=
     "sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.3c293eda0641c6491efdbc2ddc32d1ec05b0f4b4d4111d3fdc31d8bdfce311412eed47cf75d02001b067f5032e10e1f9ec0ae5175e17d82f68691f5ebffcab39.css" integrity="sha512-PCk&#43;2gZBxkke/bwt3DLR7AWw9LTUER0/3DHYvfzjEUEu7UfPddAgAbBn9QMuEOH57ArlF14X2C9oaR9ev/yrOQ==" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://ifunbox.top/css/styles.17bd8db1e1e9d3fde7e52431779c901a12c654a66914bb4472fd4b0c6880c72ea87f9dc818f7ca35bf2e934c65a6a7d6c7afa12a18e60a79ff4e093e3ac621ba.css" integrity="sha512-F72NseHp0/3n5SQxd5yQGhLGVKZpFLtEcv1LDGiAxy6of53IGPfKNb8uk0xlpqfWx6&#43;hKhjmCnn/Tgk&#43;OsYhug==" crossorigin="anonymous">
     <meta name="google-site-verification" content="kTkZCvOxFQ8JGv-20scQxu7f19s2V26nUzaz_ZkJ64A" />
   </head>
   
@@ -170,23 +162,18 @@ JavaScript库的性质使得它非常 …" />
 </div>
 
     
-    <p><span style="font-size: 14pt;">之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。</span></p>
-
-<p><span style="font-size: 14pt;">GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。</span></p>
-
-<p><span style="font-size: 14pt;">GifShot优点多多啊~</span></p>
-
-<p><span id="tran_0" class="copied" style="font-size: 14pt;" data-aligning="#tran_0,#src_0">易于集成</span><br />
- <span id="tran_1" class="copied inactive" style="font-size: 14pt;" data-aligning="#tran_1,#src_1">JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(有点像动画gif本身)。</span><br />
- <span id="tran_2" class="copied" style="font-size: 14pt;" data-aligning="#tran_2,#src_2">非常高效</span><br />
- <span style="font-size: 14pt;"><span id="tran_3" class="copied" data-aligning="#tran_3,#src_3">通过利用web workers的力量,得到快速创建GIF,不会阻止UI。</span><span id="tran_4" class="copied" data-aligning="#tran_4,#src_4">一个图像量化算法还用于减少所需数量的颜色代表形象。</span></span><br />
- <span id="tran_5" class="copied" style="font-size: 14pt;" data-aligning="#tran_5,#src_5">强大的</span><br />
- <span id="tran_6" class="copied" style="font-size: 14pt;" data-aligning="#tran_6,#src_6">利用前沿浏览器api包括WebRTC、文件系统、视频、帆布、Web Workers,类型化数组和Base 64编码支持20多个选项。</span><br />
- <span id="tran_7" class="copied" style="font-size: 14pt;" data-aligning="#tran_7,#src_7">可定制的</span><br />
- <span id="tran_8" class="copied" style="font-size: 14pt;" data-aligning="#tran_8,#src_8">可以使用自定义构建只包括项目所需的特定功能。</span></p>
-
-<p><span style="font-size: 14pt;">只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了</span></p>
-
+    <p><!-- raw HTML omitted -->之前关于这些技术实现方式是在biu官网上看到的，几张图片播放gif动画是用css3实现的，然后寻找js实现方式，就找到了强大的GifShot。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GifShot是一个JavaScript库,可以从媒体流,视频,或者图片中提取元素创建gif动画。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->GifShot优点多多啊~<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->易于集成<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->JavaScript库的性质使得它非常便携，易于集成到几乎任何网站(有点像动画gif本身)。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->非常高效<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted --><!-- raw HTML omitted -->通过利用web workers的力量,得到快速创建GIF,不会阻止UI。<!-- raw HTML omitted --><!-- raw HTML omitted -->一个图像量化算法还用于减少所需数量的颜色代表形象。<!-- raw HTML omitted --><!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->强大的<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->利用前沿浏览器api包括WebRTC、文件系统、视频、帆布、Web Workers,类型化数组和Base 64编码支持20多个选项。<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可定制的<!-- raw HTML omitted --><br>
+<!-- raw HTML omitted -->可以使用自定义构建只包括项目所需的特定功能。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->只需要引入gifshot js库，然后撸上下面的代码，就可以实现jpg，png，gif图片转换成gif动画的效果了<!-- raw HTML omitted --></p>
 <pre><code>&amp;lt;span style=&quot;font-size: 14pt;&quot;&gt;gifshot.createGIF({
     images: [
         'http://i.imgur.com/2OO33vX.jpg',
@@ -200,11 +187,8 @@ JavaScript库的性质使得它非常 …" />
         document.body.appendChild(animatedImage);
     }
 });&amp;lt;/span&gt;
-</code></pre>
-
-<p><span style="font-size: 14pt;">就不上更多代码了，因为官网介绍得非常详细。</span></p>
-
-<p><span style="font-size: 14pt;">附上官网地址<a href="https://yahoo.github.io/gifshot/">https://yahoo.github.io/gifshot/</a></span></p>
+</code></pre><p><!-- raw HTML omitted -->就不上更多代码了，因为官网介绍得非常详细。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->附上官网地址https://yahoo.github.io/gifshot/<!-- raw HTML omitted --></p>
 
     
       <div id="SOHUCS" sid="/gifshot_javascript_create_animated_gifs" ></div>
@@ -487,7 +471,7 @@ JavaScript库的性质使得它非常 …" />
 <footer class="footer">
   <div class="footer_inner wrap pale">
     <img src='https://ifunbox.top/icons/apple-touch-icon.png' class="icon icon_2 transparent">
-    <p>Copyright &copy;&nbsp;<span class="year">2020</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
+    <p>Copyright &copy;&nbsp;<span class="year">2021</span>&nbsp;FUNBOX的技术记事本. All Rights Reserved</p><a class="to_top" href="#documentTop">
   <svg class="icon">
   <use xlink:href="#arrow"></use>
 </svg>
@@ -496,6 +480,7 @@ JavaScript库的性质使得它非常 …" />
   </div>
 </footer>
     <script type="text/javascript" src="https://ifunbox.top/js/bundle.min.c0652ae16e0c9ea2300f3f4296009baa05854c44fa9bd6d9b4f0fb04675c44d0ae6704ee99f30854d1a5c025fcd518e7b07fe95bf69b5e009284bf57df300b85.js" integrity="sha512-wGUq4W4MnqIwDz9ClgCbqgWFTET6m9bZtPD7BGdcRNCuZwTumfMIVNGlwCX81RjnsH/pW/abXgCShL9X3zALhQ==" crossorigin="anonymous"></script>
-    
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备12003472号-7</a>
+
   </body>
 </html>
